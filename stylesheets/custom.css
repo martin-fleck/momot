@@ -3,4 +3,5 @@
 .project-name a:visited,
 .project-name a:active {
    color: #FFFFFF;
+   text-decoration: none;
 }
