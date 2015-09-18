@@ -2,20 +2,30 @@
 title: MOMoT - Marrying Search-based Optimization and Model Transformation Technology
 layout: index
 ---
-### Welcome to GitHub Pages.
-This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here [using GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/), select a template crafted by a designer, and publish. After your page is generated, you can check out the new `gh-pages` branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.
+### What is MOMoT?
+MOMoT is a framework that combines model-driven engineering (MDE) techniques with search-based optimization (population-based search and local search) to solve highly complex problems on model level.
 
-### Designer Templates
-We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.
+In this framework, problems are represented thorugh Ecore meta-models and their respective model instances. 
+These problem instances can be manipulated through dedicated model transformations modeled as graph transformation rules Henshin. 
+Desired and prohibited characteristics (objectives and constraints) of the output model can be specified using OCL or a Java-like expression language (Xbase).
+Search-based optimization techniques can then be used to search for a Pareto-optimal set of transformation orchestrations, i.e., an ordered sequence of transformations and their parameters, to produce models with these characteristics.
 
-### Creating pages manually
-If you prefer to not use the automatic generator, push a branch named `gh-pages` to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.
+### How to use MOMoT?
+MOMoT is developed for the Eclipse platform and provides a dedicates configuration language providing support for model  engineers to configure the search process.
+MOMoT has been successfully applied on several case studies which showcase how to use MOMoT in a specific scenario.
+A description about the specific case study, the necessary inputs and the configuration can be found on the respective case study page: 
+* [Stack](stack): A simple DSL to balance the load between a set of stacks.
+* [Modularization](modularization): Building modules based on a set of classes and five objectives.
+* [Class Diagram Restructuring](restructuring): This case study is taken from the [Transformation Tool Contest](http://www.transformation-tool-contest.eu/) of 2013 and aims at minimizing the attributes and classes in a system.
+* [EMF Refactor](emfrefactor): EMF Refactor is an existing Eclipse project which can calculate metrics and perform refactorings on Ecore and UML models. In this case study we show how their artifacts can be used in MOMoT.
 
 ### Authors and Contributors
-You can @mention a GitHub username to generate a link to their profile. The resulting `<a>` element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (@defunkt), PJ Hyett (@pjhyett), and Tom Preston-Werner (@mojombo) founded GitHub.
-
-### Case Study
-* [Modularization](modularization)
+MOMoT has been developed by Martin Fleck ([https://github.com/martin-fleck](@martin-fleck)), Javier Troya ([https://github.com/javitroya](@javitroya)) and Manuel Wimmer.
+At this point, we would like to thank the developers of the following frameworks, which we have used in order to develop MOMoT:
+* [Eclipse Henshin](http://www.eclipse.org/henshin/): Henshin is used to formulate the transformation units to manipulate the model.
+* [MOEA Framework](http://moeaframework.org/): The MOEA framework provides the basis for formulating the transformation orchestration problem as an optimization problem. It already supports a lot of algorithms which are re-used in MOMoT.
+* [Eclipse OCL Project](http://projects.eclipse.org/projects/modeling.mdt.ocl): The OCL Project is used to evaluate objectives and constraints specified in the OCL language.
+* [Eclipse Xbase](https://wiki.eclipse.org/Xbase): Xbase is a statically typed expression language for Java, that is implemented in Xtext and we have used it to implement the configuration language.
 
 ### Support or Contact
-Having trouble with Pages? Check out our [documentation](https://help.github.com/pages) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+If you have encountered any problems with MOMoT or have suggestions of how we can improve it, please do not hesitate to contact Martin Fleck.
