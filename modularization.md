@@ -1,5 +1,5 @@
 ---
-title: MOMoT Modularization Case Study MD
+title: MOMoT Modularization Case Study
 layout: index
 ---
 
