@@ -1,6 +1,6 @@
 ---
 title: MOMoT EMF Refactor Case Study
-layout: index
+layout: ../index
 ---
 
 ## EMF Refactor Case Study
