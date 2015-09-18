@@ -14,6 +14,7 @@ Search-based optimization techniques can then be used to search for a Pareto-opt
 MOMoT is developed for the Eclipse platform and provides a dedicates configuration language providing support for model  engineers to configure the search process.
 MOMoT has been successfully applied on several case studies which showcase how to use MOMoT in a specific scenario.
 A description about the specific case study, the necessary inputs and the configuration can be found on the respective case study page: 
+
 * [Stack](stack): A simple DSL to balance the load between a set of stacks.
 * [Modularization](modularization): Building modules based on a set of classes and five objectives.
 * [Class Diagram Restructuring](restructuring): This case study is taken from the [Transformation Tool Contest](http://www.transformation-tool-contest.eu/) of 2013 and aims at minimizing the attributes and classes in a system.
@@ -22,6 +23,7 @@ A description about the specific case study, the necessary inputs and the config
 ### Authors and Contributors
 MOMoT has been developed by Martin Fleck ([@martin-fleck](https://github.com/martin-fleck)), Javier Troya ([@javitroya](https://github.com/javitroya)) and Manuel Wimmer.
 At this point, we would like to thank the developers of the following frameworks, which we have used in order to develop MOMoT:
+
 * [Eclipse Henshin](http://www.eclipse.org/henshin/): Henshin is used to formulate the transformation units to manipulate the model.
 * [MOEA Framework](http://moeaframework.org/): The MOEA framework provides the basis for formulating the transformation orchestration problem as an optimization problem. It already supports a lot of algorithms which are re-used in MOMoT.
 * [Eclipse OCL Project](http://projects.eclipse.org/projects/modeling.mdt.ocl): The OCL Project is used to evaluate objectives and constraints specified in the OCL language.
