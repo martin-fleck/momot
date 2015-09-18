@@ -20,7 +20,7 @@ A description about the specific case study, the necessary inputs and the config
 * [EMF Refactor](emfrefactor): EMF Refactor is an existing Eclipse project which can calculate metrics and perform refactorings on Ecore and UML models. In this case study we show how their artifacts can be used in MOMoT.
 
 ### Authors and Contributors
-MOMoT has been developed by Martin Fleck ([https://github.com/martin-fleck](@martin-fleck)), Javier Troya ([https://github.com/javitroya](@javitroya)) and Manuel Wimmer.
+MOMoT has been developed by Martin Fleck ([@martin-fleck](https://github.com/martin-fleck)), Javier Troya ([@javitroya](https://github.com/javitroya)) and Manuel Wimmer.
 At this point, we would like to thank the developers of the following frameworks, which we have used in order to develop MOMoT:
 * [Eclipse Henshin](http://www.eclipse.org/henshin/): Henshin is used to formulate the transformation units to manipulate the model.
 * [MOEA Framework](http://moeaframework.org/): The MOEA framework provides the basis for formulating the transformation orchestration problem as an optimization problem. It already supports a lot of algorithms which are re-used in MOMoT.
