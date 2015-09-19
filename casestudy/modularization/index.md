@@ -218,36 +218,36 @@ The respective values for the objectives and constraints are:
 <tbody>
 <tr>
 <td>Coupling</td>
-<td>68</td>
+<td style="text-align:right">68</td>
 </tr>
 <tr>
 <td>Cohesion</td>
-<td>23</td>
+<td style="text-align:right">23</td>
 </tr>
 <tr>
 <td>Modularization Quality</td>
-<td>1.964</td>
+<td style="text-align:right">1.964</td>
 </tr>
 <tr>
 <td>Number of Modules</td>
-<td>6</td>
+<td style="text-align:right">6</td>
 </tr>
 <tr>
 <td>Min-Max Difference</td>
-<td>5</td>
+<td style="text-align:right">5</td>
 </tr>
 <tr>
 <td>Unassigned Classes</td>
-<td>0</td>
+<td style="text-align:right">0</td>
 </tr>
 <tr>
 <td>Empty Modules</td>
-<td>0</td>
+<td style="text-align:right">0</td>
 </tr>
 </tbody>
 </table>
 
 
-<div style="text-align:center; margin-top: 1em">
+<div style="text-align:center; margin-top: 2em">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_model_output.svg" alt="Modularization Meta-Model" />
 </div>
