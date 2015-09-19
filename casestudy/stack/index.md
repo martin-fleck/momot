@@ -7,12 +7,15 @@ layout: index
 `This page will be available soon.`
 
 ### Meta-Model
-<div style="text-align:center">[Stack Meta-Model](http://martin-fleck.github.io/momot/images/casestudy/stack/stack_mm.svg)</div>
+<div style="text-align:center">
+<img src="http://martin-fleck.github.io/momot/images/casestudy/stack/stack_mm.svg" alt="Stack Meta-Model" />
+</div>
 
 
 ### Rules
-![Stack Meta-Model](http://martin-fleck.github.io/momot/images/casestudy/stack/stack_rules.svg)
-<img src="http://martin-fleck.github.io/momot/images/casestudy/stack/stack_rules.svg" width="100%" />
+<div style="text-align:center">
+<img src="http://martin-fleck.github.io/momot/images/casestudy/stack/stack_rules.svg" alt="Stack Rules" />
+</div>
 
 In order to manipulate a Stack model, we need to be able to shift the load from one stack to one of its neighbors. 
 We therefore implement two rules: 'shiftLeft' and 'shiftRight' which do exactly that.
