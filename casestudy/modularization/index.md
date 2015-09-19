@@ -54,15 +54,24 @@ In order to improve efficiency, we have outsourced evaluation of the objectives 
 In the configuration example below, you can find how this external calculation can be integrated into the fitness evaluation of MOMoT.
 
 **Coupling:**
+Coupling refers to the number of external dependencies a specific module has, i.e., the sum of inter-relationships with other modules.
+Typically, low coupling is preferred as this indicates that a group covers separate functionality aspects of a system, improving the maintainability, readability and testability of the overall system.
 
 **Cohesion:**
+Cohesion refers to the dependencies within a module, i.e., the sum of intra-relationships in the module.
+As opposed to coupling, the cohesion within one module should be maximized to ensure that it does not contain parts that are not part of its functionality.
 
 **Modularization Quality:**
+The modularization quality (MQ) evaluates the balance between coupling and cohesion by combining them into a single measurement.
+It has been proved that the higher the value of MQ, the better the quality of the modularization.
+The aim is to reward increased cohesion with a higher MQ score and to punish increased coupling with a lower MQ score.
 
 **Number of Modules:**
+We aim to maximize the number of modules to avoid having all classes in a single large module.
 
 **Min-Max Difference:**
-
+The difference between the module with the lowest number of classes and the module with the most number of classes should be minimized.
+By doing so, we aim to produce equally-sized modules as the optimal difference would be 0.
 
 Furthermore, in order for our system to be valid, we define the following two constraints:
 
@@ -82,6 +91,9 @@ Transactions on Software Engineering 2011; 37(2):264–282, doi:[10.1109/TSE.201
 * [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsep)
 
 ### Input Example
+As an example input model, we use the *mtunis* system, an operating system for educational purposes written in the Turing Language.
+The system contains 20 classes and 57 dependencies among them.
+
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_model_input.svg" alt="Modularization Meta-Model" />
 </div>
@@ -192,6 +204,20 @@ finalization = {
 ```
 
 ### Output Example
+One solution which has been produced by the given configuration is shown below.
+In this solution, the *mtunis* system has been divided into 6 components.
+The respective values for the objectives and constraints are:
+
+Dimension | Value
+--------- | -------------
+Coupling  | 68
+Cohesion  | 23
+Modularization Quality | 1.964
+Number of Modules | 6
+Min-Max Difference | 5
+Unassigned Classes | 0
+Empty Modules | 0
+
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_model_output.svg" alt="Modularization Meta-Model" />
 </div>
