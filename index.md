@@ -18,7 +18,12 @@ A description about the specific case study, the necessary inputs and the config
 * [Stack](casestudy/stack): A simple DSL to balance the load between a set of stacks.
 * [Modularization](casestudy/modularization): Building modules based on a set of classes and five objectives.
 * [Class Diagram Restructuring](casestudy/restructuring): This case study is taken from the [Transformation Tool Contest](http://www.transformation-tool-contest.eu/) of 2013 and aims at minimizing the attributes and classes in a system.
-* [EMF Refactor](casestudy/emfrefactor): EMF Refactor is an existing Eclipse project which can calculate metrics and perform refactorings on Ecore and UML models. In this case study we show how their artifacts can be used in MOMoT. *Note: Currently only a base version of this is online. The final case study will be available until 15 October.*
+* [EMF Refactor](casestudy/emfrefactor): EMF Refactor is an existing Eclipse project which can calculate metrics and perform refactorings on Ecore and UML models. In this case study we show how their artifacts can be used in MOMoT. 
+
+You can download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot). As dependencies you also need to have installed [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/).
+
+### Publications
+* Fleck M, Troya J, Wimmer M. Marrying Search-based Optimization and Model Transformation Technology. *Proc. of the 1st North American Search Based Software Engineering Symposium (NasBASE’15)*, 2015. To appear.
 
 ### Authors and Contributors
 MOMoT has been developed by Martin Fleck ([@martin-fleck](https://github.com/martin-fleck)), Javier Troya ([@javitroya](https://github.com/javitroya)) and Manuel Wimmer.
