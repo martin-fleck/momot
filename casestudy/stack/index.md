@@ -24,8 +24,8 @@ Stacks are connected to each other so that each stack has a left and right neigh
 </div>
 
 In order to manipulate a Stack model, we need to be able to shift the load from one stack to one of its neighbors. 
-We therefore implement two rules: 'shiftLeft' and 'shiftRight' which do exactly that.
-Both of these rules have a negative application condition (NAC) expressed in an attribute condition 'SufficientLoad'.
+We therefore implement two rules: *shiftLeft* and *shiftRight* which do exactly that.
+Both of these rules have a negative application condition (NAC) expressed in an attribute condition *SufficientLoad*.
 These NACs ensure that not more load is shifted than is available on the stack, i.e., no stack will ever have a negative load. 
 Please note that this NAC could also have been expressed as an invariant in the Stack Meta-Model.
 However, to demonstrate the use of attribute NACs, we have implemented it this way.
