@@ -7,10 +7,13 @@ layout: index
 `This page will be available soon.`
 
 ### Meta-Model
-![Stack Meta-Model](http://martin-fleck.github.io/momot/images/casestudy/stack/stack_mm.svg)
+<div style="text-align:center">[Stack Meta-Model](http://martin-fleck.github.io/momot/images/casestudy/stack/stack_mm.svg)</div>
 
 
 ### Rules
+![Stack Meta-Model](http://martin-fleck.github.io/momot/images/casestudy/stack/stack_rules.svg)
+<img src="http://martin-fleck.github.io/momot/images/casestudy/stack/stack_rules.svg" width="100%" />
+
 In order to manipulate a Stack model, we need to be able to shift the load from one stack to one of its neighbors. 
 We therefore implement two rules: 'shiftLeft' and 'shiftRight' which do exactly that.
 Both of these rules have a negative application condition (NAC) expressed in an attribute condition 'SufficientLoad'.
@@ -18,10 +21,8 @@ These NACs ensure that not more load is shifted than is available on the stack, 
 Please note that this NAC could also have been expressed as an invariant in the Stack Meta-Model.
 However, to demonstrate the use of attribute NACs, we have implemented it this way.
 
-![Stack Meta-Model](http://martin-fleck.github.io/momot/images/casestudy/stack/stack_rules.svg)
-
 ### Objectives and Constraints
-* Standard Deviation: To provide an equally distributed load, we minimize the standard deviations of all stacks load.
+* **Standard Deviation:** To provide an equally distributed load, we minimize the standard deviations of all stacks load.
 
 ```
 StandardDeviation : minimize { 
@@ -29,7 +30,7 @@ StandardDeviation : minimize {
 }
 ```
 
-* Solution Length: We prefer shorter solutions as the transformations are costly when executed in the real word.
+* **Solution Length:** We prefer shorter solutions as the transformations are costly when executed in the real word.
 
 ```
 SolutionLength 	: minimize new TransformationLengthDimension
@@ -51,17 +52,13 @@ search = {
 	
 	transformations = {
 		modules = [ "model/stack.henshin" ] 
-		ignoreUnits = [ 
-			StackModule.CreateStack.NAME, 
-			StackModule.ConnectStacks.NAME
-		]
-		ignoreParameters = [
+		ignoreParameters = [ // not needed in solution
 			StackModule.ShiftLeft.Parameter.FROM_LOAD,
 			StackModule.ShiftLeft.Parameter.TO_LOAD,
 			StackModule.ShiftRight.Parameter.FROM_LOAD, 
 			StackModule.ShiftRight.Parameter.TO_LOAD
 		]		
-		parameterValues = {
+		parameterValues = { // values for user parameters
 			StackModule.ShiftLeft.Parameter.AMOUNT  : new RandomIntegerValue(1, 5)
 			StackModule.ShiftRight.Parameter.AMOUNT : new RandomIntegerValue(1, 5)
 		}
@@ -85,6 +82,7 @@ search = {
 						new TransformationPlaceholderMutation(0.15),
 						new TransformationParameterMutation(0.1, orchestration.moduleManager))
 	   NSGA_III	: moea.createNSGAIII(
+	   				4,
 	   				new TournamentSelection(2),
 	   				new OnePointCrossover(1.0), 
 						new TransformationPlaceholderMutation(0.15),
@@ -108,10 +106,8 @@ analysis = {
 	
 finalization = {
 	saveAnalysis "model/output/analysis.txt"
-	
 	saveObjectives "model/output/approximationSet/overall_objectives.pf"
 	saveObjectives [ NSGA_III, NSGA_II ] "model/output/approximationSet/moea_objectives.pf"
-	
 	saveSolutions 	"model/output/solutions/all/"
 	saveSolutions 	[ NSGA_III, NSGA_II ] "model/output/solutions/moea/"	
 }	
