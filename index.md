@@ -15,10 +15,10 @@ MOMoT is developed for the Eclipse platform and provides a dedicates configurati
 MOMoT has been successfully applied on several case studies which showcase how to use MOMoT in a specific scenario.
 A description about the specific case study, the necessary inputs and the configuration can be found on the respective case study page: 
 
-* [Stack](casestudy/stack): A simple DSL to balance the load between a set of stacks.
-* [Modularization](casestudy/modularization): Building modules based on a set of classes and five objectives.
-* [Class Diagram Restructuring](casestudy/restructuring): This case study is taken from the [Transformation Tool Contest](http://www.transformation-tool-contest.eu/) of 2013 and aims at minimizing the attributes and classes in a system.
-* [EMF Refactor](casestudy/emfrefactor): EMF Refactor is an existing Eclipse project which can calculate metrics and perform refactorings on Ecore and UML models. In this case study we show how their artifacts can be used in MOMoT. 
+* [Stack](casestudy/stack)
+* [Modularization](casestudy/modularization)
+* [Class Diagram Restructuring](casestudy/restructuring)
+* [EMF Refactor](casestudy/emfrefactor)
 
 You can download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot). As dependencies you also need to have installed [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/).
 
