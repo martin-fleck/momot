@@ -68,7 +68,7 @@ ContentSize : minimize "propertys->size() * 1.1 + entitys->size()"
 SolutionLength 	: minimize new TransformationLengthDimension
 ```
 
-### References
+### Resources
 * [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.refactoring)
 * [Transformation Tool Contest](http://www.transformation-tool-contest.eu/)
 
