@@ -31,7 +31,7 @@ Please note that this NAC could also have been expressed as an invariant in the 
 However, to demonstrate the use of attribute NACs, we have implemented it this way.
 
 ### Objectives and Constraints
-* **Standard Deviation:** To provide an equally distributed load, we minimize the standard deviations of all stacks load.
+**Standard Deviation:** To provide an equally distributed load, we minimize the standard deviations of all stacks load.
 
 ```
 StandardDeviation : minimize { 
@@ -39,7 +39,7 @@ StandardDeviation : minimize {
 }
 ```
 
-* **Solution Length:** We prefer shorter solutions as the transformations are costly when executed in the real word.
+**Solution Length:** We prefer shorter solutions as the transformations are costly when executed in the real word.
 
 ```
 SolutionLength 	: minimize new TransformationLengthDimension
