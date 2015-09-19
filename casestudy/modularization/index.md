@@ -207,15 +207,46 @@ One solution which has been produced by the given configuration is shown below.
 In this solution, the *mtunis* system has been divided into 6 components.
 The respective values for the objectives and constraints are:
 
-Dimension | Value
---------- | -------------
-Coupling  | 68
-Cohesion  | 23
-Modularization Quality | 1.964
-Number of Modules | 6
-Min-Max Difference | 5
-Unassigned Classes | 0
-Empty Modules | 0
+<table>
+
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coupling</td>
+<td>68</td>
+</tr>
+<tr>
+<td>Cohesion</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Modularization Quality</td>
+<td>1.964</td>
+</tr>
+<tr>
+<td>Number of Modules</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Min-Max Difference</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Unassigned Classes</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Empty Modules</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
 
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_model_output.svg" alt="Modularization Meta-Model" />
