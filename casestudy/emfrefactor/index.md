@@ -7,6 +7,7 @@ layout: index
 [EMF Refactor](http://www.eclipse.org/emf-refactor/) is an existing Eclipse project which can calculate metrics and perform refactorings on Ecore and UML models. 
 In particular, EMF Refactor supports metrics reporting, smell detection, and refactoring for models being based on the Eclipse Modeling Framework.
 The following techniques can be used in a concrete specification of a new EMF model metric, smell, or refactoring:
+
 * *Model metrics* can be concretely specified in Java, as OCL expressions, by Henshin pattern rules, or as a combination of existing metrics using a binary operator.
 * *Model smells* can be concretely specified in Java, by Henshin pattern rules, or as a combination of an existing metric and a comparator like greater than (>).
 * The three parts of a *model refactoring* can be concretely specified in Java, in Henshin (pattern rules for precondition checks; transformations for the proper model change), or as a combination of existing refactorings using the CoMReL language. 
