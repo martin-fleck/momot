@@ -40,8 +40,7 @@ Classes which have already been assigned will not be re-assigned.
 Since when we create a new module, the ``moduleName`` parameter can not be matched automatically by the graph transformation engine, we categorize it as a so called *user parameter* which requires user input. In an automated approach however, this user input is substituted by a value generator. We therefore provide a increasing name generator for this parameter which produces names starting with *Module* and an increment value of *A*, i.e., *ModuleA*, *ModuleB*, etc.
 
 ```
-ModularizationRules.CreateModule.Parameter::MODULE_NAME : 
-	new IncrementalStringValue("Module", "A")
+ModularizationRules.CreateModule.Parameter::MODULE_NAME : new IncrementalStringValue("Module", "A")
 ```
 
 ### Objectives and Constraints
