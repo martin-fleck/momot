@@ -53,7 +53,7 @@ new RandomIntegerValue(1, 5)
 ```
 
 ### Resources
-
+* [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.stack)
 
 ### Complete example configuration
 
