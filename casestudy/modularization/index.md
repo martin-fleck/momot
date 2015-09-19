@@ -248,6 +248,6 @@ The respective values for the objectives and constraints are:
 </table>
 
 
-<div style="text-align:center">
+<div style="text-align:center; margin-top: 1em">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_model_output.svg" alt="Modularization Meta-Model" />
 </div>
