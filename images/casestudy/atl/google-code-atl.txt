@@ -1,0 +1,69 @@
+## ATL Transformation Modularization
+
+ https://momot.googlecode.com/git/wiki/img/atl/approach.png
+
+In this example, we demonstrate how we can modularize ATL transformations using MOMoT. Specifically, we first translate the ATL unit into our own Modularization Domain (next section) and perform the modularization based on the translated model. After the modularization the model is translated back into one or more ATL units (libraries or modules). During the modularization we aim to optimize the following objectives: 
+* Number of modules in the transformation (minimize) 
+* The difference between the minimum and maximum responsibilities (rules and helpers) per module (minimize) 
+* Cohesion ratio (maximize) 
+* Coupling ratio (minimize)
+
+### Modularization Domain
+
+As mentioned before, we use our own transformation language-agnostic representation of the modularization problem. Update: The ATL transformation which automates the translation from ATL to our language-agnostic representation is now available in the repository here.
+
+https://momot.googlecode.com/git/wiki/img/atl/modularization_metamodel.png
+
+In our DSL, a transformation consists of a number of modules, where each module acts as a container for different rules and helpers. Rules and helpers may have dependencies between them and among themselves. Furthermore, rules may inherit from other rules. During the optimization, rule inheritance is treated as a normal dependency.
+
+Initially, the translated ATL unit consists of one module containing all rules and helpers.
+
+#### Rules
+
+To modularize this transformation with one module, we iterate through the possible number of modules [1, nrResponsibilities] and call our search algorithm. Therefore, the number of modules for each run is set in advance and we only need rules to reassign helpers and rules to between modules.
+
+https://momot.googlecode.com/git/wiki/img/atl/ruleReassignHelper.jpg https://momot.googlecode.com/git/wiki/img/atl/ruleReassignRule.jpg
+
+### Evaluation
+
+We have applied this approach on five case studies from the ATLZoo. Specifically, we used: * R2ML2RDM * XML2KML * OCL2R2ML * XML2Ant * XML2MySQL
+
+For each of those transformations, we applied our approach with 1000 iterations and a population size of 500. Please note that the population size limits the number of solutions you can get in the end. Therefore not all solutions were retrieved for all transformations.
+
+#### Manual Inspection
+
+Besides the sanity check of the solutions, we also performed a qualitative analysis of the solutions based on manual inspection. For this we calculate the average of the so called F1-score, which is the harmonic mean between precision and recall.
+
+### Example
+
+As an example we will have a look at the OCL2R2ML case study. This case study is part of an ATL scenario that transforms OCL (Object Constraint Language) into R2ML (REWERSE I1 Markup Language). The scenario is composed of OCL EBNF injector (to OCL metamodel), transformations (OCL2R2ML) and an R2ML extractor that produces XML documents that conform to the R2ML syntax defined by REWERSE I1 group. To find more details about this transformation scenario, please refer to:
+
+(1) Milanovic, M., Gaševic, D., Guirca, A., Wagner, G., Devedžic, V., "Towards Sharing Rules Between OWL/SWRL and UML/OCL", Electronic Communications of the European Association of Software Science and Technology, Volume 5, 2006.
+
+(2) Milanovic, M. "Modeling rules on the Semantic Web", master thesis, GOOD OLD AI Lab, Faculty of organizational sciences, University of Belgrade.
+
+For our example we focus on the OCL2R2ML transformation which can be found here.
+
+In a first step, we translate the given ATL transformation into our internal modularization format, as described above. The result of this translation in XMI format can be found here.
+
+A visualization of the resulting model is shown below. Each rule and helper in the transformation is depicted as a separate entity (rectangle) and the dependencies between the entities are shown as arrows (for now you can ignore the colors).
+
+https://momot.googlecode.com/git/wiki/img/atl/OCL2R2ML_Manual_Modularization.png (for a larger version of the image, open it in a separate tab/window)
+
+After the translation to the Modularization format we can start the search process. The search optimizes the above mentioned four objectives: number of modules (minimize), min-max-difference of responsibilities, cohesion ratio and coupling ratio.
+
+An excerpt of the solutions (five best and five worst) for the OCL2R2ML transformation can be downloaded here. One particular solution is visualized below. It consists of 13 modules, has a min-max difference of 5 and a cohesion and coupling ratio of 13.1191 and 4.4881 respectively.
+
+https://momot.googlecode.com/git/wiki/img/atl/OCL2R2ML_Dependencies_13_5_13.11905_4.4881.png (for a larger version of the image, open it in a separate tab/window)
+
+(Please note that the Power Point-version of the two images above is also available in the repository since following the arrows on the image is not an easy task.)
+
+After the sanity checks of the solutions, we also performed a manual inspection to retrieve the average F1-score. In this inspection the solutions automatically generated by the search are compared with the modularization intention of a transformation designer. This intention for the original transformation is shown in the image above through the colors. Rules and helpers that share the same color should be grouped in the same module. The XMI version of this manual modularization intent is also available in the repository.
+
+An excerpt of the evaluation for the examples given above can be downloaded here. In this specific evaluation, the resulting model depicted above has an average score of 0.80.
+
+Finally, the modularization is translated back into ATL.
+
+### Source Code
+
+The Java projects which are used for this problem domain can be found in the repository here (modularization meta-model) and here (modularization of the five transformations).
