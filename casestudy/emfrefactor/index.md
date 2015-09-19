@@ -82,7 +82,7 @@ SubClasses : minimize {
 }
 ```
 
-### References
+### Resources
 * [EMF Refactor](http://www.eclipse.org/emf-refactor/)
 * [EMF Refactor Techniques](https://wiki.eclipse.org/Techniques)
 * [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.emfrefactor)
