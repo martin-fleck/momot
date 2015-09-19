@@ -22,12 +22,17 @@ However, to demonstrate the use of attribute NACs, we have implemented it this w
 
 ### Objectives and Constraints
 * Standard Deviation: To provide an equally distributed load, we minimize the standard deviations of all stacks load.
+
 ```
-StandardDeviation : minimize { MathUtil.getStandardDeviation((root as StackModel).stacks.map[load]) }
+StandardDeviation : minimize { 
+	MathUtil.getStandardDeviation((root as StackModel).stacks.map[load])
+}
 ```
+
 * Solution Length: We prefer shorter solutions as the transformations are costly when executed in the real word.
+
 ```
-StandardDeviation : minimize { MathUtil.getStandardDeviation((root as StackModel).stacks.map[load]) }
+SolutionLength 	: minimize new TransformationLengthDimension
 ```
 
 ### References
@@ -64,7 +69,9 @@ search = {
 	
 	fitness = {
 		objectives = { 
-		 	StandardDeviation : minimize { MathUtil.getStandardDeviation((root as StackModel).stacks.map[load]) }
+		 	StandardDeviation : minimize { 
+		 		MathUtil.getStandardDeviation((root as StackModel).stacks.map[load])
+		 	}
 		 	SolutionLength 	: minimize new TransformationLengthDimension
 		}
 		solutionRepairer = new TransformationPlaceholderRepairer
