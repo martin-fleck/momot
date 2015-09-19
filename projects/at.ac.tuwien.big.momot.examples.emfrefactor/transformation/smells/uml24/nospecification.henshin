@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_GdGW4FWvEeK0V4B2JYxJUg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_GdG98FWvEeK0V4B2JYxJUg" name="mainRule">
+    <lhs xmi:id="_GdG98VWvEeK0V4B2JYxJUg" name="Lhs">
+      <nodes xmi:id="_GdG98lWvEeK0V4B2JYxJUg" name="abstractClass">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="_Dk4MkFWvEeK0V4B2JYxJUg" value="true">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_h3WFgFWvEeK0V4B2JYxJUg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_h3WFgVWvEeK0V4B2JYxJUg">
+          <conclusion xmi:id="_h3WFglWvEeK0V4B2JYxJUg">
+            <nodes xmi:id="_h3XToFWvEeK0V4B2JYxJUg" name="abstractClass" incoming="_gZiDsFWvEeK0V4B2JYxJUg">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              <attributes xmi:id="_h3XToVWvEeK0V4B2JYxJUg" value="true">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_ORdrEFWvEeK0V4B2JYxJUg" name="missingConcreteClass" outgoing="_gZiDsFWvEeK0V4B2JYxJUg">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              <attributes xmi:id="_SqZaMFWvEeK0V4B2JYxJUg" value="false">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_gZiDsFWvEeK0V4B2JYxJUg" source="_ORdrEFWvEeK0V4B2JYxJUg" target="_h3XToFWvEeK0V4B2JYxJUg">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/superClass"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_h3XTolWvEeK0V4B2JYxJUg" origin="_GdG98lWvEeK0V4B2JYxJUg" image="_h3XToFWvEeK0V4B2JYxJUg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_GdHlAFWvEeK0V4B2JYxJUg" name="Rhs">
+      <nodes xmi:id="_GdIMEFWvEeK0V4B2JYxJUg" name="abstractClass">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="_Dk7P4FWvEeK0V4B2JYxJUg" value="true">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_GdIzIFWvEeK0V4B2JYxJUg" origin="_GdG98lWvEeK0V4B2JYxJUg" image="_GdIMEFWvEeK0V4B2JYxJUg"/>
+  </units>
+</henshin:Module>

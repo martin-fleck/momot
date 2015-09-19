@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_pkWfIBHwEeKSGqZuqrXSrQ" name="transformation system">
+  <rules xmi:id="_pkaJgBHwEeKSGqZuqrXSrQ" name="remove">
+    <parameters xmi:id="_pkx88BHwEeKSGqZuqrXSrQ" name="selectedEClass"/>
+    <lhs xmi:id="_pkykABHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_pkykAhHwEeKSGqZuqrXSrQ" name="selectedEClass" incoming="_pk1nUBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_pkykARHwEeKSGqZuqrXSrQ" outgoing="_pk1nUBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <edges xmi:id="_pk1nUBHwEeKSGqZuqrXSrQ" source="_pkykARHwEeKSGqZuqrXSrQ" target="_pkykAhHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_pkykAxHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_pkykBBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_pkzyIBHwEeKSGqZuqrXSrQ" origin="_pkykARHwEeKSGqZuqrXSrQ" image="_pkykBBHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <rules xmi:id="_pkaJgxHwEeKSGqZuqrXSrQ" name="remove_esupertypes">
+    <parameters xmi:id="_pkbXoRHwEeKSGqZuqrXSrQ" name="selectedEClass"/>
+    <lhs xmi:id="_pkqBIBHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_pkqBIRHwEeKSGqZuqrXSrQ" name="selectedEClass" incoming="_pkqBIxHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_pkqBIhHwEeKSGqZuqrXSrQ" outgoing="_pkqBIxHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <edges xmi:id="_pkqBIxHwEeKSGqZuqrXSrQ" source="_pkqBIhHwEeKSGqZuqrXSrQ" target="_pkqBIRHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eSuperTypes"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_pkqoMBHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_pkqoMRHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_pkqoMhHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_pksdYBHwEeKSGqZuqrXSrQ" origin="_pkqBIRHwEeKSGqZuqrXSrQ" image="_pkqoMRHwEeKSGqZuqrXSrQ"/>
+    <mappings xmi:id="_pksdYRHwEeKSGqZuqrXSrQ" origin="_pkqBIhHwEeKSGqZuqrXSrQ" image="_pkqoMhHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_pkawkBHwEeKSGqZuqrXSrQ" description="" name="mainUnit" subUnits="_pkbXoBHwEeKSGqZuqrXSrQ _pkaJgBHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_pktrgBHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
+    <parameterMappings xmi:id="_pkuSkBHwEeKSGqZuqrXSrQ" source="_pktrgBHwEeKSGqZuqrXSrQ" target="_pk4qoBHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_pkuSkRHwEeKSGqZuqrXSrQ" source="_pktrgBHwEeKSGqZuqrXSrQ" target="_pkx88BHwEeKSGqZuqrXSrQ"/>
+  </transformationUnits>
+  <transformationUnits xsi:type="henshin:LoopUnit" xmi:id="_pkawkRHwEeKSGqZuqrXSrQ" description="" name="remove_counted" subUnit="_pkaJgxHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_pk6f0BHwEeKSGqZuqrXSrQ" name="selectedEClass"/>
+    <parameterMappings xmi:id="_pk6f0RHwEeKSGqZuqrXSrQ" source="_pk6f0BHwEeKSGqZuqrXSrQ" target="_pkbXoRHwEeKSGqZuqrXSrQ"/>
+  </transformationUnits>
+  <transformationUnits xsi:type="henshin:IndependentUnit" xmi:id="_pkbXoBHwEeKSGqZuqrXSrQ" description="" name="remove_indep" subUnits="_pkawkRHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_pk4qoBHwEeKSGqZuqrXSrQ" name="selectedEClass"/>
+    <parameterMappings xmi:id="_pk5RsBHwEeKSGqZuqrXSrQ" source="_pk4qoBHwEeKSGqZuqrXSrQ" target="_pk6f0BHwEeKSGqZuqrXSrQ"/>
+  </transformationUnits>
+</henshin:TransformationSystem>

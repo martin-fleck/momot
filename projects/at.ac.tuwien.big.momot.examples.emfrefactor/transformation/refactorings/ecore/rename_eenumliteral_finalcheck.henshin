@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kiB0wBHwEeKSGqZuqrXSrQ" name="transformation system">
+  <rules xmi:id="_kikAQBHwEeKSGqZuqrXSrQ" description="The new name is equal to the old name!" name="check_same_name">
+    <parameters xmi:id="_kikAQhHwEeKSGqZuqrXSrQ" name="selectedEEnumLiteral"/>
+    <parameters xmi:id="_kikAQRHwEeKSGqZuqrXSrQ" name="newName"/>
+    <lhs xmi:id="_kiqt8BHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_kiqt8RHwEeKSGqZuqrXSrQ" name="selectedEEnumLiteral">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral"/>
+        <attributes xmi:id="_kiqt8hHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_kiqt8xHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_kiqt9BHwEeKSGqZuqrXSrQ" name="selectedEEnumLiteral">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral"/>
+        <attributes xmi:id="_kiqt9RHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kir8EBHwEeKSGqZuqrXSrQ" origin="_kiqt8RHwEeKSGqZuqrXSrQ" image="_kiqt9BHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <rules xmi:id="_kikARRHwEeKSGqZuqrXSrQ" description="There is already an EEnumLiteral in the containing EEnum with the specified name!" name="check_other_names">
+    <parameters xmi:id="_kikARhHwEeKSGqZuqrXSrQ" name="selectedEEnumLiteral"/>
+    <parameters xmi:id="_kikARxHwEeKSGqZuqrXSrQ" name="newName"/>
+    <lhs xmi:id="_kikASBHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_kikATBHwEeKSGqZuqrXSrQ" name="selectedEEnumLiteral" incoming="_kimcgBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral"/>
+      </nodes>
+      <nodes xmi:id="_kikAShHwEeKSGqZuqrXSrQ" incoming="_kikATRHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral"/>
+        <attributes xmi:id="_kikASxHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_kikASRHwEeKSGqZuqrXSrQ" outgoing="_kimcgBHwEeKSGqZuqrXSrQ _kikATRHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnum"/>
+      </nodes>
+      <edges xmi:id="_kimcgBHwEeKSGqZuqrXSrQ" source="_kikASRHwEeKSGqZuqrXSrQ" target="_kikATBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnum/eLiterals"/>
+      </edges>
+      <edges xmi:id="_kikATRHwEeKSGqZuqrXSrQ" source="_kikASRHwEeKSGqZuqrXSrQ" target="_kikAShHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnum/eLiterals"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_kikAThHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_kikATxHwEeKSGqZuqrXSrQ" name="selectedEEnumLiteral" incoming="_kikAUxHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral"/>
+      </nodes>
+      <nodes xmi:id="_kikAUBHwEeKSGqZuqrXSrQ" incoming="_kikAVBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral"/>
+        <attributes xmi:id="_kikAURHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_kikAUhHwEeKSGqZuqrXSrQ" outgoing="_kikAUxHwEeKSGqZuqrXSrQ _kikAVBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnum"/>
+      </nodes>
+      <edges xmi:id="_kikAUxHwEeKSGqZuqrXSrQ" source="_kikAUhHwEeKSGqZuqrXSrQ" target="_kikATxHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnum/eLiterals"/>
+      </edges>
+      <edges xmi:id="_kikAVBHwEeKSGqZuqrXSrQ" source="_kikAUhHwEeKSGqZuqrXSrQ" target="_kikAUBHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EEnum/eLiterals"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_kikAVRHwEeKSGqZuqrXSrQ" origin="_kikATBHwEeKSGqZuqrXSrQ" image="_kikATxHwEeKSGqZuqrXSrQ"/>
+    <mappings xmi:id="_kikAVhHwEeKSGqZuqrXSrQ" origin="_kikAShHwEeKSGqZuqrXSrQ" image="_kikAUBHwEeKSGqZuqrXSrQ"/>
+    <mappings xmi:id="_kikAVxHwEeKSGqZuqrXSrQ" origin="_kikASRHwEeKSGqZuqrXSrQ" image="_kikAUhHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <transformationUnits xsi:type="henshin:IndependentUnit" xmi:id="_kilOYBHwEeKSGqZuqrXSrQ" description="" name="mainUnit" subUnits="_kikAQBHwEeKSGqZuqrXSrQ _kikARRHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_kilOYRHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
+    <parameters xmi:id="_kilOYhHwEeKSGqZuqrXSrQ" name="newName"/>
+    <parameterMappings xmi:id="_kilOYxHwEeKSGqZuqrXSrQ" source="_kilOYRHwEeKSGqZuqrXSrQ" target="_kikAQhHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_kilOZBHwEeKSGqZuqrXSrQ" source="_kilOYhHwEeKSGqZuqrXSrQ" target="_kikAQRHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_kilOZRHwEeKSGqZuqrXSrQ" source="_kilOYRHwEeKSGqZuqrXSrQ" target="_kikARhHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_kilOZhHwEeKSGqZuqrXSrQ" source="_kilOYhHwEeKSGqZuqrXSrQ" target="_kikARxHwEeKSGqZuqrXSrQ"/>
+  </transformationUnits>
+</henshin:TransformationSystem>

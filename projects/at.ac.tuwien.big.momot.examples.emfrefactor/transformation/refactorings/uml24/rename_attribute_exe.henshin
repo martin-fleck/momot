@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MU_TIFW2EeK0V4B2JYxJUg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_U4p9UFW2EeK0V4B2JYxJUg" name="mainUnit">
+    <parameters xmi:id="_XrClYFW2EeK0V4B2JYxJUg" name="selectedEObject"/>
+    <parameters xmi:id="_XrDMcFW2EeK0V4B2JYxJUg" name="newName"/>
+    <lhs xmi:id="_U4wD8FW2EeK0V4B2JYxJUg" name="Lhs">
+      <nodes xmi:id="_kmehEFW2EeK0V4B2JYxJUg" name="selectedEObject">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_U4wD8VW2EeK0V4B2JYxJUg" name="Rhs">
+      <nodes xmi:id="_kmhkYFW2EeK0V4B2JYxJUg" name="selectedEObject">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_osxoEFW2EeK0V4B2JYxJUg" value="newName">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kmhkYVW2EeK0V4B2JYxJUg" origin="_kmehEFW2EeK0V4B2JYxJUg" image="_kmhkYFW2EeK0V4B2JYxJUg"/>
+  </units>
+</henshin:Module>

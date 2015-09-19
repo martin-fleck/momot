@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_h14nQKKuEeKVq9bLGfaZZA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_9Hnh0L-bEeGJIaNLXOZ3NA" name="hasRealization" description="The interface has an implementing class!">
+    <parameters xmi:id="_ZkW18L-hEeGJIaNLXOZ3NA" name="unusedInterface"/>
+    <lhs xmi:id="_9Hnh0b-bEeGJIaNLXOZ3NA" name="LHS">
+      <nodes xmi:id="_KjhtUL-cEeGJIaNLXOZ3NA" name="owningPackage" outgoing="_RDuD4L-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_M8ODAL-cEeGJIaNLXOZ3NA" name="unusedInterface" incoming="_RDuD4L-cEeGJIaNLXOZ3NA _PXfWIL-dEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <nodes xmi:id="_1GtXsL-hEeGJIaNLXOZ3NA" incoming="_Acq8oL-dEeGJIaNLXOZ3NA" outgoing="_PXfWIL-dEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization"/>
+      </nodes>
+      <nodes xmi:id="_4zCRwL-cEeGJIaNLXOZ3NA" name="realizingClass" outgoing="_Acq8oL-dEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_RDuD4L-cEeGJIaNLXOZ3NA" source="_KjhtUL-cEeGJIaNLXOZ3NA" target="_M8ODAL-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_Acq8oL-dEeGJIaNLXOZ3NA" source="_4zCRwL-cEeGJIaNLXOZ3NA" target="_1GtXsL-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioredClassifier/interfaceRealization"/>
+      </edges>
+      <edges xmi:id="_PXfWIL-dEeGJIaNLXOZ3NA" source="_1GtXsL-hEeGJIaNLXOZ3NA" target="_M8ODAL-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization/contract"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_9Hnh0r-bEeGJIaNLXOZ3NA" name="RHS">
+      <nodes xmi:id="_KjhtUb-cEeGJIaNLXOZ3NA" name="owningPackage" outgoing="_RDuD4b-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_M8ODAb-cEeGJIaNLXOZ3NA" name="unusedInterface" incoming="_RDuD4b-cEeGJIaNLXOZ3NA _19fOsL-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <nodes xmi:id="_1HFyML-hEeGJIaNLXOZ3NA" name="realizingClass" outgoing="_1HMf4L-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_1HL40L-hEeGJIaNLXOZ3NA" incoming="_1HMf4L-hEeGJIaNLXOZ3NA" outgoing="_19fOsL-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization"/>
+      </nodes>
+      <edges xmi:id="_RDuD4b-cEeGJIaNLXOZ3NA" source="_KjhtUb-cEeGJIaNLXOZ3NA" target="_M8ODAb-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_1HMf4L-hEeGJIaNLXOZ3NA" source="_1HFyML-hEeGJIaNLXOZ3NA" target="_1HL40L-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioredClassifier/interfaceRealization"/>
+      </edges>
+      <edges xmi:id="_19fOsL-hEeGJIaNLXOZ3NA" source="_1HL40L-hEeGJIaNLXOZ3NA" target="_M8ODAb-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization/contract"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_KjhtUr-cEeGJIaNLXOZ3NA" origin="_KjhtUL-cEeGJIaNLXOZ3NA" image="_KjhtUb-cEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_M8ODAr-cEeGJIaNLXOZ3NA" origin="_M8ODAL-cEeGJIaNLXOZ3NA" image="_M8ODAb-cEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_1HFyMb-hEeGJIaNLXOZ3NA" origin="_4zCRwL-cEeGJIaNLXOZ3NA" image="_1HFyML-hEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_1HL40b-hEeGJIaNLXOZ3NA" origin="_1GtXsL-hEeGJIaNLXOZ3NA" image="_1HL40L-hEeGJIaNLXOZ3NA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_SLxe0L-hEeGJIaNLXOZ3NA" name="hasUsage" description="The interface has an using class!">
+    <parameters xmi:id="_bWOcML-hEeGJIaNLXOZ3NA" name="unusedInterface"/>
+    <lhs xmi:id="_SLxe0b-hEeGJIaNLXOZ3NA" name="LHS">
+      <nodes xmi:id="_SLxe0r-hEeGJIaNLXOZ3NA" name="owningPackage" outgoing="_SLxe1L-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_SLxe07-hEeGJIaNLXOZ3NA" name="unusedInterface" incoming="_SLxe1L-hEeGJIaNLXOZ3NA _SLxe5b-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <nodes xmi:id="_6L0QUL-hEeGJIaNLXOZ3NA" outgoing="_SLxe5L-hEeGJIaNLXOZ3NA _SLxe5b-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Usage"/>
+      </nodes>
+      <nodes xmi:id="_SLxe4r-hEeGJIaNLXOZ3NA" name="usingClass" incoming="_SLxe5L-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_SLxe1L-hEeGJIaNLXOZ3NA" source="_SLxe0r-hEeGJIaNLXOZ3NA" target="_SLxe07-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_SLxe5L-hEeGJIaNLXOZ3NA" source="_6L0QUL-hEeGJIaNLXOZ3NA" target="_SLxe4r-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency/client"/>
+      </edges>
+      <edges xmi:id="_SLxe5b-hEeGJIaNLXOZ3NA" source="_6L0QUL-hEeGJIaNLXOZ3NA" target="_SLxe07-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency/supplier"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_SLxe77-hEeGJIaNLXOZ3NA" name="RHS">
+      <nodes xmi:id="_SLxe8L-hEeGJIaNLXOZ3NA" name="owningPackage" outgoing="_SLxe8r-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_SLxe8b-hEeGJIaNLXOZ3NA" name="unusedInterface" incoming="_SLxe8r-hEeGJIaNLXOZ3NA _615IEL-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <nodes xmi:id="_6MGkML-hEeGJIaNLXOZ3NA" name="usingClass" incoming="_6MMq0L-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_6MGkMr-hEeGJIaNLXOZ3NA" outgoing="_6MMq0L-hEeGJIaNLXOZ3NA _615IEL-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Usage"/>
+      </nodes>
+      <edges xmi:id="_SLxe8r-hEeGJIaNLXOZ3NA" source="_SLxe8L-hEeGJIaNLXOZ3NA" target="_SLxe8b-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_6MMq0L-hEeGJIaNLXOZ3NA" source="_6MGkMr-hEeGJIaNLXOZ3NA" target="_6MGkML-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency/client"/>
+      </edges>
+      <edges xmi:id="_615IEL-hEeGJIaNLXOZ3NA" source="_6MGkMr-hEeGJIaNLXOZ3NA" target="_SLxe8b-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency/supplier"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_SLxe87-hEeGJIaNLXOZ3NA" origin="_SLxe0r-hEeGJIaNLXOZ3NA" image="_SLxe8L-hEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_SLxe9L-hEeGJIaNLXOZ3NA" origin="_SLxe07-hEeGJIaNLXOZ3NA" image="_SLxe8b-hEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_6MGkMb-hEeGJIaNLXOZ3NA" origin="_SLxe4r-hEeGJIaNLXOZ3NA" image="_6MGkML-hEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_6MGkM7-hEeGJIaNLXOZ3NA" origin="_6L0QUL-hEeGJIaNLXOZ3NA" image="_6MGkMr-hEeGJIaNLXOZ3NA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_SikOML-hEeGJIaNLXOZ3NA" name="hasSubinterface" description="The interface has a sub interface!">
+    <parameters xmi:id="_bsoxEL-hEeGJIaNLXOZ3NA" name="unusedInterface"/>
+    <lhs xmi:id="_SikOMb-hEeGJIaNLXOZ3NA" name="LHS">
+      <nodes xmi:id="_SikOMr-hEeGJIaNLXOZ3NA" name="owningPackage" outgoing="_SikONL-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_SikOM7-hEeGJIaNLXOZ3NA" name="unusedInterface" incoming="_SikONL-hEeGJIaNLXOZ3NA _SikOTb-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <nodes xmi:id="_BbimYL-iEeGJIaNLXOZ3NA" name="subinterface" outgoing="_SikOTL-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <nodes xmi:id="_SikOS7-hEeGJIaNLXOZ3NA" incoming="_SikOTL-hEeGJIaNLXOZ3NA" outgoing="_SikOTb-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <edges xmi:id="_SikONL-hEeGJIaNLXOZ3NA" source="_SikOMr-hEeGJIaNLXOZ3NA" target="_SikOM7-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_SikOTL-hEeGJIaNLXOZ3NA" source="_BbimYL-iEeGJIaNLXOZ3NA" target="_SikOS7-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_SikOTb-hEeGJIaNLXOZ3NA" source="_SikOS7-hEeGJIaNLXOZ3NA" target="_SikOM7-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_SikOT7-hEeGJIaNLXOZ3NA" name="RHS">
+      <nodes xmi:id="_SikOUL-hEeGJIaNLXOZ3NA" name="owningPackage" outgoing="_SikOUr-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_SikOUb-hEeGJIaNLXOZ3NA" name="unusedInterface" incoming="_SikOUr-hEeGJIaNLXOZ3NA _Bb7A4b-iEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <nodes xmi:id="_Bb06QL-iEeGJIaNLXOZ3NA" incoming="_Bb7A4L-iEeGJIaNLXOZ3NA" outgoing="_Bb7A4b-iEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <nodes xmi:id="_Bb06Qr-iEeGJIaNLXOZ3NA" name="subinterface" outgoing="_Bb7A4L-iEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <edges xmi:id="_SikOUr-hEeGJIaNLXOZ3NA" source="_SikOUL-hEeGJIaNLXOZ3NA" target="_SikOUb-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_Bb7A4L-iEeGJIaNLXOZ3NA" source="_Bb06Qr-iEeGJIaNLXOZ3NA" target="_Bb06QL-iEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_Bb7A4b-iEeGJIaNLXOZ3NA" source="_Bb06QL-iEeGJIaNLXOZ3NA" target="_SikOUb-hEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_SikOU7-hEeGJIaNLXOZ3NA" origin="_SikOMr-hEeGJIaNLXOZ3NA" image="_SikOUL-hEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_SikOVL-hEeGJIaNLXOZ3NA" origin="_SikOM7-hEeGJIaNLXOZ3NA" image="_SikOUb-hEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_Bb06Qb-iEeGJIaNLXOZ3NA" origin="_SikOS7-hEeGJIaNLXOZ3NA" image="_Bb06QL-iEeGJIaNLXOZ3NA"/>
+    <mappings xmi:id="_Bb06Q7-iEeGJIaNLXOZ3NA" origin="_BbimYL-iEeGJIaNLXOZ3NA" image="_Bb06Qr-iEeGJIaNLXOZ3NA"/>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_P2UqYL-hEeGJIaNLXOZ3NA" name="mainUnit" subUnits="_SikOML-hEeGJIaNLXOZ3NA _SLxe0L-hEeGJIaNLXOZ3NA _9Hnh0L-bEeGJIaNLXOZ3NA">
+    <parameters xmi:id="_eVzBIL-gEeGJIaNLXOZ3NA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_ir3NAL-hEeGJIaNLXOZ3NA" source="_eVzBIL-gEeGJIaNLXOZ3NA" target="_bsoxEL-hEeGJIaNLXOZ3NA"/>
+    <parameterMappings xmi:id="_lGQy4L-hEeGJIaNLXOZ3NA" source="_eVzBIL-gEeGJIaNLXOZ3NA" target="_bWOcML-hEeGJIaNLXOZ3NA"/>
+    <parameterMappings xmi:id="_l-0LgL-hEeGJIaNLXOZ3NA" source="_eVzBIL-gEeGJIaNLXOZ3NA" target="_ZkW18L-hEeGJIaNLXOZ3NA"/>
+  </units>
+</henshin:Module>

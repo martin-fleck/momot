@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_74pXYKp2EeKxY8S7jup9FQ">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_74p-cKp2EeKxY8S7jup9FQ" name="mainRule">
+    <lhs xmi:id="_74p-cqp2EeKxY8S7jup9FQ" name="Lhs">
+      <nodes xmi:id="_ScQbQKtIEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <formula xsi:type="henshin:And" xmi:id="_o2o9oKtIEeKxY8S7jup9FQ">
+        <left xsi:type="henshin:And" xmi:id="_mESKwKtIEeKxY8S7jup9FQ">
+          <left xsi:type="henshin:Not" xmi:id="_kzt6wKtIEeKxY8S7jup9FQ">
+            <child xsi:type="henshin:NestedCondition" xmi:id="_kzt6watIEeKxY8S7jup9FQ">
+              <conclusion xmi:id="_kzt6wqtIEeKxY8S7jup9FQ" name="noRealization">
+                <nodes xmi:id="_kzvv8KtIEeKxY8S7jup9FQ" incoming="_gYN_0KtIEeKxY8S7jup9FQ">
+                  <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+                </nodes>
+                <nodes xmi:id="_TST5gKtIEeKxY8S7jup9FQ" outgoing="_gYN_0KtIEeKxY8S7jup9FQ">
+                  <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization"/>
+                </nodes>
+                <edges xmi:id="_gYN_0KtIEeKxY8S7jup9FQ" source="_TST5gKtIEeKxY8S7jup9FQ" target="_kzvv8KtIEeKxY8S7jup9FQ">
+                  <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization/contract"/>
+                </edges>
+              </conclusion>
+              <mappings xmi:id="_kzvv8atIEeKxY8S7jup9FQ" origin="_ScQbQKtIEeKxY8S7jup9FQ" image="_kzvv8KtIEeKxY8S7jup9FQ"/>
+            </child>
+          </left>
+          <right xsi:type="henshin:Not" xmi:id="_mESKwatIEeKxY8S7jup9FQ">
+            <child xsi:type="henshin:NestedCondition" xmi:id="_mESKwqtIEeKxY8S7jup9FQ">
+              <conclusion xmi:id="_mESKw6tIEeKxY8S7jup9FQ" name="noUsage">
+                <nodes xmi:id="_mET_8KtIEeKxY8S7jup9FQ" incoming="_ZHlq0KtIEeKxY8S7jup9FQ">
+                  <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+                </nodes>
+                <nodes xmi:id="_T5vs8KtIEeKxY8S7jup9FQ" outgoing="_ZHlq0KtIEeKxY8S7jup9FQ">
+                  <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Usage"/>
+                </nodes>
+                <edges xmi:id="_ZHlq0KtIEeKxY8S7jup9FQ" source="_T5vs8KtIEeKxY8S7jup9FQ" target="_mET_8KtIEeKxY8S7jup9FQ">
+                  <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency/supplier"/>
+                </edges>
+              </conclusion>
+              <mappings xmi:id="_mET_8atIEeKxY8S7jup9FQ" origin="_ScQbQKtIEeKxY8S7jup9FQ" image="_mET_8KtIEeKxY8S7jup9FQ"/>
+            </child>
+          </right>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="_o2o9oatIEeKxY8S7jup9FQ">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_o2o9oqtIEeKxY8S7jup9FQ">
+            <conclusion xmi:id="_o2o9o6tIEeKxY8S7jup9FQ" name="noSubinterface">
+              <nodes xmi:id="_o2qy0KtIEeKxY8S7jup9FQ" incoming="_V2a1AKtIEeKxY8S7jup9FQ">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+              </nodes>
+              <nodes xmi:id="_UjqMoKtIEeKxY8S7jup9FQ" outgoing="_V2a1AKtIEeKxY8S7jup9FQ">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+              </nodes>
+              <edges xmi:id="_V2a1AKtIEeKxY8S7jup9FQ" source="_UjqMoKtIEeKxY8S7jup9FQ" target="_o2qy0KtIEeKxY8S7jup9FQ">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/general"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_o2qy0atIEeKxY8S7jup9FQ" origin="_ScQbQKtIEeKxY8S7jup9FQ" image="_o2qy0KtIEeKxY8S7jup9FQ"/>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_74qlgKp2EeKxY8S7jup9FQ" name="Rhs">
+      <nodes xmi:id="_ScTekKtIEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ScTekatIEeKxY8S7jup9FQ" origin="_ScQbQKtIEeKxY8S7jup9FQ" image="_ScTekKtIEeKxY8S7jup9FQ"/>
+  </units>
+</henshin:Module>

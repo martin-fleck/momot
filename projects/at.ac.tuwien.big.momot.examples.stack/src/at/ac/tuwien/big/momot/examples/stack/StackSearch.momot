@@ -1,0 +1,88 @@
+package at.ac.tuwien.big.momot.examples.stack.momot
+
+import at.ac.tuwien.big.momot.examples.stack.StackModule
+import at.ac.tuwien.big.momot.problem.unit.parameter.random.RandomIntegerValue
+import at.ac.tuwien.big.momot.examples.stack.stack.StackModel
+import at.ac.tuwien.big.moea.util.MathUtil
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.momot.^search.solution.repair.TransformationPlaceholderRepairer
+import org.moeaframework.core.operator.TournamentSelection
+import org.moeaframework.core.operator.OnePointCrossover
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.momot.examples.stack.stack.StackPackage
+
+initialization = {
+	StackPackage.eINSTANCE.class
+}
+
+search = {
+	model = "model/input/model/model_five_stacks.xmi"
+	solutionLength = 8
+	
+	transformations = {
+		modules = [ "model/stack.henshin" ] 
+		ignoreUnits = [ 
+			StackModule.CreateStack.NAME, 
+			StackModule.ConnectStacks.NAME
+		]
+		ignoreParameters = [
+			StackModule.ShiftLeft.Parameter.FROM_LOAD,
+			StackModule.ShiftLeft.Parameter.TO_LOAD,
+			StackModule.ShiftRight.Parameter.FROM_LOAD, 
+			StackModule.ShiftRight.Parameter.TO_LOAD
+		]		
+		parameterValues = {
+			StackModule.ShiftLeft.Parameter.AMOUNT  : new RandomIntegerValue(1, 5)
+			StackModule.ShiftRight.Parameter.AMOUNT : new RandomIntegerValue(1, 5)
+		}
+	}
+	
+	fitness = {
+		objectives = { 
+		 	StandardDeviation : minimize { MathUtil.getStandardDeviation((root as StackModel).stacks.map[load]) }
+		 	SolutionLength 	: minimize new TransformationLengthDimension
+		}
+		solutionRepairer = new TransformationPlaceholderRepairer
+	}
+	
+	algorithms = {
+	   Random	: moea.createRandomSearch()
+	   NSGA_II	: moea.createNSGAII(
+	   				new TournamentSelection(2),
+	   				new OnePointCrossover(1.0), 
+						new TransformationPlaceholderMutation(0.15),
+						new TransformationParameterMutation(0.1, orchestration.moduleManager))
+	   NSGA_III	: moea.createNSGAIII(
+	   				4,
+	   				new TournamentSelection(2),
+	   				new OnePointCrossover(1.0), 
+						new TransformationPlaceholderMutation(0.15),
+						new TransformationParameterMutation(0.1, orchestration.moduleManager))
+	}	
+}
+
+experiment = {
+	populationSize 	= 100
+	maxEvaluations 	= 5000
+	nrRuns 				= 30
+	referenceSet 		= "model/input/referenceSet/model_five_stacks_reference_set.pf"
+	progressListeners = [ new SeedRuntimePrintListener ]
+}
+	
+analysis = {
+	indicators		= [ hypervolume additiveEpsilonIndicator maximumParetoFrontError  ]
+	significance	= 0.01
+	show 				= [ individualValues aggregateValues statisticalSignificance ]
+}
+	
+finalization = {
+	saveAnalysis "model/output/analysis.txt"
+	
+	saveObjectives "model/output/approximationSet/overall_objectives.pf"
+	saveObjectives [ NSGA_III, NSGA_II ] "model/output/approximationSet/moea_objectives.pf"
+	
+	saveSolutions 	"model/output/solutions/all/"
+	saveSolutions 	[ NSGA_III, NSGA_II ] "model/output/solutions/moea/"	
+}	

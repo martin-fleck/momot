@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_owY5AKFLEeOs9qNIBJqQxw">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_owb8UKFLEeOs9qNIBJqQxw" name="mainRule">
+    <parameters xmi:id="_owdKcKFLEeOs9qNIBJqQxw" name="context"/>
+    <lhs xmi:id="_oweYkKFLEeOs9qNIBJqQxw" name="Lhs">
+      <nodes xmi:id="_1kgEsKFLEeOs9qNIBJqQxw" name="context" outgoing="_Up6bsaGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_Up4mgKGHEeOive5EI1bBFw" incoming="_Up6bsaGHEeOive5EI1bBFw" outgoing="_VZSqMqGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+      </nodes>
+      <nodes xmi:id="_VZSDIKGHEeOive5EI1bBFw" incoming="_VZSqMqGHEeOive5EI1bBFw" outgoing="_qhi2UKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+      </nodes>
+      <nodes xmi:id="_oaEzgKGHEeOive5EI1bBFw" incoming="_qhi2UKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <edges xmi:id="_Up6bsaGHEeOive5EI1bBFw" source="_1kgEsKFLEeOs9qNIBJqQxw" target="_Up4mgKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/ownedOperation"/>
+      </edges>
+      <edges xmi:id="_VZSqMqGHEeOive5EI1bBFw" source="_Up4mgKGHEeOive5EI1bBFw" target="_VZSDIKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/ownedParameter"/>
+      </edges>
+      <edges xmi:id="_qhi2UKGHEeOive5EI1bBFw" source="_VZSDIKGHEeOive5EI1bBFw" target="_oaEzgKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_o76MgaFLEeOs9qNIBJqQxw" name="Rhs">
+      <nodes xmi:id="_1kgEsaFLEeOs9qNIBJqQxw" name="context" outgoing="_Up7CwKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_Up50oKGHEeOive5EI1bBFw" incoming="_Up7CwKGHEeOive5EI1bBFw" outgoing="_VZSqM6GHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+      </nodes>
+      <nodes xmi:id="_VZSqMKGHEeOive5EI1bBFw" incoming="_VZSqM6GHEeOive5EI1bBFw" outgoing="_qhi2UaGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+      </nodes>
+      <nodes xmi:id="_oaEzgaGHEeOive5EI1bBFw" incoming="_qhi2UaGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <edges xmi:id="_Up7CwKGHEeOive5EI1bBFw" source="_1kgEsaFLEeOs9qNIBJqQxw" target="_Up50oKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/ownedOperation"/>
+      </edges>
+      <edges xmi:id="_VZSqM6GHEeOive5EI1bBFw" source="_Up50oKGHEeOive5EI1bBFw" target="_VZSqMKGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/ownedParameter"/>
+      </edges>
+      <edges xmi:id="_qhi2UaGHEeOive5EI1bBFw" source="_VZSqMKGHEeOive5EI1bBFw" target="_oaEzgaGHEeOive5EI1bBFw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1kgEsqFLEeOs9qNIBJqQxw" origin="_1kgEsKFLEeOs9qNIBJqQxw" image="_1kgEsaFLEeOs9qNIBJqQxw"/>
+    <mappings xmi:id="_Up6bsKGHEeOive5EI1bBFw" origin="_Up4mgKGHEeOive5EI1bBFw" image="_Up50oKGHEeOive5EI1bBFw"/>
+    <mappings xmi:id="_VZSqMaGHEeOive5EI1bBFw" origin="_VZSDIKGHEeOive5EI1bBFw" image="_VZSqMKGHEeOive5EI1bBFw"/>
+    <mappings xmi:id="_oaEzgqGHEeOive5EI1bBFw" origin="_oaEzgKGHEeOive5EI1bBFw" image="_oaEzgaGHEeOive5EI1bBFw"/>
+  </units>
+</henshin:Module>

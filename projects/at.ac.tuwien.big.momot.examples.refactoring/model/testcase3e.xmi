@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<My:model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:My="http://newmm" xsi:schemaLocation="http://newmm refactoring.ecore">
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a0" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a1" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <propertys name="a2" type="//@types.0"/>
+  <entitys name="c0" ownedAttribute="//@propertys.0 //@propertys.10 //@propertys.20"/>
+  <entitys name="c1" ownedAttribute="//@propertys.1 //@propertys.11 //@propertys.21"/>
+  <entitys name="c2" ownedAttribute="//@propertys.2 //@propertys.12 //@propertys.22"/>
+  <entitys name="c3" ownedAttribute="//@propertys.3 //@propertys.13 //@propertys.23"/>
+  <entitys name="c4" ownedAttribute="//@propertys.4 //@propertys.14 //@propertys.24"/>
+  <entitys name="c5" ownedAttribute="//@propertys.5 //@propertys.15 //@propertys.25"/>
+  <entitys name="c6" ownedAttribute="//@propertys.6 //@propertys.16 //@propertys.26"/>
+  <entitys name="c7" ownedAttribute="//@propertys.7 //@propertys.17 //@propertys.27"/>
+  <entitys name="c8" ownedAttribute="//@propertys.8 //@propertys.18 //@propertys.28"/>
+  <entitys name="c9" ownedAttribute="//@propertys.9 //@propertys.19 //@propertys.29"/>
+  <types name="Integer"/>
+</My:model>

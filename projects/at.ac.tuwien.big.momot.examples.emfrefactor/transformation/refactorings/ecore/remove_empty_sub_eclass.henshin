@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ig_eUFq-EeWs7_mWnnaSzQ" name="RemoveEmptySubEClass">
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <units xsi:type="henshin:ConditionalUnit" xmi:id="_lJ2W8Fq-EeWs7_mWnnaSzQ" name="removeEmptySubEclass">
+    <if xsi:type="henshin:IndependentUnit" href="remove_empty_sub_eclass_initialcheck.henshin#_qBsicBHwEeKSGqZuqrXSrQ"/>
+    <then xsi:type="henshin:SequentialUnit" href="remove_empty_sub_eclass_execute.henshin#_qctqgBHwEeKSGqZuqrXSrQ"/>
+  </units>
+</henshin:Module>

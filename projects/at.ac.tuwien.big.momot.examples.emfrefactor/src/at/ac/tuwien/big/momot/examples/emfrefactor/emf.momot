@@ -1,0 +1,48 @@
+import org.eclipse.emf.ecore.EcorePackage
+import org.eclipse.emf.refactor.metrics.ecore.ocl.eclazz.NEREC
+import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.refactor.metrics.ecore.ocl.eclazz.NSUPEC
+import org.eclipse.emf.refactor.metrics.ecore.ocl.eclazz.NSUPEC2
+
+initialization  = {
+	EcorePackage.eINSTANCE.eClass
+}
+
+search EMFRefactorSearch = {
+	model = "model/input/simple_example.ecore"
+	solutionLength = 10
+	transformations = {
+		modules = [ "transformation/refactorings/ecore/remove_empty_sub_eclass.henshin" ]
+	}
+
+	fitness = {
+		objectives = {
+			SubClasses : minimize {
+				val subClassCalculator = new NSUPEC2()
+				val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
+				var subClasses = 0.0;
+				for(eClass : eClasses) {
+					subClassCalculator.context = #[ eClass ]
+					subClasses += subClassCalculator.calculate
+				}					
+				return subClasses;
+			}
+		}
+	}
+
+	algorithms = {
+		RandomSearch : moea.createRandomSearch()
+	}
+}
+
+experiment = {
+	populationSize = 50
+	maxEvaluations = 500
+	nrRuns = 30
+}
+
+finalization = {
+	saveObjectives "objectives.pf"
+	saveSolutions "output/"
+}

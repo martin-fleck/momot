@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DkD08KH-EeObOe_NVdEHRg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DkHfUKH-EeObOe_NVdEHRg" name="mainRule">
+    <parameters xmi:id="_DkIGYKH-EeObOe_NVdEHRg" name="context"/>
+    <lhs xmi:id="_DkItcKH-EeObOe_NVdEHRg" name="Lhs">
+      <nodes xmi:id="_DkM-4KH-EeObOe_NVdEHRg" name="context">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_DkPbIaH-EeObOe_NVdEHRg" name="Rhs">
+      <nodes xmi:id="_DkPbJKH-EeObOe_NVdEHRg" name="context">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_DkQCMaH-EeObOe_NVdEHRg" origin="_DkM-4KH-EeObOe_NVdEHRg" image="_DkPbJKH-EeObOe_NVdEHRg"/>
+  </units>
+</henshin:Module>

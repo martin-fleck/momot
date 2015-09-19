@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Refactoring
+Bundle-SymbolicName: at.ac.tuwien.big.momot.examples.refactoring;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.ocl,
+ org.eclipse.emf.henshin.interpreter,
+ org.eclipse.ocl.ecore;bundle-version="3.3.100",
+ org.eclipse.jdt.annotation,
+ at.ac.tuwien.big.momot
+Import-Package: org.apache.commons.io

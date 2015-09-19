@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DkD08KH-EeObOe_NVdEHRg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DkHfUKH-EeObOe_NVdEHRg" name="mainRule">
+    <parameters xmi:id="_DkIGYKH-EeObOe_NVdEHRg" name="context"/>
+    <lhs xmi:id="_DkItcKH-EeObOe_NVdEHRg" name="Lhs">
+      <nodes xmi:id="_DkM-4KH-EeObOe_NVdEHRg" name="context" outgoing="_NArgYqH-EeObOe_NVdEHRg _NjTsU6H-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_NAprMKH-EeObOe_NVdEHRg" incoming="_NArgYqH-EeObOe_NVdEHRg" outgoing="_OT74AKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_NjTsUKH-EeObOe_NVdEHRg" incoming="_NjTsU6H-EeObOe_NVdEHRg _QDZDcKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_OT7Q8KH-EeObOe_NVdEHRg" incoming="_OT74AKH-EeObOe_NVdEHRg" outgoing="_QDZDcKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <edges xmi:id="_NArgYqH-EeObOe_NVdEHRg" source="_DkM-4KH-EeObOe_NVdEHRg" target="_NAprMKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_NjTsU6H-EeObOe_NVdEHRg" source="_DkM-4KH-EeObOe_NVdEHRg" target="_NjTsUKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_OT74AKH-EeObOe_NVdEHRg" source="_NAprMKH-EeObOe_NVdEHRg" target="_OT7Q8KH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_QDZDcKH-EeObOe_NVdEHRg" source="_OT7Q8KH-EeObOe_NVdEHRg" target="_NjTsUKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_DkPbIaH-EeObOe_NVdEHRg" name="Rhs">
+      <nodes xmi:id="_DkPbJKH-EeObOe_NVdEHRg" name="context" outgoing="_NAsHcKH-EeObOe_NVdEHRg _NjUTYKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_NArgYKH-EeObOe_NVdEHRg" incoming="_NAsHcKH-EeObOe_NVdEHRg" outgoing="_OT74AaH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_NjTsUaH-EeObOe_NVdEHRg" incoming="_NjUTYKH-EeObOe_NVdEHRg _QDZqgKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_OT7Q8aH-EeObOe_NVdEHRg" incoming="_OT74AaH-EeObOe_NVdEHRg" outgoing="_QDZqgKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <edges xmi:id="_NAsHcKH-EeObOe_NVdEHRg" source="_DkPbJKH-EeObOe_NVdEHRg" target="_NArgYKH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_NjUTYKH-EeObOe_NVdEHRg" source="_DkPbJKH-EeObOe_NVdEHRg" target="_NjTsUaH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_OT74AaH-EeObOe_NVdEHRg" source="_NArgYKH-EeObOe_NVdEHRg" target="_OT7Q8aH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_QDZqgKH-EeObOe_NVdEHRg" source="_OT7Q8aH-EeObOe_NVdEHRg" target="_NjTsUaH-EeObOe_NVdEHRg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_DkQCMaH-EeObOe_NVdEHRg" origin="_DkM-4KH-EeObOe_NVdEHRg" image="_DkPbJKH-EeObOe_NVdEHRg"/>
+    <mappings xmi:id="_NArgYaH-EeObOe_NVdEHRg" origin="_NAprMKH-EeObOe_NVdEHRg" image="_NArgYKH-EeObOe_NVdEHRg"/>
+    <mappings xmi:id="_NjTsUqH-EeObOe_NVdEHRg" origin="_NjTsUKH-EeObOe_NVdEHRg" image="_NjTsUaH-EeObOe_NVdEHRg"/>
+    <mappings xmi:id="_OT7Q8qH-EeObOe_NVdEHRg" origin="_OT7Q8KH-EeObOe_NVdEHRg" image="_OT7Q8aH-EeObOe_NVdEHRg"/>
+  </units>
+</henshin:Module>

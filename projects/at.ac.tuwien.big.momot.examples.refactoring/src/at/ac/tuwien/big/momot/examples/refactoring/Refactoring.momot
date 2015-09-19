@@ -1,0 +1,55 @@
+package at.ac.tuwien.big.momot.examples.refactoring.momot
+
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.momot.^search.solution.repair.TransformationPlaceholderRepairer
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import org.moeaframework.core.operator.OnePointCrossover
+import org.moeaframework.core.operator.TournamentSelection
+import at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage
+
+initialization = {
+	RefactoringPackage::eINSTANCE.eClass
+}
+
+search = {
+	model = "model/SeveralRefactorings.xmi"
+	solutionLength = 10
+	
+	transformations = {
+		modules = [ "model/Refactoring.henshin" ]
+	}
+	
+	fitness = {
+		objectives = {
+			SolutionLength : minimize new TransformationLengthDimension
+			ContentSize : minimize "propertys->size() * 1.1 + entitys->size()"
+		}
+		solutionRepairer = new TransformationPlaceholderRepairer
+	}
+	
+	algorithms = {
+		NSGAII : moea.createNSGAII(
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0),  
+				new TransformationPlaceholderMutation(0.15))
+		NSGAIII : moea.createNSGAIII(
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0),  
+				new TransformationPlaceholderMutation(0.15))
+	}
+	
+	
+}
+experiment = {
+	populationSize = 15
+	maxEvaluations = 150
+	nrRuns = 1
+//	referenceSet = "model/input/referenceSet/SeveralRefactorings_reference_set.pf"
+	progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+finalization = {
+	saveObjectives "model/output/referenceSet/approximation_set.pf"
+	saveSolutions "model/output/solutions/"
+}

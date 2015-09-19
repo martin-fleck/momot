@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.ac.tuwien.big.momot.examples.refactoring/src"
+    modelPluginID="at.ac.tuwien.big.momot.examples.refactoring" modelName="Refactoring"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>refactoring.ecore</foreignModel>
+  <genPackages prefix="Refactoring" basePackage="at.ac.tuwien.big.momot.examples.refactoring"
+      disposableProviderFactory="true" ecorePackage="refactoring.ecore#/">
+    <genClasses ecoreClass="refactoring.ecore#//Property">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference refactoring.ecore#//Property/type"/>
+    </genClasses>
+    <genClasses ecoreClass="refactoring.ecore#//Entity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference refactoring.ecore#//Entity/ownedAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference refactoring.ecore#//Entity/specialization"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference refactoring.ecore#//Entity/generalization"/>
+    </genClasses>
+    <genClasses ecoreClass="refactoring.ecore#//Generalization">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference refactoring.ecore#//Generalization/specific"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference refactoring.ecore#//Generalization/general"/>
+    </genClasses>
+    <genClasses ecoreClass="refactoring.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute refactoring.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="refactoring.ecore#//Type"/>
+    <genClasses ecoreClass="refactoring.ecore#//model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference refactoring.ecore#//model/propertys"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference refactoring.ecore#//model/entitys"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference refactoring.ecore#//model/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference refactoring.ecore#//model/generalizations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

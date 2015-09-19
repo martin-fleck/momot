@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_GdGW4FWvEeK0V4B2JYxJUg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_GdG98FWvEeK0V4B2JYxJUg" name="mainRule">
+    <lhs xmi:id="_GdG98VWvEeK0V4B2JYxJUg" name="Lhs">
+      <nodes xmi:id="_ow5iEKqEEeKxY8S7jup9FQ" incoming="_v4IDcKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="_5kzkIKqEEeKxY8S7jup9FQ" value="true">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_pb4_0KqEEeKxY8S7jup9FQ" outgoing="_vWJ-0KqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="__aVNEKqEEeKxY8S7jup9FQ" value="false">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_tYh0gKqEEeKxY8S7jup9FQ" incoming="_vWJ-0KqEEeKxY8S7jup9FQ" outgoing="_v4IDcKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <edges xmi:id="_vWJ-0KqEEeKxY8S7jup9FQ" source="_pb4_0KqEEeKxY8S7jup9FQ" target="_tYh0gKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_v4IDcKqEEeKxY8S7jup9FQ" source="_tYh0gKqEEeKxY8S7jup9FQ" target="_ow5iEKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_yw0H0KqEEeKxY8S7jup9FQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_yw0H0aqEEeKxY8S7jup9FQ">
+          <conclusion xmi:id="_yw0H0qqEEeKxY8S7jup9FQ">
+            <nodes xmi:id="_yw2kEKqEEeKxY8S7jup9FQ" incoming="_xHNswKqEEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </nodes>
+            <nodes xmi:id="_t2C28KqEEeKxY8S7jup9FQ" outgoing="_xHNswKqEEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              <attributes xmi:id="_GgmFIKqFEeKxY8S7jup9FQ" value="false">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_xHNswKqEEeKxY8S7jup9FQ" source="_t2C28KqEEeKxY8S7jup9FQ" target="_yw2kEKqEEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/general"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_yw2kEaqEEeKxY8S7jup9FQ" origin="_ow5iEKqEEeKxY8S7jup9FQ" image="_yw2kEKqEEeKxY8S7jup9FQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_GdHlAFWvEeK0V4B2JYxJUg" name="Rhs">
+      <nodes xmi:id="_ow7-UKqEEeKxY8S7jup9FQ" incoming="_v4NjAKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="_9ZAOgKqEEeKxY8S7jup9FQ" value="true">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_pb5m4KqEEeKxY8S7jup9FQ" outgoing="_vWNCIKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="_A-9okKqFEeKxY8S7jup9FQ" value="false">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_tYibkKqEEeKxY8S7jup9FQ" incoming="_vWNCIKqEEeKxY8S7jup9FQ" outgoing="_v4NjAKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <edges xmi:id="_vWNCIKqEEeKxY8S7jup9FQ" source="_pb5m4KqEEeKxY8S7jup9FQ" target="_tYibkKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_v4NjAKqEEeKxY8S7jup9FQ" source="_tYibkKqEEeKxY8S7jup9FQ" target="_ow7-UKqEEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ow7-UaqEEeKxY8S7jup9FQ" origin="_ow5iEKqEEeKxY8S7jup9FQ" image="_ow7-UKqEEeKxY8S7jup9FQ"/>
+    <mappings xmi:id="_pb5m4aqEEeKxY8S7jup9FQ" origin="_pb4_0KqEEeKxY8S7jup9FQ" image="_pb5m4KqEEeKxY8S7jup9FQ"/>
+    <mappings xmi:id="_tYjCoKqEEeKxY8S7jup9FQ" origin="_tYh0gKqEEeKxY8S7jup9FQ" image="_tYibkKqEEeKxY8S7jup9FQ"/>
+  </units>
+</henshin:Module>

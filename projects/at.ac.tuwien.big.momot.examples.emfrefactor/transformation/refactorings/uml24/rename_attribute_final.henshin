@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MU_TIFW2EeK0V4B2JYxJUg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_U4p9UFW2EeK0V4B2JYxJUg" name="same_name" description="The selected attribute is already named as specified!">
+    <parameters xmi:id="_XrClYFW2EeK0V4B2JYxJUg" name="selectedEObject"/>
+    <parameters xmi:id="_XrDMcFW2EeK0V4B2JYxJUg" name="newName"/>
+    <lhs xmi:id="_U4wD8FW2EeK0V4B2JYxJUg" name="Lhs">
+      <nodes xmi:id="_kmehEFW2EeK0V4B2JYxJUg" name="selectedEObject" description="">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_Hm0zgFW5EeK0V4B2JYxJUg" value="newName">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_U4wD8VW2EeK0V4B2JYxJUg" name="Rhs">
+      <nodes xmi:id="_kmhkYFW2EeK0V4B2JYxJUg" name="selectedEObject">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_Hm320FW5EeK0V4B2JYxJUg" value="newName">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kmhkYVW2EeK0V4B2JYxJUg" origin="_kmehEFW2EeK0V4B2JYxJUg" image="_kmhkYFW2EeK0V4B2JYxJUg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_RIpZ8FW3EeK0V4B2JYxJUg" name="existing_name" description="The owning class already owns an attribute named as specified!">
+    <parameters xmi:id="_RIpZ8VW3EeK0V4B2JYxJUg" name="selectedEObject"/>
+    <parameters xmi:id="_RIpZ8lW3EeK0V4B2JYxJUg" name="newName"/>
+    <lhs xmi:id="_RIpZ81W3EeK0V4B2JYxJUg" name="Lhs">
+      <nodes xmi:id="_RIpZ9FW3EeK0V4B2JYxJUg" name="selectedEObject" incoming="_ijCiUFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <nodes xmi:id="_P8fd8FW5EeK0V4B2JYxJUg" incoming="_jTiLIFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_SdroUFW5EeK0V4B2JYxJUg" value="newName">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RGaTYFW5EeK0V4B2JYxJUg" outgoing="_ijCiUFW5EeK0V4B2JYxJUg _jTiLIFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_ijCiUFW5EeK0V4B2JYxJUg" source="_RGaTYFW5EeK0V4B2JYxJUg" target="_RIpZ9FW3EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+      <edges xmi:id="_jTiLIFW5EeK0V4B2JYxJUg" source="_RGaTYFW5EeK0V4B2JYxJUg" target="_P8fd8FW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_RIpZ9VW3EeK0V4B2JYxJUg" name="Rhs">
+      <nodes xmi:id="_RIpZ9lW3EeK0V4B2JYxJUg" name="selectedEObject" incoming="_ijEXgFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <nodes xmi:id="_P8ihQFW5EeK0V4B2JYxJUg" incoming="_jTmckFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_SdsPYFW5EeK0V4B2JYxJUg" value="newName">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RGa6cFW5EeK0V4B2JYxJUg" outgoing="_ijEXgFW5EeK0V4B2JYxJUg _jTmckFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_ijEXgFW5EeK0V4B2JYxJUg" source="_RGa6cFW5EeK0V4B2JYxJUg" target="_RIpZ9lW3EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+      <edges xmi:id="_jTmckFW5EeK0V4B2JYxJUg" source="_RGa6cFW5EeK0V4B2JYxJUg" target="_P8ihQFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_RIpZ91W3EeK0V4B2JYxJUg" origin="_RIpZ9FW3EeK0V4B2JYxJUg" image="_RIpZ9lW3EeK0V4B2JYxJUg"/>
+    <mappings xmi:id="_P8ihQVW5EeK0V4B2JYxJUg" origin="_P8fd8FW5EeK0V4B2JYxJUg" image="_P8ihQFW5EeK0V4B2JYxJUg"/>
+    <mappings xmi:id="_RGa6cVW5EeK0V4B2JYxJUg" origin="_RGaTYFW5EeK0V4B2JYxJUg" image="_RGa6cFW5EeK0V4B2JYxJUg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_i-qZQFW3EeK0V4B2JYxJUg" name="inherited_name" description="The owning class already inherits an attribute named as specified!">
+    <parameters xmi:id="_i-qZQVW3EeK0V4B2JYxJUg" name="selectedEObject"/>
+    <parameters xmi:id="_i-qZQlW3EeK0V4B2JYxJUg" name="newName"/>
+    <lhs xmi:id="_i-qZQ1W3EeK0V4B2JYxJUg" name="Lhs">
+      <nodes xmi:id="_i-qZRFW3EeK0V4B2JYxJUg" name="selectedEObject" incoming="_kRavsFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <nodes xmi:id="_W6kDUFW5EeK0V4B2JYxJUg" incoming="_k0SMMFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_ZYZXsFW5EeK0V4B2JYxJUg" value="newName">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_YMUmIFW5EeK0V4B2JYxJUg" outgoing="_kRavsFW5EeK0V4B2JYxJUg _k0SMMFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_kRavsFW5EeK0V4B2JYxJUg" source="_YMUmIFW5EeK0V4B2JYxJUg" target="_i-qZRFW3EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+      <edges xmi:id="_k0SMMFW5EeK0V4B2JYxJUg" source="_YMUmIFW5EeK0V4B2JYxJUg" target="_W6kDUFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/inheritedMember"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_i-qZRVW3EeK0V4B2JYxJUg" name="Rhs">
+      <nodes xmi:id="_i-qZRlW3EeK0V4B2JYxJUg" name="selectedEObject" incoming="_kRgPQFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <nodes xmi:id="_W6kqYFW5EeK0V4B2JYxJUg" incoming="_k0Y54FW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_ZYcbAFW5EeK0V4B2JYxJUg" value="newName">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_YMUmIVW5EeK0V4B2JYxJUg" outgoing="_kRgPQFW5EeK0V4B2JYxJUg _k0Y54FW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_kRgPQFW5EeK0V4B2JYxJUg" source="_YMUmIVW5EeK0V4B2JYxJUg" target="_i-qZRlW3EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+      <edges xmi:id="_k0Y54FW5EeK0V4B2JYxJUg" source="_YMUmIVW5EeK0V4B2JYxJUg" target="_W6kqYFW5EeK0V4B2JYxJUg">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/inheritedMember"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_i-qZR1W3EeK0V4B2JYxJUg" origin="_i-qZRFW3EeK0V4B2JYxJUg" image="_i-qZRlW3EeK0V4B2JYxJUg"/>
+    <mappings xmi:id="_W6kqYVW5EeK0V4B2JYxJUg" origin="_W6kDUFW5EeK0V4B2JYxJUg" image="_W6kqYFW5EeK0V4B2JYxJUg"/>
+    <mappings xmi:id="_YMVNMFW5EeK0V4B2JYxJUg" origin="_YMUmIFW5EeK0V4B2JYxJUg" image="_YMUmIVW5EeK0V4B2JYxJUg"/>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_BShHYFW6EeK0V4B2JYxJUg" name="mainUnit" subUnits="_U4p9UFW2EeK0V4B2JYxJUg _RIpZ8FW3EeK0V4B2JYxJUg _i-qZQFW3EeK0V4B2JYxJUg">
+    <parameters xmi:id="_CGLY8FW6EeK0V4B2JYxJUg" name="selectedEObject"/>
+    <parameters xmi:id="_CGNOIFW6EeK0V4B2JYxJUg" name="newName" description="New name of the attribute"/>
+    <parameterMappings xmi:id="_FDRcMFW6EeK0V4B2JYxJUg" source="_CGLY8FW6EeK0V4B2JYxJUg" target="_XrClYFW2EeK0V4B2JYxJUg"/>
+    <parameterMappings xmi:id="_FDVGkFW6EeK0V4B2JYxJUg" source="_CGNOIFW6EeK0V4B2JYxJUg" target="_XrDMcFW2EeK0V4B2JYxJUg"/>
+    <parameterMappings xmi:id="_H7N5sFW6EeK0V4B2JYxJUg" source="_CGLY8FW6EeK0V4B2JYxJUg" target="_RIpZ8VW3EeK0V4B2JYxJUg"/>
+    <parameterMappings xmi:id="_H7RkEFW6EeK0V4B2JYxJUg" source="_CGNOIFW6EeK0V4B2JYxJUg" target="_RIpZ8lW3EeK0V4B2JYxJUg"/>
+    <parameterMappings xmi:id="_JTkzwFW6EeK0V4B2JYxJUg" source="_CGLY8FW6EeK0V4B2JYxJUg" target="_i-qZQVW3EeK0V4B2JYxJUg"/>
+    <parameterMappings xmi:id="_JTn3EFW6EeK0V4B2JYxJUg" source="_CGNOIFW6EeK0V4B2JYxJUg" target="_i-qZQlW3EeK0V4B2JYxJUg"/>
+  </units>
+</henshin:Module>

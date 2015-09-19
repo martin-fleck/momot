@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vVPIUKKuEeKVq9bLGfaZZA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ewChoOgOEeCg8vdvhQpFKA" name="check_isAttribute" description="This refactoring can be applied on class attributes only!">
+    <parameters xmi:id="_vkmrAOgOEeCg8vdvhQpFKA" name="prop"/>
+    <lhs xmi:id="_ewChoegOEeCg8vdvhQpFKA" name="LHS">
+      <nodes xmi:id="_8vO5QOgOEeCg8vdvhQpFKA" name="prop">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_h3Nc8KKuEeKVq8bLGfaZZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_FWS1sOgPEeCg8vdvhQpFKA">
+          <conclusion xmi:id="_FWS1segPEeCg8vdvhQpFKA">
+            <nodes xmi:id="_FWS1sugPEeCg8vdvhQpFKA" name="prop" incoming="_KKQT8OgPEeCg8vdvhQpFKA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </nodes>
+            <nodes xmi:id="_HYHjgOgPEeCg8vdvhQpFKA" name="cl" outgoing="_KKQT8OgPEeCg8vdvhQpFKA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </nodes>
+            <edges xmi:id="_KKQT8OgPEeCg8vdvhQpFKA" source="_HYHjgOgPEeCg8vdvhQpFKA" target="_FWS1sugPEeCg8vdvhQpFKA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_FWS1s-gPEeCg8vdvhQpFKA" origin="_8vO5QOgOEeCg8vdvhQpFKA" image="_FWS1sugPEeCg8vdvhQpFKA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_ewChougOEeCg8vdvhQpFKA" name="RHS">
+      <nodes xmi:id="_EcQ2YOgPEeCg8vdvhQpFKA" name="prop">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_EcQ2YegPEeCg8vdvhQpFKA" origin="_8vO5QOgOEeCg8vdvhQpFKA" image="_EcQ2YOgPEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_wxvMgOgOEeCg8vdvhQpFKA" name="check_isPrivate" description="This refactoring can be applied on private attributes only!">
+    <parameters xmi:id="_0QkD0OgOEeCg8vdvhQpFKA" name="att"/>
+    <parameters xmi:id="_AtW6sOgaEeCg8vdvhQpFKA" name="vis" description=""/>
+    <lhs xmi:id="_wxvMgegOEeCg8vdvhQpFKA" name="LHS">
+      <nodes xmi:id="_WfLpQOgPEeCg8vdvhQpFKA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_h3Nc8KKuEeKVq9bLGfaZZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_eZRK8OgPEeCg8vdvhQpFKA">
+          <conclusion xmi:id="_eZRK8egPEeCg8vdvhQpFKA">
+            <nodes xmi:id="_eZRK8ugPEeCg8vdvhQpFKA" name="att">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+              <attributes xmi:id="_jUQeQOgPEeCg8vdvhQpFKA" value="vis">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/visibility"/>
+              </attributes>
+            </nodes>
+          </conclusion>
+          <mappings xmi:id="_eZRK8-gPEeCg8vdvhQpFKA" origin="_WfLpQOgPEeCg8vdvhQpFKA" image="_eZRK8ugPEeCg8vdvhQpFKA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_wxvMgugOEeCg8vdvhQpFKA" name="RHS">
+      <nodes xmi:id="_d2XSMOgPEeCg8vdvhQpFKA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </rhs>
+    <attributeConditions xmi:id="_CpepIOgaEeCg8vdvhQpFKA" description="" conditionText="vis == &quot;private&quot;"/>
+    <mappings xmi:id="_d2XSMegPEeCg8vdvhQpFKA" origin="_WfLpQOgPEeCg8vdvhQpFKA" image="_d2XSMOgPEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_WwkJoOgOEeCg8vdvhQpFKA" name="mainUnit" subUnits="_ewChoOgOEeCg8vdvhQpFKA _wxvMgOgOEeCg8vdvhQpFKA">
+    <parameters xmi:id="_YjOaEOgOEeCg8vdvhQpFKA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_LVMnoOgQEeCg8vdvhQpFKA" source="_YjOaEOgOEeCg8vdvhQpFKA" target="_vkmrAOgOEeCg8vdvhQpFKA"/>
+    <parameterMappings xmi:id="_NJqO4OgQEeCg8vdvhQpFKA" source="_YjOaEOgOEeCg8vdvhQpFKA" target="_0QkD0OgOEeCg8vdvhQpFKA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_7GSwcEaDEeWSX6__GoVsxg" name="University">
+  <packageImport xmi:id="_7U0UoEaDEeWSX6__GoVsxg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_8ZxKgEaDEeWSX6__GoVsxg" name="University">
+    <ownedAttribute xmi:id="_-QVDgEaDEeWSX6__GoVsxg" name="name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_HNf9YEaFEeWSX6__GoVsxg" name="getName">
+      <ownedParameter xmi:id="_HNf9YUaFEeWSX6__GoVsxg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_vpN-QEaFEeWSX6__GoVsxg" name="setName">
+      <ownedParameter xmi:id="_vpN-QUaFEeWSX6__GoVsxg" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_0kuKYFAGEeWJsLvM7PU2PA" name="Test"/>
+</uml:Model>

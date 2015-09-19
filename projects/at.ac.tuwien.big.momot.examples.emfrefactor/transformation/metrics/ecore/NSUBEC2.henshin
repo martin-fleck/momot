@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_X5gBgBFBEeKib6Jrz8n_Dw">
+  <rules xmi:id="_bwtjoBFBEeKib6Jrz8n_Dw" name="mainRule">
+    <parameters xmi:id="_v67aMBFBEeKib6Jrz8n_Dw" name="context"/>
+    <lhs xmi:id="_bwtjoRFBEeKib6Jrz8n_Dw" name="LHS">
+      <nodes xmi:id="_jVlDQBFBEeKib6Jrz8n_Dw" name="context" incoming="_rVFQcBFBEeKib6Jrz8n_Dw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_nUskMBFBEeKib6Jrz8n_Dw" outgoing="_rVFQcBFBEeKib6Jrz8n_Dw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <edges xmi:id="_rVFQcBFBEeKib6Jrz8n_Dw" source="_nUskMBFBEeKib6Jrz8n_Dw" target="_jVlDQBFBEeKib6Jrz8n_Dw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllSuperTypes"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_bwtjohFBEeKib6Jrz8n_Dw" name="RHS">
+      <nodes xmi:id="_jVnfgBFBEeKib6Jrz8n_Dw" name="context" incoming="_rVF3gBFBEeKib6Jrz8n_Dw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_nUskMRFBEeKib6Jrz8n_Dw" outgoing="_rVF3gBFBEeKib6Jrz8n_Dw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <edges xmi:id="_rVF3gBFBEeKib6Jrz8n_Dw" source="_nUskMRFBEeKib6Jrz8n_Dw" target="_jVnfgBFBEeKib6Jrz8n_Dw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllSuperTypes"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_jVnfgRFBEeKib6Jrz8n_Dw" origin="_jVlDQBFBEeKib6Jrz8n_Dw" image="_jVnfgBFBEeKib6Jrz8n_Dw"/>
+    <mappings xmi:id="_nUtLQBFBEeKib6Jrz8n_Dw" origin="_nUskMBFBEeKib6Jrz8n_Dw" image="_nUskMRFBEeKib6Jrz8n_Dw"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+</henshin:TransformationSystem>

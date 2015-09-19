@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_rX45UBHwEeKSGqZuqrXSrQ" name="transformation system">
+  <rules xmi:id="_rYDRYBHwEeKSGqZuqrXSrQ" name="remove">
+    <parameters xmi:id="_rYFGkBHwEeKSGqZuqrXSrQ" name="selectedEClass"/>
+    <lhs xmi:id="_rYR64BHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_rYR64RHwEeKSGqZuqrXSrQ" name="selectedEClass" incoming="_rYR65hHwEeKSGqZuqrXSrQ _rYR66hHwEeKSGqZuqrXSrQ" outgoing="_rYR65xHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_rYR64hHwEeKSGqZuqrXSrQ" outgoing="_rYR65hHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <nodes xmi:id="_rYR64xHwEeKSGqZuqrXSrQ" incoming="_rYR66BHwEeKSGqZuqrXSrQ" outgoing="_rYR66RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_rYR65BHwEeKSGqZuqrXSrQ" incoming="_rYR65xHwEeKSGqZuqrXSrQ _rYR67BHwEeKSGqZuqrXSrQ" outgoing="_rYR66BHwEeKSGqZuqrXSrQ _rYR66xHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_rYR65RHwEeKSGqZuqrXSrQ" incoming="_rYR66RHwEeKSGqZuqrXSrQ _rYR66xHwEeKSGqZuqrXSrQ" outgoing="_rYR66hHwEeKSGqZuqrXSrQ _rYR67BHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <edges xmi:id="_rYR65hHwEeKSGqZuqrXSrQ" source="_rYR64hHwEeKSGqZuqrXSrQ" target="_rYR64RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+      <edges xmi:id="_rYR65xHwEeKSGqZuqrXSrQ" source="_rYR64RHwEeKSGqZuqrXSrQ" target="_rYR65BHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eStructuralFeatures"/>
+      </edges>
+      <edges xmi:id="_rYR66BHwEeKSGqZuqrXSrQ" source="_rYR65BHwEeKSGqZuqrXSrQ" target="_rYR64xHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+      </edges>
+      <edges xmi:id="_rYR66RHwEeKSGqZuqrXSrQ" source="_rYR64xHwEeKSGqZuqrXSrQ" target="_rYR65RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eStructuralFeatures"/>
+      </edges>
+      <edges xmi:id="_rYR66hHwEeKSGqZuqrXSrQ" source="_rYR65RHwEeKSGqZuqrXSrQ" target="_rYR64RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+      </edges>
+      <edges xmi:id="_rYR66xHwEeKSGqZuqrXSrQ" source="_rYR65BHwEeKSGqZuqrXSrQ" target="_rYR65RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference/eOpposite"/>
+      </edges>
+      <edges xmi:id="_rYR67BHwEeKSGqZuqrXSrQ" source="_rYR65RHwEeKSGqZuqrXSrQ" target="_rYR65BHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference/eOpposite"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_rYSh8BHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_rYSh8RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <nodes xmi:id="_rYSh8hHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_rYTJABHwEeKSGqZuqrXSrQ" origin="_rYR64hHwEeKSGqZuqrXSrQ" image="_rYSh8RHwEeKSGqZuqrXSrQ"/>
+    <mappings xmi:id="_rYTJARHwEeKSGqZuqrXSrQ" origin="_rYR64xHwEeKSGqZuqrXSrQ" image="_rYSh8hHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_rYD4cBHwEeKSGqZuqrXSrQ" description="" name="mainUnit" subUnits="_rYDRYBHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_rYD4cRHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
+    <parameterMappings xmi:id="_rYD4chHwEeKSGqZuqrXSrQ" source="_rYD4cRHwEeKSGqZuqrXSrQ" target="_rYFGkBHwEeKSGqZuqrXSrQ"/>
+  </transformationUnits>
+</henshin:TransformationSystem>

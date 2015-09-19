@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_nxiCkEaAEeWtjPFhJSzJTA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_nxiCkUaAEeWtjPFhJSzJTA" name="mainRule">
+    <parameters xmi:id="_nxiCkkaAEeWtjPFhJSzJTA" name="an"/>
+    <lhs xmi:id="_nxiCk0aAEeWtjPFhJSzJTA" name="Lhs">
+      <nodes xmi:id="_nxiClEaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_nxiClUaAEeWtjPFhJSzJTA" value="an">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nxipoEaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_nxipoUaAEeWtjPFhJSzJTA" value="an">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_2eeKgKpyEeKxY8S7jup9FQ">
+        <conclusion xmi:id="_2eeKgapyEeKxY8S7jup9FQ">
+          <nodes xmi:id="_2eeKgqpyEeKxY8S7jup9FQ" incoming="_EYcyEKpzEeKxY8S7jup9FQ" outgoing="_iPAdAKpxEeKxY8S7jup9FQ">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            <attributes xmi:id="_2eeKg6pyEeKxY8S7jup9FQ" value="an">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_2eeKhapyEeKxY8S7jup9FQ" incoming="_iPAdAKpxEeKxY8S7jup9FQ _8E948KpyEeKxY8S7jup9FQ">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            <attributes xmi:id="_2eeKhqpyEeKxY8S7jup9FQ" value="an">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_6j-AQKpyEeKxY8S7jup9FQ" outgoing="_8E948KpyEeKxY8S7jup9FQ">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+          </nodes>
+          <nodes xmi:id="_Dfw2kKpzEeKxY8S7jup9FQ" outgoing="_EYcyEKpzEeKxY8S7jup9FQ">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+          </nodes>
+          <edges xmi:id="_iPAdAKpxEeKxY8S7jup9FQ" source="_2eeKgqpyEeKxY8S7jup9FQ" target="_2eeKhapyEeKxY8S7jup9FQ">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//RedefinableElement/redefinedElement"/>
+          </edges>
+          <edges xmi:id="_8E948KpyEeKxY8S7jup9FQ" source="_6j-AQKpyEeKxY8S7jup9FQ" target="_2eeKhapyEeKxY8S7jup9FQ">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/attribute"/>
+          </edges>
+          <edges xmi:id="_EYcyEKpzEeKxY8S7jup9FQ" source="_Dfw2kKpzEeKxY8S7jup9FQ" target="_2eeKgqpyEeKxY8S7jup9FQ">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/attribute"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_2eeKhKpyEeKxY8S7jup9FQ" origin="_nxiClEaAEeWtjPFhJSzJTA" image="_2eeKgqpyEeKxY8S7jup9FQ"/>
+        <mappings xmi:id="_2eeKh6pyEeKxY8S7jup9FQ" origin="_nxipoEaAEeWtjPFhJSzJTA" image="_2eeKhapyEeKxY8S7jup9FQ"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_nxipokaAEeWtjPFhJSzJTA" name="Rhs">
+      <nodes xmi:id="_nxipo0aAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_nxippEaAEeWtjPFhJSzJTA" value="an">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nxippUaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_nxippkaAEeWtjPFhJSzJTA" value="an">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_nxipp0aAEeWtjPFhJSzJTA" origin="_nxiClEaAEeWtjPFhJSzJTA" image="_nxipo0aAEeWtjPFhJSzJTA"/>
+    <mappings xmi:id="_nxipqEaAEeWtjPFhJSzJTA" origin="_nxipoEaAEeWtjPFhJSzJTA" image="_nxippUaAEeWtjPFhJSzJTA"/>
+  </units>
+</henshin:Module>

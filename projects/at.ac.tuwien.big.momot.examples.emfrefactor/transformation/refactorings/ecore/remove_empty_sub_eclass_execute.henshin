@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qcgPIBHwEeKSGqZuqrXSrQ" name="transformation system">
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_qcscYBHwEeKSGqZuqrXSrQ" name="remove">
+    <parameters xmi:id="_qcscYRHwEeKSGqZuqrXSrQ" name="selectedEClass"/>
+    <lhs xmi:id="_qcu4oBHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_qcu4oRHwEeKSGqZuqrXSrQ" name="selectedEClass" incoming="_qcu4oxHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_qcu4ohHwEeKSGqZuqrXSrQ" outgoing="_qcu4oxHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <edges xmi:id="_qcu4oxHwEeKSGqZuqrXSrQ" source="_qcu4ohHwEeKSGqZuqrXSrQ" target="_qcu4oRHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_qcu4pBHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_qcu4pRHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_qcvfsBHwEeKSGqZuqrXSrQ" origin="_qcu4ohHwEeKSGqZuqrXSrQ" image="_qcu4pRHwEeKSGqZuqrXSrQ"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_qctqgBHwEeKSGqZuqrXSrQ" name="mainUnit" description="" subUnits="_qcscYBHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_qctqgRHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
+    <parameterMappings xmi:id="_qctqghHwEeKSGqZuqrXSrQ" source="_qctqgRHwEeKSGqZuqrXSrQ" target="_qcscYRHwEeKSGqZuqrXSrQ"/>
+  </units>
+</henshin:Module>

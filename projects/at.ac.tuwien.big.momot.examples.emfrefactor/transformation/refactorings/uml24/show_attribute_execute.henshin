@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hUpO8B7PEeOS7axWbKnJuA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_60AnEOgsEeCg8vdvhQpFKA" name="change_visibility">
+    <parameters xmi:id="_YjOaEOgOEeCg8vdvhQpFKA" name="att"/>
+    <lhs xmi:id="_60AnEegsEeCg8vdvhQpFKA" name="LHS">
+      <nodes xmi:id="__zjqQOgsEeCg8vdvhQpFKA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_60AnEugsEeCg8vdvhQpFKA" name="RHS">
+      <nodes xmi:id="_ByqbQOgtEeCg8vdvhQpFKA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_Cd1fMOgtEeCg8vdvhQpFKA" value="&quot;public&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/visibility"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ByqbQegtEeCg8vdvhQpFKA" origin="__zjqQOgsEeCg8vdvhQpFKA" image="_ByqbQOgtEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_QG_VIOgwEeCg8vdvhQpFKA" name="remove_getter" checkDangling="false">
+    <parameters xmi:id="_cr-fsOgwEeCg8vdvhQpFKA" name="att"/>
+    <parameters xmi:id="_leVGIOgwEeCg8vdvhQpFKA" name="attname"/>
+    <parameters xmi:id="_GjQNsOgzEeCg8vdvhQpFKA" name="opname"/>
+    <lhs xmi:id="_QG_VIegwEeCg8vdvhQpFKA" name="LHS">
+      <nodes xmi:id="_d3LHgOgwEeCg8vdvhQpFKA" name="att" incoming="_bkbzYOgxEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_nUnSUOgwEeCg8vdvhQpFKA" value="attname">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_rXTrsOgwEeCg8vdvhQpFKA" name="cl" outgoing="_bkbzYOgxEeCg8vdvhQpFKA _YF7CIOhSEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_U9w-YOhSEeCg8vdvhQpFKA" name="exop" incoming="_YF7CIOhSEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+        <attributes xmi:id="_fM5dIOhYEeCg8vdvhQpFKA" value="opname">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_bkbzYOgxEeCg8vdvhQpFKA" source="_rXTrsOgwEeCg8vdvhQpFKA" target="_d3LHgOgwEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+      <edges xmi:id="_YF7CIOhSEeCg8vdvhQpFKA" source="_rXTrsOgwEeCg8vdvhQpFKA" target="_U9w-YOhSEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/ownedOperation"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_QG_VIugwEeCg8vdvhQpFKA" name="RHS">
+      <nodes xmi:id="_PfqvQOhYEeCg8vdvhQpFKA" name="att" incoming="_PfqvROhYEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_PfqvQehYEeCg8vdvhQpFKA" value="attname">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_PfqvQuhYEeCg8vdvhQpFKA" name="cl" outgoing="_PfqvROhYEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_PfqvROhYEeCg8vdvhQpFKA" source="_PfqvQuhYEeCg8vdvhQpFKA" target="_PfqvQOhYEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_m5JpEOhWEeCg8vdvhQpFKA" conditionText="opname == &quot;get&quot;+attname.substring(0,1).toUpperCase()+attname.substr(1)"/>
+    <mappings xmi:id="_PfqvRuhYEeCg8vdvhQpFKA" origin="_d3LHgOgwEeCg8vdvhQpFKA" image="_PfqvQOhYEeCg8vdvhQpFKA"/>
+    <mappings xmi:id="_PfqvR-hYEeCg8vdvhQpFKA" origin="_rXTrsOgwEeCg8vdvhQpFKA" image="_PfqvQuhYEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_KSLAYOg8EeCg8vdvhQpFKA" name="remove_setter" checkDangling="false">
+    <parameters xmi:id="_KSLAYeg8EeCg8vdvhQpFKA" name="att"/>
+    <parameters xmi:id="_KSLAYug8EeCg8vdvhQpFKA" name="attname"/>
+    <parameters xmi:id="_KSLAY-g8EeCg8vdvhQpFKA" name="opname"/>
+    <lhs xmi:id="_KSLAZOg8EeCg8vdvhQpFKA" name="LHS">
+      <nodes xmi:id="_KSLAZeg8EeCg8vdvhQpFKA" name="att" incoming="_KSLAaOg8EeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_KSLAZug8EeCg8vdvhQpFKA" value="attname">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_KSLAZ-g8EeCg8vdvhQpFKA" name="cl" incoming="_TnnmoOhZEeCg8vdvhQpFKA" outgoing="_KSLAaOg8EeCg8vdvhQpFKA _-0Wv4OhUEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_r7vrIOhUEeCg8vdvhQpFKA" name="exop" incoming="_-0Wv4OhUEeCg8vdvhQpFKA" outgoing="_TnnmoOhZEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+        <attributes xmi:id="_ueXY4OhUEeCg8vdvhQpFKA" value="opname">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_KSLAaOg8EeCg8vdvhQpFKA" source="_KSLAZ-g8EeCg8vdvhQpFKA" target="_KSLAZeg8EeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+      <edges xmi:id="_-0Wv4OhUEeCg8vdvhQpFKA" source="_KSLAZ-g8EeCg8vdvhQpFKA" target="_r7vrIOhUEeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/ownedOperation"/>
+      </edges>
+      <edges xmi:id="_TnnmoOhZEeCg8vdvhQpFKA" source="_r7vrIOhUEeCg8vdvhQpFKA" target="_KSLAZ-g8EeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation/class"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_KSLAaeg8EeCg8vdvhQpFKA" name="RHS">
+      <nodes xmi:id="_KSLAaug8EeCg8vdvhQpFKA" name="att" incoming="_KSLAceg8EeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_KSLAa-g8EeCg8vdvhQpFKA" value="attname">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_KSLAbOg8EeCg8vdvhQpFKA" name="cl" outgoing="_KSLAceg8EeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <edges xmi:id="_KSLAceg8EeCg8vdvhQpFKA" source="_KSLAbOg8EeCg8vdvhQpFKA" target="_KSLAaug8EeCg8vdvhQpFKA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_iBAOYOhWEeCg8vdvhQpFKA" conditionText="opname == &quot;set&quot;+attname.substring(0,1).toUpperCase()+attname.substr(1)"/>
+    <mappings xmi:id="_KSLnc-g8EeCg8vdvhQpFKA" origin="_KSLAZeg8EeCg8vdvhQpFKA" image="_KSLAaug8EeCg8vdvhQpFKA"/>
+    <mappings xmi:id="_KSLndOg8EeCg8vdvhQpFKA" origin="_KSLAZ-g8EeCg8vdvhQpFKA" image="_KSLAbOg8EeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_4dLLMOgvEeCg8vdvhQpFKA" name="mainUnit" description="" subUnits="_60AnEOgsEeCg8vdvhQpFKA _T0Gr0OhLEeCg8vdvhQpFKA _4KaWgOhLEeCg8vdvhQpFKA">
+    <parameters xmi:id="_UbZQ8OgtEeCg8vdvhQpFKA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_-uGWsOgvEeCg8vdvhQpFKA" source="_UbZQ8OgtEeCg8vdvhQpFKA" target="_YjOaEOgOEeCg8vdvhQpFKA"/>
+    <parameterMappings xmi:id="_lsIdUOhLEeCg8vdvhQpFKA" source="_UbZQ8OgtEeCg8vdvhQpFKA" target="_WTT5MOhLEeCg8vdvhQpFKA"/>
+    <parameterMappings xmi:id="_EUUHkOhMEeCg8vdvhQpFKA" source="_UbZQ8OgtEeCg8vdvhQpFKA" target="_96mMcOhLEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_T0Gr0OhLEeCg8vdvhQpFKA" name="countedGetter" subUnit="_bxmt4OhLEeCg8vdvhQpFKA">
+    <parameters xmi:id="_WTT5MOhLEeCg8vdvhQpFKA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_i6tekOhLEeCg8vdvhQpFKA" source="_WTT5MOhLEeCg8vdvhQpFKA" target="_eBRDYOhLEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_bxmt4OhLEeCg8vdvhQpFKA" name="indepGetter" subUnits="_QG_VIOgwEeCg8vdvhQpFKA">
+    <parameters xmi:id="_eBRDYOhLEeCg8vdvhQpFKA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_gwXt8OhLEeCg8vdvhQpFKA" source="_eBRDYOhLEeCg8vdvhQpFKA" target="_cr-fsOgwEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_4KaWgOhLEeCg8vdvhQpFKA" name="countedSetter" subUnit="_7lyRMOhLEeCg8vdvhQpFKA">
+    <parameters xmi:id="_96mMcOhLEeCg8vdvhQpFKA" name="selectedEObject"/>
+    <parameterMappings xmi:id="__-0uAOhLEeCg8vdvhQpFKA" source="_96mMcOhLEeCg8vdvhQpFKA" target="_-NHf0OhLEeCg8vdvhQpFKA"/>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_7lyRMOhLEeCg8vdvhQpFKA" name="indepSetter" subUnits="_KSLAYOg8EeCg8vdvhQpFKA">
+    <parameters xmi:id="_-NHf0OhLEeCg8vdvhQpFKA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_B6CdgOhMEeCg8vdvhQpFKA" source="_-NHf0OhLEeCg8vdvhQpFKA" target="_KSLAYeg8EeCg8vdvhQpFKA"/>
+  </units>
+</henshin:Module>

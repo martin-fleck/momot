@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ENqOcFrZEeW4T6-tchx2cQ">
+  <imports href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_E1zzkFrZEeW4T6-tchx2cQ" name="createModule">
+    <parameters xmi:id="_SlJRYFrZEeW4T6-tchx2cQ" name="moduleName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_E2jacFrZEeW4T6-tchx2cQ" name="Lhs">
+      <nodes xmi:id="_GpKnkFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_YUrAAFrZEeW4T6-tchx2cQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_YUrAAVrZEeW4T6-tchx2cQ">
+          <conclusion xmi:id="_YUrAAlrZEeW4T6-tchx2cQ">
+            <nodes xmi:id="_YUrAA1rZEeW4T6-tchx2cQ" outgoing="_Ho9QoFrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel"/>
+            </nodes>
+            <nodes xmi:id="_HILe0FrZEeW4T6-tchx2cQ" incoming="_Ho9QoFrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Module"/>
+              <attributes xmi:id="_T4JxYFrZEeW4T6-tchx2cQ" value="moduleName">
+                <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//NamedElement/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_Ho9QoFrZEeW4T6-tchx2cQ" source="_YUrAA1rZEeW4T6-tchx2cQ" target="_HILe0FrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/modules"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_YUrABFrZEeW4T6-tchx2cQ" origin="_GpKnkFrZEeW4T6-tchx2cQ" image="_YUrAA1rZEeW4T6-tchx2cQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_E2kBgFrZEeW4T6-tchx2cQ" name="Rhs">
+      <nodes xmi:id="_GpKnkVrZEeW4T6-tchx2cQ" outgoing="_LKT3gFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel"/>
+      </nodes>
+      <nodes xmi:id="_HPUBkFrZEeW4T6-tchx2cQ" incoming="_LKT3gFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Module"/>
+        <attributes xmi:id="_UBU7gFrZEeW4T6-tchx2cQ" value="moduleName">
+          <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_LKT3gFrZEeW4T6-tchx2cQ" source="_GpKnkVrZEeW4T6-tchx2cQ" target="_HPUBkFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/modules"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_GpKnklrZEeW4T6-tchx2cQ" origin="_GpKnkFrZEeW4T6-tchx2cQ" image="_GpKnkVrZEeW4T6-tchx2cQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_aWEQAFrZEeW4T6-tchx2cQ" name="assignClass">
+    <parameters xmi:id="_cVnF4FrZEeW4T6-tchx2cQ" name="module">
+      <type xsi:type="ecore:EClass" href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Module"/>
+    </parameters>
+    <parameters xmi:id="_cVnF4VrZEeW4T6-tchx2cQ" name="class">
+      <type xsi:type="ecore:EClass" href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Class"/>
+    </parameters>
+    <lhs xmi:id="_aWIhcFrZEeW4T6-tchx2cQ" name="Lhs">
+      <nodes xmi:id="_cVns8FrZEeW4T6-tchx2cQ" name="root" outgoing="_eHUUE1rZEeW4T6-tchx2cQ _eW9SkFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel"/>
+      </nodes>
+      <nodes xmi:id="_eHUUEFrZEeW4T6-tchx2cQ" name="module" incoming="_eHUUE1rZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Module"/>
+      </nodes>
+      <nodes xmi:id="_eW8rgFrZEeW4T6-tchx2cQ" name="class" incoming="_eW9SkFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Class"/>
+      </nodes>
+      <edges xmi:id="_eHUUE1rZEeW4T6-tchx2cQ" source="_cVns8FrZEeW4T6-tchx2cQ" target="_eHUUEFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/modules"/>
+      </edges>
+      <edges xmi:id="_eW9SkFrZEeW4T6-tchx2cQ" source="_cVns8FrZEeW4T6-tchx2cQ" target="_eW8rgFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/classes"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_hzu7cFrZEeW4T6-tchx2cQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_hzu7cVrZEeW4T6-tchx2cQ">
+          <conclusion xmi:id="_hzu7clrZEeW4T6-tchx2cQ">
+            <nodes xmi:id="_hzu7c1rZEeW4T6-tchx2cQ" name="class" incoming="_qOI79lrZEeW4T6-tchx2cQ" outgoing="_gZ6BwFrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Class"/>
+            </nodes>
+            <nodes xmi:id="_d6kRgFrZEeW4T6-tchx2cQ" incoming="_d6kRg1rZEeW4T6-tchx2cQ _gZ6BwFrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Module"/>
+            </nodes>
+            <nodes xmi:id="_qOI78FrZEeW4T6-tchx2cQ" name="root" outgoing="_qOI79VrZEeW4T6-tchx2cQ _qOI79lrZEeW4T6-tchx2cQ _d6kRg1rZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel"/>
+            </nodes>
+            <nodes xmi:id="_qOI781rZEeW4T6-tchx2cQ" name="module" incoming="_qOI79VrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Module"/>
+            </nodes>
+            <edges xmi:id="_gZ6BwFrZEeW4T6-tchx2cQ" source="_hzu7c1rZEeW4T6-tchx2cQ" target="_d6kRgFrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Class/module"/>
+            </edges>
+            <edges xmi:id="_qOI79VrZEeW4T6-tchx2cQ" source="_qOI78FrZEeW4T6-tchx2cQ" target="_qOI781rZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/modules"/>
+            </edges>
+            <edges xmi:id="_qOI79lrZEeW4T6-tchx2cQ" source="_qOI78FrZEeW4T6-tchx2cQ" target="_hzu7c1rZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/classes"/>
+            </edges>
+            <edges xmi:id="_d6kRg1rZEeW4T6-tchx2cQ" source="_qOI78FrZEeW4T6-tchx2cQ" target="_d6kRgFrZEeW4T6-tchx2cQ">
+              <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/modules"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_hzu7dFrZEeW4T6-tchx2cQ" origin="_eW8rgFrZEeW4T6-tchx2cQ" image="_hzu7c1rZEeW4T6-tchx2cQ"/>
+          <mappings xmi:id="_qOI78VrZEeW4T6-tchx2cQ" origin="_cVns8FrZEeW4T6-tchx2cQ" image="_qOI78FrZEeW4T6-tchx2cQ"/>
+          <mappings xmi:id="_qOI79FrZEeW4T6-tchx2cQ" origin="_eHUUEFrZEeW4T6-tchx2cQ" image="_qOI781rZEeW4T6-tchx2cQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_aWIhcVrZEeW4T6-tchx2cQ" name="Rhs">
+      <nodes xmi:id="_cVns8VrZEeW4T6-tchx2cQ" name="root" outgoing="_eHU7IFrZEeW4T6-tchx2cQ _eW9SkVrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel"/>
+      </nodes>
+      <nodes xmi:id="_eHUUEVrZEeW4T6-tchx2cQ" name="module" incoming="_eHU7IFrZEeW4T6-tchx2cQ _goepQFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Module"/>
+      </nodes>
+      <nodes xmi:id="_eW8rgVrZEeW4T6-tchx2cQ" name="class" incoming="_eW9SkVrZEeW4T6-tchx2cQ" outgoing="_goepQFrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Class"/>
+      </nodes>
+      <edges xmi:id="_eHU7IFrZEeW4T6-tchx2cQ" source="_cVns8VrZEeW4T6-tchx2cQ" target="_eHUUEVrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/modules"/>
+      </edges>
+      <edges xmi:id="_eW9SkVrZEeW4T6-tchx2cQ" source="_cVns8VrZEeW4T6-tchx2cQ" target="_eW8rgVrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//ModularizationModel/classes"/>
+      </edges>
+      <edges xmi:id="_goepQFrZEeW4T6-tchx2cQ" source="_eW8rgVrZEeW4T6-tchx2cQ" target="_eHUUEVrZEeW4T6-tchx2cQ">
+        <type href="http://momot.big.tuwien.ac.at/modularization/jsep/1.0#//Class/module"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_cVns8lrZEeW4T6-tchx2cQ" origin="_cVns8FrZEeW4T6-tchx2cQ" image="_cVns8VrZEeW4T6-tchx2cQ"/>
+    <mappings xmi:id="_eHUUElrZEeW4T6-tchx2cQ" origin="_eHUUEFrZEeW4T6-tchx2cQ" image="_eHUUEVrZEeW4T6-tchx2cQ"/>
+    <mappings xmi:id="_eW8rglrZEeW4T6-tchx2cQ" origin="_eW8rgFrZEeW4T6-tchx2cQ" image="_eW8rgVrZEeW4T6-tchx2cQ"/>
+  </units>
+</henshin:Module>

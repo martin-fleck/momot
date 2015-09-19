@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_9UW0UFTrEeKbvKxYGXlUPw" type="Henshin" name="NNIACP.henshin_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_GJNVIFTsEeKbvKxYGXlUPw" type="2001" fontName="Segoe UI" italic="true" fillColor="16114135" lineColor="0">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LXbtgFTsEeKbvKxYGXlUPw" source="defaultAction">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LXbtgVTsEeKbvKxYGXlUPw" key="value" value="forbid"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_GJQYcFTsEeKbvKxYGXlUPw" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_GJQYcVTsEeKbvKxYGXlUPw" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_LXeJwFTsEeKbvKxYGXlUPw" type="3001" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_LXew0FTsEeKbvKxYGXlUPw" type="5002"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_LXew0VTsEeKbvKxYGXlUPw" type="5003"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_LYHC8FTsEeKbvKxYGXlUPw" type="7002">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_LYHC8VTsEeKbvKxYGXlUPw"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_LYHC8lTsEeKbvKxYGXlUPw"/>
+        </children>
+        <element xmi:type="henshin:Node" href="NNIACP.henshin#//@units.0/@lhs/@nodes.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LXeJwVTsEeKbvKxYGXlUPw" x="31" y="161"/>
+      </children>
+    </children>
+    <element xmi:type="henshin:Rule" href="NNIACP.henshin#//@units.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GJNVIVTsEeKbvKxYGXlUPw" x="37" y="36" width="496" height="384"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_9UW0UVTrEeKbvKxYGXlUPw"/>
+  <element xmi:type="henshin:Module" href="NNIACP.henshin#/"/>
+</notation:Diagram>

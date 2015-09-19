@@ -1,0 +1,103 @@
+package at.ac.tuwien.big.momot.examples.modularization.jsep.derived
+
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.momot.examples.modularization.jsep.ModularizationCalculator
+import at.ac.tuwien.big.momot.examples.modularization.jsep.ModularizationRules
+import at.ac.tuwien.big.momot.problem.unit.parameter.increment.IncrementalStringValue
+import at.ac.tuwien.big.momot.^search.solution.repair.TransformationPlaceholderRepairer
+import at.ac.tuwien.big.momot.util.MomotUtil
+import org.moeaframework.core.operator.OnePointCrossover
+import org.moeaframework.core.operator.TournamentSelection
+import at.ac.tuwien.big.momot.examples.modularization.jsep.modularization.ModularizationModel
+import at.ac.tuwien.big.momot.examples.modularization.jsep.modularization.ModularizationPackage
+import at.ac.tuwien.big.momot.examples.modularization.jsep.modularization.Module
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+
+var attribute = "calculation"
+
+initialization  = {
+	ModularizationPackage.eINSTANCE.class // register package in standalone
+}
+
+search = {
+	model = "data/input/models/mtunis.xmi"
+	solutionLength = 20
+	transformations = {
+		modules = [ "data/modularization_jsep.henshin" ]
+		parameterValues = {
+			ModularizationRules.CreateModule.Parameter::MODULE_NAME :
+					new IncrementalStringValue("Module", "A")
+		}
+	}
+	fitness = {
+		preprocess = { // use attribute storage for external calculation
+			val root = MomotUtil.getRoot(solution.execute, typeof(ModularizationModel))
+			solution.setAttribute("root", root)
+			solution.setAttribute(attribute, new ModularizationCalculator(root))
+		}
+		objectives = { 
+			Coupling : minimize { // java-like syntax
+				val calculator = solution.getAttribute(attribute, typeof(ModularizationCalculator))
+				calculator.metrics.coupling
+			}
+			Cohesion : maximize { 
+				val calculator = solution.getAttribute(attribute, typeof(ModularizationCalculator))
+				calculator.metrics.cohesion
+			}
+			NrModules : maximize {
+				val calculator = solution.getAttribute(attribute, typeof(ModularizationCalculator))
+				calculator.metrics.nrModules
+			}
+			MQ : maximize {
+				val calculator = solution.getAttribute(attribute, typeof(ModularizationCalculator))
+				calculator.metrics.modularizationQuality
+			}
+			MinMaxDiff : minimize {
+				val calculator = solution.getAttribute(attribute, typeof(ModularizationCalculator))
+				calculator.metrics.minMaxDiff
+			}
+		}
+		
+		constraints = { // mark invalid solutions
+			UnassignedClasses : minimize { 
+				(root as ModularizationModel).classes.filter[c | c.module == null].size
+			}
+			EmptyModules : minimize { 
+				(root as ModularizationModel).^modules.filter[m | m.classes.empty].size
+			}
+		}
+		solutionRepairer = new TransformationPlaceholderRepairer
+	}
+	
+	algorithms = {
+		NSGAIII : moea.createNSGAIII(
+				0, 6,
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0), 
+				new TransformationVariableMutation(orchestration.searchHelper, 0.10))
+	}
+	
+	equalityHelper = {
+		if(left instanceof Module && right instanceof Module) {
+			val leftIndex = (left.eContainer as ModularizationModel).^modules.indexOf(left)
+			val rightIndex = (right.eContainer as ModularizationModel).^modules.indexOf(right)
+			return leftIndex.equals(rightIndex) 
+		}
+		left.equals(right)
+	}
+} 
+
+experiment = {
+	populationSize = 32768
+	maxEvaluations = 32768
+	nrRuns = 30
+	progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+
+finalization = {
+	saveObjectives "data/output/runtime/approximationSet/momot_32768ps.pf"
+	saveSolutions "data/output/models/runtime/momot_32768ps/"
+	printSolutions 
+	printObjectives 
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vVPIUKKuEeKVq9bLGfaZZA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_9Hnh0L-bEeGJIaNLXOZ3NA" name="mainUnit" checkDangling="false">
+    <parameters xmi:id="_pw1hEL-gEeGJIaNLXOZ3NA" name="selectedEObject"/>
+    <lhs xmi:id="_9Hnh0b-bEeGJIaNLXOZ3NA" name="LHS">
+      <nodes xmi:id="_KjhtUL-cEeGJIaNLXOZ3NA" name="owningPackage" outgoing="_RDuD4L-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_M8ODAL-cEeGJIaNLXOZ3NA" name="selectedEObject" incoming="_RDuD4L-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+      </nodes>
+      <edges xmi:id="_RDuD4L-cEeGJIaNLXOZ3NA" source="_KjhtUL-cEeGJIaNLXOZ3NA" target="_M8ODAL-cEeGJIaNLXOZ3NA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_9Hnh0r-bEeGJIaNLXOZ3NA" name="RHS">
+      <nodes xmi:id="_KjhtUb-cEeGJIaNLXOZ3NA" name="owningPackage">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_KjhtUr-cEeGJIaNLXOZ3NA" origin="_KjhtUL-cEeGJIaNLXOZ3NA" image="_KjhtUb-cEeGJIaNLXOZ3NA"/>
+  </units>
+</henshin:Module>

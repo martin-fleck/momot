@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_nzDskEaAEeWtjPFhJSzJTA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_nzDskUaAEeWtjPFhJSzJTA" name="mainRule">
+    <lhs xmi:id="_nzDskkaAEeWtjPFhJSzJTA" name="Lhs">
+      <nodes xmi:id="_nzDsk0aAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <formula xsi:type="henshin:And" xmi:id="_nzDslEaAEeWtjPFhJSzJTA">
+        <left xsi:type="henshin:And" xmi:id="_nzDslUaAEeWtjPFhJSzJTA">
+          <left xsi:type="henshin:And" xmi:id="_nzDslkaAEeWtjPFhJSzJTA">
+            <left xsi:type="henshin:And" xmi:id="_nzDsl0aAEeWtjPFhJSzJTA">
+              <left xsi:type="henshin:And" xmi:id="_nzDsmEaAEeWtjPFhJSzJTA">
+                <left xsi:type="henshin:And" xmi:id="_nzDsmUaAEeWtjPFhJSzJTA">
+                  <left xsi:type="henshin:Not" xmi:id="_nzDsmkaAEeWtjPFhJSzJTA">
+                    <child xsi:type="henshin:NestedCondition" xmi:id="_nzDsm0aAEeWtjPFhJSzJTA">
+                      <conclusion xmi:id="_nzDsnEaAEeWtjPFhJSzJTA" name="noSuperclass">
+                        <nodes xmi:id="_nzDsnUaAEeWtjPFhJSzJTA" outgoing="_nzDsn0aAEeWtjPFhJSzJTA">
+                          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                        </nodes>
+                        <nodes xmi:id="_nzDsnkaAEeWtjPFhJSzJTA" incoming="_nzDsn0aAEeWtjPFhJSzJTA">
+                          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                        </nodes>
+                        <edges xmi:id="_nzDsn0aAEeWtjPFhJSzJTA" source="_nzDsnUaAEeWtjPFhJSzJTA" target="_nzDsnkaAEeWtjPFhJSzJTA">
+                          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/superClass"/>
+                        </edges>
+                      </conclusion>
+                      <mappings xmi:id="_nzDsoEaAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzDsnUaAEeWtjPFhJSzJTA"/>
+                    </child>
+                  </left>
+                  <right xsi:type="henshin:Not" xmi:id="_nzDsoUaAEeWtjPFhJSzJTA">
+                    <child xsi:type="henshin:NestedCondition" xmi:id="_nzDsokaAEeWtjPFhJSzJTA">
+                      <conclusion xmi:id="_nzDso0aAEeWtjPFhJSzJTA" name="noSubclass">
+                        <nodes xmi:id="_nzDspEaAEeWtjPFhJSzJTA" incoming="_nzEToEaAEeWtjPFhJSzJTA">
+                          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                        </nodes>
+                        <nodes xmi:id="_nzDspUaAEeWtjPFhJSzJTA" outgoing="_nzEToEaAEeWtjPFhJSzJTA">
+                          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                        </nodes>
+                        <edges xmi:id="_nzEToEaAEeWtjPFhJSzJTA" source="_nzDspUaAEeWtjPFhJSzJTA" target="_nzDspEaAEeWtjPFhJSzJTA">
+                          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/superClass"/>
+                        </edges>
+                      </conclusion>
+                      <mappings xmi:id="_nzEToUaAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzDspEaAEeWtjPFhJSzJTA"/>
+                    </child>
+                  </right>
+                </left>
+                <right xsi:type="henshin:Not" xmi:id="_nzETokaAEeWtjPFhJSzJTA">
+                  <child xsi:type="henshin:NestedCondition" xmi:id="_nzETo0aAEeWtjPFhJSzJTA">
+                    <conclusion xmi:id="_nzETpEaAEeWtjPFhJSzJTA" name="noType">
+                      <nodes xmi:id="_nzETpUaAEeWtjPFhJSzJTA" incoming="_nzETp0aAEeWtjPFhJSzJTA">
+                        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                      </nodes>
+                      <nodes xmi:id="_nzETpkaAEeWtjPFhJSzJTA" outgoing="_nzETp0aAEeWtjPFhJSzJTA">
+                        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+                      </nodes>
+                      <edges xmi:id="_nzETp0aAEeWtjPFhJSzJTA" source="_nzETpkaAEeWtjPFhJSzJTA" target="_nzETpUaAEeWtjPFhJSzJTA">
+                        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+                      </edges>
+                    </conclusion>
+                    <mappings xmi:id="_nzETqEaAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzETpUaAEeWtjPFhJSzJTA"/>
+                  </child>
+                </right>
+              </left>
+              <right xsi:type="henshin:Not" xmi:id="_nzETqUaAEeWtjPFhJSzJTA">
+                <child xsi:type="henshin:NestedCondition" xmi:id="_nzETqkaAEeWtjPFhJSzJTA">
+                  <conclusion xmi:id="_nzETq0aAEeWtjPFhJSzJTA" name="noInterface">
+                    <nodes xmi:id="_nzETrEaAEeWtjPFhJSzJTA" outgoing="_nzETr0aAEeWtjPFhJSzJTA">
+                      <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                    </nodes>
+                    <nodes xmi:id="_nzETrUaAEeWtjPFhJSzJTA" incoming="_nzETr0aAEeWtjPFhJSzJTA" outgoing="_nzETsEaAEeWtjPFhJSzJTA">
+                      <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization"/>
+                    </nodes>
+                    <nodes xmi:id="_nzETrkaAEeWtjPFhJSzJTA" incoming="_nzETsEaAEeWtjPFhJSzJTA">
+                      <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+                    </nodes>
+                    <edges xmi:id="_nzETr0aAEeWtjPFhJSzJTA" source="_nzETrEaAEeWtjPFhJSzJTA" target="_nzETrUaAEeWtjPFhJSzJTA">
+                      <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioredClassifier/interfaceRealization"/>
+                    </edges>
+                    <edges xmi:id="_nzETsEaAEeWtjPFhJSzJTA" source="_nzETrUaAEeWtjPFhJSzJTA" target="_nzETrkaAEeWtjPFhJSzJTA">
+                      <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InterfaceRealization/contract"/>
+                    </edges>
+                  </conclusion>
+                  <mappings xmi:id="_nzETsUaAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzETrEaAEeWtjPFhJSzJTA"/>
+                </child>
+              </right>
+            </left>
+            <right xsi:type="henshin:Not" xmi:id="_nzETskaAEeWtjPFhJSzJTA">
+              <child xsi:type="henshin:NestedCondition" xmi:id="_nzETs0aAEeWtjPFhJSzJTA">
+                <conclusion xmi:id="_nzETtEaAEeWtjPFhJSzJTA" name="noUsage">
+                  <nodes xmi:id="_nzETtUaAEeWtjPFhJSzJTA" incoming="_nzETuEaAEeWtjPFhJSzJTA">
+                    <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </nodes>
+                  <nodes xmi:id="_nzETtkaAEeWtjPFhJSzJTA" incoming="_nzETuUaAEeWtjPFhJSzJTA">
+                    <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interface"/>
+                  </nodes>
+                  <nodes xmi:id="_nzETt0aAEeWtjPFhJSzJTA" outgoing="_nzETuEaAEeWtjPFhJSzJTA _nzETuUaAEeWtjPFhJSzJTA">
+                    <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Usage"/>
+                  </nodes>
+                  <edges xmi:id="_nzETuEaAEeWtjPFhJSzJTA" source="_nzETt0aAEeWtjPFhJSzJTA" target="_nzETtUaAEeWtjPFhJSzJTA">
+                    <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency/client"/>
+                  </edges>
+                  <edges xmi:id="_nzETuUaAEeWtjPFhJSzJTA" source="_nzETt0aAEeWtjPFhJSzJTA" target="_nzETtkaAEeWtjPFhJSzJTA">
+                    <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency/supplier"/>
+                  </edges>
+                </conclusion>
+                <mappings xmi:id="_nzETukaAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzETtUaAEeWtjPFhJSzJTA"/>
+              </child>
+            </right>
+          </left>
+          <right xsi:type="henshin:Not" xmi:id="_nzETu0aAEeWtjPFhJSzJTA">
+            <child xsi:type="henshin:NestedCondition" xmi:id="_nzETvEaAEeWtjPFhJSzJTA">
+              <conclusion xmi:id="_nzETvUaAEeWtjPFhJSzJTA" name="noStatemachine">
+                <nodes xmi:id="_nzETvkaAEeWtjPFhJSzJTA">
+                  <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StateMachine"/>
+                </nodes>
+              </conclusion>
+              <mappings xmi:id="_nzETv0aAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzETvkaAEeWtjPFhJSzJTA"/>
+            </child>
+          </right>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="_nzETwEaAEeWtjPFhJSzJTA">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_nzETwUaAEeWtjPFhJSzJTA">
+            <conclusion xmi:id="_nzETwkaAEeWtjPFhJSzJTA" name="noOpaqueBehavior">
+              <nodes xmi:id="_nzETw0aAEeWtjPFhJSzJTA">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+              </nodes>
+            </conclusion>
+            <mappings xmi:id="_nzETxEaAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzETw0aAEeWtjPFhJSzJTA"/>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_nzETxUaAEeWtjPFhJSzJTA" name="Rhs">
+      <nodes xmi:id="_nzETxkaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_nzETx0aAEeWtjPFhJSzJTA" origin="_nzDsk0aAEeWtjPFhJSzJTA" image="_nzETxkaAEeWtjPFhJSzJTA"/>
+  </units>
+</henshin:Module>

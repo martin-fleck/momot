@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ibHLkBHwEeKSGqZuqrXSrQ" name="transformation system">
+  <rules xmi:id="_ibeX8BHwEeKSGqZuqrXSrQ" name="rename">
+    <parameters xmi:id="_ibe_ABHwEeKSGqZuqrXSrQ" name="selectedEReference"/>
+    <parameters xmi:id="_ibe_ARHwEeKSGqZuqrXSrQ" name="newName"/>
+    <lhs xmi:id="_ibe_AhHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_ibe_AxHwEeKSGqZuqrXSrQ" name="selectedEReference">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_ibe_BBHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_ibe_BRHwEeKSGqZuqrXSrQ" name="selectedEReference">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_ibe_BhHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ibe_BxHwEeKSGqZuqrXSrQ" origin="_ibe_AxHwEeKSGqZuqrXSrQ" image="_ibe_BRHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_ibg0MBHwEeKSGqZuqrXSrQ" description="" name="mainUnit" subUnits="_ibeX8BHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_ibg0MRHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
+    <parameters xmi:id="_ibg0MhHwEeKSGqZuqrXSrQ" description="New name of the EReference" name="newName"/>
+    <parameterMappings xmi:id="_ibg0MxHwEeKSGqZuqrXSrQ" source="_ibg0MRHwEeKSGqZuqrXSrQ" target="_ibe_ABHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_ibg0NBHwEeKSGqZuqrXSrQ" source="_ibg0MhHwEeKSGqZuqrXSrQ" target="_ibe_ARHwEeKSGqZuqrXSrQ"/>
+  </transformationUnits>
+</henshin:TransformationSystem>

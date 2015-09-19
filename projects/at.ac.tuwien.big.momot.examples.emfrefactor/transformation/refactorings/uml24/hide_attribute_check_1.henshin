@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_h14nQKKuEeKVq9bLGfaZZA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_h3Dr8KKuEeKVq9bLGfaZZA" name="mainUnit" subUnits="_h3Dr9aKuEeKVq9bLGfaZZA _h3DsAqKuEeKVq9bLGfaZZA _h3DsEKKuEeKVq9bLGfaZZA">
+    <parameters xmi:id="_h3Dr8aKuEeKVq9bLGfaZZA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_h3Dr8qKuEeKVq9bLGfaZZA" source="_h3Dr8aKuEeKVq9bLGfaZZA" target="_h3Dr9qKuEeKVq9bLGfaZZA"/>
+    <parameterMappings xmi:id="_h3Dr86KuEeKVq9bLGfaZZA" source="_h3Dr8aKuEeKVq9bLGfaZZA" target="_h3DsA6KuEeKVq9bLGfaZZA"/>
+    <parameterMappings xmi:id="_h3Dr9KKuEeKVq9bLGfaZZA" source="_h3Dr8aKuEeKVq9bLGfaZZA" target="_h3DsEaKuEeKVq9bLGfaZZA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_h3Dr9aKuEeKVq9bLGfaZZA" name="check_isAttribute" description="This refactoring can be applied on class attributes only!">
+    <parameters xmi:id="_h3Dr9qKuEeKVq9bLGfaZZA" name="prop"/>
+    <lhs xmi:id="_h3Dr96KuEeKVq9bLGfaZZA" name="LHS">
+      <nodes xmi:id="_h3Dr-KKuEeKVq9bLGfaZZA" name="prop">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_h3Nc8KKuEeKVq9bLGfaZZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_h3Dr-aKuEeKVq9bLGfaZZA">
+          <conclusion xmi:id="_h3Dr-qKuEeKVq9bLGfaZZA">
+            <nodes xmi:id="_h3Dr-6KuEeKVq9bLGfaZZA" name="prop" incoming="_h3Dr_aKuEeKVq9bLGfaZZA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </nodes>
+            <nodes xmi:id="_h3Dr_KKuEeKVq9bLGfaZZA" name="cl" outgoing="_h3Dr_aKuEeKVq9bLGfaZZA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </nodes>
+            <edges xmi:id="_h3Dr_aKuEeKVq9bLGfaZZA" source="_h3Dr_KKuEeKVq9bLGfaZZA" target="_h3Dr-6KuEeKVq9bLGfaZZA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_h3Dr_qKuEeKVq9bLGfaZZA" origin="_h3Dr-KKuEeKVq9bLGfaZZA" image="_h3Dr-6KuEeKVq9bLGfaZZA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_h3Dr_6KuEeKVq9bLGfaZZA" name="RHS">
+      <nodes xmi:id="_h3DsAKKuEeKVq9bLGfaZZA" name="prop">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_h3DsAaKuEeKVq9bLGfaZZA" origin="_h3Dr-KKuEeKVq9bLGfaZZA" image="_h3DsAKKuEeKVq9bLGfaZZA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_h3DsAqKuEeKVq9bLGfaZZA" name="check_isNotPrivate" description="This refactoring can be applied on non-private attributes only!">
+    <parameters xmi:id="_h3DsA6KuEeKVq9bLGfaZZA" name="att"/>
+    <parameters xmi:id="_h3DsBKKuEeKVq9bLGfaZZA" name="vis" description=""/>
+    <lhs xmi:id="_h3DsBaKuEeKVq9bLGfaZZA" name="LHS">
+      <nodes xmi:id="_h3DsBqKuEeKVq9bLGfaZZA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_h3DsB6KuEeKVq9bLGfaZZA">
+        <conclusion xmi:id="_h3DsCKKuEeKVq9bLGfaZZA">
+          <nodes xmi:id="_h3DsCaKuEeKVq9bLGfaZZA" name="att">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            <attributes xmi:id="_h3DsCqKuEeKVq9bLGfaZZA" value="vis">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/visibility"/>
+            </attributes>
+          </nodes>
+        </conclusion>
+        <mappings xmi:id="_h3DsC6KuEeKVq9bLGfaZZA" origin="_h3DsBqKuEeKVq9bLGfaZZA" image="_h3DsCaKuEeKVq9bLGfaZZA"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_h3DsDKKuEeKVq9bLGfaZZA" name="RHS">
+      <nodes xmi:id="_h3DsDaKuEeKVq9bLGfaZZA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </rhs>
+    <attributeConditions xmi:id="_h3DsDqKuEeKVq9bLGfaZZA" description="" conditionText="vis == &quot;private&quot;"/>
+    <mappings xmi:id="_h3DsD6KuEeKVq9bLGfaZZA" origin="_h3DsBqKuEeKVq9bLGfaZZA" image="_h3DsDaKuEeKVq9bLGfaZZA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_h3DsEKKuEeKVq9bLGfaZZA" name="check_hasType" description="This refactoring can be applied on typed attributes only!">
+    <parameters xmi:id="_h3DsEaKuEeKVq9bLGfaZZA" name="att"/>
+    <lhs xmi:id="_h3DsEqKuEeKVq9bLGfaZZA" name="LHS">
+      <nodes xmi:id="_h3DsE6KuEeKVq9bLGfaZZA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_h3Nc8aKuEeKVq9bLGfaZZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_h3DsFKKuEeKVq9bLGfaZZA">
+          <conclusion xmi:id="_h3DsFaKuEeKVq9bLGfaZZA">
+            <nodes xmi:id="_h3DsFqKuEeKVq9bLGfaZZA" name="att" outgoing="_h3DsGKKuEeKVq9bLGfaZZA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </nodes>
+            <nodes xmi:id="_h3DsF6KuEeKVq9bLGfaZZA" name="t" incoming="_h3DsGKKuEeKVq9bLGfaZZA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+            </nodes>
+            <edges xmi:id="_h3DsGKKuEeKVq9bLGfaZZA" source="_h3DsFqKuEeKVq9bLGfaZZA" target="_h3DsF6KuEeKVq9bLGfaZZA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_h3DsGaKuEeKVq9bLGfaZZA" origin="_h3DsE6KuEeKVq9bLGfaZZA" image="_h3DsFqKuEeKVq9bLGfaZZA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_h3DsGqKuEeKVq9bLGfaZZA" name="RHS">
+      <nodes xmi:id="_h3DsG6KuEeKVq9bLGfaZZA" name="att">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_h3DsHKKuEeKVq9bLGfaZZA" origin="_h3DsE6KuEeKVq9bLGfaZZA" image="_h3DsG6KuEeKVq9bLGfaZZA"/>
+  </units>
+</henshin:Module>

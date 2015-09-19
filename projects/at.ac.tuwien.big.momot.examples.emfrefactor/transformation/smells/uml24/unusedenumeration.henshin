@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_74pXYKp2EeKxY8S7jup9FQ">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_74p-cKp2EeKxY8S7jup9FQ" name="mainRule">
+    <lhs xmi:id="_74p-cqp2EeKxY8S7jup9FQ" name="Lhs">
+      <nodes xmi:id="_-TYd8KtGEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Enumeration"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_EEHGcKtHEeKxY8S7jup9FQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_EEHGcatHEeKxY8S7jup9FQ">
+          <conclusion xmi:id="_EEHGcqtHEeKxY8S7jup9FQ">
+            <nodes xmi:id="_EEHtgKtHEeKxY8S7jup9FQ" incoming="_CQ3nMKtHEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Enumeration"/>
+            </nodes>
+            <nodes xmi:id="_BMlfsKtHEeKxY8S7jup9FQ" outgoing="_CQ3nMKtHEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+            </nodes>
+            <edges xmi:id="_CQ3nMKtHEeKxY8S7jup9FQ" source="_BMlfsKtHEeKxY8S7jup9FQ" target="_EEHtgKtHEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_EEHtgatHEeKxY8S7jup9FQ" origin="_-TYd8KtGEeKxY8S7jup9FQ" image="_EEHtgKtHEeKxY8S7jup9FQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_74qlgKp2EeKxY8S7jup9FQ" name="Rhs">
+      <nodes xmi:id="_-Ta6MKtGEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Enumeration"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_-TbhQKtGEeKxY8S7jup9FQ" origin="_-TYd8KtGEeKxY8S7jup9FQ" image="_-Ta6MKtGEeKxY8S7jup9FQ"/>
+  </units>
+</henshin:Module>

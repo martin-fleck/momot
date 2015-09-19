@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<My:model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:My="http://newmm" xsi:schemaLocation="http://newmm refactoring.ecore">
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="b" type="//@types.1"/>
+  <propertys name="b" type="//@types.1"/>
+  <propertys name="b" type="//@types.1"/>
+  <propertys name="b" type="//@types.1"/>
+  <propertys name="a" type="//@types.0"/>
+  <propertys name="b" type="//@types.1"/>
+  <entitys name="A" specialization="//@generalizations.2 //@generalizations.3 //@generalizations.4"/>
+  <entitys name="B" specialization="//@generalizations.0 //@generalizations.1" generalization="//@generalizations.2"/>
+  <entitys name="C" ownedAttribute="//@propertys.0" generalization="//@generalizations.3"/>
+  <entitys name="D" ownedAttribute="//@propertys.1" generalization="//@generalizations.4"/>
+  <entitys name="E" ownedAttribute="//@propertys.2" generalization="//@generalizations.0"/>
+  <entitys name="F" ownedAttribute="//@propertys.3" generalization="//@generalizations.1"/>
+  <entitys name="G" ownedAttribute="//@propertys.9 //@propertys.11" specialization="//@generalizations.8 //@generalizations.9 //@generalizations.10 //@generalizations.11"/>
+  <entitys name="H" generalization="//@generalizations.8"/>
+  <entitys name="I" specialization="//@generalizations.5 //@generalizations.6 //@generalizations.7" generalization="//@generalizations.9"/>
+  <entitys name="J" generalization="//@generalizations.10"/>
+  <entitys name="K" generalization="//@generalizations.11"/>
+  <entitys name="L" ownedAttribute="//@propertys.4" generalization="//@generalizations.5"/>
+  <entitys name="M" ownedAttribute="//@propertys.7" generalization="//@generalizations.6"/>
+  <entitys name="N" ownedAttribute="//@propertys.8" generalization="//@generalizations.7"/>
+  <entitys name="O" ownedAttribute="//@propertys.5 //@propertys.12" specialization="//@generalizations.12 //@generalizations.13 //@generalizations.14"/>
+  <entitys name="P" generalization="//@generalizations.12"/>
+  <entitys name="Q" generalization="//@generalizations.13"/>
+  <entitys name="R" generalization="//@generalizations.14"/>
+  <entitys name="S" ownedAttribute="//@propertys.6 //@propertys.10"/>
+  <types name="Integer"/>
+  <types name="String"/>
+  <generalizations specific="//@entitys.4" general="//@entitys.1"/>
+  <generalizations specific="//@entitys.5" general="//@entitys.1"/>
+  <generalizations specific="//@entitys.1" general="//@entitys.0"/>
+  <generalizations specific="//@entitys.2" general="//@entitys.0"/>
+  <generalizations specific="//@entitys.3" general="//@entitys.0"/>
+  <generalizations specific="//@entitys.11" general="//@entitys.8"/>
+  <generalizations specific="//@entitys.12" general="//@entitys.8"/>
+  <generalizations specific="//@entitys.13" general="//@entitys.8"/>
+  <generalizations specific="//@entitys.7" general="//@entitys.6"/>
+  <generalizations specific="//@entitys.8" general="//@entitys.6"/>
+  <generalizations specific="//@entitys.9" general="//@entitys.6"/>
+  <generalizations specific="//@entitys.10" general="//@entitys.6"/>
+  <generalizations specific="//@entitys.15" general="//@entitys.14"/>
+  <generalizations specific="//@entitys.16" general="//@entitys.14"/>
+  <generalizations specific="//@entitys.17" general="//@entitys.14"/>
+</My:model>

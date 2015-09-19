@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<stack:StackModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stack="http://momot.big.tuwien.ac.at/stack/1.0" xsi:schemaLocation="http://momot.big.tuwien.ac.at/stack/1.0 stack.ecore">
+  <stacks id="Stack_1" load="1" left="//@stacks.4" right="//@stacks.1"/>
+  <stacks id="Stack_2" load="7" left="//@stacks.0" right="//@stacks.2"/>
+  <stacks id="Stack_3" load="3" left="//@stacks.1" right="//@stacks.3"/>
+  <stacks id="Stack_4" load="9" left="//@stacks.2" right="//@stacks.4"/>
+  <stacks id="Stack_5" load="5" left="//@stacks.3" right="//@stacks.0"/>
+</stack:StackModel>

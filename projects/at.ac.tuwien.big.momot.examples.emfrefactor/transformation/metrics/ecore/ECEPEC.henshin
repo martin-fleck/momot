@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_eqbWMBFWEeKNHqRVlMFtpQ">
+  <rules xmi:id="_CZ_xABFXEeKCcewyalo_kg" name="mainRule">
+    <parameters xmi:id="_UjXxMBFXEeKCcewyalo_kg" name="context"/>
+    <lhs xmi:id="_CZ_xARFXEeKCcewyalo_kg" name="LHS">
+      <nodes xmi:id="_GY3aUBFXEeKCcewyalo_kg" name="" outgoing="_O8DjYBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_KCkE4BFXEeKCcewyalo_kg" name="context" incoming="_SQB1kBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_LU2MIBFXEeKCcewyalo_kg" incoming="_O8DjYBFXEeKCcewyalo_kg" outgoing="_RNezcBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EOperation"/>
+      </nodes>
+      <nodes xmi:id="_MbpcIBFXEeKCcewyalo_kg" incoming="_RNezcBFXEeKCcewyalo_kg" outgoing="_SQB1kBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EParameter"/>
+      </nodes>
+      <edges xmi:id="_O8DjYBFXEeKCcewyalo_kg" source="_GY3aUBFXEeKCcewyalo_kg" target="_LU2MIBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eOperations"/>
+      </edges>
+      <edges xmi:id="_RNezcBFXEeKCcewyalo_kg" source="_LU2MIBFXEeKCcewyalo_kg" target="_MbpcIBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EOperation/eParameters"/>
+      </edges>
+      <edges xmi:id="_SQB1kBFXEeKCcewyalo_kg" source="_MbpcIBFXEeKCcewyalo_kg" target="_KCkE4BFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_CZ_xAhFXEeKCcewyalo_kg" name="RHS">
+      <nodes xmi:id="_GY6doBFXEeKCcewyalo_kg" name="" outgoing="_O8ExgBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_KCnIMBFXEeKCcewyalo_kg" name="context" incoming="_SQER0BFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </nodes>
+      <nodes xmi:id="_LU2zMBFXEeKCcewyalo_kg" incoming="_O8ExgBFXEeKCcewyalo_kg" outgoing="_RNgooBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EOperation"/>
+      </nodes>
+      <nodes xmi:id="_MbqDMBFXEeKCcewyalo_kg" incoming="_RNgooBFXEeKCcewyalo_kg" outgoing="_SQER0BFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EParameter"/>
+      </nodes>
+      <edges xmi:id="_O8ExgBFXEeKCcewyalo_kg" source="_GY6doBFXEeKCcewyalo_kg" target="_LU2zMBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eOperations"/>
+      </edges>
+      <edges xmi:id="_RNgooBFXEeKCcewyalo_kg" source="_LU2zMBFXEeKCcewyalo_kg" target="_MbqDMBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EOperation/eParameters"/>
+      </edges>
+      <edges xmi:id="_SQER0BFXEeKCcewyalo_kg" source="_MbqDMBFXEeKCcewyalo_kg" target="_KCnIMBFXEeKCcewyalo_kg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_GY7EsBFXEeKCcewyalo_kg" origin="_GY3aUBFXEeKCcewyalo_kg" image="_GY6doBFXEeKCcewyalo_kg"/>
+    <mappings xmi:id="_KCnIMRFXEeKCcewyalo_kg" origin="_KCkE4BFXEeKCcewyalo_kg" image="_KCnIMBFXEeKCcewyalo_kg"/>
+    <mappings xmi:id="_LU2zMRFXEeKCcewyalo_kg" origin="_LU2MIBFXEeKCcewyalo_kg" image="_LU2zMBFXEeKCcewyalo_kg"/>
+    <mappings xmi:id="_MbqDMRFXEeKCcewyalo_kg" origin="_MbpcIBFXEeKCcewyalo_kg" image="_MbqDMBFXEeKCcewyalo_kg"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+</henshin:TransformationSystem>

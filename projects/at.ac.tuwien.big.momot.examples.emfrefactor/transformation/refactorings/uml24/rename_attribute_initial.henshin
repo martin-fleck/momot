@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_m8pcUFW4EeK0V4B2JYxJUg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_m8pcUVW4EeK0V4B2JYxJUg" name="no_attribute" description="The selected Property is no Class attribute!">
+    <parameters xmi:id="_m8qDYFW4EeK0V4B2JYxJUg" name="selectedEObject"/>
+    <parameters xmi:id="_m8qDYVW4EeK0V4B2JYxJUg" name="newName"/>
+    <lhs xmi:id="_m8qDYlW4EeK0V4B2JYxJUg" name="Lhs">
+      <nodes xmi:id="_m8qDY1W4EeK0V4B2JYxJUg" name="selectedEObject">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_m8qqcFW4EeK0V4B2JYxJUg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_m8qqcVW4EeK0V4B2JYxJUg">
+          <conclusion xmi:id="_m8qqclW4EeK0V4B2JYxJUg">
+            <nodes xmi:id="_m8qqc1W4EeK0V4B2JYxJUg" name="selectedEObject" incoming="_m8rRgFW4EeK0V4B2JYxJUg">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </nodes>
+            <nodes xmi:id="_m8qqdFW4EeK0V4B2JYxJUg" name="owner" outgoing="_m8rRgFW4EeK0V4B2JYxJUg">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </nodes>
+            <edges xmi:id="_m8rRgFW4EeK0V4B2JYxJUg" source="_m8qqdFW4EeK0V4B2JYxJUg" target="_m8qqc1W4EeK0V4B2JYxJUg">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_m8rRgVW4EeK0V4B2JYxJUg" origin="_m8qDY1W4EeK0V4B2JYxJUg" image="_m8qqc1W4EeK0V4B2JYxJUg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_m8rRglW4EeK0V4B2JYxJUg" name="Rhs">
+      <nodes xmi:id="_m8rRg1W4EeK0V4B2JYxJUg" name="selectedEObject">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_m8r4kFW4EeK0V4B2JYxJUg" origin="_m8qDY1W4EeK0V4B2JYxJUg" image="_m8rRg1W4EeK0V4B2JYxJUg"/>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_m8r4kVW4EeK0V4B2JYxJUg" name="mainUnit" subUnits="_m8pcUVW4EeK0V4B2JYxJUg">
+    <parameters xmi:id="_m8r4klW4EeK0V4B2JYxJUg" name="selectedEObject"/>
+    <parameters xmi:id="_m8r4k1W4EeK0V4B2JYxJUg" name="newName"/>
+    <parameterMappings xmi:id="_m8sfoFW4EeK0V4B2JYxJUg" source="_m8r4klW4EeK0V4B2JYxJUg" target="_m8qDYFW4EeK0V4B2JYxJUg"/>
+    <parameterMappings xmi:id="_m8sfoVW4EeK0V4B2JYxJUg" source="_m8r4k1W4EeK0V4B2JYxJUg" target="_m8qDYVW4EeK0V4B2JYxJUg"/>
+  </units>
+</henshin:Module>

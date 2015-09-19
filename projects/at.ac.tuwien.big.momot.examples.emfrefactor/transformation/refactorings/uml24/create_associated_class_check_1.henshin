@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vVPIUKKuEeKVq9bLGfaZZA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_u6a4cMf3EeC2vfRa3fN2tQ" name="check_isownedbyapackage" description="This refactoring can only be applied on classes which are owned by a package!">
+    <parameters xmi:id="_04VoYMf3EeC2vfRa3fN2tQ" name="selectedclass"/>
+    <lhs xmi:id="_u6a4ccf3EeC2vfRa3fN2tQ" name="LHS">
+      <nodes xmi:id="_IJr9QMf4EeC2vfRa3fN2tQ" name="selectedclass">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_h3Nc8KKuEeKVq9bLGfaZZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Zs5f4Mf5EeC2vfRa3fN2tQ">
+          <conclusion xmi:id="_a4S8AMf5EeC2vfRa3fN2tQ">
+            <nodes xmi:id="_cElwAMf5EeC2vfRa3fN2tQ" name="cl" incoming="_gg6KUMf5EeC2vfRa3fN2tQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </nodes>
+            <nodes xmi:id="_d94z8Mf5EeC2vfRa3fN2tQ" name="p" outgoing="_gg6KUMf5EeC2vfRa3fN2tQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+            </nodes>
+            <edges xmi:id="_gg6KUMf5EeC2vfRa3fN2tQ" source="_d94z8Mf5EeC2vfRa3fN2tQ" target="_cElwAMf5EeC2vfRa3fN2tQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_kpizoMf5EeC2vfRa3fN2tQ" origin="_IJr9QMf4EeC2vfRa3fN2tQ" image="_cElwAMf5EeC2vfRa3fN2tQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_u6a4csf3EeC2vfRa3fN2tQ" name="RHS">
+      <nodes xmi:id="_nsJpAMf5EeC2vfRa3fN2tQ" name="selectedclass">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_nsJpAcf5EeC2vfRa3fN2tQ" origin="_IJr9QMf4EeC2vfRa3fN2tQ" image="_nsJpAMf5EeC2vfRa3fN2tQ"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_N2BN8Mf4EeC2vfRa3fN2tQ" name="mainUnit" subUnits="_u6a4cMf3EeC2vfRa3fN2tQ">
+    <parameters xmi:id="_PArDMMf4EeC2vfRa3fN2tQ" name="selectedEObject"/>
+    <parameterMappings xmi:id="_PLFG8Mf5EeC2vfRa3fN2tQ" source="_PArDMMf4EeC2vfRa3fN2tQ" target="_04VoYMf3EeC2vfRa3fN2tQ"/>
+  </units>
+</henshin:Module>

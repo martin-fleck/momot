@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<modularization:ModularizationModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:modularization="http://momot.big.tuwien.ac.at/modularization/jsep/1.0"
+    name="MyModel">
+  <classes name="M1"
+      dependsOn="//@classes.2"
+      dependedOnBy="//@classes.3"/>
+  <classes name="M2"
+      dependsOn="//@classes.2"/>
+  <classes name="M3"
+      dependsOn="//@classes.4"
+      dependedOnBy="//@classes.0 //@classes.1"/>
+  <classes name="M4"
+      dependsOn="//@classes.4 //@classes.0"/>
+  <classes name="M5"
+      dependedOnBy="//@classes.7 //@classes.3 //@classes.2"/>
+  <classes name="M6"
+      dependsOn="//@classes.6 //@classes.7"/>
+  <classes name="M7"
+      dependedOnBy="//@classes.7 //@classes.5"/>
+  <classes name="M8"
+      dependsOn="//@classes.6 //@classes.4"
+      dependedOnBy="//@classes.5"/>
+</modularization:ModularizationModel>

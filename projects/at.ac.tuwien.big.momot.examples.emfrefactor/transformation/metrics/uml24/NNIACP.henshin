@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_nsE60EaAEeWtjPFhJSzJTA">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_nsFh4EaAEeWtjPFhJSzJTA" name="mainRule">
+    <parameters xmi:id="_nsFh4UaAEeWtjPFhJSzJTA" name="context"/>
+    <lhs xmi:id="_nsFh4kaAEeWtjPFhJSzJTA" name="Lhs">
+      <nodes xmi:id="_nsFh40aAEeWtjPFhJSzJTA" incoming="_nsFh5kaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="_nsFh5EaAEeWtjPFhJSzJTA" value="true">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nsFh5UaAEeWtjPFhJSzJTA" name="context" outgoing="_nsFh5kaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <edges xmi:id="_nsFh5kaAEeWtjPFhJSzJTA" source="_nsFh5UaAEeWtjPFhJSzJTA" target="_nsFh40aAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_nsFh50aAEeWtjPFhJSzJTA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_nsFh6EaAEeWtjPFhJSzJTA">
+          <conclusion xmi:id="_nsFh6UaAEeWtjPFhJSzJTA">
+            <nodes xmi:id="_nsFh6kaAEeWtjPFhJSzJTA" outgoing="_nsFh7UaAEeWtjPFhJSzJTA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              <attributes xmi:id="_nsFh60aAEeWtjPFhJSzJTA" value="true">
+                <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_nsFh7EaAEeWtjPFhJSzJTA" incoming="_nsFh7UaAEeWtjPFhJSzJTA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+            </nodes>
+            <edges xmi:id="_nsFh7UaAEeWtjPFhJSzJTA" source="_nsFh6kaAEeWtjPFhJSzJTA" target="_nsFh7EaAEeWtjPFhJSzJTA">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_nsGwAEaAEeWtjPFhJSzJTA" origin="_nsFh40aAEeWtjPFhJSzJTA" image="_nsFh6kaAEeWtjPFhJSzJTA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_nsGwAUaAEeWtjPFhJSzJTA" name="Rhs">
+      <nodes xmi:id="_nsGwAkaAEeWtjPFhJSzJTA" incoming="_nsGwBUaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <attributes xmi:id="_nsGwA0aAEeWtjPFhJSzJTA" value="true">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/isAbstract"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nsGwBEaAEeWtjPFhJSzJTA" name="context" outgoing="_nsGwBUaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <edges xmi:id="_nsGwBUaAEeWtjPFhJSzJTA" source="_nsGwBEaAEeWtjPFhJSzJTA" target="_nsGwAkaAEeWtjPFhJSzJTA">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_nsGwBkaAEeWtjPFhJSzJTA" origin="_nsFh40aAEeWtjPFhJSzJTA" image="_nsGwAkaAEeWtjPFhJSzJTA"/>
+    <mappings xmi:id="_nsGwB0aAEeWtjPFhJSzJTA" origin="_nsFh5UaAEeWtjPFhJSzJTA" image="_nsGwBEaAEeWtjPFhJSzJTA"/>
+  </units>
+</henshin:Module>

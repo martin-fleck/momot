@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<stack:StackModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stack="http://momot.big.tuwien.ac.at/stack/1.0" xsi:schemaLocation="http://momot.big.tuwien.ac.at/stack/1.0 stack.ecore">
+  <stacks id="Stack_1" load="77" left="//@stacks.49" right="//@stacks.1"/>
+  <stacks id="Stack_2" load="49" left="//@stacks.0" right="//@stacks.2"/>
+  <stacks id="Stack_3" load="76" left="//@stacks.1" right="//@stacks.3"/>
+  <stacks id="Stack_4" load="41" left="//@stacks.2" right="//@stacks.4"/>
+  <stacks id="Stack_5" load="56" left="//@stacks.3" right="//@stacks.5"/>
+  <stacks id="Stack_6" load="86" left="//@stacks.4" right="//@stacks.6"/>
+  <stacks id="Stack_7" load="98" left="//@stacks.5" right="//@stacks.7"/>
+  <stacks id="Stack_8" left="//@stacks.6" right="//@stacks.8"/>
+  <stacks id="Stack_9" load="50" left="//@stacks.7" right="//@stacks.9"/>
+  <stacks id="Stack_10" load="76" left="//@stacks.8" right="//@stacks.10"/>
+  <stacks id="Stack_11" load="85" left="//@stacks.9" right="//@stacks.11"/>
+  <stacks id="Stack_12" load="98" left="//@stacks.10" right="//@stacks.12"/>
+  <stacks id="Stack_13" load="25" left="//@stacks.11" right="//@stacks.13"/>
+  <stacks id="Stack_14" load="57" left="//@stacks.12" right="//@stacks.14"/>
+  <stacks id="Stack_15" load="66" left="//@stacks.13" right="//@stacks.15"/>
+  <stacks id="Stack_16" load="13" left="//@stacks.14" right="//@stacks.16"/>
+  <stacks id="Stack_17" load="56" left="//@stacks.15" right="//@stacks.17"/>
+  <stacks id="Stack_18" load="75" left="//@stacks.16" right="//@stacks.18"/>
+  <stacks id="Stack_19" load="4" left="//@stacks.17" right="//@stacks.19"/>
+  <stacks id="Stack_20" load="31" left="//@stacks.18" right="//@stacks.20"/>
+  <stacks id="Stack_21" load="24" left="//@stacks.19" right="//@stacks.21"/>
+  <stacks id="Stack_22" load="23" left="//@stacks.20" right="//@stacks.22"/>
+  <stacks id="Stack_23" load="71" left="//@stacks.21" right="//@stacks.23"/>
+  <stacks id="Stack_24" load="17" left="//@stacks.22" right="//@stacks.24"/>
+  <stacks id="Stack_25" load="69" left="//@stacks.23" right="//@stacks.25"/>
+  <stacks id="Stack_26" load="87" left="//@stacks.24" right="//@stacks.26"/>
+  <stacks id="Stack_27" load="18" left="//@stacks.25" right="//@stacks.27"/>
+  <stacks id="Stack_28" load="27" left="//@stacks.26" right="//@stacks.28"/>
+  <stacks id="Stack_29" load="21" left="//@stacks.27" right="//@stacks.29"/>
+  <stacks id="Stack_30" load="54" left="//@stacks.28" right="//@stacks.30"/>
+  <stacks id="Stack_31" load="36" left="//@stacks.29" right="//@stacks.31"/>
+  <stacks id="Stack_32" load="91" left="//@stacks.30" right="//@stacks.32"/>
+  <stacks id="Stack_33" load="58" left="//@stacks.31" right="//@stacks.33"/>
+  <stacks id="Stack_34" load="12" left="//@stacks.32" right="//@stacks.34"/>
+  <stacks id="Stack_35" load="36" left="//@stacks.33" right="//@stacks.35"/>
+  <stacks id="Stack_36" load="98" left="//@stacks.34" right="//@stacks.36"/>
+  <stacks id="Stack_37" load="42" left="//@stacks.35" right="//@stacks.37"/>
+  <stacks id="Stack_38" load="52" left="//@stacks.36" right="//@stacks.38"/>
+  <stacks id="Stack_39" load="61" left="//@stacks.37" right="//@stacks.39"/>
+  <stacks id="Stack_40" load="18" left="//@stacks.38" right="//@stacks.40"/>
+  <stacks id="Stack_41" load="99" left="//@stacks.39" right="//@stacks.41"/>
+  <stacks id="Stack_42" load="67" left="//@stacks.40" right="//@stacks.42"/>
+  <stacks id="Stack_43" load="22" left="//@stacks.41" right="//@stacks.43"/>
+  <stacks id="Stack_44" load="67" left="//@stacks.42" right="//@stacks.44"/>
+  <stacks id="Stack_45" load="97" left="//@stacks.43" right="//@stacks.45"/>
+  <stacks id="Stack_46" load="20" left="//@stacks.44" right="//@stacks.46"/>
+  <stacks id="Stack_47" load="66" left="//@stacks.45" right="//@stacks.47"/>
+  <stacks id="Stack_48" load="89" left="//@stacks.46" right="//@stacks.48"/>
+  <stacks id="Stack_49" load="81" left="//@stacks.47" right="//@stacks.49"/>
+  <stacks id="Stack_50" load="84" left="//@stacks.48" right="//@stacks.0"/>
+</stack:StackModel>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lvUHQBHwEeKSGqZuqrXSrQ" name="transformation system">
+  <rules xmi:id="_lwADwBHwEeKSGqZuqrXSrQ" description="The new name is equal to the old name!" name="check_same_name">
+    <parameters xmi:id="_lwADwRHwEeKSGqZuqrXSrQ" name="selectedEDataType"/>
+    <parameters xmi:id="_lwADwhHwEeKSGqZuqrXSrQ" name="newName"/>
+    <lhs xmi:id="_lwADwxHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_lwADxBHwEeKSGqZuqrXSrQ" name="selectedEDataType">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+        <attributes xmi:id="_lwADxRHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_lwADxhHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_lwADxxHwEeKSGqZuqrXSrQ" name="selectedEDataType">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+        <attributes xmi:id="_lwADyBHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_lwADyRHwEeKSGqZuqrXSrQ" origin="_lwADxBHwEeKSGqZuqrXSrQ" image="_lwADxxHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <rules xmi:id="_lwADyhHwEeKSGqZuqrXSrQ" description="There is already an EClassifier in the containing EPackage with the specified name!" name="check_other_names">
+    <parameters xmi:id="_lwADyxHwEeKSGqZuqrXSrQ" name="selectedEDataType"/>
+    <parameters xmi:id="_lwADzBHwEeKSGqZuqrXSrQ" name="newName"/>
+    <lhs xmi:id="_lwADzRHwEeKSGqZuqrXSrQ" name="LHS">
+      <nodes xmi:id="_lwADzhHwEeKSGqZuqrXSrQ" name="selectedEDataType" incoming="_lwAD0hHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+      </nodes>
+      <nodes xmi:id="_lwADzxHwEeKSGqZuqrXSrQ" incoming="_lwAD0xHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier"/>
+        <attributes xmi:id="_lwAD0BHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_lwAD0RHwEeKSGqZuqrXSrQ" outgoing="_lwAD0hHwEeKSGqZuqrXSrQ _lwAD0xHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <edges xmi:id="_lwAD0hHwEeKSGqZuqrXSrQ" source="_lwAD0RHwEeKSGqZuqrXSrQ" target="_lwADzhHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+      <edges xmi:id="_lwAD0xHwEeKSGqZuqrXSrQ" source="_lwAD0RHwEeKSGqZuqrXSrQ" target="_lwADzxHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_lwAD1BHwEeKSGqZuqrXSrQ" name="RHS">
+      <nodes xmi:id="_lwAD1RHwEeKSGqZuqrXSrQ" name="selectedEDataType" incoming="_lwAD2RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+      </nodes>
+      <nodes xmi:id="_lwAD1hHwEeKSGqZuqrXSrQ" incoming="_lwAD2hHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier"/>
+        <attributes xmi:id="_lwAD1xHwEeKSGqZuqrXSrQ" value="newName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_lwAD2BHwEeKSGqZuqrXSrQ" outgoing="_lwAD2RHwEeKSGqZuqrXSrQ _lwAD2hHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <edges xmi:id="_lwAD2RHwEeKSGqZuqrXSrQ" source="_lwAD2BHwEeKSGqZuqrXSrQ" target="_lwAD1RHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+      <edges xmi:id="_lwAD2hHwEeKSGqZuqrXSrQ" source="_lwAD2BHwEeKSGqZuqrXSrQ" target="_lwAD1hHwEeKSGqZuqrXSrQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_lwAD2xHwEeKSGqZuqrXSrQ" origin="_lwADzhHwEeKSGqZuqrXSrQ" image="_lwAD1RHwEeKSGqZuqrXSrQ"/>
+    <mappings xmi:id="_lwAq0BHwEeKSGqZuqrXSrQ" origin="_lwADzxHwEeKSGqZuqrXSrQ" image="_lwAD1hHwEeKSGqZuqrXSrQ"/>
+    <mappings xmi:id="_lwAq0RHwEeKSGqZuqrXSrQ" origin="_lwAD0RHwEeKSGqZuqrXSrQ" image="_lwAD2BHwEeKSGqZuqrXSrQ"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <transformationUnits xsi:type="henshin:IndependentUnit" xmi:id="_lwBR4BHwEeKSGqZuqrXSrQ" description="" name="mainUnit" subUnits="_lwADwBHwEeKSGqZuqrXSrQ _lwADyhHwEeKSGqZuqrXSrQ">
+    <parameters xmi:id="_lwBR4RHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
+    <parameters xmi:id="_lwBR4hHwEeKSGqZuqrXSrQ" name="newName"/>
+    <parameterMappings xmi:id="_lwBR4xHwEeKSGqZuqrXSrQ" source="_lwBR4RHwEeKSGqZuqrXSrQ" target="_lwADwRHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_lwBR5BHwEeKSGqZuqrXSrQ" source="_lwBR4hHwEeKSGqZuqrXSrQ" target="_lwADwhHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_lwBR5RHwEeKSGqZuqrXSrQ" source="_lwBR4RHwEeKSGqZuqrXSrQ" target="_lwADyxHwEeKSGqZuqrXSrQ"/>
+    <parameterMappings xmi:id="_lwBR5hHwEeKSGqZuqrXSrQ" source="_lwBR4hHwEeKSGqZuqrXSrQ" target="_lwADzBHwEeKSGqZuqrXSrQ"/>
+  </transformationUnits>
+</henshin:TransformationSystem>

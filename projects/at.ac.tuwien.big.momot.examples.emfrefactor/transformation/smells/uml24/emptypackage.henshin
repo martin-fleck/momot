@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_74pXYKp2EeKxY8S7jup9FQ">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_74p-cKp2EeKxY8S7jup9FQ" name="mainRule">
+    <lhs xmi:id="_74p-cqp2EeKxY8S7jup9FQ" name="Lhs">
+      <nodes xmi:id="_UyStQKtCEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_aG_hEKtCEeKxY8S7jup9FQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_aG_hEatCEeKxY8S7jup9FQ">
+          <conclusion xmi:id="_aG_hEqtCEeKxY8S7jup9FQ">
+            <nodes xmi:id="_aHAIIKtCEeKxY8S7jup9FQ" outgoing="_Yf0u8KtCEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+            </nodes>
+            <nodes xmi:id="_V2sJgKtCEeKxY8S7jup9FQ" incoming="_Yf0u8KtCEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//PackageableElement"/>
+            </nodes>
+            <edges xmi:id="_Yf0u8KtCEeKxY8S7jup9FQ" source="_aHAIIKtCEeKxY8S7jup9FQ" target="_V2sJgKtCEeKxY8S7jup9FQ">
+              <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_aHAIIatCEeKxY8S7jup9FQ" origin="_UyStQKtCEeKxY8S7jup9FQ" image="_aHAIIKtCEeKxY8S7jup9FQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_74qlgKp2EeKxY8S7jup9FQ" name="Rhs">
+      <nodes xmi:id="_UyVwkKtCEeKxY8S7jup9FQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_UyVwkatCEeKxY8S7jup9FQ" origin="_UyStQKtCEeKxY8S7jup9FQ" image="_UyVwkKtCEeKxY8S7jup9FQ"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_nW6jIEaAEeWtjPFhJSzJTA" selectedViews="_4FCGQEaAEeWtjPFhJSzJTA _4F8FMEaAEeWtjPFhJSzJTA _4Ggs8EaAEeWtjPFhJSzJTA _4G8x0EaAEeWtjPFhJSzJTA" version="10.0.0.201505222000">
+  <semanticResources>transformation/metrics/ecore/ECEOEC.henshin</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>transformation/metrics/ecore/ECEOEC.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/ecore/ECEPEC.henshin</semanticResources>
+  <semanticResources>transformation/metrics/ecore/ECEREC.henshin</semanticResources>
+  <semanticResources>transformation/metrics/ecore/ICEPEC.henshin</semanticResources>
+  <semanticResources>transformation/metrics/ecore/ICEPECEC.henshin</semanticResources>
+  <semanticResources>transformation/metrics/ecore/ICEPEIEC.henshin</semanticResources>
+  <semanticResources>transformation/metrics/ecore/NSUBEC.henshin</semanticResources>
+  <semanticResources>transformation/metrics/ecore/NSUBEC2.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/ICParC.henshin</semanticResources>
+  <semanticResources>http://www.eclipse.org/uml2/5.0.0/UML</semanticResources>
+  <semanticResources>transformation/metrics/uml24/ICParC.henshin_diagram</semanticResources>
+  <semanticResources>http://www.eclipse.org/uml2/5.0.0/Types</semanticResources>
+  <semanticResources>transformation/metrics/uml24/ICParI.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/ICParI.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NAETOP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NAETOP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NASOC.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NASOC.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NEACP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NEACP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NEAECP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NEAECP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NESUBP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NESUBP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NESUPP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NESUPP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NETAP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NETAP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NIAEP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NIAEP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NIGP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NIGP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NNIACP.henshin</semanticResources>
+  <semanticResources>transformation/metrics/uml24/NNIACP.henshin_diagram</semanticResources>
+  <semanticResources>transformation/metrics/uml24/P.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_referenced_eclass_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_referenced_eclass_execute.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_referenced_eclass_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_referenced_eclass_finalcheck.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_sub_eclass_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_sub_eclass_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_super_eclass_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/create_super_eclass_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/move_eattribute_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/move_eattribute_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/move_eattribute_initialcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/pull_up_eattribute_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/pull_up_eattribute_execute.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/pull_up_eattribute_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/pull_up_eattribute_finalcheck.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/pull_up_eattribute_initialcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/pull_up_eattribute_initialcheck.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/push_down_eattribute_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/push_down_eattribute_initialcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/remove_empty_referenced_eclass_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/remove_empty_referenced_eclass_initialcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/remove_empty_sub_eclass_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/remove_empty_sub_eclass_initialcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/remove_empty_super_eclass_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/remove_empty_super_eclass_initialcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_eattribute_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_eattribute_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_eclass_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_eclass_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_edatatype_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_edatatype_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_eenumliteral_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_eenumliteral_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_epackage_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_epackage_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_ereference_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/rename_ereference_finalcheck.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/create_associated_class_check_1.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/create_associated_class_check_2.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/create_associated_class_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/hide_attribute_check_1.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/hide_attribute_check_1.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/hide_attribute_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/hide_attribute_execute.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/remove_unused_interface_execute.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/remove_unused_interface_execute.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/remove_unused_interface_initial.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/remove_unused_interface_initial.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/rename_attribute_exe.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/rename_attribute_exe.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/rename_attribute_final.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/rename_attribute_final.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/rename_attribute_initial.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/rename_attribute_initial.henshin_diagram</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/show_attribute_check_1.henshin</semanticResources>
+  <semanticResources>transformation/refactorings/uml24/show_attribute_execute.henshin</semanticResources>
+  <semanticResources>transformation/smells/ecore/speculative.henshin</semanticResources>
+  <semanticResources>transformation/smells/ecore/speculative.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/attributenameoverridden.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/attributenameoverridden.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/emptypackage.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/emptypackage.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/equallynamedclasses.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/equallynamedclasses.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/nospecification.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/nospecification.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/specializationaggregation.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/specializationaggregation.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/speculativegeneralityclass.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/speculativegeneralityclass.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/speculativegeneralityinterface.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/speculativegeneralityinterface.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/unusedclass.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/unusedclass.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/unusedenumeration.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/unusedenumeration.henshin_diagram</semanticResources>
+  <semanticResources>transformation/smells/uml24/unusedinterface.henshin</semanticResources>
+  <semanticResources>transformation/smells/uml24/unusedinterface.henshin_diagram</semanticResources>
+  <semanticResources>model/input/Simple.ecore</semanticResources>
+  <semanticResources>model/input/simple.notation</semanticResources>
+  <semanticResources>model/input/simple.uml</semanticResources>
+  <semanticResources>pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml</semanticResources>
+  <semanticResources>pathmap://UML_PROFILES/Ecore.profile.uml</semanticResources>
+  <semanticResources>pathmap://UML_PROFILES/Standard.profile.uml</semanticResources>
+  <semanticResources>http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard</semanticResources>
+  <semanticResources>pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml</semanticResources>
+  <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
+  <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
+  <semanticResources>model/input/simple_transformed.uml</semanticResources>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_4FCGQEaAEeWtjPFhJSzJTA">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_9Ta2sEaAEeWtjPFhJSzJTA" name="uml class diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_9Ta2sUaAEeWtjPFhJSzJTA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_9Ta2skaAEeWtjPFhJSzJTA"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_9TfIIEaAEeWtjPFhJSzJTA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_9TfIIUaAEeWtjPFhJSzJTA" type="Sirius" element="_9Ta2sEaAEeWtjPFhJSzJTA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_-sdGMEaAEeWtjPFhJSzJTA" type="2003" element="_-r-lEEaAEeWtjPFhJSzJTA">
+            <children xmi:type="notation:Node" xmi:id="_-seUUEaAEeWtjPFhJSzJTA" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_-sficEaAEeWtjPFhJSzJTA" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_BghJQEaBEeWtjPFhJSzJTA" type="3010" element="_BgU8AEaBEeWtjPFhJSzJTA">
+                <styles xmi:type="notation:FontStyle" xmi:id="_BghJQUaBEeWtjPFhJSzJTA" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_BghJQkaBEeWtjPFhJSzJTA"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_-sficUaAEeWtjPFhJSzJTA"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_-sfickaAEeWtjPFhJSzJTA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-sdGMUaAEeWtjPFhJSzJTA" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-sdGMkaAEeWtjPFhJSzJTA" x="390" y="120" width="120" height="100"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_9TfIIkaAEeWtjPFhJSzJTA"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_-r-lEEaAEeWtjPFhJSzJTA" name="Person" tooltipText="" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Person"/>
+        <semanticElements xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Person"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CvVFwEaBEeWtjPFhJSzJTA" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BgU8AEaBEeWtjPFhJSzJTA" name="name : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//Person/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//Person/name"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_CvW68EaBEeWtjPFhJSzJTA" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_9Ta2tUaAEeWtjPFhJSzJTA"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+      <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+      <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+      <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
+      <target xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_4F8FMEaAEeWtjPFhJSzJTA">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_4Ggs8EaAEeWtjPFhJSzJTA">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_4G8x0EaAEeWtjPFhJSzJTA">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

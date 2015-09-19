@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_hTH58FW2EeK0V4B2JYxJUg" type="Henshin" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_hW3xgFW2EeK0V4B2JYxJUg" type="2001" fontName="Segoe UI" italic="true" fillColor="16114135" lineColor="0">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kmhkYlW2EeK0V4B2JYxJUg" source="defaultAction">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kmhkY1W2EeK0V4B2JYxJUg" key="value" value="preserve"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_hW3xglW2EeK0V4B2JYxJUg" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_hW3xg1W2EeK0V4B2JYxJUg" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_kmjZkFW2EeK0V4B2JYxJUg" type="3001" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_kmkAoFW2EeK0V4B2JYxJUg" type="5002"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_kmkAoVW2EeK0V4B2JYxJUg" type="5003"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_kmkAolW2EeK0V4B2JYxJUg" type="7002">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_kmkAo1W2EeK0V4B2JYxJUg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_kmkApFW2EeK0V4B2JYxJUg"/>
+        </children>
+        <element xmi:type="henshin:Node" href="rename_attribute_exe.henshin#_kmehEFW2EeK0V4B2JYxJUg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kmjZkVW2EeK0V4B2JYxJUg" x="65" y="39"/>
+      </children>
+    </children>
+    <element xmi:type="henshin:Rule" href="rename_attribute_exe.henshin#_U4p9UFW2EeK0V4B2JYxJUg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hW3xgVW2EeK0V4B2JYxJUg" x="21" y="41" width="338" height="201"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_hTH58VW2EeK0V4B2JYxJUg"/>
+  <element xmi:type="henshin:Module" href="rename_attribute_exe.henshin#_MU_TIFW2EeK0V4B2JYxJUg"/>
+</notation:Diagram>

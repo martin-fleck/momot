@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DkD08KH-EeObOe_NVdEHRg">
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DkHfUKH-EeObOe_NVdEHRg" name="mainRule">
+    <parameters xmi:id="_DkIGYKH-EeObOe_NVdEHRg" name="context"/>
+    <lhs xmi:id="_DkItcKH-EeObOe_NVdEHRg" name="Lhs">
+      <nodes xmi:id="_DkM-4KH-EeObOe_NVdEHRg" name="context" outgoing="_IQujIKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_Hj2PAKIkEeOQIJJp0Esjjw" outgoing="_Lz69EKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_IQt8EKIkEeOQIJJp0Esjjw" incoming="_IQujIKIkEeOQIJJp0Esjjw _NANKAKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_IxUuwKIkEeOQIJJp0Esjjw" incoming="_Lz69EKIkEeOQIJJp0Esjjw" outgoing="_MbesUKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_JMpY0KIkEeOQIJJp0Esjjw" incoming="_MbesUKIkEeOQIJJp0Esjjw" outgoing="_NANKAKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <edges xmi:id="_IQujIKIkEeOQIJJp0Esjjw" source="_DkM-4KH-EeObOe_NVdEHRg" target="_IQt8EKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_Lz69EKIkEeOQIJJp0Esjjw" source="_Hj2PAKIkEeOQIJJp0Esjjw" target="_IxUuwKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_MbesUKIkEeOQIJJp0Esjjw" source="_IxUuwKIkEeOQIJJp0Esjjw" target="_JMpY0KIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_NANKAKIkEeOQIJJp0Esjjw" source="_JMpY0KIkEeOQIJJp0Esjjw" target="_IQt8EKIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_DkPbIaH-EeObOe_NVdEHRg" name="Rhs">
+      <nodes xmi:id="_DkPbJKH-EeObOe_NVdEHRg" name="context" outgoing="_IQujIaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_Hj4EMKIkEeOQIJJp0Esjjw" outgoing="_Lz69EaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_IQt8EaIkEeOQIJJp0Esjjw" incoming="_IQujIaIkEeOQIJJp0Esjjw _NANKAaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_IxUuwaIkEeOQIJJp0Esjjw" incoming="_Lz69EaIkEeOQIJJp0Esjjw" outgoing="_MbesUaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_JMpY0aIkEeOQIJJp0Esjjw" incoming="_MbesUaIkEeOQIJJp0Esjjw" outgoing="_NANKAaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization"/>
+      </nodes>
+      <edges xmi:id="_IQujIaIkEeOQIJJp0Esjjw" source="_DkPbJKH-EeObOe_NVdEHRg" target="_IQt8EaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_Lz69EaIkEeOQIJJp0Esjjw" source="_Hj4EMKIkEeOQIJJp0Esjjw" target="_IxUuwaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+      <edges xmi:id="_MbesUaIkEeOQIJJp0Esjjw" source="_IxUuwaIkEeOQIJJp0Esjjw" target="_JMpY0aIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/generalization"/>
+      </edges>
+      <edges xmi:id="_NANKAaIkEeOQIJJp0Esjjw" source="_JMpY0aIkEeOQIJJp0Esjjw" target="_IQt8EaIkEeOQIJJp0Esjjw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Generalization/general"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_DkQCMaH-EeObOe_NVdEHRg" origin="_DkM-4KH-EeObOe_NVdEHRg" image="_DkPbJKH-EeObOe_NVdEHRg"/>
+    <mappings xmi:id="_Hj4EMaIkEeOQIJJp0Esjjw" origin="_Hj2PAKIkEeOQIJJp0Esjjw" image="_Hj4EMKIkEeOQIJJp0Esjjw"/>
+    <mappings xmi:id="_IQt8EqIkEeOQIJJp0Esjjw" origin="_IQt8EKIkEeOQIJJp0Esjjw" image="_IQt8EaIkEeOQIJJp0Esjjw"/>
+    <mappings xmi:id="_IxUuwqIkEeOQIJJp0Esjjw" origin="_IxUuwKIkEeOQIJJp0Esjjw" image="_IxUuwaIkEeOQIJJp0Esjjw"/>
+    <mappings xmi:id="_JMpY0qIkEeOQIJJp0Esjjw" origin="_JMpY0KIkEeOQIJJp0Esjjw" image="_JMpY0aIkEeOQIJJp0Esjjw"/>
+  </units>
+</henshin:Module>
