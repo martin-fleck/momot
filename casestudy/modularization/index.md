@@ -5,7 +5,7 @@ layout: index
 
 ## Modularization Case Study
 A well-known problem in software architecture design that can often not be solved through exhaustive approaches is the modularization problem where the aim is to produce high-quality object-oriented models by grouping classes into modules.
-Producing a class diagram where the right number of modules is chosen and a proper assignment of classes is realized is a non-trivial task, as the problem has an exponentially growing search space of potential class partitions
+Producing a class diagram where the right number of modules is chosen and a proper assignment of classes is realized is a non-trivial task, as the problem has an exponentially growing search space of potential partitions.
 
 ### Meta-Model
 <div style="text-align:center">
@@ -20,22 +20,65 @@ A common, abstract superclass ``NamedElement`` ensures that all elements in the 
 ### Rules
 
 **Create Module:**
+Since at the beginning there are no modules in the input model (it only contains classes and the dependencies among them), we need a rule to create a module.
+This rule creates a module within the ``ModularizationModel`` with the provided name (``moduleName``), only if a module with such a name does not already exist.
 
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_rule_createModule.svg" alt="Modularization Meta-Model" />
 </div>
 
 **Assign Class:**
+Finally, once we have at least one module, we can start the modularization.
+For this, we assign each ``class`` to a ``module``.
+Classes which have already been assigned will not be re-assigned.
 
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_rule_assignClass.svg" alt="Modularization Meta-Model" />
 </div>
 
+### Parameters
+Since when we create a new module, the ``moduleName`` parameter can not be matched automatically by the graph transformation engine, we categorize it as a so called *user parameter* which requires user input. In an automated approach however, this user input is substituted by a value generator. We therefore provide a increasing name generator for this parameter which produces names starting with *Module* and an increment value of *A*, i.e., *ModuleA*, *ModuleB*, etc.
+
+```
+ModularizationRules.CreateModule.Parameter::MODULE_NAME : 
+	new IncrementalStringValue("Module", "A")
+```
+
 ### Objectives and Constraints
+Since modularization is such a common and well-studied problem, many metrics have been proposed which indicate the quality of a module.
+Common metrics include coupling and cohesion and the modularization quality, which combines coupling and cohesion into a single metric.
+For our example, we follow the *Equal-Size Cluster Approach*, as described by Praditwong et al in *Software Module Clustering as a Multi-Objective Search Problem*.
+The goal of this approach is to produce equally-sized modules, i.e., modules that have a similar number of classes. 
+Therefore, besides the above mentioned three objectives we also aim to maximize the number of modules and minimize the difference between the minimum and maximum number of classes in a module.
+In order to improve efficiency, we have outsourced evaluation of the objectives and constraints into a separate class ([ModularizationCalculator](https://github.com/martin-fleck/momot/blob/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsep/src/at/ac/tuwien/big/momot/examples/modularization/jsep/ModularizationCalculator.java)), which calculates the values in one iteration through the model.
+In the configuration example below, you can find how this external calculation can be integrated into the fitness evaluation of MOMoT.
+
+**Coupling:**
+
+**Cohesion:**
+
+**Modularization Quality:**
+
+**Number of Modules:**
+
+**Min-Max Difference:**
 
 
+Furthermore, in order for our system to be valid, we define the following two constraints:
+
+**No Unassigned Classes:** 
+All classes must be assigned to a module. 
+If any unassigned classes are found, the system is not considered valid.
+In order to assess the magnitude of the violation, we consider the number of unassigned classes.
+
+**No Empty Modules:**
+All modules must have at least one module.
+Since empty modules do not provide any value for the system, they are considered a system violation.
+In order to assess the magnitude of the violation, we consider the number of empty modules.
 
 ### References
+* Praditwong K, Harman M, Yao X. Software Module Clustering as a Multi-Objective Search Problem. IEEE
+Transactions on Software Engineering 2011; 37(2):264–282, doi:[10.1109/TSE.2010.26](http://dx.doi.org/10.1109/TSE.2010.26).
 * [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsep)
 
 ### Input Example
