@@ -57,6 +57,7 @@ Such a definition of rule priority is only possible by using the *Priority Units
 **Content Size:** 
 Weighted number of elements with a focus on number of classes (``entitiys``) so that a higher number of classes results in a worse fitness thatn a higher number of attributes (``propertys``).
 This ensures that the creation of classes is avoided if possible.
+
 ```
 ContentSize : minimize "propertys->size() * 1.1 + entitys->size()"
 ```
