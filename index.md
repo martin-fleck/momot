@@ -22,9 +22,6 @@ A description about the specific case study, the necessary inputs and the config
 
 You can download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot). As dependencies you also need to have installed [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/).
 
-### Publications
-* Fleck M, Troya J, Wimmer M. Marrying Search-based Optimization and Model Transformation Technology. *Proc. of the 1st North American Search Based Software Engineering Symposium (NasBASE’15)*, 2015. To appear.
-
 ### Authors and Contributors
 MOMoT has been developed by Martin Fleck ([@martin-fleck](https://github.com/martin-fleck)), Javier Troya ([@javitroya](https://github.com/javitroya)) and Manuel Wimmer.
 At this point, we would like to thank the developers of the following frameworks, which we have used in order to develop MOMoT:
@@ -33,6 +30,9 @@ At this point, we would like to thank the developers of the following frameworks
 * [MOEA Framework](http://moeaframework.org/): The MOEA framework provides the basis for formulating the transformation orchestration problem as an optimization problem. It already supports a lot of algorithms which are re-used in MOMoT.
 * [Eclipse OCL Project](http://projects.eclipse.org/projects/modeling.mdt.ocl): The OCL Project is used to evaluate objectives and constraints specified in the OCL language.
 * [Eclipse Xbase](https://wiki.eclipse.org/Xbase): Xbase is a statically typed expression language for Java, that is implemented in Xtext and we have used it to implement the configuration language.
+
+### Related Publications
+* Fleck M, Troya J, Wimmer M. Marrying Search-based Optimization and Model Transformation Technology. *Proc. of the 1st North American Search Based Software Engineering Symposium (NasBASE’15)*, 2015. To appear.
 
 ### Support or Contact
 If you have encountered any problems with MOMoT or have suggestions of how we can improve it, please do not hesitate to contact Martin Fleck.
