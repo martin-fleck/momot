@@ -4,13 +4,19 @@ layout: index
 ---
 
 ## Stack Case Study
-`This page will be available soon.`
+The Stack case study is an artificial, simple problem domain which may abstract from the area of logistics.
+In this case study we have a set of containers (stacks) which carry a specific load. 
+The containers are connected in a circular way so that each container has a left and a right neighbor.
+The task is now to ensure that the overall load is equally distributed between the containers and that the load balancing is done in as few steps as possible.
 
 ### Meta-Model
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/stack/stack_mm.svg" alt="Stack Meta-Model" />
 </div>
 
+In the meta-model the whole system is represented as a ```StackModel``` containing a number of stacks. 
+Each ```Stack``` has a specified load and is uniquely identified through an id.
+Stacks are connected to each other so that each stack has a left and right neighbor so that the left neighbor of one stack is its right neighbor. 
 
 ### Rules
 <div style="text-align:center">
@@ -46,13 +52,13 @@ Since when we shift a load from one stack to another, the ``amount`` parameter c
 new RandomIntegerValue(1, 5)
 ```
 
-### References
+### Resources
 
 
 ### Complete example configuration
 
 ```
-initialization = {
+initialization = { // register stack meta-model etc.
 	StackPackage.eINSTANCE.class
 }
 
@@ -89,36 +95,36 @@ search = {
 	   NSGA_II	: moea.createNSGAII(
 	   				new TournamentSelection(2),
 	   				new OnePointCrossover(1.0), 
-						new TransformationPlaceholderMutation(0.15),
-						new TransformationParameterMutation(0.1, orchestration.moduleManager))
+					new TransformationPlaceholderMutation(0.15),
+					new TransformationParameterMutation(0.1, orchestration.moduleManager))
 	   NSGA_III	: moea.createNSGAIII(
 	   				4,
 	   				new TournamentSelection(2),
 	   				new OnePointCrossover(1.0), 
-						new TransformationPlaceholderMutation(0.15),
-						new TransformationParameterMutation(0.1, orchestration.moduleManager))
+					new TransformationPlaceholderMutation(0.15),
+					new TransformationParameterMutation(0.1, orchestration.moduleManager))
 	}	
 }
 
 experiment = {
-	populationSize 	= 100
-	maxEvaluations 	= 5000
-	nrRuns 				= 30
-	referenceSet 		= "model/input/referenceSet/model_five_stacks_reference_set.pf"
+	populationSize    = 100
+	maxEvaluations    = 5000
+	nrRuns            = 30
+	referenceSet      = "model/input/referenceSet/model_five_stacks_reference_set.pf"
 	progressListeners = [ new SeedRuntimePrintListener ]
 }
 	
 analysis = {
-	indicators		= [ hypervolume additiveEpsilonIndicator maximumParetoFrontError  ]
-	significance	= 0.01
-	show 				= [ individualValues aggregateValues statisticalSignificance ]
+	indicators   = [ hypervolume additiveEpsilonIndicator maximumParetoFrontError  ]
+	significance = 0.01
+	show         = [ individualValues aggregateValues statisticalSignificance ]
 }
 	
 finalization = {
-	saveAnalysis "model/output/analysis.txt"
+	saveAnalysis   "model/output/analysis.txt"
 	saveObjectives "model/output/approximationSet/overall_objectives.pf"
 	saveObjectives [ NSGA_III, NSGA_II ] "model/output/approximationSet/moea_objectives.pf"
-	saveSolutions 	"model/output/solutions/all/"
-	saveSolutions 	[ NSGA_III, NSGA_II ] "model/output/solutions/moea/"	
+	saveSolutions  "model/output/solutions/all/"
+	saveSolutions  [ NSGA_III, NSGA_II ] "model/output/solutions/moea/"	
 }	
 ```
