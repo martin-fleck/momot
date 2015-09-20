@@ -38,7 +38,7 @@ Independent Units have an arbitrary number of sub-units that are checked in nond
 The specified execution rule performs the actual model change, i.e., it removes the specified class (``selectedEClass``) from the model (``EPackage``). 
 As it is the case with all henshin refactorings, the actual execution is again packaged into a so called *Sequential Unit*. 
 A sequential unit has an arbitrary number of sub-units that are executed in the given order.
-In this case, the unit is configure to fail if not all specified rules can be executed and in case of a failure all changes will be automatically undone.
+In this case, the unit is configured to fail if not all specified rules can be executed and in case of a failure all changes will be automatically undone.
 
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/emfrefactor/emfrefactor_rule_remove_empty_sub_eclass_execute.svg" alt="EMF Refactor Execute Rule: Remove Empty Sub-EClass" />
@@ -64,7 +64,7 @@ Therefore we provide a simple example based on reducing the number of subclasses
 
 **Number of Subclasses:**
 In order to calculate the total number of subclasses in an Ecore model, we can use the ``NSUPEC2`` metric from EMF Refactor. 
-This metric however, is not applicable for EPackages, but calculates the number of subclasses based on a given class (```context```).
+This metric, however, is not applicable for EPackages, but calculates the number of subclasses based on a given class (```context```).
 In order to use the provided NSUPEC2, we therefore first obtain all eClasses from the graph (``getDomain``). 
 Then we set each eClass as the respective context of the metric calculator and calculate the number of subclasses.
 The sum of all number of subclasses for each eClass is the objective we aim to minimize. 
@@ -89,5 +89,5 @@ SubClasses : minimize {
 
 ### Complete example configuration
 ```
-The configuration will be available until 15 October.
+The configuration will be available by 15 October.
 ```
