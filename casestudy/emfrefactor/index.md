@@ -71,7 +71,7 @@ The sum of all number of subclasses for each eClass is the objective we aim to m
 
 ```
 SubClasses : minimize {
-  val subClassCalculator = new NSUPEC2() // from EMF Refactor
+	val subClassCalculator = new NSUPEC2() // from EMF Refactor
 	val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
 	var subClasses = 0.0;
 	for(eClass : eClasses) {
