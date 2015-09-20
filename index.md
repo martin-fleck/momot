@@ -5,13 +5,13 @@ layout: index
 ### What is MOMoT?
 MOMoT is a framework that combines model-driven engineering (MDE) techniques with search-based optimization (population-based search and local search) to solve highly complex problems on model level.
 
-In this framework, problems are represented thorugh Ecore meta-models and their respective model instances. 
+In this framework, problems are represented through Ecore meta-models and their respective model instances. 
 These problem instances can be manipulated through dedicated model transformations modeled as graph transformation rules Henshin. 
 Desired and prohibited characteristics (objectives and constraints) of the output model can be specified using OCL or a Java-like expression language (Xbase).
 Search-based optimization techniques can then be used to search for a Pareto-optimal set of transformation orchestrations, i.e., an ordered sequence of transformations and their parameters, to produce models with these characteristics.
 
 ### How to use MOMoT?
-MOMoT is developed for the Eclipse platform and provides a dedicates configuration language providing support for model  engineers to configure the search process.
+MOMoT is developed for the Eclipse platform and provides a dedicated configuration language providing support for model  engineers to configure the search process.
 MOMoT has been successfully applied on several case studies which showcase how to use MOMoT in a specific scenario.
 A description about the specific case study, the necessary inputs and the configuration can be found on the respective case study page: 
 
