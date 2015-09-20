@@ -161,7 +161,7 @@ search = {
 			new OnePointCrossover(1.0), 
 			new TransformationPlaceholderMutation(0.10),
 			new TransformationVariableMutation(orchestration.searchHelper, 0.10))
-		NSGAII : moea.createEpsilonMOEA(
+		eMOEA : moea.createEpsilonMOEA(
 			0.02,
 			new TournamentSelection(2),
 			new OnePointCrossover(1.0), 
