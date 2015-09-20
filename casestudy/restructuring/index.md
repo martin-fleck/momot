@@ -14,7 +14,7 @@ The goal is to remove duplicate attributes from the overall class diagram, and t
 </div>
 
 In our meta-model we represent the complete system as a ``model`` which consists of entities (i.e., classes) and properties (i.e., attributes). ``Entities`` can have an inheritance relation (expressed through ``Generalization``) and ``properties`` have a specific ``type``, e.g., Integer.
-As as implification step, we identify all elements in the system through a unique name. 
+All elements in the system are identified through a unique name. 
 
 ### Rules
 In the class diagram restructuring case study we use three rules to manipulate a system and enhance its quality. 
@@ -55,7 +55,7 @@ In this sense, pulling up attributes should have priority over extracting super 
 Such a definition of rule priority is only possible by using the *Priority Units* of Henshin or by putting a weight on how the number of elements is calculated.
 
 **Content Size:** 
-Weighted number of elements with a focus on number of classes (``entitiys``) so that a higher number of classes results in a worse fitness thatn a higher number of attributes (``propertys``).
+Weighted number of elements with a focus on number of classes (``entitiys``) so that a higher number of classes results in a worse fitness than a higher number of attributes (``propertys``).
 This ensures that the creation of classes is avoided if possible.
 
 ```
