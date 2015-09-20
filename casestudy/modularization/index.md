@@ -4,7 +4,7 @@ layout: index
 ---
 
 ## Modularization Case Study
-A well-known problem in software architecture design that can often not be solved through exhaustive approaches is the modularization problem where the aim is to produce high-quality object-oriented models by grouping classes into modules.
+A well-known problem in software architecture design that can often not be solved through exhaustive approaches is the modularization problem, where the aim is to produce high-quality object-oriented models by grouping classes into modules.
 Producing a class diagram where the right number of modules is chosen and a proper assignment of classes is realized is a non-trivial task, as the problem has an exponentially growing search space of potential partitions.
 
 ### Meta-Model
@@ -37,7 +37,7 @@ Classes which have already been assigned will not be re-assigned.
 </div>
 
 ### Parameters
-Since when we create a new module, the ``moduleName`` parameter can not be matched automatically by the graph transformation engine, we categorize it as a so called *user parameter* which requires user input. In an automated approach however, this user input is substituted by a value generator. We therefore provide a increasing name generator for this parameter which produces names starting with *Module* and an increment value of *A*, i.e., *ModuleA*, *ModuleB*, etc.
+Since when we create a new module, the ``moduleName`` parameter can not be matched automatically by the graph transformation engine, we categorize it as a so-called *user parameter* which requires user input. In an automated approach however, this user input is substituted by a value generator. We therefore provide an increasing name generator for this parameter which produces names starting with *Module* and an increment value of *A*, i.e., *ModuleA*, *ModuleB*, etc.
 
 ```
 ModularizationRules.CreateModule.Parameter::MODULE_NAME : new IncrementalStringValue("Module", "A")
@@ -69,7 +69,7 @@ The aim is to reward increased cohesion with a higher MQ score and to punish inc
 We aim to maximize the number of modules to avoid having all classes in a single large module.
 
 **Min-Max Difference:**
-The difference between the module with the lowest number of classes and the module with the most number of classes should be minimized.
+The difference between the module with the lowest number of classes and the module with the highest number of classes should be minimized.
 By doing so, we aim to produce equally-sized modules as the optimal difference would be 0.
 
 Furthermore, in order for our system to be valid, we define the following two constraints:
