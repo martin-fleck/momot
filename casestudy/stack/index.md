@@ -4,7 +4,7 @@ layout: index
 ---
 
 ## Stack Case Study
-The Stack case study is an artificial, simple problem domain which may abstract from the area of logistics.
+The Stack case study is a simplified example from the logistics domain.
 In this case study we have a set of containers (stacks) which carry a specific load. 
 The containers are connected in a circular way so that each container has a left and a right neighbor.
 The task is now to ensure that the overall load is equally distributed between the containers and that the load balancing is done in as few steps as possible.
