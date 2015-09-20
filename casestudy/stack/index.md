@@ -31,7 +31,7 @@ Please note that this NAC could also have been expressed as an invariant in the 
 However, to demonstrate the use of attribute NACs, we have implemented it this way.
 
 ### Parameters
-Since when we shift a load from one stack to another, the ``amount`` parameter can not be matched automatically by the graph transformation engine, we categorize it as a so called *user parameter* which requires user input. In an automated approach however, this user input is substituted by a random value generator. We therefore provide a random integer generator for this parameter which produces results in the range from 1 to 5.
+Since when we shift a load from one stack to another, the ``amount`` parameter can not be matched automatically by the graph transformation engine, we categorize it as a so called *user parameter* which requires user input. In an automated approach, however, this user input is substituted by a random value generator. We therefore provide a random integer generator for this parameter which produces results in the range from 1 to 5.
 
 ```
 StackModule.ShiftLeft.Parameter.AMOUNT  : new RandomIntegerValue(1, 5)
