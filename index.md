@@ -35,4 +35,4 @@ At this point, we would like to thank the developers of the following frameworks
 * Fleck M, Troya J, Wimmer M. Marrying Search-based Optimization and Model Transformation Technology. *Proc. of the 1st North American Search Based Software Engineering Symposium (NasBASE’15)*, 2015. To appear. [PDF](downloads/NasBASE_MOMoT.pdf).
 
 ### Support or Contact
-If you have encountered any problems with MOMoT or have suggestions of how we can improve it, please do not hesitate to contact Martin Fleck.
+If you have encountered any problems with MOMoT or have suggestions of how we can improve it, please do not hesitate to contact [Martin Fleck](http://www.big.tuwien.ac.at/staff/mfleck).
