@@ -85,6 +85,25 @@ SubClasses : minimize {
 Please note that the NSUBEC metric uses OCL in the background which can have quite a negative impact on the overall performance of the search. 
 For a better performance, we suggest implementing the query in Java.
 
+### Equality Helper
+In contrast to the other case studies, this one uses an already existing metamodel in the search (``Ecore``).
+We therefore need to provide our own object equality strategy in the graph matching if we want to re-use already created solutions. 
+To do so, one can override the equals method from the respective model classes. 
+However, in the case of Ecore this is not possible since the model classes already exist in a provided package (``org.eclipse.emf.ecore``).
+We therefore implement the equality strategy directly.
+For simplicity, we use a name-based strategy in this example. 
+We state that two objects are equal if they have the same simple name.
+This is a convention we use for our input models; in practice at least the fully qualified name should be used.
+If the objects do not have a name, we use the default strategy, i.e., using ``left.equals(right)`` considering any null values.
+
+```
+equalityHelper = {
+	if(left instanceof ENamedElement && right instanceof ENamedElement)
+		return (left as ENamedElement).name.equals((right as ENamedElement).name);
+	return new DefaultEObjectEqualityHelper().equals(left, right); // left.equals(right)
+}
+```
+
 ### Resources
 * [EMF Refactor](http://www.eclipse.org/emf-refactor/)
 * [EMF Refactor Techniques](https://wiki.eclipse.org/Techniques)
