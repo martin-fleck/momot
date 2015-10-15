@@ -118,7 +118,7 @@
     </rhs>
     <mappings xmi:id="_qB7zABHwEeKSGqZuqrXSrQ" origin="_qB6k4RHwEeKSGqZuqrXSrQ" image="_qCM4wBHwEeKSGqZuqrXSrQ"/>
   </units>
-  <units xsi:type="henshin:IndependentUnit" xmi:id="_qBsicBHwEeKSGqZuqrXSrQ" name="mainUnit" description="" subUnits="_qBrUUBHwEeKSGqZuqrXSrQ _qBrUXBHwEeKSGqZuqrXSrQ _qBrUXxHwEeKSGqZuqrXSrQ">
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_qBsicBHwEeKSGqZuqrXSrQ" name="initialCheck" description="" subUnits="_qBrUUBHwEeKSGqZuqrXSrQ _qBrUXBHwEeKSGqZuqrXSrQ _qBrUXxHwEeKSGqZuqrXSrQ">
     <parameters xmi:id="_qBsicRHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
     <parameterMappings xmi:id="_qBvlwBHwEeKSGqZuqrXSrQ" source="_qBsicRHwEeKSGqZuqrXSrQ" target="_qBrUURHwEeKSGqZuqrXSrQ"/>
     <parameterMappings xmi:id="_qBvlwRHwEeKSGqZuqrXSrQ" source="_qBsicRHwEeKSGqZuqrXSrQ" target="_qB1sYBHwEeKSGqZuqrXSrQ"/>

@@ -126,6 +126,7 @@
   <semanticResources>pathmap://UML_METAMODELS/UML.metamodel.uml</semanticResources>
   <semanticResources>pathmap://UML_METAMODELS/Ecore.metamodel.uml</semanticResources>
   <semanticResources>model/input/simple_transformed.uml</semanticResources>
+  <semanticResources>transformation/refactorings/ecore/remove_empty_sub_eclass_initialcheck.henshin_diagram</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_4FCGQEaAEeWtjPFhJSzJTA">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_9Ta2sEaAEeWtjPFhJSzJTA" name="uml class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_9Ta2sUaAEeWtjPFhJSzJTA" source="DANNOTATION_CUSTOMIZATION_KEY">

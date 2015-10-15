@@ -1,25 +1,39 @@
 import org.eclipse.emf.ecore.EcorePackage
-import org.eclipse.emf.refactor.metrics.ecore.ocl.eclazz.NEREC
-import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.emf.refactor.metrics.ecore.ocl.eclazz.NSUPEC
-import org.eclipse.emf.refactor.metrics.ecore.ocl.eclazz.NSUPEC2
+import org.moeaframework.core.operator.TournamentSelection
+import org.moeaframework.core.operator.OnePointCrossover
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import org.eclipse.emf.ecore.ENamedElement
+import at.ac.tuwien.big.momot.problem.unit.parameter.comparator.DefaultEObjectEqualityHelper
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.momot.examples.emfrefactor.metric.NSUBEC
 
 initialization  = {
-	EcorePackage.eINSTANCE.eClass
+	EcorePackage::eINSTANCE.eClass
 }
 
 search EMFRefactorSearch = {
-	model = "model/input/simple_example.ecore"
-	solutionLength = 10
+	model = "model/input/metamodel.ecore"
+	solutionLength = 5
 	transformations = {
-		modules = [ "transformation/refactorings/ecore/remove_empty_sub_eclass.henshin" ]
+		modules = [ "transformation/refactorings/ecore/remove_empty_sub_eclass_all.henshin" ]
+		ignoreUnits = [
+			// only use conditional unit
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_subetypes",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_superetypes",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_empty_eclass",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::initialCheck",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_preconditions",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::execute",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::remove"
+		]
 	}
 
 	fitness = {
 		objectives = {
+			SolutionLength : minimize new TransformationLengthDimension
 			SubClasses : minimize {
-				val subClassCalculator = new NSUPEC2()
+				val subClassCalculator = new NSUBEC()
 				val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
 				var subClasses = 0.0;
 				for(eClass : eClasses) {
@@ -32,17 +46,30 @@ search EMFRefactorSearch = {
 	}
 
 	algorithms = {
-		RandomSearch : moea.createRandomSearch()
+		NSGAIII : moea.createNSGAIII(
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0),  
+				new TransformationPlaceholderMutation(0.15))
+	}
+	
+	equalityHelper = {
+		// use simple name based matching
+		if(left instanceof ENamedElement && right instanceof ENamedElement)
+			return (left as ENamedElement).name.equals((right as ENamedElement).name);
+		return new DefaultEObjectEqualityHelper().equals(left, right); // left.equals(right)
 	}
 }
 
 experiment = {
 	populationSize = 50
-	maxEvaluations = 500
+	maxEvaluations = 1000
 	nrRuns = 30
+	progressListeners = [ new SeedRuntimePrintListener ]
 }
 
 finalization = {
-	saveObjectives "objectives.pf"
-	saveSolutions "output/"
+	saveObjectives "model/output/metamodel/referenceSet.pf"
+	saveSolutions "model/output/metamodel/solutions/"
+	printSolutions
+	printObjectives
 }

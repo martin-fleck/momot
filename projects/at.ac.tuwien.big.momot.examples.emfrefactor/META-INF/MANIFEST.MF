@@ -5,34 +5,14 @@ Bundle-Name: EmfRefactor Transformations
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.uml2.uml,
  at.ac.tuwien.big.momot,
- org.eclipse.emf.refactor.metrics;bundle-version="0.9.0",
- org.eclipse.emf.refactor.refactoring;bundle-version="0.9.0",
- org.eclipse.emf.refactor.smells;bundle-version="0.9.0",
  org.eclipse.core.expressions,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.change,
  org.eclipse.ltk.core.refactoring,
  org.eclipse.ltk.ui.refactoring,
- org.eclipse.emf.refactor.refactoring.runtime,
  org.junit;bundle-version="4.8.1",
  org.eclipse.core.runtime;bundle-version="3.11.0",
- org.eclipse.xtext.xbase.lib;bundle-version="2.8.4",
- org.eclipse.emf.refactor.metrics.ecore;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.ecore.compositional;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.ecore.henshin;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.ecore.ocl;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.configuration;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.generator;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.henshin;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.ocl;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.papyrus;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.reporter;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.runtime;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.uml24;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.uml24.compositional;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.uml24.henshin;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.uml24.ocl;bundle-version="0.9.0",
- org.eclipse.emf.refactor.metrics.xtext;bundle-version="0.9.0"
+ org.eclipse.xtext.xbase.lib;bundle-version="2.8.4"
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 

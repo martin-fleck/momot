@@ -21,7 +21,7 @@
     </rhs>
     <mappings xmi:id="_qcvfsBHwEeKSGqZuqrXSrQ" origin="_qcu4ohHwEeKSGqZuqrXSrQ" image="_qcu4pRHwEeKSGqZuqrXSrQ"/>
   </units>
-  <units xsi:type="henshin:SequentialUnit" xmi:id="_qctqgBHwEeKSGqZuqrXSrQ" name="mainUnit" description="" subUnits="_qcscYBHwEeKSGqZuqrXSrQ">
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_qctqgBHwEeKSGqZuqrXSrQ" name="execute" description="" subUnits="_qcscYBHwEeKSGqZuqrXSrQ">
     <parameters xmi:id="_qctqgRHwEeKSGqZuqrXSrQ" name="selectedEObject"/>
     <parameterMappings xmi:id="_qctqghHwEeKSGqZuqrXSrQ" source="_qctqgRHwEeKSGqZuqrXSrQ" target="_qcscYRHwEeKSGqZuqrXSrQ"/>
   </units>
