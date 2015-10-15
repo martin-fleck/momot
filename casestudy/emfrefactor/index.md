@@ -45,11 +45,11 @@ In this case, the unit is configured to fail if not all specified rules can be e
 </div>
 
 **Combined Check and Execution:** 
-Without re-implementing the transformations, we can combine them using a so called *Conditional Unit*.
+Without re-implementing the transformations, we can combine them by partially negating them (a provided Henshin operation) and using a so called *Conditional Unit*.
 Conditional units can be used to bring the control-flow semantics of if-then-else into transformations.
 Specifically, the then-part of the unit is only executed if a match for the if-part can be found. 
 If no such match can be found and the optional else-part has been given, the else-part is executed instead.
-In our example, we use the initial check rule in the if-part and the execution rule in the then-part, the else-part remains empty.
+In our example, we use the negated initial check rule in the if-part and the execution rule in the then-part, the else-part remains empty.
 
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/emfrefactor/emfrefactor_rule_remove_empty_sub_eclass.svg" alt="EMF Refactor Combined Rule: Remove Empty Sub-EClass" />
@@ -63,15 +63,15 @@ Again, several metrics for Ecore and UML can be calculated and listing them is o
 Therefore we provide a simple example based on reducing the number of subclasses.
 
 **Number of Subclasses:**
-In order to calculate the total number of subclasses in an Ecore model, we can use the ``NSUPEC2`` metric from EMF Refactor. 
+In order to calculate the total number of subclasses in an Ecore model, we can use the ``NSUBEC`` metric from EMF Refactor (see all metrics at their [wiki page](https://wiki.eclipse.org/Techniques)). 
 This metric, however, is not applicable for EPackages, but calculates the number of subclasses based on a given class (```context```).
-In order to use the provided NSUPEC2, we therefore first obtain all eClasses from the graph (``getDomain``). 
+In order to use the provided NSUBEC, we therefore first obtain all eClasses from the graph (``getDomain``). 
 Then we set each eClass as the respective context of the metric calculator and calculate the number of subclasses.
 The sum of all number of subclasses for each eClass is the objective we aim to minimize. 
 
 ```
 SubClasses : minimize {
-	val subClassCalculator = new NSUPEC2() // from EMF Refactor
+	val subClassCalculator = new NSUBEC()
 	val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
 	var subClasses = 0.0;
 	for(eClass : eClasses) {
@@ -82,6 +82,9 @@ SubClasses : minimize {
 }
 ```
 
+Please note that the NSUBEC metric uses OCL in the background which can have quite a negative impact on the overall performance of the search. 
+For a better performance, we suggest implementing the query in Java.
+
 ### Resources
 * [EMF Refactor](http://www.eclipse.org/emf-refactor/)
 * [EMF Refactor Techniques](https://wiki.eclipse.org/Techniques)
@@ -89,5 +92,69 @@ SubClasses : minimize {
 
 ### Complete example configuration
 ```
-The configuration will be available by 15 October.
+initialization  = {
+	EcorePackage::eINSTANCE.eClass
+}
+
+search EMFRefactorSearch = {
+	model = "model/input/metamodel.ecore"
+	solutionLength = 5
+	transformations = {
+		modules = [ "transformation/refactorings/ecore/remove_empty_sub_eclass_all.henshin" ]
+		ignoreUnits = [
+			// only use conditional unit
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_subetypes",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_superetypes",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_empty_eclass",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::initialCheck",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_preconditions",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::execute",
+			"remove_empty_sub_eclass_all::removeEmptySubEClass::remove"
+		]
+	}
+
+	fitness = {
+		objectives = {
+			SolutionLength : minimize new TransformationLengthDimension
+			SubClasses : minimize {
+				val subClassCalculator = new NSUBEC()
+				val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
+				var subClasses = 0.0;
+				for(eClass : eClasses) {
+					subClassCalculator.context = #[ eClass ]
+					subClasses += subClassCalculator.calculate
+				}					
+				return subClasses;
+			}
+		}
+	}
+
+	algorithms = {
+		NSGAIII : moea.createNSGAIII(
+			new TournamentSelection(2),
+			new OnePointCrossover(1.0),  
+			new TransformationPlaceholderMutation(0.15))
+	}
+	
+	equalityHelper = {
+		// use simple name based matching
+		if(left instanceof ENamedElement && right instanceof ENamedElement)
+			return (left as ENamedElement).name.equals((right as ENamedElement).name);
+		return new DefaultEObjectEqualityHelper().equals(left, right); // left.equals(right)
+	}
+}
+
+experiment = {
+	populationSize = 50
+	maxEvaluations = 1000
+	nrRuns = 30
+	progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+finalization = {
+	saveObjectives "model/output/metamodel/referenceSet.pf"
+	saveSolutions "model/output/metamodel/solutions/"
+	printSolutions
+	printObjectives
+}
 ```
