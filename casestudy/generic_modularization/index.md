@@ -101,28 +101,28 @@ By doing so, we aim to produce equally-sized modules as the optimal difference w
 
 ```
 fitness = {
-	preprocess = { // use attribute storage for external calculation
-		val root = MomotUtil.getRoot(solution.execute, typeof(Language))
-		solution.setAttribute("root", root)
-		solution.setAttribute("metrics", MetricsCalculator.calculate(root))
-	}
-	objectives = { 
-		Coupling : minimize { // java-like syntax
-			val metrics = solution.getAttribute("metrics", typeof(LanguageMetrics))
-			metrics.coupling
-		}
-		Cohesion : maximize { 
-			val metrics = solution.getAttribute("metrics", typeof(LanguageMetrics))
-			metrics.cohesion
-		}
-		NrModules : maximize {
-			(root as Language).^modules.filter[m | !m.entities.empty].size
-		}
-		MinMaxDiffTest : minimize {
-			val sizes = (root as Language).^modules.filter[m | !m.entities.empty].map[m | m.entities.size]
-			sizes.max - sizes.min
-		}	
-	}
+  preprocess = { // use attribute storage for external calculation
+    val root = MomotUtil.getRoot(solution.execute, typeof(Language))
+    solution.setAttribute("root", root)
+    solution.setAttribute("metrics", MetricsCalculator.calculate(root))
+  }
+  objectives = { 
+    Coupling : minimize { // java-like syntax
+      val metrics = solution.getAttribute("metrics", typeof(LanguageMetrics))
+      metrics.coupling
+    }
+    Cohesion : maximize { 
+      val metrics = solution.getAttribute("metrics", typeof(LanguageMetrics))
+      metrics.cohesion
+    }
+    NrModules : maximize {
+      (root as Language).^modules.filter[m | !m.entities.empty].size
+    }
+    MinMaxDiffTest : minimize {
+      val sizes = (root as Language).^modules.filter[m | !m.entities.empty].map[m | m.entities.size]
+      sizes.max - sizes.min
+    }  
+  }
 }
 ```
 
