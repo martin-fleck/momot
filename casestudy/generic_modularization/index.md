@@ -115,14 +115,13 @@ fitness = {
 			val metrics = solution.getAttribute("metrics", typeof(LanguageMetrics))
 			metrics.cohesion
 		}
-		NrModules : minimize {
-			val metrics = solution.getAttribute("metrics", typeof(LanguageMetrics))
-			metrics.modules
+		NrModules : maximize {
+			(root as Language).^modules.filter[m | !m.entities.empty].size
 		}
-		MinMaxDiff : minimize {
-			val metrics = solution.getAttribute("metrics", typeof(LanguageMetrics))
-			metrics.minMaxDiff
-		}
+		MinMaxDiffTest : minimize {
+			val sizes = (root as Language).^modules.filter[m | !m.entities.empty].map[m | m.entities.size]
+			sizes.max - sizes.min
+		}	
 	}
 }
 ```
@@ -138,7 +137,7 @@ The initial values for the case studies are given in the following table.
 The second module for HTML and OCL are retrieved from the PrimitiveTypes package which contain the data types Integer, Boolean, String, and Double.
 
 
-<table style="text-align:center">
+<table>
 <thead>
 <tr>
 <th></th>
@@ -187,7 +186,7 @@ The second module for HTML and OCL are retrieved from the PrimitiveTypes package
 </tbody>
 </table> 
 
-<!-- <table style="text-align:center">
+<!-- <table>
 <thead>
 <tr>
 <th></th>
@@ -241,7 +240,7 @@ The second module for HTML and OCL are retrieved from the PrimitiveTypes package
 As for each case study we get a lot of solutions, we apply a knee point strategy to select one solution.
 The values for the modularization results are as follow:
 
-<table style="text-align:center">
+<table>
 <thead>
 <tr>
 <th></th>

@@ -1,2 +1,4 @@
 markdown: kramdown
 encoding: UTF-8
+kramdown:
+  coderay_tab_width: 3
