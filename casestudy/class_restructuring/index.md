@@ -10,7 +10,7 @@ The goal is to remove duplicate attributes from the overall class diagram, and t
 
 ### Meta-Model
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/restructuring/restructuring_mm.svg" alt="Class Diagram Restructuring Meta-Model" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_restructuring/restructuring_mm.svg" alt="Class Diagram Restructuring Meta-Model" />
 </div>
 
 In our meta-model we represent the complete system as a ``model`` which consists of entities (i.e., classes) and properties (i.e., attributes). ``Entities`` can have an inheritance relation (expressed through ``Generalization``) and ``properties`` have a specific ``type``, e.g., Integer.
@@ -26,7 +26,7 @@ The provided OCL negative application condition ensures that this rule is only a
 Please note that a nested rule in Henshin (indicated by a ``*`` in the action name) is executed as often as possible if the outer rule matches.
 
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/restructuring/restructuring_rule_pullUpAttribute.svg" alt="Restructuring Rule: Pull Up Attribute" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_restructuring/restructuring_rule_pullUpAttribute.svg" alt="Restructuring Rule: Pull Up Attribute" />
 </div>
 
 **Extract Super Class:**
@@ -36,7 +36,7 @@ Therefore, we introduce a new level of inheritance and create a new superclass f
 The rule is formulated in a way so that it only fires if at least two classes (``e1`` and ``e2``) share an attribute.
 
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/restructuring/restructuring_rule_extractSuperClass.svg" alt="Restructuring Rule: Extract Super Class" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_restructuring/restructuring_rule_extractSuperClass.svg" alt="Restructuring Rule: Extract Super Class" />
 </div>
 
 **Create Root Class:** 
@@ -44,7 +44,7 @@ This rule is used to create a new class for a common attribute (``n``) for class
 The rule is formulated in a way so that it only fires if at least two classes (``e1`` and ``e2``) share an attribute.
 
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/restructuring/restructuring_rule_createRootClass.svg" alt="Restructuring Rule: Create Root Class" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_restructuring/restructuring_rule_createRootClass.svg" alt="Restructuring Rule: Create Root Class" />
 </div> 
 
 

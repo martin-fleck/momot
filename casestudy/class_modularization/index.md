@@ -1,5 +1,5 @@
 ---
-title: MOMoT Modularization Case Study
+title: MOMoT Class Modularization Case Study
 layout: index
 ---
 
@@ -9,7 +9,7 @@ Producing a class diagram where the right number of modules is chosen and a prop
 
 ### Meta-Model
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_metamodel.svg" alt="Modularization Meta-Model" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_modularization/modularization_metamodel.svg" alt="Modularization Meta-Model" />
 </div>
 
 In our meta-model a system is represented by a ``ModularizationModel``, which consists of classes and modules. 
@@ -24,7 +24,7 @@ Since at the beginning there are no modules in the input model (it only contains
 This rule creates a module within the ``ModularizationModel`` with the provided name (``moduleName``), only if a module with such a name does not already exist.
 
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_rule_createModule.svg" alt="Modularization Meta-Model" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_modularization/modularization_rule_createModule.svg" alt="Modularization Meta-Model" />
 </div>
 
 **Assign Class:**
@@ -33,7 +33,7 @@ For this, we assign each ``class`` to a ``module``.
 Classes which have already been assigned will not be re-assigned.
 
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_rule_assignClass.svg" alt="Modularization Meta-Model" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_modularization/modularization_rule_assignClass.svg" alt="Modularization Meta-Model" />
 </div>
 
 ### Parameters
@@ -94,7 +94,7 @@ As an example input model, we use the *mtunis* system, an operating system for e
 The system contains 20 classes and 57 dependencies among them.
 
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_model_input.svg" alt="Modularization Meta-Model" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_modularization/modularization_model_input.svg" alt="Modularization Meta-Model" />
 </div>
 
 ### Complete example configuration
@@ -249,5 +249,5 @@ The respective values for the objectives and constraints are:
 
 
 <div style="text-align:center; margin-top: 2em">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/modularization/modularization_model_output.svg" alt="Modularization Meta-Model" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_modularization/modularization_model_output.svg" alt="Modularization Meta-Model" />
 </div>

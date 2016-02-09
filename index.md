@@ -16,8 +16,8 @@ MOMoT has been successfully applied on several case studies which showcase how t
 A description about the specific case study, the necessary inputs and the configuration can be found on the respective case study page: 
 
 * [Stack](casestudy/stack)
-* [Modularization](casestudy/modularization)
-* [Class Diagram Restructuring](casestudy/restructuring)
+* [Class Modularization](casestudy/class_modularization)
+* [Class Diagram Restructuring](casestudy/class_restructuring)
 * [EMF Refactor](casestudy/emfrefactor)
 
 You can download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot). As dependencies you also need to have installed [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/).
