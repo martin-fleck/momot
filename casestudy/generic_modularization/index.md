@@ -12,7 +12,7 @@ We show the application of our generic modularization approach on the example of
 <img src="http://martin-fleck.github.io/momot/images/casestudy/generic_modularization/generic_modularization_metamodel.svg" alt="Modularization Meta-Model" />
 </div>
 
-In our meta-model generically represents a language through a given name (e.g., Ecore). 
+In our generic modularization meta-model, a language is the root of the object graph.
 A ``Language`` consists of a set of ``Modules`` which in turn consist of entities. In the unmodularized case we only have one module containing all entities. 
 ``Entities`` are identified by their name and may have relationships among them (e.g., associations or inheritance).
 A ``Relationship`` is given a weight that is considered during the search process. 
@@ -132,7 +132,7 @@ fitness = {
 Transactions on Software Engineering 2011; 37(2):264–282, doi:[10.1109/TSE.2010.26](http://dx.doi.org/10.1109/TSE.2010.26).
 * [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.ecore)
 
-### Input Example
+### Input Examples
 As an example input model, we show the modularization of four Ecore-based languages: HTML, JAVA, OCL, and QVT.
 The initial values for the case studies are given in the following table.
 The second module for HTML and OCL is retrieved from the PrimitiveTypes package which contain the data types Integer, Boolean, and String for both case studies, and additionaly Double for OCL.
