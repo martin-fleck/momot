@@ -19,6 +19,8 @@ A description about the specific case study, the necessary inputs and the config
 * [Class Modularization](casestudy/class_modularization)
 * [Class Diagram Restructuring](casestudy/class_restructuring)
 * [EMF Refactor](casestudy/emfrefactor)
+* [Towards Generic Modularization](casestudy/generic_modularization)
+
 
 You can download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot). As dependencies you also need to have installed [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/).
 
