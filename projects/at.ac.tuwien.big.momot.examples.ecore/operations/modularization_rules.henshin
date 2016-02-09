@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_axthwLriEeWKEZ0TaqQlww">
+  <imports href="http://big.tuwien.ac.at/momo/modularization#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_8KiHoLriEeWKEZ0TaqQlww" name="moveEntity">
+    <parameters xmi:id="_CoK5cLrjEeWKEZ0TaqQlww" name="source">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_CoK5cbrjEeWKEZ0TaqQlww" name="target">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_CoK5crrjEeWKEZ0TaqQlww" name="entity">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_8K8-YLriEeWKEZ0TaqQlww" name="Lhs">
+      <nodes xmi:id="_tZF3ILrjEeWKEZ0TaqQlww" name="root" outgoing="_tZF3I7rjEeWKEZ0TaqQlww _tZGeMbrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Language"/>
+      </nodes>
+      <nodes xmi:id="_Dm7nwLrjEeWKEZ0TaqQlww" incoming="_tZF3I7rjEeWKEZ0TaqQlww" outgoing="_YdVO4LrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Module"/>
+        <attributes xmi:id="_EszqsLrjEeWKEZ0TaqQlww" value="source">
+          <type href="http://big.tuwien.ac.at/momo/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_D7MnkLrjEeWKEZ0TaqQlww" incoming="_tZGeMbrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Module"/>
+        <attributes xmi:id="_E4bE0LrjEeWKEZ0TaqQlww" value="target">
+          <type href="http://big.tuwien.ac.at/momo/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_X4AUQLrjEeWKEZ0TaqQlww" incoming="_YdVO4LrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Entity"/>
+        <attributes xmi:id="_gKr8ILrjEeWKEZ0TaqQlww" value="entity">
+          <type href="http://big.tuwien.ac.at/momo/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_YdVO4LrjEeWKEZ0TaqQlww" source="_Dm7nwLrjEeWKEZ0TaqQlww" target="_X4AUQLrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Module/entities"/>
+      </edges>
+      <edges xmi:id="_tZF3I7rjEeWKEZ0TaqQlww" source="_tZF3ILrjEeWKEZ0TaqQlww" target="_Dm7nwLrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Language/modules"/>
+      </edges>
+      <edges xmi:id="_tZGeMbrjEeWKEZ0TaqQlww" source="_tZF3ILrjEeWKEZ0TaqQlww" target="_D7MnkLrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Language/modules"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_8K8-YbriEeWKEZ0TaqQlww" name="Rhs">
+      <nodes xmi:id="_Dm7nwbrjEeWKEZ0TaqQlww" incoming="_tZGeMLrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Module"/>
+        <attributes xmi:id="_EszqsbrjEeWKEZ0TaqQlww" value="source">
+          <type href="http://big.tuwien.ac.at/momo/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_D7MnkbrjEeWKEZ0TaqQlww" incoming="_tZGeMrrjEeWKEZ0TaqQlww" outgoing="_Y0kDILrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Module"/>
+        <attributes xmi:id="_E4bE0brjEeWKEZ0TaqQlww" value="target">
+          <type href="http://big.tuwien.ac.at/momo/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_X4AUQbrjEeWKEZ0TaqQlww" incoming="_Y0kDILrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Entity"/>
+        <attributes xmi:id="_gKsjMLrjEeWKEZ0TaqQlww" value="entity">
+          <type href="http://big.tuwien.ac.at/momo/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_tZF3IbrjEeWKEZ0TaqQlww" name="root" outgoing="_tZGeMLrjEeWKEZ0TaqQlww _tZGeMrrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Language"/>
+      </nodes>
+      <edges xmi:id="_Y0kDILrjEeWKEZ0TaqQlww" source="_D7MnkbrjEeWKEZ0TaqQlww" target="_X4AUQbrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Module/entities"/>
+      </edges>
+      <edges xmi:id="_tZGeMLrjEeWKEZ0TaqQlww" source="_tZF3IbrjEeWKEZ0TaqQlww" target="_Dm7nwbrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Language/modules"/>
+      </edges>
+      <edges xmi:id="_tZGeMrrjEeWKEZ0TaqQlww" source="_tZF3IbrjEeWKEZ0TaqQlww" target="_D7MnkbrjEeWKEZ0TaqQlww">
+        <type href="http://big.tuwien.ac.at/momo/modularization#//Language/modules"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dm7nwrrjEeWKEZ0TaqQlww" origin="_Dm7nwLrjEeWKEZ0TaqQlww" image="_Dm7nwbrjEeWKEZ0TaqQlww"/>
+    <mappings xmi:id="_D7MnkrrjEeWKEZ0TaqQlww" origin="_D7MnkLrjEeWKEZ0TaqQlww" image="_D7MnkbrjEeWKEZ0TaqQlww"/>
+    <mappings xmi:id="_X4AUQrrjEeWKEZ0TaqQlww" origin="_X4AUQLrjEeWKEZ0TaqQlww" image="_X4AUQbrjEeWKEZ0TaqQlww"/>
+    <mappings xmi:id="_tZF3IrrjEeWKEZ0TaqQlww" origin="_tZF3ILrjEeWKEZ0TaqQlww" image="_tZF3IbrjEeWKEZ0TaqQlww"/>
+  </units>
+</henshin:Module>

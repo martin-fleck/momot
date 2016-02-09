@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Language xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://big.tuwien.ac.at/momo/modularization" name="java">
+  <modules name="java">
+    <entities name="AbstractMethodDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.92"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.111"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.64"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.1"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.20"/>
+    </entities>
+    <entities name="AbstractMethodInvocation">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.0"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+    </entities>
+    <entities name="AbstractTypeDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.20"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.34"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.34"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.20"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.106"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.2"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.2"/>
+    </entities>
+    <entities name="AbstractTypeQualifiedExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="AbstractVariablesContainer">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.127"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+    </entities>
+    <entities name="Annotation">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.9"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.5"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.5"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.5"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.5"/>
+    </entities>
+    <entities name="Archive">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.28"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.58"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.6"/>
+    </entities>
+    <entities name="AssertStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="ASTNode">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.34"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.35"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.28"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.8"/>
+    </entities>
+    <entities name="AnnotationMemberValuePair">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.11"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.9"/>
+    </entities>
+    <entities name="AnnotationTypeDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.2"/>
+    </entities>
+    <entities name="AnnotationTypeMemberDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.9"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.20"/>
+    </entities>
+    <entities name="AnonymousClassDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.20"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.29"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.12"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.12"/>
+    </entities>
+    <entities name="ArrayAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="ArrayCreation">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.15"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="ArrayInitializer">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.15"/>
+    </entities>
+    <entities name="ArrayLengthAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="ArrayType">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.106"/>
+    </entities>
+    <entities name="Assignment">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.19"/>
+    </entities>
+    <entities name="AssignmentKind"/>
+    <entities name="BodyDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.2"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.5"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.12"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.67"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.20"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.20"/>
+    </entities>
+    <entities name="BooleanLiteral">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="BlockComment">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.34"/>
+    </entities>
+    <entities name="Block">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.23"/>
+    </entities>
+    <entities name="BreakStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.56"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="CastExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="CatchClause">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.92"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.26"/>
+    </entities>
+    <entities name="CharacterLiteral">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="ClassFile">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.2"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.35"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.28"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.28"/>
+    </entities>
+    <entities name="ClassInstanceCreation">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.12"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.1"/>
+    </entities>
+    <entities name="ConstructorDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.0"/>
+    </entities>
+    <entities name="ConditionalExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="ConstructorInvocation">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.1"/>
+    </entities>
+    <entities name="ClassDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.108"/>
+    </entities>
+    <entities name="Comment">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.34"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.34"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.34"/>
+    </entities>
+    <entities name="CompilationUnit">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.34"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.48"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.2"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.35"/>
+    </entities>
+    <entities name="ContinueStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.56"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="DoStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="EmptyStatement">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="EnhancedForStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.92"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="EnumConstantDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.12"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.20"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.125"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.40"/>
+    </entities>
+    <entities name="EnumDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.40"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.2"/>
+    </entities>
+    <entities name="Expression">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="ExpressionStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="FieldAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.91"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="FieldDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.20"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.4"/>
+    </entities>
+    <entities name="ForStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="IfStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="ImportDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.48"/>
+    </entities>
+    <entities name="InfixExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.50"/>
+    </entities>
+    <entities name="InfixExpressionKind"/>
+    <entities name="InheritanceKind"/>
+    <entities name="Initializer">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.20"/>
+    </entities>
+    <entities name="InstanceofExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="InterfaceDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.108"/>
+    </entities>
+    <entities name="Javadoc">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.101"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.34"/>
+    </entities>
+    <entities name="LabeledStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.24"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.36"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="LineComment">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.34"/>
+    </entities>
+    <entities name="Manifest">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.59"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.60"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.58"/>
+    </entities>
+    <entities name="ManifestAttribute">
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.59"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.59"/>
+    </entities>
+    <entities name="ManifestEntry">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.59"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.60"/>
+    </entities>
+    <entities name="MemberRef">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+    </entities>
+    <entities name="MethodDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.62"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.62"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.0"/>
+    </entities>
+    <entities name="MethodInvocation">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.1"/>
+    </entities>
+    <entities name="MethodRef">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.0"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.65"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+    </entities>
+    <entities name="MethodRefParameter">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.65"/>
+    </entities>
+    <entities name="Model">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.106"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.112"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.35"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.28"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.6"/>
+    </entities>
+    <entities name="Modifier">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.20"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.92"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.128"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.126"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.129"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.51"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.67"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.67"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.67"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.67"/>
+    </entities>
+    <entities name="NamedElement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.48"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+    </entities>
+    <entities name="NamespaceAccess">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.69"/>
+    </entities>
+    <entities name="NumberLiteral">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="NullLiteral">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="Package">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.2"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.66"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.73"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.72"/>
+    </entities>
+    <entities name="PackageAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.72"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.73"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.69"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.73"/>
+    </entities>
+    <entities name="ParameterizedType">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.106"/>
+    </entities>
+    <entities name="ParenthesizedExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="PostfixExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.77"/>
+    </entities>
+    <entities name="PostfixExpressionKind"/>
+    <entities name="PrefixExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.79"/>
+    </entities>
+    <entities name="PrefixExpressionKind"/>
+    <entities name="PrimitiveType">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.106"/>
+    </entities>
+    <entities name="PrimitiveTypeBoolean">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeByte">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeChar">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeDouble">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeShort">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeFloat">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeInt">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeLong">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="PrimitiveTypeVoid">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.80"/>
+    </entities>
+    <entities name="ReturnStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="SingleVariableAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.125"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.91"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.91"/>
+    </entities>
+    <entities name="SingleVariableDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.67"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.5"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.0"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.26"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.39"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.125"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.92"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.92"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.92"/>
+    </entities>
+    <entities name="Statement">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="StringLiteral">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="SuperConstructorInvocation">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.1"/>
+    </entities>
+    <entities name="SuperFieldAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.91"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.3"/>
+    </entities>
+    <entities name="SuperMethodInvocation">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.3"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.1"/>
+    </entities>
+    <entities name="SwitchCase">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="SwitchStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="SynchronizedStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="TagElement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.101"/>
+    </entities>
+    <entities name="TextElement">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.8"/>
+    </entities>
+    <entities name="ThisExpression">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.3"/>
+    </entities>
+    <entities name="ThrowStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="TryStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.23"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.26"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="Type">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.106"/>
+    </entities>
+    <entities name="TypeAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.106"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.69"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.69"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.107"/>
+    </entities>
+    <entities name="TypeDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.111"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.2"/>
+    </entities>
+    <entities name="TypeDeclarationStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.2"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+    <entities name="TypeLiteral">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+    </entities>
+    <entities name="TypeParameter">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.106"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.111"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.111"/>
+    </entities>
+    <entities name="UnresolvedItem">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedItemAccess">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.112"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.8"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.69"/>
+    </entities>
+    <entities name="UnresolvedAnnotationDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.10"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedAnnotationTypeMemberDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.11"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedClassDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.33"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedEnumDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.41"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedInterfaceDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.54"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedLabeledStatement">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.56"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedMethodDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.62"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedSingleVariableDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.92"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedType">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.106"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedTypeDeclaration">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.2"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="UnresolvedVariableDeclarationFragment">
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.127"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.112"/>
+    </entities>
+    <entities name="VariableDeclaration">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.91"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.68"/>
+    </entities>
+    <entities name="VariableDeclarationExpression">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.67"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.5"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.4"/>
+    </entities>
+    <entities name="VariableDeclarationFragment">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.4"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.125"/>
+      <relationships weight="3" relationshipEnd="//@modules.0/@entities.127"/>
+    </entities>
+    <entities name="VariableDeclarationStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.67"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.5"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.4"/>
+    </entities>
+    <entities name="VisibilityKind"/>
+    <entities name="WildCardType">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.107"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.106"/>
+    </entities>
+    <entities name="WhileStatement">
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.42"/>
+      <relationships weight="1" relationshipEnd="//@modules.0/@entities.93"/>
+      <relationships weight="2" relationshipEnd="//@modules.0/@entities.93"/>
+    </entities>
+  </modules>
+</Language>

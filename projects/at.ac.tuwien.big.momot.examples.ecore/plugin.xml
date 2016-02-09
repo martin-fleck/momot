@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Generic_Modularization_MM -->
+      <package
+            uri="http://big.tuwien.ac.at/momo/modularization"
+            class="at.ac.tuwien.big.momot.examples.ecore.modularization.ModularizationPackage"
+            genModel="metamodel/Generic_Modularization_MM.genmodel"/>
+   </extension>
+
+</plugin>
