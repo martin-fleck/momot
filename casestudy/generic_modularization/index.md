@@ -133,8 +133,8 @@ Transactions on Software Engineering 2011; 37(2):264–282, doi:[10.1109/TSE.201
 ### Input Example
 As an example input model, we show the modularization of four Ecore-based languages: HTML, JAVA, OCL, and QVT.
 The initial values for the case studies are given in the following table.
-The second module for HTML and OCL are retrieved from the PrimitiveTypes package which contain the data types Integer, Boolean, String, and Double.
-
+The second module for HTML and OCL is retrieved from the PrimitiveTypes package which contain the data types Integer, Boolean, and String for both case studies, and additionaly Double for OCL.
+The eight modules for the QVT case studies are retrieved from the following packages: QVT Template, Imperative OCL, EMOF, QVT Operational, QVT Core, QVT Base, QVT Relation, and Essential OCL.
 
 <table>
 <thead>
