@@ -43,14 +43,14 @@ StackModule.ShiftRight.Parameter.AMOUNT : new RandomIntegerValue(1, 5)
 
 ```
 StandardDeviation : minimize { 
-	MathUtil.getStandardDeviation((root as StackModel).stacks.map[load])
+  MathUtil.getStandardDeviation((root as StackModel).stacks.map[load])
 }
 ```
 
 **Solution Length:** We prefer shorter solutions as the transformations are costly when executed in the real word.
 
 ```
-SolutionLength 	: minimize new TransformationLengthDimension
+SolutionLength   : minimize new TransformationLengthDimension
 ```
 
 ### Resources
@@ -60,72 +60,72 @@ SolutionLength 	: minimize new TransformationLengthDimension
 
 ```
 initialization = { // register stack meta-model etc.
-	StackPackage.eINSTANCE.class
+  StackPackage.eINSTANCE.class
 }
 
 search = {
-	model = "model/input/model/model_five_stacks.xmi"
-	solutionLength = 8
-	
-	transformations = {
-		modules = [ "model/stack.henshin" ] 
-		ignoreParameters = [ // not needed in solution
-			StackModule.ShiftLeft.Parameter.FROM_LOAD,
-			StackModule.ShiftLeft.Parameter.TO_LOAD,
-			StackModule.ShiftRight.Parameter.FROM_LOAD, 
-			StackModule.ShiftRight.Parameter.TO_LOAD
-		]		
-		parameterValues = { // values for user parameters
-			StackModule.ShiftLeft.Parameter.AMOUNT  : new RandomIntegerValue(1, 5)
-			StackModule.ShiftRight.Parameter.AMOUNT : new RandomIntegerValue(1, 5)
-		}
-	}
-	
-	fitness = {
-		objectives = { 
-		 	StandardDeviation : minimize { 
-		 		MathUtil.getStandardDeviation((root as StackModel).stacks.map[load])
-		 	}
-		 	SolutionLength 	: minimize new TransformationLengthDimension
-		}
-		solutionRepairer = new TransformationPlaceholderRepairer
-	}
-	
-	algorithms = {
-	   Random	: moea.createRandomSearch()
-	   NSGA_II	: moea.createNSGAII(
-	   				new TournamentSelection(2),
-	   				new OnePointCrossover(1.0), 
-					new TransformationPlaceholderMutation(0.15),
-					new TransformationParameterMutation(0.1, orchestration.moduleManager))
-	   NSGA_III	: moea.createNSGAIII(
-	   				4,
-	   				new TournamentSelection(2),
-	   				new OnePointCrossover(1.0), 
-					new TransformationPlaceholderMutation(0.15),
-					new TransformationParameterMutation(0.1, orchestration.moduleManager))
-	}	
+  model = "model/input/model/model_five_stacks.xmi"
+  solutionLength = 8
+  
+  transformations = {
+    modules = [ "model/stack.henshin" ] 
+    ignoreParameters = [ // not needed in solution
+      StackModule.ShiftLeft.Parameter.FROM_LOAD,
+      StackModule.ShiftLeft.Parameter.TO_LOAD,
+      StackModule.ShiftRight.Parameter.FROM_LOAD, 
+      StackModule.ShiftRight.Parameter.TO_LOAD
+    ]    
+    parameterValues = { // values for user parameters
+      StackModule.ShiftLeft.Parameter.AMOUNT  : new RandomIntegerValue(1, 5)
+      StackModule.ShiftRight.Parameter.AMOUNT : new RandomIntegerValue(1, 5)
+    }
+  }
+  
+  fitness = {
+    objectives = { 
+       StandardDeviation : minimize { 
+         MathUtil.getStandardDeviation((root as StackModel).stacks.map[load])
+       }
+       SolutionLength   : minimize new TransformationLengthDimension
+    }
+    solutionRepairer = new TransformationPlaceholderRepairer
+  }
+  
+  algorithms = {
+     Random  : moea.createRandomSearch()
+     NSGA_II  : moea.createNSGAII(
+             new TournamentSelection(2),
+             new OnePointCrossover(1.0), 
+          new TransformationPlaceholderMutation(0.15),
+          new TransformationParameterMutation(0.1, orchestration.moduleManager))
+     NSGA_III  : moea.createNSGAIII(
+             4,
+             new TournamentSelection(2),
+             new OnePointCrossover(1.0), 
+          new TransformationPlaceholderMutation(0.15),
+          new TransformationParameterMutation(0.1, orchestration.moduleManager))
+  }  
 }
 
 experiment = {
-	populationSize    = 100
-	maxEvaluations    = 5000
-	nrRuns            = 30
-	referenceSet      = "model/input/referenceSet/model_five_stacks_reference_set.pf"
-	progressListeners = [ new SeedRuntimePrintListener ]
+  populationSize    = 100
+  maxEvaluations    = 5000
+  nrRuns            = 30
+  referenceSet      = "model/input/referenceSet/model_five_stacks_reference_set.pf"
+  progressListeners = [ new SeedRuntimePrintListener ]
 }
-	
+  
 analysis = {
-	indicators   = [ hypervolume additiveEpsilonIndicator maximumParetoFrontError  ]
-	significance = 0.01
-	show         = [ individualValues aggregateValues statisticalSignificance ]
+  indicators   = [ hypervolume additiveEpsilonIndicator maximumParetoFrontError  ]
+  significance = 0.01
+  show         = [ individualValues aggregateValues statisticalSignificance ]
 }
-	
+  
 finalization = {
-	saveAnalysis   "model/output/analysis.txt"
-	saveObjectives "model/output/approximationSet/overall_objectives.pf"
-	saveObjectives [ NSGA_III, NSGA_II ] "model/output/approximationSet/moea_objectives.pf"
-	saveSolutions  "model/output/solutions/all/"
-	saveSolutions  [ NSGA_III, NSGA_II ] "model/output/solutions/moea/"	
-}	
+  saveAnalysis   "model/output/analysis.txt"
+  saveObjectives "model/output/approximationSet/overall_objectives.pf"
+  saveObjectives [ NSGA_III, NSGA_II ] "model/output/approximationSet/moea_objectives.pf"
+  saveSolutions  "model/output/solutions/all/"
+  saveSolutions  [ NSGA_III, NSGA_II ] "model/output/solutions/moea/"  
+}  
 ```

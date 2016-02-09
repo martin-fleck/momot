@@ -71,14 +71,14 @@ The sum of all number of subclasses for each eClass is the objective we aim to m
 
 ```
 SubClasses : minimize {
-	val subClassCalculator = new NSUBEC()
-	val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
-	var subClasses = 0.0;
-	for(eClass : eClasses) {
-		subClassCalculator.context = #[ eClass ]
-		subClasses += subClassCalculator.calculate
-	}					
-	return subClasses;
+  val subClassCalculator = new NSUBEC()
+  val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
+  var subClasses = 0.0;
+  for(eClass : eClasses) {
+    subClassCalculator.context = #[ eClass ]
+    subClasses += subClassCalculator.calculate
+  }          
+  return subClasses;
 }
 ```
 
@@ -98,9 +98,9 @@ If the objects do not have a name, we use the default strategy, i.e., using ``le
 
 ```
 equalityHelper = {
-	if(left instanceof ENamedElement && right instanceof ENamedElement)
-		return (left as ENamedElement).name.equals((right as ENamedElement).name);
-	return new DefaultEObjectEqualityHelper().equals(left, right); // left.equals(right)
+  if(left instanceof ENamedElement && right instanceof ENamedElement)
+    return (left as ENamedElement).name.equals((right as ENamedElement).name);
+  return new DefaultEObjectEqualityHelper().equals(left, right); // left.equals(right)
 }
 ```
 
@@ -112,68 +112,68 @@ equalityHelper = {
 ### Complete example configuration
 ```
 initialization  = {
-	EcorePackage::eINSTANCE.eClass
+  EcorePackage::eINSTANCE.eClass
 }
 
 search EMFRefactorSearch = {
-	model = "model/input/metamodel.ecore"
-	solutionLength = 5
-	transformations = {
-		modules = [ "transformation/refactorings/ecore/remove_empty_sub_eclass_all.henshin" ]
-		ignoreUnits = [
-			// only use conditional unit
-			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_subetypes",
-			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_superetypes",
-			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_empty_eclass",
-			"remove_empty_sub_eclass_all::removeEmptySubEClass::initialCheck",
-			"remove_empty_sub_eclass_all::removeEmptySubEClass::check_preconditions",
-			"remove_empty_sub_eclass_all::removeEmptySubEClass::execute",
-			"remove_empty_sub_eclass_all::removeEmptySubEClass::remove"
-		]
-	}
+  model = "model/input/metamodel.ecore"
+  solutionLength = 5
+  transformations = {
+    modules = [ "transformation/refactorings/ecore/remove_empty_sub_eclass_all.henshin" ]
+    ignoreUnits = [
+      // only use conditional unit
+      "remove_empty_sub_eclass_all::removeEmptySubEClass::check_subetypes",
+      "remove_empty_sub_eclass_all::removeEmptySubEClass::check_superetypes",
+      "remove_empty_sub_eclass_all::removeEmptySubEClass::check_empty_eclass",
+      "remove_empty_sub_eclass_all::removeEmptySubEClass::initialCheck",
+      "remove_empty_sub_eclass_all::removeEmptySubEClass::check_preconditions",
+      "remove_empty_sub_eclass_all::removeEmptySubEClass::execute",
+      "remove_empty_sub_eclass_all::removeEmptySubEClass::remove"
+    ]
+  }
 
-	fitness = {
-		objectives = {
-			SolutionLength : minimize new TransformationLengthDimension
-			SubClasses : minimize {
-				val subClassCalculator = new NSUBEC()
-				val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
-				var subClasses = 0.0;
-				for(eClass : eClasses) {
-					subClassCalculator.context = #[ eClass ]
-					subClasses += subClassCalculator.calculate
-				}					
-				return subClasses;
-			}
-		}
-	}
+  fitness = {
+    objectives = {
+      SolutionLength : minimize new TransformationLengthDimension
+      SubClasses : minimize {
+        val subClassCalculator = new NSUBEC()
+        val eClasses = graph.getDomain(EcorePackage.Literals.ECLASS.eClass, true)
+        var subClasses = 0.0;
+        for(eClass : eClasses) {
+          subClassCalculator.context = #[ eClass ]
+          subClasses += subClassCalculator.calculate
+        }          
+        return subClasses;
+      }
+    }
+  }
 
-	algorithms = {
-		NSGAIII : moea.createNSGAIII(
-			new TournamentSelection(2),
-			new OnePointCrossover(1.0),  
-			new TransformationPlaceholderMutation(0.15))
-	}
-	
-	equalityHelper = {
-		// use simple name based matching
-		if(left instanceof ENamedElement && right instanceof ENamedElement)
-			return (left as ENamedElement).name.equals((right as ENamedElement).name);
-		return new DefaultEObjectEqualityHelper().equals(left, right); // left.equals(right)
-	}
+  algorithms = {
+    NSGAIII : moea.createNSGAIII(
+      new TournamentSelection(2),
+      new OnePointCrossover(1.0),  
+      new TransformationPlaceholderMutation(0.15))
+  }
+  
+  equalityHelper = {
+    // use simple name based matching
+    if(left instanceof ENamedElement && right instanceof ENamedElement)
+      return (left as ENamedElement).name.equals((right as ENamedElement).name);
+    return new DefaultEObjectEqualityHelper().equals(left, right); // left.equals(right)
+  }
 }
 
 experiment = {
-	populationSize = 50
-	maxEvaluations = 1000
-	nrRuns = 30
-	progressListeners = [ new SeedRuntimePrintListener ]
+  populationSize = 50
+  maxEvaluations = 1000
+  nrRuns = 30
+  progressListeners = [ new SeedRuntimePrintListener ]
 }
 
 finalization = {
-	saveObjectives "model/output/metamodel/referenceSet.pf"
-	saveSolutions "model/output/metamodel/solutions/"
-	printSolutions
-	printObjectives
+  saveObjectives "model/output/metamodel/referenceSet.pf"
+  saveSolutions "model/output/metamodel/solutions/"
+  printSolutions
+  printObjectives
 }
 ```

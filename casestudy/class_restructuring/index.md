@@ -65,7 +65,7 @@ ContentSize : minimize "propertys->size() * 1.1 + entitys->size()"
 **Solution Length:** We prefer shorter solutions as the transformations are costly when executed.
 
 ```
-SolutionLength 	: minimize new TransformationLengthDimension
+SolutionLength   : minimize new TransformationLengthDimension
 ```
 
 ### Resources
@@ -75,45 +75,45 @@ SolutionLength 	: minimize new TransformationLengthDimension
 ### Complete example configuration
 ```
 initialization = {
-	RefactoringPackage::eINSTANCE.eClass
+  RefactoringPackage::eINSTANCE.eClass
 }
 
 search = {
-	model = "model/SeveralRefactorings.xmi"
-	solutionLength = 10
-	
-	transformations = {
-		modules = [ "model/Refactoring.henshin" ]
-	}
-	
-	fitness = {
-		objectives = {
-			SolutionLength : minimize new TransformationLengthDimension
-			ContentSize : minimize "propertys->size() * 1.1 + entitys->size()"
-		}
-		solutionRepairer = new TransformationPlaceholderRepairer
-	}
-	
-	algorithms = {
-		NSGAII : moea.createNSGAII(
-				new TournamentSelection(2),
-				new OnePointCrossover(1.0),  
-				new TransformationPlaceholderMutation(0.15))
-		NSGAIII : moea.createNSGAIII(
-				new TournamentSelection(2),
-				new OnePointCrossover(1.0),  
-				new TransformationPlaceholderMutation(0.15))
-	}
+  model = "model/SeveralRefactorings.xmi"
+  solutionLength = 10
+  
+  transformations = {
+    modules = [ "model/Refactoring.henshin" ]
+  }
+  
+  fitness = {
+    objectives = {
+      SolutionLength : minimize new TransformationLengthDimension
+      ContentSize : minimize "propertys->size() * 1.1 + entitys->size()"
+    }
+    solutionRepairer = new TransformationPlaceholderRepairer
+  }
+  
+  algorithms = {
+    NSGAII : moea.createNSGAII(
+        new TournamentSelection(2),
+        new OnePointCrossover(1.0),  
+        new TransformationPlaceholderMutation(0.15))
+    NSGAIII : moea.createNSGAIII(
+        new TournamentSelection(2),
+        new OnePointCrossover(1.0),  
+        new TransformationPlaceholderMutation(0.15))
+  }
 }
 experiment = {
-	populationSize = 50
-	maxEvaluations = 1500
-	nrRuns = 30
-	progressListeners = [ new SeedRuntimePrintListener ]
+  populationSize = 50
+  maxEvaluations = 1500
+  nrRuns = 30
+  progressListeners = [ new SeedRuntimePrintListener ]
 }
 
 finalization = {
-	saveObjectives "model/output/referenceSet/approximation_set.pf"
-	saveSolutions "model/output/solutions/"
+  saveObjectives "model/output/referenceSet/approximation_set.pf"
+  saveSolutions "model/output/solutions/"
 }
 ```
