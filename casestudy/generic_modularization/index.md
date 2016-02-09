@@ -85,12 +85,14 @@ In order to improve efficiency, we have outsourced evaluation of the objectives 
 In the configuration example below, you can find how this external calculation can be integrated into the fitness evaluation of MOMoT.
 
 **Coupling:**
-Coupling refers to the number of external dependencies a specific module has, i.e., the sum of inter-relationships with other modules.
+Coupling refers to the number of external relationships a specific module has, i.e., the sum of inter-relationships with other modules.
 Typically, low coupling is preferred as this indicates that a group covers separate functionality aspects of a system, improving the maintainability, readability and testability of the overall system.
+In our case study, not all relationships are considered equal, therefore the coupling is the sum of all inter-relationship weights instead of just the number of all inter-relationships. 
 
 **Cohesion:**
-Cohesion refers to the dependencies within a module, i.e., the sum of intra-relationships in the module.
+Cohesion refers to the relationships within a module, i.e., the sum of intra-relationships in the module.
 As opposed to coupling, the cohesion within one module should be maximized to ensure that it does not contain parts that are not part of its functionality.
+In our case study, not all relationships are considered equal, therefore the cohesion is the sum of all intra-relationship weights instead of just the number of all intra-relationships.
 
 **Number of Modules:**
 We aim to maximize the number of modules to avoid having all entities in a single large module.
