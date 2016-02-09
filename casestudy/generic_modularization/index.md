@@ -159,14 +159,14 @@ The second module for HTML and OCL are retrieved from the PrimitiveTypes package
 <td style="text-align:right">0</td>
 <td style="text-align:right">0</td>
 <td style="text-align:right">0</td>
-<td style="text-align:right">202</td>
+<td style="text-align:right">320</td>
 </tr>
 <tr>
 <td>Cohesion</td>
-<td style="text-align:right">115</td>
-<td style="text-align:right">493</td>
-<td style="text-align:right">220</td>
-<td style="text-align:right">361</td>
+<td style="text-align:right">235</td>
+<td style="text-align:right">915</td>
+<td style="text-align:right">436</td>
+<td style="text-align:right">727</td>
 </tr>
 <tr>
 <td>Modules</td>
@@ -177,9 +177,9 @@ The second module for HTML and OCL are retrieved from the PrimitiveTypes package
 </tr>
 <tr>
 <td>MinMaxDiff</td>
+<td style="text-align:right">56</td>
 <td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
+<td style="text-align:right">69</td>
 <td style="text-align:right">38</td>
 </tr>
 </tbody>
