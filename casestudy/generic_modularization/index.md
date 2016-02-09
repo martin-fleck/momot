@@ -4,7 +4,7 @@ layout: index
 ---
 
 ## Generic Modularization Case Study
-This material accompanies the publication to the ([Modularity in Modelling Workshop (MOMO)](http://www.momo2016.ece.mcgill.ca/)).
+This material accompanies the publication to the [Modularity in Modelling Workshop (MOMO)](http://www.momo2016.ece.mcgill.ca/).
 We show the application of our generic modularization approach on the example of Ecore.
 
 ### Meta-Model
@@ -142,47 +142,47 @@ The second module for HTML and OCL are retrieved from the PrimitiveTypes package
 <thead>
 <tr>
 <th></th>
-<th>HTML</th>
-<th>JAVA</th>
-<th>OCL</th>
-<th>QVT</th>
+<th style="text-align:center">HTML</th>
+<th style="text-align:center">JAVA</th>
+<th style="text-align:center">OCL</th>
+<th style="text-align:center">QVT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Entities</td>
-<td>62</td>
-<td>132</td>
-<td>77</td>
-<td>151</td>
+<td style="text-align:right">62</td>
+<td style="text-align:right">132</td>
+<td style="text-align:right">77</td>
+<td style="text-align:right">151</td>
 </tr>
 <tr>
 <td>Coupling</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>202</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">202</td>
 </tr>
 <tr>
 <td>Cohesion</td>
-<td>115</td>
-<td>493</td>
-<td>220</td>
-<td>361</td>
+<td style="text-align:right">115</td>
+<td style="text-align:right">493</td>
+<td style="text-align:right">220</td>
+<td style="text-align:right">361</td>
 </tr>
 <tr>
 <td>Modules</td>
-<td>2</td>
-<td>1</td>
-<td>2</td>
-<td>8</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">8</td>
 </tr>
 <tr>
 <td>MinMaxDiff</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>38</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">38</td>
 </tr>
 </tbody>
 </table> 
@@ -200,38 +200,38 @@ The second module for HTML and OCL are retrieved from the PrimitiveTypes package
 <tbody>
 <tr>
 <td>Entities</td>
-<td>62</td>
-<td>132</td>
-<td>77</td>
-<td>151</td>
+<td style="text-align:right">62</td>
+<td style="text-align:right">132</td>
+<td style="text-align:right">77</td>
+<td style="text-align:right">151</td>
 </tr>
 <tr>
 <td>Coupling</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
 </tr>
 <tr>
 <td>Cohesion</td>
-<td>115</td>
-<td>493</td>
-<td>220</td>
-<td>563</td>
+<td style="text-align:right">115</td>
+<td style="text-align:right">493</td>
+<td style="text-align:right">220</td>
+<td style="text-align:right">563</td>
 </tr>
 <tr>
 <td>Modules</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>MinMaxDiff</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
 </tr>
 </tbody>
 </table>
@@ -245,40 +245,40 @@ The values for the modularization results are as follow:
 <thead>
 <tr>
 <th></th>
-<th>HTML</th>
-<th>JAVA</th>
-<th>OCL</th>
-<th>QVT</th>
+<th style="text-align:center">HTML</th>
+<th style="text-align:center">JAVA</th>
+<th style="text-align:center">OCL</th>
+<th style="text-align:center">QVT</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Coupling</td>
-<td>30</td>
-<td>285</td>
-<td>45</td>
-<td>330</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">285</td>
+<td style="text-align:right">45</td>
+<td style="text-align:right">330</td>
 </tr>
 <tr>
 <td>Cohesion</td>
-<td>85</td>
-<td>208</td>
-<td>175</td>
-<td>233</td>
+<td style="text-align:right">85</td>
+<td style="text-align:right">208</td>
+<td style="text-align:right">175</td>
+<td style="text-align:right">233</td>
 </tr>
 <tr>
 <td>Modules</td>
-<td>4</td>
-<td>7</td>
-<td>3</td>
-<td>8</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">8</td>
 </tr>
 <tr>
 <td>MinMaxDiff</td>
-<td>10</td>
-<td>2</td>
-<td>20</td>
-<td>2</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">2</td>
 </tr>
 </tbody>
 </table> 
