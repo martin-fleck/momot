@@ -117,7 +117,7 @@ fitness = {
     NrModules : maximize {
       (root as Language).^modules.filter[m | !m.entities.empty].size
     }
-    MinMaxDiffTest : minimize {
+    MinMaxDiff : minimize {
       val sizes = (root as Language).^modules.filter[m | !m.entities.empty].map[m | m.entities.size]
       sizes.max - sizes.min
     }  
