@@ -103,7 +103,6 @@ By doing so, we aim to produce equally-sized modules as the optimal difference w
 fitness = {
   preprocess = { // use attribute storage for external calculation
     val root = MomotUtil.getRoot(solution.execute, typeof(Language))
-    solution.setAttribute("root", root)
     solution.setAttribute("metrics", MetricsCalculator.calculate(root))
   }
   objectives = { 
