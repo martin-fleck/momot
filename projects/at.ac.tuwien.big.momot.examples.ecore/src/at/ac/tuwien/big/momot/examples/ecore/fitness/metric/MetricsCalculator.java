@@ -16,8 +16,8 @@ import at.ac.tuwien.big.momot.examples.ecore.modularization.Relationship;
 
 public class MetricsCalculator {
 	protected static final double FACTOR_ASSOCIATION = 1.0;
-	protected static final double FACTOR_INHERTIANCE = 2.0;
-	protected static final double FACTOR_CONTAINMENT = 3.0;
+	protected static final double FACTOR_INHERTIANCE = 1.0;
+	protected static final double FACTOR_CONTAINMENT = 1.0;
 	
 	protected static IDistanceCache vocabularyCache = new LCSDistanceCache();
 	protected static Map<Entity, Map<Entity, Double>> relationshipValueCache = new HashMap<>();
