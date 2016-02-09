@@ -130,7 +130,7 @@ fitness = {
 ### References
 * Praditwong K, Harman M, Yao X. Software Module Clustering as a Multi-Objective Search Problem. IEEE
 Transactions on Software Engineering 2011; 37(2):264–282, doi:[10.1109/TSE.2010.26](http://dx.doi.org/10.1109/TSE.2010.26).
-* [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsep)
+* [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.ecore)
 
 ### Input Example
 As an example input model, we show the modularization of four Ecore-based languages: HTML, JAVA, OCL, and QVT.
