@@ -32,7 +32,6 @@ public class MetricsCalculator {
 				metrics.add(metric);
 			}
 		}
-		
 		return metrics;
 	}
 	
@@ -84,10 +83,12 @@ public class MetricsCalculator {
 	}
 	
 	public static double calculateRelationshipValue(Entity source, Entity target) {
+		// an entity might have more than one relationship with another entity, e.g., inheritance and containment in the composite pattern
+		double relationshipValue = 0.0;
 		for(Relationship relationship : source.getRelationships())
 			if(relationship.getRelationshipEnd().equals(target))
-				return relationship.getWeight() * getRelationshipFactor(relationship);
-		return 0.0;
+				relationshipValue += relationship.getWeight() * getRelationshipFactor(relationship);
+		return relationshipValue;
 	}
 	
 	protected static double getRelationshipFactor(Relationship relationship) {
@@ -97,7 +98,6 @@ public class MetricsCalculator {
 			return FACTOR_INHERTIANCE;
 		if(isContainment(relationship))
 			return FACTOR_CONTAINMENT;
-		System.err.println("Relationship not recognized. Should not happen.");
 		return 1.0;
 	}
 	

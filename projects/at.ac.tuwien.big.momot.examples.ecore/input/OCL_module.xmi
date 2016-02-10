@@ -1,311 +1,659 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<Language xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://big.tuwien.ac.at/momo/modularization" name="PrimitiveTypes">
+<Modularization:Language
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:Modularization="http://big.tuwien.ac.at/momo/modularization"
+    name="OCL">
   <modules name="PrimitiveTypes">
-    <entities name="Integer"/>
-    <entities name="Boolean"/>
-    <entities name="String"/>
-    <entities name="Double"/>
+    <entities
+        name="Integer"/>
+    <entities
+        name="Boolean"/>
+    <entities
+        name="String"/>
+    <entities
+        name="Double"/>
   </modules>
   <modules name="OCL">
-    <entities name="OclOperation">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.29"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.2"/>
-    </entities>
-    <entities name="OclProperty">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.30"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.2"/>
-    </entities>
-    <entities name="OclFeature">
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.2"/>
-    </entities>
-    <entities name="OclModuleElement">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.6"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.3"/>
-    </entities>
-    <entities name="DefOclModuleElement">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.2"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.3"/>
-    </entities>
-    <entities name="DeriveOclModuleElement">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.18"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.3"/>
-    </entities>
-    <entities name="OclContextDefinition">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.31"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.27"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.6"/>
-    </entities>
-    <entities name="OclModule">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.3"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.20"/>
-    </entities>
-    <entities name="Invariant">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.3"/>
-    </entities>
-    <entities name="Comment">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.24"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.27"/>
-    </entities>
-    <entities name="URIExtent">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.23"/>
-    </entities>
-    <entities name="PrimitiveType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.28"/>
-    </entities>
-    <entities name="IntegerType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.11"/>
-    </entities>
-    <entities name="RealType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.11"/>
-    </entities>
-    <entities name="BooleanType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.11"/>
-    </entities>
-    <entities name="StringType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.11"/>
-    </entities>
-    <entities name="TypedElement">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.19"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.24"/>
-    </entities>
-    <entities name="EnumerationLiteral">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.24"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.17"/>
-    </entities>
-    <entities name="Parameter">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.16"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.21"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.18"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.18"/>
-    </entities>
-    <entities name="Type">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.24"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.19"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.19"/>
-    </entities>
-    <entities name="Package">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.19"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.20"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.24"/>
-    </entities>
-    <entities name="MultiplicityElement"/>
-    <entities name="Object"/>
-    <entities name="Extent">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.22"/>
-    </entities>
-    <entities name="NamedElement">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.27"/>
-    </entities>
-    <entities name="Enumeration">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.17"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.28"/>
-    </entities>
-    <entities name="Tag">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.27"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.27"/>
-    </entities>
-    <entities name="Element">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.22"/>
-    </entities>
-    <entities name="DataType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.19"/>
-    </entities>
-    <entities name="Operation">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.18"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.19"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.16"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.21"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.29"/>
-    </entities>
-    <entities name="Property">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.30"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.16"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.21"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.30"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.30"/>
-    </entities>
-    <entities name="Class">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.30"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.29"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.19"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.31"/>
-    </entities>
-    <entities name="CollectionKind"/>
-    <entities name="AnyType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.31"/>
-    </entities>
-    <entities name="VoidType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.19"/>
-    </entities>
-    <entities name="TupleType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.28"/>
-    </entities>
-    <entities name="SetType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.41"/>
-    </entities>
-    <entities name="SequenceType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.41"/>
-    </entities>
-    <entities name="OrderedSetType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.41"/>
-    </entities>
-    <entities name="InvalidType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.19"/>
-    </entities>
-    <entities name="EnumLiteralExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.17"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.55"/>
-    </entities>
-    <entities name="CollectionType">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.19"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.28"/>
-    </entities>
-    <entities name="BagType">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.41"/>
-    </entities>
-    <entities name="TupleLiteralPart">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.30"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.16"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.43"/>
-    </entities>
-    <entities name="FeaturePropertyCall">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.70"/>
-    </entities>
-    <entities name="InvalidLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.55"/>
-    </entities>
-    <entities name="NullLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.55"/>
-    </entities>
-    <entities name="TupleLiteralExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.43"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.55"/>
-    </entities>
-    <entities name="CollectionRange">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.50"/>
-    </entities>
-    <entities name="CollectionItem">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.50"/>
-    </entities>
-    <entities name="CollectionLiteralPart">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.16"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.50"/>
-    </entities>
-    <entities name="CollectionLiteralExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.50"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.55"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.32"/>
-    </entities>
-    <entities name="NumericLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.53"/>
-    </entities>
-    <entities name="PrimitiveLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.55"/>
-    </entities>
-    <entities name="IterateExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.62"/>
-    </entities>
-    <entities name="LiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.69"/>
-    </entities>
-    <entities name="OperationCallExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.44"/>
-    </entities>
-    <entities name="CollectionOperationCallExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.56"/>
-    </entities>
-    <entities name="OperatorCallExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.56"/>
-    </entities>
-    <entities name="IntegerLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.52"/>
-    </entities>
-    <entities name="StringLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.53"/>
-    </entities>
-    <entities name="IteratorExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.62"/>
-    </entities>
-    <entities name="LoopExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.63"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.70"/>
-    </entities>
-    <entities name="Iterator">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.63"/>
-    </entities>
-    <entities name="VariableExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.69"/>
-    </entities>
-    <entities name="PropertyCallExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.44"/>
-    </entities>
-    <entities name="Variable">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.18"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.16"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.66"/>
-    </entities>
-    <entities name="LetExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.66"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.69"/>
-    </entities>
-    <entities name="IfExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.69"/>
-    </entities>
-    <entities name="OclExpression">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.16"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="3" relationshipEnd="//@modules.1/@entities.69"/>
-    </entities>
-    <entities name="CallExp">
-      <relationships weight="1" relationshipEnd="//@modules.1/@entities.69"/>
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.69"/>
-    </entities>
-    <entities name="BooleanLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.53"/>
-    </entities>
-    <entities name="RealLiteralExp">
-      <relationships weight="2" relationshipEnd="//@modules.1/@entities.52"/>
+    <entities
+        name="OclOperation">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.29"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.2"/>
+    </entities>
+    <entities
+        name="OclProperty">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.30"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.2"/>
+    </entities>
+    <entities
+        name="OclFeature">
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.2"/>
+    </entities>
+    <entities
+        name="OclModuleElement">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.6"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.3"/>
+    </entities>
+    <entities
+        name="DefOclModuleElement">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.2"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.3"/>
+    </entities>
+    <entities
+        name="DeriveOclModuleElement">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.18"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.3"/>
+    </entities>
+    <entities
+        name="OclContextDefinition">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.31"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.27"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.6"/>
+    </entities>
+    <entities
+        name="OclModule">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.3"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.20"/>
+    </entities>
+    <entities
+        name="Invariant">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.3"/>
+    </entities>
+    <entities
+        name="Comment">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.24"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.27"/>
+    </entities>
+    <entities
+        name="URIExtent">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.23"/>
+    </entities>
+    <entities
+        name="PrimitiveType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.28"/>
+    </entities>
+    <entities
+        name="IntegerType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.11"/>
+    </entities>
+    <entities
+        name="RealType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.11"/>
+    </entities>
+    <entities
+        name="BooleanType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.11"/>
+    </entities>
+    <entities
+        name="StringType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.11"/>
+    </entities>
+    <entities
+        name="TypedElement">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.19"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.24"/>
+    </entities>
+    <entities
+        name="EnumerationLiteral">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.24"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.17"/>
+    </entities>
+    <entities
+        name="Parameter">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.16"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.21"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.18"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.18"/>
+    </entities>
+    <entities
+        name="Type">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.24"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.19"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.19"/>
+    </entities>
+    <entities
+        name="Package">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.19"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.20"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.24"/>
+    </entities>
+    <entities
+        name="MultiplicityElement"/>
+    <entities
+        name="Object"/>
+    <entities
+        name="Extent">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.22"/>
+    </entities>
+    <entities
+        name="NamedElement">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.27"/>
+    </entities>
+    <entities
+        name="Enumeration">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.17"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.28"/>
+    </entities>
+    <entities
+        name="Tag">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.27"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.27"/>
+    </entities>
+    <entities
+        name="Element">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.22"/>
+    </entities>
+    <entities
+        name="DataType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.19"/>
+    </entities>
+    <entities
+        name="Operation">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.18"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.19"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.16"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.21"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.29"/>
+    </entities>
+    <entities
+        name="Property">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.30"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.16"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.21"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.30"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.30"/>
+    </entities>
+    <entities
+        name="Class">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.30"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.29"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.19"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.31"/>
+    </entities>
+    <entities
+        name="CollectionKind"/>
+    <entities
+        name="AnyType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.31"/>
+    </entities>
+    <entities
+        name="VoidType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.19"/>
+    </entities>
+    <entities
+        name="TupleType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.28"/>
+    </entities>
+    <entities
+        name="SetType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.41"/>
+    </entities>
+    <entities
+        name="SequenceType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.41"/>
+    </entities>
+    <entities
+        name="OrderedSetType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.41"/>
+    </entities>
+    <entities
+        name="InvalidType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.19"/>
+    </entities>
+    <entities
+        name="EnumLiteralExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.17"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.55"/>
+    </entities>
+    <entities
+        name="CollectionType">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.19"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.28"/>
+    </entities>
+    <entities
+        name="BagType">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.41"/>
+    </entities>
+    <entities
+        name="TupleLiteralPart">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.30"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.16"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.43"/>
+    </entities>
+    <entities
+        name="FeaturePropertyCall">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.70"/>
+    </entities>
+    <entities
+        name="InvalidLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.55"/>
+    </entities>
+    <entities
+        name="NullLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.55"/>
+    </entities>
+    <entities
+        name="TupleLiteralExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.43"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.55"/>
+    </entities>
+    <entities
+        name="CollectionRange">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.50"/>
+    </entities>
+    <entities
+        name="CollectionItem">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.50"/>
+    </entities>
+    <entities
+        name="CollectionLiteralPart">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.16"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.50"/>
+    </entities>
+    <entities
+        name="CollectionLiteralExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.50"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.55"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.32"/>
+    </entities>
+    <entities
+        name="NumericLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.53"/>
+    </entities>
+    <entities
+        name="PrimitiveLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.55"/>
+    </entities>
+    <entities
+        name="IterateExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.62"/>
+    </entities>
+    <entities
+        name="LiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.69"/>
+    </entities>
+    <entities
+        name="OperationCallExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.44"/>
+    </entities>
+    <entities
+        name="CollectionOperationCallExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.56"/>
+    </entities>
+    <entities
+        name="OperatorCallExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.56"/>
+    </entities>
+    <entities
+        name="IntegerLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.52"/>
+    </entities>
+    <entities
+        name="StringLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.53"/>
+    </entities>
+    <entities
+        name="IteratorExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.62"/>
+    </entities>
+    <entities
+        name="LoopExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.63"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.70"/>
+    </entities>
+    <entities
+        name="Iterator">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.63"/>
+    </entities>
+    <entities
+        name="VariableExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.69"/>
+    </entities>
+    <entities
+        name="PropertyCallExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.44"/>
+    </entities>
+    <entities
+        name="Variable">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.18"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.16"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.66"/>
+    </entities>
+    <entities
+        name="LetExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.66"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.69"/>
+    </entities>
+    <entities
+        name="IfExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.69"/>
+    </entities>
+    <entities
+        name="OclExpression">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.16"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="3"
+          relationshipEnd="//@modules.1/@entities.69"/>
+    </entities>
+    <entities
+        name="CallExp">
+      <relationships
+          relationshipEnd="//@modules.1/@entities.69"/>
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.69"/>
+    </entities>
+    <entities
+        name="BooleanLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.53"/>
+    </entities>
+    <entities
+        name="RealLiteralExp">
+      <relationships
+          weight="2"
+          relationshipEnd="//@modules.1/@entities.52"/>
     </entities>
   </modules>
-</Language>
+</Modularization:Language>

@@ -8,10 +8,8 @@
     <entities
         name="TemplateExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -23,10 +21,8 @@
     <entities
         name="ObjectTemplateExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.0/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
           weight="2"
@@ -35,31 +31,24 @@
     <entities
         name="CollectionTemplateExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.33"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
           relationshipEnd="//@modules.0/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.2"/>
     </entities>
     <entities
         name="PropertyTemplateItem">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.0/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
           weight="2"
@@ -73,7 +62,6 @@
     <entities
         name="ImperativeIterateExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -82,13 +70,10 @@
     <entities
         name="AssignExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -97,7 +82,6 @@
     <entities
         name="BlockExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -106,10 +90,8 @@
     <entities
         name="SwitchExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.1/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -121,7 +103,6 @@
     <entities
         name="VariableInitExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -130,10 +111,8 @@
     <entities
         name="WhileExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -142,10 +121,8 @@
     <entities
         name="ComputeExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -154,10 +131,8 @@
     <entities
         name="AltExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -169,10 +144,8 @@
     <entities
         name="UnlinkExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -181,7 +154,6 @@
     <entities
         name="ReturnExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -196,13 +168,10 @@
     <entities
         name="TryExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -211,7 +180,6 @@
     <entities
         name="RaiseExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
           weight="2"
@@ -232,7 +200,6 @@
     <entities
         name="TupleExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -241,10 +208,8 @@
     <entities
         name="Typedef">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -253,13 +218,10 @@
     <entities
         name="InstantiationExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -268,7 +230,6 @@
     <entities
         name="DictionaryType">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
           weight="2"
@@ -277,7 +238,6 @@
     <entities
         name="DictLiteralExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.1/@entities.20"/>
       <relationships
           weight="2"
@@ -286,10 +246,8 @@
     <entities
         name="DictLiteralPart">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -307,10 +265,8 @@
     <entities
         name="LogExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.2"/>
       <relationships
           weight="2"
@@ -322,16 +278,13 @@
     <entities
         name="AssertExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.1/@entities.22"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
           relationshipEnd="//@modules.1/@entities.27"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.1/@entities.24"/>
     </entities>
     <entities
@@ -339,7 +292,6 @@
     <entities
         name="ImperativeLoopExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -351,7 +303,6 @@
     <entities
         name="CollectorExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -366,7 +317,6 @@
     <entities
         name="UnpackExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -375,7 +325,6 @@
     <entities
         name="AnonymousTupleType">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
           weight="2"
@@ -384,7 +333,6 @@
     <entities
         name="AnonymousTupleLiteralExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.1/@entities.31"/>
       <relationships
           weight="2"
@@ -393,7 +341,6 @@
     <entities
         name="AnonymousTupleLiteralPart">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -413,13 +360,10 @@
     <entities
         name="Class">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.8"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
           weight="2"
@@ -434,10 +378,8 @@
     <entities
         name="Element">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.23"/>
       <relationships
           weight="2"
@@ -446,13 +388,10 @@
     <entities
         name="Tag">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.2"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.17"/>
       <relationships
           weight="2"
@@ -467,7 +406,6 @@
     <entities
         name="Enumeration">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.13"/>
       <relationships
           weight="2"
@@ -490,13 +428,10 @@
     <entities
         name="Operation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.12"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
           weight="2"
@@ -513,10 +448,8 @@
     <entities
         name="Package">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.10"/>
       <relationships
           weight="2"
@@ -525,7 +458,6 @@
     <entities
         name="Type">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.10"/>
       <relationships
           weight="2"
@@ -537,7 +469,6 @@
     <entities
         name="Parameter">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.8"/>
       <relationships
           weight="2"
@@ -552,7 +483,6 @@
     <entities
         name="EnumerationLiteral">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.4"/>
       <relationships
           weight="2"
@@ -564,13 +494,10 @@
     <entities
         name="Property">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.17"/>
       <relationships
           weight="2"
@@ -588,7 +515,6 @@
     <entities
         name="TypedElement">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
           weight="2"
@@ -619,7 +545,6 @@
     <entities
         name="Comment">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.5"/>
       <relationships
           weight="2"
@@ -633,10 +558,8 @@
     <entities
         name="MappingBody">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -651,7 +574,6 @@
     <entities
         name="ResolveExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -660,7 +582,6 @@
     <entities
         name="ResolveInExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.6"/>
       <relationships
           weight="2"
@@ -669,22 +590,16 @@
     <entities
         name="OperationalTransformation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.15"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.10"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.1"/>
       <relationships
           weight="2"
@@ -693,10 +608,8 @@
     <entities
         name="MappingParameter">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.2"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.15"/>
       <relationships
           weight="2"
@@ -705,19 +618,14 @@
     <entities
         name="MappingOperation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.6"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.6"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.6"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -744,10 +652,8 @@
     <entities
         name="ContextualProperty">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
           weight="2"
@@ -768,16 +674,12 @@
     <entities
         name="ImperativeOperation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.20"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.20"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.12"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.21"/>
       <relationships
           weight="2"
@@ -803,10 +705,8 @@
     <entities
         name="ModelType">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.10"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -818,16 +718,12 @@
     <entities
         name="Module">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.18"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.16"/>
       <relationships
           weight="2"
@@ -839,19 +735,15 @@
     <entities
         name="ModuleImport">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.16"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.17"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.17"/>
       <relationships
           weight="2"
           relationshipEnd="//@modules.2/@entities.2"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.19"/>
       <relationships
           weight="3"
@@ -862,10 +754,8 @@
     <entities
         name="VarParameter">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.12"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.12"/>
       <relationships
           weight="2"
@@ -874,7 +764,6 @@
           weight="2"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.13"/>
       <relationships
           weight="3"
@@ -886,10 +775,8 @@
     <entities
         name="OperationBody">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.12"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -910,10 +797,8 @@
     <entities
         name="ObjectExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.3/@entities.22"/>
       <relationships
           weight="2"
@@ -924,25 +809,19 @@
     <entities
         name="Area">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.2"/>
     </entities>
     <entities
         name="Assignment">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.2"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
           weight="3"
@@ -951,16 +830,12 @@
     <entities
         name="BottomPattern">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.5"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.8"/>
       <relationships
           weight="2"
@@ -972,7 +847,6 @@
     <entities
         name="GuardPattern">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.0"/>
       <relationships
           weight="2"
@@ -984,13 +858,10 @@
     <entities
         name="Mapping">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.4"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.4"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.4"/>
       <relationships
           weight="2"
@@ -1026,13 +897,10 @@
     <entities
         name="EnforcementOperation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.2"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.15"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.4/@entities.9"/>
       <relationships
           weight="3"
@@ -1045,10 +913,8 @@
     <entities
         name="Domain">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.2"/>
       <relationships
           weight="2"
@@ -1060,16 +926,12 @@
     <entities
         name="Transformation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.2"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.1"/>
       <relationships
           weight="2"
@@ -1081,13 +943,10 @@
     <entities
         name="TypedModel">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.10"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.2"/>
       <relationships
           weight="2"
@@ -1099,13 +958,10 @@
     <entities
         name="Rule">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.3"/>
       <relationships
           weight="2"
@@ -1117,16 +973,12 @@
     <entities
         name="Pattern">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.5"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.1"/>
       <relationships
           weight="2"
@@ -1141,10 +993,8 @@
     <entities
         name="Predicate">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.4"/>
       <relationships
           weight="2"
@@ -1156,7 +1006,6 @@
     <entities
         name="Function">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -1176,7 +1025,6 @@
     <entities
         name="RelationalTransformation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.5"/>
       <relationships
           weight="2"
@@ -1185,16 +1033,12 @@
     <entities
         name="Relation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.4"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.4"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.4"/>
       <relationships
           weight="2"
@@ -1206,10 +1050,8 @@
     <entities
         name="RelationDomain">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -1218,7 +1060,6 @@
     <entities
         name="DomainPattern">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.0/@entities.0"/>
       <relationships
           weight="2"
@@ -1230,13 +1071,10 @@
     <entities
         name="RelationImplementation">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.1"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.8"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.5/@entities.2"/>
       <relationships
           weight="2"
@@ -1245,13 +1083,10 @@
     <entities
         name="Key">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.0"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.6/@entities.0"/>
       <relationships
           weight="2"
@@ -1271,7 +1106,6 @@
     <entities
         name="CallExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -1282,7 +1116,6 @@
     <entities
         name="OclExpression">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.1/@entities.11"/>
       <relationships
           weight="2"
@@ -1444,13 +1277,10 @@
     <entities
         name="IfExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -1459,10 +1289,8 @@
     <entities
         name="LetExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -1471,16 +1299,12 @@
     <entities
         name="Variable">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.6"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.1/@entities.6"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.12"/>
       <relationships
           weight="2"
@@ -1531,7 +1355,6 @@
     <entities
         name="PropertyCallExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
           weight="2"
@@ -1540,7 +1363,6 @@
     <entities
         name="VariableExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -1549,7 +1371,6 @@
     <entities
         name="TypeExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
           weight="2"
@@ -1558,10 +1379,8 @@
     <entities
         name="LoopExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -1591,10 +1410,8 @@
     <entities
         name="OperationCallExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.8"/>
       <relationships
           weight="2"
@@ -1615,7 +1432,6 @@
     <entities
         name="IterateExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -1636,19 +1452,16 @@
     <entities
         name="CollectionLiteralExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.22"/>
       <relationships
           weight="2"
           relationshipEnd="//@modules.7/@entities.17"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.2"/>
     </entities>
     <entities
         name="CollectionLiteralPart">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.21"/>
       <relationships
           weight="2"
@@ -1660,7 +1473,6 @@
     <entities
         name="CollectionItem">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -1669,10 +1481,8 @@
     <entities
         name="CollectionRange">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
           weight="2"
@@ -1681,7 +1491,6 @@
     <entities
         name="TupleLiteralExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.31"/>
       <relationships
           weight="2"
@@ -1696,16 +1505,12 @@
     <entities
         name="ExpressionInOcl">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.3"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.7"/>
       <relationships
           weight="2"
@@ -1728,10 +1533,8 @@
     <entities
         name="TupleLiteralPart">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.7/@entities.25"/>
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.14"/>
       <relationships
           weight="2"
@@ -1749,7 +1552,6 @@
     <entities
         name="CollectionType">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.11"/>
       <relationships
           weight="2"
@@ -1758,7 +1560,6 @@
     <entities
         name="EnumLiteralExp">
       <relationships
-          weight="1"
           relationshipEnd="//@modules.2/@entities.13"/>
       <relationships
           weight="2"

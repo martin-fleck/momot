@@ -13,12 +13,12 @@ public class ModularizationFitnessFunction extends EGraphMultiDimensionalFitness
 	public static final String ATTRIBUTE_METRICS = "metrics";
 
 	public ModularizationFitnessFunction() {
-		addObjective(new AbstractEGraphFitnessDimension("VocabularyDistance", FunctionType.Minimum) {
-			@Override
-			protected double internalEvaluate(TransformationSolution solution) {
-				return getMetrics(solution).getVocabularyDistance();
-			}
-		});
+//		addObjective(new AbstractEGraphFitnessDimension("VocabularyDistance", FunctionType.Minimum) {
+//			@Override
+//			protected double internalEvaluate(TransformationSolution solution) {
+//				return getMetrics(solution).getVocabularyDistance();
+//			}
+//		});
 		
 		addObjective(new AbstractEGraphFitnessDimension("Coupling", FunctionType.Minimum) {
 			@Override
@@ -41,7 +41,7 @@ public class ModularizationFitnessFunction extends EGraphMultiDimensionalFitness
 			}
 		});
 		
-		addObjective(new AbstractEGraphFitnessDimension("NrModules", FunctionType.Minimum) {
+		addObjective(new AbstractEGraphFitnessDimension("NrModules", FunctionType.Maximum) {
 			@Override
 			protected double internalEvaluate(TransformationSolution solution) {
 				return getMetrics(solution).getNrModules();

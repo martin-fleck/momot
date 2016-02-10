@@ -52,7 +52,7 @@ public class ModularizationSearch {
 		
 		TransformationSearchOrchestration orchestration = new TransformationSearchOrchestration();
 	    orchestration.setModuleManager(moduleManager);
-	    orchestration.setProblemGraph(createDistributedProblemGraph(moduleManager, initialGraphUri, nrModules));
+	    orchestration.setProblemGraph(createProblemGraph(moduleManager, initialGraphUri, nrModules));
 	    orchestration.setSolutionLength(solutionLength);
 	    orchestration.setFitnessFunction(createFitnessFunction());
 	    
