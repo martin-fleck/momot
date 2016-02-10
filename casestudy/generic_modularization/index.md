@@ -161,14 +161,14 @@ The eight modules for the QVT case studies are retrieved from the following pack
 <td style="text-align:right">0</td>
 <td style="text-align:right">0</td>
 <td style="text-align:right">0</td>
-<td style="text-align:right">320</td>
+<td style="text-align:right">216</td>
 </tr>
 <tr>
 <td>Cohesion</td>
-<td style="text-align:right">235</td>
-<td style="text-align:right">915</td>
-<td style="text-align:right">436</td>
-<td style="text-align:right">727</td>
+<td style="text-align:right">119</td>
+<td style="text-align:right">856</td>
+<td style="text-align:right">257</td>
+<td style="text-align:right">587</td>
 </tr>
 <tr>
 <td>Modules</td>
@@ -187,56 +187,6 @@ The eight modules for the QVT case studies are retrieved from the following pack
 </tbody>
 </table> 
 
-<!-- <table>
-<thead>
-<tr>
-<th></th>
-<th>HTML</th>
-<th>JAVA</th>
-<th>OCL</th>
-<th>QVT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Entities</td>
-<td style="text-align:right">62</td>
-<td style="text-align:right">132</td>
-<td style="text-align:right">77</td>
-<td style="text-align:right">151</td>
-</tr>
-<tr>
-<td>Coupling</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-</tr>
-<tr>
-<td>Cohesion</td>
-<td style="text-align:right">115</td>
-<td style="text-align:right">493</td>
-<td style="text-align:right">220</td>
-<td style="text-align:right">563</td>
-</tr>
-<tr>
-<td>Modules</td>
-<td style="text-align:right">1</td>
-<td style="text-align:right">1</td>
-<td style="text-align:right">1</td>
-<td style="text-align:right">1</td>
-</tr>
-<tr>
-<td>MinMaxDiff</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-</tr>
-</tbody>
-</table>
--->
-
 ### Output
 As for each case study we get a lot of solutions, we apply a knee point strategy to select one solution.
 The values for the modularization results are as follow:
@@ -254,30 +204,30 @@ The values for the modularization results are as follow:
 <tbody>
 <tr>
 <td>Coupling</td>
-<td style="text-align:right">30</td>
-<td style="text-align:right">285</td>
-<td style="text-align:right">45</td>
-<td style="text-align:right">330</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">339</td>
+<td style="text-align:right">42</td>
+<td style="text-align:right">355</td>
 </tr>
 <tr>
 <td>Cohesion</td>
-<td style="text-align:right">85</td>
-<td style="text-align:right">208</td>
-<td style="text-align:right">175</td>
-<td style="text-align:right">233</td>
+<td style="text-align:right">101</td>
+<td style="text-align:right">517</td>
+<td style="text-align:right">262</td>
+<td style="text-align:right">448</td>
 </tr>
 <tr>
 <td>Modules</td>
-<td style="text-align:right">4</td>
+<td style="text-align:right">5</td>
 <td style="text-align:right">7</td>
-<td style="text-align:right">3</td>
+<td style="text-align:right">4</td>
 <td style="text-align:right">8</td>
 </tr>
 <tr>
 <td>MinMaxDiff</td>
-<td style="text-align:right">10</td>
+<td style="text-align:right">31</td>
 <td style="text-align:right">2</td>
-<td style="text-align:right">20</td>
+<td style="text-align:right">45</td>
 <td style="text-align:right">2</td>
 </tr>
 </tbody>
