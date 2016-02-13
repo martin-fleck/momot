@@ -19,6 +19,7 @@ A ``Relationship`` is given a weight that is considered during the search proces
 The higher the weight the more important the relationship is, i.e., the closer the respective elements should be grouped together.
 A common, abstract superclass ``NamedElement`` ensures that all elements in the system have a name.
 
+## Ecore 2 Generic Modularization
 For example, when we aim to modularize Ecore models, we could provide the following mapping.
 
 <table style="text-align:center">
@@ -64,6 +65,44 @@ For example, when we aim to modularize Ecore models, we could provide the follow
 </tbody>
 </table>
 
+This mapping is realized using an ATL transformation. 
+A whole project with this transformation can be downloaded in [our repository](https://github.com/martin-fleck/momot/blob/master/projects/at.ac.tuwien.big.momot.examples.ecore.transformation.zip). 
+An excerpt of the transformation is shown below:
+
+```
+rule EPackage_Language {
+	from
+		p : Ecore!EPackage, 
+		c : Ecore!EClass (p.refImmediateComposite().oclIsUndefined() and 
+			Ecore!EPackage.allInstancesFrom('IN').first() = p and 
+			Ecore!EClass.allInstancesFrom('IN').first() = c)
+	to 
+		l : Module!Language (
+			name <- p.name, 	
+			modules <- Ecore!EPackage.allInstancesFrom('IN')
+		)
+}
+
+rule Relationship(target : Ecore!EClassifier, weight : Integer) {
+	to 
+		r : Module!Relationship (
+			relationshipEnd <- target,
+			weight <- weight
+		)
+	do{ r; }
+}
+
+rule Entity_Enum {
+	from
+		enum : Ecore!EEnum
+	to 
+		e : Module!Entity (
+			name <- enum.name
+		)
+}
+
+...
+```
 
 ### Rules
 
