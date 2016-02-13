@@ -71,34 +71,34 @@ An excerpt of the transformation is shown below:
 
 ```
 rule EPackage_Language {
-	from
-		p : Ecore!EPackage, 
-		c : Ecore!EClass (p.refImmediateComposite().oclIsUndefined() and 
-			Ecore!EPackage.allInstancesFrom('IN').first() = p and 
-			Ecore!EClass.allInstancesFrom('IN').first() = c)
-	to 
-		l : Module!Language (
-			name <- p.name, 	
-			modules <- Ecore!EPackage.allInstancesFrom('IN')
-		)
+  from
+    p : Ecore!EPackage, 
+    c : Ecore!EClass (p.refImmediateComposite().oclIsUndefined() and 
+      Ecore!EPackage.allInstancesFrom('IN').first() = p and 
+      Ecore!EClass.allInstancesFrom('IN').first() = c)
+  to 
+    l : Module!Language (
+      name <- p.name, 	
+      modules <- Ecore!EPackage.allInstancesFrom('IN')
+    )
 }
 
 rule Relationship(target : Ecore!EClassifier, weight : Integer) {
-	to 
-		r : Module!Relationship (
-			relationshipEnd <- target,
-			weight <- weight
-		)
-	do{ r; }
+  to 
+    r : Module!Relationship (
+      relationshipEnd <- target,
+      weight <- weight
+    )
+  do{ r; }
 }
 
 rule Entity_Enum {
-	from
-		enum : Ecore!EEnum
-	to 
-		e : Module!Entity (
-			name <- enum.name
-		)
+  from
+    enum : Ecore!EEnum
+  to 
+    e : Module!Entity (
+      name <- enum.name
+    )
 }
 
 ...
