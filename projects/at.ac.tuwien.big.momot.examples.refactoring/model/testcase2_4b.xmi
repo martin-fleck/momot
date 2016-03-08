@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?>
 <My:model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:My="http://newmm" xsi:schemaLocation="http://newmm refactoring.ecore">
-  <propertys name="a" type="//@types.0"/>
-  <propertys name="b" type="//@types.1"/>
-  <propertys name="b" type="//@types.1"/>
-  <propertys name="b" type="//@types.1"/>
-  <propertys name="b" type="//@types.1"/>
-  <propertys name="h" type="//@types.1"/>
-  <entitys name="D" ownedAttribute="//@propertys.0" specialization="//@generalizations.0 //@generalizations.1"/>
-  <entitys name="E" ownedAttribute="//@propertys.1" generalization="//@generalizations.0"/>
-  <entitys name="F" ownedAttribute="//@propertys.2" generalization="//@generalizations.1"/>
+  <properties name="a" type="//@types.0"/>
+  <properties name="b" type="//@types.1"/>
+  <properties name="b" type="//@types.1"/>
+  <properties name="b" type="//@types.1"/>
+  <properties name="b" type="//@types.1"/>
+  <properties name="h" type="//@types.1"/>
+  <entities name="D" ownedAttribute="//@properties.0" specialization="//@generalizations.0 //@generalizations.1"/>
+  <entities name="E" ownedAttribute="//@properties.1" generalization="//@generalizations.0"/>
+  <entities name="F" ownedAttribute="//@properties.2" generalization="//@generalizations.1"/>
   <types name="Integer"/>
   <types name="String"/>
-  <generalizations specific="//@entitys.1" general="//@entitys.0"/>
-  <generalizations specific="//@entitys.2" general="//@entitys.0"/>
+  <generalizations specific="//@entities.1" general="//@entities.0"/>
+  <generalizations specific="//@entities.2" general="//@entities.0"/>
 </My:model>

@@ -1,0 +1,48 @@
+-- @path Modul=/Generic_Modularization_MM/Generic_Modularization_MM.ecore
+-- @nsURI Ecore=http://www.eclipse.org/emf/2002/Ecore
+
+module Ecore2Modularization;
+create OUT : Modul from IN : Ecore;
+
+rule Language {
+	from
+		i : Ecore!EPackage (i.refImmediateComposite().oclIsUndefined() and 
+			Ecore!EPackage.allInstancesFrom('IN').first() = i)
+	to 
+		o : Modul!Language (
+			modules <- o1
+		),
+		o1 : Modul!Module (
+			entities <- Ecore!EClassifier.allInstancesFrom('IN')
+		)
+}
+
+rule Entity_Class {
+	from
+		i : Ecore!EClass
+	to 
+		o : Modul!Entity (
+			name <- i.name,
+			dependencies <- i.eReferences -> collect(x|x.eType),
+			dependencies <- i.eSuperTypes,
+			dependencies <- i.eAttributes -> select(x|x.eType.oclIsTypeOf(Ecore!EEnum)) -> collect(x|x.eType)
+		)
+}
+
+rule Entity_Enum {
+	from
+		i : Ecore!EEnum
+	to 
+		o : Modul!Entity (
+			name <- i.name
+		)
+}
+
+rule Entity_DataType {
+	from
+		i : Ecore!EDataType (i.oclIsTypeOf(Ecore!EDataType))
+	to 
+		o : Modul!Entity (
+			name <- i.name
+		)
+}

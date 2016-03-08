@@ -19,15 +19,15 @@ import at.ac.tuwien.big.momot.search.algorithm.operator.mutation.TransformationP
 import at.ac.tuwien.big.momot.search.algorithm.operator.mutation.TransformationPlaceholderMutation;
 
 public class StackSearch {
-	private static final int SOLUTION_LENGTH = 15;
-	private static final int POPULATION_SIZE = 200;
-	private static final int MAX_EVALUATIONS = POPULATION_SIZE * 200;
+	private static final int SOLUTION_LENGTH = 5;
+	private static final int POPULATION_SIZE = 100;
+	private static final int MAX_EVALUATIONS = POPULATION_SIZE * 100;
 	
-//	private static final String INPUT_MODEL = "input/model/model_five_stacks.xmi";
-	private static final String INPUT_MODEL = "comparison_11-4-2-5-0-19-12-14-7-2.xmi";
+	private static final String INPUT_MODEL = "input/model/model_five_stacks.xmi";
+//	private static final String INPUT_MODEL = "comparison_11-4-2-5-0-19-12-14-7-2.xmi";
 	
 //	private static final String REFERENCE_SET = "model/input/referenceSet/model_five_stacks_reference_set.pf";
-	private static final int NR_RUNS = 30;
+	private static final int NR_RUNS = 2;
 	
 	public static void main(String[] args) throws IOException {
 		StackPackage.eINSTANCE.eClass();
@@ -71,7 +71,7 @@ public class StackSearch {
 						search.getFitnessFunction().getObjectiveIndex("Standard Deviation"))));
 	
 		// experiment
-		SearchExperiment experiment = new SearchExperiment(search, MAX_EVALUATIONS);
+		SearchExperiment<TransformationSolution> experiment = new SearchExperiment<TransformationSolution>(search, MAX_EVALUATIONS);
 //		experiment.setReferenceSetFile(REFERENCE_SET);
 		experiment.setNumberOfRuns(NR_RUNS);
 		experiment.addProgressListener(new SeedRuntimePrintListener());
@@ -95,29 +95,30 @@ public class StackSearch {
 		System.out.println("\nReferenceSet:");
 		System.out.println(resultManager.printReferenceSet());
 		System.out.println("ApproximationSet:");
-		System.out.println(resultManager.printApproximationSetObjectives());
+		System.out.println(resultManager.printObjectives());
 		
-		resultManager.setBaseDirectory("model/output/solutions/moea/");
-		resultManager.saveApproximationSetGraphs("EpsilonMOEA", "NSGA-III", "NSGA-II", "RandomSearch");
+		resultManager.setBaseDirectory("model/output_test/solutions/moea/");
+		resultManager.saveModels("EpsilonMOEA", "NSGA-III", "NSGA-II", "RandomSearch");
 		
-		resultManager.setBaseDirectory("model/output/solutions/local/");
-		resultManager.saveApproximationSetGraphs("HillClimbing", "RandomDescent");
+		resultManager.setBaseDirectory("model/output_test/solutions/local/");
+		resultManager.saveModels("HillClimbing", "RandomDescent");
 		
-		resultManager.setBaseDirectory("model/output/approximationSet/");
-		resultManager.saveApproximationSetObjectives("approximation_set_all.pf");
+		resultManager.setBaseDirectory("model/output_test/approximationSet/");
+		resultManager.saveObjectives("approximation_set_all.pf");
 		
-		resultManager.setBaseDirectory("model/output/approximationSet/moea/");
-		resultManager.saveApproximationSetObjectives("approximation_set_epsilonmoea.pf", "EpsilonMOEA");
-		resultManager.saveApproximationSetObjectives("approximation_set_nsgaiii.pf", "NSGA-III");
-		resultManager.saveApproximationSetObjectives("approximation_set_nsgaii.pf", "NSGA-II");
-		resultManager.saveApproximationSetObjectives("approximation_set_random.pf", "RandomSearch");
-		resultManager.saveApproximationSetObjectives("approximation_set_evolutionary.pf", "EpsilonMOEA", "NSGA-III", "NSGA-II", "RandomSearch");
+		resultManager.setBaseDirectory("model/output_test/approximationSet/moea/");
+		resultManager.saveObjectives("approximation_set_epsilonmoea.pf", "EpsilonMOEA");
+		resultManager.saveObjectives("approximation_set_nsgaiii.pf", "NSGA-III");
+		resultManager.saveObjectives("approximation_set_nsgaii.pf", "NSGA-II");
+		resultManager.saveObjectives("approximation_set_random.pf", "RandomSearch");
+		resultManager.saveObjectives("approximation_set_evolutionary.pf", "EpsilonMOEA", "NSGA-III", "NSGA-II", "RandomSearch");
 		
-		resultManager.setBaseDirectory("model/output/approximationSet/local/");
-		resultManager.saveApproximationSetObjectives("approximation_set_hillclimbing.pf", "HillClimbing");
-		resultManager.saveApproximationSetObjectives("approximation_set_randomdescent.pf", "RandomDescent");
-		resultManager.saveApproximationSetObjectives("approximation_set_local.pf", "HillClimbing", "RandomDescent");
+		resultManager.setBaseDirectory("model/output_test/approximationSet/local/");
+		resultManager.saveObjectives("approximation_set_hillclimbing.pf", "HillClimbing");
+		resultManager.saveObjectives("approximation_set_randomdescent.pf", "RandomDescent");
+		resultManager.saveObjectives("approximation_set_local.pf", "HillClimbing", "RandomDescent");
 		
+		analysis.analyze().printAnalysis();
 //		analyzer.saveAnalysis(new File("model/output/analysis.txt"));
 	}
 }

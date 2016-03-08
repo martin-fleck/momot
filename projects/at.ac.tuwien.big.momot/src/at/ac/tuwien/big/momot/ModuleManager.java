@@ -47,7 +47,7 @@ public class ModuleManager {
 	
 	// generators for providing user parameter values
 	private Map<Parameter, IParameterValue<?>> parameterValues = new HashMap<>();
-	// parameters that should be preserved as part of the solution
+	// parameters that should not be preserved as part of the solution
 	private Set<Parameter> nonSolutionParameters = new HashSet<>();
 
 	public ModuleManager() {
@@ -168,7 +168,7 @@ public class ModuleManager {
 	
 	public List<Rule> getRules() {
 		return Collections.unmodifiableList(rules);
-	}	
+	}
 	
 	public Unit getUnit(String moduleName, String unitName) {
 		return getUnit(getQualifiedName(moduleName, unitName));
@@ -223,6 +223,16 @@ public class ModuleManager {
 	}	
 	
 	// getter and setter - parameter
+	
+	public List<Parameter> getParameters() {
+		return Collections.unmodifiableList(parameters);
+	}
+	
+	public List<Parameter> getSolutionParameters() {
+		List<Parameter> solutionParameters = new ArrayList<>(parameters);
+		solutionParameters.removeAll(nonSolutionParameters);
+		return solutionParameters;
+	}
 	
 	public Parameter getParameter(String moduleName, String unitName, String parameterName) {
 		return getParameter(getQualifiedName(moduleName, unitName, parameterName));

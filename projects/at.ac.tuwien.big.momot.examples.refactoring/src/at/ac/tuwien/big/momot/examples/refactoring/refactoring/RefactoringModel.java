@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getPropertys <em>Propertys</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntitys <em>Entitys</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties <em>Properties</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities <em>Entities</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getTypes <em>Types</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getGeneralizations <em>Generalizations</em>}</li>
  * </ul>
@@ -27,36 +27,36 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RefactoringModel extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Propertys</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Propertys</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Propertys</em>' containment reference list.
-	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Propertys()
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Properties()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Property> getPropertys();
+	EList<Property> getProperties();
 
 	/**
-	 * Returns the value of the '<em><b>Entitys</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Entities</b></em>' containment reference list.
 	 * The list contents are of type {@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Entitys</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Entities</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entitys</em>' containment reference list.
-	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Entitys()
+	 * @return the value of the '<em>Entities</em>' containment reference list.
+	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Entities()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Entity> getEntitys();
+	EList<Entity> getEntities();
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.

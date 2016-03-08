@@ -51,24 +51,29 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAnalysisOrchestrationAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
 		private final RuleCall cAnalysisOrchestrationAnalysisOrchestrationParserRuleCall_11_2_0 = (RuleCall)cAnalysisOrchestrationAssignment_11_2.eContents().get(0);
 		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cFinalizationKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Keyword cResultsKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
 		private final RuleCall cOpSingleAssignParserRuleCall_12_1 = (RuleCall)cGroup_12.eContents().get(1);
 		private final Assignment cResultManagementAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
 		private final RuleCall cResultManagementResultManagementParserRuleCall_12_2_0 = (RuleCall)cResultManagementAssignment_12_2.eContents().get(0);
+		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
+		private final Keyword cFinalizationKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_13_1 = (RuleCall)cGroup_13.eContents().get(1);
+		private final Assignment cFinalizationAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
+		private final RuleCall cFinalizationXBlockExpressionParserRuleCall_13_2_0 = (RuleCall)cFinalizationAssignment_13_2.eContents().get(0);
 		
 		//MOMoTSearch:
 		//	("package" package=QualifiedName)? importSection=XImportSection? variables+=VariableDeclaration* ("initialization"
 		//	OpSingleAssign initialization=XBlockExpression)? "search" name=ValidID? OpSingleAssign
 		//	searchOrchestration=SearchOrchestration "experiment" OpSingleAssign experimentOrchestration=ExperimentOrchestration
-		//	("analysis" OpSingleAssign analysisOrchestration=AnalysisOrchestration)? ("finalization" OpSingleAssign
-		//	resultManagement=ResultManagement)?;
+		//	("analysis" OpSingleAssign analysisOrchestration=AnalysisOrchestration)? ("results" OpSingleAssign
+		//	resultManagement=ResultManagement)? ("finalization" OpSingleAssign finalization=XBlockExpression)?;
 		@Override public ParserRule getRule() { return rule; }
 
 		//("package" package=QualifiedName)? importSection=XImportSection? variables+=VariableDeclaration* ("initialization"
 		//OpSingleAssign initialization=XBlockExpression)? "search" name=ValidID? OpSingleAssign
 		//searchOrchestration=SearchOrchestration "experiment" OpSingleAssign experimentOrchestration=ExperimentOrchestration
-		//("analysis" OpSingleAssign analysisOrchestration=AnalysisOrchestration)? ("finalization" OpSingleAssign
-		//resultManagement=ResultManagement)?
+		//("analysis" OpSingleAssign analysisOrchestration=AnalysisOrchestration)? ("results" OpSingleAssign
+		//resultManagement=ResultManagement)? ("finalization" OpSingleAssign finalization=XBlockExpression)?
 		public Group getGroup() { return cGroup; }
 
 		//("package" package=QualifiedName)?
@@ -155,11 +160,11 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		//AnalysisOrchestration
 		public RuleCall getAnalysisOrchestrationAnalysisOrchestrationParserRuleCall_11_2_0() { return cAnalysisOrchestrationAnalysisOrchestrationParserRuleCall_11_2_0; }
 
-		//("finalization" OpSingleAssign resultManagement=ResultManagement)?
+		//("results" OpSingleAssign resultManagement=ResultManagement)?
 		public Group getGroup_12() { return cGroup_12; }
 
-		//"finalization"
-		public Keyword getFinalizationKeyword_12_0() { return cFinalizationKeyword_12_0; }
+		//"results"
+		public Keyword getResultsKeyword_12_0() { return cResultsKeyword_12_0; }
 
 		//OpSingleAssign
 		public RuleCall getOpSingleAssignParserRuleCall_12_1() { return cOpSingleAssignParserRuleCall_12_1; }
@@ -169,6 +174,21 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ResultManagement
 		public RuleCall getResultManagementResultManagementParserRuleCall_12_2_0() { return cResultManagementResultManagementParserRuleCall_12_2_0; }
+
+		//("finalization" OpSingleAssign finalization=XBlockExpression)?
+		public Group getGroup_13() { return cGroup_13; }
+
+		//"finalization"
+		public Keyword getFinalizationKeyword_13_0() { return cFinalizationKeyword_13_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_13_1() { return cOpSingleAssignParserRuleCall_13_1; }
+
+		//finalization=XBlockExpression
+		public Assignment getFinalizationAssignment_13_2() { return cFinalizationAssignment_13_2; }
+
+		//XBlockExpression
+		public RuleCall getFinalizationXBlockExpressionParserRuleCall_13_2_0() { return cFinalizationXBlockExpressionParserRuleCall_13_2_0; }
 	}
 
 	public class OpKeyAssignElements extends AbstractParserRuleElementFinder {
@@ -279,8 +299,8 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 	}
 
-	public class TransformationOrchestrationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TransformationOrchestration");
+	public class ModuleOrchestrationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModuleOrchestration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cModulesKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -306,7 +326,7 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		//TransformationOrchestration:
+		//ModuleOrchestration:
 		//	"{" "modules" OpSingleAssign modules=ArrayLiteral ("ignoreUnits" OpSingleAssign unitsToRemove=ArrayLiteral)?
 		//	("ignoreParameters" OpSingleAssign nonSolutionParameters=ArrayLiteral)? ("parameterValues" OpSingleAssign "{"
 		//	parameterValues+=ParmeterValueSpecification* "}")? "}";
@@ -431,15 +451,15 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cModelKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cOpSingleAssignParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Assignment cModelAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cModelXExpressionParserRuleCall_4_0 = (RuleCall)cModelAssignment_4.eContents().get(0);
+		private final RuleCall cModelInputModelParserRuleCall_4_0 = (RuleCall)cModelAssignment_4.eContents().get(0);
 		private final Keyword cSolutionLengthKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final RuleCall cOpSingleAssignParserRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		private final Assignment cSolutionLengthAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cSolutionLengthXExpressionParserRuleCall_7_0 = (RuleCall)cSolutionLengthAssignment_7.eContents().get(0);
 		private final Keyword cTransformationsKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final RuleCall cOpSingleAssignParserRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
-		private final Assignment cTransformationOrchestrationAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cTransformationOrchestrationTransformationOrchestrationParserRuleCall_10_0 = (RuleCall)cTransformationOrchestrationAssignment_10.eContents().get(0);
+		private final Assignment cModuleOrchestrationAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cModuleOrchestrationModuleOrchestrationParserRuleCall_10_0 = (RuleCall)cModuleOrchestrationAssignment_10.eContents().get(0);
 		private final Keyword cFitnessKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final RuleCall cOpSingleAssignParserRuleCall_12 = (RuleCall)cGroup.eContents().get(12);
 		private final Assignment cFitnessFunctionAssignment_13 = (Assignment)cGroup.eContents().get(13);
@@ -456,16 +476,16 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_18 = (Keyword)cGroup.eContents().get(18);
 		
 		//SearchOrchestration:
-		//	{SearchOrchestration} "{" "model" OpSingleAssign model=XExpression "solutionLength" OpSingleAssign
-		//	solutionLength=XExpression "transformations" OpSingleAssign transformationOrchestration=TransformationOrchestration
-		//	"fitness" OpSingleAssign fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign
-		//	algorithms=AlgorithmList ("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)? "}";
+		//	{SearchOrchestration} "{" "model" OpSingleAssign model=InputModel "solutionLength" OpSingleAssign
+		//	solutionLength=XExpression "transformations" OpSingleAssign moduleOrchestration=ModuleOrchestration "fitness"
+		//	OpSingleAssign fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign algorithms=AlgorithmList
+		//	("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{SearchOrchestration} "{" "model" OpSingleAssign model=XExpression "solutionLength" OpSingleAssign
-		//solutionLength=XExpression "transformations" OpSingleAssign transformationOrchestration=TransformationOrchestration
-		//"fitness" OpSingleAssign fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign
-		//algorithms=AlgorithmList ("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)? "}"
+		//{SearchOrchestration} "{" "model" OpSingleAssign model=InputModel "solutionLength" OpSingleAssign
+		//solutionLength=XExpression "transformations" OpSingleAssign moduleOrchestration=ModuleOrchestration "fitness"
+		//OpSingleAssign fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign algorithms=AlgorithmList
+		//("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{SearchOrchestration}
@@ -480,11 +500,11 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		//OpSingleAssign
 		public RuleCall getOpSingleAssignParserRuleCall_3() { return cOpSingleAssignParserRuleCall_3; }
 
-		//model=XExpression
+		//model=InputModel
 		public Assignment getModelAssignment_4() { return cModelAssignment_4; }
 
-		//XExpression
-		public RuleCall getModelXExpressionParserRuleCall_4_0() { return cModelXExpressionParserRuleCall_4_0; }
+		//InputModel
+		public RuleCall getModelInputModelParserRuleCall_4_0() { return cModelInputModelParserRuleCall_4_0; }
 
 		//"solutionLength"
 		public Keyword getSolutionLengthKeyword_5() { return cSolutionLengthKeyword_5; }
@@ -504,11 +524,11 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		//OpSingleAssign
 		public RuleCall getOpSingleAssignParserRuleCall_9() { return cOpSingleAssignParserRuleCall_9; }
 
-		//transformationOrchestration=TransformationOrchestration
-		public Assignment getTransformationOrchestrationAssignment_10() { return cTransformationOrchestrationAssignment_10; }
+		//moduleOrchestration=ModuleOrchestration
+		public Assignment getModuleOrchestrationAssignment_10() { return cModuleOrchestrationAssignment_10; }
 
-		//TransformationOrchestration
-		public RuleCall getTransformationOrchestrationTransformationOrchestrationParserRuleCall_10_0() { return cTransformationOrchestrationTransformationOrchestrationParserRuleCall_10_0; }
+		//ModuleOrchestration
+		public RuleCall getModuleOrchestrationModuleOrchestrationParserRuleCall_10_0() { return cModuleOrchestrationModuleOrchestrationParserRuleCall_10_0; }
 
 		//"fitness"
 		public Keyword getFitnessKeyword_11() { return cFitnessKeyword_11; }
@@ -551,6 +571,62 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_18() { return cRightCurlyBracketKeyword_18; }
+	}
+
+	public class InputModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InputModel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFileKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cOpSingleAssignParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cPathAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPathXExpressionParserRuleCall_3_0 = (RuleCall)cPathAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cAdaptKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
+		private final Assignment cAdaptationAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cAdaptationXBlockExpressionParserRuleCall_4_2_0 = (RuleCall)cAdaptationAssignment_4_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//InputModel:
+		//	"{" "file" OpSingleAssign path=XExpression ("adapt" OpSingleAssign adaptation=XBlockExpression)? "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"{" "file" OpSingleAssign path=XExpression ("adapt" OpSingleAssign adaptation=XBlockExpression)? "}"
+		public Group getGroup() { return cGroup; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+
+		//"file"
+		public Keyword getFileKeyword_1() { return cFileKeyword_1; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_2() { return cOpSingleAssignParserRuleCall_2; }
+
+		//path=XExpression
+		public Assignment getPathAssignment_3() { return cPathAssignment_3; }
+
+		//XExpression
+		public RuleCall getPathXExpressionParserRuleCall_3_0() { return cPathXExpressionParserRuleCall_3_0; }
+
+		//("adapt" OpSingleAssign adaptation=XBlockExpression)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"adapt"
+		public Keyword getAdaptKeyword_4_0() { return cAdaptKeyword_4_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_1() { return cOpSingleAssignParserRuleCall_4_1; }
+
+		//adaptation=XBlockExpression
+		public Assignment getAdaptationAssignment_4_2() { return cAdaptationAssignment_4_2; }
+
+		//XBlockExpression
+		public RuleCall getAdaptationXBlockExpressionParserRuleCall_4_2_0() { return cAdaptationXBlockExpressionParserRuleCall_4_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class EqualityHelperElements extends AbstractParserRuleElementFinder {
@@ -1339,92 +1415,134 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class AnalysisOrchestrationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AnalysisOrchestration");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cIndicatorsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cOpSingleAssignParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cIndicatorsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIndicatorsIndicatorArrayParserRuleCall_3_0 = (RuleCall)cIndicatorsAssignment_3.eContents().get(0);
-		private final Keyword cSignificanceKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final RuleCall cOpSingleAssignParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		private final Assignment cSignificanceAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cSignificanceXNumberLiteralParserRuleCall_6_0 = (RuleCall)cSignificanceAssignment_6.eContents().get(0);
-		private final Keyword cShowKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final RuleCall cOpSingleAssignParserRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
-		private final Assignment cShowAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cShowShowArrayParserRuleCall_9_0 = (RuleCall)cShowAssignment_9.eContents().get(0);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cGroupingKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final RuleCall cOpSingleAssignParserRuleCall_10_1 = (RuleCall)cGroup_10.eContents().get(1);
-		private final Assignment cGroupingAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final RuleCall cGroupingAnalysisGroupListParserRuleCall_10_2_0 = (RuleCall)cGroupingAssignment_10_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final UnorderedGroup cUnorderedGroup = (UnorderedGroup)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cUnorderedGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cIndicatorsKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final RuleCall cOpSingleAssignParserRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
+		private final Assignment cIndicatorsAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cIndicatorsIndicatorArrayParserRuleCall_0_3_0 = (RuleCall)cIndicatorsAssignment_0_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cUnorderedGroup.eContents().get(1);
+		private final Keyword cSignificanceKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Assignment cSignificanceAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cSignificanceXNumberLiteralParserRuleCall_1_2_0 = (RuleCall)cSignificanceAssignment_1_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cUnorderedGroup.eContents().get(2);
+		private final Keyword cShowKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Assignment cShowAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cShowShowArrayParserRuleCall_2_2_0 = (RuleCall)cShowAssignment_2_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cUnorderedGroup.eContents().get(3);
+		private final Keyword cGroupingKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final Assignment cGroupingAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cGroupingAnalysisGroupListParserRuleCall_3_2_0 = (RuleCall)cGroupingAssignment_3_2.eContents().get(0);
+		private final Assignment cSaveCommandAssignment_4 = (Assignment)cUnorderedGroup.eContents().get(4);
+		private final RuleCall cSaveCommandSaveAnalysisCommandParserRuleCall_4_0 = (RuleCall)cSaveCommandAssignment_4.eContents().get(0);
+		private final Assignment cBoxplotCommandAssignment_5 = (Assignment)cUnorderedGroup.eContents().get(5);
+		private final RuleCall cBoxplotCommandBoxplotCommandParserRuleCall_5_0 = (RuleCall)cBoxplotCommandAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cUnorderedGroup.eContents().get(6);
+		private final Assignment cPrintCommandAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cPrintCommandPrintAnalysisCommandParserRuleCall_6_0_0 = (RuleCall)cPrintCommandAssignment_6_0.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		
 		//AnalysisOrchestration:
-		//	"{" "indicators" OpSingleAssign indicators=IndicatorArray "significance" OpSingleAssign significance=XNumberLiteral
-		//	"show" OpSingleAssign show=ShowArray ("grouping" OpSingleAssign grouping=AnalysisGroupList)? "}";
+		//	"{" "indicators" OpSingleAssign indicators=IndicatorArray & "significance" OpSingleAssign significance=XNumberLiteral
+		//	& "show" OpSingleAssign show=ShowArray & ("grouping" OpSingleAssign grouping=AnalysisGroupList)? &
+		//	saveCommand=SaveAnalysisCommand? & boxplotCommand=BoxplotCommand? & printCommand=PrintAnalysisCommand? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"{" "indicators" OpSingleAssign indicators=IndicatorArray "significance" OpSingleAssign significance=XNumberLiteral
-		//"show" OpSingleAssign show=ShowArray ("grouping" OpSingleAssign grouping=AnalysisGroupList)? "}"
-		public Group getGroup() { return cGroup; }
+		//"{" "indicators" OpSingleAssign indicators=IndicatorArray & "significance" OpSingleAssign significance=XNumberLiteral &
+		//"show" OpSingleAssign show=ShowArray & ("grouping" OpSingleAssign grouping=AnalysisGroupList)? &
+		//saveCommand=SaveAnalysisCommand? & boxplotCommand=BoxplotCommand? & printCommand=PrintAnalysisCommand? "}"
+		public UnorderedGroup getUnorderedGroup() { return cUnorderedGroup; }
+
+		//"{" "indicators" OpSingleAssign indicators=IndicatorArray
+		public Group getGroup_0() { return cGroup_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+		public Keyword getLeftCurlyBracketKeyword_0_0() { return cLeftCurlyBracketKeyword_0_0; }
 
 		//"indicators"
-		public Keyword getIndicatorsKeyword_1() { return cIndicatorsKeyword_1; }
+		public Keyword getIndicatorsKeyword_0_1() { return cIndicatorsKeyword_0_1; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_2() { return cOpSingleAssignParserRuleCall_2; }
+		public RuleCall getOpSingleAssignParserRuleCall_0_2() { return cOpSingleAssignParserRuleCall_0_2; }
 
 		//indicators=IndicatorArray
-		public Assignment getIndicatorsAssignment_3() { return cIndicatorsAssignment_3; }
+		public Assignment getIndicatorsAssignment_0_3() { return cIndicatorsAssignment_0_3; }
 
 		//IndicatorArray
-		public RuleCall getIndicatorsIndicatorArrayParserRuleCall_3_0() { return cIndicatorsIndicatorArrayParserRuleCall_3_0; }
+		public RuleCall getIndicatorsIndicatorArrayParserRuleCall_0_3_0() { return cIndicatorsIndicatorArrayParserRuleCall_0_3_0; }
+
+		//"significance" OpSingleAssign significance=XNumberLiteral
+		public Group getGroup_1() { return cGroup_1; }
 
 		//"significance"
-		public Keyword getSignificanceKeyword_4() { return cSignificanceKeyword_4; }
+		public Keyword getSignificanceKeyword_1_0() { return cSignificanceKeyword_1_0; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_5() { return cOpSingleAssignParserRuleCall_5; }
+		public RuleCall getOpSingleAssignParserRuleCall_1_1() { return cOpSingleAssignParserRuleCall_1_1; }
 
 		//significance=XNumberLiteral
-		public Assignment getSignificanceAssignment_6() { return cSignificanceAssignment_6; }
+		public Assignment getSignificanceAssignment_1_2() { return cSignificanceAssignment_1_2; }
 
 		//XNumberLiteral
-		public RuleCall getSignificanceXNumberLiteralParserRuleCall_6_0() { return cSignificanceXNumberLiteralParserRuleCall_6_0; }
+		public RuleCall getSignificanceXNumberLiteralParserRuleCall_1_2_0() { return cSignificanceXNumberLiteralParserRuleCall_1_2_0; }
+
+		//"show" OpSingleAssign show=ShowArray
+		public Group getGroup_2() { return cGroup_2; }
 
 		//"show"
-		public Keyword getShowKeyword_7() { return cShowKeyword_7; }
+		public Keyword getShowKeyword_2_0() { return cShowKeyword_2_0; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_8() { return cOpSingleAssignParserRuleCall_8; }
+		public RuleCall getOpSingleAssignParserRuleCall_2_1() { return cOpSingleAssignParserRuleCall_2_1; }
 
 		//show=ShowArray
-		public Assignment getShowAssignment_9() { return cShowAssignment_9; }
+		public Assignment getShowAssignment_2_2() { return cShowAssignment_2_2; }
 
 		//ShowArray
-		public RuleCall getShowShowArrayParserRuleCall_9_0() { return cShowShowArrayParserRuleCall_9_0; }
+		public RuleCall getShowShowArrayParserRuleCall_2_2_0() { return cShowShowArrayParserRuleCall_2_2_0; }
 
 		//("grouping" OpSingleAssign grouping=AnalysisGroupList)?
-		public Group getGroup_10() { return cGroup_10; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"grouping"
-		public Keyword getGroupingKeyword_10_0() { return cGroupingKeyword_10_0; }
+		public Keyword getGroupingKeyword_3_0() { return cGroupingKeyword_3_0; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_10_1() { return cOpSingleAssignParserRuleCall_10_1; }
+		public RuleCall getOpSingleAssignParserRuleCall_3_1() { return cOpSingleAssignParserRuleCall_3_1; }
 
 		//grouping=AnalysisGroupList
-		public Assignment getGroupingAssignment_10_2() { return cGroupingAssignment_10_2; }
+		public Assignment getGroupingAssignment_3_2() { return cGroupingAssignment_3_2; }
 
 		//AnalysisGroupList
-		public RuleCall getGroupingAnalysisGroupListParserRuleCall_10_2_0() { return cGroupingAnalysisGroupListParserRuleCall_10_2_0; }
+		public RuleCall getGroupingAnalysisGroupListParserRuleCall_3_2_0() { return cGroupingAnalysisGroupListParserRuleCall_3_2_0; }
+
+		//saveCommand=SaveAnalysisCommand?
+		public Assignment getSaveCommandAssignment_4() { return cSaveCommandAssignment_4; }
+
+		//SaveAnalysisCommand
+		public RuleCall getSaveCommandSaveAnalysisCommandParserRuleCall_4_0() { return cSaveCommandSaveAnalysisCommandParserRuleCall_4_0; }
+
+		//boxplotCommand=BoxplotCommand?
+		public Assignment getBoxplotCommandAssignment_5() { return cBoxplotCommandAssignment_5; }
+
+		//BoxplotCommand
+		public RuleCall getBoxplotCommandBoxplotCommandParserRuleCall_5_0() { return cBoxplotCommandBoxplotCommandParserRuleCall_5_0; }
+
+		//printCommand=PrintAnalysisCommand? "}"
+		public Group getGroup_6() { return cGroup_6; }
+
+		//printCommand=PrintAnalysisCommand?
+		public Assignment getPrintCommandAssignment_6_0() { return cPrintCommandAssignment_6_0; }
+
+		//PrintAnalysisCommand
+		public RuleCall getPrintCommandPrintAnalysisCommandParserRuleCall_6_0_0() { return cPrintCommandPrintAnalysisCommandParserRuleCall_6_0_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_6_1() { return cRightCurlyBracketKeyword_6_1; }
 	}
 
 	public class AnalysisGroupListElements extends AbstractParserRuleElementFinder {
@@ -1722,35 +1840,127 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
 	}
 
+	public class AnalysisCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AnalysisCommand");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPrintAnalysisCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSaveAnalysisCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBoxplotCommandParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//AnalysisCommand:
+		//	PrintAnalysisCommand | SaveAnalysisCommand | BoxplotCommand;
+		@Override public ParserRule getRule() { return rule; }
+
+		//PrintAnalysisCommand | SaveAnalysisCommand | BoxplotCommand
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//PrintAnalysisCommand
+		public RuleCall getPrintAnalysisCommandParserRuleCall_0() { return cPrintAnalysisCommandParserRuleCall_0; }
+
+		//SaveAnalysisCommand
+		public RuleCall getSaveAnalysisCommandParserRuleCall_1() { return cSaveAnalysisCommandParserRuleCall_1; }
+
+		//BoxplotCommand
+		public RuleCall getBoxplotCommandParserRuleCall_2() { return cBoxplotCommandParserRuleCall_2; }
+	}
+
+	public class PrintAnalysisCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrintAnalysisCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPrintAnalysisCommandAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cPrintOutputKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//PrintAnalysisCommand:
+		//	{PrintAnalysisCommand} "printOutput";
+		@Override public ParserRule getRule() { return rule; }
+
+		//{PrintAnalysisCommand} "printOutput"
+		public Group getGroup() { return cGroup; }
+
+		//{PrintAnalysisCommand}
+		public Action getPrintAnalysisCommandAction_0() { return cPrintAnalysisCommandAction_0; }
+
+		//"printOutput"
+		public Keyword getPrintOutputKeyword_1() { return cPrintOutputKeyword_1; }
+	}
+
+	public class SaveAnalysisCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SaveAnalysisCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cOutputFileKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cFileAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFileXStringLiteralParserRuleCall_2_0 = (RuleCall)cFileAssignment_2.eContents().get(0);
+		
+		//SaveAnalysisCommand:
+		//	"outputFile" OpSingleAssign file=XStringLiteral;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"outputFile" OpSingleAssign file=XStringLiteral
+		public Group getGroup() { return cGroup; }
+
+		//"outputFile"
+		public Keyword getOutputFileKeyword_0() { return cOutputFileKeyword_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_1() { return cOpSingleAssignParserRuleCall_1; }
+
+		//file=XStringLiteral
+		public Assignment getFileAssignment_2() { return cFileAssignment_2; }
+
+		//XStringLiteral
+		public RuleCall getFileXStringLiteralParserRuleCall_2_0() { return cFileXStringLiteralParserRuleCall_2_0; }
+	}
+
+	public class BoxplotCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BoxplotCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBoxplotDirectoryKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cDirectoryAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDirectoryXStringLiteralParserRuleCall_2_0 = (RuleCall)cDirectoryAssignment_2.eContents().get(0);
+		
+		//BoxplotCommand:
+		//	"boxplotDirectory" OpSingleAssign directory=XStringLiteral;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"boxplotDirectory" OpSingleAssign directory=XStringLiteral
+		public Group getGroup() { return cGroup; }
+
+		//"boxplotDirectory"
+		public Keyword getBoxplotDirectoryKeyword_0() { return cBoxplotDirectoryKeyword_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_1() { return cOpSingleAssignParserRuleCall_1; }
+
+		//directory=XStringLiteral
+		public Assignment getDirectoryAssignment_2() { return cDirectoryAssignment_2; }
+
+		//XStringLiteral
+		public RuleCall getDirectoryXStringLiteralParserRuleCall_2_0() { return cDirectoryXStringLiteralParserRuleCall_2_0; }
+	}
+
 	public class ResultManagementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ResultManagement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cResultManagementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cSaveAnalysisAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSaveAnalysisSaveAnalysisCommandParserRuleCall_2_0 = (RuleCall)cSaveAnalysisAssignment_2.eContents().get(0);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cSaveObjectivesAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cSaveObjectivesSaveObjectivesCommandParserRuleCall_3_0_0 = (RuleCall)cSaveObjectivesAssignment_3_0.eContents().get(0);
-		private final Assignment cSaveSolutionsAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cSaveSolutionsSaveSolutionsCommandParserRuleCall_3_1_0 = (RuleCall)cSaveSolutionsAssignment_3_1.eContents().get(0);
-		private final Assignment cPrintObjectivesAssignment_3_2 = (Assignment)cAlternatives_3.eContents().get(2);
-		private final RuleCall cPrintObjectivesPrintObjectivesCommandParserRuleCall_3_2_0 = (RuleCall)cPrintObjectivesAssignment_3_2.eContents().get(0);
-		private final Assignment cPrintSolutionsAssignment_3_3 = (Assignment)cAlternatives_3.eContents().get(3);
-		private final RuleCall cPrintSolutionsPrintSolutionsCommandParserRuleCall_3_3_0 = (RuleCall)cPrintSolutionsAssignment_3_3.eContents().get(0);
-		private final Assignment cDoCommandAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDoCommandXBlockExpressionParserRuleCall_4_0 = (RuleCall)cDoCommandAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAdaptModelsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Assignment cAdaptModelsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cAdaptModelsXBlockExpressionParserRuleCall_2_2_0 = (RuleCall)cAdaptModelsAssignment_2_2.eContents().get(0);
+		private final Assignment cCommandsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCommandsResultManagementCommandParserRuleCall_3_0 = (RuleCall)cCommandsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ResultManagement:
-		//	{ResultManagement} "{" saveAnalysis=SaveAnalysisCommand? (saveObjectives+=SaveObjectivesCommand |
-		//	saveSolutions+=SaveSolutionsCommand | printObjectives+=PrintObjectivesCommand |
-		//	printSolutions+=PrintSolutionsCommand)* doCommand=XBlockExpression? "}";
+		//	{ResultManagement} "{" ("adaptModels" OpSingleAssign adaptModels=XBlockExpression)?
+		//	commands+=ResultManagementCommand+ "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{ResultManagement} "{" saveAnalysis=SaveAnalysisCommand? (saveObjectives+=SaveObjectivesCommand |
-		//saveSolutions+=SaveSolutionsCommand | printObjectives+=PrintObjectivesCommand |
-		//printSolutions+=PrintSolutionsCommand)* doCommand=XBlockExpression? "}"
+		//{ResultManagement} "{" ("adaptModels" OpSingleAssign adaptModels=XBlockExpression)? commands+=ResultManagementCommand+
+		//"}"
 		public Group getGroup() { return cGroup; }
 
 		//{ResultManagement}
@@ -1759,192 +1969,453 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//saveAnalysis=SaveAnalysisCommand?
-		public Assignment getSaveAnalysisAssignment_2() { return cSaveAnalysisAssignment_2; }
+		//("adaptModels" OpSingleAssign adaptModels=XBlockExpression)?
+		public Group getGroup_2() { return cGroup_2; }
 
-		//SaveAnalysisCommand
-		public RuleCall getSaveAnalysisSaveAnalysisCommandParserRuleCall_2_0() { return cSaveAnalysisSaveAnalysisCommandParserRuleCall_2_0; }
+		//"adaptModels"
+		public Keyword getAdaptModelsKeyword_2_0() { return cAdaptModelsKeyword_2_0; }
 
-		//(saveObjectives+=SaveObjectivesCommand | saveSolutions+=SaveSolutionsCommand | printObjectives+=PrintObjectivesCommand |
-		//printSolutions+=PrintSolutionsCommand)*
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_2_1() { return cOpSingleAssignParserRuleCall_2_1; }
 
-		//saveObjectives+=SaveObjectivesCommand
-		public Assignment getSaveObjectivesAssignment_3_0() { return cSaveObjectivesAssignment_3_0; }
-
-		//SaveObjectivesCommand
-		public RuleCall getSaveObjectivesSaveObjectivesCommandParserRuleCall_3_0_0() { return cSaveObjectivesSaveObjectivesCommandParserRuleCall_3_0_0; }
-
-		//saveSolutions+=SaveSolutionsCommand
-		public Assignment getSaveSolutionsAssignment_3_1() { return cSaveSolutionsAssignment_3_1; }
-
-		//SaveSolutionsCommand
-		public RuleCall getSaveSolutionsSaveSolutionsCommandParserRuleCall_3_1_0() { return cSaveSolutionsSaveSolutionsCommandParserRuleCall_3_1_0; }
-
-		//printObjectives+=PrintObjectivesCommand
-		public Assignment getPrintObjectivesAssignment_3_2() { return cPrintObjectivesAssignment_3_2; }
-
-		//PrintObjectivesCommand
-		public RuleCall getPrintObjectivesPrintObjectivesCommandParserRuleCall_3_2_0() { return cPrintObjectivesPrintObjectivesCommandParserRuleCall_3_2_0; }
-
-		//printSolutions+=PrintSolutionsCommand
-		public Assignment getPrintSolutionsAssignment_3_3() { return cPrintSolutionsAssignment_3_3; }
-
-		//PrintSolutionsCommand
-		public RuleCall getPrintSolutionsPrintSolutionsCommandParserRuleCall_3_3_0() { return cPrintSolutionsPrintSolutionsCommandParserRuleCall_3_3_0; }
-
-		//doCommand=XBlockExpression?
-		public Assignment getDoCommandAssignment_4() { return cDoCommandAssignment_4; }
+		//adaptModels=XBlockExpression
+		public Assignment getAdaptModelsAssignment_2_2() { return cAdaptModelsAssignment_2_2; }
 
 		//XBlockExpression
-		public RuleCall getDoCommandXBlockExpressionParserRuleCall_4_0() { return cDoCommandXBlockExpressionParserRuleCall_4_0; }
+		public RuleCall getAdaptModelsXBlockExpressionParserRuleCall_2_2_0() { return cAdaptModelsXBlockExpressionParserRuleCall_2_2_0; }
+
+		//commands+=ResultManagementCommand+
+		public Assignment getCommandsAssignment_3() { return cCommandsAssignment_3; }
+
+		//ResultManagementCommand
+		public RuleCall getCommandsResultManagementCommandParserRuleCall_3_0() { return cCommandsResultManagementCommandParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class ResultManagementCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ResultManagementCommand");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cObjectivesCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSolutionsCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cModelsCommandParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//ResultManagementCommand:
+		//	ObjectivesCommand | SolutionsCommand | ModelsCommand;
+		@Override public ParserRule getRule() { return rule; }
+
+		//ObjectivesCommand | SolutionsCommand | ModelsCommand
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ObjectivesCommand
+		public RuleCall getObjectivesCommandParserRuleCall_0() { return cObjectivesCommandParserRuleCall_0; }
+
+		//SolutionsCommand
+		public RuleCall getSolutionsCommandParserRuleCall_1() { return cSolutionsCommandParserRuleCall_1; }
+
+		//ModelsCommand
+		public RuleCall getModelsCommandParserRuleCall_2() { return cModelsCommandParserRuleCall_2; }
+	}
+
+	public class ObjectivesCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ObjectivesCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cObjectivesCommandAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cObjectivesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cOpSingleAssignParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
+		private final Keyword cAlgorithmsKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_0_1 = (RuleCall)cGroup_4_0.eContents().get(1);
+		private final Assignment cAlgorithmsAssignment_4_0_2 = (Assignment)cGroup_4_0.eContents().get(2);
+		private final RuleCall cAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0 = (RuleCall)cAlgorithmsAssignment_4_0_2.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_4_1 = (UnorderedGroup)cUnorderedGroup_4.eContents().get(1);
+		private final Group cGroup_4_1_0 = (Group)cUnorderedGroup_4_1.eContents().get(0);
+		private final Keyword cNeighborhoodSizeKeyword_4_1_0_0 = (Keyword)cGroup_4_1_0.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_1_0_1 = (RuleCall)cGroup_4_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_4_1_1 = (Alternatives)cUnorderedGroup_4_1.eContents().get(1);
+		private final Assignment cNeighborhoodSizeAssignment_4_1_1_0 = (Assignment)cAlternatives_4_1_1.eContents().get(0);
+		private final RuleCall cNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0 = (RuleCall)cNeighborhoodSizeAssignment_4_1_1_0.eContents().get(0);
+		private final Assignment cMaxNeighborhoodSizeAssignment_4_1_1_1 = (Assignment)cAlternatives_4_1_1.eContents().get(1);
+		private final Keyword cMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0 = (Keyword)cMaxNeighborhoodSizeAssignment_4_1_1_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cUnorderedGroup_4.eContents().get(2);
+		private final Keyword cOutputFileKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_2_1 = (RuleCall)cGroup_4_2.eContents().get(1);
+		private final Assignment cFileAssignment_4_2_2 = (Assignment)cGroup_4_2.eContents().get(2);
+		private final RuleCall cFileSTRINGTerminalRuleCall_4_2_2_0 = (RuleCall)cFileAssignment_4_2_2.eContents().get(0);
+		private final Assignment cPrintOutputAssignment_4_3 = (Assignment)cUnorderedGroup_4.eContents().get(3);
+		private final Keyword cPrintOutputPrintOutputKeyword_4_3_0 = (Keyword)cPrintOutputAssignment_4_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//ObjectivesCommand:
+		//	{ObjectivesCommand} "objectives" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		//	("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+		//	("outputFile" OpSingleAssign file=STRING)? & printOutput?="printOutput"?) "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//{ObjectivesCommand} "objectives" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		//("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+		//("outputFile" OpSingleAssign file=STRING)? & printOutput?="printOutput"?) "}"
+		public Group getGroup() { return cGroup; }
+
+		//{ObjectivesCommand}
+		public Action getObjectivesCommandAction_0() { return cObjectivesCommandAction_0; }
+
+		//"objectives"
+		public Keyword getObjectivesKeyword_1() { return cObjectivesKeyword_1; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_2() { return cOpSingleAssignParserRuleCall_2; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+
+		//("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? & ("neighborhoodSize" OpSingleAssign &
+		//(neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? & ("outputFile" OpSingleAssign file=STRING)? &
+		//printOutput?="printOutput"?
+		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
+
+		//("algorithms" OpSingleAssign algorithms=AlgorithmReferences)?
+		public Group getGroup_4_0() { return cGroup_4_0; }
+
+		//"algorithms"
+		public Keyword getAlgorithmsKeyword_4_0_0() { return cAlgorithmsKeyword_4_0_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_0_1() { return cOpSingleAssignParserRuleCall_4_0_1; }
+
+		//algorithms=AlgorithmReferences
+		public Assignment getAlgorithmsAssignment_4_0_2() { return cAlgorithmsAssignment_4_0_2; }
+
+		//AlgorithmReferences
+		public RuleCall getAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0() { return cAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0; }
+
+		//("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))?
+		public UnorderedGroup getUnorderedGroup_4_1() { return cUnorderedGroup_4_1; }
+
+		//"neighborhoodSize" OpSingleAssign
+		public Group getGroup_4_1_0() { return cGroup_4_1_0; }
+
+		//"neighborhoodSize"
+		public Keyword getNeighborhoodSizeKeyword_4_1_0_0() { return cNeighborhoodSizeKeyword_4_1_0_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_1_0_1() { return cOpSingleAssignParserRuleCall_4_1_0_1; }
+
+		//neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"
+		public Alternatives getAlternatives_4_1_1() { return cAlternatives_4_1_1; }
+
+		//neighborhoodSize=INT
+		public Assignment getNeighborhoodSizeAssignment_4_1_1_0() { return cNeighborhoodSizeAssignment_4_1_1_0; }
+
+		//INT
+		public RuleCall getNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0() { return cNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0; }
+
+		//maxNeighborhoodSize?="maxNeighborhoodSize"
+		public Assignment getMaxNeighborhoodSizeAssignment_4_1_1_1() { return cMaxNeighborhoodSizeAssignment_4_1_1_1; }
+
+		//"maxNeighborhoodSize"
+		public Keyword getMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0() { return cMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0; }
+
+		//("outputFile" OpSingleAssign file=STRING)?
+		public Group getGroup_4_2() { return cGroup_4_2; }
+
+		//"outputFile"
+		public Keyword getOutputFileKeyword_4_2_0() { return cOutputFileKeyword_4_2_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_2_1() { return cOpSingleAssignParserRuleCall_4_2_1; }
+
+		//file=STRING
+		public Assignment getFileAssignment_4_2_2() { return cFileAssignment_4_2_2; }
+
+		//STRING
+		public RuleCall getFileSTRINGTerminalRuleCall_4_2_2_0() { return cFileSTRINGTerminalRuleCall_4_2_2_0; }
+
+		//printOutput?="printOutput"?
+		public Assignment getPrintOutputAssignment_4_3() { return cPrintOutputAssignment_4_3; }
+
+		//"printOutput"
+		public Keyword getPrintOutputPrintOutputKeyword_4_3_0() { return cPrintOutputPrintOutputKeyword_4_3_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
-	public class SaveAnalysisCommandElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SaveAnalysisCommand");
+	public class SolutionsCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SolutionsCommand");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSaveAnalysisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFileAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFileXStringLiteralParserRuleCall_1_0 = (RuleCall)cFileAssignment_1.eContents().get(0);
+		private final Action cSolutionsCommandAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSolutionsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cOpSingleAssignParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
+		private final Keyword cAlgorithmsKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_0_1 = (RuleCall)cGroup_4_0.eContents().get(1);
+		private final Assignment cAlgorithmsAssignment_4_0_2 = (Assignment)cGroup_4_0.eContents().get(2);
+		private final RuleCall cAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0 = (RuleCall)cAlgorithmsAssignment_4_0_2.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_4_1 = (UnorderedGroup)cUnorderedGroup_4.eContents().get(1);
+		private final Group cGroup_4_1_0 = (Group)cUnorderedGroup_4_1.eContents().get(0);
+		private final Keyword cNeighborhoodSizeKeyword_4_1_0_0 = (Keyword)cGroup_4_1_0.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_1_0_1 = (RuleCall)cGroup_4_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_4_1_1 = (Alternatives)cUnorderedGroup_4_1.eContents().get(1);
+		private final Assignment cNeighborhoodSizeAssignment_4_1_1_0 = (Assignment)cAlternatives_4_1_1.eContents().get(0);
+		private final RuleCall cNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0 = (RuleCall)cNeighborhoodSizeAssignment_4_1_1_0.eContents().get(0);
+		private final Assignment cMaxNeighborhoodSizeAssignment_4_1_1_1 = (Assignment)cAlternatives_4_1_1.eContents().get(1);
+		private final Keyword cMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0 = (Keyword)cMaxNeighborhoodSizeAssignment_4_1_1_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cUnorderedGroup_4.eContents().get(2);
+		private final Keyword cOutputFileKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_2_1 = (RuleCall)cGroup_4_2.eContents().get(1);
+		private final Assignment cFileAssignment_4_2_2 = (Assignment)cGroup_4_2.eContents().get(2);
+		private final RuleCall cFileSTRINGTerminalRuleCall_4_2_2_0 = (RuleCall)cFileAssignment_4_2_2.eContents().get(0);
+		private final Group cGroup_4_3 = (Group)cUnorderedGroup_4.eContents().get(3);
+		private final Keyword cOutputDirectoryKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_3_1 = (RuleCall)cGroup_4_3.eContents().get(1);
+		private final Assignment cDirectoryAssignment_4_3_2 = (Assignment)cGroup_4_3.eContents().get(2);
+		private final RuleCall cDirectorySTRINGTerminalRuleCall_4_3_2_0 = (RuleCall)cDirectoryAssignment_4_3_2.eContents().get(0);
+		private final Assignment cPrintOutputAssignment_4_4 = (Assignment)cUnorderedGroup_4.eContents().get(4);
+		private final Keyword cPrintOutputPrintOutputKeyword_4_4_0 = (Keyword)cPrintOutputAssignment_4_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//SaveAnalysisCommand:
-		//	"saveAnalysis" file=XStringLiteral;
+		//SolutionsCommand:
+		//	{SolutionsCommand} "solutions" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		//	("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+		//	("outputFile" OpSingleAssign file=STRING)? & ("outputDirectory" OpSingleAssign directory=STRING)? &
+		//	printOutput?="printOutput"?) "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"saveAnalysis" file=XStringLiteral
+		//{SolutionsCommand} "solutions" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		//("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+		//("outputFile" OpSingleAssign file=STRING)? & ("outputDirectory" OpSingleAssign directory=STRING)? &
+		//printOutput?="printOutput"?) "}"
 		public Group getGroup() { return cGroup; }
 
-		//"saveAnalysis"
-		public Keyword getSaveAnalysisKeyword_0() { return cSaveAnalysisKeyword_0; }
+		//{SolutionsCommand}
+		public Action getSolutionsCommandAction_0() { return cSolutionsCommandAction_0; }
 
-		//file=XStringLiteral
-		public Assignment getFileAssignment_1() { return cFileAssignment_1; }
+		//"solutions"
+		public Keyword getSolutionsKeyword_1() { return cSolutionsKeyword_1; }
 
-		//XStringLiteral
-		public RuleCall getFileXStringLiteralParserRuleCall_1_0() { return cFileXStringLiteralParserRuleCall_1_0; }
-	}
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_2() { return cOpSingleAssignParserRuleCall_2; }
 
-	public class SaveObjectivesCommandElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SaveObjectivesCommand");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSaveObjectivesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cAlgorithmsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAlgorithmsAlgorithmReferencesParserRuleCall_1_0 = (RuleCall)cAlgorithmsAssignment_1.eContents().get(0);
-		private final Assignment cFileAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFileSTRINGTerminalRuleCall_2_0 = (RuleCall)cFileAssignment_2.eContents().get(0);
-		
-		//SaveObjectivesCommand:
-		//	"saveObjectives" algorithms=AlgorithmReferences? file=STRING;
-		@Override public ParserRule getRule() { return rule; }
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//"saveObjectives" algorithms=AlgorithmReferences? file=STRING
-		public Group getGroup() { return cGroup; }
+		//("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? & ("neighborhoodSize" OpSingleAssign &
+		//(neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? & ("outputFile" OpSingleAssign file=STRING)? &
+		//("outputDirectory" OpSingleAssign directory=STRING)? & printOutput?="printOutput"?
+		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
 
-		//"saveObjectives"
-		public Keyword getSaveObjectivesKeyword_0() { return cSaveObjectivesKeyword_0; }
+		//("algorithms" OpSingleAssign algorithms=AlgorithmReferences)?
+		public Group getGroup_4_0() { return cGroup_4_0; }
 
-		//algorithms=AlgorithmReferences?
-		public Assignment getAlgorithmsAssignment_1() { return cAlgorithmsAssignment_1; }
+		//"algorithms"
+		public Keyword getAlgorithmsKeyword_4_0_0() { return cAlgorithmsKeyword_4_0_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_0_1() { return cOpSingleAssignParserRuleCall_4_0_1; }
+
+		//algorithms=AlgorithmReferences
+		public Assignment getAlgorithmsAssignment_4_0_2() { return cAlgorithmsAssignment_4_0_2; }
 
 		//AlgorithmReferences
-		public RuleCall getAlgorithmsAlgorithmReferencesParserRuleCall_1_0() { return cAlgorithmsAlgorithmReferencesParserRuleCall_1_0; }
+		public RuleCall getAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0() { return cAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0; }
+
+		//("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))?
+		public UnorderedGroup getUnorderedGroup_4_1() { return cUnorderedGroup_4_1; }
+
+		//"neighborhoodSize" OpSingleAssign
+		public Group getGroup_4_1_0() { return cGroup_4_1_0; }
+
+		//"neighborhoodSize"
+		public Keyword getNeighborhoodSizeKeyword_4_1_0_0() { return cNeighborhoodSizeKeyword_4_1_0_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_1_0_1() { return cOpSingleAssignParserRuleCall_4_1_0_1; }
+
+		//neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"
+		public Alternatives getAlternatives_4_1_1() { return cAlternatives_4_1_1; }
+
+		//neighborhoodSize=INT
+		public Assignment getNeighborhoodSizeAssignment_4_1_1_0() { return cNeighborhoodSizeAssignment_4_1_1_0; }
+
+		//INT
+		public RuleCall getNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0() { return cNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0; }
+
+		//maxNeighborhoodSize?="maxNeighborhoodSize"
+		public Assignment getMaxNeighborhoodSizeAssignment_4_1_1_1() { return cMaxNeighborhoodSizeAssignment_4_1_1_1; }
+
+		//"maxNeighborhoodSize"
+		public Keyword getMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0() { return cMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0; }
+
+		//("outputFile" OpSingleAssign file=STRING)?
+		public Group getGroup_4_2() { return cGroup_4_2; }
+
+		//"outputFile"
+		public Keyword getOutputFileKeyword_4_2_0() { return cOutputFileKeyword_4_2_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_2_1() { return cOpSingleAssignParserRuleCall_4_2_1; }
 
 		//file=STRING
-		public Assignment getFileAssignment_2() { return cFileAssignment_2; }
+		public Assignment getFileAssignment_4_2_2() { return cFileAssignment_4_2_2; }
 
 		//STRING
-		public RuleCall getFileSTRINGTerminalRuleCall_2_0() { return cFileSTRINGTerminalRuleCall_2_0; }
-	}
+		public RuleCall getFileSTRINGTerminalRuleCall_4_2_2_0() { return cFileSTRINGTerminalRuleCall_4_2_2_0; }
 
-	public class SaveSolutionsCommandElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SaveSolutionsCommand");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSaveSolutionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cAlgorithmsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAlgorithmsAlgorithmReferencesParserRuleCall_1_0 = (RuleCall)cAlgorithmsAssignment_1.eContents().get(0);
-		private final Assignment cDirectoryAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDirectorySTRINGTerminalRuleCall_2_0 = (RuleCall)cDirectoryAssignment_2.eContents().get(0);
-		
-		//SaveSolutionsCommand:
-		//	"saveSolutions" algorithms=AlgorithmReferences? directory=STRING;
-		@Override public ParserRule getRule() { return rule; }
+		//("outputDirectory" OpSingleAssign directory=STRING)?
+		public Group getGroup_4_3() { return cGroup_4_3; }
 
-		//"saveSolutions" algorithms=AlgorithmReferences? directory=STRING
-		public Group getGroup() { return cGroup; }
+		//"outputDirectory"
+		public Keyword getOutputDirectoryKeyword_4_3_0() { return cOutputDirectoryKeyword_4_3_0; }
 
-		//"saveSolutions"
-		public Keyword getSaveSolutionsKeyword_0() { return cSaveSolutionsKeyword_0; }
-
-		//algorithms=AlgorithmReferences?
-		public Assignment getAlgorithmsAssignment_1() { return cAlgorithmsAssignment_1; }
-
-		//AlgorithmReferences
-		public RuleCall getAlgorithmsAlgorithmReferencesParserRuleCall_1_0() { return cAlgorithmsAlgorithmReferencesParserRuleCall_1_0; }
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_3_1() { return cOpSingleAssignParserRuleCall_4_3_1; }
 
 		//directory=STRING
-		public Assignment getDirectoryAssignment_2() { return cDirectoryAssignment_2; }
+		public Assignment getDirectoryAssignment_4_3_2() { return cDirectoryAssignment_4_3_2; }
 
 		//STRING
-		public RuleCall getDirectorySTRINGTerminalRuleCall_2_0() { return cDirectorySTRINGTerminalRuleCall_2_0; }
+		public RuleCall getDirectorySTRINGTerminalRuleCall_4_3_2_0() { return cDirectorySTRINGTerminalRuleCall_4_3_2_0; }
+
+		//printOutput?="printOutput"?
+		public Assignment getPrintOutputAssignment_4_4() { return cPrintOutputAssignment_4_4; }
+
+		//"printOutput"
+		public Keyword getPrintOutputPrintOutputKeyword_4_4_0() { return cPrintOutputPrintOutputKeyword_4_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
-	public class PrintObjectivesCommandElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrintObjectivesCommand");
+	public class ModelsCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModelsCommand");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPrintObjectivesCommandAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cPrintObjectivesKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cAlgorithmsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAlgorithmsAlgorithmReferencesParserRuleCall_2_0 = (RuleCall)cAlgorithmsAssignment_2.eContents().get(0);
+		private final Action cModelsCommandAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cModelsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cOpSingleAssignParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
+		private final Keyword cAlgorithmsKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_0_1 = (RuleCall)cGroup_4_0.eContents().get(1);
+		private final Assignment cAlgorithmsAssignment_4_0_2 = (Assignment)cGroup_4_0.eContents().get(2);
+		private final RuleCall cAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0 = (RuleCall)cAlgorithmsAssignment_4_0_2.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_4_1 = (UnorderedGroup)cUnorderedGroup_4.eContents().get(1);
+		private final Group cGroup_4_1_0 = (Group)cUnorderedGroup_4_1.eContents().get(0);
+		private final Keyword cNeighborhoodSizeKeyword_4_1_0_0 = (Keyword)cGroup_4_1_0.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_1_0_1 = (RuleCall)cGroup_4_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_4_1_1 = (Alternatives)cUnorderedGroup_4_1.eContents().get(1);
+		private final Assignment cNeighborhoodSizeAssignment_4_1_1_0 = (Assignment)cAlternatives_4_1_1.eContents().get(0);
+		private final RuleCall cNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0 = (RuleCall)cNeighborhoodSizeAssignment_4_1_1_0.eContents().get(0);
+		private final Assignment cMaxNeighborhoodSizeAssignment_4_1_1_1 = (Assignment)cAlternatives_4_1_1.eContents().get(1);
+		private final Keyword cMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0 = (Keyword)cMaxNeighborhoodSizeAssignment_4_1_1_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cUnorderedGroup_4.eContents().get(2);
+		private final Keyword cOutputDirectoryKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_4_2_1 = (RuleCall)cGroup_4_2.eContents().get(1);
+		private final Assignment cDirectoryAssignment_4_2_2 = (Assignment)cGroup_4_2.eContents().get(2);
+		private final RuleCall cDirectorySTRINGTerminalRuleCall_4_2_2_0 = (RuleCall)cDirectoryAssignment_4_2_2.eContents().get(0);
+		private final Assignment cPrintOutputAssignment_4_3 = (Assignment)cUnorderedGroup_4.eContents().get(3);
+		private final Keyword cPrintOutputPrintOutputKeyword_4_3_0 = (Keyword)cPrintOutputAssignment_4_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//PrintObjectivesCommand:
-		//	{PrintObjectivesCommand} "printObjectives" algorithms=AlgorithmReferences?;
+		//ModelsCommand:
+		//	{ModelsCommand} "models" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		//	("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+		//	("outputDirectory" OpSingleAssign directory=STRING)? & printOutput?="printOutput"?) "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{PrintObjectivesCommand} "printObjectives" algorithms=AlgorithmReferences?
+		//{ModelsCommand} "models" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		//("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+		//("outputDirectory" OpSingleAssign directory=STRING)? & printOutput?="printOutput"?) "}"
 		public Group getGroup() { return cGroup; }
 
-		//{PrintObjectivesCommand}
-		public Action getPrintObjectivesCommandAction_0() { return cPrintObjectivesCommandAction_0; }
+		//{ModelsCommand}
+		public Action getModelsCommandAction_0() { return cModelsCommandAction_0; }
 
-		//"printObjectives"
-		public Keyword getPrintObjectivesKeyword_1() { return cPrintObjectivesKeyword_1; }
+		//"models"
+		public Keyword getModelsKeyword_1() { return cModelsKeyword_1; }
 
-		//algorithms=AlgorithmReferences?
-		public Assignment getAlgorithmsAssignment_2() { return cAlgorithmsAssignment_2; }
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_2() { return cOpSingleAssignParserRuleCall_2; }
 
-		//AlgorithmReferences
-		public RuleCall getAlgorithmsAlgorithmReferencesParserRuleCall_2_0() { return cAlgorithmsAlgorithmReferencesParserRuleCall_2_0; }
-	}
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-	public class PrintSolutionsCommandElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrintSolutionsCommand");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPrintSolutionsCommandAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cPrintSolutionsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cAlgorithmsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAlgorithmsAlgorithmReferencesParserRuleCall_2_0 = (RuleCall)cAlgorithmsAssignment_2.eContents().get(0);
-		
-		//PrintSolutionsCommand:
-		//	{PrintSolutionsCommand} "printSolutions" algorithms=AlgorithmReferences?;
-		@Override public ParserRule getRule() { return rule; }
+		//("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? & ("neighborhoodSize" OpSingleAssign &
+		//(neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? & ("outputDirectory" OpSingleAssign
+		//directory=STRING)? & printOutput?="printOutput"?
+		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
 
-		//{PrintSolutionsCommand} "printSolutions" algorithms=AlgorithmReferences?
-		public Group getGroup() { return cGroup; }
+		//("algorithms" OpSingleAssign algorithms=AlgorithmReferences)?
+		public Group getGroup_4_0() { return cGroup_4_0; }
 
-		//{PrintSolutionsCommand}
-		public Action getPrintSolutionsCommandAction_0() { return cPrintSolutionsCommandAction_0; }
+		//"algorithms"
+		public Keyword getAlgorithmsKeyword_4_0_0() { return cAlgorithmsKeyword_4_0_0; }
 
-		//"printSolutions"
-		public Keyword getPrintSolutionsKeyword_1() { return cPrintSolutionsKeyword_1; }
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_0_1() { return cOpSingleAssignParserRuleCall_4_0_1; }
 
-		//algorithms=AlgorithmReferences?
-		public Assignment getAlgorithmsAssignment_2() { return cAlgorithmsAssignment_2; }
+		//algorithms=AlgorithmReferences
+		public Assignment getAlgorithmsAssignment_4_0_2() { return cAlgorithmsAssignment_4_0_2; }
 
 		//AlgorithmReferences
-		public RuleCall getAlgorithmsAlgorithmReferencesParserRuleCall_2_0() { return cAlgorithmsAlgorithmReferencesParserRuleCall_2_0; }
+		public RuleCall getAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0() { return cAlgorithmsAlgorithmReferencesParserRuleCall_4_0_2_0; }
+
+		//("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))?
+		public UnorderedGroup getUnorderedGroup_4_1() { return cUnorderedGroup_4_1; }
+
+		//"neighborhoodSize" OpSingleAssign
+		public Group getGroup_4_1_0() { return cGroup_4_1_0; }
+
+		//"neighborhoodSize"
+		public Keyword getNeighborhoodSizeKeyword_4_1_0_0() { return cNeighborhoodSizeKeyword_4_1_0_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_1_0_1() { return cOpSingleAssignParserRuleCall_4_1_0_1; }
+
+		//neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"
+		public Alternatives getAlternatives_4_1_1() { return cAlternatives_4_1_1; }
+
+		//neighborhoodSize=INT
+		public Assignment getNeighborhoodSizeAssignment_4_1_1_0() { return cNeighborhoodSizeAssignment_4_1_1_0; }
+
+		//INT
+		public RuleCall getNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0() { return cNeighborhoodSizeINTTerminalRuleCall_4_1_1_0_0; }
+
+		//maxNeighborhoodSize?="maxNeighborhoodSize"
+		public Assignment getMaxNeighborhoodSizeAssignment_4_1_1_1() { return cMaxNeighborhoodSizeAssignment_4_1_1_1; }
+
+		//"maxNeighborhoodSize"
+		public Keyword getMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0() { return cMaxNeighborhoodSizeMaxNeighborhoodSizeKeyword_4_1_1_1_0; }
+
+		//("outputDirectory" OpSingleAssign directory=STRING)?
+		public Group getGroup_4_2() { return cGroup_4_2; }
+
+		//"outputDirectory"
+		public Keyword getOutputDirectoryKeyword_4_2_0() { return cOutputDirectoryKeyword_4_2_0; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_4_2_1() { return cOpSingleAssignParserRuleCall_4_2_1; }
+
+		//directory=STRING
+		public Assignment getDirectoryAssignment_4_2_2() { return cDirectoryAssignment_4_2_2; }
+
+		//STRING
+		public RuleCall getDirectorySTRINGTerminalRuleCall_4_2_2_0() { return cDirectorySTRINGTerminalRuleCall_4_2_2_0; }
+
+		//printOutput?="printOutput"?
+		public Assignment getPrintOutputAssignment_4_3() { return cPrintOutputAssignment_4_3; }
+
+		//"printOutput"
+		public Keyword getPrintOutputPrintOutputKeyword_4_3_0() { return cPrintOutputPrintOutputKeyword_4_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	
 	
@@ -1980,9 +2451,10 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 	private final OpKeyAssignElements pOpKeyAssign;
 	private final VariableDeclarationElements pVariableDeclaration;
 	private final ArrayLiteralElements pArrayLiteral;
-	private final TransformationOrchestrationElements pTransformationOrchestration;
+	private final ModuleOrchestrationElements pModuleOrchestration;
 	private final ParmeterValueSpecificationElements pParmeterValueSpecification;
 	private final SearchOrchestrationElements pSearchOrchestration;
+	private final InputModelElements pInputModel;
 	private final EqualityHelperElements pEqualityHelper;
 	private final AlgorithmListElements pAlgorithmList;
 	private final FitnessFunctionSpecificationElements pFitnessFunctionSpecification;
@@ -2001,12 +2473,15 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 	private final ShowArrayElements pShowArray;
 	private final AnalysisGroupSpecificationElements pAnalysisGroupSpecification;
 	private final AlgorithmReferencesElements pAlgorithmReferences;
-	private final ResultManagementElements pResultManagement;
+	private final AnalysisCommandElements pAnalysisCommand;
+	private final PrintAnalysisCommandElements pPrintAnalysisCommand;
 	private final SaveAnalysisCommandElements pSaveAnalysisCommand;
-	private final SaveObjectivesCommandElements pSaveObjectivesCommand;
-	private final SaveSolutionsCommandElements pSaveSolutionsCommand;
-	private final PrintObjectivesCommandElements pPrintObjectivesCommand;
-	private final PrintSolutionsCommandElements pPrintSolutionsCommand;
+	private final BoxplotCommandElements pBoxplotCommand;
+	private final ResultManagementElements pResultManagement;
+	private final ResultManagementCommandElements pResultManagementCommand;
+	private final ObjectivesCommandElements pObjectivesCommand;
+	private final SolutionsCommandElements pSolutionsCommand;
+	private final ModelsCommandElements pModelsCommand;
 	
 	private final Grammar grammar;
 
@@ -2021,9 +2496,10 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOpKeyAssign = new OpKeyAssignElements();
 		this.pVariableDeclaration = new VariableDeclarationElements();
 		this.pArrayLiteral = new ArrayLiteralElements();
-		this.pTransformationOrchestration = new TransformationOrchestrationElements();
+		this.pModuleOrchestration = new ModuleOrchestrationElements();
 		this.pParmeterValueSpecification = new ParmeterValueSpecificationElements();
 		this.pSearchOrchestration = new SearchOrchestrationElements();
+		this.pInputModel = new InputModelElements();
 		this.pEqualityHelper = new EqualityHelperElements();
 		this.pAlgorithmList = new AlgorithmListElements();
 		this.pFitnessFunctionSpecification = new FitnessFunctionSpecificationElements();
@@ -2042,12 +2518,15 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		this.pShowArray = new ShowArrayElements();
 		this.pAnalysisGroupSpecification = new AnalysisGroupSpecificationElements();
 		this.pAlgorithmReferences = new AlgorithmReferencesElements();
-		this.pResultManagement = new ResultManagementElements();
+		this.pAnalysisCommand = new AnalysisCommandElements();
+		this.pPrintAnalysisCommand = new PrintAnalysisCommandElements();
 		this.pSaveAnalysisCommand = new SaveAnalysisCommandElements();
-		this.pSaveObjectivesCommand = new SaveObjectivesCommandElements();
-		this.pSaveSolutionsCommand = new SaveSolutionsCommandElements();
-		this.pPrintObjectivesCommand = new PrintObjectivesCommandElements();
-		this.pPrintSolutionsCommand = new PrintSolutionsCommandElements();
+		this.pBoxplotCommand = new BoxplotCommandElements();
+		this.pResultManagement = new ResultManagementElements();
+		this.pResultManagementCommand = new ResultManagementCommandElements();
+		this.pObjectivesCommand = new ObjectivesCommandElements();
+		this.pSolutionsCommand = new SolutionsCommandElements();
+		this.pModelsCommand = new ModelsCommandElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2081,8 +2560,8 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 	//	("package" package=QualifiedName)? importSection=XImportSection? variables+=VariableDeclaration* ("initialization"
 	//	OpSingleAssign initialization=XBlockExpression)? "search" name=ValidID? OpSingleAssign
 	//	searchOrchestration=SearchOrchestration "experiment" OpSingleAssign experimentOrchestration=ExperimentOrchestration
-	//	("analysis" OpSingleAssign analysisOrchestration=AnalysisOrchestration)? ("finalization" OpSingleAssign
-	//	resultManagement=ResultManagement)?;
+	//	("analysis" OpSingleAssign analysisOrchestration=AnalysisOrchestration)? ("results" OpSingleAssign
+	//	resultManagement=ResultManagement)? ("finalization" OpSingleAssign finalization=XBlockExpression)?;
 	public MOMoTSearchElements getMOMoTSearchAccess() {
 		return pMOMoTSearch;
 	}
@@ -2121,16 +2600,16 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		return getArrayLiteralAccess().getRule();
 	}
 
-	//TransformationOrchestration:
+	//ModuleOrchestration:
 	//	"{" "modules" OpSingleAssign modules=ArrayLiteral ("ignoreUnits" OpSingleAssign unitsToRemove=ArrayLiteral)?
 	//	("ignoreParameters" OpSingleAssign nonSolutionParameters=ArrayLiteral)? ("parameterValues" OpSingleAssign "{"
 	//	parameterValues+=ParmeterValueSpecification* "}")? "}";
-	public TransformationOrchestrationElements getTransformationOrchestrationAccess() {
-		return pTransformationOrchestration;
+	public ModuleOrchestrationElements getModuleOrchestrationAccess() {
+		return pModuleOrchestration;
 	}
 	
-	public ParserRule getTransformationOrchestrationRule() {
-		return getTransformationOrchestrationAccess().getRule();
+	public ParserRule getModuleOrchestrationRule() {
+		return getModuleOrchestrationAccess().getRule();
 	}
 
 	//ParmeterValueSpecification:
@@ -2144,16 +2623,26 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SearchOrchestration:
-	//	{SearchOrchestration} "{" "model" OpSingleAssign model=XExpression "solutionLength" OpSingleAssign
-	//	solutionLength=XExpression "transformations" OpSingleAssign transformationOrchestration=TransformationOrchestration
-	//	"fitness" OpSingleAssign fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign
-	//	algorithms=AlgorithmList ("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)? "}";
+	//	{SearchOrchestration} "{" "model" OpSingleAssign model=InputModel "solutionLength" OpSingleAssign
+	//	solutionLength=XExpression "transformations" OpSingleAssign moduleOrchestration=ModuleOrchestration "fitness"
+	//	OpSingleAssign fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign algorithms=AlgorithmList
+	//	("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)? "}";
 	public SearchOrchestrationElements getSearchOrchestrationAccess() {
 		return pSearchOrchestration;
 	}
 	
 	public ParserRule getSearchOrchestrationRule() {
 		return getSearchOrchestrationAccess().getRule();
+	}
+
+	//InputModel:
+	//	"{" "file" OpSingleAssign path=XExpression ("adapt" OpSingleAssign adaptation=XBlockExpression)? "}";
+	public InputModelElements getInputModelAccess() {
+		return pInputModel;
+	}
+	
+	public ParserRule getInputModelRule() {
+		return getInputModelAccess().getRule();
 	}
 
 	//EqualityHelper:
@@ -2290,8 +2779,9 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AnalysisOrchestration:
-	//	"{" "indicators" OpSingleAssign indicators=IndicatorArray "significance" OpSingleAssign significance=XNumberLiteral
-	//	"show" OpSingleAssign show=ShowArray ("grouping" OpSingleAssign grouping=AnalysisGroupList)? "}";
+	//	"{" "indicators" OpSingleAssign indicators=IndicatorArray & "significance" OpSingleAssign significance=XNumberLiteral
+	//	& "show" OpSingleAssign show=ShowArray & ("grouping" OpSingleAssign grouping=AnalysisGroupList)? &
+	//	saveCommand=SaveAnalysisCommand? & boxplotCommand=BoxplotCommand? & printCommand=PrintAnalysisCommand? "}";
 	public AnalysisOrchestrationElements getAnalysisOrchestrationAccess() {
 		return pAnalysisOrchestration;
 	}
@@ -2354,20 +2844,28 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		return getAlgorithmReferencesAccess().getRule();
 	}
 
-	//ResultManagement:
-	//	{ResultManagement} "{" saveAnalysis=SaveAnalysisCommand? (saveObjectives+=SaveObjectivesCommand |
-	//	saveSolutions+=SaveSolutionsCommand | printObjectives+=PrintObjectivesCommand |
-	//	printSolutions+=PrintSolutionsCommand)* doCommand=XBlockExpression? "}";
-	public ResultManagementElements getResultManagementAccess() {
-		return pResultManagement;
+	//AnalysisCommand:
+	//	PrintAnalysisCommand | SaveAnalysisCommand | BoxplotCommand;
+	public AnalysisCommandElements getAnalysisCommandAccess() {
+		return pAnalysisCommand;
 	}
 	
-	public ParserRule getResultManagementRule() {
-		return getResultManagementAccess().getRule();
+	public ParserRule getAnalysisCommandRule() {
+		return getAnalysisCommandAccess().getRule();
+	}
+
+	//PrintAnalysisCommand:
+	//	{PrintAnalysisCommand} "printOutput";
+	public PrintAnalysisCommandElements getPrintAnalysisCommandAccess() {
+		return pPrintAnalysisCommand;
+	}
+	
+	public ParserRule getPrintAnalysisCommandRule() {
+		return getPrintAnalysisCommandAccess().getRule();
 	}
 
 	//SaveAnalysisCommand:
-	//	"saveAnalysis" file=XStringLiteral;
+	//	"outputFile" OpSingleAssign file=XStringLiteral;
 	public SaveAnalysisCommandElements getSaveAnalysisCommandAccess() {
 		return pSaveAnalysisCommand;
 	}
@@ -2376,44 +2874,72 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		return getSaveAnalysisCommandAccess().getRule();
 	}
 
-	//SaveObjectivesCommand:
-	//	"saveObjectives" algorithms=AlgorithmReferences? file=STRING;
-	public SaveObjectivesCommandElements getSaveObjectivesCommandAccess() {
-		return pSaveObjectivesCommand;
+	//BoxplotCommand:
+	//	"boxplotDirectory" OpSingleAssign directory=XStringLiteral;
+	public BoxplotCommandElements getBoxplotCommandAccess() {
+		return pBoxplotCommand;
 	}
 	
-	public ParserRule getSaveObjectivesCommandRule() {
-		return getSaveObjectivesCommandAccess().getRule();
+	public ParserRule getBoxplotCommandRule() {
+		return getBoxplotCommandAccess().getRule();
 	}
 
-	//SaveSolutionsCommand:
-	//	"saveSolutions" algorithms=AlgorithmReferences? directory=STRING;
-	public SaveSolutionsCommandElements getSaveSolutionsCommandAccess() {
-		return pSaveSolutionsCommand;
+	//ResultManagement:
+	//	{ResultManagement} "{" ("adaptModels" OpSingleAssign adaptModels=XBlockExpression)?
+	//	commands+=ResultManagementCommand+ "}";
+	public ResultManagementElements getResultManagementAccess() {
+		return pResultManagement;
 	}
 	
-	public ParserRule getSaveSolutionsCommandRule() {
-		return getSaveSolutionsCommandAccess().getRule();
+	public ParserRule getResultManagementRule() {
+		return getResultManagementAccess().getRule();
 	}
 
-	//PrintObjectivesCommand:
-	//	{PrintObjectivesCommand} "printObjectives" algorithms=AlgorithmReferences?;
-	public PrintObjectivesCommandElements getPrintObjectivesCommandAccess() {
-		return pPrintObjectivesCommand;
+	//ResultManagementCommand:
+	//	ObjectivesCommand | SolutionsCommand | ModelsCommand;
+	public ResultManagementCommandElements getResultManagementCommandAccess() {
+		return pResultManagementCommand;
 	}
 	
-	public ParserRule getPrintObjectivesCommandRule() {
-		return getPrintObjectivesCommandAccess().getRule();
+	public ParserRule getResultManagementCommandRule() {
+		return getResultManagementCommandAccess().getRule();
 	}
 
-	//PrintSolutionsCommand:
-	//	{PrintSolutionsCommand} "printSolutions" algorithms=AlgorithmReferences?;
-	public PrintSolutionsCommandElements getPrintSolutionsCommandAccess() {
-		return pPrintSolutionsCommand;
+	//ObjectivesCommand:
+	//	{ObjectivesCommand} "objectives" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+	//	("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+	//	("outputFile" OpSingleAssign file=STRING)? & printOutput?="printOutput"?) "}";
+	public ObjectivesCommandElements getObjectivesCommandAccess() {
+		return pObjectivesCommand;
 	}
 	
-	public ParserRule getPrintSolutionsCommandRule() {
-		return getPrintSolutionsCommandAccess().getRule();
+	public ParserRule getObjectivesCommandRule() {
+		return getObjectivesCommandAccess().getRule();
+	}
+
+	//SolutionsCommand:
+	//	{SolutionsCommand} "solutions" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+	//	("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+	//	("outputFile" OpSingleAssign file=STRING)? & ("outputDirectory" OpSingleAssign directory=STRING)? &
+	//	printOutput?="printOutput"?) "}";
+	public SolutionsCommandElements getSolutionsCommandAccess() {
+		return pSolutionsCommand;
+	}
+	
+	public ParserRule getSolutionsCommandRule() {
+		return getSolutionsCommandAccess().getRule();
+	}
+
+	//ModelsCommand:
+	//	{ModelsCommand} "models" OpSingleAssign "{" (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+	//	("neighborhoodSize" OpSingleAssign & (neighborhoodSize=INT | maxNeighborhoodSize?="maxNeighborhoodSize"))? &
+	//	("outputDirectory" OpSingleAssign directory=STRING)? & printOutput?="printOutput"?) "}";
+	public ModelsCommandElements getModelsCommandAccess() {
+		return pModelsCommand;
+	}
+	
+	public ParserRule getModelsCommandRule() {
+		return getModelsCommandAccess().getRule();
 	}
 
 	//XExpression:

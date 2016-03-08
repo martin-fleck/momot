@@ -1,0 +1,75 @@
+RS:
+    Hypervolume: 
+        Aggregate: 0.0
+        Min: 0.0
+        Median: 0.0
+        Max: 0.0
+        Count: 10
+        Indifferent: [NSGAII]
+        Values: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    GenerationalDistance: 
+        Aggregate: Infinity
+        Min: Infinity
+        Median: NaN
+        Max: Infinity
+        Count: 10
+        Indifferent: [NSGAII]
+        Values: [Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity]
+    Contribution: 
+        Aggregate: 0.0
+        Min: 0.0
+        Median: 0.0
+        Max: 0.0
+        Count: 10
+        Indifferent: [NSGAII]
+        Values: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+eMOEA:
+    Hypervolume: 
+        Aggregate: 0.049810023170231664
+        Min: 0.0
+        Median: 0.0
+        Max: 0.04827866812921791
+        Count: 10
+        Indifferent: [RS]
+        Values: [0.0, 0.0029461803507929993, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0018230417154925585, 0.04827866812921791]
+    GenerationalDistance: 
+        Aggregate: 0.0
+        Min: 0.0
+        Median: NaN
+        Max: Infinity
+        Count: 10
+        Indifferent: [RS, NSGAIII]
+        Values: [Infinity, 0.4815930310485617, Infinity, 0.06412836936421475, Infinity, Infinity, Infinity, Infinity, 0.0, 0.0]
+    Contribution: 
+        Aggregate: 0.11363636363636363
+        Min: 0.0
+        Median: 0.0
+        Max: 0.07954545454545454
+        Count: 10
+        Indifferent: [RS]
+        Values: [0.0, 0.0, 0.0, 0.022727272727272728, 0.0, 0.0, 0.0, 0.0, 0.011363636363636364, 0.07954545454545454]
+NSGAIII:
+    Hypervolume: 
+        Aggregate: 0.16547450241966552
+        Min: 0.016933965289761217
+        Median: 0.057064808808635376
+        Max: 0.08603449246501743
+        Count: 10
+        Indifferent: []
+        Values: [0.04285022829647196, 0.06423191393450237, 0.056895920985915144, 0.06913901532315726, 0.03184284530563444, 0.016933965289761217, 0.08457072004995315, 0.08603449246501743, 0.057233696631355614, 0.020828252191247718]
+    GenerationalDistance: 
+        Aggregate: 0.0017398712726403162
+        Min: 0.0
+        Median: 0.036177860630976305
+        Max: 0.06924039975428424
+        Count: 10
+        Indifferent: [NSGAII]
+        Values: [0.039684762253442515, 0.045500659646912814, 0.03267095900851009, 0.0, 0.05138734890641411, 0.06606465988937485, 0.010573087835921693, 0.01824082788879095, 0.0, 0.06924039975428424]
+    Contribution: 
+        Aggregate: 0.8863636363636364
+        Min: 0.0
+        Median: 0.056818181818181816
+        Max: 0.25
+        Count: 10
+        Indifferent: []
+        Values: [0.056818181818181816, 0.03409090909090909, 0.125, 0.056818181818181816, 0.011363636363636364, 0.011363636363636364, 0.125, 0.25, 0.2159090909090909, 0.0]

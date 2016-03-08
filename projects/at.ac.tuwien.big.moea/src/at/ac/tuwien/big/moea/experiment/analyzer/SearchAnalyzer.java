@@ -4,90 +4,114 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.math3.stat.descriptive.UnivariateStatistic;
+import org.apache.commons.math3.stat.descriptive.moment.Mean;
+import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
+import org.apache.commons.math3.stat.descriptive.moment.Variance;
+import org.apache.commons.math3.stat.descriptive.rank.Max;
+import org.apache.commons.math3.stat.descriptive.rank.Median;
+import org.apache.commons.math3.stat.descriptive.rank.Min;
 import org.moeaframework.Executor;
 import org.moeaframework.Instrumenter;
 import org.moeaframework.core.NondominatedPopulation;
-import org.moeaframework.core.PopulationIO;
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.spi.ProblemFactory;
 
+import at.ac.tuwien.big.moea.experiment.analyzer.chart.SearchBoxPlot;
+import at.ac.tuwien.big.moea.experiment.analyzer.statistic.EffectSize;
 import at.ac.tuwien.big.moea.problem.ISearchProblem;
+import at.ac.tuwien.big.moea.util.FileUtil;
 
 public class SearchAnalyzer extends org.moeaframework.Analyzer {
-	protected Map<String, List<NondominatedPopulation>> data;
+	protected Field dataField;
+	protected Field statisticsField;
+	protected Field showAggregateField;
+	protected Field showStatisticalSignificanceField;
+	protected Field showIndividualValuesField;
+	
+	public SearchAnalyzer() {
+		getPrivateFields();
+		
+		showStatistic(new Min());
+		showStatistic(new Median());
+		showStatistic(new Max());
+		showStatistic(new Mean());
+		showStatistic(new StandardDeviation());
+		showStatistic(new Variance());
+	}
+	
+	protected void getPrivateFields() {
+		try {	
+			dataField = getClass().getSuperclass().getDeclaredField("data");
+			dataField.setAccessible(true);
+			
+			statisticsField = getClass().getSuperclass().getDeclaredField("statistics");
+			statisticsField.setAccessible(true);
+			
+			showAggregateField = getClass().getSuperclass().getDeclaredField("showAggregate");
+			showAggregateField.setAccessible(true);
+			
+			showStatisticalSignificanceField = getClass().getSuperclass().getDeclaredField("showStatisticalSignificance");
+			showStatisticalSignificanceField.setAccessible(true);
+			
+			showIndividualValuesField = getClass().getSuperclass().getDeclaredField("showIndividualValues");
+			showIndividualValuesField.setAccessible(true);
+			
+		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@SuppressWarnings("unchecked")
-	public SearchAnalyzer() {
-		try {	
-			Field dataField = getClass().getSuperclass().getDeclaredField("data");
-			dataField.setAccessible(true);
-			data = (Map<String, List<NondominatedPopulation>>) dataField.get(this);
-		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
+	public Map<String, List<NondominatedPopulation>> getData() {
+		try {
+			return (Map<String, List<NondominatedPopulation>>) dataField.get(this);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			return null;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<UnivariateStatistic> getStatistics() {
+		try {
+			return (List<UnivariateStatistic>) statisticsField.get(this);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			return new ArrayList<>();
+		}
+	}
+	
+	public boolean isShowAggregate() {
+		try {
+			return showAggregateField.getBoolean(this);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			return Boolean.TRUE;
+		}
+	}
+	
+	public boolean isShowStatisticalSignificance() {
+		try {
+			return showStatisticalSignificanceField.getBoolean(this);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			return Boolean.TRUE;
+		}
+	}
+	
+	public boolean isShowIndividualValues() {
+		try {
+			return showIndividualValuesField.getBoolean(this);
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			return Boolean.TRUE;
 		}
 	}
 	
 	public SearchAnalyzer(ISearchProblem<?> problem) {
 		this();
 		withProblem(problem);
-	}
-	
-	public NondominatedPopulation createNewArchive() {
-		try {	
-			Method newArchiveMethod = getClass().getSuperclass().getSuperclass().getDeclaredMethod("newArchive");
-			newArchiveMethod.setAccessible(true);
-			return (NondominatedPopulation) newArchiveMethod.invoke(this);
-		} catch (SecurityException | IllegalArgumentException | IllegalAccessException | 
-				InvocationTargetException | NoSuchMethodException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public NondominatedPopulation getApproximationSet() {
-		NondominatedPopulation referenceSet = createNewArchive();
-		
-		for (List<NondominatedPopulation> entry : data.values()) 
-			for (NondominatedPopulation set : entry) 
-				referenceSet.addAll(set);
-		
-		return referenceSet;
-	}
-	
-	public NondominatedPopulation getApproximationSet(String name) {
-		NondominatedPopulation referenceSet = createNewArchive();
-		
-		for(NondominatedPopulation data : this.data.get(name))
-			referenceSet.addAll(data);
-		
-		return referenceSet;
-	}
-	
-	public Map<String, NondominatedPopulation> getApproximationSets() {
-		Map<String, NondominatedPopulation> approximationSets = new HashMap<>();
-		for(String name : data.keySet())
-			approximationSets.put(name, getApproximationSet(name));
-		return approximationSets;
-	}
-		
-	public SearchAnalyzer saveApproximationSetObjectives(String fileName) throws IOException {
-		File file = new File(fileName);
-		FileUtils.touch(file);
-		return saveApproximationSetObjectives(file);
-	}
-	
-	public SearchAnalyzer saveApproximationSetObjectives(File file) throws IOException {
-		PopulationIO.writeObjectives(file, getApproximationSet());
-		return this;
 	}
 	
 	// methods overrides for this analyzer return type
@@ -175,21 +199,44 @@ public class SearchAnalyzer extends org.moeaframework.Analyzer {
 	}
 	
 	@Override
-	public SearchAnalyzer printAnalysis() throws IOException {
-		super.printAnalysis();
+	public SearchAnalyzer printAnalysis() {
+		printAnalysis(System.out);
 		return this;
 	}
 	
 	@Override
-	public SearchAnalyzer printAnalysis(PrintStream ps)
-			throws IOException {
-		super.printAnalysis(ps);
+	public SearchAnalyzer printAnalysis(PrintStream ps) {
+		getSearchAnalysis().print(
+				ps, 
+				isShowAggregate(), 
+				isShowStatisticalSignificance(), 
+				isShowIndividualValues(), 
+				getStatistics());
 		return this;
+	}
+	
+	public SearchAnalyzer saveIndicatorBoxPlots(String directory, String baseName) {
+		FileUtil.checkDirectory(directory);
+		SearchAnalyzerResults results = getSearchAnalysis();
+		if(baseName != null && !baseName.isEmpty())
+			baseName += "_";
+		else
+			baseName = "";
+		for(String indicator : results.getIndicators()) {
+			SearchBoxPlot.saveIndicatorChart(indicator, results, 
+					FileUtil.createFile(directory, baseName + indicator + ".png"));
+		}
+		return this;
+	}
+	
+	public SearchAnalyzer saveIndicatorBoxPlots(String directory) {
+		return saveIndicatorBoxPlots(directory, null);
 	}
 	
 	@Override
 	public SearchAnalyzer saveAnalysis(File file)
 			throws IOException {
+		file.getParentFile().mkdirs();
 		super.saveAnalysis(file);
 		return this;
 	}
@@ -295,6 +342,45 @@ public class SearchAnalyzer extends org.moeaframework.Analyzer {
 			double significanceLevel) {
 		super.withSignifianceLevel(significanceLevel);
 		return this;
+	}
+	
+	@Override
+	public AnalyzerResults getAnalysis() {
+		try {
+			return super.getAnalysis();
+		} catch(IllegalArgumentException e) {
+			return null;
+		}
+	}
+	
+	protected void addCohensDEffectSize(SearchAnalyzerResults results) {
+		List<String> algorithms = results.getAlgorithms();
+		for(String indicator : results.getIndicators()) {
+			for (int i = 0; i < algorithms.size()-1; i++) {
+				for (int j = i+1; j < algorithms.size(); j++) {
+					String leftAlgorithm = algorithms.get(i);
+					String rightAlgorithm = algorithms.get(j);
+					SearchAlgorithmResult leftAlgorithmResults = results.get(leftAlgorithm);
+					SearchAlgorithmResult rightAlgorithmResults = results.get(rightAlgorithm);
+					SearchIndicatorResult leftIndicatorResults = leftAlgorithmResults.get(indicator);
+					SearchIndicatorResult rightIndicatorResults = rightAlgorithmResults.get(indicator);
+					if(leftIndicatorResults != null && rightIndicatorResults != null) {
+						double cohensD = EffectSize.cohensD(leftIndicatorResults.getValues(), rightIndicatorResults.getValues());
+						leftIndicatorResults.addAlgorithmEffectSize(
+								new AlgorithmEffectSize("CohensD", rightAlgorithm, cohensD));
+						rightIndicatorResults.addAlgorithmEffectSize(
+								new AlgorithmEffectSize("CohensD", leftAlgorithm, cohensD));
+					}
+				}
+			}
+		}
+	}
+	
+	public SearchAnalyzerResults getSearchAnalysis() {
+		SearchAnalyzerResults analyzerResults = new SearchAnalyzerResults(getAnalysis());
+		if(isShowStatisticalSignificance())
+			addCohensDEffectSize(analyzerResults);
+		return analyzerResults;
 	}
 	
 	public SearchAnalyzer withSameProblemAs(Executor builder) {

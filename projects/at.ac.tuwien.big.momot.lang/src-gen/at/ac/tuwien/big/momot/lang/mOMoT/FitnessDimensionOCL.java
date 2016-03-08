@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,11 +15,11 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL#getQuery <em>Query</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL#getDefExpressions <em>Def Expressions</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL#getQuery <em>Query</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL#getDefExpressions <em>Def Expressions</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getFitnessDimensionOCL()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getFitnessDimensionOCL()
  * @model
  * @generated
  */
@@ -35,14 +35,14 @@ public interface FitnessDimensionOCL extends FitnessDimensionSpecification
    * <!-- end-user-doc -->
    * @return the value of the '<em>Query</em>' containment reference.
    * @see #setQuery(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getFitnessDimensionOCL_Query()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getFitnessDimensionOCL_Query()
    * @model containment="true"
    * @generated
    */
   XExpression getQuery();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL#getQuery <em>Query</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL#getQuery <em>Query</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Query</em>' containment reference.
@@ -53,7 +53,7 @@ public interface FitnessDimensionOCL extends FitnessDimensionSpecification
 
   /**
    * Returns the value of the '<em><b>Def Expressions</b></em>' containment reference list.
-   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.mOMoT.DefExpression}.
+   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.DefExpression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Def Expressions</em>' containment reference list isn't clear,
@@ -61,7 +61,7 @@ public interface FitnessDimensionOCL extends FitnessDimensionSpecification
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Def Expressions</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getFitnessDimensionOCL_DefExpressions()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getFitnessDimensionOCL_DefExpressions()
    * @model containment="true"
    * @generated
    */

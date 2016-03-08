@@ -31,8 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl#getPropertys <em>Propertys</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl#getEntitys <em>Entitys</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl#getEntities <em>Entities</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl#getGeneralizations <em>Generalizations</em>}</li>
  * </ul>
@@ -41,24 +41,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class RefactoringModelImpl extends MinimalEObjectImpl.Container implements RefactoringModel {
 	/**
-	 * The cached value of the '{@link #getPropertys() <em>Propertys</em>}' containment reference list.
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPropertys()
+	 * @see #getProperties()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Property> propertys;
+	protected EList<Property> properties;
 
 	/**
-	 * The cached value of the '{@link #getEntitys() <em>Entitys</em>}' containment reference list.
+	 * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEntitys()
+	 * @see #getEntities()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Entity> entitys;
+	protected EList<Entity> entities;
 
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -104,11 +104,11 @@ public class RefactoringModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Property> getPropertys() {
-		if (propertys == null) {
-			propertys = new EObjectContainmentEList<Property>(Property.class, this, RefactoringPackage.REFACTORING_MODEL__PROPERTYS);
+	public EList<Property> getProperties() {
+		if (properties == null) {
+			properties = new EObjectContainmentEList<Property>(Property.class, this, RefactoringPackage.REFACTORING_MODEL__PROPERTIES);
 		}
-		return propertys;
+		return properties;
 	}
 
 	/**
@@ -116,11 +116,11 @@ public class RefactoringModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Entity> getEntitys() {
-		if (entitys == null) {
-			entitys = new EObjectContainmentEList<Entity>(Entity.class, this, RefactoringPackage.REFACTORING_MODEL__ENTITYS);
+	public EList<Entity> getEntities() {
+		if (entities == null) {
+			entities = new EObjectContainmentEList<Entity>(Entity.class, this, RefactoringPackage.REFACTORING_MODEL__ENTITIES);
 		}
-		return entitys;
+		return entities;
 	}
 
 	/**
@@ -155,10 +155,10 @@ public class RefactoringModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RefactoringPackage.REFACTORING_MODEL__PROPERTYS:
-				return ((InternalEList<?>)getPropertys()).basicRemove(otherEnd, msgs);
-			case RefactoringPackage.REFACTORING_MODEL__ENTITYS:
-				return ((InternalEList<?>)getEntitys()).basicRemove(otherEnd, msgs);
+			case RefactoringPackage.REFACTORING_MODEL__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+			case RefactoringPackage.REFACTORING_MODEL__ENTITIES:
+				return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
 			case RefactoringPackage.REFACTORING_MODEL__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 			case RefactoringPackage.REFACTORING_MODEL__GENERALIZATIONS:
@@ -175,10 +175,10 @@ public class RefactoringModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RefactoringPackage.REFACTORING_MODEL__PROPERTYS:
-				return getPropertys();
-			case RefactoringPackage.REFACTORING_MODEL__ENTITYS:
-				return getEntitys();
+			case RefactoringPackage.REFACTORING_MODEL__PROPERTIES:
+				return getProperties();
+			case RefactoringPackage.REFACTORING_MODEL__ENTITIES:
+				return getEntities();
 			case RefactoringPackage.REFACTORING_MODEL__TYPES:
 				return getTypes();
 			case RefactoringPackage.REFACTORING_MODEL__GENERALIZATIONS:
@@ -196,13 +196,13 @@ public class RefactoringModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RefactoringPackage.REFACTORING_MODEL__PROPERTYS:
-				getPropertys().clear();
-				getPropertys().addAll((Collection<? extends Property>)newValue);
+			case RefactoringPackage.REFACTORING_MODEL__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
-			case RefactoringPackage.REFACTORING_MODEL__ENTITYS:
-				getEntitys().clear();
-				getEntitys().addAll((Collection<? extends Entity>)newValue);
+			case RefactoringPackage.REFACTORING_MODEL__ENTITIES:
+				getEntities().clear();
+				getEntities().addAll((Collection<? extends Entity>)newValue);
 				return;
 			case RefactoringPackage.REFACTORING_MODEL__TYPES:
 				getTypes().clear();
@@ -224,11 +224,11 @@ public class RefactoringModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RefactoringPackage.REFACTORING_MODEL__PROPERTYS:
-				getPropertys().clear();
+			case RefactoringPackage.REFACTORING_MODEL__PROPERTIES:
+				getProperties().clear();
 				return;
-			case RefactoringPackage.REFACTORING_MODEL__ENTITYS:
-				getEntitys().clear();
+			case RefactoringPackage.REFACTORING_MODEL__ENTITIES:
+				getEntities().clear();
 				return;
 			case RefactoringPackage.REFACTORING_MODEL__TYPES:
 				getTypes().clear();
@@ -248,10 +248,10 @@ public class RefactoringModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RefactoringPackage.REFACTORING_MODEL__PROPERTYS:
-				return propertys != null && !propertys.isEmpty();
-			case RefactoringPackage.REFACTORING_MODEL__ENTITYS:
-				return entitys != null && !entitys.isEmpty();
+			case RefactoringPackage.REFACTORING_MODEL__PROPERTIES:
+				return properties != null && !properties.isEmpty();
+			case RefactoringPackage.REFACTORING_MODEL__ENTITIES:
+				return entities != null && !entities.isEmpty();
 			case RefactoringPackage.REFACTORING_MODEL__TYPES:
 				return types != null && !types.isEmpty();
 			case RefactoringPackage.REFACTORING_MODEL__GENERALIZATIONS:

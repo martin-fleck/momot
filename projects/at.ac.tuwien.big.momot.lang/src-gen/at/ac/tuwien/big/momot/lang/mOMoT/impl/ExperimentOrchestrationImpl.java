@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.CollectorArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.CollectorArray;
+import at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import java.util.Collection;
 
@@ -32,13 +32,13 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ExperimentOrchestrationImpl#getPopulationSize <em>Population Size</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ExperimentOrchestrationImpl#getMaxEvaluations <em>Max Evaluations</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ExperimentOrchestrationImpl#getNrRuns <em>Nr Runs</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ExperimentOrchestrationImpl#getReferenceSet <em>Reference Set</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ExperimentOrchestrationImpl#getProgressListeners <em>Progress Listeners</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ExperimentOrchestrationImpl#getCollectors <em>Collectors</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ExperimentOrchestrationImpl#getCustomCollectors <em>Custom Collectors</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getPopulationSize <em>Population Size</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getMaxEvaluations <em>Max Evaluations</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getNrRuns <em>Nr Runs</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getReferenceSet <em>Reference Set</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getProgressListeners <em>Progress Listeners</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getCollectors <em>Collectors</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getCustomCollectors <em>Custom Collectors</em>}</li>
  * </ul>
  *
  * @generated
@@ -133,7 +133,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.EXPERIMENT_ORCHESTRATION;
+    return MomotPackage.Literals.EXPERIMENT_ORCHESTRATION;
   }
 
   /**
@@ -157,7 +157,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     populationSize = newPopulationSize;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, oldPopulationSize, newPopulationSize);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, oldPopulationSize, newPopulationSize);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -174,14 +174,14 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     {
       NotificationChain msgs = null;
       if (populationSize != null)
-        msgs = ((InternalEObject)populationSize).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, null, msgs);
+        msgs = ((InternalEObject)populationSize).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, null, msgs);
       if (newPopulationSize != null)
-        msgs = ((InternalEObject)newPopulationSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, null, msgs);
+        msgs = ((InternalEObject)newPopulationSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, null, msgs);
       msgs = basicSetPopulationSize(newPopulationSize, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, newPopulationSize, newPopulationSize));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE, newPopulationSize, newPopulationSize));
   }
 
   /**
@@ -205,7 +205,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     maxEvaluations = newMaxEvaluations;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, oldMaxEvaluations, newMaxEvaluations);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, oldMaxEvaluations, newMaxEvaluations);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -222,14 +222,14 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     {
       NotificationChain msgs = null;
       if (maxEvaluations != null)
-        msgs = ((InternalEObject)maxEvaluations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, null, msgs);
+        msgs = ((InternalEObject)maxEvaluations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, null, msgs);
       if (newMaxEvaluations != null)
-        msgs = ((InternalEObject)newMaxEvaluations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, null, msgs);
+        msgs = ((InternalEObject)newMaxEvaluations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, null, msgs);
       msgs = basicSetMaxEvaluations(newMaxEvaluations, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, newMaxEvaluations, newMaxEvaluations));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, newMaxEvaluations, newMaxEvaluations));
   }
 
   /**
@@ -253,7 +253,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     nrRuns = newNrRuns;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, oldNrRuns, newNrRuns);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, oldNrRuns, newNrRuns);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -270,14 +270,14 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     {
       NotificationChain msgs = null;
       if (nrRuns != null)
-        msgs = ((InternalEObject)nrRuns).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, null, msgs);
+        msgs = ((InternalEObject)nrRuns).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, null, msgs);
       if (newNrRuns != null)
-        msgs = ((InternalEObject)newNrRuns).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, null, msgs);
+        msgs = ((InternalEObject)newNrRuns).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, null, msgs);
       msgs = basicSetNrRuns(newNrRuns, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, newNrRuns, newNrRuns));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS, newNrRuns, newNrRuns));
   }
 
   /**
@@ -301,7 +301,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     referenceSet = newReferenceSet;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, oldReferenceSet, newReferenceSet);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, oldReferenceSet, newReferenceSet);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -318,14 +318,14 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     {
       NotificationChain msgs = null;
       if (referenceSet != null)
-        msgs = ((InternalEObject)referenceSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, null, msgs);
+        msgs = ((InternalEObject)referenceSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, null, msgs);
       if (newReferenceSet != null)
-        msgs = ((InternalEObject)newReferenceSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, null, msgs);
+        msgs = ((InternalEObject)newReferenceSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, null, msgs);
       msgs = basicSetReferenceSet(newReferenceSet, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, newReferenceSet, newReferenceSet));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET, newReferenceSet, newReferenceSet));
   }
 
   /**
@@ -337,7 +337,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   {
     if (progressListeners == null)
     {
-      progressListeners = new EObjectContainmentEList<XExpression>(XExpression.class, this, MOMoTPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS);
+      progressListeners = new EObjectContainmentEList<XExpression>(XExpression.class, this, MomotPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS);
     }
     return progressListeners;
   }
@@ -363,7 +363,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     collectors = newCollectors;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, oldCollectors, newCollectors);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, oldCollectors, newCollectors);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -380,14 +380,14 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     {
       NotificationChain msgs = null;
       if (collectors != null)
-        msgs = ((InternalEObject)collectors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, null, msgs);
+        msgs = ((InternalEObject)collectors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, null, msgs);
       if (newCollectors != null)
-        msgs = ((InternalEObject)newCollectors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, null, msgs);
+        msgs = ((InternalEObject)newCollectors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, null, msgs);
       msgs = basicSetCollectors(newCollectors, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, newCollectors, newCollectors));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS, newCollectors, newCollectors));
   }
 
   /**
@@ -399,7 +399,7 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   {
     if (customCollectors == null)
     {
-      customCollectors = new EObjectContainmentEList<XExpression>(XExpression.class, this, MOMoTPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS);
+      customCollectors = new EObjectContainmentEList<XExpression>(XExpression.class, this, MomotPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS);
     }
     return customCollectors;
   }
@@ -414,19 +414,19 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
         return basicSetPopulationSize(null, msgs);
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         return basicSetMaxEvaluations(null, msgs);
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         return basicSetNrRuns(null, msgs);
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
         return basicSetReferenceSet(null, msgs);
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
         return ((InternalEList<?>)getProgressListeners()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
         return basicSetCollectors(null, msgs);
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
         return ((InternalEList<?>)getCustomCollectors()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -442,19 +442,19 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
         return getPopulationSize();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         return getMaxEvaluations();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         return getNrRuns();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
         return getReferenceSet();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
         return getProgressListeners();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
         return getCollectors();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
         return getCustomCollectors();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -471,26 +471,26 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
         setPopulationSize((XExpression)newValue);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         setMaxEvaluations((XExpression)newValue);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         setNrRuns((XExpression)newValue);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
         setReferenceSet((XExpression)newValue);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
         getProgressListeners().clear();
         getProgressListeners().addAll((Collection<? extends XExpression>)newValue);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
         setCollectors((CollectorArray)newValue);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
         getCustomCollectors().clear();
         getCustomCollectors().addAll((Collection<? extends XExpression>)newValue);
         return;
@@ -508,25 +508,25 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
         setPopulationSize((XExpression)null);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         setMaxEvaluations((XExpression)null);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         setNrRuns((XExpression)null);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
         setReferenceSet((XExpression)null);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
         getProgressListeners().clear();
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
         setCollectors((CollectorArray)null);
         return;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
         getCustomCollectors().clear();
         return;
     }
@@ -543,19 +543,19 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE:
         return populationSize != null;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         return maxEvaluations != null;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         return nrRuns != null;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
         return referenceSet != null;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS:
         return progressListeners != null && !progressListeners.isEmpty();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__COLLECTORS:
         return collectors != null;
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS:
         return customCollectors != null && !customCollectors.isEmpty();
     }
     return super.eIsSet(featureID);

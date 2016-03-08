@@ -7,12 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
 
+@SuppressWarnings("restriction")
 public class AbstractMOMoTValidator extends org.eclipse.xtext.xbase.validation.XbaseValidator {
 
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
-	    result.add(at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage.eINSTANCE);
+	    result.add(at.ac.tuwien.big.momot.lang.momot.MomotPackage.eINSTANCE);
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xbase"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/common/JavaVMTypes"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/xtext/xbase/Xtype"));

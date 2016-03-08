@@ -139,4 +139,142 @@ public class MathUtil {
 	public static boolean isWithin(double value, RealVariable range) {
 		return value >= range.getLowerBound() && value <= range.getUpperBound();
 	}
+	
+	public static double average(double[] vector) {
+		return sum(vector) / vector.length;
+	}
+	
+	public static double min(double[] vector) {
+		if(vector.length == 0) 
+		    throw new RuntimeException("Input vector is empty.");
+
+		double min = vector[0];
+		for(double value : vector) {
+		    if(min > value)
+		    	min = value;
+		}
+		return min;
+    }
+	
+	public static double max(double... vector) {
+		if(vector.length == 0) 
+		    throw new RuntimeException("Input vector is empty.");
+
+		double min = vector[0];
+		for(double value : vector) {
+		    if(min < value)
+		    	min = value;
+		}
+		return min;
+    }
+	
+	public static double sum(double[] v) {
+		double sum = 0.0;
+		for(double value : v) 
+		    sum += value;
+		return sum;
+	}
+	
+	public static double[] add(double[] v1, double[] v2) {
+		if(v1.length != v2.length) 
+		    throw new RuntimeException("Vector v1 and v2 have different lengths");
+
+		double[] result = new double[v1.length];
+		for(int i = 0; i < result.length; i++)
+		    result[i] = v1[i] + v2[i];
+
+		return result;
+	}
+	
+	public static double[] subtract(double[] v1, double[] v2) {
+		if(v1.length != v2.length) 
+		    throw new RuntimeException("Vector v1 and v2 have different lengths");
+
+		double[] result = new double[v1.length];
+		for(int i = 0; i < result.length; i++)
+		    result[i] = v1[i] - v2[i];
+
+		return result;
+	}
+	
+	public static double[] multiply(double[] v1, double[] v2) {
+		if(v1.length != v2.length) 
+		    throw new RuntimeException("Vector v1 and v2 have different lengths");
+
+		double[] result = new double[v1.length];
+		for(int i = 0; i < result.length; i++)
+		    result[i] = v1[i] * v2[i];
+
+		return result;
+	}
+	
+	public static double[] divide(double[] v1, double[] v2) {
+		if(v1.length != v2.length) 
+		    throw new RuntimeException("Vector v1 and v2 have different lengths");
+
+		double[] result = new double[v1.length];
+		for(int i = 0; i < result.length; i++) {
+		    if(v2[i] != 0)
+		    	result[i] = v1[i] / v2[i];
+		    else if(v1[i] < 0) 
+			    result[i] = Double.NEGATIVE_INFINITY;
+			else
+			    result[i] = Double.POSITIVE_INFINITY;
+		}
+		return result;
+    }
+	
+    public static double[] colMin(double[][] matrix) {
+    	double[] min = matrix[0].clone();
+    	for(int col = 0; col < min.length; col++) {
+    		for(int row = 0; row < matrix.length; row++) {
+    			min[col] = Math.min(min[col], matrix[row][col]);
+    		}
+    	}
+    	return min;
+    }
+
+    public static double[] colMax(double[][] matrix) {
+    	double[] max = matrix[0].clone();
+
+    	for(int col = 0; col < max.length; col++) {
+    		for(int row = 0; row < matrix.length; row++) {
+    			max[col] = Math.max(max[col], matrix[row][col]);
+    		}
+    	}
+    	return max;
+    }
+
+    public static double dotProduct(double[] v1, double[] v2) {
+    	if(v1.length != v2.length) 
+    		throw new RuntimeException("Vector v1 and v2 have different lengths.");
+    	double dotProduct = 0;
+    	
+    	for(int i = 0; i < v1.length; i++)
+    		dotProduct += v1[i] * v2[i];
+
+    	return dotProduct;
+    }
+    
+    public static double pNorm(double[] vector, double p) {
+    	double norm = 0;
+    	double pd = p;
+
+    	for(int i = 0; i < vector.length; i++) 
+    	    norm += Math.pow(Math.abs(vector[i]), pd);
+
+    	return Math.pow(norm, 1 / pd);
+    }
+    
+    public static double[] normalize(double[] vector, double[] minima, double[] maxima) {
+    	if(minima.length != maxima.length) 
+    		throw new RuntimeException("Vector minima and maxima have different lengths.");
+    	if(vector.length != maxima.length) 
+    		throw new RuntimeException("Vector vector and maxima have different lengths.");
+    	
+    	double[] result = new double[vector.length];
+    	for(int i = 0; i < vector.length; i++) 
+    	    result[i] = (vector[i] - minima[i]) / (maxima[i] - minima[i]);
+    	return result;
+    }    	
 }

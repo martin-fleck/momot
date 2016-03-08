@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupList#getGroup <em>Group</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupList#getGroup <em>Group</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAnalysisGroupList()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAnalysisGroupList()
  * @model
  * @generated
  */
@@ -26,7 +26,7 @@ public interface AnalysisGroupList extends EObject
 {
   /**
    * Returns the value of the '<em><b>Group</b></em>' containment reference list.
-   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification}.
+   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Group</em>' containment reference list isn't clear,
@@ -34,7 +34,7 @@ public interface AnalysisGroupList extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Group</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAnalysisGroupList_Group()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAnalysisGroupList_Group()
    * @model containment="true"
    * @generated
    */

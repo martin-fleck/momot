@@ -8,8 +8,8 @@ import org.moeaframework.core.Population;
 import org.moeaframework.core.PopulationIO;
 import org.moeaframework.core.Solution;
 
-import at.ac.tuwien.big.moea.experiment.analyzer.PopulationAnalyzer;
-import at.ac.tuwien.big.moea.experiment.analyzer.PopulationAnalyzer.FitnessComparison;
+import at.ac.tuwien.big.moea.experiment.analyzer.kneepoint.PopulationAnalyzer;
+import at.ac.tuwien.big.moea.experiment.analyzer.kneepoint.PopulationAnalyzer.FitnessComparison;
 import at.ac.tuwien.big.momot.TransformationResultManager;
 
 public class FindKneePoint {

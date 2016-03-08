@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,8 +24,8 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.AlgorithmSpecificationImpl#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.AlgorithmSpecificationImpl#getCall <em>Call</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.AlgorithmSpecificationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.AlgorithmSpecificationImpl#getCall <em>Call</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,7 +80,7 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.ALGORITHM_SPECIFICATION;
+    return MomotPackage.Literals.ALGORITHM_SPECIFICATION;
   }
 
   /**
@@ -103,7 +103,7 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.ALGORITHM_SPECIFICATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.ALGORITHM_SPECIFICATION__NAME, oldName, name));
   }
 
   /**
@@ -127,7 +127,7 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
     call = newCall;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.ALGORITHM_SPECIFICATION__CALL, oldCall, newCall);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.ALGORITHM_SPECIFICATION__CALL, oldCall, newCall);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -144,14 +144,14 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
     {
       NotificationChain msgs = null;
       if (call != null)
-        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.ALGORITHM_SPECIFICATION__CALL, null, msgs);
+        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.ALGORITHM_SPECIFICATION__CALL, null, msgs);
       if (newCall != null)
-        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.ALGORITHM_SPECIFICATION__CALL, null, msgs);
+        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.ALGORITHM_SPECIFICATION__CALL, null, msgs);
       msgs = basicSetCall(newCall, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.ALGORITHM_SPECIFICATION__CALL, newCall, newCall));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.ALGORITHM_SPECIFICATION__CALL, newCall, newCall));
   }
 
   /**
@@ -164,7 +164,7 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__CALL:
+      case MomotPackage.ALGORITHM_SPECIFICATION__CALL:
         return basicSetCall(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -180,9 +180,9 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__NAME:
+      case MomotPackage.ALGORITHM_SPECIFICATION__NAME:
         return getName();
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__CALL:
+      case MomotPackage.ALGORITHM_SPECIFICATION__CALL:
         return getCall();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -198,10 +198,10 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__NAME:
+      case MomotPackage.ALGORITHM_SPECIFICATION__NAME:
         setName((String)newValue);
         return;
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__CALL:
+      case MomotPackage.ALGORITHM_SPECIFICATION__CALL:
         setCall((XExpression)newValue);
         return;
     }
@@ -218,10 +218,10 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__NAME:
+      case MomotPackage.ALGORITHM_SPECIFICATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__CALL:
+      case MomotPackage.ALGORITHM_SPECIFICATION__CALL:
         setCall((XExpression)null);
         return;
     }
@@ -238,9 +238,9 @@ public class AlgorithmSpecificationImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__NAME:
+      case MomotPackage.ALGORITHM_SPECIFICATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MOMoTPackage.ALGORITHM_SPECIFICATION__CALL:
+      case MomotPackage.ALGORITHM_SPECIFICATION__CALL:
         return call != null;
     }
     return super.eIsSet(featureID);

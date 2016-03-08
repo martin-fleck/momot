@@ -1,25 +1,22 @@
 package at.ac.tuwien.big.momot.examples.stack;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.moeaframework.algorithm.EpsilonMOEA;
 import org.moeaframework.algorithm.NSGAII;
 import org.moeaframework.algorithm.ReferencePointNondominatedSortingPopulation;
-import org.moeaframework.core.NondominatedPopulation;
-import org.moeaframework.core.Solution;
 import org.moeaframework.core.operator.CompoundVariation;
 import org.moeaframework.core.operator.OnePointCrossover;
 import org.moeaframework.core.operator.TournamentSelection;
 
 import at.ac.tuwien.big.moea.SearchAnalysis;
 import at.ac.tuwien.big.moea.SearchExperiment;
-import at.ac.tuwien.big.moea.experiment.analyzer.SearchAnalyzer;
 import at.ac.tuwien.big.moea.experiment.executor.listener.SeedRuntimePrintListener;
 import at.ac.tuwien.big.moea.search.algorithm.provider.RegisteredAlgorithm;
 import at.ac.tuwien.big.moea.util.MathUtil;
 import at.ac.tuwien.big.momot.ModuleManager;
+import at.ac.tuwien.big.momot.TransformationResultManager;
 import at.ac.tuwien.big.momot.TransformationSearchOrchestration;
 import at.ac.tuwien.big.momot.examples.stack.stack.Stack;
 import at.ac.tuwien.big.momot.examples.stack.stack.StackModel;
@@ -135,7 +132,7 @@ public class StackEvalSearch {
 //		});
 		
 		
-		SearchExperiment experiment = new SearchExperiment(search, MAX_EVALUATIONS);
+		SearchExperiment<TransformationSolution> experiment = new SearchExperiment<TransformationSolution>(search, MAX_EVALUATIONS);
 		experiment.setReferenceSetFile(REFERENCE_SET);
 		experiment.setNumberOfRuns(NR_RUNS);
 //		experiment.setAllIndicators(true);
@@ -145,11 +142,7 @@ public class StackEvalSearch {
 		
 		SearchAnalysis analysis = new SearchAnalysis(experiment);
 		analysis.setAllIndicators(true);
-		analysis.setShowAll(true);
-		SearchAnalyzer analyzer = analysis.analyze();
-		
-		NondominatedPopulation set = analyzer.getApproximationSet();
-		for(Solution solution : set) 
-			System.out.println(Arrays.toString(solution.getObjectives()));
+		analysis.setShowAll(true);		
+		System.out.println(TransformationResultManager.printObjectives(TransformationResultManager.createApproximationSet(experiment)));;
 	}
 }

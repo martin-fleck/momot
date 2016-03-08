@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.EqualityHelper;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.EqualityHelper;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,8 +24,8 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.EqualityHelperImpl#getCall <em>Call</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.EqualityHelperImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.EqualityHelperImpl#getCall <em>Call</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.EqualityHelperImpl#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,7 +70,7 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.EQUALITY_HELPER;
+    return MomotPackage.Literals.EQUALITY_HELPER;
   }
 
   /**
@@ -94,7 +94,7 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
     call = newCall;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.EQUALITY_HELPER__CALL, oldCall, newCall);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EQUALITY_HELPER__CALL, oldCall, newCall);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -111,14 +111,14 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
     {
       NotificationChain msgs = null;
       if (call != null)
-        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EQUALITY_HELPER__CALL, null, msgs);
+        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EQUALITY_HELPER__CALL, null, msgs);
       if (newCall != null)
-        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EQUALITY_HELPER__CALL, null, msgs);
+        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EQUALITY_HELPER__CALL, null, msgs);
       msgs = basicSetCall(newCall, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.EQUALITY_HELPER__CALL, newCall, newCall));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EQUALITY_HELPER__CALL, newCall, newCall));
   }
 
   /**
@@ -142,7 +142,7 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
     method = newMethod;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.EQUALITY_HELPER__METHOD, oldMethod, newMethod);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EQUALITY_HELPER__METHOD, oldMethod, newMethod);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -159,14 +159,14 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
     {
       NotificationChain msgs = null;
       if (method != null)
-        msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EQUALITY_HELPER__METHOD, null, msgs);
+        msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EQUALITY_HELPER__METHOD, null, msgs);
       if (newMethod != null)
-        msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.EQUALITY_HELPER__METHOD, null, msgs);
+        msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EQUALITY_HELPER__METHOD, null, msgs);
       msgs = basicSetMethod(newMethod, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.EQUALITY_HELPER__METHOD, newMethod, newMethod));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EQUALITY_HELPER__METHOD, newMethod, newMethod));
   }
 
   /**
@@ -179,9 +179,9 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.EQUALITY_HELPER__CALL:
+      case MomotPackage.EQUALITY_HELPER__CALL:
         return basicSetCall(null, msgs);
-      case MOMoTPackage.EQUALITY_HELPER__METHOD:
+      case MomotPackage.EQUALITY_HELPER__METHOD:
         return basicSetMethod(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -197,9 +197,9 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.EQUALITY_HELPER__CALL:
+      case MomotPackage.EQUALITY_HELPER__CALL:
         return getCall();
-      case MOMoTPackage.EQUALITY_HELPER__METHOD:
+      case MomotPackage.EQUALITY_HELPER__METHOD:
         return getMethod();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -215,10 +215,10 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.EQUALITY_HELPER__CALL:
+      case MomotPackage.EQUALITY_HELPER__CALL:
         setCall((XExpression)newValue);
         return;
-      case MOMoTPackage.EQUALITY_HELPER__METHOD:
+      case MomotPackage.EQUALITY_HELPER__METHOD:
         setMethod((XExpression)newValue);
         return;
     }
@@ -235,10 +235,10 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.EQUALITY_HELPER__CALL:
+      case MomotPackage.EQUALITY_HELPER__CALL:
         setCall((XExpression)null);
         return;
-      case MOMoTPackage.EQUALITY_HELPER__METHOD:
+      case MomotPackage.EQUALITY_HELPER__METHOD:
         setMethod((XExpression)null);
         return;
     }
@@ -255,9 +255,9 @@ public class EqualityHelperImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.EQUALITY_HELPER__CALL:
+      case MomotPackage.EQUALITY_HELPER__CALL:
         return call != null;
-      case MOMoTPackage.EQUALITY_HELPER__METHOD:
+      case MomotPackage.EQUALITY_HELPER__METHOD:
         return method != null;
     }
     return super.eIsSet(featureID);

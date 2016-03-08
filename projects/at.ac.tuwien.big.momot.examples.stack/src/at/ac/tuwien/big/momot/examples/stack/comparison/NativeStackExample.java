@@ -1,7 +1,6 @@
 package at.ac.tuwien.big.momot.examples.stack.comparison;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,11 +67,7 @@ public class NativeStackExample {
 		analyzer.addAll("NSGAII", result);
 		NondominatedPopulation referenceSet = analyzer.getReferenceSet();
 		printPopulation(referenceSet, initialLoads);
-		try {
-			analyzer.printAnalysis();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		analyzer.printAnalysis();
 		return analyzer;
 	}
 	

@@ -14,6 +14,7 @@ package at.ac.tuwien.big.moea.print;
 
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+import java.util.Collection;
 
 import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.moeaframework.core.Population;
@@ -36,6 +37,19 @@ public class PopulationWriter<S extends Solution> implements IPopulationWriter<S
 	}
 
 	@Override
+	public String write(Iterable<S> population) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(baos);
+		write(ps, population);
+		ps.close();
+		try {
+			return baos.toString("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			return e.getMessage();
+		}
+	}
+	
+	@Override
 	public String write(Population population) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
@@ -55,11 +69,34 @@ public class PopulationWriter<S extends Solution> implements IPopulationWriter<S
 			return;
 		}
 		
-		ps.println("Population with " + population.size() + " solution(s):");
+		Integer size = population.size();
+		
+		ps.println("Population with " + size + " solution(s):");
 		int solutionNr = 1;
 		for(Solution solution : population) {
 			ps.println("\n------------------");
-			ps.println("Solution " + solutionNr++ + "/" + population.size());
+			ps.println("Solution " + solutionNr++ + "/" + size);
+			ps.println("------------------");
+			getSolutionPrinter().write(ps, CastUtil.asClass(solution, solutionClazz));
+		}
+	}
+	
+	@Override
+	public void write(PrintStream ps, Iterable<S> population) {
+		if(population == null) {
+			ps.println("No population.");
+			return;
+		}
+		
+		Integer size = null;
+		if (population instanceof Collection<?>) 
+			size = ((Collection<S>) population).size();
+		
+		ps.println("Population with " + size != null ? size + " " : "" + "solution(s):");
+		int solutionNr = 1;
+		for(Solution solution : population) {
+			ps.println("\n------------------");
+			ps.println("Solution " + solutionNr++ + size!= null ? "/" + size : "");
 			ps.println("------------------");
 			getSolutionPrinter().write(ps, CastUtil.asClass(solution, solutionClazz));
 		}

@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
-import at.ac.tuwien.big.momot.lang.mOMoT.ShowArray;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
+import at.ac.tuwien.big.momot.lang.momot.ShowArray;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ShowArrayImpl#isIndividual <em>Individual</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ShowArrayImpl#isAggregate <em>Aggregate</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ShowArrayImpl#isStatisticalSignificance <em>Statistical Significance</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ShowArrayImpl#isIndividual <em>Individual</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ShowArrayImpl#isAggregate <em>Aggregate</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ShowArrayImpl#isStatisticalSignificance <em>Statistical Significance</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,7 +107,7 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.SHOW_ARRAY;
+    return MomotPackage.Literals.SHOW_ARRAY;
   }
 
   /**
@@ -130,7 +130,7 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
     boolean oldIndividual = individual;
     individual = newIndividual;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SHOW_ARRAY__INDIVIDUAL, oldIndividual, individual));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SHOW_ARRAY__INDIVIDUAL, oldIndividual, individual));
   }
 
   /**
@@ -153,7 +153,7 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
     boolean oldAggregate = aggregate;
     aggregate = newAggregate;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SHOW_ARRAY__AGGREGATE, oldAggregate, aggregate));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SHOW_ARRAY__AGGREGATE, oldAggregate, aggregate));
   }
 
   /**
@@ -176,7 +176,7 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
     boolean oldStatisticalSignificance = statisticalSignificance;
     statisticalSignificance = newStatisticalSignificance;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE, oldStatisticalSignificance, statisticalSignificance));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE, oldStatisticalSignificance, statisticalSignificance));
   }
 
   /**
@@ -189,11 +189,11 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
   {
     switch (featureID)
     {
-      case MOMoTPackage.SHOW_ARRAY__INDIVIDUAL:
+      case MomotPackage.SHOW_ARRAY__INDIVIDUAL:
         return isIndividual();
-      case MOMoTPackage.SHOW_ARRAY__AGGREGATE:
+      case MomotPackage.SHOW_ARRAY__AGGREGATE:
         return isAggregate();
-      case MOMoTPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
+      case MomotPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
         return isStatisticalSignificance();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -209,13 +209,13 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
   {
     switch (featureID)
     {
-      case MOMoTPackage.SHOW_ARRAY__INDIVIDUAL:
+      case MomotPackage.SHOW_ARRAY__INDIVIDUAL:
         setIndividual((Boolean)newValue);
         return;
-      case MOMoTPackage.SHOW_ARRAY__AGGREGATE:
+      case MomotPackage.SHOW_ARRAY__AGGREGATE:
         setAggregate((Boolean)newValue);
         return;
-      case MOMoTPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
+      case MomotPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
         setStatisticalSignificance((Boolean)newValue);
         return;
     }
@@ -232,13 +232,13 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
   {
     switch (featureID)
     {
-      case MOMoTPackage.SHOW_ARRAY__INDIVIDUAL:
+      case MomotPackage.SHOW_ARRAY__INDIVIDUAL:
         setIndividual(INDIVIDUAL_EDEFAULT);
         return;
-      case MOMoTPackage.SHOW_ARRAY__AGGREGATE:
+      case MomotPackage.SHOW_ARRAY__AGGREGATE:
         setAggregate(AGGREGATE_EDEFAULT);
         return;
-      case MOMoTPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
+      case MomotPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
         setStatisticalSignificance(STATISTICAL_SIGNIFICANCE_EDEFAULT);
         return;
     }
@@ -255,11 +255,11 @@ public class ShowArrayImpl extends MinimalEObjectImpl.Container implements ShowA
   {
     switch (featureID)
     {
-      case MOMoTPackage.SHOW_ARRAY__INDIVIDUAL:
+      case MomotPackage.SHOW_ARRAY__INDIVIDUAL:
         return individual != INDIVIDUAL_EDEFAULT;
-      case MOMoTPackage.SHOW_ARRAY__AGGREGATE:
+      case MomotPackage.SHOW_ARRAY__AGGREGATE:
         return aggregate != AGGREGATE_EDEFAULT;
-      case MOMoTPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
+      case MomotPackage.SHOW_ARRAY__STATISTICAL_SIGNIFICANCE:
         return statisticalSignificance != STATISTICAL_SIGNIFICANCE_EDEFAULT;
     }
     return super.eIsSet(featureID);

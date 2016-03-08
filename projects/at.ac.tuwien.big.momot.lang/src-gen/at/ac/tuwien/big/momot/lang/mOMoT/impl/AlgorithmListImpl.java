@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmList;
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmList;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import java.util.Collection;
 
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.AlgorithmListImpl#getSpecifications <em>Specifications</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.AlgorithmListImpl#getSpecifications <em>Specifications</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,7 +63,7 @@ public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements A
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.ALGORITHM_LIST;
+    return MomotPackage.Literals.ALGORITHM_LIST;
   }
 
   /**
@@ -75,7 +75,7 @@ public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements A
   {
     if (specifications == null)
     {
-      specifications = new EObjectContainmentEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MOMoTPackage.ALGORITHM_LIST__SPECIFICATIONS);
+      specifications = new EObjectContainmentEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MomotPackage.ALGORITHM_LIST__SPECIFICATIONS);
     }
     return specifications;
   }
@@ -90,7 +90,7 @@ public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements A
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_LIST__SPECIFICATIONS:
+      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
         return ((InternalEList<?>)getSpecifications()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements A
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_LIST__SPECIFICATIONS:
+      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
         return getSpecifications();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements A
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_LIST__SPECIFICATIONS:
+      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
         getSpecifications().clear();
         getSpecifications().addAll((Collection<? extends AlgorithmSpecification>)newValue);
         return;
@@ -141,7 +141,7 @@ public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements A
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_LIST__SPECIFICATIONS:
+      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
         getSpecifications().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements A
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_LIST__SPECIFICATIONS:
+      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
         return specifications != null && !specifications.isEmpty();
     }
     return super.eIsSet(featureID);

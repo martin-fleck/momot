@@ -28,6 +28,7 @@ import at.ac.tuwien.big.moea.util.MathUtil;
 import at.ac.tuwien.big.momot.TransformationSearchOrchestration;
 import at.ac.tuwien.big.momot.problem.solution.variable.ITransformationVariable;
 import at.ac.tuwien.big.momot.problem.solution.variable.TransformationPlaceholderVariable;
+import at.ac.tuwien.big.momot.problem.unit.parameter.comparator.DefaultEObjectEqualityHelper;
 import at.ac.tuwien.big.momot.problem.unit.parameter.comparator.IEObjectEqualityHelper;
 import at.ac.tuwien.big.momot.util.MomotUtil;
 
@@ -178,7 +179,10 @@ public class TransformationSolution extends SearchSolution implements Comparable
 			variables[index] = (ITransformationVariable)variable;
 			setDirty();
 		}
-		else
+		else if(variable != null && variable instanceof IPlaceholderVariable) {
+			variables[index] = new TransformationPlaceholderVariable();
+			setDirty();
+		} else
 			throw new IllegalArgumentException("TransformationSolution only supports the ITransformationVariable variable type.");
 	}
 	
@@ -219,16 +223,10 @@ public class TransformationSolution extends SearchSolution implements Comparable
 	}
 	
 	protected boolean equals(EObject left, EObject right) {
-		if(left == null && right == null)
-			return true;
-		
-		if(left == null && right != null || left != null && right == null)
-			return false;
-		
-		if(getEqualityHelper() != null) 
-			return getEqualityHelper().equals(left, right);
-		
-		return left.equals(right);
+		IEObjectEqualityHelper helper = getEqualityHelper();
+		if(helper == null)
+			helper = new DefaultEObjectEqualityHelper();
+		return helper.equals(left, right);
 	}
 	
 	protected void adapt(ITransformationVariable variable, EGraph newGraph) {

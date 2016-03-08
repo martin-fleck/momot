@@ -4,11 +4,10 @@
 package at.ac.tuwien.big.momot.lang;
 
 import org.eclipse.xtext.generator.IGenerator;
-import org.eclipse.xtext.xbase.compiler.XbaseCompiler;
 
 import com.google.inject.Binder;
 
-import at.ac.tuwien.big.momot.lang.jvmmodel.MOMoTCompiler;
+import at.ac.tuwien.big.momot.lang.scoping.MOMoTScopeProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -16,11 +15,9 @@ import at.ac.tuwien.big.momot.lang.jvmmodel.MOMoTCompiler;
 public class MOMoTRuntimeModule extends at.ac.tuwien.big.momot.lang.AbstractMOMoTRuntimeModule {
 	@Override
 	public void configureIScopeProviderDelegate(Binder binder) {
-		super.configureIScopeProviderDelegate(binder);
-	}
-	
-	public Class<? extends XbaseCompiler> bindXbaseCompiler() {
-		return MOMoTCompiler.class;
+		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class)
+			.annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
+			.to(MOMoTScopeProvider.class);
 	}
 	
 	@Override

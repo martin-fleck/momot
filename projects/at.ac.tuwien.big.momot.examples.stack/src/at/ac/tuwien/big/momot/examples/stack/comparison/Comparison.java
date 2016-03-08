@@ -62,7 +62,6 @@ public class Comparison {
 								new ExtendedRandomInitialization(problem, populationSize));
 					}
 				});
-			
 		
 		Instrumenter instrumenter = new SearchInstrumenter()
 			.withProblemClass(problem.getClass(), Arrays.asList(initialLoads))
@@ -105,7 +104,7 @@ public class Comparison {
 				new TransformationPlaceholderMutation(0.15)				
 			));
 		
-		SearchExperiment experiment = new SearchExperiment(orchestration, maxEvaluations);
+		SearchExperiment<TransformationSolution> experiment = new SearchExperiment<TransformationSolution>(orchestration, maxEvaluations);
 		experiment.addProgressListener(new SeedRuntimePrintListener());
 		
 //		problemExecutor.getPopulationGenerator();

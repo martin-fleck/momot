@@ -249,7 +249,7 @@ public class SolutionWriter<S extends Solution> implements ISolutionWriter<S> {
 		return "" + objective;
 	}
 	
-	protected String printObject(Object value)  {
+	public static String printObject(Object value)  {
 		if(value == null)
 			return "<null>";
 		if(value instanceof Serializable)
@@ -257,7 +257,7 @@ public class SolutionWriter<S extends Solution> implements ISolutionWriter<S> {
 		return value.toString();
 	}
 	
-	protected String printSerializable(Serializable value) {
+	public static String printSerializable(Serializable value) {
 		if(value instanceof boolean[])
 			return Arrays.toString((boolean[])value);
 		if(value instanceof byte[])

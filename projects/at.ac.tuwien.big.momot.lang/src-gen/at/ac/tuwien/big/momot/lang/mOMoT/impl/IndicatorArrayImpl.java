@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.IndicatorArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.IndicatorArray;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,16 +20,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isHypervolume <em>Hypervolume</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isGenerationalDistance <em>Generational Distance</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isInvertedGenerationalDistance <em>Inverted Generational Distance</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isSpacing <em>Spacing</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isAdditiveEpsilonIndicator <em>Additive Epsilon Indicator</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isContribution <em>Contribution</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isR1 <em>R1</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isR2 <em>R2</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isR3 <em>R3</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.IndicatorArrayImpl#isMaximumParetoFrontError <em>Maximum Pareto Front Error</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isHypervolume <em>Hypervolume</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isGenerationalDistance <em>Generational Distance</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isInvertedGenerationalDistance <em>Inverted Generational Distance</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isSpacing <em>Spacing</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isAdditiveEpsilonIndicator <em>Additive Epsilon Indicator</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isContribution <em>Contribution</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isR1 <em>R1</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isR2 <em>R2</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isR3 <em>R3</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.IndicatorArrayImpl#isMaximumParetoFrontError <em>Maximum Pareto Front Error</em>}</li>
  * </ul>
  *
  * @generated
@@ -254,7 +254,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.INDICATOR_ARRAY;
+    return MomotPackage.Literals.INDICATOR_ARRAY;
   }
 
   /**
@@ -277,7 +277,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldHypervolume = hypervolume;
     hypervolume = newHypervolume;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__HYPERVOLUME, oldHypervolume, hypervolume));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__HYPERVOLUME, oldHypervolume, hypervolume));
   }
 
   /**
@@ -300,7 +300,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldGenerationalDistance = generationalDistance;
     generationalDistance = newGenerationalDistance;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE, oldGenerationalDistance, generationalDistance));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE, oldGenerationalDistance, generationalDistance));
   }
 
   /**
@@ -323,7 +323,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldInvertedGenerationalDistance = invertedGenerationalDistance;
     invertedGenerationalDistance = newInvertedGenerationalDistance;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE, oldInvertedGenerationalDistance, invertedGenerationalDistance));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE, oldInvertedGenerationalDistance, invertedGenerationalDistance));
   }
 
   /**
@@ -346,7 +346,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldSpacing = spacing;
     spacing = newSpacing;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__SPACING, oldSpacing, spacing));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__SPACING, oldSpacing, spacing));
   }
 
   /**
@@ -369,7 +369,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldAdditiveEpsilonIndicator = additiveEpsilonIndicator;
     additiveEpsilonIndicator = newAdditiveEpsilonIndicator;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR, oldAdditiveEpsilonIndicator, additiveEpsilonIndicator));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR, oldAdditiveEpsilonIndicator, additiveEpsilonIndicator));
   }
 
   /**
@@ -392,7 +392,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldContribution = contribution;
     contribution = newContribution;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__CONTRIBUTION, oldContribution, contribution));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__CONTRIBUTION, oldContribution, contribution));
   }
 
   /**
@@ -415,7 +415,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldR1 = r1;
     r1 = newR1;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__R1, oldR1, r1));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__R1, oldR1, r1));
   }
 
   /**
@@ -438,7 +438,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldR2 = r2;
     r2 = newR2;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__R2, oldR2, r2));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__R2, oldR2, r2));
   }
 
   /**
@@ -461,7 +461,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldR3 = r3;
     r3 = newR3;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__R3, oldR3, r3));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__R3, oldR3, r3));
   }
 
   /**
@@ -484,7 +484,7 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldMaximumParetoFrontError = maximumParetoFrontError;
     maximumParetoFrontError = newMaximumParetoFrontError;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR, oldMaximumParetoFrontError, maximumParetoFrontError));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR, oldMaximumParetoFrontError, maximumParetoFrontError));
   }
 
   /**
@@ -497,25 +497,25 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.INDICATOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.INDICATOR_ARRAY__HYPERVOLUME:
         return isHypervolume();
-      case MOMoTPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
         return isGenerationalDistance();
-      case MOMoTPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         return isInvertedGenerationalDistance();
-      case MOMoTPackage.INDICATOR_ARRAY__SPACING:
+      case MomotPackage.INDICATOR_ARRAY__SPACING:
         return isSpacing();
-      case MOMoTPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         return isAdditiveEpsilonIndicator();
-      case MOMoTPackage.INDICATOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.INDICATOR_ARRAY__CONTRIBUTION:
         return isContribution();
-      case MOMoTPackage.INDICATOR_ARRAY__R1:
+      case MomotPackage.INDICATOR_ARRAY__R1:
         return isR1();
-      case MOMoTPackage.INDICATOR_ARRAY__R2:
+      case MomotPackage.INDICATOR_ARRAY__R2:
         return isR2();
-      case MOMoTPackage.INDICATOR_ARRAY__R3:
+      case MomotPackage.INDICATOR_ARRAY__R3:
         return isR3();
-      case MOMoTPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
+      case MomotPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
         return isMaximumParetoFrontError();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -531,34 +531,34 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.INDICATOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.INDICATOR_ARRAY__HYPERVOLUME:
         setHypervolume((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
         setGenerationalDistance((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         setInvertedGenerationalDistance((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__SPACING:
+      case MomotPackage.INDICATOR_ARRAY__SPACING:
         setSpacing((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         setAdditiveEpsilonIndicator((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.INDICATOR_ARRAY__CONTRIBUTION:
         setContribution((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__R1:
+      case MomotPackage.INDICATOR_ARRAY__R1:
         setR1((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__R2:
+      case MomotPackage.INDICATOR_ARRAY__R2:
         setR2((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__R3:
+      case MomotPackage.INDICATOR_ARRAY__R3:
         setR3((Boolean)newValue);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
+      case MomotPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
         setMaximumParetoFrontError((Boolean)newValue);
         return;
     }
@@ -575,34 +575,34 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.INDICATOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.INDICATOR_ARRAY__HYPERVOLUME:
         setHypervolume(HYPERVOLUME_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
         setGenerationalDistance(GENERATIONAL_DISTANCE_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         setInvertedGenerationalDistance(INVERTED_GENERATIONAL_DISTANCE_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__SPACING:
+      case MomotPackage.INDICATOR_ARRAY__SPACING:
         setSpacing(SPACING_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         setAdditiveEpsilonIndicator(ADDITIVE_EPSILON_INDICATOR_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.INDICATOR_ARRAY__CONTRIBUTION:
         setContribution(CONTRIBUTION_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__R1:
+      case MomotPackage.INDICATOR_ARRAY__R1:
         setR1(R1_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__R2:
+      case MomotPackage.INDICATOR_ARRAY__R2:
         setR2(R2_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__R3:
+      case MomotPackage.INDICATOR_ARRAY__R3:
         setR3(R3_EDEFAULT);
         return;
-      case MOMoTPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
+      case MomotPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
         setMaximumParetoFrontError(MAXIMUM_PARETO_FRONT_ERROR_EDEFAULT);
         return;
     }
@@ -619,25 +619,25 @@ public class IndicatorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.INDICATOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.INDICATOR_ARRAY__HYPERVOLUME:
         return hypervolume != HYPERVOLUME_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__GENERATIONAL_DISTANCE:
         return generationalDistance != GENERATIONAL_DISTANCE_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.INDICATOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         return invertedGenerationalDistance != INVERTED_GENERATIONAL_DISTANCE_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__SPACING:
+      case MomotPackage.INDICATOR_ARRAY__SPACING:
         return spacing != SPACING_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.INDICATOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         return additiveEpsilonIndicator != ADDITIVE_EPSILON_INDICATOR_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.INDICATOR_ARRAY__CONTRIBUTION:
         return contribution != CONTRIBUTION_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__R1:
+      case MomotPackage.INDICATOR_ARRAY__R1:
         return r1 != R1_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__R2:
+      case MomotPackage.INDICATOR_ARRAY__R2:
         return r2 != R2_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__R3:
+      case MomotPackage.INDICATOR_ARRAY__R3:
         return r3 != R3_EDEFAULT;
-      case MOMoTPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
+      case MomotPackage.INDICATOR_ARRAY__MAXIMUM_PARETO_FRONT_ERROR:
         return maximumParetoFrontError != MAXIMUM_PARETO_FRONT_ERROR_EDEFAULT;
     }
     return super.eIsSet(featureID);

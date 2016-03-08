@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionType;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionSpecification;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionType;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessDimensionSpecificationImpl#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessDimensionSpecificationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessDimensionSpecificationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessDimensionSpecificationImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,7 +87,7 @@ public class FitnessDimensionSpecificationImpl extends MinimalEObjectImpl.Contai
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION;
+    return MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION;
   }
 
   /**
@@ -110,7 +110,7 @@ public class FitnessDimensionSpecificationImpl extends MinimalEObjectImpl.Contai
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_SPECIFICATION__NAME, oldName, name));
   }
 
   /**
@@ -133,7 +133,7 @@ public class FitnessDimensionSpecificationImpl extends MinimalEObjectImpl.Contai
     FitnessDimensionType oldType = type;
     type = newType == null ? TYPE_EDEFAULT : newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE, oldType, type));
   }
 
   /**
@@ -146,9 +146,9 @@ public class FitnessDimensionSpecificationImpl extends MinimalEObjectImpl.Contai
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
         return getName();
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
         return getType();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -164,10 +164,10 @@ public class FitnessDimensionSpecificationImpl extends MinimalEObjectImpl.Contai
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
         setName((String)newValue);
         return;
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
         setType((FitnessDimensionType)newValue);
         return;
     }
@@ -184,10 +184,10 @@ public class FitnessDimensionSpecificationImpl extends MinimalEObjectImpl.Contai
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
         setType(TYPE_EDEFAULT);
         return;
     }
@@ -204,9 +204,9 @@ public class FitnessDimensionSpecificationImpl extends MinimalEObjectImpl.Contai
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION__TYPE:
         return type != TYPE_EDEFAULT;
     }
     return super.eIsSet(featureID);

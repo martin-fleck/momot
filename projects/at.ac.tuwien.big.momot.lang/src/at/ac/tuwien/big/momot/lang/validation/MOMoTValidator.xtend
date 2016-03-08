@@ -4,18 +4,22 @@
 package at.ac.tuwien.big.momot.lang.validation
 
 import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm
+import at.ac.tuwien.big.moea.util.CastUtil
 import at.ac.tuwien.big.momot.ModuleManager
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmList
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmReferences
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification
-import at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveObjectivesCommand
-import at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration
-import at.ac.tuwien.big.momot.lang.mOMoT.TransformationOrchestration
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmList
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmReferences
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification
+import at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL
+import at.ac.tuwien.big.momot.lang.momot.MOMoTSearch
+import at.ac.tuwien.big.momot.lang.momot.ModuleOrchestration
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage
+import at.ac.tuwien.big.momot.lang.momot.ObjectivesCommand
+import at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand
+import at.ac.tuwien.big.momot.lang.momot.SearchOrchestration
+import at.ac.tuwien.big.momot.lang.momot.SolutionsCommand
+import at.ac.tuwien.big.momot.problem.solution.variable.UnitApplicationVariable
+import at.ac.tuwien.big.momot.search.engine.MomotEngine
 import com.google.inject.Inject
 import java.util.ArrayList
 import java.util.HashSet
@@ -24,7 +28,9 @@ import java.util.Map
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.Path
+import org.eclipse.emf.common.util.WrappedException
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.xmi.PackageNotFoundException
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet
 import org.eclipse.ocl.ParserException
 import org.eclipse.ocl.ecore.OCL
@@ -34,7 +40,6 @@ import org.eclipse.xtext.xbase.XbasePackage
 import org.eclipse.xtext.xbase.controlflow.EarlyExitInterpreter
 import org.eclipse.xtext.xtype.XImportDeclaration
 import org.moeaframework.algorithm.NSGAII
-import org.eclipse.emf.common.util.URI
 
 /**
  * This class contains custom validation rules. 
@@ -43,150 +48,308 @@ import org.eclipse.emf.common.util.URI
  */
 class MOMoTValidator extends AbstractMOMoTValidator {
 	
+	
+	static final val wsRoot = ResourcesPlugin.workspace.root
+	
 	@Inject EarlyExitInterpreter interpreter
 	
-	override protected addImportUnusedIssues(Map<String, List<XImportDeclaration>> imports) {
-		 super.addImportUnusedIssues(imports)
-	}
-	
-	def interpret(XExpression expression) {
-		try {
-			return interpreter.evaluate(expression)
-		} catch(Exception e) {
-			e.printStackTrace
-		}
-		return null
-	}
-	
-	val wsRoot = ResourcesPlugin.workspace.root
-	
-	def project(EObject it) {
+	var ModuleManager manager;
+	val engine = new MomotEngine
+		
+	static def project(EObject it) {
 		val path = new Path(eResource?.URI.toPlatformString(true))
 		wsRoot?.getFile(path)?.project
 	}
 	
-	def projectMember(EObject it, String relativePath) {
+	static def projectMember(EObject it, String relativePath) {
 		project?.findMember(relativePath)
 	}
 	
-	def projectFileExists(EObject it, String relativePath) {
-		val member = project?.findMember(relativePath)
+	static def projectFileExists(EObject it, String relativePath) {
+		val member = projectMember(relativePath)
 		if(member == null)
 			return false
 		return member instanceof IFile && member.exists
 	}
 	
+	override protected addImportUnusedIssues(Map<String, List<XImportDeclaration>> imports) {
+		 // super.addImportUnusedIssues(imports) // comment to ignore 'import not used'
+	}
+	
+	def <T> T interpret(XExpression expression, Class<T> clazz) {
+		CastUtil.asClass(interpret(expression), clazz)
+	}
+	
+	def interpret(XExpression expression) {
+		if(expression == null)
+			return null
+			
+		try {
+			interpreter.evaluate(expression)
+		} catch(Exception e) {
+			null // fail silently: e.printStackTrace
+		}
+	}
+	
+	def getInputGraph(MOMoTSearch it) {
+		if(searchOrchestration == null)
+			return null;
+		if(searchOrchestration.model != null) {
+			val path = searchOrchestration.model.path.interpret(typeof(String))
+			if(path != null) {
+				val member = searchOrchestration?.model.projectMember(path)
+				if(!(member instanceof IFile && member.exists))
+					error("Model file '" + path + "' does not exist.", 
+						it, 
+						MomotPackage.Literals.SEARCH_ORCHESTRATION__MODEL
+					)
+				else {
+					val manager = getManager
+					try {
+						return manager.loadGraph(member.fullPath.toString)
+					} catch(PackageNotFoundException e) {
+						return null
+					} catch(WrappedException ex) {
+						return null
+					}
+				}
+			}
+		}
+		return null
+	}
+	
+	def getManager(MOMoTSearch it) {
+		manager = new ModuleManager
+		val modules = searchOrchestration?.moduleOrchestration?.modules
+		if(modules == null)
+			return manager
+
+		for(module : modules.elements) {
+			val path = module.interpret(typeof(String))
+			if(path != null) {
+				val member = it.projectMember(path)
+				if(member instanceof IFile && member.exists)
+					manager.addModule(member.fullPath.toString)					
+			}
+		}
+		return manager
+	}
+	
+	/**
+	 * Search Checks
+	 ******************************************/
+	
 	@Check
-	def checkNrRuns(ExperimentOrchestration it) {
-		if(nrRuns == null)
-			return
-		val runs = nrRuns.interpret as Integer
+	def checkUnitApplicability(MOMoTSearch it) {
+		val manager = getManager
+		val graph = getInputGraph
+		if(manager == null || graph == null || searchOrchestration.model?.adaptation != null)
+			return;
+			
+		var executable = false
+		var error = false
+		for(unit : manager.units) {
+			val application = new UnitApplicationVariable(engine, graph, unit, null)
+			try {
+				executable = application.execute
+				if(executable)
+					return;
+			} catch(Exception e) {
+				error = true
+			}
+		}
+		if(!executable && !error)
+			error("None of the provided transformations can be applied.",
+				it.searchOrchestration,
+				MomotPackage.Literals.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION
+			)
+	}
+	
+	@Check
+	def checkUserParameters(MOMoTSearch it) {
+		// TODO: Implement
+	}
+	
+	@Check
+	def checkAlgorithmRuns(ExperimentOrchestration it) {
+		val runs = nrRuns.interpret(typeof(Integer))
 		if(runs == null)
 			return;
 			
 		if(runs < 30)
-			warning("Since we are using heuristics, at least 30 runs should be given to avoid bias.",
+			warning("Since we are using meta-heuristics, at least 30 runs should be given to draw statistically valid conclusions.",
 				it,
-				MOMoTPackage.Literals.EXPERIMENT_ORCHESTRATION__NR_RUNS
+				MomotPackage.Literals.EXPERIMENT_ORCHESTRATION__NR_RUNS
 			)
 	}
 	
 	@Check
-	def checkNrIterations(ExperimentOrchestration it) {
-		if(maxEvaluations == null || populationSize == null)
-			return
-		val eval = maxEvaluations.interpret as Integer
-		val population = populationSize.interpret as Integer
-		if(eval == null || population == null)
+	def checkNumberOfIterations(ExperimentOrchestration it) {
+		val maxEval = maxEvaluations.interpret(typeof(Integer))
+		val population = populationSize.interpret(typeof(Integer))
+		if(maxEval == null || population == null)
 			return;
 		
-		val iterations = eval / population
+		val iterations = maxEval / population
 		if(iterations < 10)
 			warning("Running only " + iterations + " iterations (maxEvaluations / populationSize) may not be sufficient to " +
 				"converge to a good search area, try at least 10 iterations, i.e., " + 10 * population + " maxEvaluations.",
 				it,
-				MOMoTPackage.Literals.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS
+				MomotPackage.Literals.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS
+			)
+	}
+	
+	def getAlgorithmType(AlgorithmSpecification it) {
+		var type = call.actualType
+		if(type.isAssignableFrom(IRegisteredAlgorithm))
+			type = type.typeArguments.get(0)
+		return type	
+	}
+
+	def isNSGAII(AlgorithmSpecification it) {
+		algorithmType.isSubtypeOf(typeof(NSGAII))
+	}
+	
+	@Check
+	def checkManyObjective(SearchOrchestration it) {		
+		val nrObjectives = fitnessFunction.objectives.size
+		if(nrObjectives > 3) {
+			for(algorithm : algorithms.specifications) {
+				if(!algorithm.NSGAII)
+					warning("Algorithm may not produce good results with more than 3 objectives.", 
+						algorithm, 
+						MomotPackage.Literals.ALGORITHM_SPECIFICATION__CALL
+					)
+			}
+		}
+	}
+	
+	@Check
+	def checkObjectIdentity(MOMoTSearch it) {
+		if(searchOrchestration.equalityHelper != null)
+			return;
+
+		val manager = getManager
+		if(manager == null)
+			return;
+		for(parameter : manager.solutionParameters) {
+			val type = parameter.type.instanceClass
+			if(type.interface)
+				return; // TODO: Implement to check for implementation of interfaces 
+			if(parameter instanceof EObject) {
+				try {
+					val method = type.getMethod("equals", typeof(Object))
+					if(method.declaringClass == typeof(Object))
+						warning("No equals method for '" + type.simpleName + "' found. Please provide one or implement an equality helper. Type: " + method.declaringClass,
+							it.searchOrchestration.moduleOrchestration,
+							MomotPackage.Literals.MODULE_ORCHESTRATION__PARAMETER_VALUES
+						)
+				} catch(Exception e) {
+					if(type == typeof(Object))
+						warning("No equals method for '" + type.simpleName + "' found. Please provide one or implement an equality helper. Exception: " + e.message,
+							it.searchOrchestration.moduleOrchestration,
+							MomotPackage.Literals.MODULE_ORCHESTRATION__PARAMETER_VALUES
+						)
+				}
+			}
+		}
+	}
+	
+	@Check
+	def checkPopulationSize(ExperimentOrchestration it) {
+		val population = populationSize.interpret(typeof(Integer))
+		if(population == null)
+			return;
+		if(population <= 10) 
+			warning("Specified Population Size is very small, please consider using a higher value.",
+				it,
+				MomotPackage.Literals.EXPERIMENT_ORCHESTRATION__POPULATION_SIZE
 			)
 	}
 	
 	@Check
-	def checkHenshinRules(TransformationOrchestration it) {
-		if(it != null && modules != null) {
-			val manager = new ModuleManager
-			for(module : modules.elements) {
-				val path = module.interpret as String
-				if(path != null) {
-					val fullPath = it.projectMember(path).fullPath.toString
-					manager.addModule(fullPath)
-				}
-			}
-			
-			if(unitsToRemove != null) {
-				var index = 0
-				for(unit : unitsToRemove.elements) {
-					val name = unit.interpret as String
-					if(manager.getUnit(name) == null)
-						error("Unit '" + name + "' does not exist in the specified modules.", unitsToRemove, XbasePackage.Literals.XCOLLECTION_LITERAL__ELEMENTS, index)
-					index++
-				}
-			}
-			
-			if(parameterValues != null) {
-				var index = 0
-				for(p : parameterValues) {
-					val name = p.name.interpret as String
-					if(manager.getParameter(name) == null)
-						error("Parameter '" + name + "' does not exist in the specified modules.", it, MOMoTPackage.Literals.TRANSFORMATION_ORCHESTRATION__PARAMETER_VALUES, index)
-					index++
-				}
-			}
-			
-			if(nonSolutionParameters != null) {
-				var index = 0;
-				for(p : nonSolutionParameters.elements) {
-					val name = p.interpret as String
-					if(manager.getParameter(name) == null)
-						error("Parameter '" + name + "' does not exist in the specified modules.", nonSolutionParameters, XbasePackage.Literals.XCOLLECTION_LITERAL__ELEMENTS, index)
-					index++
-				}
-			}
+	def checkSingleObjective(SearchOrchestration it) {
+		val nrObjectives = fitnessFunction.objectives.size
+		if(nrObjectives == 1) {
+			info("For single objective search, please consider using local search algorithms, such as HillClimbing or RandomDescent.",
+				it,
+				MomotPackage.Literals.SEARCH_ORCHESTRATION__ALGORITHMS
+			)
 		}
+	}
+	
+	/**
+	 * Consistency Checks
+	 ******************************************/
+	
+	@Check
+	def checkModules(ModuleOrchestration it) {
+		var index = 0
+		for(module : modules.elements) {
+			val path = module.interpret(typeof(String))
+			if(path != null && !projectFileExists(path))
+				error("Module file '" + path + "' does not exist.", 
+					modules, 
+					XbasePackage.Literals.XCOLLECTION_LITERAL__ELEMENTS, 
+					index
+				)
+			index++		
+		}		
 	}
 	
 	@Check
-	def checkReferenceSet(ExperimentOrchestration it) {
-		if(referenceSet != null) {
-			val path = referenceSet.interpret as String
+	def checkAlgorithmName(AlgorithmList it) {
+		val names = new HashSet
+		val duplicates = new ArrayList
+		for(spec : specifications) {
+			if(names.contains(spec.name))
+				duplicates.add(spec)
+			names.add(spec.name)
+		}
+		
+		for(spec : duplicates)
+			error("Algorithm with duplicate name '" + spec.name + "'.", 
+				spec, 
+				MomotPackage.Literals.ALGORITHM_SPECIFICATION__NAME
+			)
+	}
+	
+	@Check
+	def checkAlgorithmReferences(AlgorithmReferences it) {
+		val names = new HashSet
+		val duplicates = new ArrayList
+		for(spec : elements) {
+			if(names.contains(spec.name))
+				duplicates.add(spec)
+			names.add(spec.name)
+		}
+		
+		for(spec : duplicates)
+			error("Algorithm with name '" + spec.name + "' specified multiple times.", 
+				it, 
+				MomotPackage.Literals.ALGORITHM_REFERENCES__ELEMENTS
+			)
+	}
+	
+	@Check
+	def checkModel(SearchOrchestration it) {
+		if(model != null) {
+			val path = model.path.interpret(typeof(String))
 			if(path != null) {
-				if(!it.projectFileExists(path))
-					error("ReferenceSet file '" + path + "' does not exist.", it, MOMoTPackage.Literals.EXPERIMENT_ORCHESTRATION__REFERENCE_SET)
+				if(!model.projectFileExists(path))
+					error("Model file '" + path + "' does not exist.", 
+						it, 
+						MomotPackage.Literals.SEARCH_ORCHESTRATION__MODEL
+					)
 			}
 		}
 	}
-	
-	@Check 
-	def checkOverride(SaveAnalysisCommand it) {
-		if(it != null && file != null) {
-			val path = file.interpret as String
-			if(path != null) {
-				if(it.projectFileExists(path))
-					info("Analysis file '" + path + "' will be overridden.", it, MOMoTPackage.Literals.SAVE_ANALYSIS_COMMAND__FILE)
-			}
-		}
-	}
-	
-	@Check 
-	def checkOverride(SaveObjectivesCommand it) {
-		if(it != null && file != null) {
-			if(it.projectFileExists(file))
-				info("Objective file '" + file + "' will be overridden.", it, MOMoTPackage.Literals.SAVE_OBJECTIVES_COMMAND__FILE)
-		}
-	}
-	
-	@Check(EXPENSIVE)
+
+//	@Check(EXPENSIVE)
+	@Check
 	def checkOCL(SearchOrchestration it) {
 		if(it != null && model != null && fitnessFunction != null) {
-			val path = model.interpret as String
+			val path = model.path.interpret(typeof(String))
 			if(path != null) {
 				val member = project?.findMember(path)
 				if(!member.exists)
@@ -211,92 +374,30 @@ class MOMoTValidator extends AbstractMOMoTValidator {
 									index++
 								}
 							} catch(ParserException e) {
-								error("OCL: " + e.localizedMessage, oclObjective, MOMoTPackage.Literals.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS, index)
+								error("OCL: " + e.localizedMessage, oclObjective, MomotPackage.Literals.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS, index)
 							}
 							
 							try {
-								val query = oclObjective.query.interpret as String
+								val query = oclObjective.query.interpret(typeof(String))
 								helper.createQuery(query)
 							} catch(ParserException e) {
-								error("OCL: " + e.localizedMessage, oclObjective, MOMoTPackage.Literals.FITNESS_DIMENSION_OCL__QUERY)	
+								error("OCL: " + e.localizedMessage, oclObjective, MomotPackage.Literals.FITNESS_DIMENSION_OCL__QUERY)	
 							}
 						}
 					}
 				} catch(Exception e) {
-					error("Error: " + e.localizedMessage, it, MOMoTPackage.Literals.SEARCH_ORCHESTRATION__MODEL)	
+					error("Error: " + e.localizedMessage, it, MomotPackage.Literals.SEARCH_ORCHESTRATION__MODEL)	
 				}
 			}
 		}	
 	}
 	
 	@Check
-	def checkModules(TransformationOrchestration it) {
-		var index = 0
-		for(module : modules.elements) {
-			val path = module.interpret as String
-			if(path != null) {
-				if(!it.projectFileExists(path))
-					error("Module file '" + path + "' does not exist.", modules, XbasePackage.Literals.XCOLLECTION_LITERAL__ELEMENTS, index)
-			}
-			index++
-		}
-	}
-	
-	@Check
-	def checkModel(SearchOrchestration it) {
-		if(model != null) {
-			val path = model.interpret as String
-			if(path != null) {
-				if(!model.projectFileExists(path))
-					error("Model file '" + path + "' does not exist.", it, MOMoTPackage.Literals.SEARCH_ORCHESTRATION__MODEL)
-			}
-		}
-	}
-
-	@Check
-	def checkDuplicateAlgorithms(AlgorithmList it) {
-		val names = new HashSet
-		val duplicates = new ArrayList
-		for(spec : specifications) {
-			if(names.contains(spec.name))
-				duplicates.add(spec)
-			names.add(spec.name)
-		}
-		
-		for(spec : duplicates)
-			error("Algorithm with duplicate name '" + spec.name + "'.", spec, MOMoTPackage.Literals.ALGORITHM_SPECIFICATION__NAME)
-	}
-	
-	@Check
-	def checkSaveAnalysis(MOMoTSearch it) {
-		if(resultManagement != null && 
-			resultManagement.saveAnalysis != null &&
-			analysisOrchestration == null)
-			error("Need to specify analysis to save it.", resultManagement, 
-				MOMoTPackage.Literals.RESULT_MANAGEMENT__SAVE_ANALYSIS
-			)
-	}
-	
-	@Check
-	def checkDuplicateAlgorithmReferences(AlgorithmReferences it) {
-		val names = new HashSet
-		val duplicates = new ArrayList
-		for(spec : elements) {
-			if(names.contains(spec.name))
-				duplicates.add(spec)
-			names.add(spec.name)
-		}
-		
-		for(spec : duplicates)
-			error("Algorithm with name '" + spec.name + "' specified multiple times.", it, MOMoTPackage.Literals.ALGORITHM_REFERENCES__ELEMENTS)
-	}
-	
-	@Check
-	def checkDuplicateParameterKeys(TransformationOrchestration it) {
+	def checkDuplicateParameterKeys(ModuleOrchestration it) {
 		val names = new HashSet
 		val duplicates = new ArrayList
 		for(spec : parameterValues) {
-			val name = spec.name.interpret as String
+			val name = spec.name.interpret(typeof(String))
 			if(name != null) {
 				if(names.contains(name))
 					duplicates.add(spec)
@@ -305,31 +406,123 @@ class MOMoTValidator extends AbstractMOMoTValidator {
 		}
 		
 		for(spec : duplicates)
-			error("Set value for parameter '" + interpreter.evaluate(spec.name) as String + "' multiple times.", spec, MOMoTPackage.Literals.PARMETER_VALUE_SPECIFICATION__NAME)
-	}
-
-	def getActualType(AlgorithmSpecification it) {
-		var type = call.actualType
-		if(type.isAssignableFrom(IRegisteredAlgorithm))
-			type = type.typeArguments.get(0)
-		return type	
-	}
-
-	def isNSGAII(AlgorithmSpecification it) {
-		actualType.isSubtypeOf(typeof(NSGAII))
+			error("Set value for parameter '" + interpreter.evaluate(spec.name) as String + "' multiple times.", spec, MomotPackage.Literals.PARMETER_VALUE_SPECIFICATION__NAME)
 	}
 	
 	@Check
-	def checkObjectives(SearchOrchestration search) {		
-		val nrObjectives = search.fitnessFunction.objectives.size
-		if(nrObjectives > 3) {
-			for(algorithm : search.algorithms.specifications) {
-				if(!algorithm.NSGAII)
-					warning("Consider using NSGA-III for more than 3 objectives.", 
-						algorithm, 
-						MOMoTPackage.Literals.ALGORITHM_SPECIFICATION__CALL
+	def checkTransformationOrchestration(MOMoTSearch it) {
+		if(it != null && searchOrchestration != null && searchOrchestration.moduleOrchestration != null) {
+			val transOrchestration = searchOrchestration.moduleOrchestration
+			val manager = getManager(it)
+			
+			if(transOrchestration.unitsToRemove != null) {
+				var index = 0
+				for(unit : transOrchestration.unitsToRemove.elements) {
+					val name = unit.interpret(typeof(String))
+					if(manager.getUnit(name) == null)
+						error(
+							"Unit '" + name + "' does not exist in the specified modules.", 
+							transOrchestration.unitsToRemove, 
+							XbasePackage.Literals.XCOLLECTION_LITERAL__ELEMENTS, 
+							index
+						)
+					index++
+				}
+			}
+			
+			if(transOrchestration.parameterValues != null) {
+				var index = 0
+				val names = new HashSet
+				val duplicates = new ArrayList
+				for(spec : transOrchestration.parameterValues) {
+					val name = spec.name.interpret(typeof(String))
+					if(name != null) {
+						if(names.contains(name))
+							duplicates.add(spec)
+						names.add(name)
+						
+						if(manager.getParameter(name) == null)
+							error(
+								"Parameter '" + name + "' does not exist in the specified modules.", 
+								transOrchestration, 
+								MomotPackage.Literals.MODULE_ORCHESTRATION__PARAMETER_VALUES, 
+								index)
+					}
+					index++
+				}
+				
+				for(spec : duplicates)
+					error("Set value for parameter '" + interpreter.evaluate(spec.name) as String + "' multiple times.", 
+						spec, 
+						MomotPackage.Literals.PARMETER_VALUE_SPECIFICATION__NAME
+					)
+			}
+			
+			if(transOrchestration.nonSolutionParameters != null) {
+				var index = 0;
+				for(p : transOrchestration.nonSolutionParameters.elements) {
+					val name = p.interpret(typeof(String))
+					if(manager.getParameter(name) == null)
+						error(
+						"Parameter '" + name + "' does not exist in the specified modules.", 
+							transOrchestration.nonSolutionParameters, 
+							XbasePackage.Literals.XCOLLECTION_LITERAL__ELEMENTS, 
+							index
+						)
+					index++
+				}
+			}
+		}
+	}
+	
+	@Check
+	def checkReferenceSet(ExperimentOrchestration it) {
+		if(referenceSet != null) {
+			val path = referenceSet.interpret(typeof(String))
+			if(path != null) {
+				if(!it.projectFileExists(path))
+					error("ReferenceSet file '" + path + "' does not exist.", 
+						it, 
+						MomotPackage.Literals.EXPERIMENT_ORCHESTRATION__REFERENCE_SET
 					)
 			}
 		}
 	}
+	
+	@Check 
+	def checkResultAnalysis(SaveAnalysisCommand it) {
+		if(it != null && file != null) {
+			val path = file.interpret(typeof(String))
+			if(path != null) {
+				if(it.projectFileExists(path))
+					info("Analysis file '" + path + "' will be overridden.", 
+						it, 
+						MomotPackage.Literals.SAVE_ANALYSIS_COMMAND__FILE
+					)
+			}
+		}
+	}
+	
+	@Check 
+	def checkResultObjectives(ObjectivesCommand it) {
+		if(it != null && file != null) {
+			if(it.projectFileExists(file))
+				info("Objective file '" + file + "' will be overridden.", 
+					it, 
+					MomotPackage.Literals.OBJECTIVES_COMMAND__FILE
+				)
+		}
+	}
+	
+	@Check 
+	def checkKneePointObjectives(SolutionsCommand it) {
+		if(it != null && file != null) {
+			if(it.projectFileExists(file))
+				info("Objective file '" + file + "' will be overridden.", 
+					it, 
+					MomotPackage.Literals.SOLUTIONS_COMMAND__FILE
+				)
+		}
+	}
+	
 }

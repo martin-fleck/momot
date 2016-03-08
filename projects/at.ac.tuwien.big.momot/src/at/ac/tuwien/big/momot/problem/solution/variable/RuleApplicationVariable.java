@@ -154,4 +154,9 @@ public class RuleApplicationVariable extends RuleApplicationImpl implements IRul
 	public String toString() {
 		return getAssignment().toString();
 	}
+
+	@Override
+	public void randomize() {
+		throw new IllegalAccessError("Should not be called. Is taken care of by an IPopulationGenerator.");
+	}
 }

@@ -28,7 +28,7 @@ public class SearchCollectorHelper {
 		this.results = results;
 	}
 	
-	public SearchCollectorHelper(SearchExperiment experiment) {
+	public SearchCollectorHelper(SearchExperiment<?> experiment) {
 		this.results = experiment.hasResults() ? experiment.getResults() : experiment.run();
 	}
 	

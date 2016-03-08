@@ -30,8 +30,8 @@ public class MOMoTStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http://www.ac.at/tuwien/big/momot/lang/MOMoT")) {
-		EPackage.Registry.INSTANCE.put("http://www.ac.at/tuwien/big/momot/lang/MOMoT", at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage.eINSTANCE);
+	if (!EPackage.Registry.INSTANCE.containsKey("http://www.big.tuwien.ac.at/momot/lang/MOMoT")) {
+		EPackage.Registry.INSTANCE.put("http://www.big.tuwien.ac.at/momot/lang/MOMoT", at.ac.tuwien.big.momot.lang.momot.MomotPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

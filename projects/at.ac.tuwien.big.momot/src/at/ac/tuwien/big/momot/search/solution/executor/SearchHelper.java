@@ -33,6 +33,7 @@ import at.ac.tuwien.big.momot.TransformationSearchOrchestration;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.ITransformationVariable;
 import at.ac.tuwien.big.momot.problem.solution.variable.RuleApplicationVariable;
+import at.ac.tuwien.big.momot.problem.solution.variable.TransformationPlaceholderVariable;
 import at.ac.tuwien.big.momot.problem.solution.variable.UnitApplicationVariable;
 import at.ac.tuwien.big.momot.util.MomotUtil;
 
@@ -253,6 +254,8 @@ public class SearchHelper {
 	public TransformationSolution createEmptyTransformationSolution(int solutionLength, int nrObjectives, int nrConstraints) {
 		TransformationSolution solution = new TransformationSolution(getSearchOrchestration().getProblemGraph(),
 				solutionLength, nrObjectives, nrConstraints);
+		for(int i = 0; i < solutionLength; i++)
+			solution.setVariable(i, new TransformationPlaceholderVariable());
 		solution.setEqualityHelper(getSearchOrchestration().getEqualityHelper());
 		return solution;
 	}

@@ -3,34 +3,36 @@
  */
 package at.ac.tuwien.big.momot.lang.serializer;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmList;
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmReferences;
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupList;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.CollectorArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.DefExpression;
-import at.ac.tuwien.big.momot.lang.mOMoT.EqualityHelper;
-import at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionConstructor;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionXBase;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessFunctionSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.IndicatorArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch;
-import at.ac.tuwien.big.momot.lang.mOMoT.ParmeterValueSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.PrintObjectivesCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.PrintSolutionsCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.ResultManagement;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveObjectivesCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveSolutionsCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.ShowArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.TransformationOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmList;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmReferences;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisGroupList;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.BoxplotCommand;
+import at.ac.tuwien.big.momot.lang.momot.CollectorArray;
+import at.ac.tuwien.big.momot.lang.momot.DefExpression;
+import at.ac.tuwien.big.momot.lang.momot.EqualityHelper;
+import at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionConstructor;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionXBase;
+import at.ac.tuwien.big.momot.lang.momot.FitnessFunctionSpecification;
+import at.ac.tuwien.big.momot.lang.momot.IndicatorArray;
+import at.ac.tuwien.big.momot.lang.momot.InputModel;
+import at.ac.tuwien.big.momot.lang.momot.MOMoTSearch;
+import at.ac.tuwien.big.momot.lang.momot.ModelsCommand;
+import at.ac.tuwien.big.momot.lang.momot.ModuleOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
+import at.ac.tuwien.big.momot.lang.momot.ObjectivesCommand;
+import at.ac.tuwien.big.momot.lang.momot.ParmeterValueSpecification;
+import at.ac.tuwien.big.momot.lang.momot.PrintAnalysisCommand;
+import at.ac.tuwien.big.momot.lang.momot.ResultManagement;
+import at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand;
+import at.ac.tuwien.big.momot.lang.momot.SearchOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.ShowArray;
+import at.ac.tuwien.big.momot.lang.momot.SolutionsCommand;
+import at.ac.tuwien.big.momot.lang.momot.VariableDeclaration;
 import at.ac.tuwien.big.momot.lang.services.MOMoTGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -99,86 +101,92 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == MOMoTPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case MOMoTPackage.ALGORITHM_LIST:
+		if(semanticObject.eClass().getEPackage() == MomotPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case MomotPackage.ALGORITHM_LIST:
 				sequence_AlgorithmList(context, (AlgorithmList) semanticObject); 
 				return; 
-			case MOMoTPackage.ALGORITHM_REFERENCES:
+			case MomotPackage.ALGORITHM_REFERENCES:
 				sequence_AlgorithmReferences(context, (AlgorithmReferences) semanticObject); 
 				return; 
-			case MOMoTPackage.ALGORITHM_SPECIFICATION:
+			case MomotPackage.ALGORITHM_SPECIFICATION:
 				sequence_AlgorithmSpecification(context, (AlgorithmSpecification) semanticObject); 
 				return; 
-			case MOMoTPackage.ANALYSIS_GROUP_LIST:
+			case MomotPackage.ANALYSIS_GROUP_LIST:
 				sequence_AnalysisGroupList(context, (AnalysisGroupList) semanticObject); 
 				return; 
-			case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION:
+			case MomotPackage.ANALYSIS_GROUP_SPECIFICATION:
 				sequence_AnalysisGroupSpecification(context, (AnalysisGroupSpecification) semanticObject); 
 				return; 
-			case MOMoTPackage.ANALYSIS_ORCHESTRATION:
+			case MomotPackage.ANALYSIS_ORCHESTRATION:
 				sequence_AnalysisOrchestration(context, (AnalysisOrchestration) semanticObject); 
 				return; 
-			case MOMoTPackage.COLLECTOR_ARRAY:
+			case MomotPackage.BOXPLOT_COMMAND:
+				sequence_BoxplotCommand(context, (BoxplotCommand) semanticObject); 
+				return; 
+			case MomotPackage.COLLECTOR_ARRAY:
 				sequence_CollectorArray(context, (CollectorArray) semanticObject); 
 				return; 
-			case MOMoTPackage.DEF_EXPRESSION:
+			case MomotPackage.DEF_EXPRESSION:
 				sequence_DefExpression(context, (DefExpression) semanticObject); 
 				return; 
-			case MOMoTPackage.EQUALITY_HELPER:
+			case MomotPackage.EQUALITY_HELPER:
 				sequence_EqualityHelper(context, (EqualityHelper) semanticObject); 
 				return; 
-			case MOMoTPackage.EXPERIMENT_ORCHESTRATION:
+			case MomotPackage.EXPERIMENT_ORCHESTRATION:
 				sequence_ExperimentOrchestration(context, (ExperimentOrchestration) semanticObject); 
 				return; 
-			case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR:
+			case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR:
 				sequence_FitnessDimensionConstructor(context, (FitnessDimensionConstructor) semanticObject); 
 				return; 
-			case MOMoTPackage.FITNESS_DIMENSION_OCL:
+			case MomotPackage.FITNESS_DIMENSION_OCL:
 				sequence_FitnessDimensionOCL(context, (FitnessDimensionOCL) semanticObject); 
 				return; 
-			case MOMoTPackage.FITNESS_DIMENSION_XBASE:
+			case MomotPackage.FITNESS_DIMENSION_XBASE:
 				sequence_FitnessDimensionXBase(context, (FitnessDimensionXBase) semanticObject); 
 				return; 
-			case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION:
+			case MomotPackage.FITNESS_FUNCTION_SPECIFICATION:
 				sequence_FitnessFunctionSpecification(context, (FitnessFunctionSpecification) semanticObject); 
 				return; 
-			case MOMoTPackage.INDICATOR_ARRAY:
+			case MomotPackage.INDICATOR_ARRAY:
 				sequence_IndicatorArray(context, (IndicatorArray) semanticObject); 
 				return; 
-			case MOMoTPackage.MO_MO_TSEARCH:
+			case MomotPackage.INPUT_MODEL:
+				sequence_InputModel(context, (InputModel) semanticObject); 
+				return; 
+			case MomotPackage.MO_MO_TSEARCH:
 				sequence_MOMoTSearch(context, (MOMoTSearch) semanticObject); 
 				return; 
-			case MOMoTPackage.PARMETER_VALUE_SPECIFICATION:
+			case MomotPackage.MODELS_COMMAND:
+				sequence_ModelsCommand(context, (ModelsCommand) semanticObject); 
+				return; 
+			case MomotPackage.MODULE_ORCHESTRATION:
+				sequence_ModuleOrchestration(context, (ModuleOrchestration) semanticObject); 
+				return; 
+			case MomotPackage.OBJECTIVES_COMMAND:
+				sequence_ObjectivesCommand(context, (ObjectivesCommand) semanticObject); 
+				return; 
+			case MomotPackage.PARMETER_VALUE_SPECIFICATION:
 				sequence_ParmeterValueSpecification(context, (ParmeterValueSpecification) semanticObject); 
 				return; 
-			case MOMoTPackage.PRINT_OBJECTIVES_COMMAND:
-				sequence_PrintObjectivesCommand(context, (PrintObjectivesCommand) semanticObject); 
+			case MomotPackage.PRINT_ANALYSIS_COMMAND:
+				sequence_PrintAnalysisCommand(context, (PrintAnalysisCommand) semanticObject); 
 				return; 
-			case MOMoTPackage.PRINT_SOLUTIONS_COMMAND:
-				sequence_PrintSolutionsCommand(context, (PrintSolutionsCommand) semanticObject); 
-				return; 
-			case MOMoTPackage.RESULT_MANAGEMENT:
+			case MomotPackage.RESULT_MANAGEMENT:
 				sequence_ResultManagement(context, (ResultManagement) semanticObject); 
 				return; 
-			case MOMoTPackage.SAVE_ANALYSIS_COMMAND:
+			case MomotPackage.SAVE_ANALYSIS_COMMAND:
 				sequence_SaveAnalysisCommand(context, (SaveAnalysisCommand) semanticObject); 
 				return; 
-			case MOMoTPackage.SAVE_OBJECTIVES_COMMAND:
-				sequence_SaveObjectivesCommand(context, (SaveObjectivesCommand) semanticObject); 
-				return; 
-			case MOMoTPackage.SAVE_SOLUTIONS_COMMAND:
-				sequence_SaveSolutionsCommand(context, (SaveSolutionsCommand) semanticObject); 
-				return; 
-			case MOMoTPackage.SEARCH_ORCHESTRATION:
+			case MomotPackage.SEARCH_ORCHESTRATION:
 				sequence_SearchOrchestration(context, (SearchOrchestration) semanticObject); 
 				return; 
-			case MOMoTPackage.SHOW_ARRAY:
+			case MomotPackage.SHOW_ARRAY:
 				sequence_ShowArray(context, (ShowArray) semanticObject); 
 				return; 
-			case MOMoTPackage.TRANSFORMATION_ORCHESTRATION:
-				sequence_TransformationOrchestration(context, (TransformationOrchestration) semanticObject); 
+			case MomotPackage.SOLUTIONS_COMMAND:
+				sequence_SolutionsCommand(context, (SolutionsCommand) semanticObject); 
 				return; 
-			case MOMoTPackage.VARIABLE_DECLARATION:
+			case MomotPackage.VARIABLE_DECLARATION:
 				sequence_VariableDeclaration(context, (VariableDeclaration) semanticObject); 
 				return; 
 			}
@@ -473,10 +481,10 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_AlgorithmSpecification(EObject context, AlgorithmSpecification semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.ALGORITHM_SPECIFICATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.ALGORITHM_SPECIFICATION__NAME));
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.ALGORITHM_SPECIFICATION__CALL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.ALGORITHM_SPECIFICATION__CALL));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.ALGORITHM_SPECIFICATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.ALGORITHM_SPECIFICATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.ALGORITHM_SPECIFICATION__CALL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.ALGORITHM_SPECIFICATION__CALL));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -501,10 +509,10 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_AnalysisGroupSpecification(EObject context, AnalysisGroupSpecification semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__NAME));
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -516,7 +524,15 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (indicators=IndicatorArray significance=XNumberLiteral show=ShowArray grouping=AnalysisGroupList?)
+	 *     (
+	 *         indicators=IndicatorArray 
+	 *         significance=XNumberLiteral 
+	 *         show=ShowArray 
+	 *         grouping=AnalysisGroupList? 
+	 *         saveCommand=SaveAnalysisCommand? 
+	 *         boxplotCommand=BoxplotCommand? 
+	 *         printCommand=PrintAnalysisCommand?
+	 *     )
 	 */
 	protected void sequence_AnalysisOrchestration(EObject context, AnalysisOrchestration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -529,6 +545,22 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_ArrayLiteral(EObject context, XListLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     directory=XStringLiteral
+	 */
+	protected void sequence_BoxplotCommand(EObject context, BoxplotCommand semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.BOXPLOT_COMMAND__DIRECTORY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.BOXPLOT_COMMAND__DIRECTORY));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBoxplotCommandAccess().getDirectoryXStringLiteralParserRuleCall_2_0(), semanticObject.getDirectory());
+		feeder.finish();
 	}
 	
 	
@@ -563,8 +595,8 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_DefExpression(EObject context, DefExpression semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.DEF_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.DEF_EXPRESSION__EXPRESSION));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.DEF_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.DEF_EXPRESSION__EXPRESSION));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -604,12 +636,12 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_FitnessDimensionConstructor(EObject context, FitnessDimensionConstructor semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME));
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE));
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_CONSTRUCTOR__CALL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_CONSTRUCTOR__CALL));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_CONSTRUCTOR__CALL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_CONSTRUCTOR__CALL));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -635,12 +667,12 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_FitnessDimensionXBase(EObject context, FitnessDimensionXBase semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME));
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE));
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_XBASE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.FITNESS_DIMENSION_XBASE__VALUE));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_SPECIFICATION__TYPE));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_XBASE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.FITNESS_DIMENSION_XBASE__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -689,6 +721,15 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (path=XExpression adaptation=XBlockExpression?)
+	 */
+	protected void sequence_InputModel(EObject context, InputModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         package=QualifiedName? 
 	 *         importSection=XImportSection? 
@@ -698,10 +739,43 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 *         searchOrchestration=SearchOrchestration 
 	 *         experimentOrchestration=ExperimentOrchestration 
 	 *         analysisOrchestration=AnalysisOrchestration? 
-	 *         resultManagement=ResultManagement?
+	 *         resultManagement=ResultManagement? 
+	 *         finalization=XBlockExpression?
 	 *     )
 	 */
 	protected void sequence_MOMoTSearch(EObject context, MOMoTSearch semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         algorithms=AlgorithmReferences? 
+	 *         (neighborhoodSize=INT | maxNeighborhoodSize?='maxNeighborhoodSize')? 
+	 *         directory=STRING? 
+	 *         printOutput?='printOutput'?
+	 *     )
+	 */
+	protected void sequence_ModelsCommand(EObject context, ModelsCommand semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (modules=ArrayLiteral unitsToRemove=ArrayLiteral? nonSolutionParameters=ArrayLiteral? parameterValues+=ParmeterValueSpecification*)
+	 */
+	protected void sequence_ModuleOrchestration(EObject context, ModuleOrchestration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (algorithms=AlgorithmReferences? (neighborhoodSize=INT | maxNeighborhoodSize?='maxNeighborhoodSize')? file=STRING? printOutput?='printOutput'?)
+	 */
+	protected void sequence_ObjectivesCommand(EObject context, ObjectivesCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -712,10 +786,10 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_ParmeterValueSpecification(EObject context, ParmeterValueSpecification semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.PARMETER_VALUE_SPECIFICATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.PARMETER_VALUE_SPECIFICATION__NAME));
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.PARMETER_VALUE_SPECIFICATION__CALL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.PARMETER_VALUE_SPECIFICATION__CALL));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.PARMETER_VALUE_SPECIFICATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.PARMETER_VALUE_SPECIFICATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.PARMETER_VALUE_SPECIFICATION__CALL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.PARMETER_VALUE_SPECIFICATION__CALL));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -727,34 +801,16 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (algorithms=AlgorithmReferences?)
+	 *     {PrintAnalysisCommand}
 	 */
-	protected void sequence_PrintObjectivesCommand(EObject context, PrintObjectivesCommand semanticObject) {
+	protected void sequence_PrintAnalysisCommand(EObject context, PrintAnalysisCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (algorithms=AlgorithmReferences?)
-	 */
-	protected void sequence_PrintSolutionsCommand(EObject context, PrintSolutionsCommand semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         saveAnalysis=SaveAnalysisCommand? 
-	 *         (
-	 *             saveObjectives+=SaveObjectivesCommand | 
-	 *             saveSolutions+=SaveSolutionsCommand | 
-	 *             printObjectives+=PrintObjectivesCommand | 
-	 *             printSolutions+=PrintSolutionsCommand
-	 *         )* 
-	 *         doCommand=XBlockExpression?
-	 *     )
+	 *     (adaptModels=XBlockExpression? commands+=ResultManagementCommand+)
 	 */
 	protected void sequence_ResultManagement(EObject context, ResultManagement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -767,40 +823,22 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_SaveAnalysisCommand(EObject context, SaveAnalysisCommand semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MOMoTPackage.Literals.SAVE_ANALYSIS_COMMAND__FILE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MOMoTPackage.Literals.SAVE_ANALYSIS_COMMAND__FILE));
+			if(transientValues.isValueTransient(semanticObject, MomotPackage.Literals.SAVE_ANALYSIS_COMMAND__FILE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MomotPackage.Literals.SAVE_ANALYSIS_COMMAND__FILE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSaveAnalysisCommandAccess().getFileXStringLiteralParserRuleCall_1_0(), semanticObject.getFile());
+		feeder.accept(grammarAccess.getSaveAnalysisCommandAccess().getFileXStringLiteralParserRuleCall_2_0(), semanticObject.getFile());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (algorithms=AlgorithmReferences? file=STRING)
-	 */
-	protected void sequence_SaveObjectivesCommand(EObject context, SaveObjectivesCommand semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (algorithms=AlgorithmReferences? directory=STRING)
-	 */
-	protected void sequence_SaveSolutionsCommand(EObject context, SaveSolutionsCommand semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
-	 *         model=XExpression 
+	 *         model=InputModel 
 	 *         solutionLength=XExpression 
-	 *         transformationOrchestration=TransformationOrchestration 
+	 *         moduleOrchestration=ModuleOrchestration 
 	 *         fitnessFunction=FitnessFunctionSpecification 
 	 *         algorithms=AlgorithmList 
 	 *         equalityHelper=EqualityHelper?
@@ -822,9 +860,15 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modules=ArrayLiteral unitsToRemove=ArrayLiteral? nonSolutionParameters=ArrayLiteral? parameterValues+=ParmeterValueSpecification*)
+	 *     (
+	 *         algorithms=AlgorithmReferences? 
+	 *         (neighborhoodSize=INT | maxNeighborhoodSize?='maxNeighborhoodSize')? 
+	 *         file=STRING? 
+	 *         directory=STRING? 
+	 *         printOutput?='printOutput'?
+	 *     )
 	 */
-	protected void sequence_TransformationOrchestration(EObject context, TransformationOrchestration semanticObject) {
+	protected void sequence_SolutionsCommand(EObject context, SolutionsCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

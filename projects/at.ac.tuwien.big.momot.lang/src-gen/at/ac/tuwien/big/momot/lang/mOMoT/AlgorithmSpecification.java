@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -15,11 +15,11 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification#getCall <em>Call</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification#getCall <em>Call</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAlgorithmSpecification()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAlgorithmSpecification()
  * @model
  * @generated
  */
@@ -35,14 +35,14 @@ public interface AlgorithmSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAlgorithmSpecification_Name()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAlgorithmSpecification_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -61,14 +61,14 @@ public interface AlgorithmSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Call</em>' containment reference.
    * @see #setCall(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAlgorithmSpecification_Call()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAlgorithmSpecification_Call()
    * @model containment="true"
    * @generated
    */
   XExpression getCall();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification#getCall <em>Call</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification#getCall <em>Call</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Call</em>' containment reference.

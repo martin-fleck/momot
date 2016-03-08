@@ -21,10 +21,15 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MOMoTGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_a;
+	protected AbstractElementAlias match_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_p;
 	protected AbstractElementAlias match_ExperimentOrchestration___CollectorsKeyword_13_0_OpSingleAssignParserRuleCall_13_1_LeftSquareBracketKeyword_13_2_RightSquareBracketKeyword_13_4__q;
 	protected AbstractElementAlias match_ExperimentOrchestration___ProgressListenersKeyword_12_0_OpSingleAssignParserRuleCall_12_1_LeftSquareBracketKeyword_12_2_RightSquareBracketKeyword_12_4__q;
 	protected AbstractElementAlias match_FitnessDimensionOCL___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
-	protected AbstractElementAlias match_TransformationOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q;
+	protected AbstractElementAlias match_ModelsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a;
+	protected AbstractElementAlias match_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q;
+	protected AbstractElementAlias match_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a;
+	protected AbstractElementAlias match_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
@@ -35,10 +40,15 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MOMoTGrammarAccess) access;
+		match_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_a = new TokenAlias(true, true, grammarAccess.getAnalysisOrchestrationAccess().getRightCurlyBracketKeyword_6_1());
+		match_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_p = new TokenAlias(true, false, grammarAccess.getAnalysisOrchestrationAccess().getRightCurlyBracketKeyword_6_1());
 		match_ExperimentOrchestration___CollectorsKeyword_13_0_OpSingleAssignParserRuleCall_13_1_LeftSquareBracketKeyword_13_2_RightSquareBracketKeyword_13_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getCollectorsKeyword_13_0()), new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getOpSingleAssignParserRuleCall_13_1()), new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getLeftSquareBracketKeyword_13_2()), new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getRightSquareBracketKeyword_13_4()));
 		match_ExperimentOrchestration___ProgressListenersKeyword_12_0_OpSingleAssignParserRuleCall_12_1_LeftSquareBracketKeyword_12_2_RightSquareBracketKeyword_12_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getProgressListenersKeyword_12_0()), new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getOpSingleAssignParserRuleCall_12_1()), new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getLeftSquareBracketKeyword_12_2()), new TokenAlias(false, false, grammarAccess.getExperimentOrchestrationAccess().getRightSquareBracketKeyword_12_4()));
 		match_FitnessDimensionOCL___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getFitnessDimensionOCLAccess().getLeftCurlyBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getFitnessDimensionOCLAccess().getRightCurlyBracketKeyword_4_2()));
-		match_TransformationOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTransformationOrchestrationAccess().getParameterValuesKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getTransformationOrchestrationAccess().getOpSingleAssignParserRuleCall_6_1()), new TokenAlias(false, false, grammarAccess.getTransformationOrchestrationAccess().getLeftCurlyBracketKeyword_6_2()), new TokenAlias(false, false, grammarAccess.getTransformationOrchestrationAccess().getRightCurlyBracketKeyword_6_4()));
+		match_ModelsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelsCommandAccess().getNeighborhoodSizeKeyword_4_1_0_0()), new TokenAlias(false, false, grammarAccess.getModelsCommandAccess().getOpSingleAssignParserRuleCall_4_1_0_1()));
+		match_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getParameterValuesKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getOpSingleAssignParserRuleCall_6_1()), new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getLeftCurlyBracketKeyword_6_2()), new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getRightCurlyBracketKeyword_6_4()));
+		match_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getObjectivesCommandAccess().getNeighborhoodSizeKeyword_4_1_0_0()), new TokenAlias(false, false, grammarAccess.getObjectivesCommandAccess().getOpSingleAssignParserRuleCall_4_1_0_1()));
+		match_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSolutionsCommandAccess().getNeighborhoodSizeKeyword_4_1_0_0()), new TokenAlias(false, false, grammarAccess.getSolutionsCommandAccess().getOpSingleAssignParserRuleCall_4_1_0_1()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
@@ -97,14 +107,24 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_ExperimentOrchestration___CollectorsKeyword_13_0_OpSingleAssignParserRuleCall_13_1_LeftSquareBracketKeyword_13_2_RightSquareBracketKeyword_13_4__q.equals(syntax))
+			if(match_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_a.equals(syntax))
+				emit_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_p.equals(syntax))
+				emit_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ExperimentOrchestration___CollectorsKeyword_13_0_OpSingleAssignParserRuleCall_13_1_LeftSquareBracketKeyword_13_2_RightSquareBracketKeyword_13_4__q.equals(syntax))
 				emit_ExperimentOrchestration___CollectorsKeyword_13_0_OpSingleAssignParserRuleCall_13_1_LeftSquareBracketKeyword_13_2_RightSquareBracketKeyword_13_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ExperimentOrchestration___ProgressListenersKeyword_12_0_OpSingleAssignParserRuleCall_12_1_LeftSquareBracketKeyword_12_2_RightSquareBracketKeyword_12_4__q.equals(syntax))
 				emit_ExperimentOrchestration___ProgressListenersKeyword_12_0_OpSingleAssignParserRuleCall_12_1_LeftSquareBracketKeyword_12_2_RightSquareBracketKeyword_12_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_FitnessDimensionOCL___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
 				emit_FitnessDimensionOCL___LeftCurlyBracketKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_TransformationOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q.equals(syntax))
-				emit_TransformationOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ModelsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a.equals(syntax))
+				emit_ModelsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q.equals(syntax))
+				emit_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a.equals(syntax))
+				emit_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a.equals(syntax))
+				emit_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
@@ -121,6 +141,90 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     '}'*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     (rule start) (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     (rule start) (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     (rule start) (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) boxplotCommand=BoxplotCommand
+	 *     (rule start) (ambiguity) printCommand=PrintAnalysisCommand
+	 *     (rule start) (ambiguity) saveCommand=SaveAnalysisCommand
+	 *     boxplotCommand=BoxplotCommand (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     boxplotCommand=BoxplotCommand (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     boxplotCommand=BoxplotCommand (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     boxplotCommand=BoxplotCommand (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     boxplotCommand=BoxplotCommand (ambiguity) (rule end)
+	 *     boxplotCommand=BoxplotCommand (ambiguity) boxplotCommand=BoxplotCommand
+	 *     boxplotCommand=BoxplotCommand (ambiguity) printCommand=PrintAnalysisCommand
+	 *     boxplotCommand=BoxplotCommand (ambiguity) saveCommand=SaveAnalysisCommand
+	 *     grouping=AnalysisGroupList (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     grouping=AnalysisGroupList (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     grouping=AnalysisGroupList (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     grouping=AnalysisGroupList (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     grouping=AnalysisGroupList (ambiguity) (rule end)
+	 *     grouping=AnalysisGroupList (ambiguity) boxplotCommand=BoxplotCommand
+	 *     grouping=AnalysisGroupList (ambiguity) printCommand=PrintAnalysisCommand
+	 *     grouping=AnalysisGroupList (ambiguity) saveCommand=SaveAnalysisCommand
+	 *     indicators=IndicatorArray (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     indicators=IndicatorArray (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     indicators=IndicatorArray (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     indicators=IndicatorArray (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     indicators=IndicatorArray (ambiguity) (rule end)
+	 *     indicators=IndicatorArray (ambiguity) boxplotCommand=BoxplotCommand
+	 *     indicators=IndicatorArray (ambiguity) printCommand=PrintAnalysisCommand
+	 *     indicators=IndicatorArray (ambiguity) saveCommand=SaveAnalysisCommand
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) (rule end)
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) boxplotCommand=BoxplotCommand
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) printCommand=PrintAnalysisCommand
+	 *     saveCommand=SaveAnalysisCommand (ambiguity) saveCommand=SaveAnalysisCommand
+	 *     show=ShowArray (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     show=ShowArray (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     show=ShowArray (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     show=ShowArray (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     show=ShowArray (ambiguity) (rule end)
+	 *     show=ShowArray (ambiguity) boxplotCommand=BoxplotCommand
+	 *     show=ShowArray (ambiguity) printCommand=PrintAnalysisCommand
+	 *     show=ShowArray (ambiguity) saveCommand=SaveAnalysisCommand
+	 *     significance=XNumberLiteral (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     significance=XNumberLiteral (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     significance=XNumberLiteral (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     significance=XNumberLiteral (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     significance=XNumberLiteral (ambiguity) (rule end)
+	 *     significance=XNumberLiteral (ambiguity) boxplotCommand=BoxplotCommand
+	 *     significance=XNumberLiteral (ambiguity) printCommand=PrintAnalysisCommand
+	 *     significance=XNumberLiteral (ambiguity) saveCommand=SaveAnalysisCommand
+	 */
+	protected void emit_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '}'+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     printCommand=PrintAnalysisCommand (ambiguity) 'grouping' OpSingleAssign grouping=AnalysisGroupList
+	 *     printCommand=PrintAnalysisCommand (ambiguity) 'show' OpSingleAssign show=ShowArray
+	 *     printCommand=PrintAnalysisCommand (ambiguity) 'significance' OpSingleAssign significance=XNumberLiteral
+	 *     printCommand=PrintAnalysisCommand (ambiguity) '{' 'indicators' OpSingleAssign indicators=IndicatorArray
+	 *     printCommand=PrintAnalysisCommand (ambiguity) (rule end)
+	 *     printCommand=PrintAnalysisCommand (ambiguity) boxplotCommand=BoxplotCommand
+	 *     printCommand=PrintAnalysisCommand (ambiguity) printCommand=PrintAnalysisCommand
+	 *     printCommand=PrintAnalysisCommand (ambiguity) saveCommand=SaveAnalysisCommand
+	 */
+	protected void emit_AnalysisOrchestration_RightCurlyBracketKeyword_6_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     ('collectors' OpSingleAssign '[' ']')?
@@ -161,6 +265,52 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     ('neighborhoodSize' OpSingleAssign)*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'models' OpSingleAssign '{' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     (rule start) 'models' OpSingleAssign '{' (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     (rule start) 'models' OpSingleAssign '{' (ambiguity) '}' (rule start)
+	 *     (rule start) 'models' OpSingleAssign '{' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     (rule start) 'models' OpSingleAssign '{' (ambiguity) neighborhoodSize=INT
+	 *     (rule start) 'models' OpSingleAssign '{' (ambiguity) printOutput?='printOutput'
+	 *     algorithms=AlgorithmReferences (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     algorithms=AlgorithmReferences (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     algorithms=AlgorithmReferences (ambiguity) '}' (rule end)
+	 *     algorithms=AlgorithmReferences (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     algorithms=AlgorithmReferences (ambiguity) neighborhoodSize=INT
+	 *     algorithms=AlgorithmReferences (ambiguity) printOutput?='printOutput'
+	 *     directory=STRING (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     directory=STRING (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     directory=STRING (ambiguity) '}' (rule end)
+	 *     directory=STRING (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     directory=STRING (ambiguity) neighborhoodSize=INT
+	 *     directory=STRING (ambiguity) printOutput?='printOutput'
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) '}' (rule end)
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) neighborhoodSize=INT
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) printOutput?='printOutput'
+	 *     neighborhoodSize=INT (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     neighborhoodSize=INT (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     neighborhoodSize=INT (ambiguity) '}' (rule end)
+	 *     neighborhoodSize=INT (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     neighborhoodSize=INT (ambiguity) neighborhoodSize=INT
+	 *     neighborhoodSize=INT (ambiguity) printOutput?='printOutput'
+	 *     printOutput?='printOutput' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     printOutput?='printOutput' (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     printOutput?='printOutput' (ambiguity) '}' (rule end)
+	 *     printOutput?='printOutput' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     printOutput?='printOutput' (ambiguity) neighborhoodSize=INT
+	 *     printOutput?='printOutput' (ambiguity) printOutput?='printOutput'
+	 */
+	protected void emit_ModelsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     ('parameterValues' OpSingleAssign '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
@@ -168,7 +318,112 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     nonSolutionParameters=ArrayLiteral (ambiguity) '}' (rule end)
 	 *     unitsToRemove=ArrayLiteral (ambiguity) '}' (rule end)
 	 */
-	protected void emit_TransformationOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('neighborhoodSize' OpSingleAssign)*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'objectives' OpSingleAssign '{' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     (rule start) 'objectives' OpSingleAssign '{' (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     (rule start) 'objectives' OpSingleAssign '{' (ambiguity) '}' (rule start)
+	 *     (rule start) 'objectives' OpSingleAssign '{' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     (rule start) 'objectives' OpSingleAssign '{' (ambiguity) neighborhoodSize=INT
+	 *     (rule start) 'objectives' OpSingleAssign '{' (ambiguity) printOutput?='printOutput'
+	 *     algorithms=AlgorithmReferences (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     algorithms=AlgorithmReferences (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     algorithms=AlgorithmReferences (ambiguity) '}' (rule end)
+	 *     algorithms=AlgorithmReferences (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     algorithms=AlgorithmReferences (ambiguity) neighborhoodSize=INT
+	 *     algorithms=AlgorithmReferences (ambiguity) printOutput?='printOutput'
+	 *     file=STRING (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     file=STRING (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     file=STRING (ambiguity) '}' (rule end)
+	 *     file=STRING (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     file=STRING (ambiguity) neighborhoodSize=INT
+	 *     file=STRING (ambiguity) printOutput?='printOutput'
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) '}' (rule end)
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) neighborhoodSize=INT
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) printOutput?='printOutput'
+	 *     neighborhoodSize=INT (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     neighborhoodSize=INT (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     neighborhoodSize=INT (ambiguity) '}' (rule end)
+	 *     neighborhoodSize=INT (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     neighborhoodSize=INT (ambiguity) neighborhoodSize=INT
+	 *     neighborhoodSize=INT (ambiguity) printOutput?='printOutput'
+	 *     printOutput?='printOutput' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     printOutput?='printOutput' (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     printOutput?='printOutput' (ambiguity) '}' (rule end)
+	 *     printOutput?='printOutput' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     printOutput?='printOutput' (ambiguity) neighborhoodSize=INT
+	 *     printOutput?='printOutput' (ambiguity) printOutput?='printOutput'
+	 */
+	protected void emit_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('neighborhoodSize' OpSingleAssign)*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'solutions' OpSingleAssign '{' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     (rule start) 'solutions' OpSingleAssign '{' (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     (rule start) 'solutions' OpSingleAssign '{' (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     (rule start) 'solutions' OpSingleAssign '{' (ambiguity) '}' (rule start)
+	 *     (rule start) 'solutions' OpSingleAssign '{' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     (rule start) 'solutions' OpSingleAssign '{' (ambiguity) neighborhoodSize=INT
+	 *     (rule start) 'solutions' OpSingleAssign '{' (ambiguity) printOutput?='printOutput'
+	 *     algorithms=AlgorithmReferences (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     algorithms=AlgorithmReferences (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     algorithms=AlgorithmReferences (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     algorithms=AlgorithmReferences (ambiguity) '}' (rule end)
+	 *     algorithms=AlgorithmReferences (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     algorithms=AlgorithmReferences (ambiguity) neighborhoodSize=INT
+	 *     algorithms=AlgorithmReferences (ambiguity) printOutput?='printOutput'
+	 *     directory=STRING (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     directory=STRING (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     directory=STRING (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     directory=STRING (ambiguity) '}' (rule end)
+	 *     directory=STRING (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     directory=STRING (ambiguity) neighborhoodSize=INT
+	 *     directory=STRING (ambiguity) printOutput?='printOutput'
+	 *     file=STRING (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     file=STRING (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     file=STRING (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     file=STRING (ambiguity) '}' (rule end)
+	 *     file=STRING (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     file=STRING (ambiguity) neighborhoodSize=INT
+	 *     file=STRING (ambiguity) printOutput?='printOutput'
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) '}' (rule end)
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) neighborhoodSize=INT
+	 *     maxNeighborhoodSize?='maxNeighborhoodSize' (ambiguity) printOutput?='printOutput'
+	 *     neighborhoodSize=INT (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     neighborhoodSize=INT (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     neighborhoodSize=INT (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     neighborhoodSize=INT (ambiguity) '}' (rule end)
+	 *     neighborhoodSize=INT (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     neighborhoodSize=INT (ambiguity) neighborhoodSize=INT
+	 *     neighborhoodSize=INT (ambiguity) printOutput?='printOutput'
+	 *     printOutput?='printOutput' (ambiguity) 'algorithms' OpSingleAssign algorithms=AlgorithmReferences
+	 *     printOutput?='printOutput' (ambiguity) 'outputDirectory' OpSingleAssign directory=STRING
+	 *     printOutput?='printOutput' (ambiguity) 'outputFile' OpSingleAssign file=STRING
+	 *     printOutput?='printOutput' (ambiguity) '}' (rule end)
+	 *     printOutput?='printOutput' (ambiguity) maxNeighborhoodSize?='maxNeighborhoodSize'
+	 *     printOutput?='printOutput' (ambiguity) neighborhoodSize=INT
+	 *     printOutput?='printOutput' (ambiguity) printOutput?='printOutput'
+	 */
+	protected void emit_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

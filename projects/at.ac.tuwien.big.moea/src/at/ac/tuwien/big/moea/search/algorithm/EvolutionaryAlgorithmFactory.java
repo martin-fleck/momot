@@ -21,10 +21,13 @@ import org.moeaframework.core.Solution;
 import org.moeaframework.core.Variation;
 import org.moeaframework.core.fitness.IndicatorFitnessEvaluator;
 import org.moeaframework.core.operator.CompoundVariation;
+import org.moeaframework.core.operator.OnePointCrossover;
+import org.moeaframework.core.operator.TournamentSelection;
 import org.moeaframework.core.operator.UniformSelection;
 import org.moeaframework.core.operator.real.UM;
 
 import at.ac.tuwien.big.moea.ISearchOrchestration;
+import at.ac.tuwien.big.moea.search.algorithm.operator.mutation.PlaceholderMutation;
 import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm;
 import at.ac.tuwien.big.moea.search.algorithm.provider.RegisteredAlgorithm;
 import at.ac.tuwien.big.moea.search.solution.generator.IInjectedPopulationGenerator;
@@ -82,6 +85,14 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
 		};
 	}
 	
+	public IRegisteredAlgorithm<NSGAII> createNSGAII() {
+		return createNSGAII(
+				new TournamentSelection(2), 
+				new OnePointCrossover(1.0), 
+				new PlaceholderMutation(0.10));
+	}
+	
+	
 	public IRegisteredAlgorithm<NSGAII> createNSGAII(final Selection selection, final Variation... variation) {
 		return new RegisteredAlgorithm<NSGAII>() {
 			@Override
@@ -95,6 +106,13 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
 			}
 		};
 	}	
+	
+	public IRegisteredAlgorithm<NSGAII> createNSGAIII() {
+		return createNSGAIII(4, 0, 
+				new TournamentSelection(2), 
+				new OnePointCrossover(1.0), 
+				new PlaceholderMutation(0.10));
+	}
 	
 	public IRegisteredAlgorithm<NSGAII> createNSGAIII(final Selection selection, final Variation... variation) {
 		return createNSGAIII(4, 0, selection, variation);
@@ -133,6 +151,13 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
 						new UM(1.0));
 			}
 		};
+	}
+	
+	public RegisteredAlgorithm<EpsilonMOEA> createEpsilonMOEA() {
+		return createEpsilonMOEA(0.01, 
+				new TournamentSelection(2), 
+				new OnePointCrossover(1.0), 
+				new PlaceholderMutation(0.10));
 	}
 	
 	public RegisteredAlgorithm<EpsilonMOEA> createEpsilonMOEA(final double epsilon, final Selection selection, final Variation... variation) {

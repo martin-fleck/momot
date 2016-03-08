@@ -13,7 +13,9 @@ initialization = {
 }
 
 search = {
-	model = "model/SeveralRefactorings.xmi"
+	model = {
+		file = "model/SeveralRefactorings.xmi"
+	}
 	solutionLength = 10
 	
 	transformations = {
@@ -23,7 +25,7 @@ search = {
 	fitness = {
 		objectives = {
 			SolutionLength : minimize new TransformationLengthDimension
-			ContentSize : minimize "propertys->size() * 1.1 + entitys->size()"
+			ContentSize : minimize "properties->size() * 1.1 + entities->size()"
 		}
 		solutionRepairer = new TransformationPlaceholderRepairer
 	}
@@ -38,18 +40,19 @@ search = {
 				new OnePointCrossover(1.0),  
 				new TransformationPlaceholderMutation(0.15))
 	}
-	
-	
 }
 experiment = {
-	populationSize = 15
-	maxEvaluations = 150
-	nrRuns = 1
-//	referenceSet = "model/input/referenceSet/SeveralRefactorings_reference_set.pf"
+	populationSize = 50
+	maxEvaluations = 1500
+	nrRuns = 30
 	progressListeners = [ new SeedRuntimePrintListener ]
 }
 
-finalization = {
-	saveObjectives "model/output/referenceSet/approximation_set.pf"
-	saveSolutions "model/output/solutions/"
+results = {
+	objectives = {
+		outputFile = "model/output/referenceSet/approximation_set.pf"
+	} 
+	models = {
+		outputDirectory = "model/output/solutions/"
+	}
 }

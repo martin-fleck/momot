@@ -27,7 +27,9 @@ initialization  = {
 }
 
 search = {
-	model = "input/QVT_module.xmi"
+	model = {
+		file = "input/QVT_module.xmi"
+	}
 	solutionLength = 10
 	transformations = {
 		modules = [ "operations/modularization_rules.henshin" ]
@@ -51,7 +53,7 @@ search = {
 			}
 			MinMaxDiffTest : minimize {
 				val sizes = (root as Language).^modules.filter[m | !m.entities.empty].map[m | m.entities.size]
-				sizes.max - sizes.min
+				sizes.^max - sizes.min
 			}	
 		}
 		solutionRepairer = new TransformationPlaceholderRepairer
@@ -78,12 +80,23 @@ analysis = {
 	indicators = [ hypervolume generationalDistance contribution ]
 	significance = 0.01
 	show = [ aggregateValues statisticalSignificance individualValues ]
+	outputFile = "output/_test/QVT.txt"
+	printOutput
+}
+
+results = {
+	objectives = {
+		outputFile      = "data/_test/approximationSet/QVT.pf"
+	}
+	solutions  = {
+		outputFile      = "data/_test/models/QVT/solutions.txt"
+		outputDirectory = "data/_test/models/QVT/"
+	}
+	models = {
+		outputDirectory = "data/_test/models/QVT/"
+	}
 }
 
 finalization = {
-	saveAnalysis "output/_test/QVT.txt"
-	saveObjectives "data/_test/approximationSet/QVT.pf"
-	saveSolutions "data/_test/models/QVT/"
-	printSolutions 
-	printObjectives 
+	System.out.println("Done.")
 }

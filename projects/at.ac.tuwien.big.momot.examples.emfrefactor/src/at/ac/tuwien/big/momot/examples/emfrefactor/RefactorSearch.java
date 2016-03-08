@@ -92,7 +92,7 @@ protected static final String OBJECTIVE_SUM = "Sum";
 //				new ObjectiveFitnessComparator<TransformationSolution>(
 //						search.getFitnessFunction().getObjectiveIndex(OBJECTIVE_SUM))));
 		
-		SearchExperiment experiment = new SearchExperiment(search, MAX_EVALUTIONS);
+		SearchExperiment<TransformationSolution> experiment = new SearchExperiment<>(search, MAX_EVALUTIONS);
 		experiment.addProgressListener(new SeedRuntimePrintListener());
 		experiment.setReferenceSetFile(referenceSetFile);
 		experiment.setNumberOfRuns(NR_RUNS);
@@ -104,21 +104,21 @@ protected static final String OBJECTIVE_SUM = "Sum";
 		NondominatedPopulation solutions = manager.createApproximationSet();
 		
 		manager.setBaseDirectory("model/output/referenceSet/");
-		manager.saveApproximationSet(baseName + "_approximation_result.txt");
-		manager.saveApproximationSetObjectives(baseName + "_approximation_set.pf");
+		manager.savePopulation(baseName + "_approximation_result.txt");
+		manager.saveObjectives(baseName + "_approximation_set.pf");
 		
 		manager.setBaseDirectory("model/output/solutions/");
-		manager.saveApproximationSetGraphs();
+		manager.saveModels();
 
-		for(Solution solution : manager.createApproximationSet())  {
+		for(Solution solution : solutions)  {
 			TransformationSolution transformationSolution = CastUtil.asClass(solution, TransformationSolution.class);
 //			System.out.println(Arrays.toString(transformationSolution.getSuccess()));
 			transformationSolution.execute(true);
 //			System.out.println(Arrays.toString(transformationSolution.getSuccess()));
 		}
 
-		System.out.println(manager.printApproximationSet());		
-		System.out.println(manager.printApproximationSetObjectives());
+		System.out.println(manager.printPopulation());		
+		System.out.println(manager.printObjectives());
 	}
 	
 	public static void main(String[] args) {

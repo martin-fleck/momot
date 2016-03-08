@@ -5,8 +5,8 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.ac.at/tuwien/big/momot/lang/MOMoT" 
-       class = "at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage"
+       uri = "http://www.big.tuwien.ac.at/momot/lang/MOMoT" 
+       class = "at.ac.tuwien.big.momot.lang.momot.MomotPackage"
        genModel = "model/generated/MOMoT.genmodel" /> 
 	
   </extension>

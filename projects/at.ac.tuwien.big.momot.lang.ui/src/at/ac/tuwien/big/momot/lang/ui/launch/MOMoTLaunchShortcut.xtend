@@ -26,7 +26,7 @@ class MOMoTLaunchShortcut implements ILaunchShortcut {
 
 	override launch(ISelection selection, String mode) {
 		MessageDialog.openError(null, "Unsupported Launch Selection.", 
-			"Please open the file inside an editor to launch a task."
+			"Please open the file inside an editor to launch a search."
 		)
 	}
 	

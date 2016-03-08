@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -17,16 +17,16 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getPopulationSize <em>Population Size</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getMaxEvaluations <em>Max Evaluations</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getNrRuns <em>Nr Runs</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getReferenceSet <em>Reference Set</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getProgressListeners <em>Progress Listeners</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getCollectors <em>Collectors</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getCustomCollectors <em>Custom Collectors</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getPopulationSize <em>Population Size</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getMaxEvaluations <em>Max Evaluations</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getNrRuns <em>Nr Runs</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getReferenceSet <em>Reference Set</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getProgressListeners <em>Progress Listeners</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getCollectors <em>Collectors</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getCustomCollectors <em>Custom Collectors</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration()
  * @model
  * @generated
  */
@@ -42,14 +42,14 @@ public interface ExperimentOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Population Size</em>' containment reference.
    * @see #setPopulationSize(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration_PopulationSize()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_PopulationSize()
    * @model containment="true"
    * @generated
    */
   XExpression getPopulationSize();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getPopulationSize <em>Population Size</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getPopulationSize <em>Population Size</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Population Size</em>' containment reference.
@@ -68,14 +68,14 @@ public interface ExperimentOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Max Evaluations</em>' containment reference.
    * @see #setMaxEvaluations(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration_MaxEvaluations()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_MaxEvaluations()
    * @model containment="true"
    * @generated
    */
   XExpression getMaxEvaluations();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getMaxEvaluations <em>Max Evaluations</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getMaxEvaluations <em>Max Evaluations</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Max Evaluations</em>' containment reference.
@@ -94,14 +94,14 @@ public interface ExperimentOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Nr Runs</em>' containment reference.
    * @see #setNrRuns(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration_NrRuns()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_NrRuns()
    * @model containment="true"
    * @generated
    */
   XExpression getNrRuns();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getNrRuns <em>Nr Runs</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getNrRuns <em>Nr Runs</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Nr Runs</em>' containment reference.
@@ -120,14 +120,14 @@ public interface ExperimentOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Reference Set</em>' containment reference.
    * @see #setReferenceSet(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration_ReferenceSet()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_ReferenceSet()
    * @model containment="true"
    * @generated
    */
   XExpression getReferenceSet();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getReferenceSet <em>Reference Set</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getReferenceSet <em>Reference Set</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Reference Set</em>' containment reference.
@@ -146,7 +146,7 @@ public interface ExperimentOrchestration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Progress Listeners</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration_ProgressListeners()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_ProgressListeners()
    * @model containment="true"
    * @generated
    */
@@ -162,14 +162,14 @@ public interface ExperimentOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Collectors</em>' containment reference.
    * @see #setCollectors(CollectorArray)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration_Collectors()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_Collectors()
    * @model containment="true"
    * @generated
    */
   CollectorArray getCollectors();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration#getCollectors <em>Collectors</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getCollectors <em>Collectors</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Collectors</em>' containment reference.
@@ -188,7 +188,7 @@ public interface ExperimentOrchestration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Custom Collectors</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getExperimentOrchestration_CustomCollectors()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_CustomCollectors()
    * @model containment="true"
    * @generated
    */

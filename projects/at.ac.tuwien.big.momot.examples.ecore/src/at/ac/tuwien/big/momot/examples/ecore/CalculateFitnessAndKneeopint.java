@@ -23,7 +23,6 @@ import at.ac.tuwien.big.momot.examples.ecore.fitness.metric.MetricsCalculator;
 import at.ac.tuwien.big.momot.examples.ecore.modularization.Language;
 import at.ac.tuwien.big.momot.examples.ecore.modularization.ModularizationPackage;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
-import at.ac.tuwien.big.momot.util.MomotUtil;
 
 public class CalculateFitnessAndKneeopint {
 	protected static ModularizationFitnessFunction function = new ModularizationFitnessFunction();
@@ -47,6 +46,8 @@ public class CalculateFitnessAndKneeopint {
 		ModularizationPackage.eINSTANCE.eClass();
 		
 		TransformationResultManager resultManager = new TransformationResultManager();
+		resultManager.setBaseDirectory(outputDir);
+		
 		Path inputPath = new File(inputDir).toPath();
 		ResourceSet set = new HenshinResourceSet();
 		
@@ -60,7 +61,7 @@ public class CalculateFitnessAndKneeopint {
 				resultManager.setBaseName(language.getName());				
 				TransformationSolution solution = createSolution(language);
 				solutions.add(solution);
-				MomotUtil.saveGraph(MomotUtil.createEGraph(language), outputDir + resultManager.getFileName(solution));
+				resultManager.saveModel(solution);
 			}
 		}
 		System.out.println(function.getObjectiveNames());

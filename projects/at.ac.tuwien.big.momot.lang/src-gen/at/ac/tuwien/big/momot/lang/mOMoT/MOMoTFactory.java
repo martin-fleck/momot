@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,10 +9,10 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage
  * @generated
  */
-public interface MOMoTFactory extends EFactory
+public interface MomotFactory extends EFactory
 {
   /**
    * The singleton instance of the factory.
@@ -20,13 +20,13 @@ public interface MOMoTFactory extends EFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  MOMoTFactory eINSTANCE = at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTFactoryImpl.init();
+  MomotFactory eINSTANCE = at.ac.tuwien.big.momot.lang.momot.impl.MomotFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Search</em>'.
+   * Returns a new object of class '<em>MO Mo TSearch</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Search</em>'.
+   * @return a new object of class '<em>MO Mo TSearch</em>'.
    * @generated
    */
   MOMoTSearch createMOMoTSearch();
@@ -41,13 +41,13 @@ public interface MOMoTFactory extends EFactory
   VariableDeclaration createVariableDeclaration();
 
   /**
-   * Returns a new object of class '<em>Transformation Orchestration</em>'.
+   * Returns a new object of class '<em>Module Orchestration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Transformation Orchestration</em>'.
+   * @return a new object of class '<em>Module Orchestration</em>'.
    * @generated
    */
-  TransformationOrchestration createTransformationOrchestration();
+  ModuleOrchestration createModuleOrchestration();
 
   /**
    * Returns a new object of class '<em>Parmeter Value Specification</em>'.
@@ -66,6 +66,15 @@ public interface MOMoTFactory extends EFactory
    * @generated
    */
   SearchOrchestration createSearchOrchestration();
+
+  /**
+   * Returns a new object of class '<em>Input Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input Model</em>'.
+   * @generated
+   */
+  InputModel createInputModel();
 
   /**
    * Returns a new object of class '<em>Equality Helper</em>'.
@@ -221,13 +230,22 @@ public interface MOMoTFactory extends EFactory
   AlgorithmReferences createAlgorithmReferences();
 
   /**
-   * Returns a new object of class '<em>Result Management</em>'.
+   * Returns a new object of class '<em>Analysis Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Result Management</em>'.
+   * @return a new object of class '<em>Analysis Command</em>'.
    * @generated
    */
-  ResultManagement createResultManagement();
+  AnalysisCommand createAnalysisCommand();
+
+  /**
+   * Returns a new object of class '<em>Print Analysis Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Print Analysis Command</em>'.
+   * @generated
+   */
+  PrintAnalysisCommand createPrintAnalysisCommand();
 
   /**
    * Returns a new object of class '<em>Save Analysis Command</em>'.
@@ -239,40 +257,58 @@ public interface MOMoTFactory extends EFactory
   SaveAnalysisCommand createSaveAnalysisCommand();
 
   /**
-   * Returns a new object of class '<em>Save Objectives Command</em>'.
+   * Returns a new object of class '<em>Boxplot Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Save Objectives Command</em>'.
+   * @return a new object of class '<em>Boxplot Command</em>'.
    * @generated
    */
-  SaveObjectivesCommand createSaveObjectivesCommand();
+  BoxplotCommand createBoxplotCommand();
 
   /**
-   * Returns a new object of class '<em>Save Solutions Command</em>'.
+   * Returns a new object of class '<em>Result Management</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Save Solutions Command</em>'.
+   * @return a new object of class '<em>Result Management</em>'.
    * @generated
    */
-  SaveSolutionsCommand createSaveSolutionsCommand();
+  ResultManagement createResultManagement();
 
   /**
-   * Returns a new object of class '<em>Print Objectives Command</em>'.
+   * Returns a new object of class '<em>Result Management Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Print Objectives Command</em>'.
+   * @return a new object of class '<em>Result Management Command</em>'.
    * @generated
    */
-  PrintObjectivesCommand createPrintObjectivesCommand();
+  ResultManagementCommand createResultManagementCommand();
 
   /**
-   * Returns a new object of class '<em>Print Solutions Command</em>'.
+   * Returns a new object of class '<em>Objectives Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Print Solutions Command</em>'.
+   * @return a new object of class '<em>Objectives Command</em>'.
    * @generated
    */
-  PrintSolutionsCommand createPrintSolutionsCommand();
+  ObjectivesCommand createObjectivesCommand();
+
+  /**
+   * Returns a new object of class '<em>Solutions Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Solutions Command</em>'.
+   * @generated
+   */
+  SolutionsCommand createSolutionsCommand();
+
+  /**
+   * Returns a new object of class '<em>Models Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Models Command</em>'.
+   * @generated
+   */
+  ModelsCommand createModelsCommand();
 
   /**
    * Returns the package supported by this factory.
@@ -281,6 +317,6 @@ public interface MOMoTFactory extends EFactory
    * @return the package supported by this factory.
    * @generated
    */
-  MOMoTPackage getMOMoTPackage();
+  MomotPackage getMomotPackage();
 
-} //MOMoTFactory
+} //MomotFactory

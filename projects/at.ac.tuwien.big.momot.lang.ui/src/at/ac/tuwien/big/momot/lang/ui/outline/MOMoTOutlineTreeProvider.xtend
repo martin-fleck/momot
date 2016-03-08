@@ -3,11 +3,10 @@
  */
 package at.ac.tuwien.big.momot.lang.ui.outline
 
-import at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration
-import at.ac.tuwien.big.momot.lang.mOMoT.ResultManagement
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveObjectivesCommand
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveSolutionsCommand
+import at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration
+import at.ac.tuwien.big.momot.lang.momot.ResultManagement
+import at.ac.tuwien.big.momot.lang.momot.ResultManagementCommand
+import at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 
 /**
@@ -17,13 +16,10 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  */
 class MOMoTOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
-	def Boolean _isLeaf(SaveSolutionsCommand it) {
+	def Boolean _isLeaf(ResultManagementCommand it) {
 		return true
 	}
 	
-	def Boolean _isLeaf(SaveObjectivesCommand it) {
-		return true
-	}
 	
 	def Boolean _isLeaf(SaveAnalysisCommand it) {
 		return true
@@ -32,15 +28,6 @@ class MOMoTOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	def Boolean _isLeaf(ExperimentOrchestration it) {
 		return true
 	}
-	
-	def String _text(SaveSolutionsCommand it) {
-		return "saveSolutions(" + directory + ")"
-	}
-	
-	def String _text(SaveObjectivesCommand it) {
-		return "saveObjectives(" + file + ")"
-	}
-	
 	def String _text(SaveAnalysisCommand it) {
 		return "saveAnalysis(" + file + ")"
 	}

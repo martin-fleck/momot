@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.DefExpression;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.DefExpression;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import java.util.Collection;
 
@@ -31,8 +31,8 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessDimensionOCLImpl#getQuery <em>Query</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessDimensionOCLImpl#getDefExpressions <em>Def Expressions</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessDimensionOCLImpl#getQuery <em>Query</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessDimensionOCLImpl#getDefExpressions <em>Def Expressions</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,7 +77,7 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.FITNESS_DIMENSION_OCL;
+    return MomotPackage.Literals.FITNESS_DIMENSION_OCL;
   }
 
   /**
@@ -101,7 +101,7 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
     query = newQuery;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY, oldQuery, newQuery);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_OCL__QUERY, oldQuery, newQuery);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -118,14 +118,14 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
     {
       NotificationChain msgs = null;
       if (query != null)
-        msgs = ((InternalEObject)query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY, null, msgs);
+        msgs = ((InternalEObject)query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_DIMENSION_OCL__QUERY, null, msgs);
       if (newQuery != null)
-        msgs = ((InternalEObject)newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY, null, msgs);
+        msgs = ((InternalEObject)newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_DIMENSION_OCL__QUERY, null, msgs);
       msgs = basicSetQuery(newQuery, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY, newQuery, newQuery));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_OCL__QUERY, newQuery, newQuery));
   }
 
   /**
@@ -137,7 +137,7 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
   {
     if (defExpressions == null)
     {
-      defExpressions = new EObjectContainmentEList<DefExpression>(DefExpression.class, this, MOMoTPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS);
+      defExpressions = new EObjectContainmentEList<DefExpression>(DefExpression.class, this, MomotPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS);
     }
     return defExpressions;
   }
@@ -152,9 +152,9 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY:
+      case MomotPackage.FITNESS_DIMENSION_OCL__QUERY:
         return basicSetQuery(null, msgs);
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
+      case MomotPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
         return ((InternalEList<?>)getDefExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -170,9 +170,9 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY:
+      case MomotPackage.FITNESS_DIMENSION_OCL__QUERY:
         return getQuery();
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
+      case MomotPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
         return getDefExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -189,10 +189,10 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY:
+      case MomotPackage.FITNESS_DIMENSION_OCL__QUERY:
         setQuery((XExpression)newValue);
         return;
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
+      case MomotPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
         getDefExpressions().clear();
         getDefExpressions().addAll((Collection<? extends DefExpression>)newValue);
         return;
@@ -210,10 +210,10 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY:
+      case MomotPackage.FITNESS_DIMENSION_OCL__QUERY:
         setQuery((XExpression)null);
         return;
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
+      case MomotPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
         getDefExpressions().clear();
         return;
     }
@@ -230,9 +230,9 @@ public class FitnessDimensionOCLImpl extends FitnessDimensionSpecificationImpl i
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__QUERY:
+      case MomotPackage.FITNESS_DIMENSION_OCL__QUERY:
         return query != null;
-      case MOMoTPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
+      case MomotPackage.FITNESS_DIMENSION_OCL__DEF_EXPRESSIONS:
         return defExpressions != null && !defExpressions.isEmpty();
     }
     return super.eIsSet(featureID);

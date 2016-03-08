@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmReferences;
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmReferences;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import java.util.Collection;
 
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.AlgorithmReferencesImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.AlgorithmReferencesImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,7 +59,7 @@ public class AlgorithmReferencesImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.ALGORITHM_REFERENCES;
+    return MomotPackage.Literals.ALGORITHM_REFERENCES;
   }
 
   /**
@@ -71,7 +71,7 @@ public class AlgorithmReferencesImpl extends MinimalEObjectImpl.Container implem
   {
     if (elements == null)
     {
-      elements = new EObjectResolvingEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MOMoTPackage.ALGORITHM_REFERENCES__ELEMENTS);
+      elements = new EObjectResolvingEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MomotPackage.ALGORITHM_REFERENCES__ELEMENTS);
     }
     return elements;
   }
@@ -86,7 +86,7 @@ public class AlgorithmReferencesImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_REFERENCES__ELEMENTS:
+      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
         return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -103,7 +103,7 @@ public class AlgorithmReferencesImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_REFERENCES__ELEMENTS:
+      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends AlgorithmSpecification>)newValue);
         return;
@@ -121,7 +121,7 @@ public class AlgorithmReferencesImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_REFERENCES__ELEMENTS:
+      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
         getElements().clear();
         return;
     }
@@ -138,7 +138,7 @@ public class AlgorithmReferencesImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.ALGORITHM_REFERENCES__ELEMENTS:
+      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);

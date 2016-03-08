@@ -297,22 +297,22 @@ public interface RefactoringPackage extends EPackage {
 	int REFACTORING_MODEL = 5;
 
 	/**
-	 * The feature id for the '<em><b>Propertys</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFACTORING_MODEL__PROPERTYS = 0;
+	int REFACTORING_MODEL__PROPERTIES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Entitys</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Entities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFACTORING_MODEL__ENTITYS = 1;
+	int REFACTORING_MODEL__ENTITIES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -489,26 +489,26 @@ public interface RefactoringPackage extends EPackage {
 	EClass getRefactoringModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getPropertys <em>Propertys</em>}'.
+	 * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Propertys</em>'.
-	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getPropertys()
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties()
 	 * @see #getRefactoringModel()
 	 * @generated
 	 */
-	EReference getRefactoringModel_Propertys();
+	EReference getRefactoringModel_Properties();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntitys <em>Entitys</em>}'.
+	 * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities <em>Entities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Entitys</em>'.
-	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntitys()
+	 * @return the meta object for the containment reference list '<em>Entities</em>'.
+	 * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities()
 	 * @see #getRefactoringModel()
 	 * @generated
 	 */
-	EReference getRefactoringModel_Entitys();
+	EReference getRefactoringModel_Entities();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getTypes <em>Types</em>}'.
@@ -672,20 +672,20 @@ public interface RefactoringPackage extends EPackage {
 		EClass REFACTORING_MODEL = eINSTANCE.getRefactoringModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Propertys</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFACTORING_MODEL__PROPERTYS = eINSTANCE.getRefactoringModel_Propertys();
+		EReference REFACTORING_MODEL__PROPERTIES = eINSTANCE.getRefactoringModel_Properties();
 
 		/**
-		 * The meta object literal for the '<em><b>Entitys</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFACTORING_MODEL__ENTITYS = eINSTANCE.getRefactoringModel_Entitys();
+		EReference REFACTORING_MODEL__ENTITIES = eINSTANCE.getRefactoringModel_Entities();
 
 		/**
 		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.

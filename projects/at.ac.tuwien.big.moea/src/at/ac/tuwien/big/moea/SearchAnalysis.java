@@ -1,6 +1,6 @@
 package at.ac.tuwien.big.moea;
 
-import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,12 +15,12 @@ import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
 
 public class SearchAnalysis extends IndicatorConfiguration {
 	public static final double SIGNIFICANCE_ONE_PERCENT = 0.01;
-	public static final double SIGNIFICANCE_ONE_PERCENT_FIVE_PERCENT = 0.05;
+	public static final double SIGNIFICANCE_FIVE_PERCENT = 0.05;
 	
-	protected SearchExperiment experiment;
+	protected SearchExperiment<?> experiment;
 	protected Map<String, List<String>> grouping = new HashMap<>();
 	
-	protected double significanceLevel = SIGNIFICANCE_ONE_PERCENT_FIVE_PERCENT;
+	protected double significanceLevel = SIGNIFICANCE_FIVE_PERCENT;
 	
 	protected boolean showStatisticalSignificance;
 	protected boolean showAggregate;
@@ -32,15 +32,15 @@ public class SearchAnalysis extends IndicatorConfiguration {
 	
 	public SearchAnalysis() { }
 	
-	public SearchAnalysis(SearchExperiment experiment) {
+	public SearchAnalysis(SearchExperiment<?> experiment) {
 		setExperiment(experiment);
 	}
 	
-	public void setExperiment(SearchExperiment experiment) {
+	public void setExperiment(SearchExperiment<?> experiment) {
 		this.experiment = experiment;
 	}
 	
-	public SearchExperiment getExperiment() {
+	public SearchExperiment<?> getExperiment() {
 		return experiment;
 	}
 	
@@ -198,11 +198,18 @@ public class SearchAnalysis extends IndicatorConfiguration {
 			for(String group : getAnalysisGroups(result))
 				analyzer.addAll(group, result.getValue());
 		
-		try {
-			analyzer.printAnalysis();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		return analyzer;
+	}
+	
+	public SearchAnalyzer analyze(PrintStream ps) {
+		SearchAnalyzer analyzer = createAnalyzer();
+		Map<SearchExecutor, List<NondominatedPopulation>> results = getResults();
+		
+		for(Entry<SearchExecutor, List<NondominatedPopulation>> result : results.entrySet()) 
+			for(String group : getAnalysisGroups(result))
+				analyzer.addAll(group, result.getValue());
+		
+		analyzer.printAnalysis(ps);
 		
 		return analyzer;
 	}

@@ -11,6 +11,7 @@ import org.moeaframework.Instrumenter;
 import org.moeaframework.analysis.collector.Collector;
 import org.moeaframework.core.Algorithm;
 import org.moeaframework.core.NondominatedPopulation;
+import org.moeaframework.core.Solution;
 import org.moeaframework.util.progress.ProgressListener;
 
 import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
@@ -19,9 +20,9 @@ import at.ac.tuwien.big.moea.problem.ISearchProblem;
 import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm;
 import at.ac.tuwien.big.moea.util.CastUtil;
 
-public class SearchExperiment extends IndicatorConfiguration {
+public class SearchExperiment<S extends Solution> extends IndicatorConfiguration {
 	
-	protected ISearchOrchestration<?> searchOrchestration;
+	protected ISearchOrchestration<S> searchOrchestration;
 	
 	// instrumentation
 	protected File referenceSetFile = null;
@@ -48,21 +49,21 @@ public class SearchExperiment extends IndicatorConfiguration {
 	
 	public SearchExperiment() { }
 	
-	public SearchExperiment(ISearchOrchestration<?> searchOrchestration) {
+	public SearchExperiment(ISearchOrchestration<S> searchOrchestration) {
 		setSearchOrchestration(searchOrchestration);
 	}
 	
-	public SearchExperiment(ISearchOrchestration<?> searchOrchestration, int maxEvaluations) {
+	public SearchExperiment(ISearchOrchestration<S> searchOrchestration, int maxEvaluations) {
 		setSearchOrchestration(searchOrchestration);
 		setMaxEvaluations(maxEvaluations);
 	}
 	
 	public void setSearchOrchestration(
-			ISearchOrchestration<?> searchOrchestration) {
+			ISearchOrchestration<S> searchOrchestration) {
 		this.searchOrchestration = searchOrchestration;
 	}
 	
-	public ISearchOrchestration<?> getSearchOrchestration() {
+	public ISearchOrchestration<S> getSearchOrchestration() {
 		return searchOrchestration;
 	}
 	

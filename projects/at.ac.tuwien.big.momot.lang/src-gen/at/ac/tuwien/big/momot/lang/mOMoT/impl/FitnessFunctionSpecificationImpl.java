@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessFunctionSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionSpecification;
+import at.ac.tuwien.big.momot.lang.momot.FitnessFunctionSpecification;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import java.util.Collection;
 
@@ -32,12 +32,12 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessFunctionSpecificationImpl#getConstructor <em>Constructor</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessFunctionSpecificationImpl#getPreprocess <em>Preprocess</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessFunctionSpecificationImpl#getObjectives <em>Objectives</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessFunctionSpecificationImpl#getConstraints <em>Constraints</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessFunctionSpecificationImpl#getPostprocess <em>Postprocess</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessFunctionSpecificationImpl#getSolutionRepairer <em>Solution Repairer</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessFunctionSpecificationImpl#getConstructor <em>Constructor</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessFunctionSpecificationImpl#getPreprocess <em>Preprocess</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessFunctionSpecificationImpl#getObjectives <em>Objectives</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessFunctionSpecificationImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessFunctionSpecificationImpl#getPostprocess <em>Postprocess</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessFunctionSpecificationImpl#getSolutionRepairer <em>Solution Repairer</em>}</li>
  * </ul>
  *
  * @generated
@@ -122,7 +122,7 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.FITNESS_FUNCTION_SPECIFICATION;
+    return MomotPackage.Literals.FITNESS_FUNCTION_SPECIFICATION;
   }
 
   /**
@@ -146,7 +146,7 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     constructor = newConstructor;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, oldConstructor, newConstructor);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, oldConstructor, newConstructor);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -163,14 +163,14 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     {
       NotificationChain msgs = null;
       if (constructor != null)
-        msgs = ((InternalEObject)constructor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, null, msgs);
+        msgs = ((InternalEObject)constructor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, null, msgs);
       if (newConstructor != null)
-        msgs = ((InternalEObject)newConstructor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, null, msgs);
+        msgs = ((InternalEObject)newConstructor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, null, msgs);
       msgs = basicSetConstructor(newConstructor, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, newConstructor, newConstructor));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR, newConstructor, newConstructor));
   }
 
   /**
@@ -194,7 +194,7 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     preprocess = newPreprocess;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, oldPreprocess, newPreprocess);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, oldPreprocess, newPreprocess);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -211,14 +211,14 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     {
       NotificationChain msgs = null;
       if (preprocess != null)
-        msgs = ((InternalEObject)preprocess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, null, msgs);
+        msgs = ((InternalEObject)preprocess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, null, msgs);
       if (newPreprocess != null)
-        msgs = ((InternalEObject)newPreprocess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, null, msgs);
+        msgs = ((InternalEObject)newPreprocess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, null, msgs);
       msgs = basicSetPreprocess(newPreprocess, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, newPreprocess, newPreprocess));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS, newPreprocess, newPreprocess));
   }
 
   /**
@@ -230,7 +230,7 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   {
     if (objectives == null)
     {
-      objectives = new EObjectContainmentEList<FitnessDimensionSpecification>(FitnessDimensionSpecification.class, this, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES);
+      objectives = new EObjectContainmentEList<FitnessDimensionSpecification>(FitnessDimensionSpecification.class, this, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES);
     }
     return objectives;
   }
@@ -244,7 +244,7 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   {
     if (constraints == null)
     {
-      constraints = new EObjectContainmentEList<FitnessDimensionSpecification>(FitnessDimensionSpecification.class, this, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS);
+      constraints = new EObjectContainmentEList<FitnessDimensionSpecification>(FitnessDimensionSpecification.class, this, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS);
     }
     return constraints;
   }
@@ -270,7 +270,7 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     postprocess = newPostprocess;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, oldPostprocess, newPostprocess);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, oldPostprocess, newPostprocess);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -287,14 +287,14 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     {
       NotificationChain msgs = null;
       if (postprocess != null)
-        msgs = ((InternalEObject)postprocess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, null, msgs);
+        msgs = ((InternalEObject)postprocess).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, null, msgs);
       if (newPostprocess != null)
-        msgs = ((InternalEObject)newPostprocess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, null, msgs);
+        msgs = ((InternalEObject)newPostprocess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, null, msgs);
       msgs = basicSetPostprocess(newPostprocess, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, newPostprocess, newPostprocess));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS, newPostprocess, newPostprocess));
   }
 
   /**
@@ -318,7 +318,7 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     solutionRepairer = newSolutionRepairer;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, oldSolutionRepairer, newSolutionRepairer);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, oldSolutionRepairer, newSolutionRepairer);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -335,14 +335,14 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
     {
       NotificationChain msgs = null;
       if (solutionRepairer != null)
-        msgs = ((InternalEObject)solutionRepairer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, null, msgs);
+        msgs = ((InternalEObject)solutionRepairer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, null, msgs);
       if (newSolutionRepairer != null)
-        msgs = ((InternalEObject)newSolutionRepairer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, null, msgs);
+        msgs = ((InternalEObject)newSolutionRepairer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, null, msgs);
       msgs = basicSetSolutionRepairer(newSolutionRepairer, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, newSolutionRepairer, newSolutionRepairer));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER, newSolutionRepairer, newSolutionRepairer));
   }
 
   /**
@@ -355,17 +355,17 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
         return basicSetConstructor(null, msgs);
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
         return basicSetPreprocess(null, msgs);
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
         return ((InternalEList<?>)getObjectives()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
         return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
         return basicSetPostprocess(null, msgs);
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
         return basicSetSolutionRepairer(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -381,17 +381,17 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
         return getConstructor();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
         return getPreprocess();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
         return getObjectives();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
         return getConstraints();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
         return getPostprocess();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
         return getSolutionRepairer();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -408,24 +408,24 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
         setConstructor((XExpression)newValue);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
         setPreprocess((XExpression)newValue);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
         getObjectives().clear();
         getObjectives().addAll((Collection<? extends FitnessDimensionSpecification>)newValue);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
         getConstraints().clear();
         getConstraints().addAll((Collection<? extends FitnessDimensionSpecification>)newValue);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
         setPostprocess((XExpression)newValue);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
         setSolutionRepairer((XExpression)newValue);
         return;
     }
@@ -442,22 +442,22 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
         setConstructor((XExpression)null);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
         setPreprocess((XExpression)null);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
         getObjectives().clear();
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
         getConstraints().clear();
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
         setPostprocess((XExpression)null);
         return;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
         setSolutionRepairer((XExpression)null);
         return;
     }
@@ -474,17 +474,17 @@ public class FitnessFunctionSpecificationImpl extends MinimalEObjectImpl.Contain
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRUCTOR:
         return constructor != null;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__PREPROCESS:
         return preprocess != null;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__OBJECTIVES:
         return objectives != null && !objectives.isEmpty();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__CONSTRAINTS:
         return constraints != null && !constraints.isEmpty();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__POSTPROCESS:
         return postprocess != null;
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION__SOLUTION_REPAIRER:
         return solutionRepairer != null;
     }
     return super.eIsSet(featureID);

@@ -1,8 +1,8 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.util;
+package at.ac.tuwien.big.momot.lang.momot.util;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.*;
+import at.ac.tuwien.big.momot.lang.momot.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage
  * @generated
  */
-public class MOMoTAdapterFactory extends AdapterFactoryImpl
+public class MomotAdapterFactory extends AdapterFactoryImpl
 {
   /**
    * The cached model package.
@@ -27,7 +27,7 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static MOMoTPackage modelPackage;
+  protected static MomotPackage modelPackage;
 
   /**
    * Creates an instance of the adapter factory.
@@ -35,11 +35,11 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public MOMoTAdapterFactory()
+  public MomotAdapterFactory()
   {
     if (modelPackage == null)
     {
-      modelPackage = MOMoTPackage.eINSTANCE;
+      modelPackage = MomotPackage.eINSTANCE;
     }
   }
 
@@ -71,8 +71,8 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MOMoTSwitch<Adapter> modelSwitch =
-    new MOMoTSwitch<Adapter>()
+  protected MomotSwitch<Adapter> modelSwitch =
+    new MomotSwitch<Adapter>()
     {
       @Override
       public Adapter caseMOMoTSearch(MOMoTSearch object)
@@ -85,9 +85,9 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
         return createVariableDeclarationAdapter();
       }
       @Override
-      public Adapter caseTransformationOrchestration(TransformationOrchestration object)
+      public Adapter caseModuleOrchestration(ModuleOrchestration object)
       {
-        return createTransformationOrchestrationAdapter();
+        return createModuleOrchestrationAdapter();
       }
       @Override
       public Adapter caseParmeterValueSpecification(ParmeterValueSpecification object)
@@ -98,6 +98,11 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSearchOrchestration(SearchOrchestration object)
       {
         return createSearchOrchestrationAdapter();
+      }
+      @Override
+      public Adapter caseInputModel(InputModel object)
+      {
+        return createInputModelAdapter();
       }
       @Override
       public Adapter caseEqualityHelper(EqualityHelper object)
@@ -185,9 +190,14 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
         return createAlgorithmReferencesAdapter();
       }
       @Override
-      public Adapter caseResultManagement(ResultManagement object)
+      public Adapter caseAnalysisCommand(AnalysisCommand object)
       {
-        return createResultManagementAdapter();
+        return createAnalysisCommandAdapter();
+      }
+      @Override
+      public Adapter casePrintAnalysisCommand(PrintAnalysisCommand object)
+      {
+        return createPrintAnalysisCommandAdapter();
       }
       @Override
       public Adapter caseSaveAnalysisCommand(SaveAnalysisCommand object)
@@ -195,24 +205,34 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
         return createSaveAnalysisCommandAdapter();
       }
       @Override
-      public Adapter caseSaveObjectivesCommand(SaveObjectivesCommand object)
+      public Adapter caseBoxplotCommand(BoxplotCommand object)
       {
-        return createSaveObjectivesCommandAdapter();
+        return createBoxplotCommandAdapter();
       }
       @Override
-      public Adapter caseSaveSolutionsCommand(SaveSolutionsCommand object)
+      public Adapter caseResultManagement(ResultManagement object)
       {
-        return createSaveSolutionsCommandAdapter();
+        return createResultManagementAdapter();
       }
       @Override
-      public Adapter casePrintObjectivesCommand(PrintObjectivesCommand object)
+      public Adapter caseResultManagementCommand(ResultManagementCommand object)
       {
-        return createPrintObjectivesCommandAdapter();
+        return createResultManagementCommandAdapter();
       }
       @Override
-      public Adapter casePrintSolutionsCommand(PrintSolutionsCommand object)
+      public Adapter caseObjectivesCommand(ObjectivesCommand object)
       {
-        return createPrintSolutionsCommandAdapter();
+        return createObjectivesCommandAdapter();
+      }
+      @Override
+      public Adapter caseSolutionsCommand(SolutionsCommand object)
+      {
+        return createSolutionsCommandAdapter();
+      }
+      @Override
+      public Adapter caseModelsCommand(ModelsCommand object)
+      {
+        return createModelsCommandAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -237,13 +257,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch <em>Search</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch <em>MO Mo TSearch</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch
+   * @see at.ac.tuwien.big.momot.lang.momot.MOMoTSearch
    * @generated
    */
   public Adapter createMOMoTSearchAdapter()
@@ -252,13 +272,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration <em>Variable Declaration</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration <em>Variable Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration
+   * @see at.ac.tuwien.big.momot.lang.momot.VariableDeclaration
    * @generated
    */
   public Adapter createVariableDeclarationAdapter()
@@ -267,28 +287,28 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.TransformationOrchestration <em>Transformation Orchestration</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ModuleOrchestration <em>Module Orchestration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.TransformationOrchestration
+   * @see at.ac.tuwien.big.momot.lang.momot.ModuleOrchestration
    * @generated
    */
-  public Adapter createTransformationOrchestrationAdapter()
+  public Adapter createModuleOrchestrationAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.ParmeterValueSpecification <em>Parmeter Value Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ParmeterValueSpecification <em>Parmeter Value Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.ParmeterValueSpecification
+   * @see at.ac.tuwien.big.momot.lang.momot.ParmeterValueSpecification
    * @generated
    */
   public Adapter createParmeterValueSpecificationAdapter()
@@ -297,13 +317,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration <em>Search Orchestration</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration <em>Search Orchestration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration
+   * @see at.ac.tuwien.big.momot.lang.momot.SearchOrchestration
    * @generated
    */
   public Adapter createSearchOrchestrationAdapter()
@@ -312,13 +332,28 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.EqualityHelper <em>Equality Helper</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.InputModel <em>Input Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.EqualityHelper
+   * @see at.ac.tuwien.big.momot.lang.momot.InputModel
+   * @generated
+   */
+  public Adapter createInputModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.EqualityHelper <em>Equality Helper</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.ac.tuwien.big.momot.lang.momot.EqualityHelper
    * @generated
    */
   public Adapter createEqualityHelperAdapter()
@@ -327,13 +362,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmList <em>Algorithm List</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.AlgorithmList <em>Algorithm List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmList
+   * @see at.ac.tuwien.big.momot.lang.momot.AlgorithmList
    * @generated
    */
   public Adapter createAlgorithmListAdapter()
@@ -342,13 +377,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessFunctionSpecification <em>Fitness Function Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.FitnessFunctionSpecification <em>Fitness Function Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.FitnessFunctionSpecification
+   * @see at.ac.tuwien.big.momot.lang.momot.FitnessFunctionSpecification
    * @generated
    */
   public Adapter createFitnessFunctionSpecificationAdapter()
@@ -357,13 +392,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionSpecification <em>Fitness Dimension Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionSpecification <em>Fitness Dimension Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionSpecification
+   * @see at.ac.tuwien.big.momot.lang.momot.FitnessDimensionSpecification
    * @generated
    */
   public Adapter createFitnessDimensionSpecificationAdapter()
@@ -372,13 +407,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionConstructor <em>Fitness Dimension Constructor</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionConstructor <em>Fitness Dimension Constructor</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionConstructor
+   * @see at.ac.tuwien.big.momot.lang.momot.FitnessDimensionConstructor
    * @generated
    */
   public Adapter createFitnessDimensionConstructorAdapter()
@@ -387,13 +422,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionXBase <em>Fitness Dimension XBase</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionXBase <em>Fitness Dimension XBase</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionXBase
+   * @see at.ac.tuwien.big.momot.lang.momot.FitnessDimensionXBase
    * @generated
    */
   public Adapter createFitnessDimensionXBaseAdapter()
@@ -402,13 +437,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL <em>Fitness Dimension OCL</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL <em>Fitness Dimension OCL</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL
+   * @see at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL
    * @generated
    */
   public Adapter createFitnessDimensionOCLAdapter()
@@ -417,13 +452,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.DefExpression <em>Def Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.DefExpression <em>Def Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.DefExpression
+   * @see at.ac.tuwien.big.momot.lang.momot.DefExpression
    * @generated
    */
   public Adapter createDefExpressionAdapter()
@@ -432,13 +467,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification <em>Algorithm Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification <em>Algorithm Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification
+   * @see at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification
    * @generated
    */
   public Adapter createAlgorithmSpecificationAdapter()
@@ -447,13 +482,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration <em>Experiment Orchestration</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration <em>Experiment Orchestration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration
+   * @see at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration
    * @generated
    */
   public Adapter createExperimentOrchestrationAdapter()
@@ -462,13 +497,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.CollectorArray <em>Collector Array</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.CollectorArray <em>Collector Array</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.CollectorArray
+   * @see at.ac.tuwien.big.momot.lang.momot.CollectorArray
    * @generated
    */
   public Adapter createCollectorArrayAdapter()
@@ -477,13 +512,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisOrchestration <em>Analysis Orchestration</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.AnalysisOrchestration <em>Analysis Orchestration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.AnalysisOrchestration
+   * @see at.ac.tuwien.big.momot.lang.momot.AnalysisOrchestration
    * @generated
    */
   public Adapter createAnalysisOrchestrationAdapter()
@@ -492,13 +527,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupList <em>Analysis Group List</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupList <em>Analysis Group List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupList
+   * @see at.ac.tuwien.big.momot.lang.momot.AnalysisGroupList
    * @generated
    */
   public Adapter createAnalysisGroupListAdapter()
@@ -507,13 +542,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.IndicatorArray <em>Indicator Array</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.IndicatorArray <em>Indicator Array</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.IndicatorArray
+   * @see at.ac.tuwien.big.momot.lang.momot.IndicatorArray
    * @generated
    */
   public Adapter createIndicatorArrayAdapter()
@@ -522,13 +557,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.ShowArray <em>Show Array</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ShowArray <em>Show Array</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.ShowArray
+   * @see at.ac.tuwien.big.momot.lang.momot.ShowArray
    * @generated
    */
   public Adapter createShowArrayAdapter()
@@ -537,13 +572,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification <em>Analysis Group Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification <em>Analysis Group Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification
+   * @see at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification
    * @generated
    */
   public Adapter createAnalysisGroupSpecificationAdapter()
@@ -552,13 +587,13 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmReferences <em>Algorithm References</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.AlgorithmReferences <em>Algorithm References</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmReferences
+   * @see at.ac.tuwien.big.momot.lang.momot.AlgorithmReferences
    * @generated
    */
   public Adapter createAlgorithmReferencesAdapter()
@@ -567,28 +602,43 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.ResultManagement <em>Result Management</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.AnalysisCommand <em>Analysis Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.ResultManagement
+   * @see at.ac.tuwien.big.momot.lang.momot.AnalysisCommand
    * @generated
    */
-  public Adapter createResultManagementAdapter()
+  public Adapter createAnalysisCommandAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand <em>Save Analysis Command</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.PrintAnalysisCommand <em>Print Analysis Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand
+   * @see at.ac.tuwien.big.momot.lang.momot.PrintAnalysisCommand
+   * @generated
+   */
+  public Adapter createPrintAnalysisCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand <em>Save Analysis Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand
    * @generated
    */
   public Adapter createSaveAnalysisCommandAdapter()
@@ -597,61 +647,91 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.SaveObjectivesCommand <em>Save Objectives Command</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.BoxplotCommand <em>Boxplot Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.SaveObjectivesCommand
+   * @see at.ac.tuwien.big.momot.lang.momot.BoxplotCommand
    * @generated
    */
-  public Adapter createSaveObjectivesCommandAdapter()
+  public Adapter createBoxplotCommandAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.SaveSolutionsCommand <em>Save Solutions Command</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ResultManagement <em>Result Management</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.SaveSolutionsCommand
+   * @see at.ac.tuwien.big.momot.lang.momot.ResultManagement
    * @generated
    */
-  public Adapter createSaveSolutionsCommandAdapter()
+  public Adapter createResultManagementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.PrintObjectivesCommand <em>Print Objectives Command</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ResultManagementCommand <em>Result Management Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.PrintObjectivesCommand
+   * @see at.ac.tuwien.big.momot.lang.momot.ResultManagementCommand
    * @generated
    */
-  public Adapter createPrintObjectivesCommandAdapter()
+  public Adapter createResultManagementCommandAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.mOMoT.PrintSolutionsCommand <em>Print Solutions Command</em>}'.
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ObjectivesCommand <em>Objectives Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.PrintSolutionsCommand
+   * @see at.ac.tuwien.big.momot.lang.momot.ObjectivesCommand
    * @generated
    */
-  public Adapter createPrintSolutionsCommandAdapter()
+  public Adapter createObjectivesCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.SolutionsCommand <em>Solutions Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.ac.tuwien.big.momot.lang.momot.SolutionsCommand
+   * @generated
+   */
+  public Adapter createSolutionsCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.ac.tuwien.big.momot.lang.momot.ModelsCommand <em>Models Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.ac.tuwien.big.momot.lang.momot.ModelsCommand
+   * @generated
+   */
+  public Adapter createModelsCommandAdapter()
   {
     return null;
   }
@@ -669,4 +749,4 @@ public class MOMoTAdapterFactory extends AdapterFactoryImpl
     return null;
   }
 
-} //MOMoTAdapterFactory
+} //MomotAdapterFactory

@@ -1,14 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
-import at.ac.tuwien.big.momot.lang.mOMoT.PrintObjectivesCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.PrintSolutionsCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.ResultManagement;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveObjectivesCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveSolutionsCommand;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
+import at.ac.tuwien.big.momot.lang.momot.ResultManagement;
+import at.ac.tuwien.big.momot.lang.momot.ResultManagementCommand;
 
 import java.util.Collection;
 
@@ -36,12 +32,8 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ResultManagementImpl#getSaveAnalysis <em>Save Analysis</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ResultManagementImpl#getSaveObjectives <em>Save Objectives</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ResultManagementImpl#getSaveSolutions <em>Save Solutions</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ResultManagementImpl#getPrintObjectives <em>Print Objectives</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ResultManagementImpl#getPrintSolutions <em>Print Solutions</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ResultManagementImpl#getDoCommand <em>Do Command</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ResultManagementImpl#getAdaptModels <em>Adapt Models</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ResultManagementImpl#getCommands <em>Commands</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,64 +41,24 @@ import org.eclipse.xtext.xbase.XExpression;
 public class ResultManagementImpl extends MinimalEObjectImpl.Container implements ResultManagement
 {
   /**
-   * The cached value of the '{@link #getSaveAnalysis() <em>Save Analysis</em>}' containment reference.
+   * The cached value of the '{@link #getAdaptModels() <em>Adapt Models</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSaveAnalysis()
+   * @see #getAdaptModels()
    * @generated
    * @ordered
    */
-  protected SaveAnalysisCommand saveAnalysis;
+  protected XExpression adaptModels;
 
   /**
-   * The cached value of the '{@link #getSaveObjectives() <em>Save Objectives</em>}' containment reference list.
+   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSaveObjectives()
+   * @see #getCommands()
    * @generated
    * @ordered
    */
-  protected EList<SaveObjectivesCommand> saveObjectives;
-
-  /**
-   * The cached value of the '{@link #getSaveSolutions() <em>Save Solutions</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSaveSolutions()
-   * @generated
-   * @ordered
-   */
-  protected EList<SaveSolutionsCommand> saveSolutions;
-
-  /**
-   * The cached value of the '{@link #getPrintObjectives() <em>Print Objectives</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrintObjectives()
-   * @generated
-   * @ordered
-   */
-  protected EList<PrintObjectivesCommand> printObjectives;
-
-  /**
-   * The cached value of the '{@link #getPrintSolutions() <em>Print Solutions</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrintSolutions()
-   * @generated
-   * @ordered
-   */
-  protected EList<PrintSolutionsCommand> printSolutions;
-
-  /**
-   * The cached value of the '{@link #getDoCommand() <em>Do Command</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDoCommand()
-   * @generated
-   * @ordered
-   */
-  protected XExpression doCommand;
+  protected EList<ResultManagementCommand> commands;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,7 +78,7 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.RESULT_MANAGEMENT;
+    return MomotPackage.Literals.RESULT_MANAGEMENT;
   }
 
   /**
@@ -134,9 +86,9 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public SaveAnalysisCommand getSaveAnalysis()
+  public XExpression getAdaptModels()
   {
-    return saveAnalysis;
+    return adaptModels;
   }
 
   /**
@@ -144,13 +96,13 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSaveAnalysis(SaveAnalysisCommand newSaveAnalysis, NotificationChain msgs)
+  public NotificationChain basicSetAdaptModels(XExpression newAdaptModels, NotificationChain msgs)
   {
-    SaveAnalysisCommand oldSaveAnalysis = saveAnalysis;
-    saveAnalysis = newSaveAnalysis;
+    XExpression oldAdaptModels = adaptModels;
+    adaptModels = newAdaptModels;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS, oldSaveAnalysis, newSaveAnalysis);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS, oldAdaptModels, newAdaptModels);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -161,20 +113,20 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSaveAnalysis(SaveAnalysisCommand newSaveAnalysis)
+  public void setAdaptModels(XExpression newAdaptModels)
   {
-    if (newSaveAnalysis != saveAnalysis)
+    if (newAdaptModels != adaptModels)
     {
       NotificationChain msgs = null;
-      if (saveAnalysis != null)
-        msgs = ((InternalEObject)saveAnalysis).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS, null, msgs);
-      if (newSaveAnalysis != null)
-        msgs = ((InternalEObject)newSaveAnalysis).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS, null, msgs);
-      msgs = basicSetSaveAnalysis(newSaveAnalysis, msgs);
+      if (adaptModels != null)
+        msgs = ((InternalEObject)adaptModels).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS, null, msgs);
+      if (newAdaptModels != null)
+        msgs = ((InternalEObject)newAdaptModels).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS, null, msgs);
+      msgs = basicSetAdaptModels(newAdaptModels, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS, newSaveAnalysis, newSaveAnalysis));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS, newAdaptModels, newAdaptModels));
   }
 
   /**
@@ -182,103 +134,13 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SaveObjectivesCommand> getSaveObjectives()
+  public EList<ResultManagementCommand> getCommands()
   {
-    if (saveObjectives == null)
+    if (commands == null)
     {
-      saveObjectives = new EObjectContainmentEList<SaveObjectivesCommand>(SaveObjectivesCommand.class, this, MOMoTPackage.RESULT_MANAGEMENT__SAVE_OBJECTIVES);
+      commands = new EObjectContainmentEList<ResultManagementCommand>(ResultManagementCommand.class, this, MomotPackage.RESULT_MANAGEMENT__COMMANDS);
     }
-    return saveObjectives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<SaveSolutionsCommand> getSaveSolutions()
-  {
-    if (saveSolutions == null)
-    {
-      saveSolutions = new EObjectContainmentEList<SaveSolutionsCommand>(SaveSolutionsCommand.class, this, MOMoTPackage.RESULT_MANAGEMENT__SAVE_SOLUTIONS);
-    }
-    return saveSolutions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<PrintObjectivesCommand> getPrintObjectives()
-  {
-    if (printObjectives == null)
-    {
-      printObjectives = new EObjectContainmentEList<PrintObjectivesCommand>(PrintObjectivesCommand.class, this, MOMoTPackage.RESULT_MANAGEMENT__PRINT_OBJECTIVES);
-    }
-    return printObjectives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<PrintSolutionsCommand> getPrintSolutions()
-  {
-    if (printSolutions == null)
-    {
-      printSolutions = new EObjectContainmentEList<PrintSolutionsCommand>(PrintSolutionsCommand.class, this, MOMoTPackage.RESULT_MANAGEMENT__PRINT_SOLUTIONS);
-    }
-    return printSolutions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public XExpression getDoCommand()
-  {
-    return doCommand;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDoCommand(XExpression newDoCommand, NotificationChain msgs)
-  {
-    XExpression oldDoCommand = doCommand;
-    doCommand = newDoCommand;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND, oldDoCommand, newDoCommand);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDoCommand(XExpression newDoCommand)
-  {
-    if (newDoCommand != doCommand)
-    {
-      NotificationChain msgs = null;
-      if (doCommand != null)
-        msgs = ((InternalEObject)doCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND, null, msgs);
-      if (newDoCommand != null)
-        msgs = ((InternalEObject)newDoCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND, null, msgs);
-      msgs = basicSetDoCommand(newDoCommand, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND, newDoCommand, newDoCommand));
+    return commands;
   }
 
   /**
@@ -291,18 +153,10 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS:
-        return basicSetSaveAnalysis(null, msgs);
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_OBJECTIVES:
-        return ((InternalEList<?>)getSaveObjectives()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_SOLUTIONS:
-        return ((InternalEList<?>)getSaveSolutions()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_OBJECTIVES:
-        return ((InternalEList<?>)getPrintObjectives()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_SOLUTIONS:
-        return ((InternalEList<?>)getPrintSolutions()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND:
-        return basicSetDoCommand(null, msgs);
+      case MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS:
+        return basicSetAdaptModels(null, msgs);
+      case MomotPackage.RESULT_MANAGEMENT__COMMANDS:
+        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -317,18 +171,10 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS:
-        return getSaveAnalysis();
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_OBJECTIVES:
-        return getSaveObjectives();
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_SOLUTIONS:
-        return getSaveSolutions();
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_OBJECTIVES:
-        return getPrintObjectives();
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_SOLUTIONS:
-        return getPrintSolutions();
-      case MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND:
-        return getDoCommand();
+      case MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS:
+        return getAdaptModels();
+      case MomotPackage.RESULT_MANAGEMENT__COMMANDS:
+        return getCommands();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -344,27 +190,12 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS:
-        setSaveAnalysis((SaveAnalysisCommand)newValue);
+      case MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS:
+        setAdaptModels((XExpression)newValue);
         return;
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_OBJECTIVES:
-        getSaveObjectives().clear();
-        getSaveObjectives().addAll((Collection<? extends SaveObjectivesCommand>)newValue);
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_SOLUTIONS:
-        getSaveSolutions().clear();
-        getSaveSolutions().addAll((Collection<? extends SaveSolutionsCommand>)newValue);
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_OBJECTIVES:
-        getPrintObjectives().clear();
-        getPrintObjectives().addAll((Collection<? extends PrintObjectivesCommand>)newValue);
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_SOLUTIONS:
-        getPrintSolutions().clear();
-        getPrintSolutions().addAll((Collection<? extends PrintSolutionsCommand>)newValue);
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND:
-        setDoCommand((XExpression)newValue);
+      case MomotPackage.RESULT_MANAGEMENT__COMMANDS:
+        getCommands().clear();
+        getCommands().addAll((Collection<? extends ResultManagementCommand>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -380,23 +211,11 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS:
-        setSaveAnalysis((SaveAnalysisCommand)null);
+      case MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS:
+        setAdaptModels((XExpression)null);
         return;
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_OBJECTIVES:
-        getSaveObjectives().clear();
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_SOLUTIONS:
-        getSaveSolutions().clear();
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_OBJECTIVES:
-        getPrintObjectives().clear();
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_SOLUTIONS:
-        getPrintSolutions().clear();
-        return;
-      case MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND:
-        setDoCommand((XExpression)null);
+      case MomotPackage.RESULT_MANAGEMENT__COMMANDS:
+        getCommands().clear();
         return;
     }
     super.eUnset(featureID);
@@ -412,18 +231,10 @@ public class ResultManagementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_ANALYSIS:
-        return saveAnalysis != null;
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_OBJECTIVES:
-        return saveObjectives != null && !saveObjectives.isEmpty();
-      case MOMoTPackage.RESULT_MANAGEMENT__SAVE_SOLUTIONS:
-        return saveSolutions != null && !saveSolutions.isEmpty();
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_OBJECTIVES:
-        return printObjectives != null && !printObjectives.isEmpty();
-      case MOMoTPackage.RESULT_MANAGEMENT__PRINT_SOLUTIONS:
-        return printSolutions != null && !printSolutions.isEmpty();
-      case MOMoTPackage.RESULT_MANAGEMENT__DO_COMMAND:
-        return doCommand != null;
+      case MomotPackage.RESULT_MANAGEMENT__ADAPT_MODELS:
+        return adaptModels != null;
+      case MomotPackage.RESULT_MANAGEMENT__COMMANDS:
+        return commands != null && !commands.isEmpty();
     }
     return super.eIsSet(featureID);
   }

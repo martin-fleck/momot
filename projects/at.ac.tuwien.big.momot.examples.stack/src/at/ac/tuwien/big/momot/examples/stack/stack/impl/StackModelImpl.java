@@ -148,5 +148,13 @@ public class StackModelImpl extends MinimalEObjectImpl.Container implements Stac
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String toString() {
+		String uri = "";
+		if(eResource() != null && eResource().getURI() != null)
+			uri = " (" + eResource().getURI().lastSegment() + ")";
+		return "Stack with " + getStacks().size() + " stacks" + uri;
+	}
 
 } //StackModelImpl

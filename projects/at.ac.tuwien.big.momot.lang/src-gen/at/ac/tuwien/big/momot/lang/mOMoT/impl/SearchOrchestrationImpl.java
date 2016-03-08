@@ -1,13 +1,14 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmList;
-import at.ac.tuwien.big.momot.lang.mOMoT.EqualityHelper;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessFunctionSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
-import at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.TransformationOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmList;
+import at.ac.tuwien.big.momot.lang.momot.EqualityHelper;
+import at.ac.tuwien.big.momot.lang.momot.FitnessFunctionSpecification;
+import at.ac.tuwien.big.momot.lang.momot.InputModel;
+import at.ac.tuwien.big.momot.lang.momot.ModuleOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
+import at.ac.tuwien.big.momot.lang.momot.SearchOrchestration;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,12 +29,12 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.SearchOrchestrationImpl#getModel <em>Model</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.SearchOrchestrationImpl#getSolutionLength <em>Solution Length</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.SearchOrchestrationImpl#getTransformationOrchestration <em>Transformation Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.SearchOrchestrationImpl#getFitnessFunction <em>Fitness Function</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.SearchOrchestrationImpl#getAlgorithms <em>Algorithms</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.SearchOrchestrationImpl#getEqualityHelper <em>Equality Helper</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getSolutionLength <em>Solution Length</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getModuleOrchestration <em>Module Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getFitnessFunction <em>Fitness Function</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getAlgorithms <em>Algorithms</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getEqualityHelper <em>Equality Helper</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,7 +49,7 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected XExpression model;
+  protected InputModel model;
 
   /**
    * The cached value of the '{@link #getSolutionLength() <em>Solution Length</em>}' containment reference.
@@ -61,14 +62,14 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
   protected XExpression solutionLength;
 
   /**
-   * The cached value of the '{@link #getTransformationOrchestration() <em>Transformation Orchestration</em>}' containment reference.
+   * The cached value of the '{@link #getModuleOrchestration() <em>Module Orchestration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTransformationOrchestration()
+   * @see #getModuleOrchestration()
    * @generated
    * @ordered
    */
-  protected TransformationOrchestration transformationOrchestration;
+  protected ModuleOrchestration moduleOrchestration;
 
   /**
    * The cached value of the '{@link #getFitnessFunction() <em>Fitness Function</em>}' containment reference.
@@ -118,7 +119,7 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.SEARCH_ORCHESTRATION;
+    return MomotPackage.Literals.SEARCH_ORCHESTRATION;
   }
 
   /**
@@ -126,7 +127,7 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public XExpression getModel()
+  public InputModel getModel()
   {
     return model;
   }
@@ -136,13 +137,13 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetModel(XExpression newModel, NotificationChain msgs)
+  public NotificationChain basicSetModel(InputModel newModel, NotificationChain msgs)
   {
-    XExpression oldModel = model;
+    InputModel oldModel = model;
     model = newModel;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__MODEL, oldModel, newModel);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__MODEL, oldModel, newModel);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +154,20 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setModel(XExpression newModel)
+  public void setModel(InputModel newModel)
   {
     if (newModel != model)
     {
       NotificationChain msgs = null;
       if (model != null)
-        msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__MODEL, null, msgs);
+        msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__MODEL, null, msgs);
       if (newModel != null)
-        msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__MODEL, null, msgs);
+        msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__MODEL, null, msgs);
       msgs = basicSetModel(newModel, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__MODEL, newModel, newModel));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__MODEL, newModel, newModel));
   }
 
   /**
@@ -190,7 +191,7 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     solutionLength = newSolutionLength;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, oldSolutionLength, newSolutionLength);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, oldSolutionLength, newSolutionLength);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -207,14 +208,14 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     {
       NotificationChain msgs = null;
       if (solutionLength != null)
-        msgs = ((InternalEObject)solutionLength).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, null, msgs);
+        msgs = ((InternalEObject)solutionLength).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, null, msgs);
       if (newSolutionLength != null)
-        msgs = ((InternalEObject)newSolutionLength).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, null, msgs);
+        msgs = ((InternalEObject)newSolutionLength).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, null, msgs);
       msgs = basicSetSolutionLength(newSolutionLength, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, newSolutionLength, newSolutionLength));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, newSolutionLength, newSolutionLength));
   }
 
   /**
@@ -222,9 +223,9 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public TransformationOrchestration getTransformationOrchestration()
+  public ModuleOrchestration getModuleOrchestration()
   {
-    return transformationOrchestration;
+    return moduleOrchestration;
   }
 
   /**
@@ -232,13 +233,13 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTransformationOrchestration(TransformationOrchestration newTransformationOrchestration, NotificationChain msgs)
+  public NotificationChain basicSetModuleOrchestration(ModuleOrchestration newModuleOrchestration, NotificationChain msgs)
   {
-    TransformationOrchestration oldTransformationOrchestration = transformationOrchestration;
-    transformationOrchestration = newTransformationOrchestration;
+    ModuleOrchestration oldModuleOrchestration = moduleOrchestration;
+    moduleOrchestration = newModuleOrchestration;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION, oldTransformationOrchestration, newTransformationOrchestration);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION, oldModuleOrchestration, newModuleOrchestration);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -249,20 +250,20 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTransformationOrchestration(TransformationOrchestration newTransformationOrchestration)
+  public void setModuleOrchestration(ModuleOrchestration newModuleOrchestration)
   {
-    if (newTransformationOrchestration != transformationOrchestration)
+    if (newModuleOrchestration != moduleOrchestration)
     {
       NotificationChain msgs = null;
-      if (transformationOrchestration != null)
-        msgs = ((InternalEObject)transformationOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION, null, msgs);
-      if (newTransformationOrchestration != null)
-        msgs = ((InternalEObject)newTransformationOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION, null, msgs);
-      msgs = basicSetTransformationOrchestration(newTransformationOrchestration, msgs);
+      if (moduleOrchestration != null)
+        msgs = ((InternalEObject)moduleOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION, null, msgs);
+      if (newModuleOrchestration != null)
+        msgs = ((InternalEObject)newModuleOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION, null, msgs);
+      msgs = basicSetModuleOrchestration(newModuleOrchestration, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION, newTransformationOrchestration, newTransformationOrchestration));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION, newModuleOrchestration, newModuleOrchestration));
   }
 
   /**
@@ -286,7 +287,7 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     fitnessFunction = newFitnessFunction;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, oldFitnessFunction, newFitnessFunction);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, oldFitnessFunction, newFitnessFunction);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -303,14 +304,14 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     {
       NotificationChain msgs = null;
       if (fitnessFunction != null)
-        msgs = ((InternalEObject)fitnessFunction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, null, msgs);
+        msgs = ((InternalEObject)fitnessFunction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, null, msgs);
       if (newFitnessFunction != null)
-        msgs = ((InternalEObject)newFitnessFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, null, msgs);
+        msgs = ((InternalEObject)newFitnessFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, null, msgs);
       msgs = basicSetFitnessFunction(newFitnessFunction, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, newFitnessFunction, newFitnessFunction));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION, newFitnessFunction, newFitnessFunction));
   }
 
   /**
@@ -334,7 +335,7 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     algorithms = newAlgorithms;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS, oldAlgorithms, newAlgorithms);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS, oldAlgorithms, newAlgorithms);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -351,14 +352,14 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     {
       NotificationChain msgs = null;
       if (algorithms != null)
-        msgs = ((InternalEObject)algorithms).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS, null, msgs);
+        msgs = ((InternalEObject)algorithms).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS, null, msgs);
       if (newAlgorithms != null)
-        msgs = ((InternalEObject)newAlgorithms).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS, null, msgs);
+        msgs = ((InternalEObject)newAlgorithms).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS, null, msgs);
       msgs = basicSetAlgorithms(newAlgorithms, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS, newAlgorithms, newAlgorithms));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS, newAlgorithms, newAlgorithms));
   }
 
   /**
@@ -382,7 +383,7 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     equalityHelper = newEqualityHelper;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, oldEqualityHelper, newEqualityHelper);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, oldEqualityHelper, newEqualityHelper);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -399,14 +400,14 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     {
       NotificationChain msgs = null;
       if (equalityHelper != null)
-        msgs = ((InternalEObject)equalityHelper).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, null, msgs);
+        msgs = ((InternalEObject)equalityHelper).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, null, msgs);
       if (newEqualityHelper != null)
-        msgs = ((InternalEObject)newEqualityHelper).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, null, msgs);
+        msgs = ((InternalEObject)newEqualityHelper).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, null, msgs);
       msgs = basicSetEqualityHelper(newEqualityHelper, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, newEqualityHelper, newEqualityHelper));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER, newEqualityHelper, newEqualityHelper));
   }
 
   /**
@@ -419,17 +420,17 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.SEARCH_ORCHESTRATION__MODEL:
+      case MomotPackage.SEARCH_ORCHESTRATION__MODEL:
         return basicSetModel(null, msgs);
-      case MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
+      case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         return basicSetSolutionLength(null, msgs);
-      case MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION:
-        return basicSetTransformationOrchestration(null, msgs);
-      case MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
+      case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
+        return basicSetModuleOrchestration(null, msgs);
+      case MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
         return basicSetFitnessFunction(null, msgs);
-      case MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
+      case MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
         return basicSetAlgorithms(null, msgs);
-      case MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
+      case MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
         return basicSetEqualityHelper(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -445,17 +446,17 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.SEARCH_ORCHESTRATION__MODEL:
+      case MomotPackage.SEARCH_ORCHESTRATION__MODEL:
         return getModel();
-      case MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
+      case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         return getSolutionLength();
-      case MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION:
-        return getTransformationOrchestration();
-      case MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
+      case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
+        return getModuleOrchestration();
+      case MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
         return getFitnessFunction();
-      case MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
+      case MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
         return getAlgorithms();
-      case MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
+      case MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
         return getEqualityHelper();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -471,22 +472,22 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.SEARCH_ORCHESTRATION__MODEL:
-        setModel((XExpression)newValue);
+      case MomotPackage.SEARCH_ORCHESTRATION__MODEL:
+        setModel((InputModel)newValue);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
+      case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         setSolutionLength((XExpression)newValue);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION:
-        setTransformationOrchestration((TransformationOrchestration)newValue);
+      case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
+        setModuleOrchestration((ModuleOrchestration)newValue);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
+      case MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
         setFitnessFunction((FitnessFunctionSpecification)newValue);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
+      case MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
         setAlgorithms((AlgorithmList)newValue);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
+      case MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
         setEqualityHelper((EqualityHelper)newValue);
         return;
     }
@@ -503,22 +504,22 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.SEARCH_ORCHESTRATION__MODEL:
-        setModel((XExpression)null);
+      case MomotPackage.SEARCH_ORCHESTRATION__MODEL:
+        setModel((InputModel)null);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
+      case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         setSolutionLength((XExpression)null);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION:
-        setTransformationOrchestration((TransformationOrchestration)null);
+      case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
+        setModuleOrchestration((ModuleOrchestration)null);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
+      case MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
         setFitnessFunction((FitnessFunctionSpecification)null);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
+      case MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
         setAlgorithms((AlgorithmList)null);
         return;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
+      case MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
         setEqualityHelper((EqualityHelper)null);
         return;
     }
@@ -535,17 +536,17 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case MOMoTPackage.SEARCH_ORCHESTRATION__MODEL:
+      case MomotPackage.SEARCH_ORCHESTRATION__MODEL:
         return model != null;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
+      case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         return solutionLength != null;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION:
-        return transformationOrchestration != null;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
+      case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
+        return moduleOrchestration != null;
+      case MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
         return fitnessFunction != null;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
+      case MomotPackage.SEARCH_ORCHESTRATION__ALGORITHMS:
         return algorithms != null;
-      case MOMoTPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
+      case MomotPackage.SEARCH_ORCHESTRATION__EQUALITY_HELPER:
         return equalityHelper != null;
     }
     return super.eIsSet(featureID);

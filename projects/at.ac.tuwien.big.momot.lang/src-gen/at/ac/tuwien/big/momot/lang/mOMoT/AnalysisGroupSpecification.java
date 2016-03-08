@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification#getAlgorithms <em>Algorithms</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification#getAlgorithms <em>Algorithms</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAnalysisGroupSpecification()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAnalysisGroupSpecification()
  * @model
  * @generated
  */
@@ -33,14 +33,14 @@ public interface AnalysisGroupSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAnalysisGroupSpecification_Name()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAnalysisGroupSpecification_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -59,14 +59,14 @@ public interface AnalysisGroupSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Algorithms</em>' containment reference.
    * @see #setAlgorithms(AlgorithmReferences)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getAnalysisGroupSpecification_Algorithms()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAnalysisGroupSpecification_Algorithms()
    * @model containment="true"
    * @generated
    */
   AlgorithmReferences getAlgorithms();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification#getAlgorithms <em>Algorithms</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification#getAlgorithms <em>Algorithms</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Algorithms</em>' containment reference.

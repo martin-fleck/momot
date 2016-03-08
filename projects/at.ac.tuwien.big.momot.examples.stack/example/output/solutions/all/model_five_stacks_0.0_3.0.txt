@@ -1,0 +1,34 @@
+Number of variables: 8
+  Variable[0]: -Placeholder-
+
+  Variable[1]: -Placeholder-
+
+  Variable[2]: -Placeholder-
+
+  Variable[3]: -Placeholder-
+
+  Variable[4]: Match for rule 'shiftRight':
+- parameter 'fromId' => 'Stack_4'
+- parameter 'toId' => 'Stack_5'
+- parameter 'amount' => 4
+
+  Variable[5]: -Placeholder-
+
+  Variable[6]: Match for rule 'shiftRight':
+- parameter 'fromId' => 'Stack_5'
+- parameter 'toId' => 'Stack_1'
+- parameter 'amount' => 4
+
+  Variable[7]: Match for rule 'shiftRight':
+- parameter 'fromId' => 'Stack_2'
+- parameter 'toId' => 'Stack_3'
+- parameter 'amount' => 2
+
+Number of attributes: 3
+  AggregatedFitness: 3.0
+  rank: 0
+  crowdingDistance: Infinity
+Number of objectives: 2
+  StandardDeviation: 0.0
+  SolutionLength: 3.0
+Number of constraints: 0

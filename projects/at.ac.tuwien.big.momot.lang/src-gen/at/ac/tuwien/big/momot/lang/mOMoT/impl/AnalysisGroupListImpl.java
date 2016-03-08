@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupList;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisGroupList;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import java.util.Collection;
 
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.AnalysisGroupListImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.AnalysisGroupListImpl#getGroup <em>Group</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,7 +63,7 @@ public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implemen
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.ANALYSIS_GROUP_LIST;
+    return MomotPackage.Literals.ANALYSIS_GROUP_LIST;
   }
 
   /**
@@ -75,7 +75,7 @@ public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implemen
   {
     if (group == null)
     {
-      group = new EObjectContainmentEList<AnalysisGroupSpecification>(AnalysisGroupSpecification.class, this, MOMoTPackage.ANALYSIS_GROUP_LIST__GROUP);
+      group = new EObjectContainmentEList<AnalysisGroupSpecification>(AnalysisGroupSpecification.class, this, MomotPackage.ANALYSIS_GROUP_LIST__GROUP);
     }
     return group;
   }
@@ -90,7 +90,7 @@ public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_LIST__GROUP:
+      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
         return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_LIST__GROUP:
+      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
         return getGroup();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_LIST__GROUP:
+      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
         getGroup().clear();
         getGroup().addAll((Collection<? extends AnalysisGroupSpecification>)newValue);
         return;
@@ -141,7 +141,7 @@ public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_LIST__GROUP:
+      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
         getGroup().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_LIST__GROUP:
+      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
         return group != null && !group.isEmpty();
     }
     return super.eIsSet(featureID);

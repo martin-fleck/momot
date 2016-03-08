@@ -1,8 +1,8 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.util;
+package at.ac.tuwien.big.momot.lang.momot.util;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.*;
+import at.ac.tuwien.big.momot.lang.momot.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage
  * @generated
  */
-public class MOMoTSwitch<T> extends Switch<T>
+public class MomotSwitch<T> extends Switch<T>
 {
   /**
    * The cached model package
@@ -30,7 +30,7 @@ public class MOMoTSwitch<T> extends Switch<T>
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static MOMoTPackage modelPackage;
+  protected static MomotPackage modelPackage;
 
   /**
    * Creates an instance of the switch.
@@ -38,11 +38,11 @@ public class MOMoTSwitch<T> extends Switch<T>
    * <!-- end-user-doc -->
    * @generated
    */
-  public MOMoTSwitch()
+  public MomotSwitch()
   {
     if (modelPackage == null)
     {
-      modelPackage = MOMoTPackage.eINSTANCE;
+      modelPackage = MomotPackage.eINSTANCE;
     }
   }
 
@@ -72,70 +72,77 @@ public class MOMoTSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case MOMoTPackage.MO_MO_TSEARCH:
+      case MomotPackage.MO_MO_TSEARCH:
       {
         MOMoTSearch moMoTSearch = (MOMoTSearch)theEObject;
         T result = caseMOMoTSearch(moMoTSearch);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.VARIABLE_DECLARATION:
+      case MomotPackage.VARIABLE_DECLARATION:
       {
         VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
         T result = caseVariableDeclaration(variableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.TRANSFORMATION_ORCHESTRATION:
+      case MomotPackage.MODULE_ORCHESTRATION:
       {
-        TransformationOrchestration transformationOrchestration = (TransformationOrchestration)theEObject;
-        T result = caseTransformationOrchestration(transformationOrchestration);
+        ModuleOrchestration moduleOrchestration = (ModuleOrchestration)theEObject;
+        T result = caseModuleOrchestration(moduleOrchestration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION:
       {
         ParmeterValueSpecification parmeterValueSpecification = (ParmeterValueSpecification)theEObject;
         T result = caseParmeterValueSpecification(parmeterValueSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.SEARCH_ORCHESTRATION:
+      case MomotPackage.SEARCH_ORCHESTRATION:
       {
         SearchOrchestration searchOrchestration = (SearchOrchestration)theEObject;
         T result = caseSearchOrchestration(searchOrchestration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.EQUALITY_HELPER:
+      case MomotPackage.INPUT_MODEL:
+      {
+        InputModel inputModel = (InputModel)theEObject;
+        T result = caseInputModel(inputModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MomotPackage.EQUALITY_HELPER:
       {
         EqualityHelper equalityHelper = (EqualityHelper)theEObject;
         T result = caseEqualityHelper(equalityHelper);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.ALGORITHM_LIST:
+      case MomotPackage.ALGORITHM_LIST:
       {
         AlgorithmList algorithmList = (AlgorithmList)theEObject;
         T result = caseAlgorithmList(algorithmList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION:
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION:
       {
         FitnessFunctionSpecification fitnessFunctionSpecification = (FitnessFunctionSpecification)theEObject;
         T result = caseFitnessFunctionSpecification(fitnessFunctionSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION:
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION:
       {
         FitnessDimensionSpecification fitnessDimensionSpecification = (FitnessDimensionSpecification)theEObject;
         T result = caseFitnessDimensionSpecification(fitnessDimensionSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR:
+      case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR:
       {
         FitnessDimensionConstructor fitnessDimensionConstructor = (FitnessDimensionConstructor)theEObject;
         T result = caseFitnessDimensionConstructor(fitnessDimensionConstructor);
@@ -143,7 +150,7 @@ public class MOMoTSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.FITNESS_DIMENSION_XBASE:
+      case MomotPackage.FITNESS_DIMENSION_XBASE:
       {
         FitnessDimensionXBase fitnessDimensionXBase = (FitnessDimensionXBase)theEObject;
         T result = caseFitnessDimensionXBase(fitnessDimensionXBase);
@@ -151,7 +158,7 @@ public class MOMoTSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.FITNESS_DIMENSION_OCL:
+      case MomotPackage.FITNESS_DIMENSION_OCL:
       {
         FitnessDimensionOCL fitnessDimensionOCL = (FitnessDimensionOCL)theEObject;
         T result = caseFitnessDimensionOCL(fitnessDimensionOCL);
@@ -159,115 +166,142 @@ public class MOMoTSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.DEF_EXPRESSION:
+      case MomotPackage.DEF_EXPRESSION:
       {
         DefExpression defExpression = (DefExpression)theEObject;
         T result = caseDefExpression(defExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.ALGORITHM_SPECIFICATION:
+      case MomotPackage.ALGORITHM_SPECIFICATION:
       {
         AlgorithmSpecification algorithmSpecification = (AlgorithmSpecification)theEObject;
         T result = caseAlgorithmSpecification(algorithmSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION:
+      case MomotPackage.EXPERIMENT_ORCHESTRATION:
       {
         ExperimentOrchestration experimentOrchestration = (ExperimentOrchestration)theEObject;
         T result = caseExperimentOrchestration(experimentOrchestration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.COLLECTOR_ARRAY:
+      case MomotPackage.COLLECTOR_ARRAY:
       {
         CollectorArray collectorArray = (CollectorArray)theEObject;
         T result = caseCollectorArray(collectorArray);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.ANALYSIS_ORCHESTRATION:
+      case MomotPackage.ANALYSIS_ORCHESTRATION:
       {
         AnalysisOrchestration analysisOrchestration = (AnalysisOrchestration)theEObject;
         T result = caseAnalysisOrchestration(analysisOrchestration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.ANALYSIS_GROUP_LIST:
+      case MomotPackage.ANALYSIS_GROUP_LIST:
       {
         AnalysisGroupList analysisGroupList = (AnalysisGroupList)theEObject;
         T result = caseAnalysisGroupList(analysisGroupList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.INDICATOR_ARRAY:
+      case MomotPackage.INDICATOR_ARRAY:
       {
         IndicatorArray indicatorArray = (IndicatorArray)theEObject;
         T result = caseIndicatorArray(indicatorArray);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.SHOW_ARRAY:
+      case MomotPackage.SHOW_ARRAY:
       {
         ShowArray showArray = (ShowArray)theEObject;
         T result = caseShowArray(showArray);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION:
       {
         AnalysisGroupSpecification analysisGroupSpecification = (AnalysisGroupSpecification)theEObject;
         T result = caseAnalysisGroupSpecification(analysisGroupSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.ALGORITHM_REFERENCES:
+      case MomotPackage.ALGORITHM_REFERENCES:
       {
         AlgorithmReferences algorithmReferences = (AlgorithmReferences)theEObject;
         T result = caseAlgorithmReferences(algorithmReferences);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.RESULT_MANAGEMENT:
+      case MomotPackage.ANALYSIS_COMMAND:
+      {
+        AnalysisCommand analysisCommand = (AnalysisCommand)theEObject;
+        T result = caseAnalysisCommand(analysisCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MomotPackage.PRINT_ANALYSIS_COMMAND:
+      {
+        PrintAnalysisCommand printAnalysisCommand = (PrintAnalysisCommand)theEObject;
+        T result = casePrintAnalysisCommand(printAnalysisCommand);
+        if (result == null) result = caseAnalysisCommand(printAnalysisCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MomotPackage.SAVE_ANALYSIS_COMMAND:
+      {
+        SaveAnalysisCommand saveAnalysisCommand = (SaveAnalysisCommand)theEObject;
+        T result = caseSaveAnalysisCommand(saveAnalysisCommand);
+        if (result == null) result = caseAnalysisCommand(saveAnalysisCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MomotPackage.BOXPLOT_COMMAND:
+      {
+        BoxplotCommand boxplotCommand = (BoxplotCommand)theEObject;
+        T result = caseBoxplotCommand(boxplotCommand);
+        if (result == null) result = caseAnalysisCommand(boxplotCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MomotPackage.RESULT_MANAGEMENT:
       {
         ResultManagement resultManagement = (ResultManagement)theEObject;
         T result = caseResultManagement(resultManagement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.SAVE_ANALYSIS_COMMAND:
+      case MomotPackage.RESULT_MANAGEMENT_COMMAND:
       {
-        SaveAnalysisCommand saveAnalysisCommand = (SaveAnalysisCommand)theEObject;
-        T result = caseSaveAnalysisCommand(saveAnalysisCommand);
+        ResultManagementCommand resultManagementCommand = (ResultManagementCommand)theEObject;
+        T result = caseResultManagementCommand(resultManagementCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.SAVE_OBJECTIVES_COMMAND:
+      case MomotPackage.OBJECTIVES_COMMAND:
       {
-        SaveObjectivesCommand saveObjectivesCommand = (SaveObjectivesCommand)theEObject;
-        T result = caseSaveObjectivesCommand(saveObjectivesCommand);
+        ObjectivesCommand objectivesCommand = (ObjectivesCommand)theEObject;
+        T result = caseObjectivesCommand(objectivesCommand);
+        if (result == null) result = caseResultManagementCommand(objectivesCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.SAVE_SOLUTIONS_COMMAND:
+      case MomotPackage.SOLUTIONS_COMMAND:
       {
-        SaveSolutionsCommand saveSolutionsCommand = (SaveSolutionsCommand)theEObject;
-        T result = caseSaveSolutionsCommand(saveSolutionsCommand);
+        SolutionsCommand solutionsCommand = (SolutionsCommand)theEObject;
+        T result = caseSolutionsCommand(solutionsCommand);
+        if (result == null) result = caseResultManagementCommand(solutionsCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MOMoTPackage.PRINT_OBJECTIVES_COMMAND:
+      case MomotPackage.MODELS_COMMAND:
       {
-        PrintObjectivesCommand printObjectivesCommand = (PrintObjectivesCommand)theEObject;
-        T result = casePrintObjectivesCommand(printObjectivesCommand);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MOMoTPackage.PRINT_SOLUTIONS_COMMAND:
-      {
-        PrintSolutionsCommand printSolutionsCommand = (PrintSolutionsCommand)theEObject;
-        T result = casePrintSolutionsCommand(printSolutionsCommand);
+        ModelsCommand modelsCommand = (ModelsCommand)theEObject;
+        T result = caseModelsCommand(modelsCommand);
+        if (result == null) result = caseResultManagementCommand(modelsCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -276,13 +310,13 @@ public class MOMoTSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Search</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>MO Mo TSearch</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Search</em>'.
+   * @return the result of interpreting the object as an instance of '<em>MO Mo TSearch</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
@@ -308,17 +342,17 @@ public class MOMoTSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Transformation Orchestration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Module Orchestration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Transformation Orchestration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Module Orchestration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTransformationOrchestration(TransformationOrchestration object)
+  public T caseModuleOrchestration(ModuleOrchestration object)
   {
     return null;
   }
@@ -351,6 +385,22 @@ public class MOMoTSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSearchOrchestration(SearchOrchestration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputModel(InputModel object)
   {
     return null;
   }
@@ -628,17 +678,33 @@ public class MOMoTSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Result Management</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Analysis Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Result Management</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Analysis Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseResultManagement(ResultManagement object)
+  public T caseAnalysisCommand(AnalysisCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Print Analysis Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Print Analysis Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrintAnalysisCommand(PrintAnalysisCommand object)
   {
     return null;
   }
@@ -660,65 +726,97 @@ public class MOMoTSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Save Objectives Command</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Boxplot Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Save Objectives Command</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Boxplot Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSaveObjectivesCommand(SaveObjectivesCommand object)
+  public T caseBoxplotCommand(BoxplotCommand object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Save Solutions Command</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Result Management</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Save Solutions Command</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Result Management</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSaveSolutionsCommand(SaveSolutionsCommand object)
+  public T caseResultManagement(ResultManagement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Print Objectives Command</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Result Management Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Print Objectives Command</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Result Management Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePrintObjectivesCommand(PrintObjectivesCommand object)
+  public T caseResultManagementCommand(ResultManagementCommand object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Print Solutions Command</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Objectives Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Print Solutions Command</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Objectives Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePrintSolutionsCommand(PrintSolutionsCommand object)
+  public T caseObjectivesCommand(ObjectivesCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Solutions Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Solutions Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSolutionsCommand(SolutionsCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Models Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Models Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModelsCommand(ModelsCommand object)
   {
     return null;
   }
@@ -740,4 +838,4 @@ public class MOMoTSwitch<T> extends Switch<T>
     return null;
   }
 
-} //MOMoTSwitch
+} //MomotSwitch

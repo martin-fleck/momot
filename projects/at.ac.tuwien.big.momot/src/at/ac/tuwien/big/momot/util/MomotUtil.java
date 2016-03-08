@@ -12,11 +12,17 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
+import org.moeaframework.core.Population;
 import org.moeaframework.core.Solution;
 
 import at.ac.tuwien.big.moea.util.CastUtil;
@@ -41,15 +47,37 @@ public class MomotUtil {
 //				copier.copyReferences();
 //			}
 			
-			// Copy the graph:
-			EGraph copiedGraph = original.copy(null);
-			
-			return copiedGraph;
-			
-		} catch(Exception e) {
-			System.out.println("MomotUtil.copy(): Error: " + e.getMessage());
-			System.out.flush();
+			// Copy the graph:			
 			return original.copy(null);
+		} catch(Exception e) {
+//			System.out.println("MomotUtil.copy(): " + e.getClass().getSimpleName() + ": " + e.getMessage());
+//			System.out.flush();
+			try {
+				return original.copy(null);
+			} catch(Exception ex) {
+		
+//				System.out.println("MomotUtil.copy(): " + e.getClass().getSimpleName() + ": " + e.getMessage());
+//				System.out.flush();
+				Copier copier = new Copier();
+				copier.copyAll(original.getRoots());
+				copier.copyReferences();
+				
+				Boolean nullObjects = false;
+				EGraph copy = new EGraphImpl(original.size());
+				for (EObject object : original) {
+					EObject objectCopy = copier.get(object);
+					if(objectCopy == null) {
+						nullObjects = true;
+						break;
+					}
+					copy.add(objectCopy);
+				}
+				
+				if(!nullObjects)
+					return copy;
+				else
+					return new EGraphImpl(EcoreUtil.copyAll(original.getRoots()));
+			}
 		}
 	}
 	
@@ -78,6 +106,14 @@ public class MomotUtil {
 		return new EGraphImpl(model);
 	}
 	
+	public static EGraph createEGraph(EObject root) {
+		return new EGraphImpl(root);
+	}
+	
+	public static EGraph createEGraph(Resource resource) {
+		return new EGraphImpl(resource);
+	}
+	
 	public static EObject getRoot(EGraph graph) {
 		return graph.getRoots().get(0);
 	}
@@ -93,5 +129,12 @@ public class MomotUtil {
 	
 	public static void saveGraph(EGraph graph, String targetResourceUri) {
 		saveGraph(createResourceSet(), graph, targetResourceUri);
+	}
+	
+	public static <T extends Solution> Iterable<T> asIterables(Population population, Class<T> clazz) {
+		List<T> solutions = new ArrayList<>();
+		for(Solution solution : population)
+			solutions.add(CastUtil.asClass(solution, clazz));
+		return solutions;
 	}
 }

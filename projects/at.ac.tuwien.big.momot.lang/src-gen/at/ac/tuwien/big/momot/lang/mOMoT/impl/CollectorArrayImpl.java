@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.CollectorArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.CollectorArray;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,21 +20,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isHypervolume <em>Hypervolume</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isGenerationalDistance <em>Generational Distance</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isInvertedGenerationalDistance <em>Inverted Generational Distance</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isSpacing <em>Spacing</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isAdditiveEpsilonIndicator <em>Additive Epsilon Indicator</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isContribution <em>Contribution</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isR1 <em>R1</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isR2 <em>R2</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isR3 <em>R3</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isAdaptiveMultimethodVariation <em>Adaptive Multimethod Variation</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isAdaptiveTimeContinuation <em>Adaptive Time Continuation</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isApproximationSet <em>Approximation Set</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isEpsilonProgress <em>Epsilon Progress</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isElapsedTime <em>Elapsed Time</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.CollectorArrayImpl#isPopulationSize <em>Population Size</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isHypervolume <em>Hypervolume</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isGenerationalDistance <em>Generational Distance</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isInvertedGenerationalDistance <em>Inverted Generational Distance</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isSpacing <em>Spacing</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isAdditiveEpsilonIndicator <em>Additive Epsilon Indicator</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isContribution <em>Contribution</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isR1 <em>R1</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isR2 <em>R2</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isR3 <em>R3</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isAdaptiveMultimethodVariation <em>Adaptive Multimethod Variation</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isAdaptiveTimeContinuation <em>Adaptive Time Continuation</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isApproximationSet <em>Approximation Set</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isEpsilonProgress <em>Epsilon Progress</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isElapsedTime <em>Elapsed Time</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl#isPopulationSize <em>Population Size</em>}</li>
  * </ul>
  *
  * @generated
@@ -359,7 +359,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.COLLECTOR_ARRAY;
+    return MomotPackage.Literals.COLLECTOR_ARRAY;
   }
 
   /**
@@ -382,7 +382,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldHypervolume = hypervolume;
     hypervolume = newHypervolume;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__HYPERVOLUME, oldHypervolume, hypervolume));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__HYPERVOLUME, oldHypervolume, hypervolume));
   }
 
   /**
@@ -405,7 +405,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldGenerationalDistance = generationalDistance;
     generationalDistance = newGenerationalDistance;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE, oldGenerationalDistance, generationalDistance));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE, oldGenerationalDistance, generationalDistance));
   }
 
   /**
@@ -428,7 +428,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldInvertedGenerationalDistance = invertedGenerationalDistance;
     invertedGenerationalDistance = newInvertedGenerationalDistance;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE, oldInvertedGenerationalDistance, invertedGenerationalDistance));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE, oldInvertedGenerationalDistance, invertedGenerationalDistance));
   }
 
   /**
@@ -451,7 +451,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldSpacing = spacing;
     spacing = newSpacing;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__SPACING, oldSpacing, spacing));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__SPACING, oldSpacing, spacing));
   }
 
   /**
@@ -474,7 +474,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldAdditiveEpsilonIndicator = additiveEpsilonIndicator;
     additiveEpsilonIndicator = newAdditiveEpsilonIndicator;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR, oldAdditiveEpsilonIndicator, additiveEpsilonIndicator));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR, oldAdditiveEpsilonIndicator, additiveEpsilonIndicator));
   }
 
   /**
@@ -497,7 +497,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldContribution = contribution;
     contribution = newContribution;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__CONTRIBUTION, oldContribution, contribution));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__CONTRIBUTION, oldContribution, contribution));
   }
 
   /**
@@ -520,7 +520,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldR1 = r1;
     r1 = newR1;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__R1, oldR1, r1));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__R1, oldR1, r1));
   }
 
   /**
@@ -543,7 +543,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldR2 = r2;
     r2 = newR2;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__R2, oldR2, r2));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__R2, oldR2, r2));
   }
 
   /**
@@ -566,7 +566,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldR3 = r3;
     r3 = newR3;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__R3, oldR3, r3));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__R3, oldR3, r3));
   }
 
   /**
@@ -589,7 +589,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldAdaptiveMultimethodVariation = adaptiveMultimethodVariation;
     adaptiveMultimethodVariation = newAdaptiveMultimethodVariation;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION, oldAdaptiveMultimethodVariation, adaptiveMultimethodVariation));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION, oldAdaptiveMultimethodVariation, adaptiveMultimethodVariation));
   }
 
   /**
@@ -612,7 +612,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldAdaptiveTimeContinuation = adaptiveTimeContinuation;
     adaptiveTimeContinuation = newAdaptiveTimeContinuation;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION, oldAdaptiveTimeContinuation, adaptiveTimeContinuation));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION, oldAdaptiveTimeContinuation, adaptiveTimeContinuation));
   }
 
   /**
@@ -635,7 +635,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldApproximationSet = approximationSet;
     approximationSet = newApproximationSet;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__APPROXIMATION_SET, oldApproximationSet, approximationSet));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__APPROXIMATION_SET, oldApproximationSet, approximationSet));
   }
 
   /**
@@ -658,7 +658,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldEpsilonProgress = epsilonProgress;
     epsilonProgress = newEpsilonProgress;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS, oldEpsilonProgress, epsilonProgress));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS, oldEpsilonProgress, epsilonProgress));
   }
 
   /**
@@ -681,7 +681,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldElapsedTime = elapsedTime;
     elapsedTime = newElapsedTime;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__ELAPSED_TIME, oldElapsedTime, elapsedTime));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__ELAPSED_TIME, oldElapsedTime, elapsedTime));
   }
 
   /**
@@ -704,7 +704,7 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
     boolean oldPopulationSize = populationSize;
     populationSize = newPopulationSize;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.COLLECTOR_ARRAY__POPULATION_SIZE, oldPopulationSize, populationSize));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.COLLECTOR_ARRAY__POPULATION_SIZE, oldPopulationSize, populationSize));
   }
 
   /**
@@ -717,35 +717,35 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.COLLECTOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.COLLECTOR_ARRAY__HYPERVOLUME:
         return isHypervolume();
-      case MOMoTPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
         return isGenerationalDistance();
-      case MOMoTPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         return isInvertedGenerationalDistance();
-      case MOMoTPackage.COLLECTOR_ARRAY__SPACING:
+      case MomotPackage.COLLECTOR_ARRAY__SPACING:
         return isSpacing();
-      case MOMoTPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         return isAdditiveEpsilonIndicator();
-      case MOMoTPackage.COLLECTOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.COLLECTOR_ARRAY__CONTRIBUTION:
         return isContribution();
-      case MOMoTPackage.COLLECTOR_ARRAY__R1:
+      case MomotPackage.COLLECTOR_ARRAY__R1:
         return isR1();
-      case MOMoTPackage.COLLECTOR_ARRAY__R2:
+      case MomotPackage.COLLECTOR_ARRAY__R2:
         return isR2();
-      case MOMoTPackage.COLLECTOR_ARRAY__R3:
+      case MomotPackage.COLLECTOR_ARRAY__R3:
         return isR3();
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
         return isAdaptiveMultimethodVariation();
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
         return isAdaptiveTimeContinuation();
-      case MOMoTPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
+      case MomotPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
         return isApproximationSet();
-      case MOMoTPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
+      case MomotPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
         return isEpsilonProgress();
-      case MOMoTPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
+      case MomotPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
         return isElapsedTime();
-      case MOMoTPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
+      case MomotPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
         return isPopulationSize();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -761,49 +761,49 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.COLLECTOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.COLLECTOR_ARRAY__HYPERVOLUME:
         setHypervolume((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
         setGenerationalDistance((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         setInvertedGenerationalDistance((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__SPACING:
+      case MomotPackage.COLLECTOR_ARRAY__SPACING:
         setSpacing((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         setAdditiveEpsilonIndicator((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.COLLECTOR_ARRAY__CONTRIBUTION:
         setContribution((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__R1:
+      case MomotPackage.COLLECTOR_ARRAY__R1:
         setR1((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__R2:
+      case MomotPackage.COLLECTOR_ARRAY__R2:
         setR2((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__R3:
+      case MomotPackage.COLLECTOR_ARRAY__R3:
         setR3((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
         setAdaptiveMultimethodVariation((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
         setAdaptiveTimeContinuation((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
+      case MomotPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
         setApproximationSet((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
+      case MomotPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
         setEpsilonProgress((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
+      case MomotPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
         setElapsedTime((Boolean)newValue);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
+      case MomotPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
         setPopulationSize((Boolean)newValue);
         return;
     }
@@ -820,49 +820,49 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.COLLECTOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.COLLECTOR_ARRAY__HYPERVOLUME:
         setHypervolume(HYPERVOLUME_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
         setGenerationalDistance(GENERATIONAL_DISTANCE_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         setInvertedGenerationalDistance(INVERTED_GENERATIONAL_DISTANCE_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__SPACING:
+      case MomotPackage.COLLECTOR_ARRAY__SPACING:
         setSpacing(SPACING_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         setAdditiveEpsilonIndicator(ADDITIVE_EPSILON_INDICATOR_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.COLLECTOR_ARRAY__CONTRIBUTION:
         setContribution(CONTRIBUTION_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__R1:
+      case MomotPackage.COLLECTOR_ARRAY__R1:
         setR1(R1_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__R2:
+      case MomotPackage.COLLECTOR_ARRAY__R2:
         setR2(R2_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__R3:
+      case MomotPackage.COLLECTOR_ARRAY__R3:
         setR3(R3_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
         setAdaptiveMultimethodVariation(ADAPTIVE_MULTIMETHOD_VARIATION_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
         setAdaptiveTimeContinuation(ADAPTIVE_TIME_CONTINUATION_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
+      case MomotPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
         setApproximationSet(APPROXIMATION_SET_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
+      case MomotPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
         setEpsilonProgress(EPSILON_PROGRESS_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
+      case MomotPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
         setElapsedTime(ELAPSED_TIME_EDEFAULT);
         return;
-      case MOMoTPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
+      case MomotPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
         setPopulationSize(POPULATION_SIZE_EDEFAULT);
         return;
     }
@@ -879,35 +879,35 @@ public class CollectorArrayImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case MOMoTPackage.COLLECTOR_ARRAY__HYPERVOLUME:
+      case MomotPackage.COLLECTOR_ARRAY__HYPERVOLUME:
         return hypervolume != HYPERVOLUME_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__GENERATIONAL_DISTANCE:
         return generationalDistance != GENERATIONAL_DISTANCE_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
+      case MomotPackage.COLLECTOR_ARRAY__INVERTED_GENERATIONAL_DISTANCE:
         return invertedGenerationalDistance != INVERTED_GENERATIONAL_DISTANCE_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__SPACING:
+      case MomotPackage.COLLECTOR_ARRAY__SPACING:
         return spacing != SPACING_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
+      case MomotPackage.COLLECTOR_ARRAY__ADDITIVE_EPSILON_INDICATOR:
         return additiveEpsilonIndicator != ADDITIVE_EPSILON_INDICATOR_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__CONTRIBUTION:
+      case MomotPackage.COLLECTOR_ARRAY__CONTRIBUTION:
         return contribution != CONTRIBUTION_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__R1:
+      case MomotPackage.COLLECTOR_ARRAY__R1:
         return r1 != R1_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__R2:
+      case MomotPackage.COLLECTOR_ARRAY__R2:
         return r2 != R2_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__R3:
+      case MomotPackage.COLLECTOR_ARRAY__R3:
         return r3 != R3_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_MULTIMETHOD_VARIATION:
         return adaptiveMultimethodVariation != ADAPTIVE_MULTIMETHOD_VARIATION_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
+      case MomotPackage.COLLECTOR_ARRAY__ADAPTIVE_TIME_CONTINUATION:
         return adaptiveTimeContinuation != ADAPTIVE_TIME_CONTINUATION_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
+      case MomotPackage.COLLECTOR_ARRAY__APPROXIMATION_SET:
         return approximationSet != APPROXIMATION_SET_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
+      case MomotPackage.COLLECTOR_ARRAY__EPSILON_PROGRESS:
         return epsilonProgress != EPSILON_PROGRESS_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
+      case MomotPackage.COLLECTOR_ARRAY__ELAPSED_TIME:
         return elapsedTime != ELAPSED_TIME_EDEFAULT;
-      case MOMoTPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
+      case MomotPackage.COLLECTOR_ARRAY__POPULATION_SIZE:
         return populationSize != POPULATION_SIZE_EDEFAULT;
     }
     return super.eIsSet(featureID);

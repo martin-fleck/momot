@@ -199,6 +199,11 @@ public abstract class AbstractSearchOrchestration<S extends Solution> implements
 	}
 	
 	@Override
+	public String print(Iterable<S> population) {
+		return getPopulationWriter().write(population);
+	}
+	
+	@Override
 	public String print(S solution) {
 		return getSolutionPrinter().write(solution);
 	}

@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionConstructor;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionConstructor;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,7 +23,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessDimensionConstructorImpl#getCall <em>Call</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessDimensionConstructorImpl#getCall <em>Call</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,7 +58,7 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.FITNESS_DIMENSION_CONSTRUCTOR;
+    return MomotPackage.Literals.FITNESS_DIMENSION_CONSTRUCTOR;
   }
 
   /**
@@ -82,7 +82,7 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
     call = newCall;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, oldCall, newCall);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, oldCall, newCall);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -99,14 +99,14 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
     {
       NotificationChain msgs = null;
       if (call != null)
-        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, null, msgs);
+        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, null, msgs);
       if (newCall != null)
-        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, null, msgs);
+        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, null, msgs);
       msgs = basicSetCall(newCall, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, newCall, newCall));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL, newCall, newCall));
   }
 
   /**
@@ -119,7 +119,7 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
+      case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
         return basicSetCall(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -135,7 +135,7 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
+      case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
         return getCall();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -151,7 +151,7 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
+      case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
         setCall((XExpression)newValue);
         return;
     }
@@ -168,7 +168,7 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
+      case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
         setCall((XExpression)null);
         return;
     }
@@ -185,7 +185,7 @@ public class FitnessDimensionConstructorImpl extends FitnessDimensionSpecificati
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
+      case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR__CALL:
         return call != null;
     }
     return super.eIsSet(featureID);

@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -13,10 +13,10 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionConstructor#getCall <em>Call</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionConstructor#getCall <em>Call</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getFitnessDimensionConstructor()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getFitnessDimensionConstructor()
  * @model
  * @generated
  */
@@ -32,14 +32,14 @@ public interface FitnessDimensionConstructor extends FitnessDimensionSpecificati
    * <!-- end-user-doc -->
    * @return the value of the '<em>Call</em>' containment reference.
    * @see #setCall(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getFitnessDimensionConstructor_Call()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getFitnessDimensionConstructor_Call()
    * @model containment="true"
    * @generated
    */
   XExpression getCall();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionConstructor#getCall <em>Call</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.FitnessDimensionConstructor#getCall <em>Call</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Call</em>' containment reference.

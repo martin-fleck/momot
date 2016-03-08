@@ -34,7 +34,7 @@ public class RefactoringSearch {
 				new OnePointCrossover(1.0),  
 				new TransformationPlaceholderMutation(0.15)));
 		
-		SearchExperiment experiment = new SearchExperiment(orchestration, 150);
+		SearchExperiment<TransformationSolution> experiment = new SearchExperiment<>(orchestration, 150);
 		experiment.addProgressListener(new RuntimePrintListener());
 		experiment.addProgressListener(new SeedRuntimePrintListener());
 		experiment.setNumberOfRuns(1);
@@ -49,7 +49,7 @@ public class RefactoringSearch {
 			if(graph != null)
 				orchestration.getModuleManager().saveGraph(graph, "SeveralRefactorings_Solution_" + matchSolution.getSolutionLength() + ".xmi");
 		}
-		manager.saveApproximationSetObjectives("output/evolutionary_reference_set.csv");
+		manager.saveObjectives("output/evolutionary_reference_set.csv");
 //		experiment.show(false, AccumulatorUtil.Keys.INDICATOR_HYPERVOLUME);
 //		experiment.printAnalysis();
 	}
@@ -61,7 +61,7 @@ public class RefactoringSearch {
 		IEGraphMultiDimensionalFitnessFunction fitnessFunction = orchestration.getFitnessFunction();
 		
 		fitnessFunction.addObjective(new OCLQueryDimension("ContentSize", 
-				"propertys->size() * 1.1 + entitys->size()", 
+				"properties->size() * 1.1 + entities->size()", 
 				orchestration.createOCLHelper()));
 				
 		fitnessFunction.addObjective(new TransformationLengthDimension());

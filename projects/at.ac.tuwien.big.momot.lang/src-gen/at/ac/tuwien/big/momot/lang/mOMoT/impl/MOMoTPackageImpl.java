@@ -1,38 +1,42 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmList;
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmReferences;
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupList;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.CollectorArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.DefExpression;
-import at.ac.tuwien.big.momot.lang.mOMoT.EqualityHelper;
-import at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionConstructor;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionOCL;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionType;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionXBase;
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessFunctionSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.IndicatorArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTFactory;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch;
-import at.ac.tuwien.big.momot.lang.mOMoT.ParmeterValueSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.PrintObjectivesCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.PrintSolutionsCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.ResultManagement;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveObjectivesCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SaveSolutionsCommand;
-import at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.ShowArray;
-import at.ac.tuwien.big.momot.lang.mOMoT.TransformationOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmList;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmReferences;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisCommand;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisGroupList;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.BoxplotCommand;
+import at.ac.tuwien.big.momot.lang.momot.CollectorArray;
+import at.ac.tuwien.big.momot.lang.momot.DefExpression;
+import at.ac.tuwien.big.momot.lang.momot.EqualityHelper;
+import at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionConstructor;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionOCL;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionSpecification;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionType;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionXBase;
+import at.ac.tuwien.big.momot.lang.momot.FitnessFunctionSpecification;
+import at.ac.tuwien.big.momot.lang.momot.IndicatorArray;
+import at.ac.tuwien.big.momot.lang.momot.InputModel;
+import at.ac.tuwien.big.momot.lang.momot.MOMoTSearch;
+import at.ac.tuwien.big.momot.lang.momot.ModelsCommand;
+import at.ac.tuwien.big.momot.lang.momot.ModuleOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.MomotFactory;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
+import at.ac.tuwien.big.momot.lang.momot.ObjectivesCommand;
+import at.ac.tuwien.big.momot.lang.momot.ParmeterValueSpecification;
+import at.ac.tuwien.big.momot.lang.momot.PrintAnalysisCommand;
+import at.ac.tuwien.big.momot.lang.momot.ResultManagement;
+import at.ac.tuwien.big.momot.lang.momot.ResultManagementCommand;
+import at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand;
+import at.ac.tuwien.big.momot.lang.momot.SearchOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.ShowArray;
+import at.ac.tuwien.big.momot.lang.momot.SolutionsCommand;
+import at.ac.tuwien.big.momot.lang.momot.VariableDeclaration;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -54,7 +58,7 @@ import org.eclipse.xtext.xtype.XtypePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
+public class MomotPackageImpl extends EPackageImpl implements MomotPackage
 {
   /**
    * <!-- begin-user-doc -->
@@ -75,7 +79,7 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass transformationOrchestrationEClass = null;
+  private EClass moduleOrchestrationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -90,6 +94,13 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * @generated
    */
   private EClass searchOrchestrationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inputModelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -215,7 +226,14 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass resultManagementEClass = null;
+  private EClass analysisCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass printAnalysisCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -229,28 +247,42 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass saveObjectivesCommandEClass = null;
+  private EClass boxplotCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass saveSolutionsCommandEClass = null;
+  private EClass resultManagementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass printObjectivesCommandEClass = null;
+  private EClass resultManagementCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass printSolutionsCommandEClass = null;
+  private EClass objectivesCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass solutionsCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass modelsCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -270,13 +302,13 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#eNS_URI
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private MOMoTPackageImpl()
+  private MomotPackageImpl()
   {
-    super(eNS_URI, MOMoTFactory.eINSTANCE);
+    super(eNS_URI, MomotFactory.eINSTANCE);
   }
 
   /**
@@ -289,7 +321,7 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
-   * <p>This method is used to initialize {@link MOMoTPackage#eINSTANCE} when that field is accessed.
+   * <p>This method is used to initialize {@link MomotPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -298,12 +330,12 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * @see #initializePackageContents()
    * @generated
    */
-  public static MOMoTPackage init()
+  public static MomotPackage init()
   {
-    if (isInited) return (MOMoTPackage)EPackage.Registry.INSTANCE.getEPackage(MOMoTPackage.eNS_URI);
+    if (isInited) return (MomotPackage)EPackage.Registry.INSTANCE.getEPackage(MomotPackage.eNS_URI);
 
     // Obtain or create and register package
-    MOMoTPackageImpl theMOMoTPackage = (MOMoTPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MOMoTPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MOMoTPackageImpl());
+    MomotPackageImpl theMomotPackage = (MomotPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MomotPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MomotPackageImpl());
 
     isInited = true;
 
@@ -312,18 +344,18 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     XtypePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
-    theMOMoTPackage.createPackageContents();
+    theMomotPackage.createPackageContents();
 
     // Initialize created meta-data
-    theMOMoTPackage.initializePackageContents();
+    theMomotPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
-    theMOMoTPackage.freeze();
+    theMomotPackage.freeze();
 
   
     // Update the registry and return the package
-    EPackage.Registry.INSTANCE.put(MOMoTPackage.eNS_URI, theMOMoTPackage);
-    return theMOMoTPackage;
+    EPackage.Registry.INSTANCE.put(MomotPackage.eNS_URI, theMomotPackage);
+    return theMomotPackage;
   }
 
   /**
@@ -431,6 +463,16 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMOMoTSearch_Finalization()
+  {
+    return (EReference)moMoTSearchEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getVariableDeclaration()
   {
     return variableDeclarationEClass;
@@ -471,9 +513,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTransformationOrchestration()
+  public EClass getModuleOrchestration()
   {
-    return transformationOrchestrationEClass;
+    return moduleOrchestrationEClass;
   }
 
   /**
@@ -481,9 +523,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransformationOrchestration_Modules()
+  public EReference getModuleOrchestration_Modules()
   {
-    return (EReference)transformationOrchestrationEClass.getEStructuralFeatures().get(0);
+    return (EReference)moduleOrchestrationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -491,9 +533,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransformationOrchestration_UnitsToRemove()
+  public EReference getModuleOrchestration_UnitsToRemove()
   {
-    return (EReference)transformationOrchestrationEClass.getEStructuralFeatures().get(1);
+    return (EReference)moduleOrchestrationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -501,9 +543,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransformationOrchestration_NonSolutionParameters()
+  public EReference getModuleOrchestration_NonSolutionParameters()
   {
-    return (EReference)transformationOrchestrationEClass.getEStructuralFeatures().get(2);
+    return (EReference)moduleOrchestrationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -511,9 +553,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransformationOrchestration_ParameterValues()
+  public EReference getModuleOrchestration_ParameterValues()
   {
-    return (EReference)transformationOrchestrationEClass.getEStructuralFeatures().get(3);
+    return (EReference)moduleOrchestrationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -581,7 +623,7 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSearchOrchestration_TransformationOrchestration()
+  public EReference getSearchOrchestration_ModuleOrchestration()
   {
     return (EReference)searchOrchestrationEClass.getEStructuralFeatures().get(2);
   }
@@ -614,6 +656,36 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
   public EReference getSearchOrchestration_EqualityHelper()
   {
     return (EReference)searchOrchestrationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInputModel()
+  {
+    return inputModelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInputModel_Path()
+  {
+    return (EReference)inputModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInputModel_Adaptation()
+  {
+    return (EReference)inputModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1181,6 +1253,36 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getAnalysisOrchestration_SaveCommand()
+  {
+    return (EReference)analysisOrchestrationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAnalysisOrchestration_BoxplotCommand()
+  {
+    return (EReference)analysisOrchestrationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAnalysisOrchestration_PrintCommand()
+  {
+    return (EReference)analysisOrchestrationEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAnalysisGroupList()
   {
     return analysisGroupListEClass;
@@ -1401,9 +1503,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getResultManagement()
+  public EClass getAnalysisCommand()
   {
-    return resultManagementEClass;
+    return analysisCommandEClass;
   }
 
   /**
@@ -1411,59 +1513,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getResultManagement_SaveAnalysis()
+  public EClass getPrintAnalysisCommand()
   {
-    return (EReference)resultManagementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getResultManagement_SaveObjectives()
-  {
-    return (EReference)resultManagementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getResultManagement_SaveSolutions()
-  {
-    return (EReference)resultManagementEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getResultManagement_PrintObjectives()
-  {
-    return (EReference)resultManagementEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getResultManagement_PrintSolutions()
-  {
-    return (EReference)resultManagementEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getResultManagement_DoCommand()
-  {
-    return (EReference)resultManagementEClass.getEStructuralFeatures().get(5);
+    return printAnalysisCommandEClass;
   }
 
   /**
@@ -1491,9 +1543,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSaveObjectivesCommand()
+  public EClass getBoxplotCommand()
   {
-    return saveObjectivesCommandEClass;
+    return boxplotCommandEClass;
   }
 
   /**
@@ -1501,9 +1553,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSaveObjectivesCommand_Algorithms()
+  public EReference getBoxplotCommand_Directory()
   {
-    return (EReference)saveObjectivesCommandEClass.getEStructuralFeatures().get(0);
+    return (EReference)boxplotCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1511,9 +1563,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSaveObjectivesCommand_File()
+  public EClass getResultManagement()
   {
-    return (EAttribute)saveObjectivesCommandEClass.getEStructuralFeatures().get(1);
+    return resultManagementEClass;
   }
 
   /**
@@ -1521,9 +1573,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSaveSolutionsCommand()
+  public EReference getResultManagement_AdaptModels()
   {
-    return saveSolutionsCommandEClass;
+    return (EReference)resultManagementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1531,9 +1583,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSaveSolutionsCommand_Algorithms()
+  public EReference getResultManagement_Commands()
   {
-    return (EReference)saveSolutionsCommandEClass.getEStructuralFeatures().get(0);
+    return (EReference)resultManagementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1541,9 +1593,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSaveSolutionsCommand_Directory()
+  public EClass getResultManagementCommand()
   {
-    return (EAttribute)saveSolutionsCommandEClass.getEStructuralFeatures().get(1);
+    return resultManagementCommandEClass;
   }
 
   /**
@@ -1551,9 +1603,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPrintObjectivesCommand()
+  public EReference getResultManagementCommand_Algorithms()
   {
-    return printObjectivesCommandEClass;
+    return (EReference)resultManagementCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1561,9 +1613,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPrintObjectivesCommand_Algorithms()
+  public EAttribute getResultManagementCommand_NeighborhoodSize()
   {
-    return (EReference)printObjectivesCommandEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)resultManagementCommandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1571,9 +1623,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPrintSolutionsCommand()
+  public EAttribute getResultManagementCommand_MaxNeighborhoodSize()
   {
-    return printSolutionsCommandEClass;
+    return (EAttribute)resultManagementCommandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1581,9 +1633,79 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPrintSolutionsCommand_Algorithms()
+  public EAttribute getResultManagementCommand_PrintOutput()
   {
-    return (EReference)printSolutionsCommandEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)resultManagementCommandEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getObjectivesCommand()
+  {
+    return objectivesCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getObjectivesCommand_File()
+  {
+    return (EAttribute)objectivesCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSolutionsCommand()
+  {
+    return solutionsCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSolutionsCommand_File()
+  {
+    return (EAttribute)solutionsCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSolutionsCommand_Directory()
+  {
+    return (EAttribute)solutionsCommandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getModelsCommand()
+  {
+    return modelsCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getModelsCommand_Directory()
+  {
+    return (EAttribute)modelsCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1601,9 +1723,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public MOMoTFactory getMOMoTFactory()
+  public MomotFactory getMomotFactory()
   {
-    return (MOMoTFactory)getEFactoryInstance();
+    return (MomotFactory)getEFactoryInstance();
   }
 
   /**
@@ -1636,17 +1758,18 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     createEReference(moMoTSearchEClass, MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION);
     createEReference(moMoTSearchEClass, MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION);
     createEReference(moMoTSearchEClass, MO_MO_TSEARCH__RESULT_MANAGEMENT);
+    createEReference(moMoTSearchEClass, MO_MO_TSEARCH__FINALIZATION);
 
     variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
     createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
     createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
     createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__INIT);
 
-    transformationOrchestrationEClass = createEClass(TRANSFORMATION_ORCHESTRATION);
-    createEReference(transformationOrchestrationEClass, TRANSFORMATION_ORCHESTRATION__MODULES);
-    createEReference(transformationOrchestrationEClass, TRANSFORMATION_ORCHESTRATION__UNITS_TO_REMOVE);
-    createEReference(transformationOrchestrationEClass, TRANSFORMATION_ORCHESTRATION__NON_SOLUTION_PARAMETERS);
-    createEReference(transformationOrchestrationEClass, TRANSFORMATION_ORCHESTRATION__PARAMETER_VALUES);
+    moduleOrchestrationEClass = createEClass(MODULE_ORCHESTRATION);
+    createEReference(moduleOrchestrationEClass, MODULE_ORCHESTRATION__MODULES);
+    createEReference(moduleOrchestrationEClass, MODULE_ORCHESTRATION__UNITS_TO_REMOVE);
+    createEReference(moduleOrchestrationEClass, MODULE_ORCHESTRATION__NON_SOLUTION_PARAMETERS);
+    createEReference(moduleOrchestrationEClass, MODULE_ORCHESTRATION__PARAMETER_VALUES);
 
     parmeterValueSpecificationEClass = createEClass(PARMETER_VALUE_SPECIFICATION);
     createEReference(parmeterValueSpecificationEClass, PARMETER_VALUE_SPECIFICATION__NAME);
@@ -1655,10 +1778,14 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     searchOrchestrationEClass = createEClass(SEARCH_ORCHESTRATION);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__MODEL);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__SOLUTION_LENGTH);
-    createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__TRANSFORMATION_ORCHESTRATION);
+    createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__FITNESS_FUNCTION);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__ALGORITHMS);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__EQUALITY_HELPER);
+
+    inputModelEClass = createEClass(INPUT_MODEL);
+    createEReference(inputModelEClass, INPUT_MODEL__PATH);
+    createEReference(inputModelEClass, INPUT_MODEL__ADAPTATION);
 
     equalityHelperEClass = createEClass(EQUALITY_HELPER);
     createEReference(equalityHelperEClass, EQUALITY_HELPER__CALL);
@@ -1727,6 +1854,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     createEReference(analysisOrchestrationEClass, ANALYSIS_ORCHESTRATION__SIGNIFICANCE);
     createEReference(analysisOrchestrationEClass, ANALYSIS_ORCHESTRATION__SHOW);
     createEReference(analysisOrchestrationEClass, ANALYSIS_ORCHESTRATION__GROUPING);
+    createEReference(analysisOrchestrationEClass, ANALYSIS_ORCHESTRATION__SAVE_COMMAND);
+    createEReference(analysisOrchestrationEClass, ANALYSIS_ORCHESTRATION__BOXPLOT_COMMAND);
+    createEReference(analysisOrchestrationEClass, ANALYSIS_ORCHESTRATION__PRINT_COMMAND);
 
     analysisGroupListEClass = createEClass(ANALYSIS_GROUP_LIST);
     createEReference(analysisGroupListEClass, ANALYSIS_GROUP_LIST__GROUP);
@@ -1755,30 +1885,35 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     algorithmReferencesEClass = createEClass(ALGORITHM_REFERENCES);
     createEReference(algorithmReferencesEClass, ALGORITHM_REFERENCES__ELEMENTS);
 
-    resultManagementEClass = createEClass(RESULT_MANAGEMENT);
-    createEReference(resultManagementEClass, RESULT_MANAGEMENT__SAVE_ANALYSIS);
-    createEReference(resultManagementEClass, RESULT_MANAGEMENT__SAVE_OBJECTIVES);
-    createEReference(resultManagementEClass, RESULT_MANAGEMENT__SAVE_SOLUTIONS);
-    createEReference(resultManagementEClass, RESULT_MANAGEMENT__PRINT_OBJECTIVES);
-    createEReference(resultManagementEClass, RESULT_MANAGEMENT__PRINT_SOLUTIONS);
-    createEReference(resultManagementEClass, RESULT_MANAGEMENT__DO_COMMAND);
+    analysisCommandEClass = createEClass(ANALYSIS_COMMAND);
+
+    printAnalysisCommandEClass = createEClass(PRINT_ANALYSIS_COMMAND);
 
     saveAnalysisCommandEClass = createEClass(SAVE_ANALYSIS_COMMAND);
     createEReference(saveAnalysisCommandEClass, SAVE_ANALYSIS_COMMAND__FILE);
 
-    saveObjectivesCommandEClass = createEClass(SAVE_OBJECTIVES_COMMAND);
-    createEReference(saveObjectivesCommandEClass, SAVE_OBJECTIVES_COMMAND__ALGORITHMS);
-    createEAttribute(saveObjectivesCommandEClass, SAVE_OBJECTIVES_COMMAND__FILE);
+    boxplotCommandEClass = createEClass(BOXPLOT_COMMAND);
+    createEReference(boxplotCommandEClass, BOXPLOT_COMMAND__DIRECTORY);
 
-    saveSolutionsCommandEClass = createEClass(SAVE_SOLUTIONS_COMMAND);
-    createEReference(saveSolutionsCommandEClass, SAVE_SOLUTIONS_COMMAND__ALGORITHMS);
-    createEAttribute(saveSolutionsCommandEClass, SAVE_SOLUTIONS_COMMAND__DIRECTORY);
+    resultManagementEClass = createEClass(RESULT_MANAGEMENT);
+    createEReference(resultManagementEClass, RESULT_MANAGEMENT__ADAPT_MODELS);
+    createEReference(resultManagementEClass, RESULT_MANAGEMENT__COMMANDS);
 
-    printObjectivesCommandEClass = createEClass(PRINT_OBJECTIVES_COMMAND);
-    createEReference(printObjectivesCommandEClass, PRINT_OBJECTIVES_COMMAND__ALGORITHMS);
+    resultManagementCommandEClass = createEClass(RESULT_MANAGEMENT_COMMAND);
+    createEReference(resultManagementCommandEClass, RESULT_MANAGEMENT_COMMAND__ALGORITHMS);
+    createEAttribute(resultManagementCommandEClass, RESULT_MANAGEMENT_COMMAND__NEIGHBORHOOD_SIZE);
+    createEAttribute(resultManagementCommandEClass, RESULT_MANAGEMENT_COMMAND__MAX_NEIGHBORHOOD_SIZE);
+    createEAttribute(resultManagementCommandEClass, RESULT_MANAGEMENT_COMMAND__PRINT_OUTPUT);
 
-    printSolutionsCommandEClass = createEClass(PRINT_SOLUTIONS_COMMAND);
-    createEReference(printSolutionsCommandEClass, PRINT_SOLUTIONS_COMMAND__ALGORITHMS);
+    objectivesCommandEClass = createEClass(OBJECTIVES_COMMAND);
+    createEAttribute(objectivesCommandEClass, OBJECTIVES_COMMAND__FILE);
+
+    solutionsCommandEClass = createEClass(SOLUTIONS_COMMAND);
+    createEAttribute(solutionsCommandEClass, SOLUTIONS_COMMAND__FILE);
+    createEAttribute(solutionsCommandEClass, SOLUTIONS_COMMAND__DIRECTORY);
+
+    modelsCommandEClass = createEClass(MODELS_COMMAND);
+    createEAttribute(modelsCommandEClass, MODELS_COMMAND__DIRECTORY);
 
     // Create enums
     fitnessDimensionTypeEEnum = createEEnum(FITNESS_DIMENSION_TYPE);
@@ -1821,6 +1956,12 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     fitnessDimensionConstructorEClass.getESuperTypes().add(this.getFitnessDimensionSpecification());
     fitnessDimensionXBaseEClass.getESuperTypes().add(this.getFitnessDimensionSpecification());
     fitnessDimensionOCLEClass.getESuperTypes().add(this.getFitnessDimensionSpecification());
+    printAnalysisCommandEClass.getESuperTypes().add(this.getAnalysisCommand());
+    saveAnalysisCommandEClass.getESuperTypes().add(this.getAnalysisCommand());
+    boxplotCommandEClass.getESuperTypes().add(this.getAnalysisCommand());
+    objectivesCommandEClass.getESuperTypes().add(this.getResultManagementCommand());
+    solutionsCommandEClass.getESuperTypes().add(this.getResultManagementCommand());
+    modelsCommandEClass.getESuperTypes().add(this.getResultManagementCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(moMoTSearchEClass, MOMoTSearch.class, "MOMoTSearch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1833,29 +1974,34 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     initEReference(getMOMoTSearch_ExperimentOrchestration(), this.getExperimentOrchestration(), null, "experimentOrchestration", null, 0, 1, MOMoTSearch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMOMoTSearch_AnalysisOrchestration(), this.getAnalysisOrchestration(), null, "analysisOrchestration", null, 0, 1, MOMoTSearch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMOMoTSearch_ResultManagement(), this.getResultManagement(), null, "resultManagement", null, 0, 1, MOMoTSearch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMOMoTSearch_Finalization(), theXbasePackage.getXExpression(), null, "finalization", null, 0, 1, MOMoTSearch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVariableDeclaration_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariableDeclaration_Init(), theXbasePackage.getXExpression(), null, "init", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(transformationOrchestrationEClass, TransformationOrchestration.class, "TransformationOrchestration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTransformationOrchestration_Modules(), theXbasePackage.getXListLiteral(), null, "modules", null, 0, 1, TransformationOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransformationOrchestration_UnitsToRemove(), theXbasePackage.getXListLiteral(), null, "unitsToRemove", null, 0, 1, TransformationOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransformationOrchestration_NonSolutionParameters(), theXbasePackage.getXListLiteral(), null, "nonSolutionParameters", null, 0, 1, TransformationOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransformationOrchestration_ParameterValues(), this.getParmeterValueSpecification(), null, "parameterValues", null, 0, -1, TransformationOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(moduleOrchestrationEClass, ModuleOrchestration.class, "ModuleOrchestration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModuleOrchestration_Modules(), theXbasePackage.getXListLiteral(), null, "modules", null, 0, 1, ModuleOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModuleOrchestration_UnitsToRemove(), theXbasePackage.getXListLiteral(), null, "unitsToRemove", null, 0, 1, ModuleOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModuleOrchestration_NonSolutionParameters(), theXbasePackage.getXListLiteral(), null, "nonSolutionParameters", null, 0, 1, ModuleOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModuleOrchestration_ParameterValues(), this.getParmeterValueSpecification(), null, "parameterValues", null, 0, -1, ModuleOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parmeterValueSpecificationEClass, ParmeterValueSpecification.class, "ParmeterValueSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParmeterValueSpecification_Name(), theXbasePackage.getXExpression(), null, "name", null, 0, 1, ParmeterValueSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParmeterValueSpecification_Call(), theXbasePackage.getXExpression(), null, "call", null, 0, 1, ParmeterValueSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(searchOrchestrationEClass, SearchOrchestration.class, "SearchOrchestration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSearchOrchestration_Model(), theXbasePackage.getXExpression(), null, "model", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSearchOrchestration_Model(), this.getInputModel(), null, "model", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_SolutionLength(), theXbasePackage.getXExpression(), null, "solutionLength", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSearchOrchestration_TransformationOrchestration(), this.getTransformationOrchestration(), null, "transformationOrchestration", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSearchOrchestration_ModuleOrchestration(), this.getModuleOrchestration(), null, "moduleOrchestration", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_FitnessFunction(), this.getFitnessFunctionSpecification(), null, "fitnessFunction", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_Algorithms(), this.getAlgorithmList(), null, "algorithms", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_EqualityHelper(), this.getEqualityHelper(), null, "equalityHelper", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inputModelEClass, InputModel.class, "InputModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInputModel_Path(), theXbasePackage.getXExpression(), null, "path", null, 0, 1, InputModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInputModel_Adaptation(), theXbasePackage.getXExpression(), null, "adaptation", null, 0, 1, InputModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(equalityHelperEClass, EqualityHelper.class, "EqualityHelper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEqualityHelper_Call(), theXbasePackage.getXExpression(), null, "call", null, 0, 1, EqualityHelper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1924,6 +2070,9 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     initEReference(getAnalysisOrchestration_Significance(), theXbasePackage.getXExpression(), null, "significance", null, 0, 1, AnalysisOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnalysisOrchestration_Show(), this.getShowArray(), null, "show", null, 0, 1, AnalysisOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnalysisOrchestration_Grouping(), this.getAnalysisGroupList(), null, "grouping", null, 0, 1, AnalysisOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnalysisOrchestration_SaveCommand(), this.getSaveAnalysisCommand(), null, "saveCommand", null, 0, 1, AnalysisOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnalysisOrchestration_BoxplotCommand(), this.getBoxplotCommand(), null, "boxplotCommand", null, 0, 1, AnalysisOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnalysisOrchestration_PrintCommand(), this.getPrintAnalysisCommand(), null, "printCommand", null, 0, 1, AnalysisOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(analysisGroupListEClass, AnalysisGroupList.class, "AnalysisGroupList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnalysisGroupList_Group(), this.getAnalysisGroupSpecification(), null, "group", null, 0, -1, AnalysisGroupList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1952,30 +2101,35 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     initEClass(algorithmReferencesEClass, AlgorithmReferences.class, "AlgorithmReferences", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAlgorithmReferences_Elements(), this.getAlgorithmSpecification(), null, "elements", null, 0, -1, AlgorithmReferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(resultManagementEClass, ResultManagement.class, "ResultManagement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getResultManagement_SaveAnalysis(), this.getSaveAnalysisCommand(), null, "saveAnalysis", null, 0, 1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getResultManagement_SaveObjectives(), this.getSaveObjectivesCommand(), null, "saveObjectives", null, 0, -1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getResultManagement_SaveSolutions(), this.getSaveSolutionsCommand(), null, "saveSolutions", null, 0, -1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getResultManagement_PrintObjectives(), this.getPrintObjectivesCommand(), null, "printObjectives", null, 0, -1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getResultManagement_PrintSolutions(), this.getPrintSolutionsCommand(), null, "printSolutions", null, 0, -1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getResultManagement_DoCommand(), theXbasePackage.getXExpression(), null, "doCommand", null, 0, 1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(analysisCommandEClass, AnalysisCommand.class, "AnalysisCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(printAnalysisCommandEClass, PrintAnalysisCommand.class, "PrintAnalysisCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(saveAnalysisCommandEClass, SaveAnalysisCommand.class, "SaveAnalysisCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSaveAnalysisCommand_File(), theXbasePackage.getXExpression(), null, "file", null, 0, 1, SaveAnalysisCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(saveObjectivesCommandEClass, SaveObjectivesCommand.class, "SaveObjectivesCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSaveObjectivesCommand_Algorithms(), this.getAlgorithmReferences(), null, "algorithms", null, 0, 1, SaveObjectivesCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSaveObjectivesCommand_File(), ecorePackage.getEString(), "file", null, 0, 1, SaveObjectivesCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(boxplotCommandEClass, BoxplotCommand.class, "BoxplotCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBoxplotCommand_Directory(), theXbasePackage.getXExpression(), null, "directory", null, 0, 1, BoxplotCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(saveSolutionsCommandEClass, SaveSolutionsCommand.class, "SaveSolutionsCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSaveSolutionsCommand_Algorithms(), this.getAlgorithmReferences(), null, "algorithms", null, 0, 1, SaveSolutionsCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSaveSolutionsCommand_Directory(), ecorePackage.getEString(), "directory", null, 0, 1, SaveSolutionsCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(resultManagementEClass, ResultManagement.class, "ResultManagement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getResultManagement_AdaptModels(), theXbasePackage.getXExpression(), null, "adaptModels", null, 0, 1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getResultManagement_Commands(), this.getResultManagementCommand(), null, "commands", null, 0, -1, ResultManagement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(printObjectivesCommandEClass, PrintObjectivesCommand.class, "PrintObjectivesCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPrintObjectivesCommand_Algorithms(), this.getAlgorithmReferences(), null, "algorithms", null, 0, 1, PrintObjectivesCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(resultManagementCommandEClass, ResultManagementCommand.class, "ResultManagementCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getResultManagementCommand_Algorithms(), this.getAlgorithmReferences(), null, "algorithms", null, 0, 1, ResultManagementCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResultManagementCommand_NeighborhoodSize(), ecorePackage.getEInt(), "neighborhoodSize", null, 0, 1, ResultManagementCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResultManagementCommand_MaxNeighborhoodSize(), ecorePackage.getEBoolean(), "maxNeighborhoodSize", null, 0, 1, ResultManagementCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getResultManagementCommand_PrintOutput(), ecorePackage.getEBoolean(), "printOutput", null, 0, 1, ResultManagementCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(printSolutionsCommandEClass, PrintSolutionsCommand.class, "PrintSolutionsCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPrintSolutionsCommand_Algorithms(), this.getAlgorithmReferences(), null, "algorithms", null, 0, 1, PrintSolutionsCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(objectivesCommandEClass, ObjectivesCommand.class, "ObjectivesCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getObjectivesCommand_File(), ecorePackage.getEString(), "file", null, 0, 1, ObjectivesCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(solutionsCommandEClass, SolutionsCommand.class, "SolutionsCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSolutionsCommand_File(), ecorePackage.getEString(), "file", null, 0, 1, SolutionsCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSolutionsCommand_Directory(), ecorePackage.getEString(), "directory", null, 0, 1, SolutionsCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(modelsCommandEClass, ModelsCommand.class, "ModelsCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModelsCommand_Directory(), ecorePackage.getEString(), "directory", null, 0, 1, ModelsCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(fitnessDimensionTypeEEnum, FitnessDimensionType.class, "FitnessDimensionType");
@@ -1986,4 +2140,4 @@ public class MOMoTPackageImpl extends EPackageImpl implements MOMoTPackage
     createResource(eNS_URI);
   }
 
-} //MOMoTPackageImpl
+} //MomotPackageImpl

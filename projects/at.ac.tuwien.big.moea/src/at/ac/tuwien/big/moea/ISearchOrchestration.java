@@ -41,6 +41,7 @@ public interface ISearchOrchestration<S extends Solution> {
 	int getNumberOfObjectives();
 	int getNumberOfConstraints();
 	
+	String print(Iterable<S> population);
 	String print(Population population);
 	String print(S solution);
 	

@@ -12,6 +12,7 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.search.fitness.dimension;
 
+import at.ac.tuwien.big.moea.problem.solution.variable.PlaceholderVariable;
 import at.ac.tuwien.big.moea.search.fitness.dimension.MinimumSolutionLengthDimension;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.TransformationPlaceholderVariable;
@@ -20,6 +21,7 @@ public class MinimumTransformationLengthDimension extends MinimumSolutionLengthD
 
 	public MinimumTransformationLengthDimension(String name, int minimum) {
 		super(TransformationSolution.class, name, minimum);
+		ignoreVariable(PlaceholderVariable.class);
 		ignoreVariable(TransformationPlaceholderVariable.class);
 	}
 	

@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -15,15 +15,15 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getModel <em>Model</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getSolutionLength <em>Solution Length</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getTransformationOrchestration <em>Transformation Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getFitnessFunction <em>Fitness Function</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getAlgorithms <em>Algorithms</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getEqualityHelper <em>Equality Helper</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getModel <em>Model</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getSolutionLength <em>Solution Length</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getModuleOrchestration <em>Module Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getFitnessFunction <em>Fitness Function</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getAlgorithms <em>Algorithms</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getEqualityHelper <em>Equality Helper</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSearchOrchestration()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration()
  * @model
  * @generated
  */
@@ -38,22 +38,22 @@ public interface SearchOrchestration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Model</em>' containment reference.
-   * @see #setModel(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSearchOrchestration_Model()
+   * @see #setModel(InputModel)
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration_Model()
    * @model containment="true"
    * @generated
    */
-  XExpression getModel();
+  InputModel getModel();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getModel <em>Model</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getModel <em>Model</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Model</em>' containment reference.
    * @see #getModel()
    * @generated
    */
-  void setModel(XExpression value);
+  void setModel(InputModel value);
 
   /**
    * Returns the value of the '<em><b>Solution Length</b></em>' containment reference.
@@ -65,14 +65,14 @@ public interface SearchOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Solution Length</em>' containment reference.
    * @see #setSolutionLength(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSearchOrchestration_SolutionLength()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration_SolutionLength()
    * @model containment="true"
    * @generated
    */
   XExpression getSolutionLength();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getSolutionLength <em>Solution Length</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getSolutionLength <em>Solution Length</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Solution Length</em>' containment reference.
@@ -82,30 +82,30 @@ public interface SearchOrchestration extends EObject
   void setSolutionLength(XExpression value);
 
   /**
-   * Returns the value of the '<em><b>Transformation Orchestration</b></em>' containment reference.
+   * Returns the value of the '<em><b>Module Orchestration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Transformation Orchestration</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Module Orchestration</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Transformation Orchestration</em>' containment reference.
-   * @see #setTransformationOrchestration(TransformationOrchestration)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSearchOrchestration_TransformationOrchestration()
+   * @return the value of the '<em>Module Orchestration</em>' containment reference.
+   * @see #setModuleOrchestration(ModuleOrchestration)
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration_ModuleOrchestration()
    * @model containment="true"
    * @generated
    */
-  TransformationOrchestration getTransformationOrchestration();
+  ModuleOrchestration getModuleOrchestration();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getTransformationOrchestration <em>Transformation Orchestration</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getModuleOrchestration <em>Module Orchestration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Transformation Orchestration</em>' containment reference.
-   * @see #getTransformationOrchestration()
+   * @param value the new value of the '<em>Module Orchestration</em>' containment reference.
+   * @see #getModuleOrchestration()
    * @generated
    */
-  void setTransformationOrchestration(TransformationOrchestration value);
+  void setModuleOrchestration(ModuleOrchestration value);
 
   /**
    * Returns the value of the '<em><b>Fitness Function</b></em>' containment reference.
@@ -117,14 +117,14 @@ public interface SearchOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Fitness Function</em>' containment reference.
    * @see #setFitnessFunction(FitnessFunctionSpecification)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSearchOrchestration_FitnessFunction()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration_FitnessFunction()
    * @model containment="true"
    * @generated
    */
   FitnessFunctionSpecification getFitnessFunction();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getFitnessFunction <em>Fitness Function</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getFitnessFunction <em>Fitness Function</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Fitness Function</em>' containment reference.
@@ -143,14 +143,14 @@ public interface SearchOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Algorithms</em>' containment reference.
    * @see #setAlgorithms(AlgorithmList)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSearchOrchestration_Algorithms()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration_Algorithms()
    * @model containment="true"
    * @generated
    */
   AlgorithmList getAlgorithms();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getAlgorithms <em>Algorithms</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getAlgorithms <em>Algorithms</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Algorithms</em>' containment reference.
@@ -169,14 +169,14 @@ public interface SearchOrchestration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Equality Helper</em>' containment reference.
    * @see #setEqualityHelper(EqualityHelper)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSearchOrchestration_EqualityHelper()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration_EqualityHelper()
    * @model containment="true"
    * @generated
    */
   EqualityHelper getEqualityHelper();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration#getEqualityHelper <em>Equality Helper</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getEqualityHelper <em>Equality Helper</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Equality Helper</em>' containment reference.

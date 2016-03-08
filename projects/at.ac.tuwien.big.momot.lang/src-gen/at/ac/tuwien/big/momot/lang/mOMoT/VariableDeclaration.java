@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -17,12 +17,12 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration#getType <em>Type</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration#getInit <em>Init</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration#getType <em>Type</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration#getInit <em>Init</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getVariableDeclaration()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getVariableDeclaration()
  * @model
  * @generated
  */
@@ -38,14 +38,14 @@ public interface VariableDeclaration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
    * @see #setType(JvmTypeReference)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getVariableDeclaration_Type()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getVariableDeclaration_Type()
    * @model containment="true"
    * @generated
    */
   JvmTypeReference getType();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration#getType <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' containment reference.
@@ -64,14 +64,14 @@ public interface VariableDeclaration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getVariableDeclaration_Name()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getVariableDeclaration_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -90,14 +90,14 @@ public interface VariableDeclaration extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Init</em>' containment reference.
    * @see #setInit(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getVariableDeclaration_Init()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getVariableDeclaration_Init()
    * @model containment="true"
    * @generated
    */
   XExpression getInit();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration#getInit <em>Init</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration#getInit <em>Init</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Init</em>' containment reference.

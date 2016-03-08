@@ -250,7 +250,7 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRefactoringModel_Propertys() {
+	public EReference getRefactoringModel_Properties() {
 		return (EReference)refactoringModelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -259,7 +259,7 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRefactoringModel_Entitys() {
+	public EReference getRefactoringModel_Entities() {
 		return (EReference)refactoringModelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -327,8 +327,8 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
 		typeEClass = createEClass(TYPE);
 
 		refactoringModelEClass = createEClass(REFACTORING_MODEL);
-		createEReference(refactoringModelEClass, REFACTORING_MODEL__PROPERTYS);
-		createEReference(refactoringModelEClass, REFACTORING_MODEL__ENTITYS);
+		createEReference(refactoringModelEClass, REFACTORING_MODEL__PROPERTIES);
+		createEReference(refactoringModelEClass, REFACTORING_MODEL__ENTITIES);
 		createEReference(refactoringModelEClass, REFACTORING_MODEL__TYPES);
 		createEReference(refactoringModelEClass, REFACTORING_MODEL__GENERALIZATIONS);
 	}
@@ -384,8 +384,8 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(refactoringModelEClass, RefactoringModel.class, "RefactoringModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRefactoringModel_Propertys(), this.getProperty(), null, "propertys", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRefactoringModel_Entitys(), this.getEntity(), null, "entitys", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRefactoringModel_Properties(), this.getProperty(), null, "properties", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRefactoringModel_Entities(), this.getEntity(), null, "entities", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRefactoringModel_Types(), this.getType(), null, "types", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRefactoringModel_Generalizations(), this.getGeneralization(), null, "generalizations", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

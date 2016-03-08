@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Fitness Dimension Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getFitnessDimensionType()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getFitnessDimensionType()
  * @model
  * @generated
  */

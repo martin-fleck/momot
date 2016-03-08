@@ -128,37 +128,83 @@ public class MOMoTNewWizard extends Wizard implements INewWizard {
 	 */
 
 	private InputStream openContentStream() {
-		String contents = "initialization = { }\n";
-		contents += "\n";
-		contents += "search = {\n";
-		contents += "\tmodel = \"model.xmi\"\n";
-		contents += "\tsolutionLength = 10\n";
-		contents += "\ttransformations = {\n";
-		contents += "\t\tmodules = [ \"transformations.henshin\" ]\n";
-		contents += "\t}\n";
-		contents += "\n";
-		contents += "\tfitness = {\n";
-		contents += "\t\tobjectives = {\n";
-		contents += "\t\t\tName : minimize { 0.0 }\n";
-		contents += "\t\t}\n";
-		contents += "\t}\n";
-		contents += "\n";
-		contents += "\talgorithms = {\n";
-		contents += "\t\tRandomSearch : moea.createRandomSearch()\n";
-		contents += "\t}\n";
-		contents += "}\n";
-		contents += "\n";
-		contents += "experiment = {\n";
-		contents += "\tpopulationSize = 50\n";
-		contents += "\tmaxEvaluations = 500\n";
-		contents += "\tnrRuns = 30\n";
-		contents += "}\n";
-		contents += "\n";
-		contents += "finalization = {\n";
-		contents += "\tsaveObjectives \"objectives.pf\"\n";
-		contents += "\tsaveSolutions \"output/\"\n";
-		contents += "}\n";
-		return new ByteArrayInputStream(contents.getBytes());
+		StringBuilder sb = new StringBuilder();
+		sb.append("package momot.^search\n");
+		sb.append("\n");
+		
+		sb.append("import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension\n");
+		sb.append("import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener\n");
+		sb.append("\n");
+		
+		sb.append("initialization = {\n");
+		sb.append("\t" + "System.out.println(\"Search started.\");\n");
+		sb.append("}\n");
+		sb.append("\n");
+		
+		sb.append("search = {\n");
+		sb.append("\t" + "model          = {\n");
+		sb.append("\t" + "\t" + "file       = \"input/model.xmi\"\n");
+		sb.append("\t" + "}\n");
+		sb.append("\t" + "solutionLength  = 10\n");
+		sb.append("\n");
+		sb.append("\t" + "transformations = {\n");
+		sb.append("\t" + "\t" + "modules = [ \"input/transformations.henshin\" ]\n");
+		sb.append("\t" + "}\n");
+		sb.append("\n");
+		sb.append("\t" + "fitness         = {\n");
+		sb.append("\t" + "\t" + "objectives = {\n");
+		sb.append("\t" + "\t" + "\t" + "FirstObjective : minimize { 0.0 }\n");
+		sb.append("\t" + "\t" + "\t" + "SolutionLength : minimize new TransformationLengthDimension\n");
+		sb.append("\t" + "\t" + "}\n");
+		sb.append("\t" + "}\n");
+		sb.append("\n");
+		sb.append("\t" + "algorithms      = {\n");
+		sb.append("\t" + "\t" + "Random  : moea.createRandomSearch()\n");
+		sb.append("\t" + "\t" + "NSGAII  : moea.createNSGAII()\n");
+		sb.append("\t" + "\t" + "NSGAIII : moea.createNSGAIII()\n");
+		sb.append("\t" + "}\n");
+		sb.append("}\n");
+		sb.append("\n");
+		
+		sb.append("experiment = {\n");
+		sb.append("\t" + "populationSize    = 100\n");
+		sb.append("\t" + "maxEvaluations    = 10000\n");
+		sb.append("\t" + "nrRuns            = 30\n");
+		sb.append("\t" + "progressListeners = [ new SeedRuntimePrintListener ]\n");
+		sb.append("}\n");
+		sb.append("\n");
+		
+		sb.append("analysis = {\n");
+		sb.append("\t" + "indicators       = [ hypervolume generationalDistance ]\n");
+		sb.append("\t" + "significance     = 0.01\n");
+		sb.append("\t" + "show             = [ aggregateValues statisticalSignificance individualValues ]\n");
+		sb.append("\t" + "outputFile       = \"output/analysis/analysis.txt\"\n");
+		sb.append("\t" + "boxplotDirectory = \"output/analysis/\"\n");
+		sb.append("\t" + "printOutput\n");
+		sb.append("}\n");
+		sb.append("\n");
+		
+		sb.append("results = {\n");
+		sb.append("\t" + "objectives = {\n");
+		sb.append("\t" + "\t" + "outputFile      = \"output/objectives/objective_values.txt\"\n");
+		sb.append("\t" + "\t" + "printOutput\n");
+		sb.append("\t" + "}\n");
+		sb.append("\n");
+		sb.append("\t" + "solutions  = {\n");
+		sb.append("\t" + "\t" + "outputFile      = \"output/solutions/objective_values.txt\"\n");
+		sb.append("\t" + "\t" + "outputDirectory = \"output/solutions/\"\n");
+		sb.append("\t" + "}\n");
+		sb.append("\n");
+		sb.append("\t" + "models     = {\n");
+		sb.append("\t" + "\t" + "outputDirectory = \"output/models/\"\n");
+		sb.append("\t" + "}\n");
+		sb.append("}\n");
+		sb.append("\n");
+		
+		sb.append("finalization = {\n");
+		sb.append("\t" + "System.out.println(\"Search finished.\");\n");
+		sb.append("}\n");
+		return new ByteArrayInputStream(sb.toString().getBytes());
 	}
 
 	private void throwCoreException(String message) throws CoreException {

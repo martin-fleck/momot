@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.FitnessDimensionXBase;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.FitnessDimensionXBase;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,7 +23,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.FitnessDimensionXBaseImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.FitnessDimensionXBaseImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,7 +58,7 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.FITNESS_DIMENSION_XBASE;
+    return MomotPackage.Literals.FITNESS_DIMENSION_XBASE;
   }
 
   /**
@@ -82,7 +82,7 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
     value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_XBASE__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -99,14 +99,14 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
     {
       NotificationChain msgs = null;
       if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE, null, msgs);
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_DIMENSION_XBASE__VALUE, null, msgs);
       if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE, null, msgs);
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.FITNESS_DIMENSION_XBASE__VALUE, null, msgs);
       msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.FITNESS_DIMENSION_XBASE__VALUE, newValue, newValue));
   }
 
   /**
@@ -119,7 +119,7 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE:
+      case MomotPackage.FITNESS_DIMENSION_XBASE__VALUE:
         return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -135,7 +135,7 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE:
+      case MomotPackage.FITNESS_DIMENSION_XBASE__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -151,7 +151,7 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE:
+      case MomotPackage.FITNESS_DIMENSION_XBASE__VALUE:
         setValue((XExpression)newValue);
         return;
     }
@@ -168,7 +168,7 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE:
+      case MomotPackage.FITNESS_DIMENSION_XBASE__VALUE:
         setValue((XExpression)null);
         return;
     }
@@ -185,7 +185,7 @@ public class FitnessDimensionXBaseImpl extends FitnessDimensionSpecificationImpl
   {
     switch (featureID)
     {
-      case MOMoTPackage.FITNESS_DIMENSION_XBASE__VALUE:
+      case MomotPackage.FITNESS_DIMENSION_XBASE__VALUE:
         return value != null;
     }
     return super.eIsSet(featureID);

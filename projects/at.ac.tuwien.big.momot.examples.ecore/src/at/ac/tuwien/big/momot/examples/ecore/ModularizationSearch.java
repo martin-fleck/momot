@@ -16,8 +16,8 @@ import org.moeaframework.core.operator.TournamentSelection;
 
 import at.ac.tuwien.big.moea.SearchAnalysis;
 import at.ac.tuwien.big.moea.SearchExperiment;
-import at.ac.tuwien.big.moea.experiment.analyzer.PopulationAnalyzer;
-import at.ac.tuwien.big.moea.experiment.analyzer.PopulationAnalyzer.FitnessComparison;
+import at.ac.tuwien.big.moea.experiment.analyzer.kneepoint.PopulationAnalyzer;
+import at.ac.tuwien.big.moea.experiment.analyzer.kneepoint.PopulationAnalyzer.FitnessComparison;
 import at.ac.tuwien.big.moea.experiment.executor.listener.SeedRuntimePrintListener;
 import at.ac.tuwien.big.moea.search.algorithm.EvolutionaryAlgorithmFactory;
 import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm;
@@ -136,21 +136,21 @@ public class ModularizationSearch {
 	    return manager;
 	}
 
-	protected SearchExperiment createExperiment(final TransformationSearchOrchestration orchestration) {
-	    SearchExperiment experiment = new SearchExperiment(orchestration, MAX_EVALUATIONS);
+	protected SearchExperiment<TransformationSolution> createExperiment(final TransformationSearchOrchestration orchestration) {
+	    SearchExperiment<TransformationSolution> experiment = new SearchExperiment<>(orchestration, MAX_EVALUATIONS);
 	    experiment.setNumberOfRuns(NR_RUNS);
 	    experiment.addProgressListener(new SeedRuntimePrintListener());
 	    return experiment;
 	}
 	
-	protected SearchAnalysis createAnalysis(SearchExperiment experiment) {
+	protected SearchAnalysis createAnalysis(SearchExperiment<TransformationSolution> experiment) {
 		SearchAnalysis analysis = new SearchAnalysis(experiment);
 		analysis.setAllIndicators(true);
 		analysis.setShowAll(true);
 		return analysis;
 	}
 	
-	protected void handleResults(SearchExperiment experiment) {
+	protected void handleResults(SearchExperiment<TransformationSolution> experiment) {
 		TransformationResultManager resultManager = new TransformationResultManager(experiment);
 		printResults(resultManager);
 		saveResults(resultManager);
@@ -186,9 +186,9 @@ public class ModularizationSearch {
 		resultManager.setBaseName(language.getName());
 		
 		resultManager.setBaseDirectory("output/" + language.getName() + "/nsgaii/");
-		resultManager.saveApproximationSetObjectives("approximation_nsgaii.pf", "NSGA-II");
-		resultManager.saveApproximationSet("approximation_nsgaii.txt", "NSGA-II");
-		List<File> nsgaiiFiles = resultManager.saveApproximationSetGraphs("NSGA-II");
+		resultManager.saveObjectives("approximation_nsgaii.pf", "NSGA-II");
+		resultManager.savePopulation("approximation_nsgaii.txt", "NSGA-II");
+		List<File> nsgaiiFiles = resultManager.saveModels("NSGA-II");
 		cleanSolutions(nsgaiiFiles);
 	}
 
@@ -210,14 +210,14 @@ public class ModularizationSearch {
 		System.out.println("\nReferenceSet:");
 		System.out.println(resultManager.printReferenceSet());
 		System.out.println("ApproximationSet:");
-		System.out.println(resultManager.printApproximationSetObjectives());
+		System.out.println(resultManager.printObjectives());
 	}
 	
 	public void performSearch(String initialGraphUri, int solutionLength, int nrModules) {
 		TransformationSearchOrchestration orchestration = createOrchestration(initialGraphUri, solutionLength, nrModules);
 		printSearchInfo(orchestration);
 		printMetrics(orchestration.getProblemGraph());
-	    SearchExperiment experiment = createExperiment(orchestration);
+	    SearchExperiment<TransformationSolution> experiment = createExperiment(orchestration);
 	    experiment.run();
 	    handleResults(experiment);
 	}

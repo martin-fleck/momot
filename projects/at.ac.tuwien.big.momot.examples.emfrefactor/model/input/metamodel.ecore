@@ -2,15 +2,16 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Example" nsURI="http://example.momot.at/package" nsPrefix="example">
   <eClassifiers xsi:type="ecore:EClass" name="A">
-    <eOperations name="getAs"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="a"/>
+    <eOperations name="getAs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="a" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="B">
-    <eOperations name="getBs"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="b"/>
+    <eOperations name="getBs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ba" eSuperTypes="#//B">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ba"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ba" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bb" eSuperTypes="#//B"/>
 </ecore:EPackage>

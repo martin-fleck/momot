@@ -17,10 +17,9 @@ import org.moeaframework.core.variable.EncodingUtils;
 import org.moeaframework.core.variable.RealVariable;
 
 import at.ac.tuwien.big.moea.util.TextUtil;
-import at.ac.tuwien.big.moea.util.random.IRandomizable;
 import at.ac.tuwien.big.moea.util.random.RandomInteger;
 
-public class RandomIntegerVariable implements Variable, IRandomizable<RandomIntegerVariable> {
+public class RandomIntegerVariable implements Variable {
 
 	private static final long serialVersionUID = -8144298676316291939L;
 	
@@ -56,9 +55,8 @@ public class RandomIntegerVariable implements Variable, IRandomizable<RandomInte
 	}
 	
 	@Override
-	public RandomIntegerVariable randomize() {
+	public void randomize() {
 		this.value = randomInteger.nextRandom();
-		return this;
 	}
 	
 	@Override

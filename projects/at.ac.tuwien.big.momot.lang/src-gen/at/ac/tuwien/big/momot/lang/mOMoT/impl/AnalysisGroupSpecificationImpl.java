@@ -1,10 +1,10 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AlgorithmReferences;
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisGroupSpecification;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.AlgorithmReferences;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.AnalysisGroupSpecificationImpl#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.AnalysisGroupSpecificationImpl#getAlgorithms <em>Algorithms</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.AnalysisGroupSpecificationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.AnalysisGroupSpecificationImpl#getAlgorithms <em>Algorithms</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,7 +79,7 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.ANALYSIS_GROUP_SPECIFICATION;
+    return MomotPackage.Literals.ANALYSIS_GROUP_SPECIFICATION;
   }
 
   /**
@@ -102,7 +102,7 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.ANALYSIS_GROUP_SPECIFICATION__NAME, oldName, name));
   }
 
   /**
@@ -126,7 +126,7 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
     algorithms = newAlgorithms;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, oldAlgorithms, newAlgorithms);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, oldAlgorithms, newAlgorithms);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -143,14 +143,14 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
     {
       NotificationChain msgs = null;
       if (algorithms != null)
-        msgs = ((InternalEObject)algorithms).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, null, msgs);
+        msgs = ((InternalEObject)algorithms).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, null, msgs);
       if (newAlgorithms != null)
-        msgs = ((InternalEObject)newAlgorithms).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, null, msgs);
+        msgs = ((InternalEObject)newAlgorithms).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, null, msgs);
       msgs = basicSetAlgorithms(newAlgorithms, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, newAlgorithms, newAlgorithms));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS, newAlgorithms, newAlgorithms));
   }
 
   /**
@@ -163,7 +163,7 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
         return basicSetAlgorithms(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -179,9 +179,9 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
         return getName();
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
         return getAlgorithms();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -197,10 +197,10 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
         setName((String)newValue);
         return;
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
         setAlgorithms((AlgorithmReferences)newValue);
         return;
     }
@@ -217,10 +217,10 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
         setAlgorithms((AlgorithmReferences)null);
         return;
     }
@@ -237,9 +237,9 @@ public class AnalysisGroupSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION__ALGORITHMS:
         return algorithms != null;
     }
     return super.eIsSet(featureID);

@@ -5,7 +5,7 @@
     forceOverwrite="true" modelName="MOMoT" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.ac.tuwien.big.momot.lang.edit"
     editorPluginID="at.ac.tuwien.big.momot.lang.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
-  <genPackages prefix="MOMoT" basePackage="at.ac.tuwien.big.momot.lang" disposableProviderFactory="true"
+  <genPackages prefix="Momot" basePackage="at.ac.tuwien.big.momot.lang" disposableProviderFactory="true"
       fileExtensions="momot" ecorePackage="MOMoT.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="MOMoT.ecore#//FitnessDimensionType">
       <genEnumLiterals ecoreEnumLiteral="MOMoT.ecore#//FitnessDimensionType/MINIMIZE"/>
@@ -21,17 +21,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//MOMoTSearch/experimentOrchestration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//MOMoTSearch/analysisOrchestration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//MOMoTSearch/resultManagement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//MOMoTSearch/finalization"/>
     </genClasses>
     <genClasses ecoreClass="MOMoT.ecore#//VariableDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//VariableDeclaration/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//VariableDeclaration/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//VariableDeclaration/init"/>
     </genClasses>
-    <genClasses ecoreClass="MOMoT.ecore#//TransformationOrchestration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//TransformationOrchestration/modules"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//TransformationOrchestration/unitsToRemove"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//TransformationOrchestration/nonSolutionParameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//TransformationOrchestration/parameterValues"/>
+    <genClasses ecoreClass="MOMoT.ecore#//ModuleOrchestration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ModuleOrchestration/modules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ModuleOrchestration/unitsToRemove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ModuleOrchestration/nonSolutionParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ModuleOrchestration/parameterValues"/>
     </genClasses>
     <genClasses ecoreClass="MOMoT.ecore#//ParmeterValueSpecification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ParmeterValueSpecification/name"/>
@@ -40,10 +41,14 @@
     <genClasses ecoreClass="MOMoT.ecore#//SearchOrchestration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/model"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/solutionLength"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/transformationOrchestration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/moduleOrchestration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/fitnessFunction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/algorithms"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/equalityHelper"/>
+    </genClasses>
+    <genClasses ecoreClass="MOMoT.ecore#//InputModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//InputModel/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//InputModel/adaptation"/>
     </genClasses>
     <genClasses ecoreClass="MOMoT.ecore#//EqualityHelper">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//EqualityHelper/call"/>
@@ -112,6 +117,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AnalysisOrchestration/significance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AnalysisOrchestration/show"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AnalysisOrchestration/grouping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AnalysisOrchestration/saveCommand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AnalysisOrchestration/boxplotCommand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AnalysisOrchestration/printCommand"/>
     </genClasses>
     <genClasses ecoreClass="MOMoT.ecore#//AnalysisGroupList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AnalysisGroupList/group"/>
@@ -140,30 +148,33 @@
     <genClasses ecoreClass="MOMoT.ecore#//AlgorithmReferences">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MOMoT.ecore#//AlgorithmReferences/elements"/>
     </genClasses>
-    <genClasses ecoreClass="MOMoT.ecore#//ResultManagement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/saveAnalysis"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/saveObjectives"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/saveSolutions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/printObjectives"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/printSolutions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/doCommand"/>
-    </genClasses>
+    <genClasses ecoreClass="MOMoT.ecore#//AnalysisCommand"/>
+    <genClasses ecoreClass="MOMoT.ecore#//PrintAnalysisCommand"/>
     <genClasses ecoreClass="MOMoT.ecore#//SaveAnalysisCommand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SaveAnalysisCommand/file"/>
     </genClasses>
-    <genClasses ecoreClass="MOMoT.ecore#//SaveObjectivesCommand">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SaveObjectivesCommand/algorithms"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//SaveObjectivesCommand/file"/>
+    <genClasses ecoreClass="MOMoT.ecore#//BoxplotCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//BoxplotCommand/directory"/>
     </genClasses>
-    <genClasses ecoreClass="MOMoT.ecore#//SaveSolutionsCommand">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SaveSolutionsCommand/algorithms"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//SaveSolutionsCommand/directory"/>
+    <genClasses ecoreClass="MOMoT.ecore#//ResultManagement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/adaptModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagement/commands"/>
     </genClasses>
-    <genClasses ecoreClass="MOMoT.ecore#//PrintObjectivesCommand">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//PrintObjectivesCommand/algorithms"/>
+    <genClasses ecoreClass="MOMoT.ecore#//ResultManagementCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ResultManagementCommand/algorithms"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//ResultManagementCommand/neighborhoodSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//ResultManagementCommand/maxNeighborhoodSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//ResultManagementCommand/printOutput"/>
     </genClasses>
-    <genClasses ecoreClass="MOMoT.ecore#//PrintSolutionsCommand">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//PrintSolutionsCommand/algorithms"/>
+    <genClasses ecoreClass="MOMoT.ecore#//ObjectivesCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//ObjectivesCommand/file"/>
+    </genClasses>
+    <genClasses ecoreClass="MOMoT.ecore#//SolutionsCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//SolutionsCommand/file"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//SolutionsCommand/directory"/>
+    </genClasses>
+    <genClasses ecoreClass="MOMoT.ecore#//ModelsCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//ModelsCommand/directory"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

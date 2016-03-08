@@ -1,8 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
-
-import org.eclipse.emf.ecore.EObject;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -15,14 +13,14 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand#getFile <em>File</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand#getFile <em>File</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSaveAnalysisCommand()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSaveAnalysisCommand()
  * @model
  * @generated
  */
-public interface SaveAnalysisCommand extends EObject
+public interface SaveAnalysisCommand extends AnalysisCommand
 {
   /**
    * Returns the value of the '<em><b>File</b></em>' containment reference.
@@ -34,14 +32,14 @@ public interface SaveAnalysisCommand extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>File</em>' containment reference.
    * @see #setFile(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getSaveAnalysisCommand_File()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSaveAnalysisCommand_File()
    * @model containment="true"
    * @generated
    */
   XExpression getFile();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.SaveAnalysisCommand#getFile <em>File</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand#getFile <em>File</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>File</em>' containment reference.

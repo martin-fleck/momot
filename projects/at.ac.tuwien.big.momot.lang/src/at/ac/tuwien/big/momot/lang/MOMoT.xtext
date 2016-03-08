@@ -1,20 +1,19 @@
 grammar at.ac.tuwien.big.momot.lang.MOMoT with org.eclipse.xtext.xbase.Xbase
 
 import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
-generate mOMoT "http://www.ac.at/tuwien/big/momot/lang/MOMoT"
+generate momot "http://www.big.tuwien.ac.at/momot/lang/MOMoT"
 
 MOMoTSearch:
 	("package" package=QualifiedName)?
-	
 	importSection=XImportSection?	
 	variables += VariableDeclaration*
-	("initialization" OpSingleAssign initialization = XBlockExpression)?
 	
+	("initialization" OpSingleAssign initialization = XBlockExpression)?
 	"search" (name=ValidID)? OpSingleAssign searchOrchestration = SearchOrchestration
 	"experiment" OpSingleAssign experimentOrchestration = ExperimentOrchestration
 	("analysis" OpSingleAssign analysisOrchestration = AnalysisOrchestration)?
-	
-	("finalization" OpSingleAssign resultManagement = ResultManagement)?
+	("results" OpSingleAssign resultManagement = ResultManagement)?
+	("finalization" OpSingleAssign finalization = XBlockExpression)?
 ;
 
 OpKeyAssign:
@@ -30,7 +29,7 @@ ArrayLiteral returns xbase::XListLiteral:
 	'[' elements+=XExpression (',' elements+=XExpression )* ']'
 ;
 
-TransformationOrchestration:
+ModuleOrchestration:
 	"{"
 	   "modules" OpSingleAssign modules = ArrayLiteral 
 	   ("ignoreUnits" OpSingleAssign unitsToRemove = ArrayLiteral)?
@@ -49,13 +48,20 @@ ParmeterValueSpecification:
 SearchOrchestration:
 	{SearchOrchestration}
    "{"
-   	"model" OpSingleAssign model = XExpression
+   	"model" OpSingleAssign model = InputModel
    	"solutionLength" OpSingleAssign solutionLength = XExpression
-   	"transformations" OpSingleAssign transformationOrchestration = TransformationOrchestration
+   	"transformations" OpSingleAssign moduleOrchestration = ModuleOrchestration
    	"fitness" OpSingleAssign fitnessFunction = FitnessFunctionSpecification
    	"algorithms" OpSingleAssign algorithms = AlgorithmList
    	("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)?
    "}"
+;
+
+InputModel:
+	"{"
+		"file" OpSingleAssign path = XExpression 
+		("adapt" OpSingleAssign adaptation=XBlockExpression)?
+	"}"
 ;
 
 EqualityHelper:
@@ -144,10 +150,13 @@ CollectorArray:
 
 AnalysisOrchestration:
 	"{"
-		"indicators" OpSingleAssign indicators=IndicatorArray
-		"significance" OpSingleAssign significance=XNumberLiteral
-		"show" OpSingleAssign show=ShowArray
-		("grouping" OpSingleAssign grouping = AnalysisGroupList)?
+		"indicators" OpSingleAssign indicators=IndicatorArray &
+		"significance" OpSingleAssign significance=XNumberLiteral &
+		"show" OpSingleAssign show=ShowArray &
+		("grouping" OpSingleAssign grouping = AnalysisGroupList)? &
+		(saveCommand = SaveAnalysisCommand)? &
+		(boxplotCommand = BoxplotCommand)? &
+		(printCommand = PrintAnalysisCommand)?
 	"}"
 ;
 
@@ -190,36 +199,65 @@ AlgorithmReferences:
 	"[" (elements+=[AlgorithmSpecification] (',' elements+=[AlgorithmSpecification] )*)? "]"
 ;
 
-ResultManagement:
-	{ResultManagement}
-	"{"
-		(saveAnalysis = SaveAnalysisCommand)?
-		(saveObjectives += SaveObjectivesCommand |
- 		 saveSolutions += SaveSolutionsCommand |
- 	 	 printObjectives += PrintObjectivesCommand |
- 	 	 printSolutions += PrintSolutionsCommand)*
- 		(doCommand = XBlockExpression)?
- 	"}"
+AnalysisCommand:
+	PrintAnalysisCommand | SaveAnalysisCommand | BoxplotCommand
+;
+
+PrintAnalysisCommand:
+	{PrintAnalysisCommand}
+	"printOutput"
 ;
 
 SaveAnalysisCommand:
-	"saveAnalysis" file = XStringLiteral
+	"outputFile" OpSingleAssign file=XStringLiteral
 ;
 
-SaveObjectivesCommand:
-	"saveObjectives" (algorithms=AlgorithmReferences)? file=STRING 
+BoxplotCommand:
+	"boxplotDirectory" OpSingleAssign directory=XStringLiteral
 ;
 
-SaveSolutionsCommand:
-	"saveSolutions" (algorithms=AlgorithmReferences)? directory=STRING 
+ResultManagement:
+	{ResultManagement}
+	"{"
+		("adaptModels" OpSingleAssign adaptModels=XBlockExpression)?
+		(commands += ResultManagementCommand)+
+ 	"}"
 ;
 
-PrintObjectivesCommand:
-	{PrintObjectivesCommand}
-	"printObjectives" (algorithms=AlgorithmReferences)?
+ResultManagementCommand:
+	ObjectivesCommand | SolutionsCommand | ModelsCommand 
 ;
 
-PrintSolutionsCommand:
-	{PrintSolutionsCommand}
-	"printSolutions" (algorithms=AlgorithmReferences)?
+ObjectivesCommand:
+	{ObjectivesCommand}
+	"objectives" OpSingleAssign "{"
+		(("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		("neighborhoodSize" OpSingleAssign  &
+		(neighborhoodSize = INT | maxNeighborhoodSize ?= "maxNeighborhoodSize"))? &
+		("outputFile" OpSingleAssign file=STRING)? &
+		(printOutput ?= "printOutput")?)
+	"}"
+;
+
+SolutionsCommand:
+	{SolutionsCommand}
+	"solutions" OpSingleAssign "{"
+		(("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		("neighborhoodSize" OpSingleAssign &
+		(neighborhoodSize = INT | maxNeighborhoodSize ?= "maxNeighborhoodSize"))? &
+		("outputFile" OpSingleAssign file=STRING)? &
+		("outputDirectory" OpSingleAssign directory=STRING)? &
+		(printOutput ?= "printOutput")?)
+	"}"
+;
+
+ModelsCommand:
+	{ModelsCommand}
+	"models" OpSingleAssign "{"
+		(("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+		("neighborhoodSize" OpSingleAssign  &
+		(neighborhoodSize = INT | maxNeighborhoodSize ?= "maxNeighborhoodSize"))? &
+		("outputDirectory" OpSingleAssign directory=STRING)? &
+		(printOutput ?= "printOutput")?)
+	"}"
 ;

@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.DefExpression;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
+import at.ac.tuwien.big.momot.lang.momot.DefExpression;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.DefExpressionImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.DefExpressionImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,7 +65,7 @@ public class DefExpressionImpl extends MinimalEObjectImpl.Container implements D
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.DEF_EXPRESSION;
+    return MomotPackage.Literals.DEF_EXPRESSION;
   }
 
   /**
@@ -88,7 +88,7 @@ public class DefExpressionImpl extends MinimalEObjectImpl.Container implements D
     String oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.DEF_EXPRESSION__EXPRESSION, oldExpression, expression));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.DEF_EXPRESSION__EXPRESSION, oldExpression, expression));
   }
 
   /**
@@ -101,7 +101,7 @@ public class DefExpressionImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case MOMoTPackage.DEF_EXPRESSION__EXPRESSION:
+      case MomotPackage.DEF_EXPRESSION__EXPRESSION:
         return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class DefExpressionImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case MOMoTPackage.DEF_EXPRESSION__EXPRESSION:
+      case MomotPackage.DEF_EXPRESSION__EXPRESSION:
         setExpression((String)newValue);
         return;
     }
@@ -134,7 +134,7 @@ public class DefExpressionImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case MOMoTPackage.DEF_EXPRESSION__EXPRESSION:
+      case MomotPackage.DEF_EXPRESSION__EXPRESSION:
         setExpression(EXPRESSION_EDEFAULT);
         return;
     }
@@ -151,7 +151,7 @@ public class DefExpressionImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case MOMoTPackage.DEF_EXPRESSION__EXPRESSION:
+      case MomotPackage.DEF_EXPRESSION__EXPRESSION:
         return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
     }
     return super.eIsSet(featureID);

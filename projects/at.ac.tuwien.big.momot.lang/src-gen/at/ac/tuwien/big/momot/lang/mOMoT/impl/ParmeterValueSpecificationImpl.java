@@ -1,9 +1,9 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
-import at.ac.tuwien.big.momot.lang.mOMoT.ParmeterValueSpecification;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
+import at.ac.tuwien.big.momot.lang.momot.ParmeterValueSpecification;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,8 +24,8 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ParmeterValueSpecificationImpl#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.ParmeterValueSpecificationImpl#getCall <em>Call</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ParmeterValueSpecificationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ParmeterValueSpecificationImpl#getCall <em>Call</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,7 +70,7 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.PARMETER_VALUE_SPECIFICATION;
+    return MomotPackage.Literals.PARMETER_VALUE_SPECIFICATION;
   }
 
   /**
@@ -94,7 +94,7 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
     name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME, oldName, newName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -111,14 +111,14 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
     {
       NotificationChain msgs = null;
       if (name != null)
-        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME, null, msgs);
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME, null, msgs);
       if (newName != null)
-        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME, null, msgs);
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME, null, msgs);
       msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME, newName, newName));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME, newName, newName));
   }
 
   /**
@@ -142,7 +142,7 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
     call = newCall;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL, oldCall, newCall);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL, oldCall, newCall);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -159,14 +159,14 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
     {
       NotificationChain msgs = null;
       if (call != null)
-        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL, null, msgs);
+        msgs = ((InternalEObject)call).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL, null, msgs);
       if (newCall != null)
-        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL, null, msgs);
+        msgs = ((InternalEObject)newCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL, null, msgs);
       msgs = basicSetCall(newCall, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL, newCall, newCall));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL, newCall, newCall));
   }
 
   /**
@@ -179,9 +179,9 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME:
         return basicSetName(null, msgs);
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL:
         return basicSetCall(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -197,9 +197,9 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME:
         return getName();
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL:
         return getCall();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -215,10 +215,10 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME:
         setName((XExpression)newValue);
         return;
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL:
         setCall((XExpression)newValue);
         return;
     }
@@ -235,10 +235,10 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME:
         setName((XExpression)null);
         return;
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL:
         setCall((XExpression)null);
         return;
     }
@@ -255,9 +255,9 @@ public class ParmeterValueSpecificationImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__NAME:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__NAME:
         return name != null;
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION__CALL:
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION__CALL:
         return call != null;
     }
     return super.eIsSet(featureID);

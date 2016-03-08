@@ -1,14 +1,14 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.AnalysisOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.ExperimentOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage;
-import at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch;
-import at.ac.tuwien.big.momot.lang.mOMoT.ResultManagement;
-import at.ac.tuwien.big.momot.lang.mOMoT.SearchOrchestration;
-import at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration;
+import at.ac.tuwien.big.momot.lang.momot.AnalysisOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.MOMoTSearch;
+import at.ac.tuwien.big.momot.lang.momot.MomotPackage;
+import at.ac.tuwien.big.momot.lang.momot.ResultManagement;
+import at.ac.tuwien.big.momot.lang.momot.SearchOrchestration;
+import at.ac.tuwien.big.momot.lang.momot.VariableDeclaration;
 
 import java.util.Collection;
 
@@ -32,21 +32,22 @@ import org.eclipse.xtext.xtype.XImportSection;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Search</b></em>'.
+ * An implementation of the model object '<em><b>MO Mo TSearch</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getPackage <em>Package</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getImportSection <em>Import Section</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getVariables <em>Variables</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getInitialization <em>Initialization</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getSearchOrchestration <em>Search Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getExperimentOrchestration <em>Experiment Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getAnalysisOrchestration <em>Analysis Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.impl.MOMoTSearchImpl#getResultManagement <em>Result Management</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getPackage <em>Package</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getImportSection <em>Import Section</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getInitialization <em>Initialization</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getSearchOrchestration <em>Search Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getExperimentOrchestration <em>Experiment Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getAnalysisOrchestration <em>Analysis Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getResultManagement <em>Result Management</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.MOMoTSearchImpl#getFinalization <em>Finalization</em>}</li>
  * </ul>
  *
  * @generated
@@ -164,6 +165,16 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   protected ResultManagement resultManagement;
 
   /**
+   * The cached value of the '{@link #getFinalization() <em>Finalization</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFinalization()
+   * @generated
+   * @ordered
+   */
+  protected XExpression finalization;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -181,7 +192,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   @Override
   protected EClass eStaticClass()
   {
-    return MOMoTPackage.Literals.MO_MO_TSEARCH;
+    return MomotPackage.Literals.MO_MO_TSEARCH;
   }
 
   /**
@@ -204,7 +215,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     String oldPackage = package_;
     package_ = newPackage;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__PACKAGE, oldPackage, package_));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__PACKAGE, oldPackage, package_));
   }
 
   /**
@@ -228,7 +239,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     importSection = newImportSection;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION, oldImportSection, newImportSection);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION, oldImportSection, newImportSection);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -245,14 +256,14 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     {
       NotificationChain msgs = null;
       if (importSection != null)
-        msgs = ((InternalEObject)importSection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION, null, msgs);
+        msgs = ((InternalEObject)importSection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION, null, msgs);
       if (newImportSection != null)
-        msgs = ((InternalEObject)newImportSection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION, null, msgs);
+        msgs = ((InternalEObject)newImportSection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION, null, msgs);
       msgs = basicSetImportSection(newImportSection, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION, newImportSection, newImportSection));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION, newImportSection, newImportSection));
   }
 
   /**
@@ -264,7 +275,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   {
     if (variables == null)
     {
-      variables = new EObjectContainmentEList<VariableDeclaration>(VariableDeclaration.class, this, MOMoTPackage.MO_MO_TSEARCH__VARIABLES);
+      variables = new EObjectContainmentEList<VariableDeclaration>(VariableDeclaration.class, this, MomotPackage.MO_MO_TSEARCH__VARIABLES);
     }
     return variables;
   }
@@ -290,7 +301,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     initialization = newInitialization;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION, oldInitialization, newInitialization);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__INITIALIZATION, oldInitialization, newInitialization);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -307,14 +318,14 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     {
       NotificationChain msgs = null;
       if (initialization != null)
-        msgs = ((InternalEObject)initialization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION, null, msgs);
+        msgs = ((InternalEObject)initialization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__INITIALIZATION, null, msgs);
       if (newInitialization != null)
-        msgs = ((InternalEObject)newInitialization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION, null, msgs);
+        msgs = ((InternalEObject)newInitialization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__INITIALIZATION, null, msgs);
       msgs = basicSetInitialization(newInitialization, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION, newInitialization, newInitialization));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__INITIALIZATION, newInitialization, newInitialization));
   }
 
   /**
@@ -337,7 +348,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__NAME, oldName, name));
   }
 
   /**
@@ -361,7 +372,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     searchOrchestration = newSearchOrchestration;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, oldSearchOrchestration, newSearchOrchestration);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, oldSearchOrchestration, newSearchOrchestration);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -378,14 +389,14 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     {
       NotificationChain msgs = null;
       if (searchOrchestration != null)
-        msgs = ((InternalEObject)searchOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, null, msgs);
+        msgs = ((InternalEObject)searchOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, null, msgs);
       if (newSearchOrchestration != null)
-        msgs = ((InternalEObject)newSearchOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, null, msgs);
+        msgs = ((InternalEObject)newSearchOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, null, msgs);
       msgs = basicSetSearchOrchestration(newSearchOrchestration, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, newSearchOrchestration, newSearchOrchestration));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION, newSearchOrchestration, newSearchOrchestration));
   }
 
   /**
@@ -409,7 +420,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     experimentOrchestration = newExperimentOrchestration;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, oldExperimentOrchestration, newExperimentOrchestration);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, oldExperimentOrchestration, newExperimentOrchestration);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -426,14 +437,14 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     {
       NotificationChain msgs = null;
       if (experimentOrchestration != null)
-        msgs = ((InternalEObject)experimentOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, null, msgs);
+        msgs = ((InternalEObject)experimentOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, null, msgs);
       if (newExperimentOrchestration != null)
-        msgs = ((InternalEObject)newExperimentOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, null, msgs);
+        msgs = ((InternalEObject)newExperimentOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, null, msgs);
       msgs = basicSetExperimentOrchestration(newExperimentOrchestration, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, newExperimentOrchestration, newExperimentOrchestration));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION, newExperimentOrchestration, newExperimentOrchestration));
   }
 
   /**
@@ -457,7 +468,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     analysisOrchestration = newAnalysisOrchestration;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, oldAnalysisOrchestration, newAnalysisOrchestration);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, oldAnalysisOrchestration, newAnalysisOrchestration);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -474,14 +485,14 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     {
       NotificationChain msgs = null;
       if (analysisOrchestration != null)
-        msgs = ((InternalEObject)analysisOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, null, msgs);
+        msgs = ((InternalEObject)analysisOrchestration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, null, msgs);
       if (newAnalysisOrchestration != null)
-        msgs = ((InternalEObject)newAnalysisOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, null, msgs);
+        msgs = ((InternalEObject)newAnalysisOrchestration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, null, msgs);
       msgs = basicSetAnalysisOrchestration(newAnalysisOrchestration, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, newAnalysisOrchestration, newAnalysisOrchestration));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION, newAnalysisOrchestration, newAnalysisOrchestration));
   }
 
   /**
@@ -505,7 +516,7 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     resultManagement = newResultManagement;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, oldResultManagement, newResultManagement);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, oldResultManagement, newResultManagement);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -522,14 +533,62 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
     {
       NotificationChain msgs = null;
       if (resultManagement != null)
-        msgs = ((InternalEObject)resultManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, null, msgs);
+        msgs = ((InternalEObject)resultManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, null, msgs);
       if (newResultManagement != null)
-        msgs = ((InternalEObject)newResultManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, null, msgs);
+        msgs = ((InternalEObject)newResultManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, null, msgs);
       msgs = basicSetResultManagement(newResultManagement, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, newResultManagement, newResultManagement));
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT, newResultManagement, newResultManagement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XExpression getFinalization()
+  {
+    return finalization;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFinalization(XExpression newFinalization, NotificationChain msgs)
+  {
+    XExpression oldFinalization = finalization;
+    finalization = newFinalization;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__FINALIZATION, oldFinalization, newFinalization);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFinalization(XExpression newFinalization)
+  {
+    if (newFinalization != finalization)
+    {
+      NotificationChain msgs = null;
+      if (finalization != null)
+        msgs = ((InternalEObject)finalization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__FINALIZATION, null, msgs);
+      if (newFinalization != null)
+        msgs = ((InternalEObject)newFinalization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.MO_MO_TSEARCH__FINALIZATION, null, msgs);
+      msgs = basicSetFinalization(newFinalization, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MO_MO_TSEARCH__FINALIZATION, newFinalization, newFinalization));
   }
 
   /**
@@ -542,20 +601,22 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   {
     switch (featureID)
     {
-      case MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION:
+      case MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION:
         return basicSetImportSection(null, msgs);
-      case MOMoTPackage.MO_MO_TSEARCH__VARIABLES:
+      case MomotPackage.MO_MO_TSEARCH__VARIABLES:
         return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
-      case MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION:
+      case MomotPackage.MO_MO_TSEARCH__INITIALIZATION:
         return basicSetInitialization(null, msgs);
-      case MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
         return basicSetSearchOrchestration(null, msgs);
-      case MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
         return basicSetExperimentOrchestration(null, msgs);
-      case MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
         return basicSetAnalysisOrchestration(null, msgs);
-      case MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
+      case MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
         return basicSetResultManagement(null, msgs);
+      case MomotPackage.MO_MO_TSEARCH__FINALIZATION:
+        return basicSetFinalization(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -570,24 +631,26 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   {
     switch (featureID)
     {
-      case MOMoTPackage.MO_MO_TSEARCH__PACKAGE:
+      case MomotPackage.MO_MO_TSEARCH__PACKAGE:
         return getPackage();
-      case MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION:
+      case MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION:
         return getImportSection();
-      case MOMoTPackage.MO_MO_TSEARCH__VARIABLES:
+      case MomotPackage.MO_MO_TSEARCH__VARIABLES:
         return getVariables();
-      case MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION:
+      case MomotPackage.MO_MO_TSEARCH__INITIALIZATION:
         return getInitialization();
-      case MOMoTPackage.MO_MO_TSEARCH__NAME:
+      case MomotPackage.MO_MO_TSEARCH__NAME:
         return getName();
-      case MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
         return getSearchOrchestration();
-      case MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
         return getExperimentOrchestration();
-      case MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
         return getAnalysisOrchestration();
-      case MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
+      case MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
         return getResultManagement();
+      case MomotPackage.MO_MO_TSEARCH__FINALIZATION:
+        return getFinalization();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -603,33 +666,36 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   {
     switch (featureID)
     {
-      case MOMoTPackage.MO_MO_TSEARCH__PACKAGE:
+      case MomotPackage.MO_MO_TSEARCH__PACKAGE:
         setPackage((String)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION:
+      case MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION:
         setImportSection((XImportSection)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__VARIABLES:
+      case MomotPackage.MO_MO_TSEARCH__VARIABLES:
         getVariables().clear();
         getVariables().addAll((Collection<? extends VariableDeclaration>)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION:
+      case MomotPackage.MO_MO_TSEARCH__INITIALIZATION:
         setInitialization((XExpression)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__NAME:
+      case MomotPackage.MO_MO_TSEARCH__NAME:
         setName((String)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
         setSearchOrchestration((SearchOrchestration)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
         setExperimentOrchestration((ExperimentOrchestration)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
         setAnalysisOrchestration((AnalysisOrchestration)newValue);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
+      case MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
         setResultManagement((ResultManagement)newValue);
+        return;
+      case MomotPackage.MO_MO_TSEARCH__FINALIZATION:
+        setFinalization((XExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -645,32 +711,35 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   {
     switch (featureID)
     {
-      case MOMoTPackage.MO_MO_TSEARCH__PACKAGE:
+      case MomotPackage.MO_MO_TSEARCH__PACKAGE:
         setPackage(PACKAGE_EDEFAULT);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION:
+      case MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION:
         setImportSection((XImportSection)null);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__VARIABLES:
+      case MomotPackage.MO_MO_TSEARCH__VARIABLES:
         getVariables().clear();
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION:
+      case MomotPackage.MO_MO_TSEARCH__INITIALIZATION:
         setInitialization((XExpression)null);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__NAME:
+      case MomotPackage.MO_MO_TSEARCH__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
         setSearchOrchestration((SearchOrchestration)null);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
         setExperimentOrchestration((ExperimentOrchestration)null);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
         setAnalysisOrchestration((AnalysisOrchestration)null);
         return;
-      case MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
+      case MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
         setResultManagement((ResultManagement)null);
+        return;
+      case MomotPackage.MO_MO_TSEARCH__FINALIZATION:
+        setFinalization((XExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -686,24 +755,26 @@ public class MOMoTSearchImpl extends MinimalEObjectImpl.Container implements MOM
   {
     switch (featureID)
     {
-      case MOMoTPackage.MO_MO_TSEARCH__PACKAGE:
+      case MomotPackage.MO_MO_TSEARCH__PACKAGE:
         return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
-      case MOMoTPackage.MO_MO_TSEARCH__IMPORT_SECTION:
+      case MomotPackage.MO_MO_TSEARCH__IMPORT_SECTION:
         return importSection != null;
-      case MOMoTPackage.MO_MO_TSEARCH__VARIABLES:
+      case MomotPackage.MO_MO_TSEARCH__VARIABLES:
         return variables != null && !variables.isEmpty();
-      case MOMoTPackage.MO_MO_TSEARCH__INITIALIZATION:
+      case MomotPackage.MO_MO_TSEARCH__INITIALIZATION:
         return initialization != null;
-      case MOMoTPackage.MO_MO_TSEARCH__NAME:
+      case MomotPackage.MO_MO_TSEARCH__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MOMoTPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__SEARCH_ORCHESTRATION:
         return searchOrchestration != null;
-      case MOMoTPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__EXPERIMENT_ORCHESTRATION:
         return experimentOrchestration != null;
-      case MOMoTPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
+      case MomotPackage.MO_MO_TSEARCH__ANALYSIS_ORCHESTRATION:
         return analysisOrchestration != null;
-      case MOMoTPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
+      case MomotPackage.MO_MO_TSEARCH__RESULT_MANAGEMENT:
         return resultManagement != null;
+      case MomotPackage.MO_MO_TSEARCH__FINALIZATION:
+        return finalization != null;
     }
     return super.eIsSet(featureID);
   }

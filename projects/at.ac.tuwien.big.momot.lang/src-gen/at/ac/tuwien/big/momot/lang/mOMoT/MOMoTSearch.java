@@ -1,6 +1,6 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT;
+package at.ac.tuwien.big.momot.lang.momot;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -12,25 +12,26 @@ import org.eclipse.xtext.xtype.XImportSection;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Search</b></em>'.
+ * A representation of the model object '<em><b>MO Mo TSearch</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getPackage <em>Package</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getImportSection <em>Import Section</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getVariables <em>Variables</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getInitialization <em>Initialization</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getName <em>Name</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getSearchOrchestration <em>Search Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getExperimentOrchestration <em>Experiment Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getAnalysisOrchestration <em>Analysis Orchestration</em>}</li>
- *   <li>{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getResultManagement <em>Result Management</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getPackage <em>Package</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getImportSection <em>Import Section</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getVariables <em>Variables</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getInitialization <em>Initialization</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getSearchOrchestration <em>Search Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getExperimentOrchestration <em>Experiment Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getAnalysisOrchestration <em>Analysis Orchestration</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getResultManagement <em>Result Management</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getFinalization <em>Finalization</em>}</li>
  * </ul>
  *
- * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch()
+ * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch()
  * @model
  * @generated
  */
@@ -46,14 +47,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Package</em>' attribute.
    * @see #setPackage(String)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_Package()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_Package()
    * @model
    * @generated
    */
   String getPackage();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getPackage <em>Package</em>}' attribute.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getPackage <em>Package</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Package</em>' attribute.
@@ -72,14 +73,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Import Section</em>' containment reference.
    * @see #setImportSection(XImportSection)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_ImportSection()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_ImportSection()
    * @model containment="true"
    * @generated
    */
   XImportSection getImportSection();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getImportSection <em>Import Section</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getImportSection <em>Import Section</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Import Section</em>' containment reference.
@@ -90,7 +91,7 @@ public interface MOMoTSearch extends EObject
 
   /**
    * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
-   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.mOMoT.VariableDeclaration}.
+   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.VariableDeclaration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
@@ -98,7 +99,7 @@ public interface MOMoTSearch extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Variables</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_Variables()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_Variables()
    * @model containment="true"
    * @generated
    */
@@ -114,14 +115,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Initialization</em>' containment reference.
    * @see #setInitialization(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_Initialization()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_Initialization()
    * @model containment="true"
    * @generated
    */
   XExpression getInitialization();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getInitialization <em>Initialization</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getInitialization <em>Initialization</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Initialization</em>' containment reference.
@@ -140,14 +141,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_Name()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -166,14 +167,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Search Orchestration</em>' containment reference.
    * @see #setSearchOrchestration(SearchOrchestration)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_SearchOrchestration()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_SearchOrchestration()
    * @model containment="true"
    * @generated
    */
   SearchOrchestration getSearchOrchestration();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getSearchOrchestration <em>Search Orchestration</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getSearchOrchestration <em>Search Orchestration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Search Orchestration</em>' containment reference.
@@ -192,14 +193,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Experiment Orchestration</em>' containment reference.
    * @see #setExperimentOrchestration(ExperimentOrchestration)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_ExperimentOrchestration()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_ExperimentOrchestration()
    * @model containment="true"
    * @generated
    */
   ExperimentOrchestration getExperimentOrchestration();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getExperimentOrchestration <em>Experiment Orchestration</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getExperimentOrchestration <em>Experiment Orchestration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Experiment Orchestration</em>' containment reference.
@@ -218,14 +219,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Analysis Orchestration</em>' containment reference.
    * @see #setAnalysisOrchestration(AnalysisOrchestration)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_AnalysisOrchestration()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_AnalysisOrchestration()
    * @model containment="true"
    * @generated
    */
   AnalysisOrchestration getAnalysisOrchestration();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getAnalysisOrchestration <em>Analysis Orchestration</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getAnalysisOrchestration <em>Analysis Orchestration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Analysis Orchestration</em>' containment reference.
@@ -244,14 +245,14 @@ public interface MOMoTSearch extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Result Management</em>' containment reference.
    * @see #setResultManagement(ResultManagement)
-   * @see at.ac.tuwien.big.momot.lang.mOMoT.MOMoTPackage#getMOMoTSearch_ResultManagement()
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_ResultManagement()
    * @model containment="true"
    * @generated
    */
   ResultManagement getResultManagement();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.mOMoT.MOMoTSearch#getResultManagement <em>Result Management</em>}' containment reference.
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getResultManagement <em>Result Management</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Result Management</em>' containment reference.
@@ -259,5 +260,31 @@ public interface MOMoTSearch extends EObject
    * @generated
    */
   void setResultManagement(ResultManagement value);
+
+  /**
+   * Returns the value of the '<em><b>Finalization</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Finalization</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Finalization</em>' containment reference.
+   * @see #setFinalization(XExpression)
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getMOMoTSearch_Finalization()
+   * @model containment="true"
+   * @generated
+   */
+  XExpression getFinalization();
+
+  /**
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.MOMoTSearch#getFinalization <em>Finalization</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Finalization</em>' containment reference.
+   * @see #getFinalization()
+   * @generated
+   */
+  void setFinalization(XExpression value);
 
 } // MOMoTSearch

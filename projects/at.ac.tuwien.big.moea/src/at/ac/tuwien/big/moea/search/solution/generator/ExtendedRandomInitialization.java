@@ -13,10 +13,7 @@
 package at.ac.tuwien.big.moea.search.solution.generator;
 
 import org.moeaframework.core.Problem;
-import org.moeaframework.core.Variable;
 import org.moeaframework.core.operator.RandomInitialization;
-
-import at.ac.tuwien.big.moea.util.random.IRandomizable;
 
 public class ExtendedRandomInitialization extends RandomInitialization {
 	
@@ -29,14 +26,5 @@ public class ExtendedRandomInitialization extends RandomInitialization {
 	
 	public int getPopulationSize() {
 		return populationSize;
-	}
-	
-	@Override
-	protected void initialize(Variable variable) {
-		if(variable instanceof IRandomizable<?>) {
-			((IRandomizable<?>)variable).randomize();
-		} else {
-			super.initialize(variable);
-		}
 	}
 }

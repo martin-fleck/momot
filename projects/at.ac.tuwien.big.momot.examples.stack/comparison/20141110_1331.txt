@@ -1,0 +1,54 @@
+Solving [107, 145, 175, 191, 62, 35, 53, 179, 68, 45, 136, 89, 155, 90, 64, 146, 167, 48, 126, 84, 171, 124, 166, 45, 119, 52, 67, 88, 26, 134, 188, 147, 50, 158, 153, 99, 186, 113, 106, 138, 90, 17, 36, 59, 110, 92, 95, 14, 192, 97, 131, 191, 17, 56, 171, 71, 97, 36, 183, 195, 163, 182, 157, 82, 59, 173, 43, 66, 123, 147, 27, 37, 76, 49, 1, 66, 76, 139, 44, 191, 146, 173, 119, 46, 198, 176, 45, 166, 13, 69, 68, 194, 192, 136, 81, 45, 49, 160, 86, 153] (mean: 106.61, stddev: 55.62731253619933):
+---------------------
+Solve  [107, 145, 175, 191, 62, 35, 53, 179, 68, 45, 136, 89, 155, 90, 64, 146, 167, 48, 126, 84, 171, 124, 166, 45, 119, 52, 67, 88, 26, 134, 188, 147, 50, 158, 153, 99, 186, 113, 106, 138, 90, 17, 36, 59, 110, 92, 95, 14, 192, 97, 131, 191, 17, 56, 171, 71, 97, 36, 183, 195, 163, 182, 157, 82, 59, 173, 43, 66, 123, 147, 27, 37, 76, 49, 1, 66, 76, 139, 44, 191, 146, 173, 119, 46, 198, 176, 45, 166, 13, 69, 68, 194, 192, 136, 81, 45, 49, 160, 86, 153] with 1000 solutions per population for 10000 evaluations.
+Execute 20 runs per executor.
+---------------------
+Transformation
+---------------------
+Population of 1000 with length 100 created in: 0:01:18.842
+Population of 1000 with length 100 created in: 0:01:36.210
+Population of 1000 with length 100 created in: 0:00:52.268
+Population of 1000 with length 100 created in: 0:01:42.560
+Population of 1000 with length 100 created in: 0:01:20.987
+Population of 1000 with length 100 created in: 0:01:17.381
+Population of 1000 with length 100 created in: 0:00:42.322
+Population of 1000 with length 100 created in: 0:01:34.235
+Population of 1000 with length 100 created in: 0:01:33.206
+Population of 1000 with length 100 created in: 0:00:41.923
+Population of 1000 with length 100 created in: 0:00:42.131
+Population of 1000 with length 100 created in: 0:01:07.693
+Population of 1000 with length 100 created in: 0:01:42.301
+Population of 1000 with length 100 created in: 0:01:19.273
+Population of 1000 with length 100 created in: 0:00:41.525
+Population of 1000 with length 100 created in: 0:00:42.957
+Population of 1000 with length 100 created in: 0:01:46.278
+Population of 1000 with length 100 created in: 0:01:10.467
+Population of 1000 with length 100 created in: 0:01:20.702
+Population of 1000 with length 100 created in: 0:01:06.210
+[14:55:11.014] Total runtime for 20 seeds: 1:22:44.678 (4964678432074).
+[14:55:11.014] Average runtime per seed 0:04:08.233 (248233921603).
+---------------------
+Native
+---------------------
+Population of 1000 with length 100 created in: 0:00:00.038 (38436716ns)
+Population of 1000 with length 100 created in: 0:00:00.031 (31909808ns)
+Population of 1000 with length 100 created in: 0:00:00.031 (31786652ns)
+Population of 1000 with length 100 created in: 0:00:00.030 (30502191ns)
+Population of 1000 with length 100 created in: 0:00:00.032 (32446645ns)
+Population of 1000 with length 100 created in: 0:00:00.031 (31772047ns)
+Population of 1000 with length 100 created in: 0:00:00.031 (31001922ns)
+Population of 1000 with length 100 created in: 0:00:00.032 (32036123ns)
+Population of 1000 with length 100 created in: 0:00:00.038 (38118955ns)
+Population of 1000 with length 100 created in: 0:00:00.030 (30744951ns)
+Population of 1000 with length 100 created in: 0:00:00.030 (30221141ns)
+Population of 1000 with length 100 created in: 0:00:00.044 (44030475ns)
+Population of 1000 with length 100 created in: 0:00:00.034 (34762937ns)
+Population of 1000 with length 100 created in: 0:00:00.032 (32206252ns)
+Population of 1000 with length 100 created in: 0:00:00.031 (31762179ns)
+Population of 1000 with length 100 created in: 0:00:00.031 (31689942ns)
+Population of 1000 with length 100 created in: 0:00:00.031 (31522181ns)
+Population of 1000 with length 100 created in: 0:00:00.030 (30637585ns)
+Population of 1000 with length 100 created in: 0:00:00.030 (30803767ns)
+Population of 1000 with length 100 created in: 0:00:00.030 (30493902ns)
+[14:56:09.793] Total runtime for 20 seeds: 0:00:58.665 (58665245629).
+[14:56:09.793] Average runtime per seed 0:00:02.933 (2933262281).

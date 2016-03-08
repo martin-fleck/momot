@@ -15,4 +15,9 @@ public class PlaceholderVariable implements IPlaceholderVariable {
 		return "-Placeholder-\n";
 	}
 
+	@Override
+	public void randomize() {
+		; // do nothing
+	}
+
 }

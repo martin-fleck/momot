@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,11 +25,18 @@ import org.moeaframework.core.comparator.ParetoDominanceComparator;
 import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
 import at.ac.tuwien.big.moea.print.IPopulationWriter;
 import at.ac.tuwien.big.moea.print.ISolutionWriter;
+import at.ac.tuwien.big.moea.print.SolutionWriter;
+import at.ac.tuwien.big.moea.util.FileUtil;
 
 
 public class SearchResultManager {
-	protected SearchExperiment experiment;
+
+	protected static final String SOLUTION_FILE_EXTENSION = "txt";
+	protected static final String OBJECTIVE_FILE_EXTENSION = "pf";
+	
+	protected SearchExperiment<?> experiment;
 	protected double[] epsilon;
+	protected String baseName;
 	protected File baseDirectory;
 	
 	protected ISolutionWriter<? extends Solution> solutionWriter;
@@ -36,15 +44,15 @@ public class SearchResultManager {
 	
 	public SearchResultManager() { }
 	
-	public SearchResultManager(SearchExperiment experiment) {
+	public SearchResultManager(SearchExperiment<?> experiment) {
 		this.experiment = experiment;
 	}
 	
-	public SearchExperiment getExperiment() {
+	public SearchExperiment<?> getExperiment() {
 		return experiment;
 	}
 	
-	public void setExperiment(SearchExperiment experiment) {
+	public void setExperiment(SearchExperiment<?> experiment) {
 		this.experiment = experiment;
 	}
 	
@@ -56,20 +64,20 @@ public class SearchResultManager {
 		this.epsilon = epsilon;
 	}
 	
+	public String getBaseName() {
+		return baseName;
+	}
+	
+	public void setBaseName(String baseName) {
+		this.baseName = baseName;
+	}
+	
 	public File getBaseDirectory() {
 		return baseDirectory;
 	}
 	
 	public void setBaseDirectory(File baseDirectory) {
-		if(baseDirectory != null) {
-			if(!baseDirectory.exists()) {
-				System.out.println("Directory '" + baseDirectory + "' does not exist, it will be created.");
-				if(!baseDirectory.mkdirs())
-					System.err.println("Could not create directory '" + baseDirectory + "'.");
-			}
-			if(!baseDirectory.isDirectory())
-				throw new IllegalArgumentException("File '" + baseDirectory + "' is not a directory.");
-		}
+		FileUtil.checkDirectory(baseDirectory);
 		this.baseDirectory = baseDirectory;
 	}
 	
@@ -97,145 +105,88 @@ public class SearchResultManager {
 		this.solutionWriter = solutionWriter;
 	}
 	
-	protected NondominatedPopulation createArchive() {
-		if (epsilon == null) {
-			return new NondominatedPopulation(new ParetoDominanceComparator());
-		} else {
-			return new EpsilonBoxDominanceArchive(epsilon);
-		}
-	}
-	
 	public Map<SearchExecutor, List<NondominatedPopulation>> getResults() {
-		if(getExperiment() == null) {
-			System.err.println("No experiment given!");
-			return new HashMap<>();
-		}
-		if(!getExperiment().hasResults())
-			getExperiment().run();
-		return getExperiment().getResults();
+		return getResults(getExperiment());
 	}
 	
 	public List<NondominatedPopulation> getResult(String name) {
-		for(Entry<SearchExecutor, List<NondominatedPopulation>> entry : getResults().entrySet())
-			if(entry.getKey().getName().equals(name))
-				return entry.getValue();
-		return new ArrayList<>();
+		return getResult(getExperiment(), name, getEpsilon());
 	}
 	
 	public SearchExecutor getExecutor(String name) {
-		for(Entry<SearchExecutor, List<NondominatedPopulation>> entry : getResults().entrySet())
-			if(entry.getKey().getName().equals(name))
-				return entry.getKey();
-		return null;
+		return getExecutor(getExperiment(), name, getEpsilon());
 	}
 	
 	public NondominatedPopulation createApproximationSet() {
-		NondominatedPopulation approximationSet = createArchive();
-		
-		for (List<NondominatedPopulation> entry : getResults().values()) 
-			for (NondominatedPopulation set : entry) 
-				approximationSet.addAll(set);
-		
-		return approximationSet;
+		return createApproximationSet(getExperiment(), getEpsilon());
 	}
 	
-	public NondominatedPopulation createApproximationSet(String... names) {
-		NondominatedPopulation referenceSet = createArchive();
-		
-		if(names == null || names.length == 0)
-			return referenceSet;
-		
-		for(String name : names) {
-			for(NondominatedPopulation population :  getResult(name))
-				referenceSet.addAll(population);
-		}
-		
-		return referenceSet;
+	public NondominatedPopulation createApproximationSet(String... names) {		
+		return createApproximationSet(getExperiment(), names);
 	}
 	
-	protected File getFile(String fileName) {
-		return getFile(new File(fileName));
-	}
-	
-	protected File getFile(File file) {
-		File newFile = file;
-		if(getBaseDirectory() != null)
-			newFile = new File(getBaseDirectory().getPath() + File.separator + file.getPath());
-		newFile.getParentFile().mkdirs();
-		try {
-			newFile.createNewFile();				
-		} catch (IOException e) {
-			System.err.println("Could not create file '" + newFile + "'.");
-		}
-		return newFile;
-	}
-	
-	protected String getFileName(Solution solution) {
-		return "";
-	}
-	
-	public String printApproximationSetObjectives() {
+	public String printObjectives() {
 		return printObjectives(createApproximationSet());
 	}
 	
-	public String printApproximationSetObjectives(String... names) {
+	public String printObjectives(String... names) {
 		return printObjectives(createApproximationSet(names));
 	}
 	
-	public File saveApproximationSetObjectives(String filePath) {
-		return saveApproximationSetObjectives(new File(filePath));
+	public File saveObjectives() {
+		return saveObjectives(createObjectivesFile(getBaseName()));
 	}
 	
-	public File saveApproximationSetObjectives(File file) {
-		return saveObjectives(getFile(file), createApproximationSet());
+	public File saveObjectives(String file) {
+		return saveObjectives(new File(file));
+	}
+		
+	public File saveObjectives(File file) {
+		return saveObjectives(FileUtil.createFile(getBaseDirectory(), file), createApproximationSet());
 	}
 	
-	public File saveApproximationSetObjectives(String filePath, String... names) {
-		return saveApproximationSetObjectives(new File(filePath), names);
+	public File saveObjectives(String file, String... names) {
+		return saveObjectives(new File(file), names);
 	}
 	
-	public File saveApproximationSetObjectives(File file, String... names) {
-		return saveObjectives(getFile(file), createApproximationSet(names));
+	public File saveObjectives(File file, String... names) {
+		return saveObjectives(FileUtil.createFile(getBaseDirectory(), file), createApproximationSet(names));
 	}
 	
-	public String printApproximationSet() {
+	public String printPopulation() {
 		return printPopulation(createApproximationSet(), getPopulationWriter());
 	}
 	
-	public String printApproximationSet(String... names) {
+	public String printPopulation(String... names) {
 		return printPopulation(createApproximationSet(names), getPopulationWriter());
 	}
 	
-	public File saveApproximationSet(String filePath) {
-		return saveApproximationSet(new File(filePath));
+	public String printPopulation(Population population) {
+		return printPopulation(population, getPopulationWriter());
 	}
 	
-	public File saveApproximationSet(File file) {
-		return savePopulation(getFile(file), createApproximationSet(), getPopulationWriter());
+	public File savePopulation(String file) {
+		return savePopulation(new File(file));
 	}
 	
-	public File saveApproximationSet(String filePath, String... names) {
-		return saveApproximationSet(new File(filePath), names);
+	public File savePopulation(File file) {
+		return savePopulation(FileUtil.createFile(getBaseDirectory(), file), createApproximationSet(), getPopulationWriter());
 	}
 	
-	public File saveApproximationSet(File file, String... names) {
-		return savePopulation(getFile(file), createApproximationSet(names), getPopulationWriter());
+	public File savePopulation(String file, String... names) {
+		return savePopulation(new File(file), names);
+	}
+	
+	public File savePopulation(File file, String... names) {
+		return savePopulation(getBaseDirectory(), file, createApproximationSet(names), getPopulationWriter());
+	}
+	
+	public File savePopulation(File file, Population population) {
+		return savePopulation(getBaseDirectory(), file, population, getPopulationWriter());
 	}
 	
 	public NondominatedPopulation getReferenceSet() {
-		NondominatedPopulation referenceSet = createArchive();
-		
-		File referenceSetFile = getExperiment().getReferenceSetFile();
-		if(referenceSetFile == null)
-			return referenceSet;
-		
-		try {
-			referenceSet.addAll(PopulationIO.readObjectives(
-					referenceSetFile));
-		} catch (IOException e) {
-			System.err.println("Could not load reference set objectives: " + e.getMessage());
-		}
-		return referenceSet;
+		return getReferenceSet(getExperiment(), getEpsilon());
 	}
 	
 	public File saveReferenceSet(String filePath) {
@@ -243,20 +194,81 @@ public class SearchResultManager {
 	}
 	
 	public File saveReferenceSet(File file) {
-		return saveObjectives(getFile(file), getReferenceSet());
+		return saveObjectives(FileUtil.createFile(getBaseDirectory(), file), getReferenceSet());
 	}
 	
 	public String printReferenceSet() {
 		return printObjectives(getReferenceSet());
 	}
 	
-	protected static PrintStream getFilePrintStream(File file) {
-		try {
-			return new PrintStream(new BufferedOutputStream(new FileOutputStream(file)), true, "UTF-8");
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			System.err.println(e.getMessage());
-			return null;
+	/**
+	 * Static Methods
+	 */
+	
+	public static List<NondominatedPopulation> getResult(SearchExperiment<?> experiment, String name, double... epsilon) {
+		for(Entry<SearchExecutor, List<NondominatedPopulation>> entry : getResults(experiment).entrySet())
+			if(entry.getKey().getName().equals(name))
+				return entry.getValue();
+		return new ArrayList<>();
+	}
+	
+	public static SearchExecutor getExecutor(SearchExperiment<?> experiment, String name, double... epsilon) {
+		for(Entry<SearchExecutor, List<NondominatedPopulation>> entry : getResults(experiment).entrySet())
+			if(entry.getKey().getName().equals(name))
+				return entry.getKey();
+		return null;
+	}
+	
+	public static NondominatedPopulation createApproximationSet(SearchExperiment<?> experiment) {
+		return createApproximationSet(experiment, (double[])null);
+	}
+	
+	public static NondominatedPopulation createApproximationSet(SearchExperiment<?> experiment, double... epsilon) {
+		NondominatedPopulation approximationSet = createArchive(epsilon);
+		
+		for (List<NondominatedPopulation> entry : getResults(experiment).values()) 
+			for (NondominatedPopulation set : entry) 
+				approximationSet.addAll(set);
+		
+		return approximationSet;
+	}
+	
+	public static NondominatedPopulation createApproximationSet(SearchExperiment<?> experiment, String... names) {		
+		if(names == null || names.length == 0)
+			return createApproximationSet(experiment);
+		
+		NondominatedPopulation referenceSet = createArchive();
+		for(String name : names) {
+			for(NondominatedPopulation population : getResult(experiment, name))
+				referenceSet.addAll(population);
 		}
+		
+		return referenceSet;
+	}
+	
+	public static Map<SearchExecutor, List<NondominatedPopulation>> getResults(SearchExperiment<?> experiment) {
+		if(experiment == null) {
+			System.err.println("No experiment given!");
+			return new HashMap<>();
+		}
+		if(!experiment.hasResults())
+			experiment.run();
+		return experiment.getResults();
+	}
+	
+	public static NondominatedPopulation getReferenceSet(SearchExperiment<?> experiment, double... epsilon) {
+		NondominatedPopulation referenceSet = createArchive(epsilon);
+		
+		File referenceSetFile = experiment.getReferenceSetFile();
+		if(referenceSetFile == null)
+			return referenceSet;
+		
+		try {
+			referenceSet.addAll(PopulationIO.readObjectives(referenceSetFile));
+		} catch (IOException e) {
+			System.err.println("Could not load reference set objectives: " + e.getMessage());
+		}
+		return referenceSet;
 	}
 	
 	public static String printObjectives(Iterable<Solution> solutions) {
@@ -273,24 +285,39 @@ public class SearchResultManager {
 			return "";
 		}
 	}
-	
-	public static File saveObjectives(File file, Iterable<Solution> solutions) {
-		PrintStream writer = getFilePrintStream(file);
-		writeObjectives(writer, solutions);
-		if(writer != null)
-			writer.close();
-		return file;
-	}
-	
-	public static void writeObjectives(PrintStream writer, Iterable<Solution> solutions) {
+
+	public static void writeObjectives(PrintStream ps, Iterable<Solution> solutions) {
 		for (Solution solution : solutions) {
-			writer.print(Double.toString(solution.getObjective(0)));
+			ps.print(Double.toString(solution.getObjective(0)));
 
 			for (int i = 1; i < solution.getNumberOfObjectives(); i++) {
-				writer.print(" ");
-				writer.print(solution.getObjective(i));
+				ps.print(" ");
+				ps.print(solution.getObjective(i));
 			}
-			writer.println();
+			ps.println();
+		}
+	}
+	
+	public static String printAttributes(Iterable<Solution> solutions) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintStream writer = new PrintStream(baos);
+		writeAttributes(writer, solutions);
+		if(writer != null)
+			writer.close();
+		try {
+			return baos.toString("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			System.err.println("Could not print objectives: " + e.getMessage());
+			e.printStackTrace();
+			return "";
+		}
+	}
+	
+	public static void writeAttributes(PrintStream ps, Iterable<Solution> solutions) {
+		for (Solution solution : solutions) {
+			for(Entry<String, Serializable> entry : solution.getAttributes().entrySet())
+				ps.println(SolutionWriter.printObject(entry.getKey()) + ": " + SolutionWriter.printObject(entry.getValue()));
+			ps.println();
 		}
 	}
 	
@@ -310,14 +337,6 @@ public class SearchResultManager {
 		}
 	}
 	
-	public static <S extends Solution> File saveSolution(File file, S solution, ISolutionWriter<S> writer) {
-		PrintStream ps = getFilePrintStream(file);
-		writer.write(ps, solution);
-		if(ps != null)
-			ps.close();
-		return file;
-	}
-	
 	public static String printPopulation(Population population, IPopulationWriter<?> writer) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
@@ -325,7 +344,7 @@ public class SearchResultManager {
 		try {
 			return baos.toString("UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			System.err.println("Could not print objectives: " + e.getMessage());
+			System.err.println("Could not print population: " + e.getMessage());
 			e.printStackTrace();
 			return "";
 		} finally {
@@ -334,11 +353,155 @@ public class SearchResultManager {
 		}
 	}
 	
+	public static File saveObjectives(String file, Iterable<Solution> solutions) {
+		return saveObjectives(new File(file), solutions);
+	}
+
+	public static File saveObjectives(File file, Iterable<Solution> solutions) {
+		PrintStream writer = getFilePrintStream(file);
+		writeObjectives(writer, solutions);
+		if(writer != null)
+			writer.close();
+		return file;
+	}
+	
+	public static <S extends Solution> File saveSolution(String file, S solution, ISolutionWriter<? super S> writer) {
+		return saveSolution(new File(file), solution, writer);
+	}
+	
+	public static <S extends Solution> File saveSolution(File file, S solution, ISolutionWriter<? super S> writer) {
+		PrintStream ps = getFilePrintStream(file);
+		writer.write(ps, solution);
+		if(ps != null)
+			ps.close();
+		return file;
+	}	
+	
+	public static File savePopulation(String directory, String file, Population population, IPopulationWriter<?> writer) {
+		return savePopulation(new File(directory), new File(file), population, writer);
+	}
+
+	public static File savePopulation(File directory, File file, Population population, IPopulationWriter<?> writer) {
+		FileUtil.checkDirectory(directory);
+		return savePopulation(FileUtil.createFile(directory, file), population, writer);
+	}
+	
+	public static File savePopulation(String file, Population population, IPopulationWriter<?> writer) {
+		return savePopulation(new File(file), population, writer);
+	}
+	
 	public static File savePopulation(File file, Population population, IPopulationWriter<?> writer) {
 		PrintStream ps = getFilePrintStream(file);
 		writer.write(ps, population);
 		if(ps != null)
 			ps.close();
 		return file;
+	}
+	
+	public static <S extends Solution> File savePopulation(String directory, String file, Iterable<S> population, IPopulationWriter<S> writer) {
+		return savePopulation(new File(directory), new File(file), population, writer);
+	}
+
+	public static <S extends Solution> File savePopulation(File directory, File file, Iterable<S> population, IPopulationWriter<S> writer) {
+		FileUtil.checkDirectory(directory);
+		return savePopulation(FileUtil.createFile(directory, file), population, writer);
+	}
+	
+	public static <S extends Solution> File savePopulation(String file, Iterable<S> population, IPopulationWriter<S> writer) {
+		return savePopulation(new File(file), population, writer);
+	}
+	
+	public static <S extends Solution> File savePopulation(File file, Iterable<S> population, IPopulationWriter<S> writer) {
+		PrintStream ps = getFilePrintStream(file);
+		writer.write(ps, population);
+		if(ps != null)
+			ps.close();
+		return file;
+	}
+	
+	public static <S extends Solution> List<File> saveSolutions(String directory, String baseName, Iterable<S> population, ISolutionWriter<? super S> writer) {
+		return saveSolutions(new File(directory), baseName, population, writer);
+	}	
+	
+	public static <S extends Solution> List<File> saveSolutions(String directory, String baseName, Population population, ISolutionWriter<Solution> writer) {
+		return saveSolutions(new File(directory), baseName, population, writer);
+	}
+	
+	public static <S extends Solution> List<File> saveSolutions(File directory, String baseName, Population population, ISolutionWriter<Solution> writer) {
+		FileUtil.checkDirectory(directory);
+		List<File> solutionFiles = new ArrayList<>();
+		for(Solution solution : population) {
+			File solutionFile = saveSolution(
+					FileUtil.createFile(directory, createSolutionFile(baseName, solution)), solution, writer);
+			solutionFiles.add(solutionFile);
+		}
+		return solutionFiles;
+	}
+	
+	public static <S extends Solution> List<File> saveSolutions(File directory, String baseName, Iterable<S> population, ISolutionWriter<? super S> writer) {
+		FileUtil.checkDirectory(directory);
+		List<File> solutionFiles = new ArrayList<>();
+		for(S solution : population) {
+			File solutionFile = saveSolution(FileUtil.createFile(directory, createSolutionFile(baseName, solution)), solution, writer);
+			solutionFiles.add(solutionFile);
+		}
+		return solutionFiles;
+	}
+	
+	protected static String createFileName(String baseName, Solution solution, String fileExtension) {
+		String objectives = "";
+		if(solution != null)
+			for(int i = 0; i < solution.getNumberOfObjectives(); i++) 
+				objectives += "_" + Double.toString(solution.getObjective(i));
+		if(baseName == null)
+			baseName = "";
+		if(fileExtension == null)
+			fileExtension = "";
+		else if(!fileExtension.startsWith("."))
+			fileExtension = "." + fileExtension;
+		return baseName + objectives + fileExtension;
+	}	
+	
+	protected static String createSolutionFileName(String baseName, Solution solution) {
+		if(baseName == null)
+			baseName = "solution";
+		return createFileName(baseName, solution, SOLUTION_FILE_EXTENSION);
+	}	
+	
+	protected static File createSolutionFile(String baseName, Solution solution) {
+		return new File(createSolutionFileName(baseName, solution));
+	}
+	
+	protected static String createObjectivesFileName(String baseName, String...names) {
+		if(baseName == null)
+			baseName = "objectives";
+		String concatNames = "";
+		for(String name : names)
+			concatNames += "_" + name;
+		return baseName + concatNames + "." + OBJECTIVE_FILE_EXTENSION;
+	}
+	
+	protected static File createObjectivesFile(String baseName, String...names) {
+		return new File(createObjectivesFileName(baseName, names));
+	}
+	
+	
+	
+	protected static PrintStream getFilePrintStream(File file) {
+		FileUtil.checkDirectory(file.getParentFile());
+		try {
+			return new PrintStream(new BufferedOutputStream(new FileOutputStream(file)), true, "UTF-8");
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			System.err.println(e.getMessage());
+			return null;
+		}
+	}
+	
+	protected static NondominatedPopulation createArchive(double...epsilon) {
+		if (epsilon == null || epsilon.length == 0) {
+			return new NondominatedPopulation(new ParetoDominanceComparator());
+		} else {
+			return new EpsilonBoxDominanceArchive(epsilon);
+		}
 	}
 }

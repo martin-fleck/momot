@@ -20,8 +20,9 @@ import org.eclipse.emf.henshin.model.Parameter;
 import org.eclipse.emf.henshin.model.Unit;
 
 import at.ac.tuwien.big.moea.problem.solution.variable.IPlaceholderVariable;
+import at.ac.tuwien.big.moea.problem.solution.variable.PlaceholderVariable;
 
-public class TransformationPlaceholderVariable implements ITransformationVariable, IPlaceholderVariable {
+public class TransformationPlaceholderVariable extends PlaceholderVariable implements ITransformationVariable, IPlaceholderVariable {
 
 	private static final long serialVersionUID = -3254092590689885677L;
 

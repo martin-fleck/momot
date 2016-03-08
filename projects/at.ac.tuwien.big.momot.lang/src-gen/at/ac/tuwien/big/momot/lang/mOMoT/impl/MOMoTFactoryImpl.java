@@ -1,8 +1,8 @@
 /**
  */
-package at.ac.tuwien.big.momot.lang.mOMoT.impl;
+package at.ac.tuwien.big.momot.lang.momot.impl;
 
-import at.ac.tuwien.big.momot.lang.mOMoT.*;
+import at.ac.tuwien.big.momot.lang.momot.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
+public class MomotFactoryImpl extends EFactoryImpl implements MomotFactory
 {
   /**
    * Creates the default factory implementation.
@@ -27,21 +27,21 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public static MOMoTFactory init()
+  public static MomotFactory init()
   {
     try
     {
-      MOMoTFactory theMOMoTFactory = (MOMoTFactory)EPackage.Registry.INSTANCE.getEFactory(MOMoTPackage.eNS_URI);
-      if (theMOMoTFactory != null)
+      MomotFactory theMomotFactory = (MomotFactory)EPackage.Registry.INSTANCE.getEFactory(MomotPackage.eNS_URI);
+      if (theMomotFactory != null)
       {
-        return theMOMoTFactory;
+        return theMomotFactory;
       }
     }
     catch (Exception exception)
     {
       EcorePlugin.INSTANCE.log(exception);
     }
-    return new MOMoTFactoryImpl();
+    return new MomotFactoryImpl();
   }
 
   /**
@@ -50,7 +50,7 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MOMoTFactoryImpl()
+  public MomotFactoryImpl()
   {
     super();
   }
@@ -65,34 +65,38 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
   {
     switch (eClass.getClassifierID())
     {
-      case MOMoTPackage.MO_MO_TSEARCH: return createMOMoTSearch();
-      case MOMoTPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
-      case MOMoTPackage.TRANSFORMATION_ORCHESTRATION: return createTransformationOrchestration();
-      case MOMoTPackage.PARMETER_VALUE_SPECIFICATION: return createParmeterValueSpecification();
-      case MOMoTPackage.SEARCH_ORCHESTRATION: return createSearchOrchestration();
-      case MOMoTPackage.EQUALITY_HELPER: return createEqualityHelper();
-      case MOMoTPackage.ALGORITHM_LIST: return createAlgorithmList();
-      case MOMoTPackage.FITNESS_FUNCTION_SPECIFICATION: return createFitnessFunctionSpecification();
-      case MOMoTPackage.FITNESS_DIMENSION_SPECIFICATION: return createFitnessDimensionSpecification();
-      case MOMoTPackage.FITNESS_DIMENSION_CONSTRUCTOR: return createFitnessDimensionConstructor();
-      case MOMoTPackage.FITNESS_DIMENSION_XBASE: return createFitnessDimensionXBase();
-      case MOMoTPackage.FITNESS_DIMENSION_OCL: return createFitnessDimensionOCL();
-      case MOMoTPackage.DEF_EXPRESSION: return createDefExpression();
-      case MOMoTPackage.ALGORITHM_SPECIFICATION: return createAlgorithmSpecification();
-      case MOMoTPackage.EXPERIMENT_ORCHESTRATION: return createExperimentOrchestration();
-      case MOMoTPackage.COLLECTOR_ARRAY: return createCollectorArray();
-      case MOMoTPackage.ANALYSIS_ORCHESTRATION: return createAnalysisOrchestration();
-      case MOMoTPackage.ANALYSIS_GROUP_LIST: return createAnalysisGroupList();
-      case MOMoTPackage.INDICATOR_ARRAY: return createIndicatorArray();
-      case MOMoTPackage.SHOW_ARRAY: return createShowArray();
-      case MOMoTPackage.ANALYSIS_GROUP_SPECIFICATION: return createAnalysisGroupSpecification();
-      case MOMoTPackage.ALGORITHM_REFERENCES: return createAlgorithmReferences();
-      case MOMoTPackage.RESULT_MANAGEMENT: return createResultManagement();
-      case MOMoTPackage.SAVE_ANALYSIS_COMMAND: return createSaveAnalysisCommand();
-      case MOMoTPackage.SAVE_OBJECTIVES_COMMAND: return createSaveObjectivesCommand();
-      case MOMoTPackage.SAVE_SOLUTIONS_COMMAND: return createSaveSolutionsCommand();
-      case MOMoTPackage.PRINT_OBJECTIVES_COMMAND: return createPrintObjectivesCommand();
-      case MOMoTPackage.PRINT_SOLUTIONS_COMMAND: return createPrintSolutionsCommand();
+      case MomotPackage.MO_MO_TSEARCH: return createMOMoTSearch();
+      case MomotPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
+      case MomotPackage.MODULE_ORCHESTRATION: return createModuleOrchestration();
+      case MomotPackage.PARMETER_VALUE_SPECIFICATION: return createParmeterValueSpecification();
+      case MomotPackage.SEARCH_ORCHESTRATION: return createSearchOrchestration();
+      case MomotPackage.INPUT_MODEL: return createInputModel();
+      case MomotPackage.EQUALITY_HELPER: return createEqualityHelper();
+      case MomotPackage.ALGORITHM_LIST: return createAlgorithmList();
+      case MomotPackage.FITNESS_FUNCTION_SPECIFICATION: return createFitnessFunctionSpecification();
+      case MomotPackage.FITNESS_DIMENSION_SPECIFICATION: return createFitnessDimensionSpecification();
+      case MomotPackage.FITNESS_DIMENSION_CONSTRUCTOR: return createFitnessDimensionConstructor();
+      case MomotPackage.FITNESS_DIMENSION_XBASE: return createFitnessDimensionXBase();
+      case MomotPackage.FITNESS_DIMENSION_OCL: return createFitnessDimensionOCL();
+      case MomotPackage.DEF_EXPRESSION: return createDefExpression();
+      case MomotPackage.ALGORITHM_SPECIFICATION: return createAlgorithmSpecification();
+      case MomotPackage.EXPERIMENT_ORCHESTRATION: return createExperimentOrchestration();
+      case MomotPackage.COLLECTOR_ARRAY: return createCollectorArray();
+      case MomotPackage.ANALYSIS_ORCHESTRATION: return createAnalysisOrchestration();
+      case MomotPackage.ANALYSIS_GROUP_LIST: return createAnalysisGroupList();
+      case MomotPackage.INDICATOR_ARRAY: return createIndicatorArray();
+      case MomotPackage.SHOW_ARRAY: return createShowArray();
+      case MomotPackage.ANALYSIS_GROUP_SPECIFICATION: return createAnalysisGroupSpecification();
+      case MomotPackage.ALGORITHM_REFERENCES: return createAlgorithmReferences();
+      case MomotPackage.ANALYSIS_COMMAND: return createAnalysisCommand();
+      case MomotPackage.PRINT_ANALYSIS_COMMAND: return createPrintAnalysisCommand();
+      case MomotPackage.SAVE_ANALYSIS_COMMAND: return createSaveAnalysisCommand();
+      case MomotPackage.BOXPLOT_COMMAND: return createBoxplotCommand();
+      case MomotPackage.RESULT_MANAGEMENT: return createResultManagement();
+      case MomotPackage.RESULT_MANAGEMENT_COMMAND: return createResultManagementCommand();
+      case MomotPackage.OBJECTIVES_COMMAND: return createObjectivesCommand();
+      case MomotPackage.SOLUTIONS_COMMAND: return createSolutionsCommand();
+      case MomotPackage.MODELS_COMMAND: return createModelsCommand();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -108,7 +112,7 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case MOMoTPackage.FITNESS_DIMENSION_TYPE:
+      case MomotPackage.FITNESS_DIMENSION_TYPE:
         return createFitnessDimensionTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -125,7 +129,7 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case MOMoTPackage.FITNESS_DIMENSION_TYPE:
+      case MomotPackage.FITNESS_DIMENSION_TYPE:
         return convertFitnessDimensionTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -159,10 +163,10 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TransformationOrchestration createTransformationOrchestration()
+  public ModuleOrchestration createModuleOrchestration()
   {
-    TransformationOrchestrationImpl transformationOrchestration = new TransformationOrchestrationImpl();
-    return transformationOrchestration;
+    ModuleOrchestrationImpl moduleOrchestration = new ModuleOrchestrationImpl();
+    return moduleOrchestration;
   }
 
   /**
@@ -185,6 +189,17 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
   {
     SearchOrchestrationImpl searchOrchestration = new SearchOrchestrationImpl();
     return searchOrchestration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InputModel createInputModel()
+  {
+    InputModelImpl inputModel = new InputModelImpl();
+    return inputModel;
   }
 
   /**
@@ -379,10 +394,21 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ResultManagement createResultManagement()
+  public AnalysisCommand createAnalysisCommand()
   {
-    ResultManagementImpl resultManagement = new ResultManagementImpl();
-    return resultManagement;
+    AnalysisCommandImpl analysisCommand = new AnalysisCommandImpl();
+    return analysisCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrintAnalysisCommand createPrintAnalysisCommand()
+  {
+    PrintAnalysisCommandImpl printAnalysisCommand = new PrintAnalysisCommandImpl();
+    return printAnalysisCommand;
   }
 
   /**
@@ -401,10 +427,10 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SaveObjectivesCommand createSaveObjectivesCommand()
+  public BoxplotCommand createBoxplotCommand()
   {
-    SaveObjectivesCommandImpl saveObjectivesCommand = new SaveObjectivesCommandImpl();
-    return saveObjectivesCommand;
+    BoxplotCommandImpl boxplotCommand = new BoxplotCommandImpl();
+    return boxplotCommand;
   }
 
   /**
@@ -412,10 +438,10 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SaveSolutionsCommand createSaveSolutionsCommand()
+  public ResultManagement createResultManagement()
   {
-    SaveSolutionsCommandImpl saveSolutionsCommand = new SaveSolutionsCommandImpl();
-    return saveSolutionsCommand;
+    ResultManagementImpl resultManagement = new ResultManagementImpl();
+    return resultManagement;
   }
 
   /**
@@ -423,10 +449,10 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PrintObjectivesCommand createPrintObjectivesCommand()
+  public ResultManagementCommand createResultManagementCommand()
   {
-    PrintObjectivesCommandImpl printObjectivesCommand = new PrintObjectivesCommandImpl();
-    return printObjectivesCommand;
+    ResultManagementCommandImpl resultManagementCommand = new ResultManagementCommandImpl();
+    return resultManagementCommand;
   }
 
   /**
@@ -434,10 +460,32 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PrintSolutionsCommand createPrintSolutionsCommand()
+  public ObjectivesCommand createObjectivesCommand()
   {
-    PrintSolutionsCommandImpl printSolutionsCommand = new PrintSolutionsCommandImpl();
-    return printSolutionsCommand;
+    ObjectivesCommandImpl objectivesCommand = new ObjectivesCommandImpl();
+    return objectivesCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SolutionsCommand createSolutionsCommand()
+  {
+    SolutionsCommandImpl solutionsCommand = new SolutionsCommandImpl();
+    return solutionsCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModelsCommand createModelsCommand()
+  {
+    ModelsCommandImpl modelsCommand = new ModelsCommandImpl();
+    return modelsCommand;
   }
 
   /**
@@ -467,9 +515,9 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MOMoTPackage getMOMoTPackage()
+  public MomotPackage getMomotPackage()
   {
-    return (MOMoTPackage)getEPackage();
+    return (MomotPackage)getEPackage();
   }
 
   /**
@@ -479,9 +527,9 @@ public class MOMoTFactoryImpl extends EFactoryImpl implements MOMoTFactory
    * @generated
    */
   @Deprecated
-  public static MOMoTPackage getPackage()
+  public static MomotPackage getPackage()
   {
-    return MOMoTPackage.eINSTANCE;
+    return MomotPackage.eINSTANCE;
   }
 
-} //MOMoTFactoryImpl
+} //MomotFactoryImpl
