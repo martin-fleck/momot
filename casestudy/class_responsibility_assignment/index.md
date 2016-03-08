@@ -37,7 +37,7 @@ For this, we assign a feature with the name ``featureName`` to a class with name
 Any prior encapsulation relation this feature had will be deleted.
 
 <div style="text-align:center">
-<img src="http://martin-fleck.github.io/momot/images/casestudy/class_responsibility-assignment/cra_rules.svg" alt="Class Responsibility Assignment Rule" />
+<img src="http://martin-fleck.github.io/momot/images/casestudy/class_responsibility-assignment/cra_rule.svg" alt="Class Responsibility Assignment Rule" />
 </div>
 
 ### Objectives and Constraints
