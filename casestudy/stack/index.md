@@ -64,7 +64,7 @@ initialization = { // register stack meta-model etc.
 }
 
 search = {
-  model = "model/input/model/model_five_stacks.xmi"
+  model = { file =  "model/input/model/model_five_stacks.xmi" }
   solutionLength = 8
   
   transformations = {
@@ -121,11 +121,61 @@ analysis = {
   show         = [ individualValues aggregateValues statisticalSignificance ]
 }
   
-finalization = {
-  saveAnalysis   "model/output/analysis.txt"
-  saveObjectives "model/output/approximationSet/overall_objectives.pf"
-  saveObjectives [ NSGA_III, NSGA_II ] "model/output/approximationSet/moea_objectives.pf"
-  saveSolutions  "model/output/solutions/all/"
-  saveSolutions  [ NSGA_III, NSGA_II ] "model/output/solutions/moea/"  
-}  
+results = {	
+	objectives = {
+		printOutput
+	}
+	
+	objectives = {
+		outputFile = "example/output/overall_objectives.pf"
+		printOutput
+	}
+	
+	objectives = {
+		algorithms = [ NSGA_III, NSGA_II ]
+		outputFile = "example/output/moea_objectives.pf"
+		printOutput
+	}
+	
+	objectives = {
+		algorithms = [ NSGA_III, NSGA_II ]
+		neighborhoodSize = 3 // kneepoints
+		outputFile = "example/output/moea_kneepoints_objectives.pf"
+		printOutput
+	}
+	
+	solutions = {
+		outputFile = "example/output/overall_solutions.txt"
+		outputDirectory ="example/output/solutions/all/"
+	}
+	
+	solutions = {
+		algorithms = [ NSGA_III, NSGA_II ]
+		outputFile = "example/output/moea_solutions.txt"
+		outputDirectory ="example/output/solutions/moea/"
+	}
+	
+	solutions = {
+		algorithms = [ NSGA_III, NSGA_II ]
+		neighborhoodSize = maxNeighborhoodSize  // kneepoint
+		outputFile = "example/output/solutions/moea_kneepoint_solutions.txt"
+		outputDirectory ="example/output/solutions/moea/kneepoints/"
+		printOutput
+	}
+	
+	models = {
+		outputDirectory = "example/output/models/testing ladida"
+		printOutput
+	}
+	
+	models = {
+		algorithms = [ NSGA_III, NSGA_II ]
+		outputDirectory = "example/output/models/moea/"
+	}
+	
+	models = {
+		algorithms = [ Random ]
+		outputDirectory = "example/output/models/random/"
+	}
+}	
 ```

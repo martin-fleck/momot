@@ -3,7 +3,7 @@ title: MOMoT Class Modularization Case Study
 layout: index
 ---
 
-## Modularization Case Study
+## Class Modularization Case Study
 A well-known problem in software architecture design that can often not be solved through exhaustive approaches is the modularization problem, where the aim is to produce high-quality object-oriented models by grouping classes into modules.
 Producing a class diagram where the right number of modules is chosen and a proper assignment of classes is realized is a non-trivial task, as the problem has an exponentially growing search space of potential partitions.
 
@@ -49,7 +49,7 @@ Common metrics include coupling and cohesion and the modularization quality, whi
 For our example, we follow the *Equal-Size Cluster Approach*, as described by Praditwong et al in *Software Module Clustering as a Multi-Objective Search Problem*.
 The goal of this approach is to produce equally-sized modules, i.e., modules that have a similar number of classes. 
 Therefore, besides the above mentioned three objectives we also aim to maximize the number of modules and minimize the difference between the minimum and maximum number of classes in a module.
-In order to improve efficiency, we have outsourced evaluation of the objectives and constraints into a separate class ([ModularizationCalculator](https://github.com/martin-fleck/momot/blob/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsep/src/at/ac/tuwien/big/momot/examples/modularization/jsep/ModularizationCalculator.java)), which calculates the values in one iteration through the model.
+In order to improve efficiency, we have outsourced evaluation of the objectives and constraints into a separate class ([ModularizationCalculator](https://github.com/martin-fleck/momot/blob/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsme/src/at/ac/tuwien/big/momot/examples/modularization/jsme/ModularizationCalculator.java)), which calculates the values in one iteration through the model.
 In the configuration example below, you can find how this external calculation can be integrated into the fitness evaluation of MOMoT.
 
 **Coupling:**
@@ -87,7 +87,7 @@ In order to assess the magnitude of the violation, we consider the number of emp
 ### References
 * Praditwong K, Harman M, Yao X. Software Module Clustering as a Multi-Objective Search Problem. IEEE
 Transactions on Software Engineering 2011; 37(2):264–282, doi:[10.1109/TSE.2010.26](http://dx.doi.org/10.1109/TSE.2010.26).
-* [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsep)
+* [Example project on GitHub](https://github.com/martin-fleck/momot/tree/master/projects/at.ac.tuwien.big.momot.examples.modularization.jsme)
 
 ### Input Example
 As an example input model, we use the *mtunis* system, an operating system for educational purposes written in the Turing Language.
@@ -107,7 +107,7 @@ initialization  = {
 }
 
 search = {
-  model = "data/input/models/mtunis.xmi"
+  model = { file = "data/input/models/mtunis.xmi" }
   solutionLength = 50
   transformations = {
     modules = [ "data/modularization_jsep.henshin" ]
@@ -191,14 +191,17 @@ analysis = {
   indicators = [ hypervolume generationalDistance contribution ]
   significance = 0.01
   show = [ aggregateValues statisticalSignificance individualValues ]
+  outputFile = "data/output/analysis/mtunis_statistic2.txt"	
 }
 
-finalization = {
-  saveAnalysis "data/output/analysis/mtunis_statistic2.txt"
-  saveObjectives "data/output/approximationSet/mtunis_statistic2.pf"
-  saveSolutions "data/output/models/mtunis_statistic2/"
-  printSolutions 
-  printObjectives 
+results = {
+	objectives = {
+		outputFile = "data/output/approximationSet/mtunis_statistic2.pf"
+		printOutput
+	}
+	models = {
+		outputDirectory = "data/output/models/mtunis_statistic2/"
+	}
 }
 ```
 

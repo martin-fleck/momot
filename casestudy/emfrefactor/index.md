@@ -116,7 +116,7 @@ initialization  = {
 }
 
 search EMFRefactorSearch = {
-  model = "model/input/metamodel.ecore"
+  model = { file = "model/input/metamodel.ecore" }
   solutionLength = 5
   transformations = {
     modules = [ "transformation/refactorings/ecore/remove_empty_sub_eclass_all.henshin" ]
@@ -170,10 +170,13 @@ experiment = {
   progressListeners = [ new SeedRuntimePrintListener ]
 }
 
-finalization = {
-  saveObjectives "model/output/metamodel/referenceSet.pf"
-  saveSolutions "model/output/metamodel/solutions/"
-  printSolutions
-  printObjectives
+results = {
+	objectives = {
+		outputFile = "model/output/metamodel/referenceSet.pf"
+		printOutput
+	} 
+	models = {
+		outputDirectory = "model/output/metamodel/solutions/"
+	}
 }
 ```

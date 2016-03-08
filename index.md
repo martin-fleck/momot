@@ -19,6 +19,7 @@ A description about the specific case study, the necessary inputs and the config
 * [Class Modularization](casestudy/class_modularization)
 * [Class Diagram Restructuring](casestudy/class_restructuring)
 * [EMF Refactor](casestudy/emfrefactor)
+* [Class Responsibility Assignment](casestudy/class_responsibility_assignment)
 * [Towards Generic Modularization](casestudy/generic_modularization)
 
 

@@ -79,7 +79,7 @@ initialization = {
 }
 
 search = {
-  model = "model/SeveralRefactorings.xmi"
+  model = { file = "model/SeveralRefactorings.xmi" }
   solutionLength = 10
   
   transformations = {
@@ -112,8 +112,12 @@ experiment = {
   progressListeners = [ new SeedRuntimePrintListener ]
 }
 
-finalization = {
-  saveObjectives "model/output/referenceSet/approximation_set.pf"
-  saveSolutions "model/output/solutions/"
+results = {
+	objectives = {
+		outputFile = "model/output/referenceSet/approximation_set.pf"
+	} 
+	models = {
+		outputDirectory = "model/output/solutions/"
+	}
 }
 ```
