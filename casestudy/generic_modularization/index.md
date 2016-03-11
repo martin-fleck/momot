@@ -206,7 +206,7 @@ The eight modules for the QVT case studies are retrieved from the following pack
 <td>Cohesion</td>
 <td style="text-align:right">119</td>
 <td style="text-align:right">856</td>
-<td style="text-align:right">257</td>
+<td style="text-align:right">304</td>
 <td style="text-align:right">587</td>
 </tr>
 <tr>
