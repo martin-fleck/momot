@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/at.ac.tuwien.big.momot.feature_1.0.0.201604272005.jar" id="at.ac.tuwien.big.momot.feature" version="1.0.0.201604272005">
+   <feature url="features/at.ac.tuwien.big.momot.feature_1.0.0.201604272018.jar" id="at.ac.tuwien.big.momot.feature" version="1.0.0.201604272018">
       <category name="momot"/>
    </feature>
-   <feature url="features/at.ac.tuwien.big.momot.examples.feature_1.0.0.201604272005.jar" id="at.ac.tuwien.big.momot.examples.feature" version="1.0.0.201604272005">
+   <feature url="features/at.ac.tuwien.big.momot.examples.feature_1.0.0.201604272018.jar" id="at.ac.tuwien.big.momot.examples.feature" version="1.0.0.201604272018">
       <category name="momot"/>
    </feature>
-   <category-def name="momot" label="MOMoT">
+   <feature url="features/at.ac.tuwien.big.momot.lang.feature_1.0.0.201604272018.jar" id="at.ac.tuwien.big.momot.lang.feature" version="1.0.0.201604272018">
+      <category name="momot"/>
+   </feature>
+   <category-def name="momot" label="MOMoT - Marrying Optimization and Model Transformations">
       <description>
          MOMoT - Marrying Optimization and Model Transformations
       </description>
