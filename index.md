@@ -3,7 +3,7 @@ title: MOMoT - Marrying Search-based Optimization and Model Transformation Techn
 layout: index
 ---
 ### What is MOMoT?
-<img src="images/logo.png" style="max-width:200px; float: right; padding: 10px;">
+<img src="images/logo.png" style="max-width:230px; float: right; padding: 10px;">
 <div stlye="float:left; clear:both;">MOMoT is a framework that combines model-driven engineering (MDE) techniques with search-based optimization (population-based search and local search) to solve highly complex problems on model level.
 
 In this framework, problems are represented through Ecore meta-models and their respective model instances. 
