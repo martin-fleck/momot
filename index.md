@@ -28,7 +28,7 @@ A description about the specific case study, the necessary inputs and the config
 You can view download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot) or directly using the [Eclipse Update Site](http://martin-fleck.github.io/momot/eclipse/updates/). As dependencies you also need to have [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/) installed which are automatically retrieved when you use the update site.
 
 ### Authors and Contributors
-MOMoT has been developed by Martin Fleck ([@martin-fleck](https://github.com/martin-fleck)), Javier Troya ([@javitroya](https://github.com/javitroya)) and Manuel Wimmer.
+MOMoT has been developed by Martin Fleck ([@martin-fleck](https://github.com/martin-fleck)), Javier Troya ([@javitroya](https://github.com/javitroya)) and Manuel Wimmer ([@manuelWimmer](https://github.com/manuelWimmer)).
 At this point, we would like to thank the developers of the following frameworks, which we have used in order to develop MOMoT:
 
 * [Eclipse Henshin](http://www.eclipse.org/henshin/): Henshin is used to formulate the transformation units to manipulate the model.
