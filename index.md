@@ -25,7 +25,7 @@ A description about the specific case study, the necessary inputs and the config
 * [Towards Generic Modularization](casestudy/generic_modularization)
 
 
-You can download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot). As dependencies you also need to have installed [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/).
+You can view download the necessary Eclipse plugins projects from [GitHub](https://github.com/martin-fleck/momot) or directly using the [Eclipse Update Site](http://martin-fleck.github.io/momot/eclipse/updates/). As dependencies you also need to have [Xtext](www.eclipse.org/Xtext/) and [Henshin](http://www.eclipse.org/henshin/) installed which are automatically retrieved when you use the update site.
 
 ### Authors and Contributors
 MOMoT has been developed by Martin Fleck ([@martin-fleck](https://github.com/martin-fleck)), Javier Troya ([@javitroya](https://github.com/javitroya)) and Manuel Wimmer.
