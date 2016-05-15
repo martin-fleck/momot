@@ -17,24 +17,24 @@ import org.eclipse.emf.ecore.EClass;
 public class PrintAnalysisCommandImpl extends AnalysisCommandImpl implements PrintAnalysisCommand
 {
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected PrintAnalysisCommandImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.PRINT_ANALYSIS_COMMAND;
-  }
+		return MomotPackage.Literals.PRINT_ANALYSIS_COMMAND;
+	}
 
 } //PrintAnalysisCommandImpl

@@ -25,19 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface AlgorithmList extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Specifications</b></em>' containment reference list.
-   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Specifications</b></em>' containment reference list.
+	 * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.AlgorithmSpecification}.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Specifications</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Specifications</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAlgorithmList_Specifications()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Specifications</em>' containment reference list.
+	 * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAlgorithmList_Specifications()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<AlgorithmSpecification> getSpecifications();
 
 } // AlgorithmList

@@ -108,9 +108,9 @@ Export-Package:
  org.moeaframework.util.statistics,
  org.moeaframework.util.tree
 Require-Bundle: com.google.guava;bundle-version="15.0.0",
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ org.apache.commons.lang;bundle-version="2.6.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.apache.commons.lang
 Bundle-ClassPath: .,
  lib/jfreechart-1.0.19.jar,
  lib/commons-io-2.4.jar,
@@ -119,3 +119,4 @@ Bundle-ClassPath: .,
  lib/MOEAFramework-2.8.jar,
  lib/commons-math3-3.6.jar,
  lib/commons-lang3-3.4.jar
+Bundle-Vendor: http://martin-fleck.github.io/momot/

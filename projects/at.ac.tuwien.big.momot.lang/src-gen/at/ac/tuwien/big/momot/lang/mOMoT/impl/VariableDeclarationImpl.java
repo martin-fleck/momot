@@ -36,304 +36,295 @@ import org.eclipse.xtext.xbase.XExpression;
 public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implements VariableDeclaration
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
   protected JvmTypeReference type;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getInit() <em>Init</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getInit() <em>Init</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInit()
-   * @generated
-   * @ordered
-   */
+	 * @see #getInit()
+	 * @generated
+	 * @ordered
+	 */
   protected XExpression init;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected VariableDeclarationImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.VARIABLE_DECLARATION;
-  }
+		return MomotPackage.Literals.VARIABLE_DECLARATION;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public JvmTypeReference getType()
   {
-    return type;
-  }
+		return type;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetType(JvmTypeReference newType, NotificationChain msgs)
   {
-    JvmTypeReference oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		JvmTypeReference oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setType(JvmTypeReference newType)
   {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__TYPE, newType, newType));
-  }
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__TYPE, newType, newType));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public XExpression getInit()
   {
-    return init;
-  }
+		return init;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetInit(XExpression newInit, NotificationChain msgs)
   {
-    XExpression oldInit = init;
-    init = newInit;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__INIT, oldInit, newInit);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		XExpression oldInit = init;
+		init = newInit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__INIT, oldInit, newInit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setInit(XExpression newInit)
   {
-    if (newInit != init)
-    {
-      NotificationChain msgs = null;
-      if (init != null)
-        msgs = ((InternalEObject)init).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__INIT, null, msgs);
-      if (newInit != null)
-        msgs = ((InternalEObject)newInit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__INIT, null, msgs);
-      msgs = basicSetInit(newInit, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__INIT, newInit, newInit));
-  }
+		if (newInit != init) {
+			NotificationChain msgs = null;
+			if (init != null)
+				msgs = ((InternalEObject)init).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__INIT, null, msgs);
+			if (newInit != null)
+				msgs = ((InternalEObject)newInit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.VARIABLE_DECLARATION__INIT, null, msgs);
+			msgs = basicSetInit(newInit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.VARIABLE_DECLARATION__INIT, newInit, newInit));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case MomotPackage.VARIABLE_DECLARATION__TYPE:
-        return basicSetType(null, msgs);
-      case MomotPackage.VARIABLE_DECLARATION__INIT:
-        return basicSetInit(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case MomotPackage.VARIABLE_DECLARATION__TYPE:
+				return basicSetType(null, msgs);
+			case MomotPackage.VARIABLE_DECLARATION__INIT:
+				return basicSetInit(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case MomotPackage.VARIABLE_DECLARATION__TYPE:
-        return getType();
-      case MomotPackage.VARIABLE_DECLARATION__NAME:
-        return getName();
-      case MomotPackage.VARIABLE_DECLARATION__INIT:
-        return getInit();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case MomotPackage.VARIABLE_DECLARATION__TYPE:
+				return getType();
+			case MomotPackage.VARIABLE_DECLARATION__NAME:
+				return getName();
+			case MomotPackage.VARIABLE_DECLARATION__INIT:
+				return getInit();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case MomotPackage.VARIABLE_DECLARATION__TYPE:
-        setType((JvmTypeReference)newValue);
-        return;
-      case MomotPackage.VARIABLE_DECLARATION__NAME:
-        setName((String)newValue);
-        return;
-      case MomotPackage.VARIABLE_DECLARATION__INIT:
-        setInit((XExpression)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case MomotPackage.VARIABLE_DECLARATION__TYPE:
+				setType((JvmTypeReference)newValue);
+				return;
+			case MomotPackage.VARIABLE_DECLARATION__NAME:
+				setName((String)newValue);
+				return;
+			case MomotPackage.VARIABLE_DECLARATION__INIT:
+				setInit((XExpression)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.VARIABLE_DECLARATION__TYPE:
-        setType((JvmTypeReference)null);
-        return;
-      case MomotPackage.VARIABLE_DECLARATION__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case MomotPackage.VARIABLE_DECLARATION__INIT:
-        setInit((XExpression)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.VARIABLE_DECLARATION__TYPE:
+				setType((JvmTypeReference)null);
+				return;
+			case MomotPackage.VARIABLE_DECLARATION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case MomotPackage.VARIABLE_DECLARATION__INIT:
+				setInit((XExpression)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.VARIABLE_DECLARATION__TYPE:
-        return type != null;
-      case MomotPackage.VARIABLE_DECLARATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MomotPackage.VARIABLE_DECLARATION__INIT:
-        return init != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.VARIABLE_DECLARATION__TYPE:
+				return type != null;
+			case MomotPackage.VARIABLE_DECLARATION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MomotPackage.VARIABLE_DECLARATION__INIT:
+				return init != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //VariableDeclarationImpl

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Momot
+Bundle-Name: MOMoT Core
 Bundle-SymbolicName: at.ac.tuwien.big.momot
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.henshin.interpreter;visibility:=reexport,
@@ -12,7 +12,6 @@ Require-Bundle: org.eclipse.emf.henshin.interpreter;visibility:=reexport,
  org.eclipse.emf.ecore,
  org.eclipse.core.runtime;bundle-version="3.9.100",
  org.eclipse.core.resources;bundle-version="3.8.101"
-Import-Package: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.ac.tuwien.big.momot,
  at.ac.tuwien.big.momot.print,
@@ -38,3 +37,4 @@ Export-Package: at.ac.tuwien.big.momot,
  at.ac.tuwien.big.momot.search.solution.repair,
  at.ac.tuwien.big.momot.statespace,
  at.ac.tuwien.big.momot.util
+Bundle-Vendor: http://martin-fleck.github.io/momot/

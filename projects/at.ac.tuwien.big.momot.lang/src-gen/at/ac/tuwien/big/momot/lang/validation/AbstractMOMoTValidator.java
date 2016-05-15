@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
 
-@SuppressWarnings("restriction")
 public class AbstractMOMoTValidator extends org.eclipse.xtext.xbase.validation.XbaseValidator {
 
 	@Override

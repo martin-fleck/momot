@@ -42,7 +42,7 @@ Workflow {
     component = Generator {
     	pathRtProject = runtimeProject
     	pathUiProject = "${runtimeProject}.ui"
-    	pathTestProject = "${runtimeProject}.tests"
+    	pathTestProject = "" // empty string: do not generate test project: ${runtimeProject}.tests
     	projectNameRt = projectName
     	projectNameUi = "${projectName}.ui"
     	encoding = encoding
@@ -53,7 +53,9 @@ Workflow {
     		fragment = grammarAccess.GrammarAccessFragment auto-inject {}
     
     		// generates Java API for the generated EPackages
-    		fragment = ecore.EMFGeneratorFragment auto-inject {}
+    		fragment = ecore.EMFGeneratorFragment auto-inject {
+    			basePackage = "at.ac.tuwien.big.momot.lang"
+    		}
     
     		// the old serialization component
     		// fragment = parseTreeConstructor.ParseTreeConstructorFragment auto-inject {}    
@@ -117,7 +119,7 @@ Workflow {
     		}
     
     		// generates junit test support classes into Generator#pathTestProject
-    		fragment = junit.Junit4Fragment auto-inject {}
+    		// fragment = junit.Junit4Fragment auto-inject {}
     
     		// rename refactoring
     		fragment = refactoring.RefactorElementNameFragment auto-inject {}

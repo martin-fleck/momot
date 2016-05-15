@@ -19,24 +19,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class AnalysisCommandImpl extends MinimalEObjectImpl.Container implements AnalysisCommand
 {
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AnalysisCommandImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.ANALYSIS_COMMAND;
-  }
+		return MomotPackage.Literals.ANALYSIS_COMMAND;
+	}
 
 } //AnalysisCommandImpl

@@ -32,116 +32,111 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 public class AlgorithmReferencesImpl extends MinimalEObjectImpl.Container implements AlgorithmReferences
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
-   * @generated
-   * @ordered
-   */
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<AlgorithmSpecification> elements;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AlgorithmReferencesImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.ALGORITHM_REFERENCES;
-  }
+		return MomotPackage.Literals.ALGORITHM_REFERENCES;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<AlgorithmSpecification> getElements()
   {
-    if (elements == null)
-    {
-      elements = new EObjectResolvingEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MomotPackage.ALGORITHM_REFERENCES__ELEMENTS);
-    }
-    return elements;
-  }
+		if (elements == null) {
+			elements = new EObjectResolvingEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MomotPackage.ALGORITHM_REFERENCES__ELEMENTS);
+		}
+		return elements;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
-        return getElements();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
+				return getElements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends AlgorithmSpecification>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends AlgorithmSpecification>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
-        getElements().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
+				getElements().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
-        return elements != null && !elements.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_REFERENCES__ELEMENTS:
+				return elements != null && !elements.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //AlgorithmReferencesImpl

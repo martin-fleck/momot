@@ -31,164 +31,157 @@ import org.eclipse.xtext.xbase.XExpression;
 public class SaveAnalysisCommandImpl extends AnalysisCommandImpl implements SaveAnalysisCommand
 {
   /**
-   * The cached value of the '{@link #getFile() <em>File</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFile() <em>File</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
+	 * @see #getFile()
+	 * @generated
+	 * @ordered
+	 */
   protected XExpression file;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected SaveAnalysisCommandImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.SAVE_ANALYSIS_COMMAND;
-  }
+		return MomotPackage.Literals.SAVE_ANALYSIS_COMMAND;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public XExpression getFile()
   {
-    return file;
-  }
+		return file;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetFile(XExpression newFile, NotificationChain msgs)
   {
-    XExpression oldFile = file;
-    file = newFile;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, oldFile, newFile);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		XExpression oldFile = file;
+		file = newFile;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, oldFile, newFile);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setFile(XExpression newFile)
   {
-    if (newFile != file)
-    {
-      NotificationChain msgs = null;
-      if (file != null)
-        msgs = ((InternalEObject)file).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, null, msgs);
-      if (newFile != null)
-        msgs = ((InternalEObject)newFile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, null, msgs);
-      msgs = basicSetFile(newFile, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, newFile, newFile));
-  }
+		if (newFile != file) {
+			NotificationChain msgs = null;
+			if (file != null)
+				msgs = ((InternalEObject)file).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, null, msgs);
+			if (newFile != null)
+				msgs = ((InternalEObject)newFile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, null, msgs);
+			msgs = basicSetFile(newFile, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SAVE_ANALYSIS_COMMAND__FILE, newFile, newFile));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
-        return basicSetFile(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
+				return basicSetFile(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
-        return getFile();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
+				return getFile();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
-        setFile((XExpression)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
+				setFile((XExpression)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
-        setFile((XExpression)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
+				setFile((XExpression)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
-        return file != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.SAVE_ANALYSIS_COMMAND__FILE:
+				return file != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //SaveAnalysisCommandImpl

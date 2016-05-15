@@ -36,132 +36,126 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class AnalysisGroupListImpl extends MinimalEObjectImpl.Container implements AnalysisGroupList
 {
   /**
-   * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGroup()
-   * @generated
-   * @ordered
-   */
+	 * @see #getGroup()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<AnalysisGroupSpecification> group;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AnalysisGroupListImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.ANALYSIS_GROUP_LIST;
-  }
+		return MomotPackage.Literals.ANALYSIS_GROUP_LIST;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<AnalysisGroupSpecification> getGroup()
   {
-    if (group == null)
-    {
-      group = new EObjectContainmentEList<AnalysisGroupSpecification>(AnalysisGroupSpecification.class, this, MomotPackage.ANALYSIS_GROUP_LIST__GROUP);
-    }
-    return group;
-  }
+		if (group == null) {
+			group = new EObjectContainmentEList<AnalysisGroupSpecification>(AnalysisGroupSpecification.class, this, MomotPackage.ANALYSIS_GROUP_LIST__GROUP);
+		}
+		return group;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
-        return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
+				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
-        return getGroup();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
+				return getGroup();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
-        getGroup().clear();
-        getGroup().addAll((Collection<? extends AnalysisGroupSpecification>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
+				getGroup().clear();
+				getGroup().addAll((Collection<? extends AnalysisGroupSpecification>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
-        getGroup().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
+				getGroup().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
-        return group != null && !group.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.ANALYSIS_GROUP_LIST__GROUP:
+				return group != null && !group.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //AnalysisGroupListImpl

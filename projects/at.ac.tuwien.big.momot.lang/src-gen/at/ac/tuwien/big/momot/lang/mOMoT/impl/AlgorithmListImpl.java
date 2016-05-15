@@ -36,132 +36,126 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class AlgorithmListImpl extends MinimalEObjectImpl.Container implements AlgorithmList
 {
   /**
-   * The cached value of the '{@link #getSpecifications() <em>Specifications</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSpecifications() <em>Specifications</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSpecifications()
-   * @generated
-   * @ordered
-   */
+	 * @see #getSpecifications()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<AlgorithmSpecification> specifications;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AlgorithmListImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.ALGORITHM_LIST;
-  }
+		return MomotPackage.Literals.ALGORITHM_LIST;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<AlgorithmSpecification> getSpecifications()
   {
-    if (specifications == null)
-    {
-      specifications = new EObjectContainmentEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MomotPackage.ALGORITHM_LIST__SPECIFICATIONS);
-    }
-    return specifications;
-  }
+		if (specifications == null) {
+			specifications = new EObjectContainmentEList<AlgorithmSpecification>(AlgorithmSpecification.class, this, MomotPackage.ALGORITHM_LIST__SPECIFICATIONS);
+		}
+		return specifications;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
-        return ((InternalEList<?>)getSpecifications()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
+				return ((InternalEList<?>)getSpecifications()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
-        return getSpecifications();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
+				return getSpecifications();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
-        getSpecifications().clear();
-        getSpecifications().addAll((Collection<? extends AlgorithmSpecification>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
+				getSpecifications().clear();
+				getSpecifications().addAll((Collection<? extends AlgorithmSpecification>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
-        getSpecifications().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
+				getSpecifications().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
-        return specifications != null && !specifications.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.ALGORITHM_LIST__SPECIFICATIONS:
+				return specifications != null && !specifications.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //AlgorithmListImpl

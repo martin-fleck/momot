@@ -27,150 +27,146 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ModelsCommandImpl extends ResultManagementCommandImpl implements ModelsCommand
 {
   /**
-   * The default value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDirectory()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDirectory()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String DIRECTORY_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDirectory()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDirectory()
+	 * @generated
+	 * @ordered
+	 */
   protected String directory = DIRECTORY_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ModelsCommandImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return MomotPackage.Literals.MODELS_COMMAND;
-  }
+		return MomotPackage.Literals.MODELS_COMMAND;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getDirectory()
   {
-    return directory;
-  }
+		return directory;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setDirectory(String newDirectory)
   {
-    String oldDirectory = directory;
-    directory = newDirectory;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MODELS_COMMAND__DIRECTORY, oldDirectory, directory));
-  }
+		String oldDirectory = directory;
+		directory = newDirectory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.MODELS_COMMAND__DIRECTORY, oldDirectory, directory));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case MomotPackage.MODELS_COMMAND__DIRECTORY:
-        return getDirectory();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case MomotPackage.MODELS_COMMAND__DIRECTORY:
+				return getDirectory();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case MomotPackage.MODELS_COMMAND__DIRECTORY:
-        setDirectory((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case MomotPackage.MODELS_COMMAND__DIRECTORY:
+				setDirectory((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.MODELS_COMMAND__DIRECTORY:
-        setDirectory(DIRECTORY_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.MODELS_COMMAND__DIRECTORY:
+				setDirectory(DIRECTORY_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case MomotPackage.MODELS_COMMAND__DIRECTORY:
-        return DIRECTORY_EDEFAULT == null ? directory != null : !DIRECTORY_EDEFAULT.equals(directory);
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case MomotPackage.MODELS_COMMAND__DIRECTORY:
+				return DIRECTORY_EDEFAULT == null ? directory != null : !DIRECTORY_EDEFAULT.equals(directory);
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (directory: ");
-    result.append(directory);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (directory: ");
+		result.append(directory);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ModelsCommandImpl

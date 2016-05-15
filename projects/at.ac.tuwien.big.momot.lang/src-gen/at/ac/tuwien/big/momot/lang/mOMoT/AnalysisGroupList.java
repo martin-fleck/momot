@@ -25,19 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface AnalysisGroupList extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Group</b></em>' containment reference list.
-   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Group</b></em>' containment reference list.
+	 * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.AnalysisGroupSpecification}.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Group</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Group</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAnalysisGroupList_Group()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Group</em>' containment reference list.
+	 * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getAnalysisGroupList_Group()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<AnalysisGroupSpecification> getGroup();
 
 } // AnalysisGroupList

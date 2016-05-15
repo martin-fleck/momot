@@ -28,45 +28,45 @@ import org.eclipse.xtext.xbase.XExpression;
 public interface ResultManagement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Adapt Models</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Adapt Models</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Adapt Models</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Adapt Models</em>' containment reference.
-   * @see #setAdaptModels(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getResultManagement_AdaptModels()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Adapt Models</em>' containment reference.
+	 * @see #setAdaptModels(XExpression)
+	 * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getResultManagement_AdaptModels()
+	 * @model containment="true"
+	 * @generated
+	 */
   XExpression getAdaptModels();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ResultManagement#getAdaptModels <em>Adapt Models</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ResultManagement#getAdaptModels <em>Adapt Models</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Adapt Models</em>' containment reference.
-   * @see #getAdaptModels()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Adapt Models</em>' containment reference.
+	 * @see #getAdaptModels()
+	 * @generated
+	 */
   void setAdaptModels(XExpression value);
 
   /**
-   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
-   * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.ResultManagementCommand}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
+	 * The list contents are of type {@link at.ac.tuwien.big.momot.lang.momot.ResultManagementCommand}.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Commands</em>' containment reference list.
-   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getResultManagement_Commands()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Commands</em>' containment reference list.
+	 * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getResultManagement_Commands()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<ResultManagementCommand> getCommands();
 
 } // ResultManagement

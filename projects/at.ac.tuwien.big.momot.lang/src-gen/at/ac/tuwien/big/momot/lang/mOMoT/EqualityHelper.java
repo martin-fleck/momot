@@ -26,55 +26,55 @@ import org.eclipse.xtext.xbase.XExpression;
 public interface EqualityHelper extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Call</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Call</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Call</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Call</em>' containment reference.
-   * @see #setCall(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getEqualityHelper_Call()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Call</em>' containment reference.
+	 * @see #setCall(XExpression)
+	 * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getEqualityHelper_Call()
+	 * @model containment="true"
+	 * @generated
+	 */
   XExpression getCall();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.EqualityHelper#getCall <em>Call</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.EqualityHelper#getCall <em>Call</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Call</em>' containment reference.
-   * @see #getCall()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Call</em>' containment reference.
+	 * @see #getCall()
+	 * @generated
+	 */
   void setCall(XExpression value);
 
   /**
-   * Returns the value of the '<em><b>Method</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Method</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Method</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method</em>' containment reference.
-   * @see #setMethod(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getEqualityHelper_Method()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Method</em>' containment reference.
+	 * @see #setMethod(XExpression)
+	 * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getEqualityHelper_Method()
+	 * @model containment="true"
+	 * @generated
+	 */
   XExpression getMethod();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.EqualityHelper#getMethod <em>Method</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.EqualityHelper#getMethod <em>Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Method</em>' containment reference.
-   * @see #getMethod()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Method</em>' containment reference.
+	 * @see #getMethod()
+	 * @generated
+	 */
   void setMethod(XExpression value);
 
 } // EqualityHelper

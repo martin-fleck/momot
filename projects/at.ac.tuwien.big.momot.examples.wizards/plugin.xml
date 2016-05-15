@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         name=""
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="MOMoT"
+            parentCategory="org.eclipse.ui.Examples"
+            id="at.ac.tuwien.big.momot.example.wizards.MOMoT">
+      </category>
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/at.ac.tuwien.big.momot.example.wizards.MOMoT"
+            class="at.ac.tuwien.big.momot.examples.wizards.MOMoTExampleWizard"
+            icon="icons/momot_16.png"
+            id="at.ac.tuwien.big.momot.examples.wizards.MOMoTICMTWizard"
+            name="MOMoT: ICMT"
+            project="true">
+      </wizard>
+   </extension>
+   <extension
+         name=""
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            wizardID="at.ac.tuwien.big.momot.examples.wizards.MOMoTICMTWizard"
+            pageImage="icons/momot_16.png"
+            id="at.ac.tuwien.big.momot.examples.wizards.MOMoTICMTExample">
+         <projectDescriptor
+               contentURI="examples/icmt.tool.momot.demo.zip"
+               name="icmt.tool.momot.demo"
+               description="ICMT Example Model">
+         </projectDescriptor>
+      </example>
+   </extension>
+
+</plugin>

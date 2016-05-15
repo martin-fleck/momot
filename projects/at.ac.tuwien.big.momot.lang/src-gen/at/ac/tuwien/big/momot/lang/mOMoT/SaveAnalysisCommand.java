@@ -23,29 +23,29 @@ import org.eclipse.xtext.xbase.XExpression;
 public interface SaveAnalysisCommand extends AnalysisCommand
 {
   /**
-   * Returns the value of the '<em><b>File</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>File</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>File</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>File</em>' containment reference.
-   * @see #setFile(XExpression)
-   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSaveAnalysisCommand_File()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>File</em>' containment reference.
+	 * @see #setFile(XExpression)
+	 * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSaveAnalysisCommand_File()
+	 * @model containment="true"
+	 * @generated
+	 */
   XExpression getFile();
 
   /**
-   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand#getFile <em>File</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SaveAnalysisCommand#getFile <em>File</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>File</em>' containment reference.
-   * @see #getFile()
-   * @generated
-   */
+	 * @param value the new value of the '<em>File</em>' containment reference.
+	 * @see #getFile()
+	 * @generated
+	 */
   void setFile(XExpression value);
 
 } // SaveAnalysisCommand
