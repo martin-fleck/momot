@@ -23,7 +23,9 @@ import org.moeaframework.core.Solution;
 import org.moeaframework.core.spi.ProblemFactory;
 
 import at.ac.tuwien.big.moea.experiment.analyzer.chart.SearchBoxPlot;
-import at.ac.tuwien.big.moea.experiment.analyzer.statistic.EffectSize;
+import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.CliffsDeltaEffectSize;
+import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.CohensDEffectSize;
+import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.VarghaDelaneyAEffectSize;
 import at.ac.tuwien.big.moea.problem.ISearchProblem;
 import at.ac.tuwien.big.moea.util.FileUtil;
 
@@ -353,7 +355,7 @@ public class SearchAnalyzer extends org.moeaframework.Analyzer {
 		}
 	}
 	
-	protected void addCohensDEffectSize(SearchAnalyzerResults results) {
+	protected void addEffectSizes(SearchAnalyzerResults results) {
 		List<String> algorithms = results.getAlgorithms();
 		for(String indicator : results.getIndicators()) {
 			for (int i = 0; i < algorithms.size()-1; i++) {
@@ -364,12 +366,39 @@ public class SearchAnalyzer extends org.moeaframework.Analyzer {
 					SearchAlgorithmResult rightAlgorithmResults = results.get(rightAlgorithm);
 					SearchIndicatorResult leftIndicatorResults = leftAlgorithmResults.get(indicator);
 					SearchIndicatorResult rightIndicatorResults = rightAlgorithmResults.get(indicator);
-					if(leftIndicatorResults != null && rightIndicatorResults != null) {
-						double cohensD = EffectSize.cohensD(leftIndicatorResults.getValues(), rightIndicatorResults.getValues());
+					if(leftIndicatorResults != null) {
 						leftIndicatorResults.addAlgorithmEffectSize(
-								new AlgorithmEffectSize("CohensD", rightAlgorithm, cohensD));
+								CohensDEffectSize.calculate(
+									rightAlgorithm,
+									leftIndicatorResults.getValues(), rightIndicatorResults.getValues()
+								));
+						leftIndicatorResults.addAlgorithmEffectSize(
+								CliffsDeltaEffectSize.calculate(
+									rightAlgorithm,
+									leftIndicatorResults.getValues(), rightIndicatorResults.getValues()
+								));
+						leftIndicatorResults.addAlgorithmEffectSize(
+								VarghaDelaneyAEffectSize.calculate(
+									rightAlgorithm,
+									leftIndicatorResults.getValues(), rightIndicatorResults.getValues()
+								));						
+					}
+					if(rightIndicatorResults != null) {
 						rightIndicatorResults.addAlgorithmEffectSize(
-								new AlgorithmEffectSize("CohensD", leftAlgorithm, cohensD));
+								CohensDEffectSize.calculate(
+									leftAlgorithm,
+									rightIndicatorResults.getValues(), leftIndicatorResults.getValues()
+								));
+						rightIndicatorResults.addAlgorithmEffectSize(
+								CliffsDeltaEffectSize.calculate(
+									leftAlgorithm,
+									rightIndicatorResults.getValues(), leftIndicatorResults.getValues()
+								));
+						rightIndicatorResults.addAlgorithmEffectSize(
+								VarghaDelaneyAEffectSize.calculate(
+									leftAlgorithm,
+									rightIndicatorResults.getValues(), leftIndicatorResults.getValues()
+								));
 					}
 				}
 			}
@@ -379,7 +408,7 @@ public class SearchAnalyzer extends org.moeaframework.Analyzer {
 	public SearchAnalyzerResults getSearchAnalysis() {
 		SearchAnalyzerResults analyzerResults = new SearchAnalyzerResults(getAnalysis());
 		if(isShowStatisticalSignificance())
-			addCohensDEffectSize(analyzerResults);
+			addEffectSizes(analyzerResults);
 		return analyzerResults;
 	}
 	

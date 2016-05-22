@@ -8,6 +8,8 @@ import java.util.List;
 import org.apache.commons.math3.stat.descriptive.UnivariateStatistic;
 import org.moeaframework.Analyzer.IndicatorResult;
 
+import at.ac.tuwien.big.moea.experiment.analyzer.AlgorithmEffectSize.Magnitude;
+
 public class SearchIndicatorResult {
 	
 	protected final String indicator;
@@ -122,6 +124,8 @@ public class SearchIndicatorResult {
 						ps.print("measure: " + effectSize.getMeasure());
 						ps.print(", algorithm: " + effectSize.getAlgorithm());
 						ps.print(", effectSize: " + effectSize.getEffectSize());
+						if(!Magnitude.UNKNOWN.equals(effectSize.getMagnitude()))
+							ps.print(", magnitude: " + effectSize.getMagnitude().toString());
 						ps.println(" }");
 					}
 					ps.print("        ]");
