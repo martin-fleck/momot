@@ -21,7 +21,7 @@ A description about the specific case study, the necessary inputs and the config
 * [Class Modularization](casestudy/class_modularization)
 * [Class Diagram Restructuring](casestudy/class_restructuring)
 * [EMF Refactor](casestudy/emfrefactor)
-* [Class Responsibility Assignment](casestudy/class_responsibility_assignment)
+* [Class Responsibility Assignment](casestudy/class_responsibility_assignment) ([slides](http://www.slideshare.net/MartinFleck1/icmt-2016-searchbased-model-transformations-with-momot) and [video](https://www.youtube.com/watch?v=BQDz6OmxABE) presented at [ICMT 2016](http://is.ieis.tue.nl/research/ICMT16/))
 * [Towards Generic Modularization](casestudy/generic_modularization)
 
 
