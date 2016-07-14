@@ -37,7 +37,11 @@ At this point, we would like to thank the developers of the following frameworks
 * [Eclipse Xbase](https://wiki.eclipse.org/Xbase): Xbase is a statically typed expression language for Java, that is implemented in Xtext and we have used it to implement the configuration language.
 
 ### Related Publications
-* Fleck M, Troya J, Wimmer M. Marrying Search-based Optimization and Model Transformation Technology. *Proc. of the 1st North American Search Based Software Engineering Symposium (NasBASE’15)*, 2015. To appear. [PDF](downloads/NasBASE_MOMoT.pdf).
+* Martin Fleck, Javier Troya, and Manuel Wimmer: Marrying Search-based Optimization and Model Transformation Technology. In *Proceedings of the 1st North American Symposium on Search Based Software Engineering (NasBASE)*, 2015. To appear. [PDF](downloads/NasBASE_MOMoT.pdf).
+* Martin Fleck, Javier Troya, and Manuel Wimmer: Search-Based Model Transformations. 2016. In *Journal of Software: Evolution and Process*. Accepted for publication.
+* Martin Fleck, Javier Troya, and Manuel Wimmer: Towards Generic Modularization Transformations. In *Companion Proceedings of the 15th International Conference on Modularity, 1st International Workshop on Modularity in Modelling (MODULARITY),* pages 190–195, 2016. [dblp](http://dblp.org/rec/html/conf/aosd/FleckTW16), [ACM](http://dl.acm.org/citation.cfm?doid=2892664.2892698).
+* Martin Fleck, Javier Troya, Manuel Wimmer: Search-Based Model Transformations with MOMoT. In *Proceedings of the 9th International Conference on Model Transformations (ICMT)*, pages 79-87, 2016. [dblp](http://dblp.org/rec/conf/icmt/FleckTW16), [Springer](http://link.springer.com/chapter/10.1007%2F978-3-319-42064-6_6).
+* Martin Fleck, Javier Troya, and Manuel Wimmer. The Class Responsibility Assignment Case. In *Proceedings of the 9th Transformation Tool Contest (TTC)*, 2016. To appear.
 
 ### Support or Contact
 If you have encountered any problems with MOMoT or have suggestions of how we can improve it, please do not hesitate to contact [Martin Fleck](http://www.big.tuwien.ac.at/staff/mfleck).
