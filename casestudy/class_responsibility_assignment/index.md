@@ -8,6 +8,8 @@ A well-known problem in software architecture design that can often not be solve
 When solving the CRA, you need to decide where features, under the form of class methods and attributes they manipulate, belong and how objects should interact.
 Therefore, CRA is a non-trivial problem, often requiring human judgement and decision-making.
 
+This problem has also been presented  at the [ICMT conference 2016](http://is.ieis.tue.nl/research/ICMT16/). You can also have a look at the ([slides](http://www.slideshare.net/MartinFleck1/icmt-2016-searchbased-model-transformations-with-momot) and a  [video](https://www.youtube.com/watch?v=BQDz6OmxABE) of the tool demonstration.
+
 ### Meta-Model
 <div style="text-align:center">
 <img src="http://martin-fleck.github.io/momot/images/casestudy/class_responsibility_assignment/cra_metamodel.svg" alt="Class Responsibility Assignment Meta-Model" />
