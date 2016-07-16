@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-Description: %Bundle-Description
+Bundle-Vendor: %Bundle-Vendor
+Bundle-SymbolicName: at.ac.tuwien.big.momot.branding
+Bundle-Version: 2.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+
