@@ -17,16 +17,16 @@ import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.TransformationPlaceholderVariable;
 
 public class TransformationPlaceholderMutation extends AbstractTransformationMutation {
-	
-	public TransformationPlaceholderMutation(double probability) {
-		super(probability);
-	}
-	
-	@Override
-	protected TransformationSolution mutate(TransformationSolution mutant) {
-		int randomVariable = MathUtil.randomInteger(mutant.getNumberOfVariables());
-		mutant.setVariable(randomVariable, new TransformationPlaceholderVariable());
-		return mutant;
-	}
+
+   public TransformationPlaceholderMutation(final double probability) {
+      super(probability);
+   }
+
+   @Override
+   protected TransformationSolution mutate(final TransformationSolution mutant) {
+      final int randomVariable = MathUtil.randomInteger(mutant.getNumberOfVariables());
+      mutant.setVariable(randomVariable, new TransformationPlaceholderVariable());
+      return mutant;
+   }
 
 }

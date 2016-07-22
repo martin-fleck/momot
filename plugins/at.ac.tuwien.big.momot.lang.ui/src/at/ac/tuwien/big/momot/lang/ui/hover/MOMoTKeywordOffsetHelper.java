@@ -12,18 +12,18 @@ import org.eclipse.xtext.util.Pair;
 import org.eclipse.xtext.util.Tuples;
 
 public class MOMoTKeywordOffsetHelper {
-	  public Pair<EObject, IRegion> resolveKeywordAt(XtextResource resource, int offset) {
-		    IParseResult parseResult = resource.getParseResult();
-		    if (parseResult != null) {
-		      ILeafNode leaf = NodeModelUtils.findLeafNodeAtOffset(parseResult.getRootNode(), offset);
-		      if (leaf != null && leaf.isHidden() && leaf.getOffset() == offset) {
-		        leaf = NodeModelUtils.findLeafNodeAtOffset(parseResult.getRootNode(), offset - 1);
-		      }
-		      if (leaf != null && leaf.getGrammarElement() instanceof Keyword) {
-		        Keyword keyword = (Keyword) leaf.getGrammarElement();
-		        return Tuples.create((EObject) keyword, (IRegion)new Region(leaf.getOffset(), leaf.getLength()));
-		      }
-		    }
-		    return null;
-		  }
+   public Pair<EObject, IRegion> resolveKeywordAt(final XtextResource resource, final int offset) {
+      final IParseResult parseResult = resource.getParseResult();
+      if(parseResult != null) {
+         ILeafNode leaf = NodeModelUtils.findLeafNodeAtOffset(parseResult.getRootNode(), offset);
+         if(leaf != null && leaf.isHidden() && leaf.getOffset() == offset) {
+            leaf = NodeModelUtils.findLeafNodeAtOffset(parseResult.getRootNode(), offset - 1);
+         }
+         if(leaf != null && leaf.getGrammarElement() instanceof Keyword) {
+            final Keyword keyword = (Keyword) leaf.getGrammarElement();
+            return Tuples.create((EObject) keyword, (IRegion) new Region(leaf.getOffset(), leaf.getLength()));
+         }
+      }
+      return null;
+   }
 }

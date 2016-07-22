@@ -4,12 +4,12 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -27,159 +27,151 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
  */
 
 public class MOMoTNewWizardPage extends WizardPage {
-	private Text containerText;
+   private Text containerText;
 
-	private Text fileText;
+   private Text fileText;
 
-	private ISelection selection;
+   private final ISelection selection;
 
-	/**
-	 * Constructor for SampleNewWizardPage.
-	 * 
-	 * @param pageName
-	 */
-	public MOMoTNewWizardPage(ISelection selection) {
-		super("momotPage");
-		setTitle("MOMoT Search File");
-		setDescription("This wizard creates a new file with *.momot extension.");
-		this.selection = selection;
-	}
+   /**
+    * Constructor for SampleNewWizardPage.
+    *
+    * @param pageName
+    */
+   public MOMoTNewWizardPage(final ISelection selection) {
+      super("momotPage");
+      setTitle("MOMoT Search File");
+      setDescription("This wizard creates a new file with *.momot extension.");
+      this.selection = selection;
+   }
 
-	/**
-	 * @see IDialogPage#createControl(Composite)
-	 */
-	public void createControl(Composite parent) {
-		Composite container = new Composite(parent, SWT.NULL);
-		GridLayout layout = new GridLayout();
-		container.setLayout(layout);
-		layout.numColumns = 3;
-		layout.verticalSpacing = 9;
-		Label label = new Label(container, SWT.NULL);
-		label.setText("&Container:");
+   /**
+    * @see IDialogPage#createControl(Composite)
+    */
+   @Override
+   public void createControl(final Composite parent) {
+      final Composite container = new Composite(parent, SWT.NULL);
+      final GridLayout layout = new GridLayout();
+      container.setLayout(layout);
+      layout.numColumns = 3;
+      layout.verticalSpacing = 9;
+      Label label = new Label(container, SWT.NULL);
+      label.setText("&Container:");
 
-		containerText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-		containerText.setLayoutData(gd);
-		containerText.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				dialogChanged();
-			}
-		});
+      containerText = new Text(container, SWT.BORDER | SWT.SINGLE);
+      GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+      containerText.setLayoutData(gd);
+      containerText.addModifyListener(e -> dialogChanged());
 
-		Button button = new Button(container, SWT.PUSH);
-		button.setText("Browse...");
-		button.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				handleBrowse();
-			}
-		});
-		label = new Label(container, SWT.NULL);
-		label.setText("&File name:");
+      final Button button = new Button(container, SWT.PUSH);
+      button.setText("Browse...");
+      button.addSelectionListener(new SelectionAdapter() {
+         @Override
+         public void widgetSelected(final SelectionEvent e) {
+            handleBrowse();
+         }
+      });
+      label = new Label(container, SWT.NULL);
+      label.setText("&File name:");
 
-		fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
-		gd = new GridData(GridData.FILL_HORIZONTAL);
-		fileText.setLayoutData(gd);
-		fileText.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				dialogChanged();
-			}
-		});
-		initialize();
-		dialogChanged();
-		setControl(container);
-	}
+      fileText = new Text(container, SWT.BORDER | SWT.SINGLE);
+      gd = new GridData(GridData.FILL_HORIZONTAL);
+      fileText.setLayoutData(gd);
+      fileText.addModifyListener(e -> dialogChanged());
+      initialize();
+      dialogChanged();
+      setControl(container);
+   }
 
-	/**
-	 * Tests if the current workbench selection is a suitable container to use.
-	 */
+   /**
+    * Ensures that both text fields are set.
+    */
 
-	private void initialize() {
-		if (selection != null && selection.isEmpty() == false
-				&& selection instanceof IStructuredSelection) {
-			IStructuredSelection ssel = (IStructuredSelection) selection;
-			if (ssel.size() > 1)
-				return;
-			Object obj = ssel.getFirstElement();
-			if (obj instanceof IResource) {
-				IContainer container;
-				if (obj instanceof IContainer)
-					container = (IContainer) obj;
-				else
-					container = ((IResource) obj).getParent();
-				containerText.setText(container.getFullPath().toString());
-			}
-		}
-		fileText.setText("search.momot");
-	}
+   private void dialogChanged() {
+      final IResource container = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(getContainerName()));
+      final String fileName = getFileName();
 
-	/**
-	 * Uses the standard container selection dialog to choose the new value for
-	 * the container field.
-	 */
+      if(getContainerName().length() == 0) {
+         updateStatus("File container must be specified");
+         return;
+      }
+      if(container == null || (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
+         updateStatus("File container must exist");
+         return;
+      }
+      if(!container.isAccessible()) {
+         updateStatus("Project must be writable");
+         return;
+      }
+      if(fileName.length() == 0) {
+         updateStatus("File name must be specified");
+         return;
+      }
+      if(fileName.replace('\\', '/').indexOf('/', 1) > 0) {
+         updateStatus("File name must be valid");
+         return;
+      }
+      final int dotLoc = fileName.lastIndexOf('.');
+      if(dotLoc != -1) {
+         final String ext = fileName.substring(dotLoc + 1);
+         if(!"momot".equalsIgnoreCase(ext)) {
+            updateStatus("File extension must be \"momot\"");
+            return;
+         }
+      }
+      updateStatus(null);
+   }
 
-	private void handleBrowse() {
-		ContainerSelectionDialog dialog = new ContainerSelectionDialog(
-				getShell(), ResourcesPlugin.getWorkspace().getRoot(), false,
-				"Select new file container");
-		if (dialog.open() == ContainerSelectionDialog.OK) {
-			Object[] result = dialog.getResult();
-			if (result.length == 1) {
-				containerText.setText(((Path) result[0]).toString());
-			}
-		}
-	}
+   public String getContainerName() {
+      return containerText.getText();
+   }
 
-	/**
-	 * Ensures that both text fields are set.
-	 */
+   public String getFileName() {
+      return fileText.getText();
+   }
 
-	private void dialogChanged() {
-		IResource container = ResourcesPlugin.getWorkspace().getRoot()
-				.findMember(new Path(getContainerName()));
-		String fileName = getFileName();
+   /**
+    * Uses the standard container selection dialog to choose the new value for
+    * the container field.
+    */
 
-		if (getContainerName().length() == 0) {
-			updateStatus("File container must be specified");
-			return;
-		}
-		if (container == null
-				|| (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
-			updateStatus("File container must exist");
-			return;
-		}
-		if (!container.isAccessible()) {
-			updateStatus("Project must be writable");
-			return;
-		}
-		if (fileName.length() == 0) {
-			updateStatus("File name must be specified");
-			return;
-		}
-		if (fileName.replace('\\', '/').indexOf('/', 1) > 0) {
-			updateStatus("File name must be valid");
-			return;
-		}
-		int dotLoc = fileName.lastIndexOf('.');
-		if (dotLoc != -1) {
-			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("momot") == false) {
-				updateStatus("File extension must be \"momot\"");
-				return;
-			}
-		}
-		updateStatus(null);
-	}
+   private void handleBrowse() {
+      final ContainerSelectionDialog dialog = new ContainerSelectionDialog(getShell(),
+            ResourcesPlugin.getWorkspace().getRoot(), false, "Select new file container");
+      if(dialog.open() == Window.OK) {
+         final Object[] result = dialog.getResult();
+         if(result.length == 1) {
+            containerText.setText(((Path) result[0]).toString());
+         }
+      }
+   }
 
-	private void updateStatus(String message) {
-		setErrorMessage(message);
-		setPageComplete(message == null);
-	}
+   /**
+    * Tests if the current workbench selection is a suitable container to use.
+    */
 
-	public String getContainerName() {
-		return containerText.getText();
-	}
+   private void initialize() {
+      if(selection != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
+         final IStructuredSelection ssel = (IStructuredSelection) selection;
+         if(ssel.size() > 1) {
+            return;
+         }
+         final Object obj = ssel.getFirstElement();
+         if(obj instanceof IResource) {
+            IContainer container;
+            if(obj instanceof IContainer) {
+               container = (IContainer) obj;
+            } else {
+               container = ((IResource) obj).getParent();
+            }
+            containerText.setText(container.getFullPath().toString());
+         }
+      }
+      fileText.setText("search.momot");
+   }
 
-	public String getFileName() {
-		return fileText.getText();
-	}
+   private void updateStatus(final String message) {
+      setErrorMessage(message);
+      setPageComplete(message == null);
+   }
 }

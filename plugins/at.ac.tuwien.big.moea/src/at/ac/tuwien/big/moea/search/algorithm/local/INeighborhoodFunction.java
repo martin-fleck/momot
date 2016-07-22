@@ -15,11 +15,15 @@ package at.ac.tuwien.big.moea.search.algorithm.local;
 import org.moeaframework.core.Solution;
 
 public interface INeighborhoodFunction<S extends Solution> {
-	public static final int UNLIMITED = Integer.MAX_VALUE;
-	
-	int getMaxNeighbors();
-	INeighborhoodFunction<S> setMaxNeighbors(int maxNeighbors);
-	INeighborhood<S> generateNeighbors(S solution);
-	INeighborhood<S> generateNeighbors(S solution, int maxNeighbors);
-	INeighborhood<S> createEmptyNeighborhood();
+   int UNLIMITED = Integer.MAX_VALUE;
+
+   INeighborhood<S> createEmptyNeighborhood();
+
+   INeighborhood<S> generateNeighbors(S solution);
+
+   INeighborhood<S> generateNeighbors(S solution, int maxNeighbors);
+
+   int getMaxNeighbors();
+
+   INeighborhoodFunction<S> setMaxNeighbors(int maxNeighbors);
 }

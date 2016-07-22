@@ -12,33 +12,33 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.problem.unit.parameter.fix;
 
-import org.eclipse.emf.henshin.model.Parameter;
-
 import at.ac.tuwien.big.momot.problem.unit.parameter.IParameterValue;
 
-public class FixValue<T extends Object> implements IParameterValue<T> {
-	private T value;
-	
-	public FixValue(Parameter parameter, T value) {
-		this.value = value;
-	}
-	
-	public FixValue(T value) {
-		this(null, value);
-	}
-	
-	@Override
-	public T nextValue() {
-		return value;
-	}
-	
-	protected void setValue(T value) {
-		this.value = value;
-	}
+import org.eclipse.emf.henshin.model.Parameter;
 
-	@Override
-	public T getInitialValue() {
-		return value;
-	}
-	
+public class FixValue<T extends Object> implements IParameterValue<T> {
+   private T value;
+
+   public FixValue(final Parameter parameter, final T value) {
+      this.value = value;
+   }
+
+   public FixValue(final T value) {
+      this(null, value);
+   }
+
+   @Override
+   public T getInitialValue() {
+      return value;
+   }
+
+   @Override
+   public T nextValue() {
+      return value;
+   }
+
+   protected void setValue(final T value) {
+      this.value = value;
+   }
+
 }

@@ -12,7 +12,6 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.search.solution.repair;
 
-
-public abstract class TransformationSolutionRepairer implements ITransformationRepairer {
+public abstract class AbstractTransformationSolutionRepairer implements ITransformationRepairer {
 
 }

@@ -14,18 +14,16 @@ package at.ac.tuwien.big.moea.search.algorithm.operator.mutation;
 
 import at.ac.tuwien.big.moea.search.algorithm.operator.AbstractProbabilityVariation;
 
-
 public abstract class AbstractMutationVariation extends AbstractProbabilityVariation implements IMutationVariation {
-	
-	public AbstractMutationVariation() {
-	}
-	
-	public AbstractMutationVariation(double probability) {
-		super(probability);
-	}
-	
-	@Override
-	public int getArity() {
-		return 1;
-	}
+
+   public AbstractMutationVariation() {}
+
+   public AbstractMutationVariation(final double probability) {
+      super(probability);
+   }
+
+   @Override
+   public int getArity() {
+      return 1;
+   }
 }

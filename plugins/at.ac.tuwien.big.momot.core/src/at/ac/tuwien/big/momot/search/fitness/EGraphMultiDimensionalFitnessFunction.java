@@ -16,20 +16,21 @@ import at.ac.tuwien.big.moea.search.fitness.MultiDimensionalFitnessFunction;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.search.solution.repair.ITransformationRepairer;
 
-public class EGraphMultiDimensionalFitnessFunction extends MultiDimensionalFitnessFunction<TransformationSolution> implements IEGraphMultiDimensionalFitnessFunction {
-	public EGraphMultiDimensionalFitnessFunction() {
-		super(TransformationSolution.class);
-	}	
-	
-	@Override
-	protected void preprocessEvaluation(TransformationSolution solution) {
-		solution.execute();
-		super.preprocessEvaluation(solution);
-	}
-	
-	@Override
-	public IEGraphMultiDimensionalFitnessFunction setSolutionRepairer(ITransformationRepairer repairer) {
-		this.repairer = repairer;
-		return this;
-	}
+public class EGraphMultiDimensionalFitnessFunction extends MultiDimensionalFitnessFunction<TransformationSolution>
+      implements IEGraphMultiDimensionalFitnessFunction {
+   public EGraphMultiDimensionalFitnessFunction() {
+      super(TransformationSolution.class);
+   }
+
+   @Override
+   protected void preprocessEvaluation(final TransformationSolution solution) {
+      solution.execute();
+      super.preprocessEvaluation(solution);
+   }
+
+   @Override
+   public IEGraphMultiDimensionalFitnessFunction setSolutionRepairer(final ITransformationRepairer repairer) {
+      this.repairer = repairer;
+      return this;
+   }
 }

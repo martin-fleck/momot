@@ -15,7 +15,7 @@ public class SearchAnalyzerResults {
    protected final List<SearchAlgorithmResult> algorithmResults;
 
    public SearchAnalyzerResults() {
-      this.algorithmResults = new ArrayList<SearchAlgorithmResult>();
+      this.algorithmResults = new ArrayList<>();
    }
 
    public SearchAnalyzerResults(final Analyzer.AnalyzerResults results) {
@@ -55,7 +55,7 @@ public class SearchAnalyzerResults {
    }
 
    public List<String> getAlgorithms() {
-      final List<String> algorithms = new ArrayList<String>();
+      final List<String> algorithms = new ArrayList<>();
 
       for(final SearchAlgorithmResult result : algorithmResults) {
          algorithms.add(result.getAlgorithm());

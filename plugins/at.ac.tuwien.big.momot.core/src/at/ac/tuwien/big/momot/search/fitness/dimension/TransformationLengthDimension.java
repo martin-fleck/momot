@@ -18,15 +18,15 @@ import at.ac.tuwien.big.momot.problem.solution.variable.TransformationPlaceholde
 
 public class TransformationLengthDimension extends SolutionLengthDimension<TransformationSolution> {
 
-	public static final String DEFAULT_NAME = "SolutionLength";
-	
-	public TransformationLengthDimension() {
-		this(DEFAULT_NAME);
-	}
-	
-	public TransformationLengthDimension(String name) {
-		super(TransformationSolution.class, name, FunctionType.Minimum);
-		ignoreVariable(TransformationPlaceholderVariable.class);
-	}
+   public static final String DEFAULT_NAME = "SolutionLength";
+
+   public TransformationLengthDimension() {
+      this(DEFAULT_NAME);
+   }
+
+   public TransformationLengthDimension(final String name) {
+      super(TransformationSolution.class, name, FunctionType.Minimum);
+      ignoreVariable(TransformationPlaceholderVariable.class);
+   }
 
 }

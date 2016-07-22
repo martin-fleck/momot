@@ -12,15 +12,16 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.algorithm.local.neighborhood;
 
+import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhoodFunction;
+
 import java.util.Iterator;
 
 import org.moeaframework.core.Solution;
 
-import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhoodFunction;
-
 public interface ISolutionStepper<S extends Solution> extends Iterator<S> {
-	public static final int UNLIMITED = INeighborhoodFunction.UNLIMITED;
-	
-	int getMaxSolutions();
-	ISolutionStepper<S> setMaxSolutions(int maxSolutions);
+   int UNLIMITED = INeighborhoodFunction.UNLIMITED;
+
+   int getMaxSolutions();
+
+   ISolutionStepper<S> setMaxSolutions(int maxSolutions);
 }

@@ -9,13 +9,13 @@ import org.eclipse.emf.henshin.statespace.resource.StateSpaceResourceSet;
 import org.eclipse.emf.henshin.statespace.util.StateSpaceExplorationHelper;
 
 public class HenshinOnlyExplorer {
-	public static void main(String[] args) throws StateSpaceException {
-		StateSpaceResourceSet resourceSet = new StateSpaceResourceSet("my/working/directory");
-		StateSpace stateSpace = resourceSet.getStateSpace("myexample.statespace");
-		StateSpaceManager manager = StateSpaceFactory.eINSTANCE.createStateSpaceManager(stateSpace, 4);
-		 
-		// Exploring:
-		StateSpaceExplorationHelper helper = new StateSpaceExplorationHelper(manager);
-		helper.doExploration(-1, new NullProgressMonitor());
-	}
+   public static void main(final String[] args) throws StateSpaceException {
+      final StateSpaceResourceSet resourceSet = new StateSpaceResourceSet("my/working/directory");
+      final StateSpace stateSpace = resourceSet.getStateSpace("myexample.statespace");
+      final StateSpaceManager manager = StateSpaceFactory.eINSTANCE.createStateSpaceManager(stateSpace, 4);
+
+      // Exploring:
+      final StateSpaceExplorationHelper helper = new StateSpaceExplorationHelper(manager);
+      helper.doExploration(-1, new NullProgressMonitor());
+   }
 }

@@ -12,19 +12,6 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.moeaframework.core.Algorithm;
-import org.moeaframework.core.EpsilonBoxDominanceArchive;
-import org.moeaframework.core.NondominatedPopulation;
-import org.moeaframework.core.NondominatedSortingPopulation;
-import org.moeaframework.core.Population;
-import org.moeaframework.core.Solution;
-import org.moeaframework.core.comparator.ParetoDominanceComparator;
-
 import at.ac.tuwien.big.moea.print.IPopulationWriter;
 import at.ac.tuwien.big.moea.print.ISolutionWriter;
 import at.ac.tuwien.big.moea.print.PopulationWriter;
@@ -39,6 +26,19 @@ import at.ac.tuwien.big.moea.search.solution.generator.IInjectedPopulationGenera
 import at.ac.tuwien.big.moea.search.solution.generator.IPopulationGenerator;
 import at.ac.tuwien.big.moea.search.solution.generator.InjectedRandomPopulationGenerator;
 import at.ac.tuwien.big.moea.search.solution.generator.solution.IRandomSolutionGenerator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.moeaframework.core.Algorithm;
+import org.moeaframework.core.EpsilonBoxDominanceArchive;
+import org.moeaframework.core.NondominatedPopulation;
+import org.moeaframework.core.NondominatedSortingPopulation;
+import org.moeaframework.core.Population;
+import org.moeaframework.core.Solution;
+import org.moeaframework.core.comparator.ParetoDominanceComparator;
 
 public abstract class AbstractSearchOrchestration<S extends Solution> implements ISearchOrchestration<S> {
    protected Class<S> solutionClass;
@@ -87,7 +87,7 @@ public abstract class AbstractSearchOrchestration<S extends Solution> implements
 
    @Override
    public EvolutionaryAlgorithmFactory<S> createEvolutionaryAlgorithmFactory(final int populationSize) {
-      final EvolutionaryAlgorithmFactory<S> factory = new EvolutionaryAlgorithmFactory<S>(this);
+      final EvolutionaryAlgorithmFactory<S> factory = new EvolutionaryAlgorithmFactory<>(this);
       factory.setPopulationSize(populationSize);
       return factory;
    }
@@ -96,7 +96,7 @@ public abstract class AbstractSearchOrchestration<S extends Solution> implements
 
    @Override
    public LocalSearchAlgorithmFactory<S> createLocalSearchAlgorithmFactory() {
-      return new LocalSearchAlgorithmFactory<S>(this);
+      return new LocalSearchAlgorithmFactory<>(this);
    }
 
    @Override
@@ -129,17 +129,17 @@ public abstract class AbstractSearchOrchestration<S extends Solution> implements
 
    @Override
    public IInjectedPopulationGenerator<S> createPopulationGenerator(final int populationSize) {
-      return new InjectedRandomPopulationGenerator<S>(populationSize, getSolutionGenerator());
+      return new InjectedRandomPopulationGenerator<>(populationSize, getSolutionGenerator());
    }
 
    @Override
    public IPopulationWriter<S> createPopulationWriter() {
-      return new PopulationWriter<S>(getSolutionClass(), getSolutionPrinter());
+      return new PopulationWriter<>(getSolutionClass(), getSolutionPrinter());
    }
 
    @Override
    public ISearchProblem<S> createProblem() {
-      return new SearchProblem<S>(createFitnessFunction(), createSolutionGenerator());
+      return new SearchProblem<>(createFitnessFunction(), createSolutionGenerator());
    }
 
    protected abstract IRandomSolutionGenerator<S> createSolutionGenerator();

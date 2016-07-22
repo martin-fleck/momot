@@ -24,7 +24,7 @@ public class SearchAlgorithmResult {
 
    public SearchAlgorithmResult(final String algorithm) {
       this.algorithm = algorithm;
-      this.indicatorResults = new ArrayList<SearchIndicatorResult>();
+      this.indicatorResults = new ArrayList<>();
    }
 
    void add(final IndicatorResult result) {
@@ -53,7 +53,7 @@ public class SearchAlgorithmResult {
    }
 
    public List<String> getIndicators() {
-      final List<String> indicators = new ArrayList<String>();
+      final List<String> indicators = new ArrayList<>();
       for(final SearchIndicatorResult result : indicatorResults) {
          indicators.add(result.getIndicator());
       }

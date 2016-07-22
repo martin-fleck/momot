@@ -12,27 +12,27 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.problem.unit.parameter.increment;
 
-import java.util.List;
-
 import at.ac.tuwien.big.momot.problem.unit.parameter.AbstractListValue;
 import at.ac.tuwien.big.momot.problem.unit.parameter.IParameterValue;
 
+import java.util.List;
+
 public class IncrementalListValue<T extends Object> extends AbstractListValue<T> implements IParameterValue<T> {
 
-	private int index = 0;
-	
-	public IncrementalListValue(IParameterValue<T> value, int nrValues) {
-		super(value, nrValues);
-	}
-	
-	public IncrementalListValue(List<T> values) {
-		super(values);
-	}
+   private int index = 0;
 
-	@Override
-	protected int nextIndex() {
-		int curIndex = index;
-		index = (index + 1) % getValues().size();
-		return curIndex;
-	}
+   public IncrementalListValue(final IParameterValue<T> value, final int nrValues) {
+      super(value, nrValues);
+   }
+
+   public IncrementalListValue(final List<T> values) {
+      super(values);
+   }
+
+   @Override
+   protected int nextIndex() {
+      final int curIndex = index;
+      index = (index + 1) % getValues().size();
+      return curIndex;
+   }
 }

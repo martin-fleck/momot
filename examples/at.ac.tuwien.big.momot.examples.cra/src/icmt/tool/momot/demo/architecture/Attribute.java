@@ -2,7 +2,6 @@
  */
 package icmt.tool.momot.demo.architecture;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Attribute</b></em>'.
@@ -13,5 +12,4 @@ package icmt.tool.momot.demo.architecture;
  * @model
  * @generated
  */
-public interface Attribute extends Feature {
-} // Attribute
+public interface Attribute extends Feature {} // Attribute

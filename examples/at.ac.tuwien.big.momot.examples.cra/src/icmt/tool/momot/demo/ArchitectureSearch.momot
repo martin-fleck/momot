@@ -11,101 +11,101 @@ import org.moeaframework.core.operator.OnePointCrossover
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
 
 initialization = {
-	ArchitecturePackage.eINSTANCE.eClass // register package
-	System.out.println("Search started.");
+   ArchitecturePackage.eINSTANCE.eClass // register package
+   System.out.println("Search started.");
 }
 
 search = {
-	model          = {
-		file       = "problem/Cart_Item.xmi"
-		adapt      = {
-			// add one class per feature
-			var cm = root as ClassModel
-			for(i : 0 ..< cm.features.size - cm.classes.size) {
-				var newClass = ArchitectureFactory::eINSTANCE.createClass()
-				newClass.name = "Class_" + i
-				cm.classes.add(newClass)
-			}
-			for(feature : cm.features) // distribute features randomly
-				if(feature.isEncapsulatedBy == null)
-					cm.classes.get(MathUtil.randomInteger(cm.classes.size)).encapsulates.add(feature)
-			return cm
-		}
-	}
-	solutionLength  = 30 // at most 30 orchestrated transformation units
+   model          = {
+      file       = "problem/Cart_Item.xmi"
+      adapt      = {
+         // add one class per feature
+         var cm = root as ClassModel
+         for(i : 0 ..< cm.features.size - cm.classes.size) {
+            var newClass = ArchitectureFactory::eINSTANCE.createClass()
+            newClass.name = "Class_" + i
+            cm.classes.add(newClass)
+         }
+         for(feature : cm.features) // distribute features randomly
+            if(feature.isEncapsulatedBy == null)
+               cm.classes.get(MathUtil.randomInteger(cm.classes.size)).encapsulates.add(feature)
+         return cm
+      }
+   }
+   solutionLength  = 30 // at most 30 orchestrated transformation units
 
-	transformations = {
-		modules = [ "transformations/architecture.henshin" ]
-	}
+   transformations = {
+      modules = [ "transformations/architecture.henshin" ]
+   }
 
-	fitness         = {
-		objectives = {
-			CouplingRatio : minimize { FitnessCalculator.calculateCoupling(root as ClassModel) }
-			CohesionRatio : maximize { FitnessCalculator.calculateCohesion(root as ClassModel) }
-			SolutionLength : minimize new TransformationLengthDimension
-		}
-	}
+   fitness         = {
+      objectives = {
+         CouplingRatio : minimize { FitnessCalculator.calculateCoupling(root as ClassModel) }
+         CohesionRatio : maximize { FitnessCalculator.calculateCohesion(root as ClassModel) }
+         SolutionLength : minimize new TransformationLengthDimension
+      }
+   }
 
-	algorithms      = {
-		Random  : moea.createRandomSearch()
-		NSGAIII : moea.createNSGAIII()
-		eMOEA   : moea.createEpsilonMOEA()
-	}
+   algorithms      = {
+      Random  : moea.createRandomSearch()
+      NSGAIII : moea.createNSGAIII()
+      eMOEA   : moea.createEpsilonMOEA()
+   }
 }
 
 experiment = {
-	populationSize    = 100
-	maxEvaluations    = 10000
-	nrRuns            = 10
-	progressListeners = [ new SeedRuntimePrintListener ]
+   populationSize    = 100
+   maxEvaluations    = 10000
+   nrRuns            = 10
+   progressListeners = [ new SeedRuntimePrintListener ]
 }
 
 analysis = {
-	indicators       = [ hypervolume invertedGenerationalDistance ]
-	significance     = 0.01
-	show             = [ aggregateValues statisticalSignificance individualValues ]
-	outputFile       = "output/analysis/analysis.txt"
-	boxplotDirectory = "output/analysis/"
-	printOutput
+   indicators       = [ hypervolume invertedGenerationalDistance ]
+   significance     = 0.01
+   show             = [ aggregateValues statisticalSignificance individualValues ]
+   outputFile       = "output/analysis/analysis.txt"
+   boxplotDirectory = "output/analysis/"
+   printOutput
 }
 
 results = {
-	adaptModels = {
-		// remove empty classes 
-		val cm = root as ClassModel
-		val emptyClasses = cm.classes.filter[c | c.encapsulates.size == 0]
-		cm.classes.removeAll(emptyClasses)
-	}
-	
-	// save objectives
-	objectives = {
-		outputFile      = "output/objectives/objective_values.txt"
-		printOutput
-	}
-	
-	objectives = {
-		outputFile      = "output/objectives/random_objective_values.txt"
-		algorithms      = [ Random ]
-	}
+   adaptModels = {
+      // remove empty classes 
+      val cm = root as ClassModel
+      val emptyClasses = cm.classes.filter[c | c.encapsulates.size == 0]
+      cm.classes.removeAll(emptyClasses)
+   }
+   
+   // save objectives
+   objectives = {
+      outputFile      = "output/objectives/objective_values.txt"
+      printOutput
+   }
+   
+   objectives = {
+      outputFile      = "output/objectives/random_objective_values.txt"
+      algorithms      = [ Random ]
+   }
 
-	// save solutions, i.e., transformation orchestrations
-	solutions  = {
-		outputFile      = "output/solutions/all_solutions.txt"
-		outputDirectory = "output/solutions/"
-	}
+   // save solutions, i.e., transformation orchestrations
+   solutions  = {
+      outputFile      = "output/solutions/all_solutions.txt"
+      outputDirectory = "output/solutions/"
+   }
 
-	// save models resulting from the orchestrated transformations
-	models     = {
-		outputDirectory = "output/models/"
-	}
-	
-	// select kneepoint models for further inspection
-	models     = {
-		neighborhoodSize = maxNeighborhoodSize
-		outputDirectory  = "output/models/kneepoints/"
-	}
+   // save models resulting from the orchestrated transformations
+   models     = {
+      outputDirectory = "output/models/"
+   }
+   
+   // select kneepoint models for further inspection
+   models     = {
+      neighborhoodSize = maxNeighborhoodSize
+      outputDirectory  = "output/models/kneepoints/"
+   }
 }
 
 finalization = {
-	System.out.println("Search finished.");
+   System.out.println("Search finished.");
 }

@@ -12,62 +12,63 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.search.algorithm.operator.mutation;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.henshin.model.Parameter;
-
 import at.ac.tuwien.big.moea.problem.solution.variable.IPlaceholderVariable;
 import at.ac.tuwien.big.moea.util.CollectionUtil;
 import at.ac.tuwien.big.momot.ModuleManager;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.ITransformationVariable;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.henshin.model.Parameter;
+
 public class TransformationParameterMutation extends AbstractTransformationMutation {
 
-	private ModuleManager moduleManager;
+   private ModuleManager moduleManager;
 
-	public TransformationParameterMutation() {
-		super();
-	}
-	
-	public TransformationParameterMutation(ModuleManager moduleManager) {
-		super();
-		this.moduleManager = moduleManager;
-	}
-	
-	public TransformationParameterMutation(double probability, ModuleManager moduleManager) {
-		super(probability);
-		this.moduleManager = moduleManager;
-	}
-	
-	public ModuleManager getModuleManager() {
-		return moduleManager;
-	}
-	
-	public void setModuleManager(ModuleManager moduleManager) {
-		this.moduleManager = moduleManager;
-	}
+   public TransformationParameterMutation() {
+      super();
+   }
 
-	@Override
-	protected TransformationSolution mutate(TransformationSolution mutant) {
-		ITransformationVariable randomVariable = CollectionUtil.getRandomElement(mutant.getVariables());
-		int nrTries = 0;
-		while(randomVariable instanceof IPlaceholderVariable) {
-			if(++nrTries == 3)
-				return mutant;
-			randomVariable = CollectionUtil.getRandomElement(mutant.getVariables());
-		}
-		
-		EList<Parameter> ruleParameters = randomVariable.getUnit().getParameters();
-		for(Parameter parameter : ruleParameters) {
-			Object value = randomVariable.getParameterValue(parameter);
-			if(value != null) {
-				Object paramValue = getModuleManager().nextParameterValue(parameter);
-				if(paramValue != null) {
-					randomVariable.setParameterValue(parameter, paramValue);
-					break;
-				}
-			}
-		}
-		return mutant;
-	}
+   public TransformationParameterMutation(final double probability, final ModuleManager moduleManager) {
+      super(probability);
+      this.moduleManager = moduleManager;
+   }
+
+   public TransformationParameterMutation(final ModuleManager moduleManager) {
+      super();
+      this.moduleManager = moduleManager;
+   }
+
+   public ModuleManager getModuleManager() {
+      return moduleManager;
+   }
+
+   @Override
+   protected TransformationSolution mutate(final TransformationSolution mutant) {
+      ITransformationVariable randomVariable = CollectionUtil.getRandomElement(mutant.getVariables());
+      int nrTries = 0;
+      while(randomVariable instanceof IPlaceholderVariable) {
+         if(++nrTries == 3) {
+            return mutant;
+         }
+         randomVariable = CollectionUtil.getRandomElement(mutant.getVariables());
+      }
+
+      final EList<Parameter> ruleParameters = randomVariable.getUnit().getParameters();
+      for(final Parameter parameter : ruleParameters) {
+         final Object value = randomVariable.getParameterValue(parameter);
+         if(value != null) {
+            final Object paramValue = getModuleManager().nextParameterValue(parameter);
+            if(paramValue != null) {
+               randomVariable.setParameterValue(parameter, paramValue);
+               break;
+            }
+         }
+      }
+      return mutant;
+   }
+
+   public void setModuleManager(final ModuleManager moduleManager) {
+      this.moduleManager = moduleManager;
+   }
 }

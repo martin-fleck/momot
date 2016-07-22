@@ -1,5 +1,9 @@
 package at.ac.tuwien.big.moea;
 
+import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
+import at.ac.tuwien.big.moea.experiment.instrumenter.SearchInstrumenter;
+import at.ac.tuwien.big.moea.util.CastUtil;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,10 +17,6 @@ import java.util.Set;
 import org.moeaframework.Instrumenter;
 import org.moeaframework.analysis.collector.Accumulator;
 import org.moeaframework.core.NondominatedPopulation;
-
-import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
-import at.ac.tuwien.big.moea.experiment.instrumenter.SearchInstrumenter;
-import at.ac.tuwien.big.moea.util.CastUtil;
 
 public class SearchCollectorHelper {
 

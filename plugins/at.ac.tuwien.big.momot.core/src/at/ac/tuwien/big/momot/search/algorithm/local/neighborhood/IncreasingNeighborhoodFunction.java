@@ -12,50 +12,51 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.search.algorithm.local.neighborhood;
 
-import java.util.Iterator;
-
 import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhood;
 import at.ac.tuwien.big.moea.search.algorithm.local.neighborhood.AbstractNeighborhoodFunction;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 
+import java.util.Iterator;
+
 public class IncreasingNeighborhoodFunction extends AbstractNeighborhoodFunction<TransformationSolution> {
 
-	private SearchHelper searchHelper;
+   private static final int DEFAULT_MAX_NEIGHBORS = 50;
+   private final SearchHelper searchHelper;
 
-	public IncreasingNeighborhoodFunction(SearchHelper searchHelper, int maxNeighbors) {
-		super(maxNeighbors);
-		this.searchHelper = searchHelper;
-	}
-	
-	public IncreasingNeighborhoodFunction(SearchHelper searchHelper) {
-		this(searchHelper, 50);
-	}	
-	
-	public SearchHelper getSearchHelper() {
-		return searchHelper;
-	}
-	
-	@Override
-	public INeighborhood<TransformationSolution> generateNeighbors(
-			TransformationSolution solution, int maxNeighbors) {
-		TransformationSolution nonEmptySolution = TransformationSolution.removePlaceholders(solution);
-		return new AbstractMatchSolutionNeighborhood(nonEmptySolution, maxNeighbors) {
-			
-			@Override
-			public Iterator<TransformationSolution> iterator() {
-				return new AbstractTransformationSolutionStepper(getBaseSolution(), getMaxNeighbors()) {
-					@Override
-					protected TransformationSolution getNext() {
-						return extendSolution(getBaseSolution());
-					}
+   public IncreasingNeighborhoodFunction(final SearchHelper searchHelper) {
+      this(searchHelper, DEFAULT_MAX_NEIGHBORS);
+   }
 
-					private TransformationSolution extendSolution(TransformationSolution baseSolution) {
-						return getSearchHelper().appendRandomVariables(baseSolution, 1);
-					}
-				};
-			}
-		};
-	}
+   public IncreasingNeighborhoodFunction(final SearchHelper searchHelper, final int maxNeighbors) {
+      super(maxNeighbors);
+      this.searchHelper = searchHelper;
+   }
+
+   @Override
+   public INeighborhood<TransformationSolution> generateNeighbors(final TransformationSolution solution,
+         final int maxNeighbors) {
+      final TransformationSolution nonEmptySolution = TransformationSolution.removePlaceholders(solution);
+      return new AbstractMatchSolutionNeighborhood(nonEmptySolution, maxNeighbors) {
+
+         @Override
+         public Iterator<TransformationSolution> iterator() {
+            return new AbstractTransformationSolutionStepper(getBaseSolution(), getMaxNeighbors()) {
+               private TransformationSolution extendSolution(final TransformationSolution baseSolution) {
+                  return getSearchHelper().appendRandomVariables(baseSolution, 1);
+               }
+
+               @Override
+               protected TransformationSolution getNext() {
+                  return extendSolution(getBaseSolution());
+               }
+            };
+         }
+      };
+   }
+
+   public SearchHelper getSearchHelper() {
+      return searchHelper;
+   }
 
 }

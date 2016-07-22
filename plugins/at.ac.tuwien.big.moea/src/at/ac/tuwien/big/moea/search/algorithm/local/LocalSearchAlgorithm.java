@@ -16,13 +16,17 @@ import org.moeaframework.core.Algorithm;
 import org.moeaframework.core.Solution;
 
 public interface LocalSearchAlgorithm<S extends Solution> extends Algorithm {
-	S getInitialSolution();
-	INeighborhoodFunction<S> getNeighborhoodFunction();
-	IFitnessComparator<?, S> getFitnessComparator();	
+   Comparable<?> getBestFitness();
 
-	S getCurrentSolution();
-	Comparable<?> getCurrentFitness();
-	
-	S getBestSolution();
-	Comparable<?> getBestFitness();	
+   S getBestSolution();
+
+   Comparable<?> getCurrentFitness();
+
+   S getCurrentSolution();
+
+   IFitnessComparator<?, S> getFitnessComparator();
+
+   S getInitialSolution();
+
+   INeighborhoodFunction<S> getNeighborhoodFunction();
 }

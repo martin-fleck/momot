@@ -17,45 +17,49 @@ import java.util.List;
 
 public abstract class AbstractListValue<T extends Object> implements IParameterValue<T> {
 
-	private List<T> values;
-	private T initialValue = null;
-	
-	public AbstractListValue(IParameterValue<T> value, int nrValues) {
-		this(generateList(value, nrValues));
-	}
-	
-	public AbstractListValue(List<T> values) {
-		if(values.size() == 0)
-			throw new IllegalArgumentException("At least one list value must be given.");
-		this.values = values;
-	}
-	
-	protected List<T> getValues() {
-		return values;
-	}
-	
-	protected abstract int nextIndex();
+   protected static <T extends Object> List<T> generateList(final IParameterValue<T> value, final int nrValues) {
+      final List<T> values = new ArrayList<>();
+      for(int i = 0; i < nrValues; i++) {
+         values.add(value.nextValue());
+      }
+      return values;
+   }
 
-	
-	@Override
-	public T nextValue() {
-		if(values.isEmpty())
-			return null;
-		T value = values.get(nextIndex());
-		if(initialValue == null)
-			initialValue = value;
-		return value;
-	}
+   private List<T> values;
 
-	@Override
-	public T getInitialValue() {
-		return initialValue;
-	}
+   private T initialValue = null;
 
-	protected static <T extends Object> List<T> generateList(IParameterValue<T> value, int nrValues) {
-		List<T> values = new ArrayList<>();
-		for(int i = 0; i < nrValues; i++)
-			values.add(value.nextValue());
-		return values;
-	}
+   public AbstractListValue(final IParameterValue<T> value, final int nrValues) {
+      this(generateList(value, nrValues));
+   }
+
+   public AbstractListValue(final List<T> values) {
+      if(values.size() == 0) {
+         throw new IllegalArgumentException("At least one list value must be given.");
+      }
+      this.values = values;
+   }
+
+   @Override
+   public T getInitialValue() {
+      return initialValue;
+   }
+
+   protected List<T> getValues() {
+      return values;
+   }
+
+   protected abstract int nextIndex();
+
+   @Override
+   public T nextValue() {
+      if(values.isEmpty()) {
+         return null;
+      }
+      final T value = values.get(nextIndex());
+      if(initialValue == null) {
+         initialValue = value;
+      }
+      return value;
+   }
 }

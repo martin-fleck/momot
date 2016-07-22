@@ -12,13 +12,14 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.problem;
 
-import org.moeaframework.core.Problem;
-import org.moeaframework.core.Solution;
-
 import at.ac.tuwien.big.moea.search.fitness.IFitnessFunction;
 import at.ac.tuwien.big.moea.search.solution.generator.solution.ISolutionGenerator;
 
+import org.moeaframework.core.Problem;
+import org.moeaframework.core.Solution;
+
 public interface ISearchProblem<S extends Solution> extends Problem {
-	IFitnessFunction<S> getFitnessFunction();
-	ISolutionGenerator<S> getSolutionGenerator();
+   IFitnessFunction<S> getFitnessFunction();
+
+   ISolutionGenerator<S> getSolutionGenerator();
 }

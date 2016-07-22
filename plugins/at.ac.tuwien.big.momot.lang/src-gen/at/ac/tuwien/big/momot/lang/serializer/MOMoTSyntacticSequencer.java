@@ -81,7 +81,7 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * OpKeyAssign:
-	 * 	":"
+	 *    ":"
 	 * ;
 	 */
 	protected String getOpKeyAssignToken(EObject semanticObject, RuleCall ruleCall, INode node) {

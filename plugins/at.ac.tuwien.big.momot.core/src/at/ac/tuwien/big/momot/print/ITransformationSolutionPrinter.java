@@ -12,11 +12,11 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.print;
 
-import org.eclipse.emf.henshin.interpreter.EGraph;
-
 import at.ac.tuwien.big.moea.print.ISolutionWriter;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
+import org.eclipse.emf.henshin.interpreter.EGraph;
+
 public interface ITransformationSolutionPrinter extends ISolutionWriter<TransformationSolution> {
-	String write(EGraph graph);
+   String write(EGraph graph);
 }

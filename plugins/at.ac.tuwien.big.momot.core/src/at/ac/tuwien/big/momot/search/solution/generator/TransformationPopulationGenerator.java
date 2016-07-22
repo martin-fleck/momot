@@ -18,9 +18,9 @@ import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
 public class TransformationPopulationGenerator extends RandomPopulationGenerator<TransformationSolution> {
 
-	public TransformationPopulationGenerator(int populationSize,
-			IRandomSolutionGenerator<TransformationSolution> solutionGenerator) {
-		super(populationSize, solutionGenerator);
-	}
+   public TransformationPopulationGenerator(final int populationSize,
+         final IRandomSolutionGenerator<TransformationSolution> solutionGenerator) {
+      super(populationSize, solutionGenerator);
+   }
 
 }

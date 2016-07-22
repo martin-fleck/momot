@@ -12,27 +12,27 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.problem.unit.parameter.random;
 
-import java.util.List;
-
 import at.ac.tuwien.big.moea.util.random.RandomInteger;
 import at.ac.tuwien.big.momot.problem.unit.parameter.AbstractListValue;
 import at.ac.tuwien.big.momot.problem.unit.parameter.IParameterValue;
 
+import java.util.List;
+
 public class RandomListValue<T extends Object> extends AbstractListValue<T> implements IParameterValue<T> {
 
-	private RandomInteger index;
-	
-	public RandomListValue(IParameterValue<T> value, int nrValues) {
-		this(generateList(value, nrValues));
-	}
-	
-	public RandomListValue(List<T> values) {
-		super(values);
-		this.index = new RandomInteger(0, values.size() - 1);
-	}
+   private RandomInteger index;
 
-	@Override
-	protected int nextIndex() {
-		return index.nextRandom();
-	}
+   public RandomListValue(final IParameterValue<T> value, final int nrValues) {
+      this(generateList(value, nrValues));
+   }
+
+   public RandomListValue(final List<T> values) {
+      super(values);
+      this.index = new RandomInteger(0, values.size() - 1);
+   }
+
+   @Override
+   protected int nextIndex() {
+      return index.nextRandom();
+   }
 }

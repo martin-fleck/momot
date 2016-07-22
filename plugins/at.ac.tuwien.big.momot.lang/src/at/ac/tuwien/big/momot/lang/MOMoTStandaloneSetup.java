@@ -4,13 +4,12 @@
 package at.ac.tuwien.big.momot.lang;
 
 /**
- * Initialization support for running Xtext languages 
+ * Initialization support for running Xtext languages
  * without equinox extension registry
  */
-public class MOMoTStandaloneSetup extends MOMoTStandaloneSetupGenerated{
+public class MOMoTStandaloneSetup extends MOMoTStandaloneSetupGenerated {
 
-	public static void doSetup() {
-		new MOMoTStandaloneSetup().createInjectorAndDoEMFRegistration();
-	}
+   public static void doSetup() {
+      new MOMoTStandaloneSetup().createInjectorAndDoEMFRegistration();
+   }
 }
-

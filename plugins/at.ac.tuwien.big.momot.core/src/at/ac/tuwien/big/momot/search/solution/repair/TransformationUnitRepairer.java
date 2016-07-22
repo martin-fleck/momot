@@ -12,42 +12,39 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.search.solution.repair;
 
-import java.util.Arrays;
-import java.util.List;
-
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.ITransformationVariable;
 import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 
-public class TransformationUnitRepairer extends TransformationSolutionRepairer {
+import java.util.Arrays;
+import java.util.List;
 
-	private SearchHelper searchHelper;
+public class TransformationUnitRepairer extends AbstractTransformationSolutionRepairer {
 
-	public TransformationUnitRepairer(SearchHelper searchHelper) {
-		this.searchHelper = searchHelper;
-	}
+   private final SearchHelper searchHelper;
 
-	public SearchHelper getSearchHelper() {
-		return searchHelper;
-	}
+   public TransformationUnitRepairer(final SearchHelper searchHelper) {
+      this.searchHelper = searchHelper;
+   }
 
-	@Override
-	public TransformationSolution repair(TransformationSolution solution) {
-		int firstNotExecuted = 0;
-		while(solution.getVariable(firstNotExecuted).isExecuted())
-			firstNotExecuted++;
-		
-		List<ITransformationVariable> variables = Arrays.asList(solution.getVariables());
-		List<ITransformationVariable> executed = variables.subList(0, firstNotExecuted);
-		int nrToExecute = solution.getNumberOfVariables() - executed.size();
-		
-		return getSearchHelper().appendRandomVariables(
-				getSearchHelper().createTransformationSolution(
-						solution.getSourceGraph(),
-						executed, 
-						solution.getNumberOfObjectives(), 
-						solution.getNumberOfConstraints()), nrToExecute);				
-	}
-	
+   public SearchHelper getSearchHelper() {
+      return searchHelper;
+   }
+
+   @Override
+   public TransformationSolution repair(final TransformationSolution solution) {
+      int firstNotExecuted = 0;
+      while(solution.getVariable(firstNotExecuted).isExecuted()) {
+         firstNotExecuted++;
+      }
+
+      final List<ITransformationVariable> variables = Arrays.asList(solution.getVariables());
+      final List<ITransformationVariable> executed = variables.subList(0, firstNotExecuted);
+      final int nrToExecute = solution.getNumberOfVariables() - executed.size();
+
+      return getSearchHelper()
+            .appendRandomVariables(getSearchHelper().createTransformationSolution(solution.getSourceGraph(), executed,
+                  solution.getNumberOfObjectives(), solution.getNumberOfConstraints()), nrToExecute);
+   }
 
 }

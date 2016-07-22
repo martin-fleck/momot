@@ -18,7 +18,7 @@ import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
 public class TransformationSolutionPopulationPrinter extends PopulationWriter<TransformationSolution> {
 
-	public TransformationSolutionPopulationPrinter(ISolutionWriter<TransformationSolution> solutionPrinter) {
-		super(TransformationSolution.class, solutionPrinter);
-	}
+   public TransformationSolutionPopulationPrinter(final ISolutionWriter<TransformationSolution> solutionPrinter) {
+      super(TransformationSolution.class, solutionPrinter);
+   }
 }

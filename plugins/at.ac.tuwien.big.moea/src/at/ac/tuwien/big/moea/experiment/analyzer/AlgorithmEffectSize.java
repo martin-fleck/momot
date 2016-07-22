@@ -52,5 +52,4 @@ public class AlgorithmEffectSize {
    public String toString() {
       return getAlgorithm() + ": " + getMeasure() + " = " + getEffectSize() + " (" + getMagnitude() + ")";
    }
-
 }

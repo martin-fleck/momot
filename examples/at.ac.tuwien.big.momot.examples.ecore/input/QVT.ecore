@@ -198,7 +198,7 @@
   <ecore:EPackage name="emof" nsURI="http:///emof.ecore" nsPrefix="emof">
     <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#/2/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAttribute" upperBound="-1"
-          eType="#/2/Property" containment="true" eOpposite="#/2/Property/Class"/>
+          eType="#/2/Property" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperation" upperBound="-1"
           eType="#/2/Operation" containment="true" eOpposite="#/2/Operation/class"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="superClass" upperBound="-1"
@@ -274,8 +274,8 @@
           eType="#/2/Enumeration" eOpposite="#/2/Enumeration/ownedLiteral"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#/2/MultiplicityElement #/2/TypedElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Class" ordered="false"
-          lowerBound="1" eType="#/2/Class" eOpposite="#/2/Class/ownedAttribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="class" lowerBound="1"
+          eType="#/2/Class"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" ordered="false"
           eType="#/2/Property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="module" ordered="false"
@@ -344,7 +344,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="entry" ordered="false"
           eType="#/3/EntryOperation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relation" upperBound="-1"
-          eType="#/6/Relation" containment="true"/>
+          eType="#/6/Relation" />
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MappingParameter" eSuperTypes="#/3/VarParameter">
       <eStructuralFeatures xsi:type="ecore:EReference" name="refinedDomain" ordered="false"

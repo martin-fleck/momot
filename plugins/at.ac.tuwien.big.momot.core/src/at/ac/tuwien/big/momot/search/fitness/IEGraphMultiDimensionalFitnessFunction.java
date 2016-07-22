@@ -16,6 +16,7 @@ import at.ac.tuwien.big.moea.search.fitness.IMultiDimensionalFitnessFunction;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.search.solution.repair.ITransformationRepairer;
 
-public interface IEGraphMultiDimensionalFitnessFunction extends IMultiDimensionalFitnessFunction<TransformationSolution>, IEGraphFitnessFunction {
-	IEGraphMultiDimensionalFitnessFunction setSolutionRepairer(ITransformationRepairer repairer);
+public interface IEGraphMultiDimensionalFitnessFunction
+      extends IMultiDimensionalFitnessFunction<TransformationSolution>, IEGraphFitnessFunction {
+   IEGraphMultiDimensionalFitnessFunction setSolutionRepairer(ITransformationRepairer repairer);
 }

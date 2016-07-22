@@ -19,27 +19,29 @@ import org.moeaframework.core.Solution;
 
 public class RandomDescent<S extends Solution> extends AbstractLocalSearchAlgorithm<S> {
 
-	public RandomDescent(Problem problem, S initialSolution,
-			INeighborhoodFunction<S> neighborhoodFunction, 
-			IFitnessComparator<?, S> fitnessComparator) {
-		super(problem, initialSolution, neighborhoodFunction, fitnessComparator);
-		if(neighborhoodFunction.getMaxNeighbors() == INeighborhoodFunction.UNLIMITED)
-			System.err.println("Warning: Neighborhood-Function may produce infinite neighbors, Random-Descent may get stuck in infinite loop.");
-	}
+   public RandomDescent(final Problem problem, final S initialSolution,
+         final INeighborhoodFunction<S> neighborhoodFunction, final IFitnessComparator<?, S> fitnessComparator) {
+      super(problem, initialSolution, neighborhoodFunction, fitnessComparator);
+      if(neighborhoodFunction.getMaxNeighbors() == INeighborhoodFunction.UNLIMITED) {
+         System.err.println(
+               "Warning: Neighborhood-Function may produce infinite neighbors, Random-Descent may get stuck in infinite loop.");
+      }
+   }
 
-	@Override
-	protected void iterate() {
-		ArrayList<S> neighbors = new ArrayList<S>();
-		for(S neighbor : generateCurrentNeighbors()) {
-			evaluate(neighbor);	
-			neighbors.add(neighbor);
-			if(update(neighbor)) // better solution found 
-				break;
-		}
-		System.out.println(-getCurrentSolution().getObjective(0));
-		if(neighbors.isEmpty()) {
-			terminate();
-			return;
-		}
-	}
+   @Override
+   protected void iterate() {
+      final ArrayList<S> neighbors = new ArrayList<>();
+      for(final S neighbor : generateCurrentNeighbors()) {
+         evaluate(neighbor);
+         neighbors.add(neighbor);
+         if(update(neighbor)) {
+            break;
+         }
+      }
+      System.out.println(-getCurrentSolution().getObjective(0));
+      if(neighbors.isEmpty()) {
+         terminate();
+         return;
+      }
+   }
 }

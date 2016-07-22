@@ -19,14 +19,13 @@ import at.ac.tuwien.big.momot.search.fitness.IEGraphFitnessFunction;
 
 public class TransformationProblem extends SearchProblem<TransformationSolution> implements ITransformationProblem {
 
-	public TransformationProblem(
-			IEGraphFitnessFunction fitnessFunction,
-			ISolutionGenerator<TransformationSolution> solutionGenerator) {
-		super(fitnessFunction, solutionGenerator);
-	}
-	
-	@Override
-	public IEGraphFitnessFunction getFitnessFunction() {
-		return (IEGraphFitnessFunction) super.getFitnessFunction();
-	}	
+   public TransformationProblem(final IEGraphFitnessFunction fitnessFunction,
+         final ISolutionGenerator<TransformationSolution> solutionGenerator) {
+      super(fitnessFunction, solutionGenerator);
+   }
+
+   @Override
+   public IEGraphFitnessFunction getFitnessFunction() {
+      return (IEGraphFitnessFunction) super.getFitnessFunction();
+   }
 }

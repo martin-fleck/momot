@@ -1,5 +1,7 @@
 package at.ac.tuwien.big.moea.experiment.analyzer;
 
+import at.ac.tuwien.big.moea.experiment.analyzer.AlgorithmEffectSize.Magnitude;
+
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,8 +9,6 @@ import java.util.List;
 
 import org.apache.commons.math3.stat.descriptive.UnivariateStatistic;
 import org.moeaframework.Analyzer.IndicatorResult;
-
-import at.ac.tuwien.big.moea.experiment.analyzer.AlgorithmEffectSize.Magnitude;
 
 public class SearchIndicatorResult {
 
@@ -61,7 +61,7 @@ public class SearchIndicatorResult {
    }
 
    public List<String> getIndifferentAlgorithms() {
-      return new ArrayList<String>(indifferentAlgorithms);
+      return new ArrayList<>(indifferentAlgorithms);
    }
 
    public double getStatistic(final UnivariateStatistic statistic) {

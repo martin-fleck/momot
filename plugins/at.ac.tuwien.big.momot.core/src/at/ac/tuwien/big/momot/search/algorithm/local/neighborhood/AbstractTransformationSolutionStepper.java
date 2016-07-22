@@ -17,11 +17,11 @@ import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
 public abstract class AbstractTransformationSolutionStepper extends AbstractSolutionStepper<TransformationSolution> {
 
-	public AbstractTransformationSolutionStepper(TransformationSolution baseSolution) {
-		super(baseSolution);
-	}
-	
-	public AbstractTransformationSolutionStepper(TransformationSolution baseSolution, int maxSolutions) {
-		super(baseSolution, maxSolutions);
-	}
+   public AbstractTransformationSolutionStepper(final TransformationSolution baseSolution) {
+      super(baseSolution);
+   }
+
+   public AbstractTransformationSolutionStepper(final TransformationSolution baseSolution, final int maxSolutions) {
+      super(baseSolution, maxSolutions);
+   }
 }

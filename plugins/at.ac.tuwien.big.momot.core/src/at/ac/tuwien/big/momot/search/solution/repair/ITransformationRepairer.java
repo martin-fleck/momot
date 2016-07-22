@@ -15,5 +15,4 @@ package at.ac.tuwien.big.momot.search.solution.repair;
 import at.ac.tuwien.big.moea.search.solution.repair.ISolutionRepairer;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
-public interface ITransformationRepairer extends ISolutionRepairer<TransformationSolution> {
-}
+public interface ITransformationRepairer extends ISolutionRepairer<TransformationSolution> {}

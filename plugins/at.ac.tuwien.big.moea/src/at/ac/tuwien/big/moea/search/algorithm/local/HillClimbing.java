@@ -20,31 +20,33 @@ import org.moeaframework.core.Solution;
 
 public class HillClimbing<S extends Solution> extends AbstractLocalSearchAlgorithm<S> {
 
-	private int noImprovement = 0;
-	
-	public HillClimbing(Problem problem, S initialSolution,
-			INeighborhoodFunction<S> neighborhoodFunction,
-			IFitnessComparator<?, S> fitnessComparator) {
-		super(problem, initialSolution, neighborhoodFunction, fitnessComparator);
-		if(neighborhoodFunction.getMaxNeighbors() == INeighborhoodFunction.UNLIMITED)
-			System.err.println("Warning: Neighborhood-Function may produce infinite neighbors, Hill-Climbing may get stuck in infinite loop.");
-	}
+   private int noImprovement = 0;
 
-	@Override
-	protected void iterate() {
-		List<S> neighbors = new ArrayList<>();		
-		for(S neighbor : generateCurrentNeighbors()) {
-			evaluate(neighbor);
-			neighbors.add(neighbor);
-		}
-		if(neighbors.isEmpty()) {
-			terminate();
-			return;
-		}
-		S bestNeighbor = getBest(neighbors);
-		if(!update(bestNeighbor))
-			noImprovement++;
-//		else
-//			System.err.println("improvmeent");
-	}	
+   public HillClimbing(final Problem problem, final S initialSolution,
+         final INeighborhoodFunction<S> neighborhoodFunction, final IFitnessComparator<?, S> fitnessComparator) {
+      super(problem, initialSolution, neighborhoodFunction, fitnessComparator);
+      if(neighborhoodFunction.getMaxNeighbors() == INeighborhoodFunction.UNLIMITED) {
+         System.err.println(
+               "Warning: Neighborhood-Function may produce infinite neighbors, Hill-Climbing may get stuck in infinite loop.");
+      }
+   }
+
+   @Override
+   protected void iterate() {
+      final List<S> neighbors = new ArrayList<>();
+      for(final S neighbor : generateCurrentNeighbors()) {
+         evaluate(neighbor);
+         neighbors.add(neighbor);
+      }
+      if(neighbors.isEmpty()) {
+         terminate();
+         return;
+      }
+      final S bestNeighbor = getBest(neighbors);
+      if(!update(bestNeighbor)) {
+         noImprovement++;
+         // else
+         // System.err.println("improvmeent");
+      }
+   }
 }

@@ -12,8 +12,8 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.problem.unit.parameter;
 
-
 public interface IParameterValue<T extends Object> {
-	T nextValue();
-	T getInitialValue();
+   T getInitialValue();
+
+   T nextValue();
 }

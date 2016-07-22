@@ -15,13 +15,15 @@ package at.ac.tuwien.big.momot.search.solution.repair;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.TransformationPlaceholderVariable;
 
-public class TransformationPlaceholderRepairer extends TransformationSolutionRepairer {
+public class TransformationPlaceholderRepairer extends AbstractTransformationSolutionRepairer {
 
-	@Override
-	public TransformationSolution repair(TransformationSolution solution) {
-		for(int i = 0; i < solution.getNumberOfVariables(); i++)
-			if(!solution.getVariable(i).isExecuted()) 
-				solution.setVariable(i, new TransformationPlaceholderVariable());
-		return solution;
-	}	
+   @Override
+   public TransformationSolution repair(final TransformationSolution solution) {
+      for(int i = 0; i < solution.getNumberOfVariables(); i++) {
+         if(!solution.getVariable(i).isExecuted()) {
+            solution.setVariable(i, new TransformationPlaceholderVariable());
+         }
+      }
+      return solution;
+   }
 }

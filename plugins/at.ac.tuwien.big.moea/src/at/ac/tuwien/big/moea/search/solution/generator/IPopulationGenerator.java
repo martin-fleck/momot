@@ -16,7 +16,10 @@ import org.moeaframework.core.Initialization;
 import org.moeaframework.core.Solution;
 
 public interface IPopulationGenerator<T extends Solution> extends Initialization {
-	IPopulationGenerator<T> setPopulationSize(int populationSize);
-	int getPopulationSize();
-	T[] initialize();
+   int getPopulationSize();
+
+   @Override
+   T[] initialize();
+
+   IPopulationGenerator<T> setPopulationSize(int populationSize);
 }

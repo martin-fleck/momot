@@ -16,31 +16,32 @@ import org.moeaframework.core.PRNG;
 
 public class RandomDoubleValue extends AbstractRandomNumberValue<Double> {
 
-	private Double initialValue = null;
-	
-	public RandomDoubleValue() {
-		this(0, 1);
-	}
-	
-	public RandomDoubleValue(double lowerBound, double upperBound) {
-		super(lowerBound, upperBound);
-	}
+   private Double initialValue = null;
 
-	@Override
-	public Double nextValue() {
-		Double toReturn = PRNG.nextDouble(getLowerBound(), getUpperBound());
-		if(initialValue == null)
-			initialValue = new Double(toReturn);
-		return toReturn;
-	}
-	
-	@Override
-	public String toString() {
-		return super.toString() + "[" + getLowerBound() + "," + getUpperBound() + "]";
-	}
+   public RandomDoubleValue() {
+      this(0, 1);
+   }
 
-	@Override
-	public Double getInitialValue() {
-		return initialValue;
-	}
+   public RandomDoubleValue(final double lowerBound, final double upperBound) {
+      super(lowerBound, upperBound);
+   }
+
+   @Override
+   public Double getInitialValue() {
+      return initialValue;
+   }
+
+   @Override
+   public Double nextValue() {
+      final Double toReturn = PRNG.nextDouble(getLowerBound(), getUpperBound());
+      if(initialValue == null) {
+         initialValue = new Double(toReturn);
+      }
+      return toReturn;
+   }
+
+   @Override
+   public String toString() {
+      return super.toString() + "[" + getLowerBound() + "," + getUpperBound() + "]";
+   }
 }

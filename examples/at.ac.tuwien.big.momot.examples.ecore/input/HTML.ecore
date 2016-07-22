@@ -9,9 +9,9 @@
   <ecore:EPackage name="HTML" nsURI="http://html" nsPrefix="html">
     <eClassifiers xsi:type="ecore:EClass" name="HTML">
       <eStructuralFeatures xsi:type="ecore:EReference" name="head" ordered="false"
-          lowerBound="1" eType="#/1/HEAD" containment="true" eOpposite="#/1/HEAD/html"/>
+          lowerBound="1" eType="#/1/HEAD" eOpposite="#/1/HEAD/html"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="body" ordered="false"
-          lowerBound="1" eType="#/1/BODY" containment="true" eOpposite="#/1/BODY/html"/>
+          lowerBound="1" eType="#/1/BODY" eOpposite="#/1/BODY/html"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="HTMLElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
@@ -23,7 +23,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="HEAD" eSuperTypes="#/1/HTMLElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="headElements" ordered="false"
-          upperBound="-1" eType="#/1/HEADElement" containment="true" eOpposite="#/1/HEADElement/head"/>
+          upperBound="-1" eType="#/1/HEADElement" eOpposite="#/1/HEADElement/head"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="html" ordered="false"
           lowerBound="1" eType="#/1/HTML" eOpposite="#/1/HTML/head"/>
     </eClassifiers>
@@ -56,7 +56,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="vlink" ordered="false"
           unique="false" lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyElements" ordered="false"
-          upperBound="-1" eType="#/1/BODYElement" containment="true" eOpposite="#/1/BODYElement/body"/>
+          upperBound="-1" eType="#/1/BODYElement" eOpposite="#/1/BODYElement/body"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="html" ordered="false"
           lowerBound="1" eType="#/1/HTML" eOpposite="#/1/HTML/body"/>
     </eClassifiers>
@@ -173,7 +173,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="cellpadding" ordered="false"
           unique="false" lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="trs" ordered="false"
-          upperBound="-1" eType="#/1/TR" containment="true" eOpposite="#/1/TR/table"/>
+          upperBound="-1" eType="#/1/TR" eOpposite="#/1/TR/table"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TR" eSuperTypes="#/1/TABLEElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="valign" ordered="false"
@@ -183,7 +183,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="table" ordered="false"
           lowerBound="1" eType="#/1/TABLE" eOpposite="#/1/TABLE/trs"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="tds" ordered="false"
-          upperBound="-1" eType="#/1/TD" containment="true" eOpposite="#/1/TD/tr"/>
+          upperBound="-1" eType="#/1/TD" eOpposite="#/1/TD/tr"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TD" eSuperTypes="#/1/TABLEElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="colspan" ordered="false"

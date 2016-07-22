@@ -12,22 +12,22 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
  */
 
 public class MOMoTNewWizardFilePage extends WizardNewFileCreationPage {
-	/**
-	 * Constructor for SampleNewWizardPage.
-	 * 
-	 * @param pageName
-	 */
-	public MOMoTNewWizardFilePage(ISelection selection) {
-		super("momotPage", (IStructuredSelection) selection);
-		setTitle("MOMoT Search File");
-		setDescription("This wizard creates a new file with *.momot extension.");
-		setFileExtension("momot");
-		setFileName("search.momot");
-	}
-	
-	@Override
-	public void createControl(Composite parent) {
-		super.createControl(parent);
-		validatePage();
-	}
+   /**
+    * Constructor for SampleNewWizardPage.
+    *
+    * @param pageName
+    */
+   public MOMoTNewWizardFilePage(final ISelection selection) {
+      super("momotPage", (IStructuredSelection) selection);
+      setTitle("MOMoT Search File");
+      setDescription("This wizard creates a new file with *.momot extension.");
+      setFileExtension("momot");
+      setFileName("search.momot");
+   }
+
+   @Override
+   public void createControl(final Composite parent) {
+      super.createControl(parent);
+      validatePage();
+   }
 }

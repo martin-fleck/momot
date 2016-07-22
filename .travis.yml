@@ -1,17 +1,53 @@
+# Complete build lifecycle:
+#  1. Install apt addons
+#  2. before_install
+#  3. install (skip with install: true)
+#  4. before_script
+#  5. script
+#  6. after_success or after_failure
+#  7. OPTIONAL before_deploy
+#  8. OPTIONAL deploy
+#  9. OPTIONAL after_deploy
+# 10. after_script
+
+# If before_install, install or before_script return a non-zero exit code, the build is errored and stops immediately.
+# If script returns a non-zero exit code, the build is failed, but continues to run before being marked as failed.
+
 sudo: false
 
+# Use Java build
 language: java
 
+# Cache maven directory between builds
 cache:
   directories:
    - $HOME/.m2
 
-env:
-  global:
-   - DISPLAY=:99.0
+# Use JDK 8
+jdk:
+  - oraclejdk8
 
-before_install:
-  - sh -e /etc/init.d/xvfb start - sleep 10
+# Define global environment variables
+# env:
+#  global:
+#   - DISPLAY=:99.0 # needed for UI tests and xvfb
 
+# To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer) to imitate a display
+# before_install:
+#  - sh -e /etc/init.d/xvfb start - sleep 10
+
+
+# Default script command: mvn test
 script:
   - mvn clean install
+
+# When deploying files to a provider, prevent Travis CI from resetting your working directory and deleting all changes made during the build
+# deploy:
+#   provider: releases
+#   api_key:
+#     secure: hCoUct8BqfEElmaw/cYWsFpzP+A0pYsC7zF6Mk3S1zEwvrsS+3ZaE32hp6u2l9A0Zor7FRvWyBDvuIPESZJZdd8Fhfayb6/v8TdEn9o3bn9Cx2ZWdhwWBdM/3a8J9f06C0QDBUGqBOveoE5GWBh6ZQ9tm5r2nd2S7u8W3V7KjlcSFn8TwHLKyg3r7mrVFHLe2Gu3SxbRoaZcNTJj5zdYCrKI4ISYi7eaW27N4zxs5sPgjzi+70bGNFVGCUdOSQuQ55fW2OEapBbZiA5kM+o/QbN1gL8eF0zBLN/gXAc95u0AmIQBIhubmrmhlSqZRG27MdQBV/8ZUCjlyt0nSIv49q07oK9tjUQ5P5JxrvQylvDc4AE3gUd1VMPie4aH7ko+0GtGD0/qsyM59aBjlvufI7suNgmV+Eeh19pUHo1bomsrb+MZLM+QYkOGqqaNRmQMk19OWI4X3WXXqzFsSZm+1wYwq5Uehr4Me9TMBRYG6Jyy0SeY9twdVAWfF4wNVwWBI3rRBiKXjJczD+lVMxDZQMHnvl+2oQXz+pG/xY4So2HxIH/wwhvXr0Y0Y3jt7Dubn5MHXc3pxU2ylymP7zuhWlVmy3KmNLsHr57MSNq3v021o0aKl4jfy1+MHCISS+Dk0xtRVVquLkFHiKCBzfm4SD9pfCkUKxfWnaXmxLQt4TY=
+#   file: test
+#   skip_cleanup: true
+#   on:
+#     repo: martin-fleck/momot
+#     branch: develop

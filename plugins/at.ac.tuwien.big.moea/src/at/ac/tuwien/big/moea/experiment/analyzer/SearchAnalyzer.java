@@ -1,5 +1,12 @@
 package at.ac.tuwien.big.moea.experiment.analyzer;
 
+import at.ac.tuwien.big.moea.experiment.analyzer.chart.SearchBoxPlot;
+import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.CliffsDeltaEffectSize;
+import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.CohensDEffectSize;
+import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.VarghaDelaneyAEffectSize;
+import at.ac.tuwien.big.moea.problem.ISearchProblem;
+import at.ac.tuwien.big.moea.util.FileUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -21,13 +28,6 @@ import org.moeaframework.Instrumenter;
 import org.moeaframework.core.NondominatedPopulation;
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.spi.ProblemFactory;
-
-import at.ac.tuwien.big.moea.experiment.analyzer.chart.SearchBoxPlot;
-import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.CliffsDeltaEffectSize;
-import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.CohensDEffectSize;
-import at.ac.tuwien.big.moea.experiment.analyzer.effectsize.VarghaDelaneyAEffectSize;
-import at.ac.tuwien.big.moea.problem.ISearchProblem;
-import at.ac.tuwien.big.moea.util.FileUtil;
 
 public class SearchAnalyzer extends org.moeaframework.Analyzer {
    protected Field dataField;
@@ -281,17 +281,18 @@ public class SearchAnalyzer extends org.moeaframework.Analyzer {
       return saveIndicatorBoxPlots(directory, null);
    }
 
-   public SearchAnalyzer saveIndicatorBoxPlots(final String directory, String baseName) {
+   public SearchAnalyzer saveIndicatorBoxPlots(final String directory, final String baseName) {
       FileUtil.checkDirectory(directory);
       final SearchAnalyzerResults results = getSearchAnalysis();
-      if(baseName != null && !baseName.isEmpty()) {
-         baseName += "_";
+      String fileName = baseName;
+      if(fileName != null && !fileName.isEmpty()) {
+         fileName += "_";
       } else {
-         baseName = "";
+         fileName = "";
       }
       for(final String indicator : results.getIndicators()) {
          SearchBoxPlot.saveIndicatorChart(indicator, results,
-               FileUtil.createFile(directory, baseName + indicator + ".png"));
+               FileUtil.createFile(directory, fileName + indicator + ".png"));
       }
       return this;
    }

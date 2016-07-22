@@ -1,5 +1,12 @@
 package at.ac.tuwien.big.moea.experiment.analyzer.chart;
 
+import at.ac.tuwien.big.moea.experiment.analyzer.SearchAlgorithmResult;
+import at.ac.tuwien.big.moea.experiment.analyzer.SearchAnalyzerResults;
+import at.ac.tuwien.big.moea.experiment.analyzer.SearchIndicatorResult;
+import at.ac.tuwien.big.moea.util.CastUtil;
+
+import com.google.common.primitives.Doubles;
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -19,22 +26,25 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
 
-import com.google.common.primitives.Doubles;
+public final class SearchBoxPlot {
 
-import at.ac.tuwien.big.moea.experiment.analyzer.SearchAlgorithmResult;
-import at.ac.tuwien.big.moea.experiment.analyzer.SearchAnalyzerResults;
-import at.ac.tuwien.big.moea.experiment.analyzer.SearchIndicatorResult;
-import at.ac.tuwien.big.moea.util.CastUtil;
+   private static final double FONT_RATIO = 30;
 
-public class SearchBoxPlot {
+   private static final double HEIGHT_RATIO = .75;
+   private static final double MARGIN = 0.22;
+   private static final int DEFAULT_HEIGHT = 500;
+   private static final int DEFAULT_WIDTH = 700;
 
-   protected static Key WIDTH_HINT = new RenderingHints.Key(03172) {
+   private static final float[] DASH = new float[] { 5f, 2f };
+
+   protected static final Key WIDTH_HINT = new RenderingHints.Key(03172) {
       @Override
       public boolean isCompatibleValue(final Object val) {
          return CastUtil.asClass(val, Integer.class) != null;
       }
    };
-   protected static Key HEIGHT_HINT = new RenderingHints.Key(03173) {
+
+   protected static final Key HEIGHT_HINT = new RenderingHints.Key(03173) {
       @Override
       public boolean isCompatibleValue(final Object val) {
          return CastUtil.asClass(val, Integer.class) != null;
@@ -42,7 +52,7 @@ public class SearchBoxPlot {
    };
 
    protected static void configureCategoryAxis(final CategoryAxis axis) {
-      axis.setCategoryMargin(0.22);
+      axis.setCategoryMargin(MARGIN);
    }
 
    protected static void configureNumberAxis(final NumberAxis axis) {
@@ -55,8 +65,7 @@ public class SearchBoxPlot {
       plot.setOutlineStroke(new BasicStroke(0f));
       plot.setRangeGridlinesVisible(true);
       plot.setRangeGridlinePaint(Color.LIGHT_GRAY);
-      plot.setRangeGridlineStroke(
-            new BasicStroke(1f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1f, new float[] { 5f, 2f }, 0f));
+      plot.setRangeGridlineStroke(new BasicStroke(1f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1f, DASH, 0f));
 
       configureNumberAxis((NumberAxis) plot.getRangeAxis());
       configureCategoryAxis(plot.getDomainAxis());
@@ -111,10 +120,10 @@ public class SearchBoxPlot {
       chart.setTextAntiAlias(true);
 
       final int width = dataSet.getColumnCount() * 200;
-      final int height = new Double(width * .75).intValue();
-      final Font font3 = new Font("Dialog", Font.PLAIN, new Double(height / 30).intValue());
-      plot.getDomainAxis().setTickLabelFont(font3);
-      plot.getRangeAxis().setTickLabelFont(font3);
+      final int height = new Double(width * HEIGHT_RATIO).intValue();
+      final Font font = new Font("Dialog", Font.PLAIN, new Double(height / FONT_RATIO).intValue());
+      plot.getDomainAxis().setTickLabelFont(font);
+      plot.getRangeAxis().setTickLabelFont(font);
 
       chart.getRenderingHints().put(WIDTH_HINT, width);
       chart.getRenderingHints().put(HEIGHT_HINT, height);
@@ -132,7 +141,7 @@ public class SearchBoxPlot {
       if(storedWidth != null && storedHeight != null) {
          saveChart(chart, file, storedWidth, storedHeight);
       } else {
-         saveChart(chart, file, 700, 500);
+         saveChart(chart, file, DEFAULT_WIDTH, DEFAULT_HEIGHT);
       }
    }
 
@@ -152,5 +161,9 @@ public class SearchBoxPlot {
    public static void saveIndicatorChart(final String indicator, final SearchAnalyzerResults results,
          final String file) {
       saveIndicatorChart(indicator, results, new File(file));
+   }
+
+   private SearchBoxPlot() {
+      // empty constructor for utility class
    }
 }

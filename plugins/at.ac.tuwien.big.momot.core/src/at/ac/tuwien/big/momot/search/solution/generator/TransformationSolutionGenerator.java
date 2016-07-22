@@ -18,26 +18,28 @@ import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 
 public class TransformationSolutionGenerator extends AbstractRandomSolutionGenerator<TransformationSolution> {
 
-	private SearchHelper searchHelper;
+   private final SearchHelper searchHelper;
 
-	public TransformationSolutionGenerator(SearchHelper searchHelper) {
-		super(searchHelper.getSearchOrchestration().getSolutionLength(),
-				searchHelper.getSearchOrchestration().getNumberOfObjectives(),
-				searchHelper.getSearchOrchestration().getNumberOfConstraints());
-		this.searchHelper = searchHelper;
-	}	
-	
-	public SearchHelper getSearchHelper() {
-		return searchHelper;
-	}
+   public TransformationSolutionGenerator(final SearchHelper searchHelper) {
+      super(searchHelper.getSearchOrchestration().getSolutionLength(),
+            searchHelper.getSearchOrchestration().getNumberOfObjectives(),
+            searchHelper.getSearchOrchestration().getNumberOfConstraints());
+      this.searchHelper = searchHelper;
+   }
 
-	@Override
-	public TransformationSolution createNewSolution(int solutionLength, int nrObjectives, int nrConstraints) {
-		return getSearchHelper().createEmptyTransformationSolution(solutionLength, nrObjectives, nrConstraints);
-	}
+   @Override
+   public TransformationSolution createNewSolution(final int solutionLength, final int nrObjectives,
+         final int nrConstraints) {
+      return getSearchHelper().createEmptyTransformationSolution(solutionLength, nrObjectives, nrConstraints);
+   }
 
-	@Override
-	public TransformationSolution createRandomSolution(int solutionLength, int nrObjectives, int nrConstraints) {
-		return getSearchHelper().createRandomTransformationSolution(solutionLength, nrObjectives, nrConstraints);
-	}
+   @Override
+   public TransformationSolution createRandomSolution(final int solutionLength, final int nrObjectives,
+         final int nrConstraints) {
+      return getSearchHelper().createRandomTransformationSolution(solutionLength, nrObjectives, nrConstraints);
+   }
+
+   public SearchHelper getSearchHelper() {
+      return searchHelper;
+   }
 }

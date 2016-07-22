@@ -15,23 +15,25 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class TypeImpl extends NamedElementImpl implements Type {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeImpl() {
-		super();
-	}
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+   protected TypeImpl() {
+      super();
+   }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return RefactoringPackage.Literals.TYPE;
-	}
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * 
+    * @generated
+    */
+   @Override
+   protected EClass eStaticClass() {
+      return RefactoringPackage.Literals.TYPE;
+   }
 
-} //TypeImpl
+} // TypeImpl

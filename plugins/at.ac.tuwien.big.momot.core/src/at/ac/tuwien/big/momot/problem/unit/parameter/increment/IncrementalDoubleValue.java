@@ -16,41 +16,41 @@ import at.ac.tuwien.big.momot.problem.unit.parameter.IParameterValue;
 
 public class IncrementalDoubleValue implements IParameterValue<Double> {
 
-	private double initialValue;
-	private double curValue;
-	private double step;
-	
-	public IncrementalDoubleValue() {
-		this(0.0, 1.0);
-	}
-	
-	public IncrementalDoubleValue(double initialValue) {
-		this(initialValue, 1.0);
-	}
-	
-	public IncrementalDoubleValue(double initialValue, double step) {
-		this.initialValue = initialValue;
-		this.curValue = initialValue;
-		this.step = step;
-	}
-		
-	public double getStep() {
-		return step;
-	}
-	
-	public double getCurrentValue() {
-		return curValue;
-	}
-	
-	@Override
-	public Double nextValue() {
-		double returnValue = curValue;
-		curValue += step;
-		return returnValue;
-	}
+   private final double initialValue;
+   private double curValue;
+   private final double step;
 
-	@Override
-	public Double getInitialValue() {
-		return initialValue;
-	}	
+   public IncrementalDoubleValue() {
+      this(0.0, 1.0);
+   }
+
+   public IncrementalDoubleValue(final double initialValue) {
+      this(initialValue, 1.0);
+   }
+
+   public IncrementalDoubleValue(final double initialValue, final double step) {
+      this.initialValue = initialValue;
+      this.curValue = initialValue;
+      this.step = step;
+   }
+
+   public double getCurrentValue() {
+      return curValue;
+   }
+
+   @Override
+   public Double getInitialValue() {
+      return initialValue;
+   }
+
+   public double getStep() {
+      return step;
+   }
+
+   @Override
+   public Double nextValue() {
+      final double returnValue = curValue;
+      curValue += step;
+      return returnValue;
+   }
 }

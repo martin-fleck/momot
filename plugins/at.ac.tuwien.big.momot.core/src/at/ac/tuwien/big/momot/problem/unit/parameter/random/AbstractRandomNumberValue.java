@@ -16,30 +16,33 @@ import at.ac.tuwien.big.momot.problem.unit.parameter.IParameterValue;
 
 public abstract class AbstractRandomNumberValue<T extends Number> implements IParameterValue<T> {
 
-	private T lowerBound;
-	private T upperBound;
-	
-	public AbstractRandomNumberValue(T lowerBound, T upperBound) {
-		this.lowerBound = lowerBound;
-		this.upperBound = upperBound;
-		checkBounds();
-	}
-	
-	public T getLowerBound() {
-		return lowerBound;
-	}
+   private final T lowerBound;
+   private final T upperBound;
 
-	public T getUpperBound() {
-		return upperBound;
-	}
-	
-	public void checkBounds() {
-		if(getLowerBound() == null)
-			throw new IllegalArgumentException("Lower bound must not be null.");
-		if(getUpperBound() == null)
-			throw new IllegalArgumentException("Upper bound must not be null.");
-		if(getLowerBound().doubleValue() > getUpperBound().doubleValue())
-			throw new IllegalArgumentException("Lower bound must not be greater than upper bound.");
-	}
+   public AbstractRandomNumberValue(final T lowerBound, final T upperBound) {
+      this.lowerBound = lowerBound;
+      this.upperBound = upperBound;
+      checkBounds();
+   }
+
+   public void checkBounds() {
+      if(getLowerBound() == null) {
+         throw new IllegalArgumentException("Lower bound must not be null.");
+      }
+      if(getUpperBound() == null) {
+         throw new IllegalArgumentException("Upper bound must not be null.");
+      }
+      if(getLowerBound().doubleValue() > getUpperBound().doubleValue()) {
+         throw new IllegalArgumentException("Lower bound must not be greater than upper bound.");
+      }
+   }
+
+   public T getLowerBound() {
+      return lowerBound;
+   }
+
+   public T getUpperBound() {
+      return upperBound;
+   }
 
 }

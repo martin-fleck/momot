@@ -5,54 +5,54 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.osgi.framework.BundleContext;
 
-public class MOMoTExampleWizardPlugin extends EMFPlugin {
-	/**
-	 * The singleton instance of the plugin.
-	 */
-	public static final MOMoTExampleWizardPlugin INSTANCE = new MOMoTExampleWizardPlugin();
+public final class MOMoTExampleWizardPlugin extends EMFPlugin {
+   /**
+    * The actual implementation of the Eclipse <b>Plugin</b>.
+    */
+   public static class Implementation extends EclipseUIPlugin {
+      @Override
+      public void start(final BundleContext context) throws Exception {
+         super.start(context);
+         plugin = this;
+      }
 
-	/**
-	 * The one instance of this class.
-	 */
-	private static Implementation plugin;
+      @Override
+      public void stop(final BundleContext context) throws Exception {
+         super.stop(context);
+      }
+   }
 
-	/**
-	 * Creates the singleton instance.
-	 */
-	private MOMoTExampleWizardPlugin() {
-		super(new ResourceLocator[] {});
-	}
+   /**
+    * The singleton instance of the plugin.
+    */
+   public static final MOMoTExampleWizardPlugin INSTANCE = new MOMoTExampleWizardPlugin();
 
-	/*
-	 * Javadoc copied from base class.
-	 */
-	@Override
-	public ResourceLocator getPluginResourceLocator() {
-		return plugin;
-	}
+   /**
+    * The one instance of this class.
+    */
+   private static Implementation plugin;
 
-	/**
-	 * Returns the singleton instance of the Eclipse plugin.
-	 *
-	 * @return the singleton instance.
-	 */
-	public static Implementation getPlugin() {
-		return plugin;
-	}
+   /**
+    * Returns the singleton instance of the Eclipse plugin.
+    *
+    * @return the singleton instance.
+    */
+   public static Implementation getPlugin() {
+      return plugin;
+   }
 
-	/**
-	 * The actual implementation of the Eclipse <b>Plugin</b>.
-	 */
-	public static class Implementation extends EclipseUIPlugin {
-		@Override
-		public void start(BundleContext context) throws Exception {
-			super.start(context);
-			plugin = this;
-		}
+   /**
+    * Creates the singleton instance.
+    */
+   private MOMoTExampleWizardPlugin() {
+      super(new ResourceLocator[] {});
+   }
 
-		@Override
-		public void stop(BundleContext context) throws Exception {
-			super.stop(context);
-		}
-	}
+   /*
+    * Javadoc copied from base class.
+    */
+   @Override
+   public ResourceLocator getPluginResourceLocator() {
+      return plugin;
+   }
 }

@@ -1,5 +1,11 @@
 package at.ac.tuwien.big.moea;
 
+import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
+import at.ac.tuwien.big.moea.experiment.instrumenter.SearchInstrumenter;
+import at.ac.tuwien.big.moea.problem.ISearchProblem;
+import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm;
+import at.ac.tuwien.big.moea.util.CastUtil;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,19 +20,15 @@ import org.moeaframework.core.NondominatedPopulation;
 import org.moeaframework.core.Solution;
 import org.moeaframework.util.progress.ProgressListener;
 
-import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
-import at.ac.tuwien.big.moea.experiment.instrumenter.SearchInstrumenter;
-import at.ac.tuwien.big.moea.problem.ISearchProblem;
-import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm;
-import at.ac.tuwien.big.moea.util.CastUtil;
-
 public class SearchExperiment<S extends Solution> extends IndicatorConfiguration {
+
+   private static final int DEFAULT_FREQUENCY = 100;
 
    protected ISearchOrchestration<S> searchOrchestration;
 
    // instrumentation
    protected File referenceSetFile = null;
-   protected int frequency = 100;
+   protected int frequency = DEFAULT_FREQUENCY;
 
    protected List<Collector> customCollectors = new ArrayList<>();
    protected boolean adaptiveMultimethodVariation;

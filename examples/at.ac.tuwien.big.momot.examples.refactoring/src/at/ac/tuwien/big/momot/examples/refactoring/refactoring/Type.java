@@ -2,7 +2,6 @@
  */
 package at.ac.tuwien.big.momot.examples.refactoring.refactoring;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Type</b></em>'.
@@ -13,5 +12,4 @@ package at.ac.tuwien.big.momot.examples.refactoring.refactoring;
  * @model
  * @generated
  */
-public interface Type extends NamedElement {
-} // Type
+public interface Type extends NamedElement {} // Type

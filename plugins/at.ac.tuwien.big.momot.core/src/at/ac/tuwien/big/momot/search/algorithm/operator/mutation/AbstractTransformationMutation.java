@@ -12,31 +12,32 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.search.algorithm.operator.mutation;
 
-import org.moeaframework.core.Solution;
-
 import at.ac.tuwien.big.moea.search.algorithm.operator.mutation.AbstractMutationVariation;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
+import org.moeaframework.core.Solution;
+
 public abstract class AbstractTransformationMutation extends AbstractMutationVariation {
 
-	public AbstractTransformationMutation() {
-		super();
-	}
-	
-	public AbstractTransformationMutation(double probability) {
-		super(probability);
-	}
+   public AbstractTransformationMutation() {
+      super();
+   }
 
-	@Override
-	protected Solution[] doEvolve(Solution[] parents) {
-		if(!(parents[0] instanceof TransformationSolution))
-			return new Solution[] { parents[0] };
-		
-		TransformationSolution copy = ((TransformationSolution)parents[0]).copy();
-		TransformationSolution mutant = mutate(copy);
-		return new Solution[] { mutant };
-	}
+   public AbstractTransformationMutation(final double probability) {
+      super(probability);
+   }
 
-	protected abstract TransformationSolution mutate(TransformationSolution mutant);
+   @Override
+   protected Solution[] doEvolve(final Solution[] parents) {
+      if(!(parents[0] instanceof TransformationSolution)) {
+         return new Solution[] { parents[0] };
+      }
+
+      final TransformationSolution copy = ((TransformationSolution) parents[0]).copy();
+      final TransformationSolution mutant = mutate(copy);
+      return new Solution[] { mutant };
+   }
+
+   protected abstract TransformationSolution mutate(TransformationSolution mutant);
 
 }

@@ -1,5 +1,7 @@
 package at.ac.tuwien.big.momot.popup.actions;
 
+import com.google.common.base.CaseFormat;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,134 +37,137 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import com.google.common.base.CaseFormat;
-
 public class HenshinConstantsHandler extends AbstractHandler {
 
-	 private MessageConsole findConsole(String name) {
-	      ConsolePlugin plugin = ConsolePlugin.getDefault();
-	      IConsoleManager conMan = plugin.getConsoleManager();
-	      IConsole[] existing = conMan.getConsoles();
-	      for (int i = 0; i < existing.length; i++)
-	         if (name.equals(existing[i].getName()))
-	            return (MessageConsole) existing[i];
-	      
-	      //no console found, so create a new one
-	      MessageConsole myConsole = new MessageConsole(name, null);
-	      conMan.addConsoles(new IConsole[]{myConsole});
-	      return myConsole;
-	}	 
-	
-	protected static String escapeWhitespace(String text) {
-		return text.replace(' ', '_');
-	}
-	 
-	protected static String toFirstUpper(String text) {
-		return text.substring(0, 1).toUpperCase() + text.substring(1);
-	}
-	 
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		HenshinResourceSet set = new HenshinResourceSet();
-		
-		// get workbench window
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		// set selection service
-		ISelectionService service = window.getSelectionService();
-		IStructuredSelection selection = (IStructuredSelection) service.getSelection();
-		
-		MessageConsole console = findConsole("HenshinConstants");
-		MessageConsoleStream stream = console.newMessageStream();
-		
-		String id = IConsoleConstants.ID_CONSOLE_VIEW;
-		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		IConsoleView view = null;
-		try {
-			view = (IConsoleView) page.showView(id);
-		} catch (PartInitException e) {
-		}
-		view.display(console);
-		
-		for(Iterator<?> it = selection.iterator(); it.hasNext();) {
-			Object selected = it.next();
-			IFile moduleFile = (IFile) selected;
-			
-			String parent = moduleFile.getParent().getRawLocation().toPortableString();
-			String fileName = toFirstUpper(moduleFile.getName().replace(".henshin", ""));
-			
-			String newFileName = escapeWhitespace(fileName) + "Module";
-			String newFilePath = parent + File.separator + newFileName + ".java";
-			
-			File javaFile;
-			try {
-				javaFile = Paths.get(newFilePath).toFile();
-				javaFile.createNewFile();
-			} catch (IOException e) {
-				stream.println(e.getMessage());
-				continue;
-			}
-			stream.print("Generating File '" + javaFile + "'...");
-			
-			PrintStream fileStream = getFilePrintStream(javaFile);
-			if(fileStream == null)
-				continue;
-			
-			Module module = set.getModule(moduleFile.getRawLocation().toPortableString(), false);
-			String moduleName = module.getName() != null ? module.getName() : "";
-			
-			fileStream.println("public interface " + newFileName + " {");
-			fileStream.println("   static String SEPARATOR = \"::\";");
-			fileStream.println("   static String FILE_NAME = \"" + moduleFile.getName().replace(".henshin", "") + "\";");
-			fileStream.println("   static String MODULE_NAME = \"" + moduleName + "\";");
-			if(moduleName == "")
-				fileStream.println("   static String MODULE = FILE_NAME;");
-			else
-				fileStream.println("   static String MODULE = FILE_NAME + SEPARATOR + MODULE_NAME;");
-			fileStream.println("");
-			for(Unit unit : module.getUnits()) {
-				String unitName = escapeWhitespace(toFirstUpper(unit.getName()));
-				fileStream.println("   public static interface " + unitName + " {");
-				fileStream.println("      static String NAME = " + newFileName + ".MODULE + " + newFileName + ".SEPARATOR + \"" + unit.getName() + "\";");
-				fileStream.println("      static interface Parameter {");
-				for(Parameter parameter : unit.getParameters()) {
-					fileStream.println("         String " + CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, parameter.getName()) + " = "
-							+ unitName + ".NAME + " + newFileName + ".SEPARATOR + \"" + parameter.getName() + "\";");
-				}
-				fileStream.println("      }");
-				fileStream.println("   }");
-				fileStream.println("");
-			}
-			fileStream.println("}");
-			fileStream.close();
-			
-			
-			
-			try {
-				moduleFile.getParent().refreshLocal(IResource.DEPTH_ONE, null);
-			} catch (CoreException e) {
-				stream.println(e.getMessage());
-			}
-			
-			stream.println("done.");
-		}		
-		
-		if(stream != null)
-			try {
-				stream.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		
-		return null;
-	}
+   protected static String escapeWhitespace(final String text) {
+      return text.replace(' ', '_');
+   }
 
-	protected static PrintStream getFilePrintStream(File file) {
-		try {
-			return new PrintStream(new BufferedOutputStream(new FileOutputStream(file)), true, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			return null;
-		} catch (FileNotFoundException e) {
-			return null;
-		}
-	}
+   protected static PrintStream getFilePrintStream(final File file) {
+      try {
+         return new PrintStream(new BufferedOutputStream(new FileOutputStream(file)), true, "UTF-8");
+      } catch(final UnsupportedEncodingException e) {
+         return null;
+      } catch(final FileNotFoundException e) {
+         return null;
+      }
+   }
+
+   protected static String toFirstUpper(final String text) {
+      return text.substring(0, 1).toUpperCase() + text.substring(1);
+   }
+
+   @Override
+   public Object execute(final ExecutionEvent event) throws ExecutionException {
+      final HenshinResourceSet set = new HenshinResourceSet();
+
+      // get workbench window
+      final IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+      // set selection service
+      final ISelectionService service = window.getSelectionService();
+      final IStructuredSelection selection = (IStructuredSelection) service.getSelection();
+
+      final MessageConsole console = findConsole("HenshinConstants");
+      final MessageConsoleStream stream = console.newMessageStream();
+
+      final String id = IConsoleConstants.ID_CONSOLE_VIEW;
+      final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+      IConsoleView view = null;
+      try {
+         view = (IConsoleView) page.showView(id);
+      } catch(final PartInitException e) {
+      }
+      view.display(console);
+
+      for(final Iterator<?> it = selection.iterator(); it.hasNext();) {
+         final Object selected = it.next();
+         final IFile moduleFile = (IFile) selected;
+
+         final String parent = moduleFile.getParent().getRawLocation().toPortableString();
+         final String fileName = toFirstUpper(moduleFile.getName().replace(".henshin", ""));
+
+         final String newFileName = escapeWhitespace(fileName) + "Module";
+         final String newFilePath = parent + File.separator + newFileName + ".java";
+
+         File javaFile;
+         try {
+            javaFile = Paths.get(newFilePath).toFile();
+            javaFile.createNewFile();
+         } catch(final IOException e) {
+            stream.println(e.getMessage());
+            continue;
+         }
+         stream.print("Generating File '" + javaFile + "'...");
+
+         final PrintStream fileStream = getFilePrintStream(javaFile);
+         if(fileStream == null) {
+            continue;
+         }
+
+         final Module module = set.getModule(moduleFile.getRawLocation().toPortableString(), false);
+         final String moduleName = module.getName() != null ? module.getName() : "";
+
+         fileStream.println("public interface " + newFileName + " {");
+         fileStream.println("   static String SEPARATOR = \"::\";");
+         fileStream.println("   static String FILE_NAME = \"" + moduleFile.getName().replace(".henshin", "") + "\";");
+         fileStream.println("   static String MODULE_NAME = \"" + moduleName + "\";");
+         if(moduleName.isEmpty()) {
+            fileStream.println("   static String MODULE = FILE_NAME;");
+         } else {
+            fileStream.println("   static String MODULE = FILE_NAME + SEPARATOR + MODULE_NAME;");
+         }
+         fileStream.println("");
+         for(final Unit unit : module.getUnits()) {
+            final String unitName = escapeWhitespace(toFirstUpper(unit.getName()));
+            fileStream.println("   public static interface " + unitName + " {");
+            fileStream.println("      static String NAME = " + newFileName + ".MODULE + " + newFileName
+                  + ".SEPARATOR + \"" + unit.getName() + "\";");
+            fileStream.println("      static interface Parameter {");
+            for(final Parameter parameter : unit.getParameters()) {
+               fileStream.println("         String "
+                     + CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, parameter.getName()) + " = " + unitName
+                     + ".NAME + " + newFileName + ".SEPARATOR + \"" + parameter.getName() + "\";");
+            }
+            fileStream.println("      }");
+            fileStream.println("   }");
+            fileStream.println("");
+         }
+         fileStream.println("}");
+         fileStream.close();
+
+         try {
+            moduleFile.getParent().refreshLocal(IResource.DEPTH_ONE, null);
+         } catch(final CoreException e) {
+            stream.println(e.getMessage());
+         }
+
+         stream.println("done.");
+      }
+
+      if(stream != null) {
+         try {
+            stream.close();
+         } catch(final IOException e) {
+            e.printStackTrace();
+         }
+      }
+
+      return null;
+   }
+
+   private MessageConsole findConsole(final String name) {
+      final ConsolePlugin plugin = ConsolePlugin.getDefault();
+      final IConsoleManager conMan = plugin.getConsoleManager();
+      final IConsole[] existing = conMan.getConsoles();
+      for(final IConsole element : existing) {
+         if(name.equals(element.getName())) {
+            return (MessageConsole) element;
+         }
+      }
+
+      // no console found, so create a new one
+      final MessageConsole myConsole = new MessageConsole(name, null);
+      conMan.addConsoles(new IConsole[] { myConsole });
+      return myConsole;
+   }
 }

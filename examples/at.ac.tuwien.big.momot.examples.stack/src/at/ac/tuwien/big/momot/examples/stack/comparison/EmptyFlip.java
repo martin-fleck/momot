@@ -1,28 +1,29 @@
 package at.ac.tuwien.big.momot.examples.stack.comparison;
 
+import at.ac.tuwien.big.moea.search.algorithm.operator.mutation.AbstractMutationVariation;
+
 import java.util.Random;
 
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.Variable;
 import org.moeaframework.core.variable.BinaryVariable;
 
-import at.ac.tuwien.big.moea.search.algorithm.operator.mutation.AbstractMutationVariation;
-
 public class EmptyFlip extends AbstractMutationVariation {
 
-	public EmptyFlip(double probability) {
-		super(probability);
-	}
-	
-	@Override
-	protected Solution[] doEvolve(Solution[] parents) {
-		return new Solution[] { mutate(((Solution)parents[0]).copy()) };
-	}
+   public EmptyFlip(final double probability) {
+      super(probability);
+   }
 
-	private Solution mutate(Solution copy) {
-		Variable variable = copy.getVariable(new Random().nextInt(copy.getNumberOfVariables()));
-		if(variable instanceof BinaryVariable)
-			((BinaryVariable) variable).clear();
-		return copy;
-	}
+   @Override
+   protected Solution[] doEvolve(final Solution[] parents) {
+      return new Solution[] { mutate(parents[0].copy()) };
+   }
+
+   private Solution mutate(final Solution copy) {
+      final Variable variable = copy.getVariable(new Random().nextInt(copy.getNumberOfVariables()));
+      if(variable instanceof BinaryVariable) {
+         ((BinaryVariable) variable).clear();
+      }
+      return copy;
+   }
 }

@@ -15,5 +15,4 @@ package at.ac.tuwien.big.momot.search.fitness.dimension;
 import at.ac.tuwien.big.moea.search.fitness.dimension.IFitnessDimension;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
-public interface IEGraphFitnessDimension extends IFitnessDimension<TransformationSolution> {
-}
+public interface IEGraphFitnessDimension extends IFitnessDimension<TransformationSolution> {}

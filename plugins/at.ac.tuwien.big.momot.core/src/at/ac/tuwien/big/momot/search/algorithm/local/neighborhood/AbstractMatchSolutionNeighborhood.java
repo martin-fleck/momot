@@ -17,12 +17,12 @@ import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 
 public abstract class AbstractMatchSolutionNeighborhood extends AbstractNeighborhood<TransformationSolution> {
 
-	public AbstractMatchSolutionNeighborhood(TransformationSolution baseSolution) {
-		super(baseSolution);
-	}
-	
-	public AbstractMatchSolutionNeighborhood(TransformationSolution baseSolution, int maxNeighbors) {
-		super(baseSolution, maxNeighbors);
-	}
+   public AbstractMatchSolutionNeighborhood(final TransformationSolution baseSolution) {
+      super(baseSolution);
+   }
+
+   public AbstractMatchSolutionNeighborhood(final TransformationSolution baseSolution, final int maxNeighbors) {
+      super(baseSolution, maxNeighbors);
+   }
 
 }

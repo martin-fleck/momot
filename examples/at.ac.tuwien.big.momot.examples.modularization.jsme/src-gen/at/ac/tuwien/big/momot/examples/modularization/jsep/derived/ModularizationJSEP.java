@@ -9,7 +9,7 @@ import at.ac.tuwien.big.moea.print.ISolutionWriter;
 import at.ac.tuwien.big.moea.search.algorithm.EvolutionaryAlgorithmFactory;
 import at.ac.tuwien.big.moea.search.algorithm.LocalSearchAlgorithmFactory;
 import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm;
-import at.ac.tuwien.big.moea.search.algorithm.provider.RegisteredAlgorithm;
+import at.ac.tuwien.big.moea.search.algorithm.provider.AbstractRegisteredAlgorithm;
 import at.ac.tuwien.big.moea.search.fitness.dimension.IFitnessDimension;
 import at.ac.tuwien.big.momot.ModuleManager;
 import at.ac.tuwien.big.momot.TransformationResultManager;
@@ -274,13 +274,13 @@ public class ModularizationJSEP {
     return _createNSGAIII;
   }
   
-  protected RegisteredAlgorithm<EpsilonMOEA> _createRegisteredAlgorithm_1(final TransformationSearchOrchestration orchestration, final EvolutionaryAlgorithmFactory<TransformationSolution> moea, final LocalSearchAlgorithmFactory<TransformationSolution> local) {
+  protected AbstractRegisteredAlgorithm<EpsilonMOEA> _createRegisteredAlgorithm_1(final TransformationSearchOrchestration orchestration, final EvolutionaryAlgorithmFactory<TransformationSolution> moea, final LocalSearchAlgorithmFactory<TransformationSolution> local) {
     TournamentSelection _tournamentSelection = new TournamentSelection(2);
     OnePointCrossover _onePointCrossover = new OnePointCrossover(1.0);
     TransformationPlaceholderMutation _transformationPlaceholderMutation = new TransformationPlaceholderMutation(0.10);
     SearchHelper _searchHelper = orchestration.getSearchHelper();
     TransformationVariableMutation _transformationVariableMutation = new TransformationVariableMutation(_searchHelper, 0.10);
-    RegisteredAlgorithm<EpsilonMOEA> _createEpsilonMOEA = moea.createEpsilonMOEA(
+    AbstractRegisteredAlgorithm<EpsilonMOEA> _createEpsilonMOEA = moea.createEpsilonMOEA(
       0.02, _tournamentSelection, _onePointCrossover, _transformationPlaceholderMutation, _transformationVariableMutation);
     return _createEpsilonMOEA;
   }

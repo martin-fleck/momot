@@ -1,5 +1,11 @@
 package at.ac.tuwien.big.moea;
 
+import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
+import at.ac.tuwien.big.moea.print.IPopulationWriter;
+import at.ac.tuwien.big.moea.print.ISolutionWriter;
+import at.ac.tuwien.big.moea.print.SolutionWriter;
+import at.ac.tuwien.big.moea.util.FileUtil;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,14 +28,9 @@ import org.moeaframework.core.PopulationIO;
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.comparator.ParetoDominanceComparator;
 
-import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
-import at.ac.tuwien.big.moea.print.IPopulationWriter;
-import at.ac.tuwien.big.moea.print.ISolutionWriter;
-import at.ac.tuwien.big.moea.print.SolutionWriter;
-import at.ac.tuwien.big.moea.util.FileUtil;
-
 public class SearchResultManager {
 
+   private static final String UTF_8 = "UTF-8";
    protected static final String SOLUTION_FILE_EXTENSION = "txt";
    protected static final String OBJECTIVE_FILE_EXTENSION = "pf";
 
@@ -74,20 +75,22 @@ public class SearchResultManager {
       }
    }
 
-   protected static String createFileName(String baseName, final Solution solution, String fileExtension) {
+   protected static String createFileName(final String baseName, final Solution solution, final String fileExtension) {
       String objectives = "";
       if(solution != null) {
          for(int i = 0; i < solution.getNumberOfObjectives(); i++) {
             objectives += "_" + Double.toString(solution.getObjective(i));
          }
       }
-      if(baseName == null) {
-         baseName = "";
+      String fileName = baseName;
+      if(fileName == null) {
+         fileName = "";
       }
-      if(fileExtension == null) {
-         fileExtension = "";
-      } else if(!fileExtension.startsWith(".")) {
-         fileExtension = "." + fileExtension;
+      String fileExt = fileExtension;
+      if(fileExt == null) {
+         fileExt = "";
+      } else if(!fileExt.startsWith(".")) {
+         fileExt = "." + fileExt;
       }
       return baseName + objectives + fileExtension;
    }
@@ -96,24 +99,25 @@ public class SearchResultManager {
       return new File(createObjectivesFileName(baseName, names));
    }
 
-   protected static String createObjectivesFileName(String baseName, final String... names) {
-      if(baseName == null) {
-         baseName = "objectives";
+   protected static String createObjectivesFileName(final String baseName, final String... names) {
+      String fileName = baseName;
+      if(fileName == null) {
+         fileName = "objectives";
       }
-      String concatNames = "";
       for(final String name : names) {
-         concatNames += "_" + name;
+         fileName += "_" + name;
       }
-      return baseName + concatNames + "." + OBJECTIVE_FILE_EXTENSION;
+      return fileName + "." + OBJECTIVE_FILE_EXTENSION;
    }
 
    protected static File createSolutionFile(final String baseName, final Solution solution) {
       return new File(createSolutionFileName(baseName, solution));
    }
 
-   protected static String createSolutionFileName(String baseName, final Solution solution) {
-      if(baseName == null) {
-         baseName = "solution";
+   protected static String createSolutionFileName(final String baseName, final Solution solution) {
+      String fileName = baseName;
+      if(fileName == null) {
+         fileName = "solution";
       }
       return createFileName(baseName, solution, SOLUTION_FILE_EXTENSION);
    }
@@ -131,7 +135,7 @@ public class SearchResultManager {
    protected static PrintStream getFilePrintStream(final File file) {
       FileUtil.checkDirectory(file.getParentFile());
       try {
-         return new PrintStream(new BufferedOutputStream(new FileOutputStream(file)), true, "UTF-8");
+         return new PrintStream(new BufferedOutputStream(new FileOutputStream(file)), true, UTF_8);
       } catch(FileNotFoundException | UnsupportedEncodingException e) {
          System.err.println(e.getMessage());
          return null;
@@ -187,7 +191,7 @@ public class SearchResultManager {
          writer.close();
       }
       try {
-         return baos.toString("UTF-8");
+         return baos.toString(UTF_8);
       } catch(final UnsupportedEncodingException e) {
          System.err.println("Could not print objectives: " + e.getMessage());
          e.printStackTrace();
@@ -203,7 +207,7 @@ public class SearchResultManager {
          writer.close();
       }
       try {
-         return baos.toString("UTF-8");
+         return baos.toString(UTF_8);
       } catch(final UnsupportedEncodingException e) {
          System.err.println("Could not print objectives: " + e.getMessage());
          e.printStackTrace();
@@ -216,7 +220,7 @@ public class SearchResultManager {
       final PrintStream ps = new PrintStream(baos);
       writer.write(ps, population);
       try {
-         return baos.toString("UTF-8");
+         return baos.toString(UTF_8);
       } catch(final UnsupportedEncodingException e) {
          System.err.println("Could not print population: " + e.getMessage());
          e.printStackTrace();
@@ -233,7 +237,7 @@ public class SearchResultManager {
       final PrintStream ps = new PrintStream(baos);
       writer.write(ps, solution);
       try {
-         return baos.toString("UTF-8");
+         return baos.toString(UTF_8);
       } catch(final UnsupportedEncodingException e) {
          System.err.println("Could not print objectives: " + e.getMessage());
          e.printStackTrace();

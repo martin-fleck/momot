@@ -19,14 +19,14 @@ import at.ac.tuwien.big.momot.problem.solution.variable.TransformationPlaceholde
 
 public class MinimumTransformationLengthDimension extends MinimumSolutionLengthDimension<TransformationSolution> {
 
-	public MinimumTransformationLengthDimension(String name, int minimum) {
-		super(TransformationSolution.class, name, minimum);
-		ignoreVariable(PlaceholderVariable.class);
-		ignoreVariable(TransformationPlaceholderVariable.class);
-	}
-	
-	public MinimumTransformationLengthDimension(int minimum) {
-		this("MinimumSolutionLength", minimum);
-	}
+   public MinimumTransformationLengthDimension(final int minimum) {
+      this("MinimumSolutionLength", minimum);
+   }
+
+   public MinimumTransformationLengthDimension(final String name, final int minimum) {
+      super(TransformationSolution.class, name, minimum);
+      ignoreVariable(PlaceholderVariable.class);
+      ignoreVariable(TransformationPlaceholderVariable.class);
+   }
 
 }

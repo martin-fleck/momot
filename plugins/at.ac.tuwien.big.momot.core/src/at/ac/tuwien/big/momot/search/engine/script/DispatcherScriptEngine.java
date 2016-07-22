@@ -31,99 +31,100 @@ import org.eclipse.emf.henshin.model.util.ScriptEngineWrapper;
 
 public class DispatcherScriptEngine extends AbstractScriptEngine {
 
-	protected ScriptEngineFactory factory;
-	protected Map<String, ScriptEngine> prefixEngines = new HashMap<String, ScriptEngine>();
-	final ScriptEngine defaultEngine;
-	
-	public DispatcherScriptEngine(DispatcherScriptEngineFactory factory) {
-		this(factory, new ScriptEngineWrapper(new String[] {}).getEngine());
-	}
-	
-	public DispatcherScriptEngine(ScriptEngine defaultEngine) {
-		this.defaultEngine = defaultEngine;
-	}
-	
-	public DispatcherScriptEngine(DispatcherScriptEngineFactory factory, ScriptEngine defaultEngine) {
-		this(defaultEngine);
-		this.factory = factory;
-	}	
-	
-	public ScriptEngine registerScriptEngine(String prefix, ScriptEngine engine) {
-		return prefixEngines.put(prefix, engine);
-	}
-	
-	public ScriptEngine getEngine(String script) {
-		for(Entry<String, ScriptEngine> protocolEngine : prefixEngines.entrySet()) {
-			if(script.startsWith(protocolEngine.getKey()))
-				return protocolEngine.getValue();
-		}
-		return defaultEngine;
-	}
-	
-	public boolean hasKnownPrefix(String script) {
-		for(Entry<String, ScriptEngine> protocolEngine : prefixEngines.entrySet()) {
-			if(script.startsWith(protocolEngine.getKey()))
-				return true;
-		}
-		return false;
-	}
-	
-	public boolean isDefault(String script) {
-		return !hasKnownPrefix(script); // handled by Henshin (Rhino JavaScript Engine)
-	}
-	
-	@Override
-	public Object eval(String script, ScriptContext context)
-			throws ScriptException {
-		Object eval = null;
-		for(Entry<String, ScriptEngine> protocolEngine : prefixEngines.entrySet()) {
-			if(script.startsWith(protocolEngine.getKey())) {
-				ScriptEngine prefixEngine = protocolEngine.getValue();
-				eval = prefixEngine.eval(
-						script.substring(protocolEngine.getKey().length()), prefixEngine.getContext());
-			}
-		}
-		if(eval == null)
-			eval = defaultEngine.eval(script, defaultEngine.getContext());
-		return eval;
-	}
+   protected ScriptEngineFactory factory;
+   protected Map<String, ScriptEngine> prefixEngines = new HashMap<>();
+   protected final ScriptEngine defaultEngine;
 
-	@Override
-	public Object eval(Reader reader, ScriptContext context)
-			throws ScriptException {
-		BufferedReader in = new BufferedReader(reader);
-		String line = null;
-		StringBuilder rslt = new StringBuilder();
-		try {
-			while ((line = in.readLine()) != null) {
-			    rslt.append(line);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return eval(rslt.toString(), context);
-	}
+   public DispatcherScriptEngine(final DispatcherScriptEngineFactory factory) {
+      this(factory, new ScriptEngineWrapper(new String[] {}).getEngine());
+   }
 
-	@Override
-	public Bindings createBindings() {
-		return new SimpleBindings();
-	}
+   public DispatcherScriptEngine(final DispatcherScriptEngineFactory factory, final ScriptEngine defaultEngine) {
+      this(defaultEngine);
+      this.factory = factory;
+   }
 
-	public void setFactory(ScriptEngineFactory factory) {
-		this.factory = factory;
-	}
-	
-	@Override
-	public ScriptEngineFactory getFactory() {
-		return factory;
-	}
-	
-	@Override
-	public void put(String key, Object value) {
-		super.put(key, value);
-		defaultEngine.put(key, value);
-		for(ScriptEngine engine : prefixEngines.values())
-			engine.put(key, value);
-	}
+   public DispatcherScriptEngine(final ScriptEngine defaultEngine) {
+      this.defaultEngine = defaultEngine;
+   }
+
+   @Override
+   public Bindings createBindings() {
+      return new SimpleBindings();
+   }
+
+   @Override
+   public Object eval(final Reader reader, final ScriptContext context) throws ScriptException {
+      final BufferedReader in = new BufferedReader(reader);
+      String line = null;
+      final StringBuilder rslt = new StringBuilder();
+      try {
+         while((line = in.readLine()) != null) {
+            rslt.append(line);
+         }
+      } catch(final IOException e) {
+         e.printStackTrace();
+      }
+      return eval(rslt.toString(), context);
+   }
+
+   @Override
+   public Object eval(final String script, final ScriptContext context) throws ScriptException {
+      Object eval = null;
+      for(final Entry<String, ScriptEngine> protocolEngine : prefixEngines.entrySet()) {
+         if(script.startsWith(protocolEngine.getKey())) {
+            final ScriptEngine prefixEngine = protocolEngine.getValue();
+            eval = prefixEngine.eval(script.substring(protocolEngine.getKey().length()), prefixEngine.getContext());
+         }
+      }
+      if(eval == null) {
+         eval = defaultEngine.eval(script, defaultEngine.getContext());
+      }
+      return eval;
+   }
+
+   public ScriptEngine getEngine(final String script) {
+      for(final Entry<String, ScriptEngine> protocolEngine : prefixEngines.entrySet()) {
+         if(script.startsWith(protocolEngine.getKey())) {
+            return protocolEngine.getValue();
+         }
+      }
+      return defaultEngine;
+   }
+
+   @Override
+   public ScriptEngineFactory getFactory() {
+      return factory;
+   }
+
+   public boolean hasKnownPrefix(final String script) {
+      for(final Entry<String, ScriptEngine> protocolEngine : prefixEngines.entrySet()) {
+         if(script.startsWith(protocolEngine.getKey())) {
+            return true;
+         }
+      }
+      return false;
+   }
+
+   public boolean isDefault(final String script) {
+      return !hasKnownPrefix(script); // handled by Henshin (Rhino JavaScript Engine)
+   }
+
+   @Override
+   public void put(final String key, final Object value) {
+      super.put(key, value);
+      defaultEngine.put(key, value);
+      for(final ScriptEngine engine : prefixEngines.values()) {
+         engine.put(key, value);
+      }
+   }
+
+   public ScriptEngine registerScriptEngine(final String prefix, final ScriptEngine engine) {
+      return prefixEngines.put(prefix, engine);
+   }
+
+   public void setFactory(final ScriptEngineFactory factory) {
+      this.factory = factory;
+   }
 
 }

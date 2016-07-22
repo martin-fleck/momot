@@ -41,6 +41,7 @@
 		<java.target>1.8</java.target>
 		<eclipse.targetrelease>neon</eclipse.targetrelease>
 		<target.version>${project.version}</target.version>
+		<xtend.version>2.10.0</xtend.version>
 
 		<!-- Platform properties -->
 		<env.ui.test>-Xms512m -Xmx2048m</env.ui.test>
@@ -140,6 +141,21 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>3.0.0</version>
+					<executions>
+						<execution>
+							<id>gen-clean</id>
+							<goals>
+								<goal>clean</goal>
+							</goals>
+							<configuration>
+								<filesets>
+									<fileset>
+										<directory>${basedir}/xtend-gen</directory>
+									</fileset>
+								</filesets>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -249,7 +265,8 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
 			</plugin>
-			<plugin><!-- enable source bundle generation -->
+			<!-- enable source bundle generation -->
+			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-source-plugin</artifactId>
 				<executions>
@@ -312,13 +329,6 @@
 						<args>${ui.test.vmargs}</args>
 					</jvmArgs>
 					<bundleStartLevel>
-<!--
-						<bundle>
-							<id>org.eclipse.papyrus.information.modeling.service.types</id>
-							<level>6</level>
-							<autoStart>true</autoStart>
-						</bundle>
--->
 						<bundle>
 							<id>org.eclipse.equinox.launcher</id>
 							<level>4</level>

@@ -29,15 +29,19 @@ import org.jfree.ui.RectangleEdge;
 
 public class SearchBoxPlotRenderer extends BoxAndWhiskerRenderer {
 
+   private static final double BAR_WIDTH_RATIO = 9;
+
+   private static final double WHISKER_WIDTH_RATIO = 0.5;
+
    private static final long serialVersionUID = -4760842081735463981L;
 
-   protected boolean paintOutliers = false;
    protected Paint lowerBoxPaint = new Color(222, 222, 222);
    protected Paint upperBoxPaint = new Color(160, 160, 160);
+   protected boolean paintOutliers = false;
 
    public SearchBoxPlotRenderer() {
       setFillBox(true);
-      setWhiskerWidth(0.5);
+      setWhiskerWidth(WHISKER_WIDTH_RATIO);
       setUseOutlinePaintForWhiskers(true);
       setSeriesOutlinePaint(0, Color.BLACK);
       setSeriesOutlinePaint(1, Color.BLACK);
@@ -124,6 +128,7 @@ public class SearchBoxPlotRenderer extends BoxAndWhiskerRenderer {
 
       final RectangleEdge location = plot.getRangeAxisEdge();
 
+      // get values
       final Number yQ1 = bawDataset.getQ1Value(row, column);
       final Number yQ3 = bawDataset.getQ3Value(row, column);
       final Number yMax = bawDataset.getMaxRegularValue(row, column);
@@ -133,7 +138,6 @@ public class SearchBoxPlotRenderer extends BoxAndWhiskerRenderer {
 
       Shape box = null;
       if(yQ1 != null && yQ3 != null && yMax != null && yMin != null) {
-
          final double yyQ1 = rangeAxis.valueToJava2D(yQ1.doubleValue(), dataArea, location);
          final double yyQ3 = rangeAxis.valueToJava2D(yQ3.doubleValue(), dataArea, location);
          final double yyMax = rangeAxis.valueToJava2D(yMax.doubleValue(), dataArea, location);
@@ -186,11 +190,11 @@ public class SearchBoxPlotRenderer extends BoxAndWhiskerRenderer {
 
       g2.setPaint(getArtifactPaint());
 
-      // draw mean - SPECIAL AIMS REQUIREMENT...
+      // draw mean...
       if(isMeanVisible()) {
          if(yMean != null) {
             yyAverage = rangeAxis.valueToJava2D(yMean.doubleValue(), dataArea, location);
-            aRadius = state.getBarWidth() / 9;
+            aRadius = state.getBarWidth() / BAR_WIDTH_RATIO;
 
             final double side = aRadius;
             if(yyAverage > dataArea.getMinY() - aRadius && yyAverage < dataArea.getMaxY() + aRadius) {
@@ -249,8 +253,7 @@ public class SearchBoxPlotRenderer extends BoxAndWhiskerRenderer {
 
             // Process outliers. Each outlier is either added to the
             // appropriate outlier list or a new outlier list is made
-            for(final Iterator<Outlier> iterator = outliers.iterator(); iterator.hasNext();) {
-               final Outlier outlier = iterator.next();
+            for(final Outlier outlier : outliers) {
                outlierListCollection.add(outlier);
             }
 

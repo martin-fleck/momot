@@ -20,32 +20,30 @@ import javax.script.ScriptException;
 import org.eclipse.emf.henshin.model.util.ScriptEngineWrapper;
 
 public class DispatcherScriptEngineWrapper extends ScriptEngineWrapper {
-	
-	public DispatcherScriptEngineWrapper(String[] globalImports) {
-		super(new DispatcherScriptEngine(
-				new ScriptEngineWrapper(globalImports).getEngine()), 
-				globalImports);
-	}
-	
-	public ScriptEngine registerScriptEngine(String prefix, ScriptEngine engine) {
-		return getEngine().registerScriptEngine(prefix, engine);
-	}
-	
-	public ScriptEngine getEngine(String script) {
-		return getEngine().getEngine(script);
-	}
-	
-	@Override
-	public DispatcherScriptEngine getEngine() {
-		return (DispatcherScriptEngine) super.getEngine();
-	}
-	
-	@Override
-	public Object eval(String script, List<String> localImports)
-			throws ScriptException {
-		if(getEngine().isDefault(script))
-			return super.eval(script, localImports);
-		return getEngine().eval(script);
-	}
+
+   public DispatcherScriptEngineWrapper(final String[] globalImports) {
+      super(new DispatcherScriptEngine(new ScriptEngineWrapper(globalImports).getEngine()), globalImports);
+   }
+
+   @Override
+   public Object eval(final String script, final List<String> localImports) throws ScriptException {
+      if(getEngine().isDefault(script)) {
+         return super.eval(script, localImports);
+      }
+      return getEngine().eval(script);
+   }
+
+   @Override
+   public DispatcherScriptEngine getEngine() {
+      return (DispatcherScriptEngine) super.getEngine();
+   }
+
+   public ScriptEngine getEngine(final String script) {
+      return getEngine().getEngine(script);
+   }
+
+   public ScriptEngine registerScriptEngine(final String prefix, final ScriptEngine engine) {
+      return getEngine().registerScriptEngine(prefix, engine);
+   }
 
 }

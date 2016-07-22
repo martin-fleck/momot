@@ -15,17 +15,17 @@ package at.ac.tuwien.big.momot.print;
 import at.ac.tuwien.big.moea.search.fitness.IMultiDimensionalFitnessFunction;
 
 public class TransformationSolutionWriter extends GenericTransformationSolutionPrinter {
-	protected IMultiDimensionalFitnessFunction<?> fitnessFunction;
-	
-	public TransformationSolutionWriter() { }
-	
-	public TransformationSolutionWriter(IMultiDimensionalFitnessFunction<?> fitnessFunction) {
-		this.fitnessFunction = fitnessFunction;
-		setConstraintNames(fitnessFunction.getConstraintNames());
-		setObjectiveNames(fitnessFunction.getObjectiveNames());
-	}
-	
-	protected IMultiDimensionalFitnessFunction<?> getFitnessFunction() {
-		return fitnessFunction;
-	}
+   protected IMultiDimensionalFitnessFunction<?> fitnessFunction;
+
+   public TransformationSolutionWriter() {}
+
+   public TransformationSolutionWriter(final IMultiDimensionalFitnessFunction<?> fitnessFunction) {
+      this.fitnessFunction = fitnessFunction;
+      setConstraintNames(fitnessFunction.getConstraintNames());
+      setObjectiveNames(fitnessFunction.getObjectiveNames());
+   }
+
+   protected IMultiDimensionalFitnessFunction<?> getFitnessFunction() {
+      return fitnessFunction;
+   }
 }

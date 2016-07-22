@@ -17,32 +17,32 @@ import at.ac.tuwien.big.momot.problem.unit.parameter.IParameterValue;
 
 public class RandomStringParameterValue implements IParameterValue<String> {
 
-	private RandomString randomString;
-	private String initialValue = null;
-	
-	public RandomStringParameterValue(Integer lowerBoundLength,
-			Integer upperBoundLength) {
-		randomString = new RandomString(lowerBoundLength, upperBoundLength);
-	}
-	
-	public RandomStringParameterValue(Integer length) {
-		this(length, length);
-	}
+   private final RandomString randomString;
+   private String initialValue = null;
 
-	public RandomStringParameterValue() {
-		this(1);
-	}
+   public RandomStringParameterValue() {
+      this(1);
+   }
 
-	@Override
-	public String nextValue() {
-		String value = randomString.nextRandom();
-		if(initialValue == null)
-			initialValue = value;
-		return value;
-	}
+   public RandomStringParameterValue(final Integer length) {
+      this(length, length);
+   }
 
-	@Override
-	public String getInitialValue() {
-		return initialValue;
-	}	
+   public RandomStringParameterValue(final Integer lowerBoundLength, final Integer upperBoundLength) {
+      randomString = new RandomString(lowerBoundLength, upperBoundLength);
+   }
+
+   @Override
+   public String getInitialValue() {
+      return initialValue;
+   }
+
+   @Override
+   public String nextValue() {
+      final String value = randomString.nextRandom();
+      if(initialValue == null) {
+         initialValue = value;
+      }
+      return value;
+   }
 }

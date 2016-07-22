@@ -14,6 +14,7 @@ Export-Package: at.ac.tuwien.big.momot.examples.modularization.jsme.modularizati
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.11.1,4.0.0)",
  org.eclipse.emf.ecore;bundle-version="[2.11.2,3.0.0)";visibility:=reexport,
  org.eclipse.emf.henshin.statespace;bundle-version="[1.2.0,2.0.0)",
+ org.eclipse.ocl.ecore;bundle-version="[3.4.0,4.0.0)",
  org.eclipse.xtext.xbase.lib;bundle-version="[2.8.4,3.0.0)",
  org.junit;bundle-version="[4.12.0,5.0.0)",
  at.ac.tuwien.big.moea,

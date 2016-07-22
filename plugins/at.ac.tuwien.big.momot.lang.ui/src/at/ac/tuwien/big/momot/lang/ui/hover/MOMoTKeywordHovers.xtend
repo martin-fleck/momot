@@ -9,8 +9,8 @@ public class MOMoTKeywordHovers {
 	
     def hoverText(Keyword k) {
         val result = switch (k) {
-        		// proof of concept
-        		// TODO: Add more concepts
+      		// proof of concept
+       		// TODO: Add more concepts
             case ga.indicatorArrayAccess.hypervolumeHypervolumeKeyword_2_0_0: '''
 					<p>Hypervolume is a common indicator used when comparing different search-based algorithm 
 					as it can can capture both the convergence and the diversity of the solutions.
