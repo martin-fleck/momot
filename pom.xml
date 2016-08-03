@@ -21,8 +21,10 @@
 		<module>examples</module>
 		<module>features</module>
 		<module>releng</module>
+		<module>tests</module>
 		<module>tooling/at.ac.tuwien.big.momot.tooling</module>
 	</modules>
+	
 	<properties>
 		<!-- plugins versions -->
 		<!-- use 'mvn versions:display-plugin-updates' to check for the latest -->
@@ -42,53 +44,17 @@
 		<eclipse.targetrelease>neon</eclipse.targetrelease>
 		<target.version>${project.version}</target.version>
 		<xtend.version>2.10.0</xtend.version>
+		<maven-surefire-version>2.17</maven-surefire-version>
 
 		<!-- Platform properties -->
 		<env.ui.test>-Xms512m -Xmx2048m</env.ui.test>
+		
+		<!-- Test properties -->
+		
+		<!-- Default test inclusion patterns (comma-separated list) -->
+		<test.includes.default>**/*Test.java,**/*Tests.java,**/*TestCase.java,**/Test*.java</test.includes.default>
+		<test.includes>${test.includes.default}</test.includes>
 	</properties>
-
-<!--
-	<ciManagement>
-		<system>Hudson</system>
-		<url>https://hudson.eclipse.org/papyrus/view/InformationModeling/</url>
-	</ciManagement>
-	<issueManagement>
-		<url>https://bugs.eclipse.org/bugs/buglist.cgi?product=Papyrus&amp;component=Other</url>
-		<system>Bugzilla</system>
-	</issueManagement>
-	<distributionManagement>
-		<repository>
-			<id>repo.eclipse.org</id>
-			<name>Papyrus
-				Repository - Releases
-			</name>
-			<url>https://repo.eclipse.org/content/repositories/papyrus-releases/
-			</url>
-		</repository>
-		<snapshotRepository>
-			<id>repo.eclipse.org</id>
-			<name>Papyrus
-				Repository - Snapshots
-			</name>
-			<url>https://repo.eclipse.org/content/repositories/papyrus-snapshots/
-			</url>
-			<uniqueVersion>true</uniqueVersion>
-		</snapshotRepository>
-	</distributionManagement>
-	<organization>
-		<name>Eclipse foundation</name>
-		<url>https://www.eclipse.org/</url>
-	</organization>
-
-	<licenses>
-		<license>
-			<name>Eclipse Public License</name>
-			<url>https://www.eclipse.org/legal/epl-v10.html</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
--->
 
 	<pluginRepositories>
 		<pluginRepository>
@@ -123,9 +89,14 @@
 					<version>1.10</version>
 				</plugin>
 				<plugin>
+		          <groupId>org.apache.maven.plugins</groupId>
+        		  <artifactId>maven-surefire-plugin</artifactId>
+		          <version>${maven-surefire-version}</version>
+        		</plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-report-plugin</artifactId>
-					<version>2.18.1</version>
+					<version>${maven-surefire-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -320,14 +291,17 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<configuration>
-					<failIfNoTests>false</failIfNoTests>
-					<useUIHarness>true</useUIHarness>
-					<useUIThread>true</useUIThread>
+					<failIfNoTests>true</failIfNoTests>
+					<useUIHarness>false</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<testFailureIgnore>true</testFailureIgnore>
+					<includes>${test.includes}</includes>
 					<!--<showEclipseLog>true</showEclipseLog> -->
-					<!--<testFailureIgnore>true</testFailureIgnore> -->
+					<!--<testFailureIgnore>true</testFailureIgnore>
 					<jvmArgs>
 						<args>${ui.test.vmargs}</args>
 					</jvmArgs>
+					 -->
 					<bundleStartLevel>
 						<bundle>
 							<id>org.eclipse.equinox.launcher</id>
@@ -344,6 +318,12 @@
 							<type>p2-installable-unit</type>
 							<artifactId>org.eclipse.equinox.event</artifactId>
 						</dependency>
+						<dependency>
+      						<groupId>junit</groupId>
+    						<artifactId>junit</artifactId>
+      						<version>4.11</version>
+      						<scope>test</scope>
+    					</dependency>
 					</dependencies>
 				</configuration>
 			</plugin>
@@ -460,10 +440,6 @@
 								</configuration>
 							</execution>
 						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-surefire-plugin</artifactId>
 					</plugin>
 				</plugins>
 			</build>

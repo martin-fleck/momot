@@ -15,7 +15,9 @@ MOMoT Checkstyle
   <property name="localeLanguage" value="en"/>
   <module name="TreeWalker">
     <property name="severity" value="warning"/>
-    <module name="AnnotationUseStyle"/>
+    <module name="AnnotationUseStyle">
+      <property name="elementStyle" value="compact"/>
+    </module>
     <module name="MissingDeprecated"/>
     <module name="MissingOverride">
       <property name="severity" value="warning"/>
@@ -66,6 +68,7 @@ MOMoT Checkstyle
     </module>
     <module name="AvoidStaticImport">
       <property name="severity" value="info"/>
+      <property name="excludes" value="org.junit.Assert.*"/>
     </module>
     <module name="IllegalImport">
       <property name="severity" value="ignore"/>
@@ -292,10 +295,6 @@ MOMoT Checkstyle
       <property name="arrayInitIndent" value="3"/>
       <property name="lineWrappingIndentation" value="2"/>
     </module>
-    <module name="UncommentedMain">
-      <property name="severity" value="warning"/>
-      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="warning"/>
-    </module>
     <module name="UpperEll">
       <property name="severity" value="warning"/>
     </module>
@@ -319,7 +318,6 @@ MOMoT Checkstyle
       <property name="separated" value="true"/>
       <property name="sortStaticImportsAlphabetically" value="true"/>
     </module>
-    <module name="AvoidStaticImport"/>
     <module name="IllegalCatch">
       <property name="illegalClassNames" value="java.lang.Exception, java.lang.Throwable"/>
     </module>
