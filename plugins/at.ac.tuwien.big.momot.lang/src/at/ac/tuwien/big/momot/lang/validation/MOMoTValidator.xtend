@@ -40,6 +40,8 @@ import org.eclipse.xtext.xbase.XbasePackage
 import org.eclipse.xtext.xbase.controlflow.EarlyExitInterpreter
 import org.eclipse.xtext.xtype.XImportDeclaration
 import org.moeaframework.algorithm.NSGAII
+import org.eclipse.emf.common.util.URI
+import java.io.File
 
 /**
  * This class contains custom validation rules. 
@@ -125,11 +127,18 @@ class MOMoTValidator extends AbstractMOMoTValidator {
          return manager
 
       for(module : modules.elements) {
-         val path = module.interpret(typeof(String))
+         var path = module.interpret(typeof(String))
          if(path != null) {
-            val member = it.projectMember(path)
+         	var uri = URI.createURI(new File(path).path.toString, true).toString
+            val member = it.projectMember(uri)
             if(member instanceof IFile && member.exists)
-               manager.addModule(member.fullPath.toString)               
+               try {
+	               	manager.addModule(uri)
+               	} catch(Exception e) {
+//               		error("File '" + member.fullPath.toString + "' not found.",
+//               			searchOrchestration.moduleOrchestration,
+//               			MomotPackage.Literals.MODULE_ORCHESTRATION__MODULES)
+               	}
          }
       }
       return manager

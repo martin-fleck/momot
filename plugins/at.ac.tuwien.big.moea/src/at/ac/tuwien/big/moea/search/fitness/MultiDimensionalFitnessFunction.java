@@ -53,14 +53,26 @@ public class MultiDimensionalFitnessFunction<T extends Solution> implements IMul
    }
 
    private double delegateEvaluation(final Solution solution) {
+      boolean failedConstraint = false;
+
       int i = 0;
-      for(final IFitnessDimension<T> dimension : objectives) {
-         solution.setObjective(i++, evaluate(dimension, solution));
+      for(final IFitnessDimension<T> dimension : constraints) {
+         if(!failedConstraint) {
+            final double constraintEvaluation = evaluate(dimension, solution);
+            solution.setConstraint(i++, constraintEvaluation);
+            failedConstraint = IFitnessDimension.CONSTRAINT_OK != constraintEvaluation;
+         } else {
+            solution.setConstraint(i++, IFitnessDimension.CONSTRAINT_VIOLATED);
+         }
       }
 
       i = 0;
-      for(final IFitnessDimension<T> dimension : constraints) {
-         solution.setConstraint(i++, evaluate(dimension, solution));
+      for(final IFitnessDimension<T> dimension : objectives) {
+         if(!failedConstraint) {
+            solution.setObjective(i++, evaluate(dimension, solution));
+         } else {
+            solution.setObjective(i++, IFitnessDimension.CONSTRAINT_VIOLATED);
+         }
       }
 
       return getAggregateFitness(solution);

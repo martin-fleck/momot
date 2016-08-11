@@ -92,7 +92,7 @@ public class SearchResultManager {
       } else if(!fileExt.startsWith(".")) {
          fileExt = "." + fileExt;
       }
-      return baseName + objectives + fileExtension;
+      return baseName + objectives + fileExt;
    }
 
    protected static File createObjectivesFile(final String baseName, final String... names) {

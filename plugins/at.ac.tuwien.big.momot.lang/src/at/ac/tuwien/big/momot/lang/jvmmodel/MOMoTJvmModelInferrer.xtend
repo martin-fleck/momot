@@ -66,6 +66,7 @@ import at.ac.tuwien.big.moea.experiment.analyzer.kneepoint.PopulationAnalyzer.Fi
 import java.util.List
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet
 import at.ac.tuwien.big.moea.search.algorithm.provider.AbstractRegisteredAlgorithm
+import org.eclipse.emf.common.util.URI
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -331,6 +332,7 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
       val populationRef = typeRef(Population)
       val fileListRef = typeRef(List, typeRef(File))
       val henshinResourceSetRef = typeRef(HenshinResourceSet)
+      val uriRef = typeRef(URI)
       
       acceptor.accept(search.toClass(search.javaClassName)) [            
          for (declaredVariable : search.variables) {
@@ -536,7 +538,9 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
               body = new StringConcatenationClient() {
                override protected appendTo(TargetStringConcatenation it) {
                   appendLine(moduleManagerRef.type, " manager = new ", moduleManagerRef.type, "();");
-                  appendLine("manager.addModules(", MOMoTInferrer::Name::FIELD_MODULES, ");");
+                  appendLine("for(String module : ", MOMoTInferrer::Name::FIELD_MODULES, ") {")
+                  appendLine("   manager.addModule(", uriRef.type, ".createURI(new ", fileRef.type, "(module).getPath().toString(), true).toString());")
+                  appendLine("}")
                   if(transformations.unitsToRemove != null)
                      appendLine("manager.removeUnits(", MOMoTInferrer::Name::FIELD_UNITS_TO_REMOVE, ");");
                   if(transformations.nonSolutionParameters != null)

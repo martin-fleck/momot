@@ -2,10 +2,10 @@
 <henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_8ZYPIL2uEeS_0ey2v1ry_A">
   <imports href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#/"/>
   <units xsi:type="henshin:Rule" xmi:id="_4FwVEMc2EeSYnpokEk5owg" name="reassignFeature">
-    <parameters xmi:id="_6wTPwMc2EeSYnpokEk5owg" name="featureName">
+    <parameters xmi:id="_6wTPwMc2EeSYnpokEk5owg" name="featureName" kind="INOUT">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_6wTPwcc2EeSYnpokEk5owg" name="className">
+    <parameters xmi:id="_6wTPwcc2EeSYnpokEk5owg" name="className" kind="INOUT">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_4GkNYMc2EeSYnpokEk5owg" name="Lhs">
