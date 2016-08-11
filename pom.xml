@@ -21,7 +21,9 @@
 		<module>examples</module>
 		<module>features</module>
 		<module>releng</module>
+		<!--
 		<module>tests</module>
+		-->
 		<module>tooling/at.ac.tuwien.big.momot.tooling</module>
 	</modules>
 	
