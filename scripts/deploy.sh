@@ -26,7 +26,7 @@ rm -rf eclipse/updates/latest/develop/** || exit 0
 
 # Copy compiled update site to gh-pages
 cp -rf $TRAVIS_BUILD_DIR/releng/at.ac.tuwien.big.momot.update/target/repository/** eclipse/updates/latest/develop/
-cp -f eclipse/updates/previous/v1.0.0/index.md eclipse/updates/latest/develop/
+cp -f eclipse/updates/archive/v1.0.0/index.md eclipse/updates/latest/develop/
 
 # Now let's go have some fun with the cloned repo
 git config user.name "Travis CI"
