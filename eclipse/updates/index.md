@@ -11,8 +11,8 @@ The **stable** update site contains the latest released version of MOMoT.
 
 | Release | Eclipse Update Site URL |
 | --- | --- |
-| Development | `http://martin-fleck.github.io/momot/eclipse/updates/latest/develop/` |
-| Stable | `http://martin-fleck.github.io/momot/eclipse/updates/latest/stable/` |
+| Development | [`http://martin-fleck.github.io/momot/eclipse/updates/latest/develop/`](http://martin-fleck.github.io/momot/eclipse/updates/latest/develop/) |
+| Stable | [`http://martin-fleck.github.io/momot/eclipse/updates/latest/stable/`](http://martin-fleck.github.io/momot/eclipse/updates/latest/stable/) |
 
 In certain points in time during the development, a release gets pushed to the stable update site.
 At this point the stable branch wanders into the archive.
@@ -20,7 +20,7 @@ Currently the following archived states are available:
 
 | Release | Eclipse Update Site URL |
 | --- | --- |
-| Version 1.0.0 | `http://martin-fleck.github.io/momot/eclipse/updates/archive/v1.0.0/` |
+| Version 1.0.0 | [`http://martin-fleck.github.io/momot/eclipse/updates/archive/v1.0.0/`](http://martin-fleck.github.io/momot/eclipse/updates/archive/v1.0.0/) |
 
 
 
