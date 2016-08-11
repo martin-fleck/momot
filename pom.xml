@@ -295,7 +295,9 @@
 					<useUIHarness>false</useUIHarness>
 					<useUIThread>false</useUIThread>
 					<testFailureIgnore>true</testFailureIgnore>
-					<includes>${test.includes}</includes>
+					<includes>
+						<include>${test.includes}</include>
+					</includes>
 					<!--<showEclipseLog>true</showEclipseLog> -->
 					<!--<testFailureIgnore>true</testFailureIgnore>
 					<jvmArgs>
