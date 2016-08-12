@@ -7,9 +7,10 @@ import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
 import com.google.inject.Inject
 import at.ac.tuwien.big.momot.lang.services.MOMoTGrammarAccess
-
-// import com.google.inject.Inject;
-// import at.ac.tuwien.big.momot.lang.services.MOMoTGrammarAccess
+import org.eclipse.xtext.Keyword
+import org.eclipse.xtext.ParserRule
+import org.eclipse.xtext.TerminalRule
+import org.eclipse.xtext.GrammarUtil
 
 /**
  * This class contains custom formatting declarations.
@@ -21,13 +22,113 @@ import at.ac.tuwien.big.momot.lang.services.MOMoTGrammarAccess
  */
 class MOMoTFormatter extends AbstractDeclarativeFormatter {
 
-   @Inject extension MOMoTGrammarAccess
+	@Inject extension MOMoTGrammarAccess
+  
    
-   override protected void configureFormatting(FormattingConfig c) {
-// It's usually a good idea to activate the following three statements.
-// They will add and preserve newlines around comments
-      c.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
-      c.setLinewrap(0, 1, 2).before(ML_COMMENTRule)
-      c.setLinewrap(0, 1, 1).after(ML_COMMENTRule)
-   }
+	override protected void configureFormatting(FormattingConfig c) {
+		c.autoLinewrap = 120
+		preserveLineBreaks(c, GrammarUtil.getAllKeywords(grammar.grammar));
+		configureCommaStyle(c, ",");
+		configureParenthesisStyle(c, "{", "}");
+		configureInlineParenthesisStyle(c, "[", "]");
+		configureInlineParenthesisStyle(c, "(", ")");
+		preserveNewLinesAroundComments(c, SL_COMMENTRule, ML_COMMENTRule);
+		preserveVariableNames(c, "$");
+		formatImports(c, XImportDeclarationRule);
+		formatNoSpaceBeforeAndAfter(c, ".")		
+	}
+	
+	def void configureInlineParenthesisStyle(FormattingConfig c, String leftParenthesis, String rightParenthesis) {
+		for (pair : findKeywordPairs(leftParenthesis, rightParenthesis)) {
+			c.setNoSpace.before(pair.first);
+			c.setNoSpace.after(pair.first);
+			c.setLinewrap(0, 1, 1).after(pair.first);
+			c.setNoSpace.before(pair.second);
+			c.setLinewrap(0, 1, 1).after(pair.second);
+		}
+	}
+	
+	def void formatNoSpaceBeforeAndAfter(FormattingConfig c, String... keywords) {
+		for(keyword : findKeywords(keywords)) {
+			c.setNoSpace.before(keyword)
+			c.setNoSpace.after(keyword)
+		}
+	}
+   
+	def void preserveLineBreaks(FormattingConfig c, String... keywords) {
+		for(keyword : findKeywords(keywords))
+			c.setLinewrap(0, 1, 2).before(keyword)
+	}
+   
+   /**
+	 * Configures c to have a space before the leftParenthesis and a line wrap 
+	 * after and to have a line wrap before and after the rightParenthesis. The
+	 * lines between the two are indented. 
+	 * 
+	 * @param c the configuration to be adapted
+	 * @param leftParenthesis the string symbol for left parenthesis, e.g., '('
+	 * @param rightParenthesis the string symbol for right parenthesis, e.g., 
+	 * ')'
+	 */
+	def void configureParenthesisStyle(FormattingConfig c, String leftParenthesis, String rightParenthesis) {
+		for (pair : findKeywordPairs(leftParenthesis , rightParenthesis)) {
+			c.setSpace(" ").before(pair.first);
+			c.setLinewrap().after(pair.first);
+			c.setLinewrap().before(pair.second);
+			c.setIndentationIncrement().after(pair.first);
+			c.setIndentationDecrement().before(pair.second);
+			c.setLinewrap().after(pair.second);
+		}
+	}
+	
+	/**
+	 * Configures c to have no line wrap or space before the comma, but a line wrap
+	 * after.
+	 * @param c the configuration to be adapted
+	 * @param comma the string for comma, e.g., ',' or ';'
+	 */
+	def void configureCommaStyle(FormattingConfig c, String comma) {
+		for (Keyword kw : getGrammarAccess().findKeywords(comma)) {
+			 c.setNoLinewrap().before(kw);
+			 c.setNoSpace().before(kw);
+			 c.setLinewrap().after(kw);
+		 }
+	}
+	
+	/**
+	 * Preserve new lines around single-line comments and multi-line comments.
+	 * @param c the configuration to be adapted
+	 * @param SLcommentRule rule for single-line comment
+	 * @param MLcommentRule rule for multi-line comment
+	 */
+	def void preserveNewLinesAroundComments(FormattingConfig c, TerminalRule SLcommentRule, TerminalRule MLcommentRule) {
+		// It's usually a good idea to activate the following three statements.
+		// They will add and preserve newlines around comments
+		c.setLinewrap(0, 1, 2).before(SLcommentRule);
+		c.setLinewrap(0, 1, 2).before(MLcommentRule);
+		c.setLinewrap(0, 1, 1).after(MLcommentRule);
+	}
+	
+	/**
+	 * Makes sure that a space is before the prefix, but not after.
+	 * @param c the configuration to be adapted
+	 * @param prefix list of considered prefix characters, e.g., '$'
+	 */
+	def void preserveVariableNames(FormattingConfig c, String...prefix) {
+		for(Keyword kw : getGrammarAccess().findKeywords(prefix)) {
+			c.setSpace(" ").before(kw);
+			c.setNoSpace().after(kw);
+		}
+	}
+	
+	/**
+	 * Formats the imports so that within a block of imports there is no empty
+	 * line in between, but there is an empty line after the block.
+	 * @param c the configuration to be adapted
+	 * @param importRule the rule used for imports
+	 */
+	def void formatImports(FormattingConfig c, ParserRule importRule) {
+		c.setLinewrap(0, 1, 2).before(importRule);
+		c.setLinewrap(1, 1, 2).after(importRule);
+	}
 }

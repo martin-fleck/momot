@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="at.ac.tuwien.big.momot.examples.feature"
-      label="%featureName"
+      label="%Bundle-Name"
       version="2.0.0.qualifier"
-      provider-name="%providerName"
+      provider-name="%Bundle-Vendor"
       plugin="at.ac.tuwien.big.momot.branding">
 
    <description url="http://martin-fleck.github.io/momot/">
