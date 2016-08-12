@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>at.ac.tuwien.big.momot</groupId>
+		<artifactId>at.ac.tuwien.big.momot.parent</artifactId>
+		<version>2.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>at.ac.tuwien.big.momot.releng</artifactId>
+	<name>MOMoT Releng</name>
+	<description>This plug-in contains the different modules related to the release engineering of MOMoT: update site.</description>
+	<packaging>pom</packaging>
+	<modules>
+		<module>at.ac.tuwien.big.momot.update</module>
+	</modules>
+</project>

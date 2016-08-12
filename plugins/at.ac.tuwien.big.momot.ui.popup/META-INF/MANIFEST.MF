@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-Description: %Bundle-Description
+Bundle-Vendor: %Bundle-Vendor
+Bundle-SymbolicName: at.ac.tuwien.big.momot.ui.popup;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Activator: at.ac.tuwien.big.momot.popup.Activator
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.11.1,4.0.0)",
+ org.eclipse.core.resources;bundle-version="[3.10.1,4.0.0)",
+ org.eclipse.ui;bundle-version="[3.107.0,4.0.0)",
+ org.eclipse.ui.console;bundle-version="[3.6.0,4.0.0)",
+ org.eclipse.emf.henshin.model;bundle-version="[1.2.0,2.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: com.google.common.base;version="10.0.1"

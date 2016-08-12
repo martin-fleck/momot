@@ -1,0 +1,102 @@
+package at.ac.tuwien.big.momot.examples.ecore.derived
+
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.momot.problem.unit.parameter.increment.IncrementalStringValue
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.momot.^search.solution.repair.TransformationPlaceholderRepairer
+import at.ac.tuwien.big.momot.util.MomotUtil
+import org.moeaframework.core.operator.OnePointCrossover
+import org.moeaframework.core.operator.TournamentSelection
+
+import at.ac.tuwien.big.momot.examples.ecore.modularization.ModularizationPackage
+import at.ac.tuwien.big.momot.examples.ecore.modularization.Language
+import at.ac.tuwien.big.momot.examples.ecore.^fitness.metric.MetricsCalculator
+import at.ac.tuwien.big.momot.examples.ecore.^fitness.metric.LanguageMetrics
+import java.util.Arrays
+import java.util.Collections
+import java.util.Comparators
+import java.util.Comparator
+import at.ac.tuwien.big.momot.examples.ecore.modularization.Module
+
+var attribute = "metrics"
+
+initialization  = {
+	ModularizationPackage.eINSTANCE.class // register package in standalone
+}
+
+search = {
+	model = {
+		file = "input/QVT_module.xmi"
+	}
+	solutionLength = 10
+	transformations = {
+		modules = [ "operations/modularization_rules.henshin" ]
+	}
+	fitness = {
+		preprocess = { // use attribute storage for external calculation
+			val root = MomotUtil.getRoot(solution.execute, typeof(Language))
+			solution.setAttribute(attribute, MetricsCalculator.calculate(root))
+		}
+		objectives = { 
+			Coupling : minimize { // java-like syntax
+				val metrics = solution.getAttribute(attribute, typeof(LanguageMetrics))
+				metrics.coupling
+			}
+			Cohesion : maximize { 
+				val metrics = solution.getAttribute(attribute, typeof(LanguageMetrics))
+				metrics.cohesion
+			}
+			NrModules : maximize {
+				(root as Language).^modules.filter[m | !m.entities.empty].size
+			}
+			MinMaxDiffTest : minimize {
+				val sizes = (root as Language).^modules.filter[m | !m.entities.empty].map[m | m.entities.size]
+				sizes.^max - sizes.min
+			}	
+		}
+		solutionRepairer = new TransformationPlaceholderRepairer
+	}
+	
+	algorithms = {
+		NSGAIII : moea.createNSGAIII(
+				0, 6,
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0), 
+				new TransformationPlaceholderMutation(0.10),
+				new TransformationVariableMutation(orchestration.searchHelper, 0.10))
+	}
+} 
+
+experiment = {
+	populationSize = 300
+	maxEvaluations = 21000
+	nrRuns = 30
+	progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+analysis = {
+	indicators = [ hypervolume generationalDistance contribution ]
+	significance = 0.01
+	show = [ aggregateValues statisticalSignificance individualValues ]
+	outputFile = "output/_test/QVT.txt"
+	printOutput
+}
+
+results = {
+	objectives = {
+		outputFile      = "data/_test/approximationSet/QVT.pf"
+	}
+	solutions  = {
+		outputFile      = "data/_test/models/QVT/solutions.txt"
+		outputDirectory = "data/_test/models/QVT/"
+	}
+	models = {
+		outputDirectory = "data/_test/models/QVT/"
+	}
+}
+
+finalization = {
+	System.out.println("Done.")
+}

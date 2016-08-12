@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="at.ac.tuwien.big.momot.feature" version="0.0.0">
+      <category name="at.ac.tuwien.big.momot.category"/>
+   </feature>
+   <feature id="at.ac.tuwien.big.momot.lang.feature" version="0.0.0">
+      <category name="at.ac.tuwien.big.momot.category"/>
+   </feature>
+   <feature id="at.ac.tuwien.big.momot.examples.feature" version="0.0.0">
+      <category name="at.ac.tuwien.big.momot.category"/>
+   </feature>
+   <category-def name="at.ac.tuwien.big.momot.category" label="MOMoT">
+      <description>
+         Marrying Optimization and Model Transformations: Combining search-based optimization heuristics with model transformations to solve highly complex problems on the model level.
+      </description>
+   </category-def>
+</site>

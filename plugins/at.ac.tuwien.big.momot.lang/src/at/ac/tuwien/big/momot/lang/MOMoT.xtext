@@ -1,0 +1,263 @@
+grammar at.ac.tuwien.big.momot.lang.MOMoT with org.eclipse.xtext.xbase.Xbase
+
+import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
+generate momot "http://www.big.tuwien.ac.at/momot/lang/MOMoT"
+
+MOMoTSearch:
+   ("package" package=QualifiedName)?
+   importSection=XImportSection?   
+   variables += VariableDeclaration*
+   
+   ("initialization" OpSingleAssign initialization = XBlockExpression)?
+   "search" (name=ValidID)? OpSingleAssign searchOrchestration = SearchOrchestration
+   "experiment" OpSingleAssign experimentOrchestration = ExperimentOrchestration
+   ("analysis" OpSingleAssign analysisOrchestration = AnalysisOrchestration)?
+   ("results" OpSingleAssign resultManagement = ResultManagement)?
+   ("finalization" OpSingleAssign finalization = XBlockExpression)?
+;
+
+OpKeyAssign:
+   ":"
+;
+
+VariableDeclaration:
+   "var" type=JvmTypeReference? name=ValidID (OpSingleAssign init=XExpression)?
+;
+
+ArrayLiteral returns xbase::XListLiteral:
+   {xbase::XListLiteral}
+   '[' elements+=XExpression (',' elements+=XExpression )* ']'
+;
+
+ModuleOrchestration:
+   "{"
+      "modules" OpSingleAssign modules = ArrayLiteral 
+      ("ignoreUnits" OpSingleAssign unitsToRemove = ArrayLiteral)?
+      ("ignoreParameters" OpSingleAssign nonSolutionParameters = ArrayLiteral)? 
+      ("parameterValues" OpSingleAssign "{"
+            (parameterValues += ParmeterValueSpecification)*
+      "}")? 
+   "}"
+;
+
+ParmeterValueSpecification:
+   {ParmeterValueSpecification}
+   name=XExpression OpKeyAssign call=XConstructorCall
+;
+
+SearchOrchestration:
+   {SearchOrchestration}
+   "{"
+      "model" OpSingleAssign model = InputModel
+      "solutionLength" OpSingleAssign solutionLength = XExpression
+      "transformations" OpSingleAssign moduleOrchestration = ModuleOrchestration
+      "fitness" OpSingleAssign fitnessFunction = FitnessFunctionSpecification
+      "algorithms" OpSingleAssign algorithms = AlgorithmList
+      ("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)?
+   "}"
+;
+
+InputModel:
+   "{"
+      "file" OpSingleAssign path = XExpression 
+      ("adapt" OpSingleAssign adaptation=XBlockExpression)?
+   "}"
+;
+
+EqualityHelper:
+   (call = XConstructorCall | method = XBlockExpression)
+;
+
+AlgorithmList:
+   "{" (specifications += AlgorithmSpecification)+ "}"
+;
+
+FitnessFunctionSpecification:
+   (constructor = XConstructorCall)? "{"
+      ("preprocess" OpSingleAssign preprocess = XBlockExpression)?
+      "objectives" OpSingleAssign "{"
+         (objectives += FitnessDimensionSpecification)+
+      "}"
+      ("constraints" OpSingleAssign "{"
+           (constraints += FitnessDimensionSpecification)+
+      "}")?
+      ("postprocess" OpSingleAssign postprocess = XBlockExpression)?
+      ("solutionRepairer" OpSingleAssign solutionRepairer = XConstructorCall)?
+   "}"
+;
+
+FitnessDimensionSpecification:
+   FitnessDimensionConstructor |
+   FitnessDimensionXBase |
+   FitnessDimensionOCL
+;
+
+enum FitnessDimensionType:
+   MINIMIZE = "minimize" | MAXIMIZE = "maximize"
+;
+
+FitnessDimensionConstructor:
+   name=ValidID OpKeyAssign type=FitnessDimensionType call=XConstructorCall
+;
+
+FitnessDimensionXBase:
+   name=ValidID OpKeyAssign type=FitnessDimensionType value=XBlockExpression
+;
+
+FitnessDimensionOCL:
+   name=ValidID OpKeyAssign type=FitnessDimensionType query=XStringLiteral 
+   ("{" defExpressions += DefExpression* "}")?
+;
+
+DefExpression:
+   "def" expression = STRING
+;
+
+AlgorithmSpecification:
+   name=ValidID OpKeyAssign call=XExpression
+;
+
+ExperimentOrchestration:
+   {ExperimentOrchestration}
+   "{"
+      "populationSize" OpSingleAssign populationSize = XExpression
+      "maxEvaluations" OpSingleAssign maxEvaluations = XExpression
+      "nrRuns" OpSingleAssign nrRuns = XNumberLiteral
+      ("referenceSet" OpSingleAssign referenceSet = XExpression)?
+      ("progressListeners" OpSingleAssign "[" (progressListeners += XConstructorCall ("," progressListeners += XConstructorCall)*)? "]")?
+      ("collectors" OpSingleAssign "[" (collectors = CollectorArray customCollectors+= XConstructorCall ("," customCollectors += XConstructorCall)*)? "]")?
+   "}"
+;
+
+CollectorArray:
+   {CollectorArray}
+      ((hypervolume ?= "hypervolume")? & 
+      (generationalDistance ?= "generationalDistance")? & 
+      (invertedGenerationalDistance ?= "invertedGenerationalDistance")? & 
+      (spacing ?= "spacing")? & 
+      (additiveEpsilonIndicator ?= "additiveEpsilonIndicator")? & 
+      (contribution ?= "contribution")? & 
+      (r1 ?= "R1")? & 
+      (r2 ?= "R2")? & 
+      (r3 ?= "R3")? & 
+      (adaptiveMultimethodVariation ?= "adaptiveMultimethodVariation")? &
+      (adaptiveTimeContinuation ?= "adaptiveTimeContinuation")? &
+      (approximationSet ?= "approximationSet")? &
+      (epsilonProgress ?= "epsilonProgress")? &
+      (elapsedTime ?= "elapsedTime")? &
+      (populationSize ?= "populationSize")?)
+;
+
+AnalysisOrchestration:
+   "{"
+      "indicators" OpSingleAssign indicators=IndicatorArray &
+      "significance" OpSingleAssign significance=XNumberLiteral &
+      "show" OpSingleAssign show=ShowArray &
+      ("grouping" OpSingleAssign grouping = AnalysisGroupList)? &
+      (saveCommand = SaveAnalysisCommand)? &
+      (boxplotCommand = BoxplotCommand)? &
+      (printCommand = PrintAnalysisCommand)?
+   "}"
+;
+
+AnalysisGroupList:
+   "{"   (group += AnalysisGroupSpecification)+ "}"
+;
+
+IndicatorArray:
+   {IndicatorArray}
+   "["
+      ((hypervolume ?= "hypervolume")? & 
+      (generationalDistance ?= "generationalDistance")? & 
+      (invertedGenerationalDistance ?= "invertedGenerationalDistance")? & 
+      (spacing ?= "spacing")? & 
+      (additiveEpsilonIndicator ?= "additiveEpsilonIndicator")? & 
+      (contribution ?= "contribution")? & 
+      (r1 ?= "R1")? & 
+      (r2 ?= "R2")? & 
+      (r3 ?= "R3")? & 
+      (maximumParetoFrontError ?= "maximumParetoFrontError")?)
+   "]"
+;
+
+ShowArray:
+   {ShowArray}
+   "["
+      ((individual ?= "individualValues")? &
+      (aggregate ?= "aggregateValues")? &
+      (statisticalSignificance ?= "statisticalSignificance")?)
+   "]"
+;
+
+AnalysisGroupSpecification:
+   {AnalysisGroupSpecification}
+   name=ValidID OpKeyAssign algorithms=AlgorithmReferences
+;
+
+AlgorithmReferences:
+   {AlgorithmReferences}
+   "[" (elements+=[AlgorithmSpecification] (',' elements+=[AlgorithmSpecification] )*)? "]"
+;
+
+AnalysisCommand:
+   PrintAnalysisCommand | SaveAnalysisCommand | BoxplotCommand
+;
+
+PrintAnalysisCommand:
+   {PrintAnalysisCommand}
+   "printOutput"
+;
+
+SaveAnalysisCommand:
+   "outputFile" OpSingleAssign file=XStringLiteral
+;
+
+BoxplotCommand:
+   "boxplotDirectory" OpSingleAssign directory=XStringLiteral
+;
+
+ResultManagement:
+   {ResultManagement}
+   "{"
+      ("adaptModels" OpSingleAssign adaptModels=XBlockExpression)?
+      (commands += ResultManagementCommand)+
+    "}"
+;
+
+ResultManagementCommand:
+   ObjectivesCommand | SolutionsCommand | ModelsCommand 
+;
+
+ObjectivesCommand:
+   {ObjectivesCommand}
+   "objectives" OpSingleAssign "{"
+      (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+      ("neighborhoodSize" OpSingleAssign  &
+      (neighborhoodSize = INT | maxNeighborhoodSize ?= "maxNeighborhoodSize"))? &
+      ("outputFile" OpSingleAssign file=STRING)? &
+      (printOutput ?= "printOutput")?)
+   "}"
+;
+
+SolutionsCommand:
+   {SolutionsCommand}
+   "solutions" OpSingleAssign "{"
+      (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+      ("neighborhoodSize" OpSingleAssign &
+      (neighborhoodSize = INT | maxNeighborhoodSize ?= "maxNeighborhoodSize"))? &
+      ("outputFile" OpSingleAssign file=STRING)? &
+      ("outputDirectory" OpSingleAssign directory=STRING)? &
+      (printOutput ?= "printOutput")?)
+   "}"
+;
+
+ModelsCommand:
+   {ModelsCommand}
+   "models" OpSingleAssign "{"
+      (("algorithms" OpSingleAssign algorithms=AlgorithmReferences)? &
+      ("neighborhoodSize" OpSingleAssign  &
+      (neighborhoodSize = INT | maxNeighborhoodSize ?= "maxNeighborhoodSize"))? &
+      ("outputDirectory" OpSingleAssign directory=STRING)? &
+      (printOutput ?= "printOutput")?)
+   "}"
+;

@@ -1,0 +1,42 @@
+target "MOMoT Mars"
+
+location "http://download.eclipse.org/releases/mars/" {
+	org.eclipse.platform.feature.group lazy
+	org.eclipse.jdt.feature.group lazy
+	org.eclipse.emf.feature.group lazy
+	org.eclipse.emf.mwe2.language.sdk.feature.group lazy
+    org.eclipse.emf.mwe2.runtime.sdk.feature.group lazy
+    org.eclipse.emf.mwe.core.feature.group lazy
+	org.eclipse.ocl.feature.group lazy
+	org.eclipse.xtext.sdk.feature.group lazy
+	org.eclipse.xtext.xbase.feature.group lazy
+	org.eclipse.xtext.xbase.lib.feature.group lazy
+	org.eclipse.xtend.feature.group lazy
+	org.eclipse.xtend.sdk.feature.group lazy
+	org.eclipse.xpand.feature.group lazy
+	org.eclipse.uml2.feature.group lazy
+	org.eclipse.draw2d.feature.group lazy
+	org.eclipse.gef.feature.group lazy
+	org.eclipse.gmf.feature.group lazy 
+	org.eclipse.gmf.runtime.notation.feature.group lazy
+	org.eclipse.gmf.tooling.feature.group lazy
+	org.eclipse.gmf.tooling.runtime.feature.group lazy
+	org.eclipse.m2e.feature.feature.group lazy
+    org.eclipse.emf.compare.diagram.gmf.feature.group lazy
+    org.eclipse.emf.compare.diagram.papyrus.feature.group lazy
+    org.eclipse.emf.compare.feature.group lazy
+    org.eclipse.emf.compare.ide.ui.feature.group lazy
+	org.eclipse.emf.validation.feature.group lazy
+}
+
+location "http://download.eclipse.org/modeling/emft/henshin/updates/release" {
+	org.eclipse.emf.henshin.sdk.feature.group lazy
+}
+
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository" {
+	com.google.guava lazy
+	com.google.inject lazy
+	org.objectweb.asm lazy
+	org.apache.commons.lang lazy
+}
+

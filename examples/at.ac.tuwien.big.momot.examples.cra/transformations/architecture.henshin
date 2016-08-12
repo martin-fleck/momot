@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_8ZYPIL2uEeS_0ey2v1ry_A">
+  <imports href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_4FwVEMc2EeSYnpokEk5owg" name="reassignFeature">
+    <parameters xmi:id="_6wTPwMc2EeSYnpokEk5owg" name="featureName" kind="INOUT">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_6wTPwcc2EeSYnpokEk5owg" name="className" kind="INOUT">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_4GkNYMc2EeSYnpokEk5owg" name="Lhs">
+      <nodes xmi:id="_6wZWYMc2EeSYnpokEk5owg" name="root" outgoing="_8BUywMc2EeSYnpokEk5owg _AiZKMMc3EeSYnpokEk5owg _D00kQsc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel"/>
+      </nodes>
+      <nodes xmi:id="_8BTkoMc2EeSYnpokEk5owg" incoming="_8BUywMc2EeSYnpokEk5owg" outgoing="_GRdl0Mc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Feature"/>
+        <attributes xmi:id="__VerIMc2EeSYnpokEk5owg" value="featureName">
+          <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AiYjIMc3EeSYnpokEk5owg" name="class" incoming="_AiZKMMc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Class"/>
+        <attributes xmi:id="_BgqJQMc3EeSYnpokEk5owg" value="className">
+          <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_D0z9MMc3EeSYnpokEk5owg" name="assignedClass" incoming="_D00kQsc3EeSYnpokEk5owg _GRdl0Mc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Class"/>
+      </nodes>
+      <edges xmi:id="_8BUywMc2EeSYnpokEk5owg" source="_6wZWYMc2EeSYnpokEk5owg" target="_8BTkoMc2EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel/features"/>
+      </edges>
+      <edges xmi:id="_AiZKMMc3EeSYnpokEk5owg" source="_6wZWYMc2EeSYnpokEk5owg" target="_AiYjIMc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel/classes"/>
+      </edges>
+      <edges xmi:id="_D00kQsc3EeSYnpokEk5owg" source="_6wZWYMc2EeSYnpokEk5owg" target="_D0z9MMc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel/classes"/>
+      </edges>
+      <edges xmi:id="_GRdl0Mc3EeSYnpokEk5owg" source="_8BTkoMc2EeSYnpokEk5owg" target="_D0z9MMc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Feature/isEncapsulatedBy"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_4GkNYcc2EeSYnpokEk5owg" name="Rhs">
+      <nodes xmi:id="_6wZWYcc2EeSYnpokEk5owg" name="root" outgoing="_8BVZ0Mc2EeSYnpokEk5owg _AiZKMcc3EeSYnpokEk5owg _CZfAoOFYEeWmNeUGgCaVLg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel"/>
+      </nodes>
+      <nodes xmi:id="_8BTkocc2EeSYnpokEk5owg" incoming="_8BVZ0Mc2EeSYnpokEk5owg" outgoing="_F7wbkMc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Method"/>
+        <attributes xmi:id="__VerIcc2EeSYnpokEk5owg" value="featureName">
+          <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AiYjIcc3EeSYnpokEk5owg" name="class" incoming="_AiZKMcc3EeSYnpokEk5owg _F7wbkMc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Class"/>
+        <attributes xmi:id="_BgqJQcc3EeSYnpokEk5owg" value="className">
+          <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_CZeZkOFYEeWmNeUGgCaVLg" name="assignedClass" incoming="_CZfAoOFYEeWmNeUGgCaVLg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Class"/>
+      </nodes>
+      <edges xmi:id="_8BVZ0Mc2EeSYnpokEk5owg" source="_6wZWYcc2EeSYnpokEk5owg" target="_8BTkocc2EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel/features"/>
+      </edges>
+      <edges xmi:id="_AiZKMcc3EeSYnpokEk5owg" source="_6wZWYcc2EeSYnpokEk5owg" target="_AiYjIcc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel/classes"/>
+      </edges>
+      <edges xmi:id="_F7wbkMc3EeSYnpokEk5owg" source="_8BTkocc2EeSYnpokEk5owg" target="_AiYjIcc3EeSYnpokEk5owg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//Feature/isEncapsulatedBy"/>
+      </edges>
+      <edges xmi:id="_CZfAoOFYEeWmNeUGgCaVLg" source="_6wZWYcc2EeSYnpokEk5owg" target="_CZeZkOFYEeWmNeUGgCaVLg">
+        <type href="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0#//ClassModel/classes"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_6wZWYsc2EeSYnpokEk5owg" origin="_6wZWYMc2EeSYnpokEk5owg" image="_6wZWYcc2EeSYnpokEk5owg"/>
+    <mappings xmi:id="_8BTkosc2EeSYnpokEk5owg" origin="_8BTkoMc2EeSYnpokEk5owg" image="_8BTkocc2EeSYnpokEk5owg"/>
+    <mappings xmi:id="_AiYjIsc3EeSYnpokEk5owg" origin="_AiYjIMc3EeSYnpokEk5owg" image="_AiYjIcc3EeSYnpokEk5owg"/>
+    <mappings xmi:id="_CZeZkeFYEeWmNeUGgCaVLg" origin="_D0z9MMc3EeSYnpokEk5owg" image="_CZeZkOFYEeWmNeUGgCaVLg"/>
+  </units>
+</henshin:Module>

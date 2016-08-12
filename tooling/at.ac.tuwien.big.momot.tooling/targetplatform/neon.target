@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="MOMoT Neon" sequenceNumber="1468790738">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.mwe.core.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.ocl.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.xbase.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.xbase.lib.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtend.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtend.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xpand.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.uml2.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.draw2d.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.gef.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.gmf.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.gmf.runtime.notation.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.gmf.tooling.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.gmf.tooling.runtime.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.compare.diagram.gmf.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.compare.diagram.papyrus.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.compare.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.validation.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/releases/neon/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.emf.henshin.sdk.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/modeling/emft/henshin/updates/release"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="com.google.guava" version="0.0.0"/>
+<unit id="com.google.inject" version="0.0.0"/>
+<unit id="org.objectweb.asm" version="0.0.0"/>
+<unit id="org.apache.commons.lang" version="0.0.0"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository"/>
+</location>
+</locations>
+</target>

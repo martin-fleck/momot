@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-Description: %Bundle-Description
+Bundle-Vendor: %Bundle-Vendor
+Bundle-SymbolicName: at.ac.tuwien.big.momot.examples.wizards;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Activator: at.ac.tuwien.big.momot.examples.wizards.Activator
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.11.1,4.0.0)",
+ org.eclipse.core.resources;bundle-version="[3.10.1,4.0.0)",
+ org.eclipse.ui;bundle-version="[3.107.0,4.0.0)",
+ org.eclipse.emf.common;bundle-version="[2.11.1,3.0.0)",
+ org.eclipse.emf.common.ui;bundle-version="[2.10.1,3.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+

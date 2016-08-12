@@ -1,0 +1,67 @@
+# Complete build lifecycle:
+#  1. Install apt addons
+#  2. before_install
+#  3. install
+#  4. before_script
+#  5. script
+#  6. after_success or after_failure
+#  7. OPTIONAL before_deploy
+#  8. OPTIONAL deploy
+#  9. OPTIONAL after_deploy
+# 10. after_script
+#
+# If before_install, install or before_script return a non-zero exit code, the build is errored and stops immediately.
+# If script returns a non-zero exit code, the build is failed, but continues to run before being marked as failed.
+#
+# When using UI tests, need to set display and start xvfb (X Virtual Framebuffer) to imitate a display
+
+sudo: false
+language: java # Use Java build
+jdk:
+  - oraclejdk8 # Use JDK 8
+cache:
+  directories:
+   - $HOME/.m2 # Cache maven directory between builds
+env:
+  global:
+  - ENCRYPTION_LABEL: "998fe56aa32a"
+  - COMMIT_AUTHOR_EMAIL: "fleck@big.tuwien.ac.at"
+#  - DISPLAY=:99.0 # needed for UI tests
+
+# 1. Install apt addons
+# 
+
+# 2. before install
+before_install:
+  - echo ~
+  - echo "$TRAVIS_BUILD_DIR"
+  - bash ./scripts/copy_examples.sh # Copy supported examples into wizards project
+#  - sh -e /etc/init.d/xvfb start - sleep 10 # use xvfb   for tests requiring a UI
+
+# 3. install
+# Use default installation command: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+install: true # skip installation as this is also done by the script step and we do nothing in the before_script
+
+# 4. before_script
+#   
+
+# 5. script
+# Default script command: mvn test
+script:
+  - mvn clean install
+
+# 6. after_success and after_failure
+after_success:
+  - bash ./scripts/deploy.sh # Deploy generated update site to gh-pages for
+
+# 7. before_deploy
+#
+
+# 8. deploy
+#
+
+# 9. after_deploy
+#
+
+# 10. after_script
+#
