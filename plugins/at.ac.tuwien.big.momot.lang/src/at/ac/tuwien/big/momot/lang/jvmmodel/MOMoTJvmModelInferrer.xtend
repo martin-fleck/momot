@@ -539,7 +539,7 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
                override protected appendTo(TargetStringConcatenation it) {
                   appendLine(moduleManagerRef.type, " manager = new ", moduleManagerRef.type, "();");
                   appendLine("for(String module : ", MOMoTInferrer::Name::FIELD_MODULES, ") {")
-                  appendLine("   manager.addModule(", uriRef.type, ".createURI(new ", fileRef.type, "(module).getPath().toString(), true).toString());")
+                  appendLine("   manager.addModule(", uriRef.type, ".createFileURI(new ", fileRef.type, "(module).getPath().toString()).toString());")
                   appendLine("}")
                   if(transformations.unitsToRemove != null)
                      appendLine("manager.removeUnits(", MOMoTInferrer::Name::FIELD_UNITS_TO_REMOVE, ");");
