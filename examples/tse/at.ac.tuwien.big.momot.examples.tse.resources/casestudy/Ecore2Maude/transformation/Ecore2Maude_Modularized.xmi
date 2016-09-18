@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:modularization="http://www.big.tuwien.ac.at/tosem/modularization" name="ec2ma">
+  <modules name="ec2ma">
+    <rules name="Initialize" helperDependencies="//@modules.0/@helpers.0"/>
+    <rules name="MetamodelEqName" helperDependencies="//@modules.0/@helpers.0 //@modules.0/@helpers.23 //@modules.0/@helpers.32 //@modules.0/@helpers.21"/>
+    <rules name="MetamodelEqPackages" ruleDependencies="//@modules.0/@rules.14 //@modules.0/@rules.16 //@modules.0/@rules.15 //@modules.0/@rules.3" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.32 //@modules.0/@helpers.0 //@modules.0/@helpers.21 //@modules.0/@helpers.9">
+      <bindingTypes>src_EPackage</bindingTypes>
+      <bindingNavigations>src_EPackage.eSuperPackage</bindingNavigations>
+    </rules>
+    <rules name="Package2Operation" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.9 //@modules.0/@helpers.0 //@modules.0/@helpers.21 //@modules.0/@helpers.5 //@modules.0/@helpers.25">
+      <inPattElTypes>src_EPackage</inPattElTypes>
+    </rules>
+    <rules name="PackEqMetamodel" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.25 //@modules.0/@helpers.23 //@modules.0/@helpers.21 //@modules.0/@helpers.0"/>
+    <rules name="PackEqSupPackage" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.21 //@modules.0/@helpers.5 //@modules.0/@helpers.25 //@modules.0/@helpers.0 //@modules.0/@helpers.10 //@modules.0/@helpers.17">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EPackage.Sort</bindingNavigations>
+      <bindingNavigations>trg_EPackage.eSuperPackage</bindingNavigations>
+    </rules>
+    <rules name="PackEqSubPackages" ruleDependencies="//@modules.0/@rules.14 //@modules.0/@rules.16 //@modules.0/@rules.15" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.10 //@modules.0/@helpers.5 //@modules.0/@helpers.25 //@modules.0/@helpers.17 //@modules.0/@helpers.37">
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EPackage.eSubpackages</bindingNavigations>
+    </rules>
+    <rules name="PackEqClasses" ruleDependencies="//@modules.0/@rules.14 //@modules.0/@rules.16 //@modules.0/@rules.15 //@modules.0/@rules.8" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.37 //@modules.0/@helpers.5 //@modules.0/@helpers.25">
+      <bindingTypes>src_EClass</bindingTypes>
+      <bindingNavigations>src_EClass</bindingNavigations>
+    </rules>
+    <rules name="Class2Sort" ruleDependencies="//@modules.0/@rules.9" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.37 //@modules.0/@helpers.5 //@modules.0/@helpers.25 //@modules.0/@helpers.22">
+      <inPattElTypes>src_EClass</inPattElTypes>
+      <bindingNavigations>src_EClass.eSuperTypes.ePackage</bindingNavigations>
+    </rules>
+    <rules name="createSort" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.24">
+      <inPattElTypes>src_EClassifier</inPattElTypes>
+    </rules>
+    <rules name="EqName" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.24 //@modules.0/@helpers.23 //@modules.0/@helpers.32 //@modules.0/@helpers.8 //@modules.0/@helpers.7">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingNavigations>trg_ENamedElement.Sort</bindingNavigations>
+    </rules>
+    <rules name="ClassEqIsAbstract" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.32 //@modules.0/@helpers.5 //@modules.0/@helpers.8 //@modules.0/@helpers.7 //@modules.0/@helpers.31 //@modules.0/@helpers.22"/>
+    <rules name="EqPackage" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.31 //@modules.0/@helpers.5 //@modules.0/@helpers.22 //@modules.0/@helpers.25 //@modules.0/@helpers.8">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EClassifier.Sort</bindingNavigations>
+      <bindingNavigations>trg_EClassifier.ePackage</bindingNavigations>
+    </rules>
+    <rules name="ClassEqSuperTypes" ruleDependencies="//@modules.0/@rules.14 //@modules.0/@rules.16 //@modules.0/@rules.15" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.25 //@modules.0/@helpers.5 //@modules.0/@helpers.8 //@modules.0/@helpers.37 //@modules.0/@helpers.22">
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EClassifier.eSuperTypes</bindingNavigations>
+    </rules>
+    <rules name="EmptyList" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.37 //@modules.0/@helpers.5 //@modules.0/@helpers.22 //@modules.0/@helpers.18">
+      <inPattElTypes>src_org.eclipse.m2m.atl.engine.emfvm.lib.OclUndefined@1d9a72</inPattElTypes>
+    </rules>
+    <rules name="NamedElList" ruleDependencies="//@modules.0/@rules.16" helperDependencies="//@modules.0/@helpers.18 //@modules.0/@helpers.37 //@modules.0/@helpers.19">
+      <inPattElTypes>src_org.eclipse.m2m.atl.engine.emfvm.lib.OclUndefined@1d9a72</inPattElTypes>
+    </rules>
+    <rules name="NamedElConstant" helperDependencies="//@modules.0/@helpers.19 //@modules.0/@helpers.37 //@modules.0/@helpers.5 //@modules.0/@helpers.8">
+      <bindingTypes>src_Sort</bindingTypes>
+      <inPattElTypes>src_ENamedElement</inPattElTypes>
+      <bindingNavigations>src_ENamedElement.Sort</bindingNavigations>
+    </rules>
+    <rules name="ClassEqReferences" ruleDependencies="//@modules.0/@rules.14 //@modules.0/@rules.16 //@modules.0/@rules.15" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.8 //@modules.0/@helpers.23 //@modules.0/@helpers.37 //@modules.0/@helpers.22">
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EClassifier.eReferences</bindingNavigations>
+    </rules>
+    <rules name="ClassEqAttributes" ruleDependencies="//@modules.0/@rules.14 //@modules.0/@rules.16 //@modules.0/@rules.15" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.37 //@modules.0/@helpers.5 //@modules.0/@helpers.22">
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EClassifier.eAttributes</bindingNavigations>
+    </rules>
+    <rules name="Reference2Operation" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.37 //@modules.0/@helpers.5 //@modules.0/@helpers.22 //@modules.0/@helpers.28">
+      <inPattElTypes>src_EReference</inPattElTypes>
+    </rules>
+    <rules name="EqType" ruleDependencies="//@modules.0/@rules.19" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.23 //@modules.0/@helpers.28 //@modules.0/@helpers.12 //@modules.0/@helpers.8 //@modules.0/@helpers.13">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingTypes>src_EReference</bindingTypes>
+      <bindingNavigations>trg_EStructuralFeature.Sort</bindingNavigations>
+      <bindingNavigations>src_EReference</bindingNavigations>
+    </rules>
+    <rules name="RefEqOpposite" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.12 //@modules.0/@helpers.5 //@modules.0/@helpers.8 //@modules.0/@helpers.13 //@modules.0/@helpers.11 //@modules.0/@helpers.28 //@modules.0/@helpers.17">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EReference.Sort</bindingNavigations>
+      <bindingNavigations>trg_EReference.eOpposite</bindingNavigations>
+    </rules>
+    <rules name="EqLowerBound" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.11 //@modules.0/@helpers.5 //@modules.0/@helpers.28 //@modules.0/@helpers.17 //@modules.0/@helpers.30 //@modules.0/@helpers.8">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingNavigations>trg_EStructuralFeature.Sort</bindingNavigations>
+    </rules>
+    <rules name="EqUpperBound" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.30 //@modules.0/@helpers.5 //@modules.0/@helpers.8">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingNavigations>trg_EStructuralFeature.Sort</bindingNavigations>
+    </rules>
+    <rules name="EqContainingClass" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.30 //@modules.0/@helpers.5 //@modules.0/@helpers.8 //@modules.0/@helpers.22">
+      <bindingTypes>trg_Sort</bindingTypes>
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EStructuralFeature.Sort</bindingNavigations>
+      <bindingNavigations>trg_EStructuralFeature.eContainingClass</bindingNavigations>
+    </rules>
+    <rules name="RefEqIsContainment" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.22 //@modules.0/@helpers.5 //@modules.0/@helpers.8 //@modules.0/@helpers.31 //@modules.0/@helpers.28"/>
+    <rules name="EqIsOrdered" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.31 //@modules.0/@helpers.5 //@modules.0/@helpers.28 //@modules.0/@helpers.8"/>
+    <rules name="EqIsUnique" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.31 //@modules.0/@helpers.5 //@modules.0/@helpers.8"/>
+    <rules name="Attribute2Operation" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.31 //@modules.0/@helpers.5 //@modules.0/@helpers.8 //@modules.0/@helpers.29">
+      <inPattElTypes>src_EAttribute</inPattElTypes>
+    </rules>
+    <rules name="AttEqIsId" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.23 //@modules.0/@helpers.29 //@modules.0/@helpers.31"/>
+    <rules name="AttEqSpecificDefaultValue" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.31 //@modules.0/@helpers.5 //@modules.0/@helpers.29 //@modules.0/@helpers.39 //@modules.0/@helpers.1 //@modules.0/@helpers.2 //@modules.0/@helpers.4">
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EAttribute.defaultValueLiteral</bindingNavigations>
+    </rules>
+    <rules name="Enum2Sort" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.39 //@modules.0/@helpers.5 //@modules.0/@helpers.29 //@modules.0/@helpers.1 //@modules.0/@helpers.2 //@modules.0/@helpers.4 //@modules.0/@helpers.34 //@modules.0/@helpers.33">
+      <inPattElTypes>src_EEnum</inPattElTypes>
+    </rules>
+    <rules name="EnumEqMetaAux" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.23 //@modules.0/@helpers.34 //@modules.0/@helpers.33">
+      <bindingNavigations>src_EObject.name</bindingNavigations>
+    </rules>
+    <rules name="EnumEqDefaultValue" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.33 //@modules.0/@helpers.34 //@modules.0/@helpers.5 //@modules.0/@helpers.2">
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EEnum.eLiterals</bindingNavigations>
+    </rules>
+    <rules name="EqLiterals" ruleDependencies="//@modules.0/@rules.35 //@modules.0/@rules.37 //@modules.0/@rules.36" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.34 //@modules.0/@helpers.5 //@modules.0/@helpers.33 //@modules.0/@helpers.2 //@modules.0/@helpers.37">
+      <bindingTypes>of output metamodel</bindingTypes>
+      <bindingNavigations>trg_EClassifier.eLiterals</bindingNavigations>
+    </rules>
+    <rules name="mtOrdConstant" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.37 //@modules.0/@helpers.5 //@modules.0/@helpers.33 //@modules.0/@helpers.16 //@modules.0/@helpers.14">
+      <inPattElTypes>src_org.eclipse.m2m.atl.engine.emfvm.lib.OclUndefined@1d9a72</inPattElTypes>
+    </rules>
+    <rules name="EnumLitList" ruleDependencies="//@modules.0/@rules.37" helperDependencies="//@modules.0/@helpers.16 //@modules.0/@helpers.14 //@modules.0/@helpers.15">
+      <inPattElTypes>src_org.eclipse.m2m.atl.engine.emfvm.lib.OclUndefined@1d9a72</inPattElTypes>
+      <inPattElTypes>src_EEnum</inPattElTypes>
+    </rules>
+    <rules name="EnumLitConstant" helperDependencies="//@modules.0/@helpers.15 //@modules.0/@helpers.14 //@modules.0/@helpers.2 //@modules.0/@helpers.5 //@modules.0/@helpers.34">
+      <inPattElTypes>src_EEnumLiteral</inPattElTypes>
+      <inPattElTypes>src_EEnum</inPattElTypes>
+    </rules>
+    <rules name="EnumLiteral2Operation" helperDependencies="//@modules.0/@helpers.2 //@modules.0/@helpers.5 //@modules.0/@helpers.34 //@modules.0/@helpers.23">
+      <inPattElTypes>src_EEnumLiteral</inPattElTypes>
+      <bindingNavigations>src_EEnumLiteral.eEnum</bindingNavigations>
+    </rules>
+    <rules name="Finalize" helperDependencies="//@modules.0/@helpers.5 //@modules.0/@helpers.23"/>
+    <helpers name="_metamodelName_" helperDependencies="//@modules.0/@helpers.2 //@modules.0/@helpers.3">
+      <helperDepNames>MM_ATL!StringType_processSpecOpChars_</helperDepNames>
+      <helperDepNames>MM_ATL!StringType_processSpecModChars_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!StringType_escapeQuotes_"/>
+    <helpers name="MM_ATL!StringType_processSpecOpChars_"/>
+    <helpers name="MM_ATL!StringType_processSpecModChars_"/>
+    <helpers name="MM_ATL!OclAnyType_maudeLiteralName_enum" helperDependencies="//@modules.0/@helpers.2 //@modules.0/@helpers.6">
+      <helperDepNames>MM_ATL!StringType_processSpecOpChars_</helperDepNames>
+      <helperDepNames>MM_ATL!OclAnyType_maudeNameAux_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_maudeName_" helperDependencies="//@modules.0/@helpers.6 //@modules.0/@helpers.2">
+      <helperDepNames>MM_ATL!OclAnyType_maudeNameAux_</helperDepNames>
+      <helperDepNames>MM_ATL!StringType_processSpecOpChars_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_maudeNameAux_" helperDependencies="//@modules.0/@helpers.5">
+      <helperDepNames>MM_ATL!OclAnyType_maudeName_</helperDepNames>
+    </helpers>
+    <helpers name="ENamedElement__normalizedName_"/>
+    <helpers name="MM_ATL!OclAnyType_maudeSort_" helperDependencies="//@modules.0/@helpers.25 //@modules.0/@helpers.22 //@modules.0/@helpers.28 //@modules.0/@helpers.29 //@modules.0/@helpers.33 //@modules.0/@helpers.34 //@modules.0/@helpers.35">
+      <helperDepNames>_sortPack_</helperDepNames>
+      <helperDepNames>_sortClass_</helperDepNames>
+      <helperDepNames>_sortRef_</helperDepNames>
+      <helperDepNames>_sortAtt_</helperDepNames>
+      <helperDepNames>_sortEnumeration_</helperDepNames>
+      <helperDepNames>_sortEnumInst_</helperDepNames>
+      <helperDepNames>_errorSort_</helperDepNames>
+    </helpers>
+    <helpers name="_lhsType_s" helperDependencies="//@modules.0/@helpers.8 //@modules.0/@helpers.37">
+      <helperDepNames>MM_ATL!OclAnyType_maudeSort_</helperDepNames>
+      <helperDepNames>_myListSort_</helperDepNames>
+    </helpers>
+    <helpers name="EPackage__maudeMaybePackSort_" helperDependencies="//@modules.0/@helpers.38 //@modules.0/@helpers.25">
+      <helperDepNames>_sortOclVoid_</helperDepNames>
+      <helperDepNames>_sortPack_</helperDepNames>
+    </helpers>
+    <helpers name="EReference__maudeMaybeRefSort_" helperDependencies="//@modules.0/@helpers.38 //@modules.0/@helpers.28">
+      <helperDepNames>_sortOclVoid_</helperDepNames>
+      <helperDepNames>_sortRef_</helperDepNames>
+    </helpers>
+    <helpers name="EStructuralFeature__maudeEqTypeAttRef_" helperDependencies="//@modules.0/@helpers.22 //@modules.0/@helpers.26">
+      <helperDepNames>_sortClass_</helperDepNames>
+      <helperDepNames>_sortDataType_</helperDepNames>
+    </helpers>
+    <helpers name="EAttribute__attDataType_" helperDependencies="//@modules.0/@helpers.5">
+      <helperDepNames>MM_ATL!OclAnyType_maudeName_</helperDepNames>
+    </helpers>
+    <helpers name="_listSort_"/>
+    <helpers name="_listOperator_"/>
+    <helpers name="_mtOrdOperator_"/>
+    <helpers name="_nullMaybeOp_"/>
+    <helpers name="_emptyListOp_"/>
+    <helpers name="_myListOp_"/>
+    <helpers name="_mSpec_"/>
+    <helpers name="_sortMetamod_"/>
+    <helpers name="_sortClass_"/>
+    <helpers name="_sModule_"/>
+    <helpers name="_sModuleEcore_"/>
+    <helpers name="_sortPack_"/>
+    <helpers name="_sortDataType_"/>
+    <helpers name="_sortClassifier_"/>
+    <helpers name="_sortRef_"/>
+    <helpers name="_sortAtt_"/>
+    <helpers name="_sortInt_"/>
+    <helpers name="_sortBool_"/>
+    <helpers name="_sortString_"/>
+    <helpers name="_sortEnumeration_"/>
+    <helpers name="_sortEnumInst_"/>
+    <helpers name="_errorSort_"/>
+    <helpers name="_namedElList_"/>
+    <helpers name="_myListSort_"/>
+    <helpers name="_sortOclVoid_"/>
+    <helpers name="_sortBasicType_"/>
+  </modules>
+</modularization:Transformation>

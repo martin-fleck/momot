@@ -1,0 +1,595 @@
+--/*******************************************************************************
+-- * Copyright (c) 2013 Vienna University of Technology.
+-- * All rights reserved. This program and the accompanying materials
+-- * are made available under the terms of the Eclipse Public License v1.0
+-- * which accompanies this distribution, and is available at
+-- * http://www.eclipse.org/legal/epl-v10.html
+-- *
+-- * Contributors:
+-- * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
+-- * Manuel Wimmer (Vienna University of Technology) - initial API and implementation 
+-- *
+-- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- *******************************************************************************/
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/3.0.0/UML
+-- @nsURI JMM=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+-- @path TMM=/ac.at.tuwien.big.metamodels/metamodel/Trace.ecore
+
+
+module CodeModel2UMLClassesDiagram;
+create UCD: UMLMM, TM: TMM from CM: JMM, JP: UMLMM, JPT: UMLMM, EJT: UMLMM, MC: UMLMM,
+		UPT: UMLMM;
+
+-- helpers for Java-based processing
+uses javaLibrary;
+
+helper def: trace: TMM!Trace =
+	OclUndefined;
+
+helper def: parameterization: UMLMM!Package =
+	OclUndefined;
+
+-- if we cannot infer an appropriate type parameter we introduce a proxy element
+helper def: unsupportedParameterType: UMLMM!Class = UMLMM!Class.allInstancesFrom('EJT') -> select(e | e.name = 'UnsupportedTypeParameter') -> first();
+
+entrypoint rule createTrace() {
+	to
+		tr: TMM!Trace (
+		)
+	do {
+		thisModule.trace <- tr;
+	}
+}
+
+rule Model2Model {
+	from
+		s1: JMM!Model
+	to
+		t1: UMLMM!Model (
+			packageImport <- upt,
+			name <- s1.name,
+			packagedElement <- s1.ownedElements -> select(e | not e.proxy) -> append(t2)
+		),
+		t2: UMLMM!Package (
+			name <- 'parameterization'
+		),
+		-- uml primitive types
+		upt: UMLMM!PackageImport (
+			importedPackage <- UMLMM!Model.allInstancesFrom('UPT').first()
+		),
+		-- uml meta-classes
+		mc: UMLMM!PackageImport (
+			importedPackage <- UMLMM!Model.allInstancesFrom('MC').first()
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'Model2Model',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- apply the profile for java generics / proxies
+		t1.applyProfile(UMLMM!Profile.allInstancesFrom('JP').first());
+		
+		   -- the package that covers the parameterized types
+		thisModule.parameterization <- t2;
+		
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule Package2Package {
+	from
+		s1: JMM!Package (
+			not s1.proxy
+		)
+	to
+		t1: UMLMM!Package (
+			name <- s1.name,
+			packagedElement <- s1.ownedPackages -> select(e | not e.proxy) --,
+			-- instead of selecting all required elements here let's do it in the
+					-- corresponding rules
+			-- of ClassDeclaration, EnumDeclaration, InterfaceDeclaration,
+					-- AnnotationTypeDeclaration
+--			packagedElement <- s1.ownedElements -> select(e | not e.proxy) -> select(e
+		-- | not e.oclIsTypeOf(JMM!AnnotationTypeDeclaration))
+			
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'Package2Package',
+			targetElements <- Sequence{t1}
+		)
+	do {		
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule Class2Class {
+	from
+		-- we do not consider classes declared in a AnnotationTypeDeclaration
+		-- since java.lang.Class is mapped to UML class, we need to exclude it here as
+				-- well
+		s1: JMM!ClassDeclaration (
+			not s1.proxy and not s1.refImmediateComposite().
+					oclIsTypeOf(JMM!AnnotationTypeDeclaration) and (s1.
+					refImmediateComposite().getFullyQualifiedPackageName.concat('.').
+					concat(s1.name) <> 'java.lang.Class')
+		)
+	to
+		t1: UMLMM!Class (
+			name <- s1.name,
+			isAbstract <- if s1.modifier.oclIsUndefined() then
+					OclUndefined
+				else
+					s1.modifier.inheritance = 'abstract'
+				endif,
+			--			superClass <- if s1.superClass.oclIsUndefined() then
+					-- OclUndefined
+--						  	else if s1.superClass.type.proxy = false
+--						  	then s1.superClass.type
+--							else OclUndefined endif
+--						  endif,
+			
+--			interfaceRealization <- if s1.superInterfaces.oclIsUndefined() then
+		-- OclUndefined
+--			                        else s1.superInterfaces -> select(e | e.type.proxy
+		-- = false) endif,
+			ownedAttribute <- s1.bodyDeclarations -> select(e | e.
+					oclIsTypeOf(JMM!FieldDeclaration) and not e.proxy),
+			ownedOperation <- s1.bodyDeclarations -> select(e | e.oclIsTypeOf(JMM!MethodDeclaration) and not e.proxy) -> collect(e | thisModule.MethodDeclaration2Operation(e)),
+			ownedOperation <- s1.bodyDeclarations -> select(e | e.oclIsTypeOf(JMM!ConstructorDeclaration) and not e.proxy) -> collect(e | thisModule.ConstructurDeclaration2Operation(e))
+			
+--			ownedOperation <- s1.bodyDeclarations -> select(e | (e.
+--					oclIsTypeOf(JMM!MethodDeclaration) and not e.proxy) or (e.
+--					oclIsTypeOf(JMM!ConstructorDeclaration) and not e.proxy))
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'Class2Class',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		if(thisModule.resolveTemp(s1.refImmediateComposite(), 't1').
+				oclIsTypeOf(UMLMM!Package)) {
+			thisModule.resolveTemp(s1.refImmediateComposite(), 't1').packagedElement <-
+					t1;
+		}
+		else if(thisModule.resolveTemp(s1.refImmediateComposite(), 't1').
+				oclIsTypeOf(UMLMM!Class)) {
+			thisModule.resolveTemp(s1.refImmediateComposite(), 't1').nestedClassifier <-
+					t1;
+		}
+		else {
+			   -- so let's get the package of the owner and put the stereotype there ...
+					-- however 
+			-- there is a problem when we generate code !!!!
+				thisModule.resolveTemp(s1.refImmediateComposite().getJavaPackage(), 't1').
+						packagedElement <- t1;
+		}
+		
+		-- type parameter
+		if(not s1.typeParameters -> isEmpty()) {
+--			thisModule.CreateRedifinableTemplateSignature(s1).ownedParameter <- s1.
+--					typeParameters -> select(e | not e.proxy) -> collect(e | thisModule.
+--					resolveTemp(e, 't2'));
+
+			thisModule.CreateRedifinableTemplateSignature(s1).ownedParameter <- s1.
+					typeParameters -> select(e | not e.proxy) -> collect(e | thisModule.TypeParameter2ClassifierTemplateParameter(e));
+
+			thisModule.resolveTemp(s1, 't1').ownedTemplateSignature <- thisModule.
+					CreateRedifinableTemplateSignature(s1); 
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+unique lazy rule CreateRedifinableTemplateSignature {
+	from
+		s1: JMM!ClassDeclaration
+	to
+		t1: UMLMM!RedefinableTemplateSignature (
+		)
+}
+
+lazy rule TypeParameter2ClassifierTemplateParameter {
+	from
+		s1: JMM!TypeParameter (
+			not s1.proxy
+		)
+	to
+		t2: UMLMM!ClassifierTemplateParameter (
+			ownedParameteredElement <- t1
+		),
+		t1: UMLMM!Class (
+			name <- s1.name
+		)--,
+}
+
+rule Interface2Interface {
+	from
+		-- we do not consider classes declared in a AnnotationTypeDeclaration
+		s1: JMM!InterfaceDeclaration (
+			not s1.proxy and not s1.refImmediateComposite().
+					oclIsTypeOf(JMM!AnnotationTypeDeclaration)
+		)
+	to
+		t1: UMLMM!Interface (
+			name <- s1.name,
+			-- TODO: superInterface
+			ownedAttribute <- s1.bodyDeclarations -> select(e | e.
+					oclIsTypeOf(JMM!FieldDeclaration) and not e.proxy),
+			
+			ownedOperation <- s1.bodyDeclarations -> select(e | e.oclIsTypeOf(JMM!MethodDeclaration) and not e.proxy) -> collect(e | thisModule.MethodDeclaration2Operation(e))	
+					
+--			ownedOperation <- s1.bodyDeclarations -> select(e | e.
+--					oclIsTypeOf(JMM!MethodDeclaration) and not e.proxy)
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'Interface2Interface',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		if(thisModule.resolveTemp(s1.refImmediateComposite(), 't1').
+				oclIsTypeOf(UMLMM!Package)) {
+			thisModule.resolveTemp(s1.refImmediateComposite(), 't1').packagedElement <-
+					t1;
+		}
+		else if(thisModule.resolveTemp(s1.refImmediateComposite(), 't1').
+				oclIsTypeOf(UMLMM!Class)) {
+			thisModule.resolveTemp(s1.refImmediateComposite(), 't1').nestedClassifier <-
+					t1;
+		}
+		else {
+			   -- so let's get the package of the owner and put the stereotype there ...
+					-- however 
+			-- there is a problem when we generate code !!!!
+				thisModule.resolveTemp(s1.refImmediateComposite().getJavaPackage(), 't1').
+						packagedElement <- t1;
+		}
+		
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule EnumDeclaration2Enumeration {
+	from
+		-- we do not consider classes declared in a AnnotationTypeDeclaration
+		s1: JMM!EnumDeclaration (
+			not s1.proxy and not s1.refImmediateComposite().
+					oclIsTypeOf(JMM!AnnotationTypeDeclaration)
+		)
+	to
+		t1: UMLMM!Enumeration (
+			name <- s1.name,
+			ownedLiteral <- s1.enumConstants,
+			ownedAttribute <- s1.bodyDeclarations -> select(e | e.
+					oclIsTypeOf(JMM!FieldDeclaration) and not e.proxy),
+					
+			ownedOperation <- s1.bodyDeclarations -> select(e | e.oclIsTypeOf(JMM!MethodDeclaration) and not e.proxy) -> collect(e | thisModule.MethodDeclaration2Operation(e))					
+					
+--			ownedOperation <- s1.bodyDeclarations -> select(e | e.
+--					oclIsTypeOf(JMM!MethodDeclaration) and not e.proxy)
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'EnumDeclaration2Enumeration',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		-- elements are contained either by packages or classifiers (nested elements)
+		if(not s1.package.oclIsUndefined()) {
+			thisModule.resolveTemp(s1.refImmediateComposite(), 't1').packagedElement <-
+					t1;
+		}
+		-- enum nested in class or interface declaration
+		else if(s1.refImmediateComposite().oclIsTypeOf(JMM!ClassDeclaration) or s1.
+				refImmediateComposite().oclIsTypeOf(JMM!InterfaceDeclaration)) {
+			thisModule.resolveTemp(s1.refImmediateComposite(), 't1').nestedClassifier <-
+					t1;
+		}
+		-- enum nested in enum
+		else {
+			s1.debug('Enumeration nested in Enumeration');	
+		}
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule EnumConstantDeclaration2EnumerationLiteral {
+	from
+		s1: JMM!EnumConstantDeclaration (
+			not s1.proxy
+		)
+	to
+		t1: UMLMM!EnumerationLiteral (
+			name <- s1.name
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'EnumConstantDeclaration2EnumerationLiteral',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;	
+	}
+}
+
+rule FieldDeclaration2Property {
+	from
+		s1: JMM!FieldDeclaration (
+			not s1.proxy and (not s1.refImmediateComposite().refImmediateComposite().
+					oclIsTypeOf(JMM!AnnotationTypeDeclaration)) and (s1.
+					refImmediateComposite().oclIsTypeOf(JMM!ClassDeclaration) or s1.
+					refImmediateComposite().oclIsTypeOf(JMM!InterfaceDeclaration) or s1.
+					refImmediateComposite().oclIsTypeOf(JMM!EnumDeclaration))
+		)
+	to
+		t1: UMLMM!Property (
+			-- TODO: fragments is 0..* - check the exact behaviour!
+			name <- s1.fragments.first().name,
+			-- TODO !!
+			type <- if(s1.type.type.oclIsTypeOf(JMM!ParameterizedType) and not s1.type.
+					type.proxy) 
+				    then s1.type.type
+					-- TODO: how to deal with unsupported ParameterizedTypes, e.g., proxy
+							-- = true
+					else if (s1.type.type.oclIsTypeOf(JMM!ParameterizedType) and s1.type.
+							type.proxy) then
+						OclUndefined
+					else
+						s1.type.getType()
+					endif endif,
+			-- at the PSM level it seems sufficient to use 0..1 multiplicity only
+			lower <- 0,
+			upper <- 1,
+			visibility <- if (not (s1.modifier.visibility = #none)) then
+					s1.modifier.visibility
+				else
+					OclUndefined
+				endif,
+			isStatic <- s1.modifier.static
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'FieldDeclaration2Property',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		-- TODO: we should not simply say JMM!Parameterized !! 
+		if (s1.type.isComplexType() and not s1.type.type.
+				oclIsTypeOf(JMM!ParameterizedType)) {
+			   -- s1.fragments.first().name.debug();
+			thisModule.FieldDeclaration2Association(s1);
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+-- TODO: Support of WildCardTypes, e.g., Map<?>, Map<? extends ...>
+rule ParameterizedFieldDeclaration2BoundedType {
+	from
+		s1: JMM!ParameterizedType (
+			s1.usagesInTypeAccess -> exists(e | e.refImmediateComposite().
+					oclIsTypeOf(JMM!FieldDeclaration)) and not thisModule.
+					javaPrimitiveType.get(s1.type.type.name).oclIsUndefined()
+		)
+	to
+		-- create the data type that is parameterized
+		t1: UMLMM!DataType (
+			name <- s1.type.type.name.concat('<').concat(s1.typeArguments -> first().type.
+					name).concat('>'),
+			templateBinding <- t2
+		),
+		-- the binding between the Template and its 'instantiating' element
+		t2: UMLMM!TemplateBinding (
+			boundElement <- t1,
+			parameterSubstitution <- t3,
+			signature <- if (not thisModule.javaPrimitiveType.get(s1.type.type.name).
+					oclIsUndefined()) then
+					thisModule.javaPrimitiveType.get(s1.type.type.name).ownedTemplateSignature
+				else
+					OclUndefined
+				endif
+		),
+		-- TODO: currently we focus only on Collection<>
+		t3: UMLMM!TemplateParameterSubstitution (
+			-- TODO: may produce a model which violate a constraint
+			actual <- if (s1.typeArguments -> first().type.proxy or s1.typeArguments ->
+					first().type.oclIsTypeOf(JMM!WildCardType)) then
+					thisModule.unsupportedParameterType
+				else
+					if (s1.typeArguments -> first().type.oclIsTypeOf(JMM!TypeParameter) or s1.typeArguments -> first().type.oclIsTypeOf(JMM!ArrayType))
+							then
+						-- thisModule.resolveTemp(s1.typeArguments -> first().type, 't1').debug()
+						thisModule.unsupportedParameterType
+					else
+						 s1.typeArguments -> first().type
+					endif
+				endif,
+			formal <- if (not thisModule.javaPrimitiveType.get(s1.type.type.name).
+					oclIsUndefined()) then
+					thisModule.javaPrimitiveType.get(s1.type.type.name).ownedTemplateSignature.parameter
+							-> first() 
+				else
+					OclUndefined
+				endif
+		)
+	do {
+		thisModule.parameterization.packagedElement <- t1;	
+	}
+}
+
+rule ParameterizedFieldDeclaration2Type {
+	from
+		s1: JMM!ParameterizedType (
+			s1.usedInFieldDeclarationOrSingleVariableDeclaration() 
+--			s1.usagesInTypeAccess -> exists(e | e.refImmediateComposite().
+--			oclIsTypeOf(JMM!FieldDeclaration) or e.refImmediateComposite().
+--			oclIsTypeOf(JMM!SingleVariableDeclaration) or 
+--			e.refImmediateComposite().oclIsTypeOf(JMM!ArrayType))
+			and thisModule.javaPrimitiveType.get(s1.type.type.name).oclIsUndefined()
+		)
+	to
+		-- create the data type that is parameterized
+		t1: UMLMM!DataType (
+			name <- s1.type.type.name.concat('<').concat(s1.typeArguments -> first().type.
+					name).concat('>')
+		)
+	do {
+		thisModule.parameterization.packagedElement <- t1;		
+	}
+}
+
+-- if we have UML properties with a complex type then we should create an UML association
+lazy rule FieldDeclaration2Association {
+	from
+		s1: JMM!FieldDeclaration
+	to
+		t1: UMLMM!Association (
+			name <- if (not s1.type.getType().oclIsUndefined()) then
+					s1.fragments.first().name.concat('_').concat(s1.refImmediateComposite().name).concat('_').concat(s1.type.getType().name)
+				else
+					s1.fragments.first().name.concat('_').concat(s1.refImmediateComposite().name).concat('_').concat(s1.type.type.name)
+				endif,
+			memberEnd <- s1,
+			memberEnd <- t2,
+			--
+			ownedEnd <- t2
+		),
+		t2: UMLMM!Property (
+			-- the idea is to use the name of the Java field plus the classifier the 
+			-- association points to
+			name <- s1.fragments.first().name.concat('_').concat(s1.
+					refImmediateComposite().name),
+			-- visibility ,
+			-- TODO: Think about the multiplicity
+			lower <- 0,
+			upper <- 1,
+			-- TODO
+			type <- s1.refImmediateComposite()
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'AnnotationTypeMemberDeclaration2Association',
+			targetElements <- Sequence{t1}
+		)
+	do {		
+		thisModule.resolveTemp(s1.refImmediateComposite().getPackage(), 't1').
+				packagedElement <- t1;
+		
+			
+   --		if(s1.type.type.oclIsTypeOf(JMM!ArrayType)) {
+--			thisModule.resolveTemp(s1.type.type.elementType.type, 't1').ownedAttribute
+		-- <- t2;
+--		}
+--		else {
+--			thisModule.resolveTemp(s1.type.type, 't1').ownedAttribute <- t2;
+--		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+unique lazy rule MethodDeclaration2Operation {
+	from
+		s1: JMM!MethodDeclaration -- (
+--			not s1.proxy and (s1.refImmediateComposite().
+--					oclIsTypeOf(JMM!ClassDeclaration) or s1.refImmediateComposite().
+--					oclIsTypeOf(JMM!InterfaceDeclaration) or s1.refImmediateComposite().
+--					oclIsTypeOf(JMM!EnumDeclaration))
+--		)
+	to
+		t1: UMLMM!Operation (
+			name <- s1.name,
+			ownedParameter <- s1.parameters -> collect(e | thisModule.SingleVariableDeclaration2Parameter(e))
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'MethodDeclaration2Operation',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- thisModule.applyStereotypes(s1, t1);
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+unique lazy rule ConstructurDeclaration2Operation {
+	from
+		s1: JMM!ConstructorDeclaration -- (
+--			not s1.proxy and s1.refImmediateComposite().oclIsTypeOf(JMM!ClassDeclaration)
+--		)
+	to
+		t1: UMLMM!Operation (
+			name <- s1.name,
+			ownedParameter <- s1.parameters -> collect(e | thisModule.SingleVariableDeclaration2Parameter(e))
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'ConstructurDeclaration2Operation',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- thisModule.applyStereotypes(s1, t1);
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+lazy rule SingleVariableDeclaration2Parameter {
+	from
+		s1: JMM!SingleVariableDeclaration --(
+--			(not s1.proxy) and ( (s1.refImmediateComposite().
+--					oclIsTypeOf(JMM!MethodDeclaration)) or (s1.refImmediateComposite().
+--					oclIsTypeOf(JMM!ConstructorDeclaration)) )
+--		)
+	to
+		t1: UMLMM!Parameter (
+			name <- s1.name,
+			type <- s1.type.getType(),
+			-- TODO: check
+			direction <- #"in" --,
+			-- TODO: type is 0..1 - check also this
+			-- TODO: we need to access the java standard datatypes and classes /
+					-- interfaces
+			-- TODO: Same as with Fields !!
+			-- type <- if s1.type.type.proxy = false or s1.type.isPrimitiveType() then
+					-- s1.type.getType() else OclUndefined endif
+			
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'SingleVariableDeclaration2Paramter',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}

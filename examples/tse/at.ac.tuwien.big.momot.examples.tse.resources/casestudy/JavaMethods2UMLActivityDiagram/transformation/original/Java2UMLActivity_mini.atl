@@ -1,0 +1,892 @@
+module JavaMethods2UMLActivityDiagram_Mini;
+
+create OUT: UML from IN: JAVA, LIB: UML;
+
+uses java2UMLActivityHelpers;
+
+helper def: getIdValueSpecificationAction : Integer = 1;
+helper def: getIdOFLeftOperand2CBA : Integer = 1;
+helper def: getIdOFRightOperand2CBA : Integer = 1;
+helper def: getIdOFExpression2APN : Integer = 1;
+helper def: getIdOFCBA2APN : Integer = 1;
+helper def: getIdOFExpressionOutput2COA : Integer = 1;
+
+rule JModelRootToUmlModelRoot {
+	from 
+		jModelRoot : JAVA!Model
+	to 
+		umlModelRoot : UML!Model (
+			name <- 'root model', 			
+			packagedElement <- jModelRoot.allAbstractMethodDeclaration
+								-> union(UML!Dependency.allInstancesFrom('OUT'))
+								-> append(thisModule.allTypes)
+								
+		)
+}
+---(Anonymous)Class
+abstract rule abstratASTNodeToClass{
+	from
+		s : JAVA!ASTNode
+	to
+		t : UML!Classifier(
+			ownedOperation <- s.bodyDeclarations 
+								-> select(d | d.oclIsTypeOf(JAVA!MethodDeclaration))
+								-> collect(d | thisModule.resolveTemp(d, 'operation'))
+		)
+}
+rule Class extends abstratASTNodeToClass {
+	from
+		s	:	JAVA!ClassDeclaration(not s.originalCompilationUnit.oclIsUndefined())
+	to
+		t	:	UML!Class(
+			name <- s.name,
+			clientDependency <- if (not s.originalCompilationUnit.oclIsUndefined()) then
+									s.originalCompilationUnit.imports
+								else OclUndefined endif
+		)		
+	do{
+		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);
+	}	
+}
+
+abstract rule constructorAndMethod2Activity{
+	from
+		construcOrMethodDec : JAVA!AbstractMethodDeclaration(
+			not construcOrMethodDec.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)	
+		)
+	to
+		act	:	UML!Activity(),
+		operation : UML!Operation(
+			name <- if (not construcOrMethodDec.oclIsKindOf(JAVA!MethodDeclaration)) then
+						'Constructor_'+construcOrMethodDec.getConstructorName
+					else 'Method_'+construcOrMethodDec.getMethodName endif,
+			method <- act,
+			ownedParameter <- if construcOrMethodDec.name<>'main' then 
+								construcOrMethodDec.parameters
+								-> collect(param |thisModule.Parameters2ActivityParameter(param))
+								->append(thisModule.ReturnType2Parameter(construcOrMethodDec.returnType))
+								else Sequence{} endif
+			
+		)
+}
+
+rule Methods2Activity extends constructorAndMethod2Activity {
+	from
+		construcOrMethodDec	:	JAVA!MethodDeclaration	(	
+			(not construcOrMethodDec.body.oclIsUndefined()) 
+				and
+			not construcOrMethodDec.isVoidMethod
+				and
+		 	not construcOrMethodDec.isBuggedModiscoMethod
+				and
+		 	construcOrMethodDec.notInAnnotation	
+		)
+	to
+		act	:	UML!Activity(
+			name <- construcOrMethodDec.getMethodName,
+			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
+			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
+		)
+	do{
+		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
+			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+				thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation -> append(operation)
+			else OclUndefined endif;
+		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior <-
+			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+				if (construcOrMethodDec.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)) then
+					thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior -> append(act)
+				else OclUndefined endif
+			else OclUndefined endif;
+		
+	}		
+}
+
+unique lazy rule Parameters2ActivityParameter{
+	from
+		param	:	JAVA!SingleVariableDeclaration 
+	to	
+		paramAct	:	UML!Parameter(
+			name <- param.name
+		)
+}
+unique lazy rule ReturnType2Parameter{
+	from
+		param	:	JAVA!TypeAccess
+	to	
+		paramAct	:	UML!Parameter(
+			name <- 'return',
+			direction <- #return
+		)
+}
+
+rule VoidMethod2Activity extends constructorAndMethod2Activity {
+	from
+		construcOrMethodDec	:	JAVA!MethodDeclaration	(
+			(not construcOrMethodDec.body.oclIsUndefined()) 
+				and
+			construcOrMethodDec.isVoidMethod
+				and
+			construcOrMethodDec.notInAnnotation	
+		)
+	to
+		act	:	UML!Activity(
+			name <- construcOrMethodDec.getMethodName,
+			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
+			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
+		),
+		operation	:	UML!Operation(
+		)
+		
+	do{
+		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
+			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+				thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation -> append(operation)
+			else OclUndefined endif;
+		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior <-
+			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+				if (construcOrMethodDec.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)) then
+					thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior -> append(act)
+				else OclUndefined endif
+			else OclUndefined endif;
+	}		
+}
+
+abstract rule classInstanceCreation2CreateObject {
+	from
+		ci	:	JAVA!ClassInstanceCreation (	ci.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
+												and ci.notInInitializerOrFieldOrEnum 
+												and ci.notInAnnotation
+		)
+	to 		
+		createObjectAction : UML!CreateObjectAction(
+			name <- 'Constructor Invocation of '+ ci.originalCompilationUnit.name,
+			classifier <- 	if(ci.type.type.oclIsKindOf(JAVA!ParameterizedType))then
+								ci.method.abstractTypeDeclaration.excludeUnresolvedMethodDec
+							else ci.type.type.excludeUnresolvedTypeDec endif,
+			result <- op,			
+			--inStructuredNode <-	ci.getStatement.getSourceTargetOrOwnerSAN, --COMMENTED2
+			activity <- ci.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),		
+		op : UML!OutputPin(
+			name <- 'Result of constructor invocation of ' + ci.originalCompilationUnit.name,
+			type <- if(ci.type.type.oclIsKindOf(JAVA!ParameterizedType))then
+						ci.method.abstractTypeDeclaration.excludeUnresolvedMethodDec
+					else ci.type.type.excludeUnresolvedTypeDec endif
+		)
+}
+
+rule classInstanceCreation2CreateObjectNoArgument extends classInstanceCreation2CreateObject{
+	from
+		ci	:	JAVA!ClassInstanceCreation (
+			ci.arguments -> isEmpty()
+		)
+	to 		
+		createObjectAction : UML!CreateObjectAction()
+
+	do{
+		thisModule.resolveTemp(ci.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(ci.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{createObjectAction});
+	}
+}
+abstract rule methodCallExpressionNotNullArgument{
+	from
+		mi	:	JAVA!MethodInvocation (
+			not mi.method.oclIsUndefined()	
+			and mi.notInInitializerOrFieldOrEnum
+			and if not mi.arguments.oclIsUndefined() then
+					mi.arguments
+						-> select(argue | argue.oclIsKindOf(JAVA!NullLiteral))
+						-> isEmpty()
+				else true endif	
+		)
+	to
+			co	:	UML!CallOperationAction(
+				name <- mi.method.name,
+				operation <- thisModule.resolveTemp(mi.method, 'operation'),
+				activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+				target <- inputPin,
+				result <- op
+			),
+			
+			of1	:	UML!ObjectFlow (
+				name <- 'fromExpressionOutput2COA'.concat('_'+mi.method.name).concat('_'+thisModule.getIdOFExpressionOutput2COA.toString()),
+				activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+				source <- thisModule.resolveTemp(mi.expression, 'op'), --sometimes rewritten in do of son rule
+				target <- inputPin --sometimes rewritten in do of son rule
+			),
+			
+			inputPin	:	UML!InputPin (
+				name <- 'objectInput',
+				incoming <- of1
+			),
+		
+			op	:	UML!OutputPin (
+				name <- 'callOperationActionOutput'
+			)
+}
+rule methodCallExpressionNotNullArgumentNotNullExpress extends methodCallExpressionNotNullArgument{
+	from
+		mi	:	JAVA!MethodInvocation (
+			mi.method.name<>'println' and --MODIF
+			not mi.method.oclIsUndefined()	
+			and mi.notInInitializerOrFieldOrEnum
+			and if not mi.arguments.oclIsUndefined() then
+					mi.arguments
+						-> select(argue | argue.oclIsKindOf(JAVA!NullLiteral))
+						-> isEmpty()
+				else true endif		
+			and not mi.expression.oclIsUndefined()	
+			and if (not mi.method.oclIsUndefined()) then
+					not (mi.method.name = 'clear')
+				else false endif
+		)
+	to
+		co	:	UML!CallOperationAction(
+			name <- mi.method.name,
+			argument <- inputPinArgue,
+			activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),
+		of1	:	UML!ObjectFlow (),
+		of2 : UML!ObjectFlow(
+				name <- 'VSA2COA',
+				activity <- mi.getOwningMethod,
+				source <- thisModule.resolveTemp(mi.arguments->first(), 'op'), --ValueSpecificationAction out
+				target <- inputPinArgue,
+				activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			),
+		inputPinArgue : UML!InputPin (
+			name <- 'target'
+		)
+		do{
+		thisModule.getIdOFExpressionOutput2COA <- thisModule.getIdOFExpressionOutput2COA+1;
+		thisModule.resolveTemp(mi.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(mi.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{co})
+				;
+		thisModule.resolveTemp(mi.getOwningMethod, 'act').edge
+			<- thisModule.resolveTemp(mi.getOwningMethod, 'act').edge 
+				-> union(Sequence{of1})
+				-> union(Sequence{of2});
+	}
+}
+rule methodCallExpressionNotNullArgumentNotNullExpressClear extends methodCallExpressionNotNullArgument{
+	from
+		mi	:	JAVA!MethodInvocation (
+			not mi.method.oclIsUndefined()	
+			and mi.notInInitializerOrFieldOrEnum
+			and if not mi.arguments.oclIsUndefined() then
+					mi.arguments
+						-> select(argue | argue.oclIsKindOf(JAVA!NullLiteral))
+						-> isEmpty()
+				else true endif		
+			and not mi.expression.oclIsUndefined()	
+			and if (not mi.method.oclIsUndefined()) then
+					mi.method.name = 'clear'
+				else false endif
+		)
+	to
+		co	:	UML!CallOperationAction(
+			name <- mi.method.name,
+			argument <- inputPin,
+			inStructuredNode <- mi.getStatement.getSourceTargetOrOwnerSAN,
+			activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),			
+		inputPin :	UML!InputPin ()
+	do{
+		thisModule.getIdOFExpressionOutput2COA <- thisModule.getIdOFExpressionOutput2COA+1;	
+	}
+}		
+
+
+rule numberLiteral2ValueSpecification {
+	from
+		nl	:	JAVA!NumberLiteral (
+			(nl.tokenValue.indexOf('.')=-1) 
+			and nl.notInInitializerOrFieldOrEnum				
+			and nl.notInAnnotation
+		)
+	to 
+		vsa	:	UML!ValueSpecificationAction (
+			name <- thisModule.getIdValueSpecificationAction.toString(),
+			result <- op,
+			value <-vs,
+			activity <- nl.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),
+		vs	:	UML!LiteralInteger(
+			value <- nl.tokenValue.regexReplaceAll('[A-Za-z]', '').toInteger()
+		),
+		op	:	UML!OutputPin (
+			name <- 'resultValueSpecificationActionOutput'	
+		)
+	do{
+		thisModule.getIdValueSpecificationAction <- thisModule.getIdValueSpecificationAction+1;
+		thisModule.resolveTemp(nl.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(nl.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{vsa});
+		if(nl.refImmediateComposite().oclIsTypeOf(JAVA!InfixExpression)){
+			if(nl.refImmediateComposite().operator.toString()='-'){
+				vsa.name <- vsa.name;
+				op.name <- op.name.concat('_inputOfMinus');
+			}
+		}
+		
+	}
+}
+helper context JAVA!ReturnStatement def: getNumberLiteralFromReturnStatement() : OclAny =
+	if (self.expression.oclIsTypeOf(JAVA!SingleVariableAccess))then
+		self.expression.variable.usageInVariableAccess->first().refImmediateComposite().rightHandSide
+	else OclUndefined endif
+;
+helper context JAVA!ReturnStatement def: getInfixExpressionFromReturnStatement() : OclAny =
+	if (self.expression.oclIsTypeOf(JAVA!SingleVariableAccess))then
+		self.expression.variable.usageInVariableAccess->at(2).refImmediateComposite().rightHandSide
+	else OclUndefined endif
+;
+
+abstract rule returnStatementGlobal{
+	from
+		s	:	JAVA!ReturnStatement
+	to
+		ob : UML!ObjectFlow(
+			name <- 'Expression2APN'.concat('_'+thisModule.getIdOFExpression2APN.toString()),
+			activity <- s.getOwningMethod,
+			source <- thisModule.resolveTemp(s.getNumberLiteralFromReturnStatement(), 'op'),
+			target <- apn
+		),
+		ob2 : UML!ObjectFlow(--NEW
+			name <- 'CBA2APN'.concat(thisModule.getIdOFCBA2APN.toString()),
+			activity <- s.getOwningMethod,
+			source <- thisModule.resolveTemp(s.getInfixExpressionFromReturnStatement(), 'op'),--CallBehaviorAction *
+			target <- apn
+		),	
+				
+		apn	:	UML!ActivityParameterNode(
+			name <- 'return',
+			parameter <- paramAct,
+			incoming <- ob,
+			upperBound <- li --MODIF
+		),
+		li : UML!LiteralInteger(
+			value <- 1
+		),
+		paramAct	:	UML!Parameter(
+			name <- 'return',
+			direction <- #return
+		)
+}	
+
+rule returnStatementNoMethodCall extends returnStatementGlobal{
+	from
+		s	:	JAVA!ReturnStatement (
+			not s.isReturnStateGeneratingObjectFlow
+			and not s.isImplicitThisExpression
+			and not s.isInstanceVarUse	
+		)
+	to
+
+	do{
+		thisModule.getIdOFExpression2APN <- thisModule.getIdOFExpression2APN+1;
+		thisModule.getIdOFCBA2APN <- thisModule.getIdOFCBA2APN+1;
+		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
+			<- 	if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
+					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode -> append(apn)
+				else OclUndefined endif;
+		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter 
+			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
+					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
+				else OclUndefined endif;
+	}	
+}
+--looks from an IfStatement through the containers of param
+helper def: getIfStatementFromContainers(param: OclAny) : JAVA!IfStatement =
+	if not param.oclIsUndefined() then
+		if param.refImmediateComposite().oclIsTypeOf(JAVA!IfStatement) then
+			param.refImmediateComposite()
+		else
+			thisModule.getIfStatementFromContainers(param.refImmediateComposite())
+		endif
+	else
+		param
+	endif
+	
+;
+helper context JAVA!InfixExpression def: getMethodInvocationFromInfixExpression() : OclAny =
+	if (self.rightOperand.oclIsTypeOf(JAVA!ParenthesizedExpression))then
+		self.rightOperand.expression
+	else OclUndefined endif
+;
+helper context JAVA!InfixExpression def: getNumberLiteralFromInfixExpression() : OclAny =
+	if (self.rightOperand.oclIsTypeOf(JAVA!NumberLiteral))then
+		self.rightOperand
+	else OclUndefined endif
+;
+rule infixOperatorExpression {
+	from
+		ioe	:	JAVA!InfixExpression ((Sequence{'==','!='}->excludes(ioe.operator.toString()))  
+										and (ioe.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))	
+										and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation)	
+		)
+	to
+		cb	:	UML!CallBehaviorAction(		
+			name <- ioe.operator.toString(), --MODIF
+			activity <- ioe.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			argument <- Sequence{inputPinFirstLeft, inputPinSecondRight},
+			result <- op
+		),
+		
+		inputPinFirstLeft : UML!InputPin (
+			name <- 'first'
+		),
+		of1	:	UML!ObjectFlow (
+			name <- 'LeftOperand2CBA_'.concat(thisModule.getIdOFLeftOperand2CBA),
+			source <- thisModule.resolveTemp(thisModule.getIfStatementFromContainers(ioe), 'forkNode'),--MODIF
+			activity <- ioe.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			target <- inputPinFirstLeft --can be op too (do)
+		),
+		
+		inputPinSecondRight	: UML!InputPin (
+			name <- 'second'
+		),
+		of2	:	UML!ObjectFlow (
+			name <- 'RightOperand2CBA_'.concat(thisModule.getIdOFRightOperand2CBA),
+			activity <- ioe.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			target <- inputPinSecondRight
+		),
+		
+		op	:	UML!OutputPin (
+			name <- 'resultCallBehaviorActionOutput'
+		)
+		do{
+		thisModule.getIdOFLeftOperand2CBA <- thisModule.getIdOFLeftOperand2CBA+1;
+		thisModule.getIdOFRightOperand2CBA <- thisModule.getIdOFRightOperand2CBA+1;
+		
+		if(ioe.operator.toString()='-'){ --3
+			of2.source <- thisModule.resolveTemp(ioe.getNumberLiteralFromInfixExpression(), 'op'); --ValueSpecificationAction 2 (from NumberLiteral)
+			cb.behavior <- UML!OpaqueBehavior.allInstancesFrom('LIB')->select(e|e.name='IntegerMinus').first();
+		}
+		if(ioe.operator.toString()='*'){
+			of2.source <- thisModule.resolveTemp(ioe.getMethodInvocationFromInfixExpression(), 'op'); --CallOperationAction out
+			cb.behavior <- UML!OpaqueBehavior.allInstancesFrom('LIB')->select(e|e.name='IntegerTimes').first();
+		}
+		if(ioe.operator.toString()='<'){ --1
+			cb.behavior <- UML!OpaqueBehavior.allInstancesFrom('LIB')->select(e|e.name='IntegerLess').first();
+			of2.source <- thisModule.resolveTemp(ioe.getNumberLiteralFromInfixExpression(), 'op'); --ValueSpecificationAction 3 (from NumberLiteral)
+		}
+		thisModule.resolveTemp(ioe.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(ioe.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{cb});
+		thisModule.resolveTemp(ioe.getOwningMethod, 'act').edge
+			<- thisModule.resolveTemp(ioe.getOwningMethod, 'act').edge
+				-> union(Sequence{of1})
+				-> union(Sequence{of2});
+		}
+}
+unique lazy rule createIntegerLessFumlLib{
+	from
+		s	:	JAVA!ExpressionStatement
+	to
+		integerLess : UML!OpaqueBehavior(
+			name <- 'IntegerLess',
+			ownedParameter <- Sequence{x, y, result}
+		),
+		x : UML!Parameter(
+			name <- 'x'	
+		),
+		y : UML!Parameter(
+			name <- 'y'	
+		),
+		result : UML!Parameter(
+			name <- 'result'	
+		)
+	do{
+		thisModule.resolveTemp(s.getInstanciedClass, 't').nestedClassifier 
+			<- thisModule.resolveTemp(s.getInstanciedClass, 't').nestedClassifier -> append(integerLess);
+	}
+}
+unique lazy rule createIntegerTimesFumlLib{
+	from
+		s	:	JAVA!ExpressionStatement
+	to
+		integerTimes : UML!OpaqueBehavior(
+			name <- 'IntegerTimes',
+			ownedParameter <- Sequence{x, y, result}
+		),
+		x : UML!Parameter(
+			name <- 'x'	
+		),
+		y : UML!Parameter(
+			name <- 'y'	
+		),
+		result : UML!Parameter(
+			name <- 'result'	
+		)
+	do{
+		thisModule.resolveTemp(s.getInstanciedClass, 't').nestedClassifier 
+			<- thisModule.resolveTemp(s.getInstanciedClass, 't').nestedClassifier -> append(integerTimes);
+	}	
+}
+unique lazy rule createIntegerMinusFumlLib{
+	from
+		s	:	JAVA!ExpressionStatement
+	to
+		integerMinus : UML!OpaqueBehavior(
+			name <- 'IntegerMinus',
+			ownedParameter <- Sequence{x, y, result}			
+		),
+		x : UML!Parameter(
+			name <- 'x'	
+		),
+		y : UML!Parameter(
+			name <- 'y'	
+		),
+		result : UML!Parameter(
+			name <- 'result'	
+		)
+	do{
+		thisModule.resolveTemp(s.getInstanciedClass, 't').nestedClassifier 
+			<- thisModule.resolveTemp(s.getInstanciedClass, 't').nestedClassifier -> append(integerMinus);
+	}	
+}
+abstract rule Parameters2ActivityParameterAndParamNode{
+	from
+		param	:	JAVA!SingleVariableDeclaration(
+			param.notInInitializerOrFieldOrEnum	
+			and not param.originalCompilationUnit.oclIsUndefined() --MODIF
+		)
+	to
+		apn	:	UML!ActivityParameterNode(
+			name <- param.name,
+			parameter <- paramAct,
+			upperBound <- li --MODIF
+		),
+		li : UML!LiteralInteger(
+			value <- 1
+		),
+		paramAct	:	UML!Parameter(
+			name <- param.name
+		)
+}
+helper context JAVA!SingleVariableDeclaration def: getIfStatementOfSingleVarDec : JAVA!IfStatement =
+	if self.refImmediateComposite().body.oclIsKindOf(JAVA!Block)then	
+		self.refImmediateComposite().body.statements
+			-> select(state | state.oclIsKindOf(JAVA!IfStatement))
+			-> first()
+	else OclUndefined endif	
+;
+rule Parameters2ActivityParameterAndParamNodeNotMethInvoc extends Parameters2ActivityParameterAndParamNode{
+	from
+		param	:	JAVA!SingleVariableDeclaration(
+			let singlVar : JAVA!SingleVariableAccess = 
+				param.usageInVariableAccess
+						-> first()
+			in
+				if param.methodDeclaration.name<>'main' then
+					if not singlVar.oclIsUndefined()then
+					not singlVar.refImmediateComposite().oclIsKindOf(JAVA!MethodInvocation)
+					or (
+						if (singlVar.refImmediateComposite().oclIsKindOf(JAVA!MethodInvocation))then
+							singlVar.refImmediateComposite().arguments
+															-> select(argue | argue.oclIsKindOf(JAVA!NullLiteral))
+															-> notEmpty()
+						else true endif
+						)
+					else true endif	
+				else
+					false
+				endif
+				
+		) 
+	to	
+		apn	:	UML!ActivityParameterNode(),
+		paramAct	:	UML!Parameter(),
+		ob : UML!ObjectFlow(
+			name <- 'fromExpressionToActivityParameterNode',
+			activity <- param.getOwningMethod,
+			target <- thisModule.resolveTemp(param.getIfStatementOfSingleVarDec, 'forkNode'), --forkNode IfStatement
+			source <- apn
+		)
+	do{
+		thisModule.resolveTemp(param.getOwningMethod, 'act').ownedNode 
+			<- 	if (not thisModule.resolveTemp(param.getOwningMethod, 'act').oclIsUndefined()) then
+					thisModule.resolveTemp(param.getOwningMethod, 'act').ownedNode -> append(apn)
+				else OclUndefined endif;
+		thisModule.resolveTemp(param.getOwningMethod, 'act').ownedParameter 
+			<-  if (not thisModule.resolveTemp(param.getOwningMethod, 'act').oclIsUndefined()) then
+					thisModule.resolveTemp(param.getOwningMethod, 'act').ownedParameter -> append(paramAct)
+				else OclUndefined endif;
+	}	
+}
+helper context JAVA!IfStatement def: getNumberLiteralFromIfStatement() : OclAny =
+	if (self.thenStatement.oclIsTypeOf(JAVA!ExpressionStatement))then
+		self.thenStatement.expression.rightHandSide
+	else OclUndefined endif
+;
+rule ifStatement {
+	from
+		s	:	JAVA!IfStatement (s.notInInitializerOrFieldOrEnum)
+	to
+
+		inToDecNContFl : UML!ControlFlow(
+			name <- '',
+			source <- thisModule.resolveTemp(s.expression, 'cb'), --CallBehaviorAction (from InfixExpression)
+			target <- decNode
+		),
+		td	:	UML!ObjectFlow(
+			name <- '<<decisionInputFlow>> - Test expression to DecisionNode',
+			source <- s.expression.getActivityNode(), --COMMENTED
+			target <- decNode			--COMMENTED
+		),
+		decNode	:	UML!DecisionNode(
+			name <- 'DecisionNode - IfStatement',
+			decisionInputFlow <- td
+		),		
+		
+		truThen	: UML!ControlFlow(
+			name <- 'Then(true) - DecisionNode to ThenStatement',
+			source <- decNode,
+			target <- thisModule.resolveTemp(s.getNumberLiteralFromIfStatement(), 'vsa'),--ValueSpecificationAction 2 (from NumberLiteral op)
+			guard <- trueGuard
+		),
+		trueGuard :	UML!LiteralBoolean(
+			value <- true
+		),
+		
+		falElse	: UML!ControlFlow(
+			name <- 'Else(false) - DecisionNode to ElseStatement',
+			source <- decNode,
+			target <- if s.refImmediateComposite().oclIsTypeOf(JAVA!Block) then
+						thisModule.resolveTemp(s.refImmediateComposite().statements->select(e|e.oclIsTypeOf(JAVA!VariableDeclarationStatement))->first(), 'forkNode') --ForkNode (from VariableDeclarationStatement forkNode)
+					  else
+					  	OclUndefined
+					  endif,
+			guard <- falseGuard
+		),		
+		falseGuard : UML!LiteralBoolean(
+			value <- false
+		),
+		
+		forkNode	:	UML!ForkNode(
+			name <- 'External and End ForkNode',
+			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		)
+
+		do{
+		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{decNode})
+				-> union(Sequence{forkNode});
+		thisModule.resolveTemp(s.getOwningMethod, 'act').edge
+			<- thisModule.resolveTemp(s.getOwningMethod, 'act').edge 
+				-> union(Sequence{inToDecNContFl})
+				-> union(Sequence{td})
+				-> union(Sequence{truThen})
+				-> union(Sequence{falElse})
+				;
+		}
+}
+abstract rule explicitThis2readSelf {
+	from
+		this	:	JAVA!ThisExpression (this.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
+	to
+		read	:	UML!ReadSelfAction (
+			result <- op,
+			activity <- this.getStatement.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),
+		op	:	UML!OutputPin (
+			name <- 'resultReadSelfActionOutput'	
+		)
+}
+helper context JAVA!ThisExpression def: getVariableDeclarationStatementFromThisExpression() : OclAny =
+	if (self.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite().oclIsTypeOf(JAVA!Assignment))then
+		self.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite().leftHandSide.variable.variablesContainer
+	else OclUndefined endif
+;
+---Concerns the use of field directly using 'this'
+---not directly in a return statement
+rule explicitThis2readSelfNotInReturn extends explicitThis2readSelf{
+	from
+		this	:	JAVA!ThisExpression (
+			not this.refImmediateComposite().oclIsKindOf(JAVA!ReturnStatement)	
+		)
+	to		
+		read	:	UML!ReadSelfAction (),
+		initialControlFlow: UML!ControlFlow(
+			name <- 'readself',
+			activity <- this.getStatement.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			source <- thisModule.resolveTemp(this.getVariableDeclarationStatementFromThisExpression(), 'forkNode'), --ForkNode (from VariableDeclarationStatement forkNode)	
+			target <- read
+		)
+	do{
+		thisModule.resolveTemp(this.getStatement.refImmediateComposite(), 'fcf').name
+			<- 	if not thisModule.resolveTemp(this.getStatement.refImmediateComposite(), 'fcf').oclIsUndefined() then
+					'fromExpressionToFinalNode'
+				else OclUndefined endif;
+		thisModule.resolveTemp(this.getStatement.refImmediateComposite(), 'fcf').source
+			<- 	if not thisModule.resolveTemp(this.getStatement.refImmediateComposite(), 'fcf').oclIsUndefined() then
+					read
+				else OclUndefined endif;
+		thisModule.resolveTemp(this.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(this.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{read});
+		thisModule.resolveTemp(this.getOwningMethod, 'act').edge
+			<- thisModule.resolveTemp(this.getOwningMethod, 'act').edge 
+				-> union(Sequence{initialControlFlow});
+		
+	}	
+}
+helper context JAVA!VariableDeclarationStatement def: getNumberLiteralFromVariableDeclaration() : OclAny =
+	if (self.fragments->first().usageInVariableAccess.size() > 1) then
+		if (self.fragments->first().usageInVariableAccess->at(2).refImmediateComposite().oclIsTypeOf(JAVA!Assignment)) then
+			if (self.fragments->first().usageInVariableAccess->at(2).refImmediateComposite().rightHandSide.oclIsTypeOf(JAVA!InfixExpression))then
+				if not self.fragments->first().usageInVariableAccess->at(2).refImmediateComposite().rightHandSide.rightOperand.oclIsTypeOf(JAVA!NumberLiteral) then
+					self.fragments->first().usageInVariableAccess->at(2).refImmediateComposite().rightHandSide.rightOperand.expression.expression.refImmediateComposite().arguments.first().rightOperand
+				else
+					OclUndefined
+				endif
+			else OclUndefined endif
+		else OclUndefined endif
+	else OclUndefined endif
+;
+rule VariableDeclaration {
+	from
+		s	:	JAVA!VariableDeclarationStatement (	s.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
+													and s.notInInitializerOrFieldOrEnum 
+													and s.notInAnnotation
+		)
+	to
+		forkNode : UML!ForkNode(
+			name <- 'declare_'+s.fragments->first().name+'_fork_node',
+			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),
+		
+		icf	: UML!ControlFlow(
+			name <- 'to_declare_'+s.fragments->first().name,
+			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			source <- forkNode,
+			target <-  thisModule.resolveTemp(s.getNumberLiteralFromVariableDeclaration(), 'vsa')
+		)
+		do{
+		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{forkNode});
+		thisModule.resolveTemp(s.getOwningMethod, 'act').edge
+			<- thisModule.resolveTemp(s.getOwningMethod, 'act').edge 
+				--> union(Sequence{oFToForkNode})
+				-> union(Sequence{icf})
+				--> union(Sequence{ocf})
+				;
+		}
+}
+
+rule arrayToClass {
+	from
+		arrayType	:	JAVA!ArrayType
+	to
+		umlClass	:	UML!Class(
+			name <- arrayType.elementType.type.name+'[]',
+			ownedAttribute <- umlProperty			
+		), 
+		umlProperty	:	UML!Property(
+			name <- 'type'		
+		)
+}
+
+abstract rule abstractLoopAndTryStatement{
+	from
+		s : JAVA!Statement(s.oclIsTypeOf(JAVA!TryStatement)
+							or s.oclIsTypeOf(JAVA!ForStatement)
+							or s.oclIsTypeOf(JAVA!EnhancedForStatement)
+							or s.oclIsTypeOf(JAVA!WhileStatement)
+							or s.oclIsTypeOf(JAVA!DoStatement)
+		)
+	to
+		
+}
+
+rule whileStatement extends abstractLoopAndTryStatement{
+	from
+		s	:	JAVA!WhileStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+	to
+		jn	:	UML!JoinNode(
+		),
+		dec	:	UML!DecisionNode(
+			decisionInputFlow <- td 		
+		),		
+		id1	:	UML!ControlFlow(
+			name <- 'fromInitialNodeToJoinNode',
+			target <- jn
+		),
+		id2	:	UML!ControlFlow(
+			name <- 'fromJoinNodeToDecisionNode',
+			source <- jn,
+			target <- dec
+		),
+		
+		td	:	UML!ObjectFlow(
+			name <- 'fromExpressionToDecisionNode',
+			source <- if (not (s.expression.oclIsKindOf(JAVA!TypeLiteral) or s.expression.oclIsKindOf(JAVA!SingleVariableAccess))) then
+						s.expression
+					  else OclUndefined endif,
+			target <- dec,
+			name <- '<<decisionInputFlow>>'
+		),
+		
+		fc	:	UML!ControlFlow(
+			name <- 'fromDecisionNodeToBody',
+			source <- dec,
+			guard <- uvt
+		),
+		
+		ef	:	UML!ControlFlow(
+			name <- 'fromDecisionNodeToFinalNode',
+			source <- dec,
+			guard <- uvf
+		),
+		uvt	:	UML!LiteralBoolean(
+			value <- true
+		),
+		uvf	:	UML!LiteralBoolean(
+			value <- false
+		),
+		id3	:	UML!ControlFlow(
+			name <- 'fromBodyToJoinNode',
+			target <- jn
+		)
+		do{
+		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode
+			<- thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
+				-> union(Sequence{jn})
+				-> union(Sequence{dec})
+				;
+		thisModule.resolveTemp(s.getOwningMethod, 'act').edge
+			<- thisModule.resolveTemp(s.getOwningMethod, 'act').edge 
+				-> union(Sequence{id1})
+				-> union(Sequence{id2})
+				-> union(Sequence{td})
+				-> union(Sequence{fc})
+				-> union(Sequence{ef})
+				-> union(Sequence{id3})
+				;
+		}
+}
+rule Booleanliteral2ValueSpecification {
+	from
+		bl	:	JAVA!BooleanLiteral (
+			bl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
+			and bl.notInAnnotation
+		)
+	to
+		vsa	:	UML!ValueSpecificationAction (
+			result <- op,
+			value <- vs,
+			activity <- bl.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),
+		vs	:	UML!LiteralBoolean(
+			value <- bl.value
+		),
+		op	:	UML!OutputPin (
+			name <- 'resultValueSpecificationActionOutput'	
+		)
+}

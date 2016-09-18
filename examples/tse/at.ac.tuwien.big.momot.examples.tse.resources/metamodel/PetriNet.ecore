@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PetriNet">
+  <eClassifiers xsi:type="ecore:EClass" name="LocatedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PetriNet" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false"
+        upperBound="-1" eType="#//Element" containment="true" eOpposite="#//Element/net"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" ordered="false" upperBound="-1"
+        eType="#//Arc" containment="true" eOpposite="#//Arc/net"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="net" ordered="false" lowerBound="1"
+        eType="#//PetriNet" eOpposite="#//PetriNet/elements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingArc" ordered="false"
+        upperBound="-1" eType="#//TransitionToPlace" eOpposite="#//TransitionToPlace/to"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingArc" ordered="false"
+        upperBound="-1" eType="#//PlaceToTransition" eOpposite="#//PlaceToTransition/from"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingArc" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//PlaceToTransition" eOpposite="#//PlaceToTransition/to"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingArc" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//TransitionToPlace" eOpposite="#//TransitionToPlace/from"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weight" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="net" ordered="false" lowerBound="1"
+        eType="#//PetriNet" eOpposite="#//PetriNet/arcs"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlaceToTransition" eSuperTypes="#//Arc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" ordered="false" lowerBound="1"
+        eType="#//Place" eOpposite="#//Place/outgoingArc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" lowerBound="1"
+        eType="#//Transition" eOpposite="#//Transition/incomingArc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionToPlace" eSuperTypes="#//Arc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" ordered="false" lowerBound="1"
+        eType="#//Transition" eOpposite="#//Transition/outgoingArc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" lowerBound="1"
+        eType="#//Place" eOpposite="#//Place/incomingArc"/>
+  </eClassifiers>
+</ecore:EPackage>

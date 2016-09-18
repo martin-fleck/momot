@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Integer"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+  </ecore:EPackage>
+  <ecore:EPackage name="XML">
+    <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="startLine" ordered="false" eType="/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="startColumn" ordered="false" eType="/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="endLine" ordered="false" eType="/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="endColumn" ordered="false" eType="/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1" eType="/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false" lowerBound="1" eType="/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" ordered="false" eType="/1/Element" eOpposite="/1/Element/children"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="/1/Node"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="/1/Node"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="/1/Node">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1" eType="/1/Node" containment="true" eOpposite="/1/Node/parent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Root" eSuperTypes="/1/Element"/>
+  </ecore:EPackage>
+</xmi:XMI>

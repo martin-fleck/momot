@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:modularization="http://www.big.tuwien.ac.at/tosem/modularization"
+    name="XHTML2XML">
+  <modules name="XHTML2XML">
+    <rules name="inlines"/>
+    <rules name="HTML"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.9 //@modules.0/@rules.29">
+      <inPattElTypes>src_HTML</inPattElTypes>
+      <bindingNavigations>src_HTML.head</bindingNavigations>
+      <bindingNavigations>src_HTML.body</bindingNavigations>
+    </rules>
+    <rules name="HEAD"
+        ruleDependencies="//@modules.0/@rules.3 //@modules.0/@rules.4 //@modules.0/@rules.5 //@modules.0/@rules.6 //@modules.0/@rules.7 //@modules.0/@rules.29">
+      <inPattElTypes>src_HEAD</inPattElTypes>
+      <bindingNavigations>src_HEAD.title</bindingNavigations>
+      <bindingNavigations>src_HEAD.bases</bindingNavigations>
+      <bindingNavigations>src_HEAD.headMiscs</bindingNavigations>
+    </rules>
+    <rules name="TITLE"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_TITLE</inPattElTypes>
+      <bindingNavigations>src_TITLE.pcdata.inlines</bindingNavigations>
+    </rules>
+    <rules name="META"
+        ruleDependencies="//@modules.0/@rules.29">
+      <inPattElTypes>src_META</inPattElTypes>
+    </rules>
+    <rules name="LINK"
+        ruleDependencies="//@modules.0/@rules.29">
+      <inPattElTypes>src_LINK</inPattElTypes>
+    </rules>
+    <rules name="STYLE"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_STYLE</inPattElTypes>
+      <bindingNavigations>src_STYLE.pcdata.inlines</bindingNavigations>
+    </rules>
+    <rules name="SCRIPT"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.30 //@modules.0/@rules.29">
+      <inPattElTypes>src_SCRIPT</inPattElTypes>
+      <bindingNavigations>src_SCRIPT.pcdata</bindingNavigations>
+    </rules>
+    <rules name="NOSCRIPT"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_NOSCRIPT</inPattElTypes>
+      <bindingNavigations>src_NOSCRIPT.blocks</bindingNavigations>
+    </rules>
+    <rules name="BODY"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_BODY</inPattElTypes>
+      <bindingNavigations>src_BODY.blocks</bindingNavigations>
+    </rules>
+    <rules name="DIV"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_DIV</inPattElTypes>
+      <bindingNavigations>src_DIV.flows</bindingNavigations>
+    </rules>
+    <rules name="P"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_P</inPattElTypes>
+      <bindingNavigations>src_P.inlines</bindingNavigations>
+    </rules>
+    <rules name="AbstractList"
+        ruleDependencies="//@modules.0/@rules.13 //@modules.0/@rules.29">
+      <bindingTypes>src_UL</bindingTypes>
+      <inPattElTypes>src_AbstractList</inPattElTypes>
+      <bindingNavigations>src_UL</bindingNavigations>
+      <bindingNavigations>src_AbstractList.lis</bindingNavigations>
+    </rules>
+    <rules name="LI"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_LI</inPattElTypes>
+      <bindingNavigations>src_LI.flows</bindingNavigations>
+    </rules>
+    <rules name="HR"
+        ruleDependencies="//@modules.0/@rules.29">
+      <inPattElTypes>src_HR</inPattElTypes>
+    </rules>
+    <rules name="PRE"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_PRE</inPattElTypes>
+      <bindingNavigations>src_PRE.preContents</bindingNavigations>
+    </rules>
+    <rules name="A"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.19 //@modules.0/@rules.18 //@modules.0/@rules.29">
+      <inPattElTypes>src_A</inPattElTypes>
+      <bindingNavigations>src_A.aContents</bindingNavigations>
+    </rules>
+    <rules name="BR"
+        ruleDependencies="//@modules.0/@rules.29">
+      <inPattElTypes>src_BR</inPattElTypes>
+    </rules>
+    <rules name="Phrase"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <bindingTypes>src_STRONG</bindingTypes>
+      <inPattElTypes>src_Phrase</inPattElTypes>
+      <bindingNavigations>src_STRONG</bindingNavigations>
+      <bindingNavigations>src_Phrase.inlines</bindingNavigations>
+    </rules>
+    <rules name="Fontstyle"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_Fontstyle</inPattElTypes>
+      <bindingNavigations>src_Fontstyle.inlines</bindingNavigations>
+    </rules>
+    <rules name="IMG"
+        ruleDependencies="//@modules.0/@rules.29">
+      <inPattElTypes>src_IMG</inPattElTypes>
+    </rules>
+    <rules name="INPUT"
+        ruleDependencies="//@modules.0/@rules.29">
+      <inPattElTypes>src_INPUT</inPattElTypes>
+    </rules>
+    <rules name="FIELDSET"
+        ruleDependencies="//@modules.0/@rules.23 //@modules.0/@rules.29">
+      <inPattElTypes>src_FIELDSET</inPattElTypes>
+      <bindingNavigations>src_FIELDSET.fieldsetElements</bindingNavigations>
+    </rules>
+    <rules name="LEGEND"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_LEGEND</inPattElTypes>
+      <bindingNavigations>src_LEGEND.inlines</bindingNavigations>
+    </rules>
+    <rules name="TABLE"
+        ruleDependencies="//@modules.0/@rules.27 //@modules.0/@rules.26 //@modules.0/@rules.29">
+      <inPattElTypes>src_TABLE</inPattElTypes>
+      <bindingNavigations>src_TABLE.caption</bindingNavigations>
+      <bindingNavigations>src_TABLE.colElements</bindingNavigations>
+      <bindingNavigations>src_TABLE.thead</bindingNavigations>
+      <bindingNavigations>src_TABLE.tfoot</bindingNavigations>
+      <bindingNavigations>src_TABLE.tableElements</bindingNavigations>
+    </rules>
+    <rules name="CAPTION"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <inPattElTypes>src_CAPTION</inPattElTypes>
+      <bindingNavigations>src_CAPTION.inlines</bindingNavigations>
+    </rules>
+    <rules name="TElement"
+        ruleDependencies="//@modules.0/@rules.27 //@modules.0/@rules.29">
+      <bindingTypes>src_TFOOT</bindingTypes>
+      <inPattElTypes>src_TElement</inPattElTypes>
+      <bindingNavigations>src_TFOOT</bindingNavigations>
+      <bindingNavigations>src_TElement.trs</bindingNavigations>
+    </rules>
+    <rules name="TR"
+        ruleDependencies="//@modules.0/@rules.28 //@modules.0/@rules.29">
+      <inPattElTypes>src_TR</inPattElTypes>
+      <bindingNavigations>src_TR.trElements</bindingNavigations>
+    </rules>
+    <rules name="TRElement"
+        ruleDependencies="//@modules.0/@rules.0 //@modules.0/@rules.29">
+      <bindingTypes>src_TD</bindingTypes>
+      <inPattElTypes>src_TRElement</inPattElTypes>
+      <bindingNavigations>src_TD</bindingNavigations>
+      <bindingNavigations>src_TRElement.flows</bindingNavigations>
+    </rules>
+    <rules name="Attribute"/>
+    <rules name="Text"/>
+  </modules>
+</modularization:Transformation>

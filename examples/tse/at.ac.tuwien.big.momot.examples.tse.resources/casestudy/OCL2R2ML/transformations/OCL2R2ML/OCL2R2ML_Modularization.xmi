@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:modularization="http://www.big.tuwien.ac.at/tosem/modularization" name="OCL2R2ML">
+  <modules name="OCL2R2ML">
+    <rules name="OclModule2RuleBase">
+      <inPattElTypes>src_OclModule</inPattElTypes>
+      <bindingNavigations>src_OclModule.ownedElements</bindingNavigations>
+    </rules>
+    <rules name="Invariant2AlethicIntegrityRule" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.5" helperDependencies="//@modules.0/@helpers.8 //@modules.0/@helpers.6">
+      <bindingTypes>src_Invariant.name</bindingTypes>
+      <inPattElTypes>src_Invariant</inPattElTypes>
+      <bindingNavigations>src_Invariant.name</bindingNavigations>
+      <bindingNavigations>src_Invariant.contextDefinition.contextElement</bindingNavigations>
+      <bindingNavigations>src_Invariant.specification</bindingNavigations>
+    </rules>
+    <rules name="Class2ObjectVariable" ruleDependencies="//@modules.0/@rules.3" helperDependencies="//@modules.0/@helpers.8 //@modules.0/@helpers.6">
+      <bindingTypes>src_Class.name</bindingTypes>
+      <inPattElTypes>src_Class</inPattElTypes>
+      <bindingNavigations>src_Class.name</bindingNavigations>
+    </rules>
+    <rules name="Class2Class">
+      <bindingTypes>src_Class.name</bindingTypes>
+      <inPattElTypes>src_Class</inPattElTypes>
+      <bindingNavigations>src_Class.name</bindingNavigations>
+    </rules>
+    <rules name="VariableExp2ObjectVariable">
+      <inPattElTypes>src_VariableExp</inPattElTypes>
+      <bindingNavigations>src_VariableExp.referredVariable.name</bindingNavigations>
+    </rules>
+    <rules name="Iterator2ObjectVariable">
+      <bindingTypes>src_Iterator.name</bindingTypes>
+      <inPattElTypes>src_Iterator</inPattElTypes>
+      <bindingNavigations>src_Iterator.name</bindingNavigations>
+    </rules>
+    <rules name="PropertyCallExp2DataVariable">
+      <bindingTypes>src_PropertyCallExp.name</bindingTypes>
+      <inPattElTypes>src_PropertyCallExp</inPattElTypes>
+      <bindingNavigations>src_PropertyCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="VariableExp2Class">
+      <inPattElTypes>src_VariableExp</inPattElTypes>
+      <bindingNavigations>src_VariableExp.referredVariable.name</bindingNavigations>
+    </rules>
+    <rules name="Variable2DataVariable">
+      <bindingTypes>src_Variable.name</bindingTypes>
+      <inPattElTypes>src_Variable</inPattElTypes>
+      <bindingNavigations>src_Variable.name</bindingNavigations>
+    </rules>
+    <rules name="VariableExp2GenericVariable">
+      <inPattElTypes>src_VariableExp</inPattElTypes>
+      <bindingNavigations>src_VariableExp.referredVariable</bindingNavigations>
+    </rules>
+    <rules name="OperatorCallExp2DatatypePredicateAtom" helperDependencies="//@modules.0/@helpers.6 //@modules.0/@helpers.4 //@modules.0/@helpers.5">
+      <bindingTypes>src_OperatorCallExp.name</bindingTypes>
+      <inPattElTypes>src_OperatorCallExp</inPattElTypes>
+      <bindingNavigations>src_OperatorCallExp.argument</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="OperatorCallExp2Disjunction">
+      <inPattElTypes>src_OperatorCallExp</inPattElTypes>
+      <bindingNavigations>src_OperatorCallExp.argument</bindingNavigations>
+    </rules>
+    <rules name="OperatorCallExp2Conjuction">
+      <inPattElTypes>src_OperatorCallExp</inPattElTypes>
+      <bindingNavigations>src_OperatorCallExp.argument</bindingNavigations>
+    </rules>
+    <rules name="OperatorCallExp2AttributionAtom" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.1" helperDependencies="//@modules.0/@helpers.3">
+      <bindingTypes>src_Invariant</bindingTypes>
+      <inPattElTypes>src_OperatorCallExp</inPattElTypes>
+      <bindingNavigations>src_OperatorCallExp.Invariant.contextDefinition</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp.argument</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp.source.name</bindingNavigations>
+    </rules>
+    <rules name="OperatorCallExp2EqualityAtom" ruleDependencies="//@modules.0/@rules.5">
+      <bindingTypes>src_OperatorCallExp.name</bindingTypes>
+      <inPattElTypes>src_OperatorCallExp</inPattElTypes>
+      <bindingNavigations>src_OperatorCallExp.argument</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="OperatorCallExp2ReferencePropertyAtom" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.5" helperDependencies="//@modules.0/@helpers.3">
+      <inPattElTypes>src_OperatorCallExp</inPattElTypes>
+      <bindingNavigations>src_OperatorCallExp.source.source</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp.argument</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp.source.name</bindingNavigations>
+    </rules>
+    <rules name="OperatorCallExp2Implicaton">
+      <inPattElTypes>src_OperatorCallExp</inPattElTypes>
+      <bindingNavigations>src_OperatorCallExp.source</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp.argument</bindingNavigations>
+    </rules>
+    <rules name="OperationCallExp2DataOperationTerm" ruleDependencies="//@modules.0/@rules.2" helperDependencies="//@modules.0/@helpers.3">
+      <bindingTypes>src_OperationCallExp.name</bindingTypes>
+      <inPattElTypes>src_OperationCallExp</inPattElTypes>
+      <bindingNavigations>src_OperationCallExp.source</bindingNavigations>
+      <bindingNavigations>src_OperationCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="OperationCallExp2ObjectClassificationAtom" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.3">
+      <inPattElTypes>src_OperationCallExp</inPattElTypes>
+      <bindingNavigations>src_OperationCallExp.source</bindingNavigations>
+      <bindingNavigations>src_OperationCallExp.argument</bindingNavigations>
+    </rules>
+    <rules name="CollectionOperationCallExp2DatatypePredicateAtom" ruleDependencies="//@modules.0/@rules.10 //@modules.0/@rules.11 //@modules.0/@rules.12 //@modules.0/@rules.13 //@modules.0/@rules.14 //@modules.0/@rules.15 //@modules.0/@rules.16">
+      <bindingTypes>src_OperatorCallExp</bindingTypes>
+      <bindingTypes>src_CollectionOperationCallExp.name</bindingTypes>
+      <inPattElTypes>src_CollectionOperationCallExp</inPattElTypes>
+      <bindingNavigations>src_CollectionOperationCallExp.source</bindingNavigations>
+      <bindingNavigations>src_OperatorCallExp</bindingNavigations>
+      <bindingNavigations>src_CollectionOperationCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="CollectionOperationCallExp2ObjectOperationTerm">
+      <bindingTypes>src_CollectionOperationCallExp.name</bindingTypes>
+      <inPattElTypes>src_CollectionOperationCallExp</inPattElTypes>
+      <bindingNavigations>src_CollectionOperationCallExp.source</bindingNavigations>
+      <bindingNavigations>src_CollectionOperationCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="CollectionOperationCallExp2DatatypeFunctionTerm">
+      <bindingTypes>src_CollectionOperationCallExp.name</bindingTypes>
+      <inPattElTypes>src_CollectionOperationCallExp</inPattElTypes>
+      <bindingNavigations>src_CollectionOperationCallExp.source</bindingNavigations>
+      <bindingNavigations>src_CollectionOperationCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="CollectionOperationCallExp2Implication" ruleDependencies="//@modules.0/@rules.9">
+      <inPattElTypes>src_CollectionOperationCallExp</inPattElTypes>
+      <bindingNavigations>src_CollectionOperationCallExp.argument</bindingNavigations>
+      <bindingNavigations>src_CollectionOperationCallExp.source</bindingNavigations>
+    </rules>
+    <rules name="IteratorExpFromForAll2Conjunction" ruleDependencies="//@modules.0/@rules.5">
+      <inPattElTypes>src_IteratorExp</inPattElTypes>
+      <bindingNavigations>src_IteratorExp.source</bindingNavigations>
+      <bindingNavigations>src_IteratorExp.body</bindingNavigations>
+      <bindingNavigations>src_IteratorExp.iterator</bindingNavigations>
+    </rules>
+    <rules name="IteratorExpFromSelect2Conjunction" ruleDependencies="//@modules.0/@rules.5 //@modules.0/@rules.6 //@modules.0/@rules.8 //@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.9 //@modules.0/@rules.25 //@modules.0/@rules.26 //@modules.0/@rules.27">
+      <bindingTypes>src_VariableExp</bindingTypes>
+      <inPattElTypes>src_IteratorExp</inPattElTypes>
+      <bindingNavigations>src_IteratorExp.source</bindingNavigations>
+      <bindingNavigations>src_IteratorExp.iterator</bindingNavigations>
+      <bindingNavigations>src_IteratorExp.body</bindingNavigations>
+      <bindingNavigations>src_VariableExp</bindingNavigations>
+    </rules>
+    <rules name="VariableExp2AttributeFunctionTerm" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.1 //@modules.0/@rules.19 //@modules.0/@rules.20 //@modules.0/@rules.21 //@modules.0/@rules.22" helperDependencies="//@modules.0/@helpers.10 //@modules.0/@helpers.3">
+      <bindingTypes>src_Invariant</bindingTypes>
+      <bindingTypes>src_CollectionOperationCallExp</bindingTypes>
+      <inPattElTypes>src_VariableExp</inPattElTypes>
+      <bindingNavigations>src_VariableExp.Invariant.contextDefinition</bindingNavigations>
+      <bindingNavigations>src_CollectionOperationCallExp.source</bindingNavigations>
+      <bindingNavigations>src_VariableExp.referredVariable.name</bindingNavigations>
+    </rules>
+    <rules name="VariableExp2ReferencePropertyFunctionTerm" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.1" helperDependencies="//@modules.0/@helpers.10 //@modules.0/@helpers.3">
+      <bindingTypes>src_Invariant</bindingTypes>
+      <inPattElTypes>src_VariableExp</inPattElTypes>
+      <bindingNavigations>src_VariableExp.Invariant.contextDefinition</bindingNavigations>
+      <bindingNavigations>src_VariableExp.referredVariable.name</bindingNavigations>
+    </rules>
+    <rules name="VariableExp2AttributionAtom" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.8 //@modules.0/@rules.1" helperDependencies="//@modules.0/@helpers.3">
+      <bindingTypes>src_Invariant</bindingTypes>
+      <inPattElTypes>src_VariableExp</inPattElTypes>
+      <bindingNavigations>src_VariableExp.Invariant.contextDefinition</bindingNavigations>
+      <bindingNavigations>src_VariableExp.referredVariable</bindingNavigations>
+      <bindingNavigations>src_VariableExp.referredVariable.name</bindingNavigations>
+    </rules>
+    <rules name="PropertyCallExp2AttributionAtom" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.6 //@modules.0/@rules.1" helperDependencies="//@modules.0/@helpers.3">
+      <bindingTypes>src_Invariant</bindingTypes>
+      <bindingTypes>src_PropertyCallExp.name</bindingTypes>
+      <inPattElTypes>src_PropertyCallExp</inPattElTypes>
+      <bindingNavigations>src_PropertyCallExp.Invariant.contextDefinition</bindingNavigations>
+      <bindingNavigations>src_PropertyCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="PropertyCallExp2AttributeFunctionTerm" ruleDependencies="//@modules.0/@rules.2 //@modules.0/@rules.5 //@modules.0/@rules.19 //@modules.0/@rules.20 //@modules.0/@rules.21 //@modules.0/@rules.22" helperDependencies="//@modules.0/@helpers.9 //@modules.0/@helpers.7 //@modules.0/@helpers.3">
+      <bindingTypes>src_CollectionOperationCallExp</bindingTypes>
+      <bindingTypes>src_PropertyCallExp.name</bindingTypes>
+      <inPattElTypes>src_PropertyCallExp</inPattElTypes>
+      <bindingNavigations>src_PropertyCallExp.source</bindingNavigations>
+      <bindingNavigations>src_CollectionOperationCallExp</bindingNavigations>
+      <bindingNavigations>src_PropertyCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="PropertyCallExp2ReferencePropertyFunctionTerm" ruleDependencies="//@modules.0/@rules.2" helperDependencies="//@modules.0/@helpers.3">
+      <bindingTypes>src_PropertyCallExp.name</bindingTypes>
+      <inPattElTypes>src_PropertyCallExp</inPattElTypes>
+      <bindingNavigations>src_PropertyCallExp.source</bindingNavigations>
+      <bindingNavigations>src_PropertyCallExp.name</bindingNavigations>
+    </rules>
+    <rules name="StringLiteralExp2TypedLiteral" ruleDependencies="//@modules.0/@rules.36" helperDependencies="//@modules.0/@helpers.1">
+      <inPattElTypes>src_StringLiteralExp</inPattElTypes>
+      <bindingNavigations>src_StringLiteralExp.stringSymbol</bindingNavigations>
+    </rules>
+    <rules name="IntegerLiteralExp2TypedLiteral" ruleDependencies="//@modules.0/@rules.35" helperDependencies="//@modules.0/@helpers.0">
+      <inPattElTypes>src_IntegerLiteralExp</inPattElTypes>
+      <bindingNavigations>src_IntegerLiteralExp.integerSymbol</bindingNavigations>
+    </rules>
+    <rules name="BooleanLiteralExp2TypedLiteral" ruleDependencies="//@modules.0/@rules.34" helperDependencies="//@modules.0/@helpers.2">
+      <inPattElTypes>src_BooleanLiteralExp</inPattElTypes>
+      <bindingNavigations>src_BooleanLiteralExp.booleanSymbol</bindingNavigations>
+    </rules>
+    <rules name="BooleanLiteralExp2Datatype" helperDependencies="//@modules.0/@helpers.2">
+      <inPattElTypes>src_BooleanLiteralExp</inPattElTypes>
+    </rules>
+    <rules name="IntegerLiteralExp2Datatype">
+      <inPattElTypes>src_IntegerLiteralExp</inPattElTypes>
+    </rules>
+    <rules name="StringLiteralExp2Datatype">
+      <inPattElTypes>src_StringLiteralExp</inPattElTypes>
+    </rules>
+    <helpers name="_getDefaultIntegerLiteralExp_"/>
+    <helpers name="_getDefaultStringLiteralExp_"/>
+    <helpers name="_getDefaultBooleanLiteralExp_"/>
+    <helpers name="OclExpression__getInvariantForElement_" helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>OclExpression__getInvariantForElement_</helperDepNames>
+    </helpers>
+    <helpers name="CallExp__haveCollectionExpInSources_" helperDependencies="//@modules.0/@helpers.4">
+      <helperDepNames>CallExp__haveCollectionExpInSources_</helperDepNames>
+    </helpers>
+    <helpers name="OperationCallExp__haveCollectionExpInArguments_" helperDependencies="//@modules.0/@helpers.5">
+      <helperDepNames>OperationCallExp__haveCollectionExpInArguments_</helperDepNames>
+    </helpers>
+    <helpers name="CallExp__haveIteratorExpInSources_" helperDependencies="//@modules.0/@helpers.6">
+      <helperDepNames>CallExp__haveIteratorExpInSources_</helperDepNames>
+    </helpers>
+    <helpers name="OclExpression__hasIteratorExpInParents_" helperDependencies="//@modules.0/@helpers.7">
+      <helperDepNames>OclExpression__hasIteratorExpInParents_</helperDepNames>
+    </helpers>
+    <helpers name="CallExp__getIteratorExpFromSources_" helperDependencies="//@modules.0/@helpers.8">
+      <helperDepNames>CallExp__getIteratorExpFromSources_</helperDepNames>
+    </helpers>
+    <helpers name="OclExpression__getIteratorExpFromParents_" helperDependencies="//@modules.0/@helpers.9">
+      <helperDepNames>OclExpression__getIteratorExpFromParents_</helperDepNames>
+    </helpers>
+    <helpers name="OclExpression__hasPropertyCallExpInParents_" helperDependencies="//@modules.0/@helpers.10">
+      <helperDepNames>OclExpression__hasPropertyCallExpInParents_</helperDepNames>
+    </helpers>
+  </modules>
+</modularization:Transformation>

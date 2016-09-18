@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:modularization="http://www.big.tuwien.ac.at/tosem/modularization"
+    name="XML2MySQL">
+  <modules name="1">
+    <rules name="DataBase"
+        ruleDependencies="//@modules.0/@rules.1"
+        helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <bindingTypes>src_Element</bindingTypes>
+      <inPattElTypes>src_Root</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Table"
+        helperDependencies="//@modules.0/@helpers.0 //@modules.0/@helpers.1 //@modules.0/@helpers.2 //@modules.0/@helpers.3 //@modules.2/@helpers.0">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <helpers
+        name="_rootElt_"/>
+    <helpers
+        name="Element__getAttrVal_name"/>
+    <helpers
+        name="Element__getElementsByName_name"/>
+    <helpers
+        name="Element__getFirstElementByName_name"
+        helperDependencies="//@modules.0/@helpers.2">
+      <helperDepNames>Element__getElementsByName_name</helperDepNames>
+    </helpers>
+  </modules>
+  <modules name="2">
+    <rules name="Column"
+        helperDependencies="//@modules.0/@helpers.3 //@modules.2/@helpers.0 //@modules.1/@helpers.0 //@modules.1/@helpers.2">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+      <bindingNavigations>src_Element.parent</bindingNavigations>
+    </rules>
+    <helpers
+        name="MM_ATL!StringType_isIntegerType_"/>
+    <helpers
+        name="MM_ATL!StringType_getTypeNameRec_"
+        helperDependencies="//@modules.1/@helpers.1">
+      <helperDepNames>MM_ATL!StringType_getTypeNameRec_</helperDepNames>
+    </helpers>
+    <helpers
+        name="MM_ATL!StringType_getTypeName_"
+        helperDependencies="//@modules.1/@helpers.1"/>
+  </modules>
+  <modules name="3">
+    <rules name="IntegerColumn"
+        helperDependencies="//@modules.0/@helpers.3 //@modules.2/@helpers.0 //@modules.1/@helpers.2">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+      <bindingNavigations>src_Element.parent</bindingNavigations>
+    </rules>
+    <rules name="EnumColumn"
+        ruleDependencies="//@modules.2/@rules.2"
+        helperDependencies="//@modules.0/@helpers.3 //@modules.2/@helpers.0 //@modules.2/@helpers.2">
+      <bindingTypes>trg_EnumItem</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+      <bindingNavigations>src_Element.parent</bindingNavigations>
+      <bindingNavigations>trg_EnumItem</bindingNavigations>
+    </rules>
+    <rules name="EnumItems">
+      <inPattElTypes>src_org.eclipse.m2m.atl.engine.emfvm.lib.OclUndefined@b2ad57</inPattElTypes>
+      <inPattElTypes>src_EnumSet</inPattElTypes>
+    </rules>
+    <helpers
+        name="Element__getTextValue_"/>
+    <helpers
+        name="MM_ATL!StringType_getItemListRec_it"
+        helperDependencies="//@modules.2/@helpers.1">
+      <helperDepNames>MM_ATL!StringType_getItemListRec_it</helperDepNames>
+    </helpers>
+    <helpers
+        name="MM_ATL!StringType_getItemList_"
+        helperDependencies="//@modules.2/@helpers.1">
+      <helperDepNames>MM_ATL!StringType_getItemListRec_it</helperDepNames>
+    </helpers>
+  </modules>
+</modularization:Transformation>

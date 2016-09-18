@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:modularization="http://www.big.tuwien.ac.at/tosem/modularization" name="R2ML2XML">
+  <modules name="R2ML2XML">
+    <rules name="RuleBase">
+      <inPattElTypes>src_RuleBase</inPattElTypes>
+      <bindingNavigations>src_RuleBase.rules</bindingNavigations>
+    </rules>
+    <rules name="DerivationRuleSet">
+      <inPattElTypes>src_DerivationRuleSet</inPattElTypes>
+      <bindingNavigations>src_DerivationRuleSet.rules</bindingNavigations>
+    </rules>
+    <rules name="IntegrityRuleSet">
+      <inPattElTypes>src_IntegrityRuleSet</inPattElTypes>
+      <bindingNavigations>src_IntegrityRuleSet.rules</bindingNavigations>
+    </rules>
+    <rules name="ReactionRuleSet">
+      <inPattElTypes>src_ReactionRuleSet</inPattElTypes>
+      <bindingNavigations>src_ReactionRuleSet.rules</bindingNavigations>
+    </rules>
+    <rules name="ProductionRuleSet">
+      <inPattElTypes>src_ProductionRuleSet</inPattElTypes>
+      <bindingNavigations>src_ProductionRuleSet.rules</bindingNavigations>
+    </rules>
+    <rules name="AlethicIntegrityRule" ruleDependencies="//@modules.0/@rules.6">
+      <inPattElTypes>src_AlethicIntegrityRule</inPattElTypes>
+      <bindingNavigations>src_AlethicIntegrityRule.ruleID</bindingNavigations>
+      <bindingNavigations>src_AlethicIntegrityRule.constraint</bindingNavigations>
+    </rules>
+    <rules name="RuleId">
+      <inPattElTypes>src_Rule</inPattElTypes>
+      <bindingNavigations>src_Rule.ruleID</bindingNavigations>
+    </rules>
+    <rules name="DeonticIntegrityRule" ruleDependencies="//@modules.0/@rules.6">
+      <inPattElTypes>src_DeonticIntegrityRule</inPattElTypes>
+      <bindingNavigations>src_DeonticIntegrityRule.ruleID</bindingNavigations>
+      <bindingNavigations>src_DeonticIntegrityRule.constraint</bindingNavigations>
+    </rules>
+    <rules name="UniversallyQuantifiedFormula" ruleDependencies="//@modules.0/@rules.11 //@modules.0/@rules.12">
+      <inPattElTypes>src_UniversallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula</bindingNavigations>
+    </rules>
+    <rules name="ExistentiallyQuantifiedFormula" ruleDependencies="//@modules.0/@rules.11 //@modules.0/@rules.12">
+      <inPattElTypes>src_ExistentiallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_ExistentiallyQuantifiedFormula.formula</bindingNavigations>
+    </rules>
+    <rules name="ClassRule">
+      <bindingTypes>src_Class.name</bindingTypes>
+      <inPattElTypes>src_Class</inPattElTypes>
+      <bindingNavigations>src_Class.name</bindingNavigations>
+    </rules>
+    <rules name="ObjectVariable" ruleDependencies="//@modules.0/@rules.10">
+      <bindingTypes>src_ObjectVariable.name</bindingTypes>
+      <inPattElTypes>src_ObjectVariable</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable.classRef</bindingNavigations>
+      <bindingNavigations>src_ObjectVariable.name</bindingNavigations>
+    </rules>
+    <rules name="DataVariable" ruleDependencies="//@modules.0/@rules.14 //@modules.0/@rules.31">
+      <bindingTypes>src_DataVariable.name</bindingTypes>
+      <inPattElTypes>src_DataVariable</inPattElTypes>
+      <bindingNavigations>src_DataVariable.typeCategory</bindingNavigations>
+      <bindingNavigations>src_DataVariable.name</bindingNavigations>
+    </rules>
+    <rules name="GenericVariable" ruleDependencies="//@modules.0/@rules.14">
+      <bindingTypes>src_GenericVariable.name</bindingTypes>
+      <inPattElTypes>src_GenericVariable</inPattElTypes>
+      <bindingNavigations>src_GenericVariable.typeRef</bindingNavigations>
+      <bindingNavigations>src_GenericVariable.name</bindingNavigations>
+    </rules>
+    <rules name="Datatype">
+      <bindingTypes>src_Datatype.name</bindingTypes>
+      <inPattElTypes>src_Datatype</inPattElTypes>
+      <bindingNavigations>src_Datatype.name</bindingNavigations>
+    </rules>
+    <rules name="Implication">
+      <inPattElTypes>src_Implication</inPattElTypes>
+      <bindingNavigations>src_Implication.antecedent</bindingNavigations>
+      <bindingNavigations>src_Implication.consequent</bindingNavigations>
+    </rules>
+    <rules name="Conjuction">
+      <inPattElTypes>src_Conjuction</inPattElTypes>
+      <bindingNavigations>src_Conjuction.formulas</bindingNavigations>
+    </rules>
+    <rules name="Disjunction">
+      <inPattElTypes>src_Disjunction</inPattElTypes>
+      <bindingNavigations>src_Disjunction.formulas</bindingNavigations>
+    </rules>
+    <rules name="NegationAsFailure">
+      <inPattElTypes>src_NegationAsFailure</inPattElTypes>
+      <bindingNavigations>src_NegationAsFailure.formula</bindingNavigations>
+    </rules>
+    <rules name="StrongNegation">
+      <inPattElTypes>src_StrongNegation</inPattElTypes>
+      <bindingNavigations>src_StrongNegation.formula</bindingNavigations>
+    </rules>
+    <rules name="EqualityAtom" ruleDependencies="//@modules.0/@rules.11">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_EqualityAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable</bindingNavigations>
+    </rules>
+    <rules name="InequalityAtom" ruleDependencies="//@modules.0/@rules.11">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_InequalityAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable</bindingNavigations>
+    </rules>
+    <rules name="DerivationRule" ruleDependencies="//@modules.0/@rules.6">
+      <inPattElTypes>src_DerivationRule</inPattElTypes>
+      <bindingNavigations>src_DerivationRule.ruleID</bindingNavigations>
+      <bindingNavigations>src_DerivationRule.conditions</bindingNavigations>
+      <bindingNavigations>src_DerivationRule.conclusions.atoms</bindingNavigations>
+    </rules>
+    <rules name="ObjectClassificationAtom" ruleDependencies="//@modules.0/@rules.24 //@modules.0/@rules.10 //@modules.0/@rules.11" helperDependencies="//@modules.0/@helpers.0">
+      <inPattElTypes>src_ObjectClassificationAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectClassificationAtom.term</bindingNavigations>
+    </rules>
+    <rules name="AtomIsNegated" helperDependencies="//@modules.0/@helpers.0">
+      <inPattElTypes>src_Atom</inPattElTypes>
+    </rules>
+    <rules name="DataClassificationAtom" ruleDependencies="//@modules.0/@rules.24 //@modules.0/@rules.14 //@modules.0/@rules.12" helperDependencies="//@modules.0/@helpers.0">
+      <inPattElTypes>src_DataClassificationAtom</inPattElTypes>
+      <bindingNavigations>src_DataClassificationAtom.term</bindingNavigations>
+    </rules>
+    <rules name="QFConjunction">
+      <inPattElTypes>src_QFConjunction</inPattElTypes>
+      <bindingNavigations>src_QFConjunction.formulas</bindingNavigations>
+    </rules>
+    <rules name="QFDisjunction">
+      <inPattElTypes>src_QFDisjunction</inPattElTypes>
+      <bindingNavigations>src_QFDisjunction.formulas</bindingNavigations>
+    </rules>
+    <rules name="QFNegationAsFailure">
+      <inPattElTypes>src_QFNegationAsFailure</inPattElTypes>
+      <bindingNavigations>src_QFNegationAsFailure.formula</bindingNavigations>
+    </rules>
+    <rules name="QFStrongNegation">
+      <inPattElTypes>src_QFStrongNegation</inPattElTypes>
+      <bindingNavigations>src_QFStrongNegation.formula</bindingNavigations>
+    </rules>
+    <rules name="DatatypePredicateAtom" ruleDependencies="//@modules.0/@rules.24 //@modules.0/@rules.12" helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_DataVariable</bindingTypes>
+      <inPattElTypes>src_DatatypePredicateAtom</inPattElTypes>
+      <bindingNavigations>src_DatatypePredicateAtom.predicate.name</bindingNavigations>
+      <bindingNavigations>src_DataVariable</bindingNavigations>
+    </rules>
+    <rules name="TypeCategory" helperDependencies="//@modules.0/@helpers.0">
+      <inPattElTypes>src_Term</inPattElTypes>
+      <bindingNavigations>src_Term.typeCategory</bindingNavigations>
+    </rules>
+    <rules name="DataOperationTermArgs" ruleDependencies="//@modules.0/@rules.11 //@modules.0/@rules.12">
+      <bindingTypes>src_DataVariable</bindingTypes>
+      <inPattElTypes>src_DataOperationTerm</inPattElTypes>
+      <bindingNavigations>src_DataVariable</bindingNavigations>
+    </rules>
+    <rules name="TypedLiteral">
+      <inPattElTypes>src_TypedLiteral</inPattElTypes>
+      <bindingNavigations>src_TypedLiteral.type.name</bindingNavigations>
+      <bindingNavigations>src_TypedLiteral.lexicalValue</bindingNavigations>
+    </rules>
+    <rules name="PlainLiteral" ruleDependencies="//@modules.0/@rules.35">
+      <inPattElTypes>src_PlainLiteral</inPattElTypes>
+      <bindingNavigations>src_PlainLiteral.languageTag</bindingNavigations>
+      <bindingNavigations>src_PlainLiteral.lexicalValue</bindingNavigations>
+    </rules>
+    <rules name="PlainLiteralLanguageTag">
+      <inPattElTypes>src_PlainLiteral</inPattElTypes>
+      <bindingNavigations>src_PlainLiteral.languageTag</bindingNavigations>
+    </rules>
+    <rules name="AttributeFunctionTerm" ruleDependencies="//@modules.0/@rules.31 //@modules.0/@rules.11">
+      <inPattElTypes>src_AttributeFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_AttributeFunctionTerm.typeCategory</bindingNavigations>
+      <bindingNavigations>src_AttributeFunctionTerm.attribute.name</bindingNavigations>
+      <bindingNavigations>src_AttributeFunctionTerm.contextArgument</bindingNavigations>
+    </rules>
+    <rules name="AssociationAtom" ruleDependencies="//@modules.0/@rules.24 //@modules.0/@rules.38 //@modules.0/@rules.11" helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_AssociationAtom</inPattElTypes>
+      <bindingNavigations>src_AssociationAtom.dataArguments</bindingNavigations>
+      <bindingNavigations>src_AssociationAtom.associationPredicate.name</bindingNavigations>
+      <bindingNavigations>src_ObjectVariable</bindingNavigations>
+    </rules>
+    <rules name="AssociationAtomDataArgs" ruleDependencies="//@modules.0/@rules.12" helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_DataVariable</bindingTypes>
+      <inPattElTypes>src_AssociationAtom</inPattElTypes>
+      <bindingNavigations>src_DataVariable</bindingNavigations>
+    </rules>
+    <rules name="ReferencePropertyFunctionTerm" ruleDependencies="//@modules.0/@rules.31 //@modules.0/@rules.11">
+      <inPattElTypes>src_ReferencePropertyFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyFunctionTerm.typeCategory</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyFunctionTerm.referencePropertyRef.name</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyFunctionTerm.contextArgument</bindingNavigations>
+    </rules>
+    <rules name="AttributionAtom" ruleDependencies="//@modules.0/@rules.24 //@modules.0/@rules.11 //@modules.0/@rules.12" helperDependencies="//@modules.0/@helpers.0">
+      <inPattElTypes>src_AttributionAtom</inPattElTypes>
+      <bindingNavigations>src_AttributionAtom.attribute.name</bindingNavigations>
+      <bindingNavigations>src_AttributionAtom.subject</bindingNavigations>
+      <bindingNavigations>src_AttributionAtom.dataValue</bindingNavigations>
+    </rules>
+    <rules name="ReferencePropertyAtom" ruleDependencies="//@modules.0/@rules.24 //@modules.0/@rules.11" helperDependencies="//@modules.0/@helpers.0">
+      <inPattElTypes>src_ReferencePropertyAtom</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyAtom.referenceProperty.name</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom.subject</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom.object</bindingNavigations>
+    </rules>
+    <rules name="GenericAtom" ruleDependencies="//@modules.0/@rules.13 //@modules.0/@rules.11 //@modules.0/@rules.12">
+      <bindingTypes>src_Variable</bindingTypes>
+      <inPattElTypes>src_GenericAtom</inPattElTypes>
+      <bindingNavigations>src_GenericAtom.predicate.name</bindingNavigations>
+      <bindingNavigations>src_Variable</bindingNavigations>
+    </rules>
+    <rules name="PredicateType">
+      <inPattElTypes>src_GenericPredicate</inPattElTypes>
+      <bindingNavigations>src_GenericPredicate.predicateTypeID</bindingNavigations>
+    </rules>
+    <rules name="GenericFunctionTerm" ruleDependencies="//@modules.0/@rules.13 //@modules.0/@rules.31">
+      <inPattElTypes>src_GenericFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_GenericFunctionTerm.functor.name</bindingNavigations>
+      <bindingNavigations>src_GenericFunctionTerm.typeCategory</bindingNavigations>
+    </rules>
+    <rules name="DatatypeFunctionTerm" ruleDependencies="//@modules.0/@rules.12 //@modules.0/@rules.31">
+      <inPattElTypes>src_DatatypeFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_DatatypeFunctionTerm.function.name</bindingNavigations>
+      <bindingNavigations>src_DatatypeFunctionTerm.typeCategory</bindingNavigations>
+    </rules>
+    <rules name="ObjectName" ruleDependencies="//@modules.0/@rules.10 //@modules.0/@rules.31">
+      <bindingTypes>src_ObjectName.name</bindingTypes>
+      <inPattElTypes>src_ObjectName</inPattElTypes>
+      <bindingNavigations>src_ObjectName.typeCategory</bindingNavigations>
+      <bindingNavigations>src_ObjectName.name</bindingNavigations>
+    </rules>
+    <rules name="ObjectDescriptionAtom" ruleDependencies="//@modules.0/@rules.10 //@modules.0/@rules.11">
+      <inPattElTypes>src_ObjectDescriptionAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectDescriptionAtom.slots</bindingNavigations>
+      <bindingNavigations>src_ObjectDescriptionAtom.type.name</bindingNavigations>
+      <bindingNavigations>src_ObjectDescriptionAtom.subject</bindingNavigations>
+      <bindingNavigations>src_ObjectDescriptionAtom.objects</bindingNavigations>
+    </rules>
+    <rules name="ObjectSlot" ruleDependencies="//@modules.0/@rules.11">
+      <inPattElTypes>src_ObjectSlot</inPattElTypes>
+      <bindingNavigations>src_ObjectSlot.referenceProperty.name</bindingNavigations>
+      <bindingNavigations>src_ObjectSlot.object</bindingNavigations>
+    </rules>
+    <rules name="DataSlot" ruleDependencies="//@modules.0/@rules.12">
+      <inPattElTypes>src_DataSlot</inPattElTypes>
+      <bindingNavigations>src_DataSlot.attribute.name</bindingNavigations>
+      <bindingNavigations>src_DataSlot.value</bindingNavigations>
+    </rules>
+    <rules name="AtLeastQuantifiedFormula" ruleDependencies="//@modules.0/@rules.11 //@modules.0/@rules.12">
+      <inPattElTypes>src_AtLeastQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.formula</bindingNavigations>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.minCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtMostQuantifiedFormula" ruleDependencies="//@modules.0/@rules.11 //@modules.0/@rules.12">
+      <inPattElTypes>src_AtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtMostQuantifiedFormula.formula</bindingNavigations>
+      <bindingNavigations>src_AtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastAndAtMostQuantifiedFormula" ruleDependencies="//@modules.0/@rules.11 //@modules.0/@rules.12">
+      <inPattElTypes>src_AtLeastAndAtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.minCardinality</bindingNavigations>
+    </rules>
+    <rules name="ObjectOperationTerm" ruleDependencies="//@modules.0/@rules.11">
+      <inPattElTypes>src_ObjectOperationTerm</inPattElTypes>
+      <bindingNavigations>src_ObjectOperationTerm.arguments</bindingNavigations>
+      <bindingNavigations>src_ObjectOperationTerm.operation.name</bindingNavigations>
+      <bindingNavigations>src_ObjectOperationTerm.contextArgument</bindingNavigations>
+    </rules>
+    <rules name="DataOperationTerm" ruleDependencies="//@modules.0/@rules.32 //@modules.0/@rules.31 //@modules.0/@rules.11">
+      <inPattElTypes>src_DataOperationTerm</inPattElTypes>
+      <bindingNavigations>src_DataOperationTerm.typeCategory</bindingNavigations>
+      <bindingNavigations>src_DataOperationTerm.dataOperationRef.name</bindingNavigations>
+      <bindingNavigations>src_DataOperationTerm.contextArgument</bindingNavigations>
+    </rules>
+    <helpers name="Atom__isNegated_"/>
+  </modules>
+</modularization:Transformation>

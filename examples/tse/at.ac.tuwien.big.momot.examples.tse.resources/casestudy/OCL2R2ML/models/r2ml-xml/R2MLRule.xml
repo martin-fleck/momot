@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1' ?>
+<r2ml:RuleBase xmlns:dc = 'http://purl.org/dc/elements/1.1/' xsi:schemaLocation = 'http://www.rewerse.net/I1/2006/R2ML http://oxygen.informatik.tu-cottbus.de/R2ML/0.4/R2ML.xsd' xmlns:r2ml = 'http://www.rewerse.net/I1/2006/R2ML' xmlns:xsi = 'http://www.w3.org/2001/XMLSchema-instance'>
+  <r2ml:IntegrityRuleSet>
+    <r2ml:AlethicIntegrityRule r2ml:ruleID = 'ofAge'>
+      <r2ml:constraint>
+        <r2ml:UniversallyQuantifiedFormula>
+          <r2ml:ObjectVariable r2ml:name = 'customer' r2ml:classID = 'Customer'/>
+          <r2ml:DatatypePredicateAtom r2ml:datatypePredicateID = 'swrlb:greaterThanOrEqual'>
+            <r2ml:dataArguments>
+              <r2ml:AttributeFunctionTerm r2ml:attributeID = 'age'>
+                <r2ml:contextArgument>
+                  <r2ml:ObjectVariable r2ml:name = 'customer' r2ml:classID = 'Customer'/>
+                </r2ml:contextArgument>
+              </r2ml:AttributeFunctionTerm>
+              <r2ml:TypedLiteral r2ml:datatypeID = 'xs:positiveInteger' r2ml:lexicalValue = '18'/>
+            </r2ml:dataArguments>
+          </r2ml:DatatypePredicateAtom>
+        </r2ml:UniversallyQuantifiedFormula>
+      </r2ml:constraint>
+    </r2ml:AlethicIntegrityRule>
+  </r2ml:IntegrityRuleSet>
+</r2ml:RuleBase>

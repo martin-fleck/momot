@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_F4VGQN6zEeSuZpRwKQzV9A">
+  <imports href="http://www.big.tuwien.ac.at/tosem/modularization#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_LeOXwN6zEeSuZpRwKQzV9A" name="createModule">
+    <parameters xmi:id="_ULwvoN6zEeSuZpRwKQzV9A" name="name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_LeUeYN6zEeSuZpRwKQzV9A" name="Lhs">
+      <nodes xmi:id="_XRdVQN6zEeSuZpRwKQzV9A" name="" description="">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_1nJHAN7DEeSuZpRwKQzV9A">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_1nJHAd7DEeSuZpRwKQzV9A">
+          <conclusion xmi:id="_1nJHAt7DEeSuZpRwKQzV9A">
+            <nodes xmi:id="_1nJHA97DEeSuZpRwKQzV9A" name="" description="" outgoing="_1--_QN7DEeSuZpRwKQzV9A">
+              <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation"/>
+            </nodes>
+            <nodes xmi:id="_1FekYN7DEeSuZpRwKQzV9A" incoming="_1--_QN7DEeSuZpRwKQzV9A">
+              <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+              <attributes xmi:id="_2bmCwN7DEeSuZpRwKQzV9A" value="name">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_1--_QN7DEeSuZpRwKQzV9A" source="_1nJHA97DEeSuZpRwKQzV9A" target="_1FekYN7DEeSuZpRwKQzV9A">
+              <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_1nJHBN7DEeSuZpRwKQzV9A" origin="_XRdVQN6zEeSuZpRwKQzV9A" image="_1nJHA97DEeSuZpRwKQzV9A"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_LeUeYd6zEeSuZpRwKQzV9A" name="Rhs">
+      <nodes xmi:id="_XRdVQd6zEeSuZpRwKQzV9A" outgoing="_uMyOQN7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation"/>
+      </nodes>
+      <nodes xmi:id="_X5zHoN6zEeSuZpRwKQzV9A" incoming="_uMyOQN7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_ZjLgQN6zEeSuZpRwKQzV9A" value="name">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_uMyOQN7DEeSuZpRwKQzV9A" source="_XRdVQd6zEeSuZpRwKQzV9A" target="_X5zHoN6zEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_XRdVQt6zEeSuZpRwKQzV9A" origin="_XRdVQN6zEeSuZpRwKQzV9A" image="_XRdVQd6zEeSuZpRwKQzV9A"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_C8smIN60EeSuZpRwKQzV9A" name="reassignRule">
+    <parameters xmi:id="_FbY2IN60EeSuZpRwKQzV9A" name="source">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_FbY2Id60EeSuZpRwKQzV9A" name="target">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_FbY2It60EeSuZpRwKQzV9A" name="rule">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_C84zYN60EeSuZpRwKQzV9A" name="Lhs">
+      <nodes xmi:id="_lszxQN7DEeSuZpRwKQzV9A" name="root" outgoing="_lszxQ97DEeSuZpRwKQzV9A _lut1wN7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation"/>
+      </nodes>
+      <nodes xmi:id="_H88M4N60EeSuZpRwKQzV9A" incoming="_lszxQ97DEeSuZpRwKQzV9A" outgoing="_UwwdoN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_vlr90EEOEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_IqJRIN60EeSuZpRwKQzV9A" incoming="_lut1wN7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_v-QO0EEOEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_UEOHwN60EeSuZpRwKQzV9A" incoming="_UwwdoN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+        <attributes xmi:id="_v3opcEEOEeWMesXi1Qh8gA" value="rule">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_UwwdoN60EeSuZpRwKQzV9A" source="_H88M4N60EeSuZpRwKQzV9A" target="_UEOHwN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+      </edges>
+      <edges xmi:id="_lszxQ97DEeSuZpRwKQzV9A" source="_lszxQN7DEeSuZpRwKQzV9A" target="_H88M4N60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+      <edges xmi:id="_lut1wN7DEeSuZpRwKQzV9A" source="_lszxQN7DEeSuZpRwKQzV9A" target="_IqJRIN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_C84zYd60EeSuZpRwKQzV9A" name="Rhs">
+      <nodes xmi:id="_H88M4d60EeSuZpRwKQzV9A" incoming="_lszxRN7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_vlr90UEOEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_IqJRId60EeSuZpRwKQzV9A" incoming="_lut1wd7DEeSuZpRwKQzV9A" outgoing="_Vh-fMN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_v-QO0UEOEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_UEOHwd60EeSuZpRwKQzV9A" incoming="_Vh-fMN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+        <attributes xmi:id="_v3opcUEOEeWMesXi1Qh8gA" value="rule">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_lszxQd7DEeSuZpRwKQzV9A" name="root" outgoing="_lszxRN7DEeSuZpRwKQzV9A _lut1wd7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation"/>
+      </nodes>
+      <edges xmi:id="_Vh-fMN60EeSuZpRwKQzV9A" source="_IqJRId60EeSuZpRwKQzV9A" target="_UEOHwd60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+      </edges>
+      <edges xmi:id="_lszxRN7DEeSuZpRwKQzV9A" source="_lszxQd7DEeSuZpRwKQzV9A" target="_H88M4d60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+      <edges xmi:id="_lut1wd7DEeSuZpRwKQzV9A" source="_lszxQd7DEeSuZpRwKQzV9A" target="_IqJRId60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_H88M4t60EeSuZpRwKQzV9A" origin="_H88M4N60EeSuZpRwKQzV9A" image="_H88M4d60EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_IqJRIt60EeSuZpRwKQzV9A" origin="_IqJRIN60EeSuZpRwKQzV9A" image="_IqJRId60EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_UEOHwt60EeSuZpRwKQzV9A" origin="_UEOHwN60EeSuZpRwKQzV9A" image="_UEOHwd60EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_lszxQt7DEeSuZpRwKQzV9A" origin="_lszxQN7DEeSuZpRwKQzV9A" image="_lszxQd7DEeSuZpRwKQzV9A"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_iR6VgN60EeSuZpRwKQzV9A" name="assignRule">
+    <parameters xmi:id="_kGQoAN60EeSuZpRwKQzV9A" name="module">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kGQoAd60EeSuZpRwKQzV9A" name="rule">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_iSAcJN60EeSuZpRwKQzV9A" name="Lhs">
+      <nodes xmi:id="_m6-yYN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_62oGkEEOEeWMesXi1Qh8gA" value="module">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nNGdIN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+        <attributes xmi:id="_7JIy4EEOEeWMesXi1Qh8gA" value="rule">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_iSAcJd60EeSuZpRwKQzV9A" name="Rhs">
+      <nodes xmi:id="_m7E5AN60EeSuZpRwKQzV9A" outgoing="_n10qAN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_62otoEEOEeWMesXi1Qh8gA" value="module">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nNGdId60EeSuZpRwKQzV9A" incoming="_n10qAN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+        <attributes xmi:id="_7JIy4UEOEeWMesXi1Qh8gA" value="rule">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_n10qAN60EeSuZpRwKQzV9A" source="_m7E5AN60EeSuZpRwKQzV9A" target="_nNGdId60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_m7E5Ad60EeSuZpRwKQzV9A" origin="_m6-yYN60EeSuZpRwKQzV9A" image="_m7E5AN60EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_nNGdIt60EeSuZpRwKQzV9A" origin="_nNGdIN60EeSuZpRwKQzV9A" image="_nNGdId60EeSuZpRwKQzV9A"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_ssh6QN60EeSuZpRwKQzV9A" name="reassignHelper">
+    <parameters xmi:id="_4hIwwN60EeSuZpRwKQzV9A" name="source">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_4hIwwd60EeSuZpRwKQzV9A" name="target">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_t8Qcwd60EeSuZpRwKQzV9A" name="helper">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_ssoA5N60EeSuZpRwKQzV9A" name="Lhs">
+      <nodes xmi:id="_lEFkYN7DEeSuZpRwKQzV9A" name="root" outgoing="_lEFkY97DEeSuZpRwKQzV9A _lEFkZd7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation"/>
+      </nodes>
+      <nodes xmi:id="_5Wu8AN60EeSuZpRwKQzV9A" incoming="_lEFkY97DEeSuZpRwKQzV9A" outgoing="_8Gl0gN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_1Tz-QEEOEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_6OJFIN60EeSuZpRwKQzV9A" incoming="_lEFkZd7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_1m1A4EEOEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_65uYwN60EeSuZpRwKQzV9A" incoming="_8Gl0gN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+        <attributes xmi:id="_1iesYEEOEeWMesXi1Qh8gA" value="helper">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_8Gl0gN60EeSuZpRwKQzV9A" source="_5Wu8AN60EeSuZpRwKQzV9A" target="_65uYwN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+      </edges>
+      <edges xmi:id="_lEFkY97DEeSuZpRwKQzV9A" source="_lEFkYN7DEeSuZpRwKQzV9A" target="_5Wu8AN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+      <edges xmi:id="_lEFkZd7DEeSuZpRwKQzV9A" source="_lEFkYN7DEeSuZpRwKQzV9A" target="_6OJFIN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_ssoA5d60EeSuZpRwKQzV9A" name="Rhs">
+      <nodes xmi:id="_5W1CoN60EeSuZpRwKQzV9A" incoming="_lEFkZN7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_1Tz-QUEOEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_6OJFId60EeSuZpRwKQzV9A" incoming="_lEFkZt7DEeSuZpRwKQzV9A" outgoing="_8XkPwN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_1m1A4UEOEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_650fYN60EeSuZpRwKQzV9A" incoming="_8XkPwN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+        <attributes xmi:id="_1iesYUEOEeWMesXi1Qh8gA" value="helper">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_lEFkYd7DEeSuZpRwKQzV9A" name="root" outgoing="_lEFkZN7DEeSuZpRwKQzV9A _lEFkZt7DEeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation"/>
+      </nodes>
+      <edges xmi:id="_8XkPwN60EeSuZpRwKQzV9A" source="_6OJFId60EeSuZpRwKQzV9A" target="_650fYN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+      </edges>
+      <edges xmi:id="_lEFkZN7DEeSuZpRwKQzV9A" source="_lEFkYd7DEeSuZpRwKQzV9A" target="_5W1CoN60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+      <edges xmi:id="_lEFkZt7DEeSuZpRwKQzV9A" source="_lEFkYd7DEeSuZpRwKQzV9A" target="_6OJFId60EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Transformation/modules"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_5W1Cod60EeSuZpRwKQzV9A" origin="_5Wu8AN60EeSuZpRwKQzV9A" image="_5W1CoN60EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_6OJFIt60EeSuZpRwKQzV9A" origin="_6OJFIN60EeSuZpRwKQzV9A" image="_6OJFId60EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_650fYd60EeSuZpRwKQzV9A" origin="_65uYwN60EeSuZpRwKQzV9A" image="_650fYN60EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_lEFkYt7DEeSuZpRwKQzV9A" origin="_lEFkYN7DEeSuZpRwKQzV9A" image="_lEFkYd7DEeSuZpRwKQzV9A"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_HXoD4N61EeSuZpRwKQzV9A" name="assignHelper">
+    <parameters xmi:id="_Il08YN61EeSuZpRwKQzV9A" name="module">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_Il08Yd61EeSuZpRwKQzV9A" name="helper">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_HXuKhN61EeSuZpRwKQzV9A" name="Lhs">
+      <nodes xmi:id="_MMuKkN61EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_FUqywEEPEeWMesXi1Qh8gA" value="module">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_NAgX8N61EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+        <attributes xmi:id="_FjkxcEEPEeWMesXi1Qh8gA" value="helper">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_HXuKhd61EeSuZpRwKQzV9A" name="Rhs">
+      <nodes xmi:id="_MMuKkd61EeSuZpRwKQzV9A" outgoing="_NxtycN61EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_FUqywUEPEeWMesXi1Qh8gA" value="module">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_NAgX8d61EeSuZpRwKQzV9A" incoming="_NxtycN61EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+        <attributes xmi:id="_FjkxcUEPEeWMesXi1Qh8gA" value="helper">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_NxtycN61EeSuZpRwKQzV9A" source="_MMuKkd61EeSuZpRwKQzV9A" target="_NAgX8d61EeSuZpRwKQzV9A">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_MMuKkt61EeSuZpRwKQzV9A" origin="_MMuKkN61EeSuZpRwKQzV9A" image="_MMuKkd61EeSuZpRwKQzV9A"/>
+    <mappings xmi:id="_NAgX8t61EeSuZpRwKQzV9A" origin="_NAgX8N61EeSuZpRwKQzV9A" image="_NAgX8d61EeSuZpRwKQzV9A"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_SkoeQDUtEeW3G6tEXhCdYg" name="distributeRule">
+    <parameters xmi:id="_WUVqMDUtEeW3G6tEXhCdYg" name="source">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_WUVqMTUtEeW3G6tEXhCdYg" name="rule">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_WUVqMjUtEeW3G6tEXhCdYg" name="target">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_SkxBIDUtEeW3G6tEXhCdYg" name="Lhs">
+      <nodes xmi:id="_ZLI4MDUtEeW3G6tEXhCdYg" outgoing="_a0ZVADUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_OF_ecEEPEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Ze4TkDUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_OcjkUEEPEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Z3XFADUtEeW3G6tEXhCdYg" incoming="_a0ZVADUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+        <attributes xmi:id="_OTUv0EEPEeWMesXi1Qh8gA" value="rule">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_a0ZVADUtEeW3G6tEXhCdYg" source="_ZLI4MDUtEeW3G6tEXhCdYg" target="_Z3XFADUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+      </edges>
+      <formula xsi:type="henshin:And" xmi:id="_b5itQDUvEeW3G6tEXhCdYg">
+        <left xsi:type="henshin:Not" xmi:id="_bbGdwTUvEeW3G6tEXhCdYg">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_bbGdwjUvEeW3G6tEXhCdYg">
+            <conclusion xmi:id="_bbGdwzUvEeW3G6tEXhCdYg" name="1">
+              <nodes xmi:id="_bbGdxDUvEeW3G6tEXhCdYg" name="source" outgoing="_bbGdyDUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_OGChwEEPEeWMesXi1Qh8gA" value="source">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_bbGdxjUvEeW3G6tEXhCdYg" name="rule" incoming="_bbGdyDUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+                <attributes xmi:id="_OTUv0kEPEeWMesXi1Qh8gA" value="rule">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_bbGdyTUvEeW3G6tEXhCdYg" name="target" outgoing="_zKxNgDUuEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_OckLYUEPEeWMesXi1Qh8gA" value="target">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_ysnR4DUuEeW3G6tEXhCdYg" incoming="_zKxNgDUuEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+              </nodes>
+              <edges xmi:id="_bbGdyDUvEeW3G6tEXhCdYg" source="_bbGdxDUvEeW3G6tEXhCdYg" target="_bbGdxjUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+              </edges>
+              <edges xmi:id="_zKxNgDUuEeW3G6tEXhCdYg" source="_bbGdyTUvEeW3G6tEXhCdYg" target="_ysnR4DUuEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_bbGdxTUvEeW3G6tEXhCdYg" origin="_ZLI4MDUtEeW3G6tEXhCdYg" image="_bbGdxDUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_bbGdxzUvEeW3G6tEXhCdYg" origin="_Z3XFADUtEeW3G6tEXhCdYg" image="_bbGdxjUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_bbGdyjUvEeW3G6tEXhCdYg" origin="_Ze4TkDUtEeW3G6tEXhCdYg" image="_bbGdyTUvEeW3G6tEXhCdYg"/>
+          </child>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="_b5itQTUvEeW3G6tEXhCdYg">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_b5itQjUvEeW3G6tEXhCdYg">
+            <conclusion xmi:id="_b5itQzUvEeW3G6tEXhCdYg" name="2">
+              <nodes xmi:id="_b5itRDUvEeW3G6tEXhCdYg" name="source" outgoing="_b5itSDUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_OGChwUEPEeWMesXi1Qh8gA" value="source">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_b5itRjUvEeW3G6tEXhCdYg" name="rule" incoming="_b5itSDUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+                <attributes xmi:id="_OTUv00EPEeWMesXi1Qh8gA" value="rule">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_b5itSTUvEeW3G6tEXhCdYg" name="target" outgoing="_g30QADUtEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_OckLYkEPEeWMesXi1Qh8gA" value="target">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_gd8XcDUtEeW3G6tEXhCdYg" incoming="_g30QADUtEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+              </nodes>
+              <edges xmi:id="_b5itSDUvEeW3G6tEXhCdYg" source="_b5itRDUvEeW3G6tEXhCdYg" target="_b5itRjUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+              </edges>
+              <edges xmi:id="_g30QADUtEeW3G6tEXhCdYg" source="_b5itSTUvEeW3G6tEXhCdYg" target="_gd8XcDUtEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_b5itRTUvEeW3G6tEXhCdYg" origin="_ZLI4MDUtEeW3G6tEXhCdYg" image="_b5itRDUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_b5itRzUvEeW3G6tEXhCdYg" origin="_Z3XFADUtEeW3G6tEXhCdYg" image="_b5itRjUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_b5itSjUvEeW3G6tEXhCdYg" origin="_Ze4TkDUtEeW3G6tEXhCdYg" image="_b5itSTUvEeW3G6tEXhCdYg"/>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_SkxBITUtEeW3G6tEXhCdYg" name="Rhs">
+      <nodes xmi:id="_ZLLUcDUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_OGB6sEEPEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Ze46oDUtEeW3G6tEXhCdYg" outgoing="_adcNkDUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_OckLYEEPEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Z3XFATUtEeW3G6tEXhCdYg" incoming="_adcNkDUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+        <attributes xmi:id="_OTUv0UEPEeWMesXi1Qh8gA" value="rule">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_adcNkDUtEeW3G6tEXhCdYg" source="_Ze46oDUtEeW3G6tEXhCdYg" target="_Z3XFATUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ZLLUcTUtEeW3G6tEXhCdYg" origin="_ZLI4MDUtEeW3G6tEXhCdYg" image="_ZLLUcDUtEeW3G6tEXhCdYg"/>
+    <mappings xmi:id="_Ze46oTUtEeW3G6tEXhCdYg" origin="_Ze4TkDUtEeW3G6tEXhCdYg" image="_Ze46oDUtEeW3G6tEXhCdYg"/>
+    <mappings xmi:id="_Z3XFAjUtEeW3G6tEXhCdYg" origin="_Z3XFADUtEeW3G6tEXhCdYg" image="_Z3XFATUtEeW3G6tEXhCdYg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_majf0DUtEeW3G6tEXhCdYg" name="distributeHelper">
+    <parameters xmi:id="_majf0TUtEeW3G6tEXhCdYg" name="source">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_o-n_EDUtEeW3G6tEXhCdYg" name="helper">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_majf0zUtEeW3G6tEXhCdYg" name="target">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_majf1DUtEeW3G6tEXhCdYg" name="Lhs">
+      <nodes xmi:id="_majf1TUtEeW3G6tEXhCdYg" outgoing="_majf2TUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_YgK-UEEPEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_majf1jUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_Y1ZncEEPEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_majf1zUtEeW3G6tEXhCdYg" incoming="_majf2TUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+        <attributes xmi:id="_YuNaUEEPEeWMesXi1Qh8gA" value="helper">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_majf2TUtEeW3G6tEXhCdYg" source="_majf1TUtEeW3G6tEXhCdYg" target="_majf1zUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+      </edges>
+      <formula xsi:type="henshin:And" xmi:id="_aV-owDUvEeW3G6tEXhCdYg">
+        <left xsi:type="henshin:Not" xmi:id="_Z1cHgDUvEeW3G6tEXhCdYg">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_Z1cHgTUvEeW3G6tEXhCdYg">
+            <conclusion xmi:id="_Z1cHgjUvEeW3G6tEXhCdYg" name="1">
+              <nodes xmi:id="_Z1cHgzUvEeW3G6tEXhCdYg" name="source" outgoing="_Z1cHhzUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_YgLlYUEPEeWMesXi1Qh8gA" value="source">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_Z1cHhTUvEeW3G6tEXhCdYg" name="helper" incoming="_Z1cHhzUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+                <attributes xmi:id="_YuOBYUEPEeWMesXi1Qh8gA" value="helper">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_Z1cHiDUvEeW3G6tEXhCdYg" name="target" outgoing="_2U1VwDUuEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_Y1aOgEEPEeWMesXi1Qh8gA" value="target">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_1jfYYDUuEeW3G6tEXhCdYg" incoming="_2U1VwDUuEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Rule"/>
+              </nodes>
+              <edges xmi:id="_Z1cHhzUvEeW3G6tEXhCdYg" source="_Z1cHgzUvEeW3G6tEXhCdYg" target="_Z1cHhTUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+              </edges>
+              <edges xmi:id="_2U1VwDUuEeW3G6tEXhCdYg" source="_Z1cHiDUvEeW3G6tEXhCdYg" target="_1jfYYDUuEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/rules"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_Z1cHhDUvEeW3G6tEXhCdYg" origin="_majf1TUtEeW3G6tEXhCdYg" image="_Z1cHgzUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_Z1cHhjUvEeW3G6tEXhCdYg" origin="_majf1zUtEeW3G6tEXhCdYg" image="_Z1cHhTUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_Z1cHiTUvEeW3G6tEXhCdYg" origin="_majf1jUtEeW3G6tEXhCdYg" image="_Z1cHiDUvEeW3G6tEXhCdYg"/>
+          </child>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="_aV-owTUvEeW3G6tEXhCdYg">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_aV-owjUvEeW3G6tEXhCdYg">
+            <conclusion xmi:id="_aV-owzUvEeW3G6tEXhCdYg" name="2">
+              <nodes xmi:id="_aV-oxDUvEeW3G6tEXhCdYg" name="source" outgoing="_aV-oyDUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_YgLlYkEPEeWMesXi1Qh8gA" value="source">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_aV-oxjUvEeW3G6tEXhCdYg" name="helper" incoming="_aV-oyDUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+                <attributes xmi:id="_YuOBYkEPEeWMesXi1Qh8gA" value="helper">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_aV-oyTUvEeW3G6tEXhCdYg" name="target" outgoing="_zqpc4DUtEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+                <attributes xmi:id="_Y1aOgUEPEeWMesXi1Qh8gA" value="target">
+                  <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_majf2DUtEeW3G6tEXhCdYg" incoming="_zqpc4DUtEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+              </nodes>
+              <edges xmi:id="_aV-oyDUvEeW3G6tEXhCdYg" source="_aV-oxDUvEeW3G6tEXhCdYg" target="_aV-oxjUvEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+              </edges>
+              <edges xmi:id="_zqpc4DUtEeW3G6tEXhCdYg" source="_aV-oyTUvEeW3G6tEXhCdYg" target="_majf2DUtEeW3G6tEXhCdYg">
+                <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_aV-oxTUvEeW3G6tEXhCdYg" origin="_majf1TUtEeW3G6tEXhCdYg" image="_aV-oxDUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_aV-oxzUvEeW3G6tEXhCdYg" origin="_majf1zUtEeW3G6tEXhCdYg" image="_aV-oxjUvEeW3G6tEXhCdYg"/>
+            <mappings xmi:id="_aV-oyjUvEeW3G6tEXhCdYg" origin="_majf1jUtEeW3G6tEXhCdYg" image="_aV-oyTUvEeW3G6tEXhCdYg"/>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_majf4jUtEeW3G6tEXhCdYg" name="Rhs">
+      <nodes xmi:id="_majf4zUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_YgLlYEEPEeWMesXi1Qh8gA" value="source">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_majf5DUtEeW3G6tEXhCdYg" outgoing="_majf5zUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module"/>
+        <attributes xmi:id="_Y1ZncUEPEeWMesXi1Qh8gA" value="target">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_majf5TUtEeW3G6tEXhCdYg" incoming="_majf5zUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Helper"/>
+        <attributes xmi:id="_YuOBYEEPEeWMesXi1Qh8gA" value="helper">
+          <type href="http://www.big.tuwien.ac.at/tosem/modularization#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_majf5zUtEeW3G6tEXhCdYg" source="_majf5DUtEeW3G6tEXhCdYg" target="_majf5TUtEeW3G6tEXhCdYg">
+        <type href="http://www.big.tuwien.ac.at/tosem/modularization#//Module/helpers"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_majf6DUtEeW3G6tEXhCdYg" origin="_majf1TUtEeW3G6tEXhCdYg" image="_majf4zUtEeW3G6tEXhCdYg"/>
+    <mappings xmi:id="_majf6TUtEeW3G6tEXhCdYg" origin="_majf1jUtEeW3G6tEXhCdYg" image="_majf5DUtEeW3G6tEXhCdYg"/>
+    <mappings xmi:id="_majf6jUtEeW3G6tEXhCdYg" origin="_majf1zUtEeW3G6tEXhCdYg" image="_majf5TUtEeW3G6tEXhCdYg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,329 @@
+--/*******************************************************************************
+-- * Copyright (c) 2013 Vienna University of Technology.
+-- * All rights reserved. This program and the accompanying materials
+-- * are made available under the terms of the Eclipse Public License v1.0
+-- * which accompanies this distribution, and is available at
+-- * http://www.eclipse.org/legal/epl-v10.html
+-- *
+-- * Contributors:
+-- * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
+-- * Manuel Wimmer (Vienna University of Technology) - initial API and implementation 
+-- *
+-- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- *******************************************************************************/
+
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/3.0.0/UML
+-- @path JMM=pathmap://METAMODEL/java.ecore
+
+library javaLibrary;
+
+helper context JMM!TypeAccess def : getParameterizedType() : UMLMM!Type =
+	-- BUG: TODO : we need to deal with UnresolvedTypeDeclaration! 
+--	if(self.oclIsTypeOf(JMM!UnresolvedTypeDeclaration)) then OclUndefined
+--	else
+		thisModule.resolveTemp(self.type, 't1');
+--	endif;
+	
+--helper context JMM!TypeAccess def : containedByModelLibrary() : Boolean =
+--	UMLMM!Type.allInstancesFrom('ML') -> exists(e | e.name = self.type.name and e.refImmediateComposite().name = self.type.refImmediateComposite().name);
+
+-- checks if a type is complex
+helper context JMM!TypeAccess def : isComplexType() : Boolean =
+	if(self.isPrimitiveType() or self.type.oclIsTypeOf(JMM!EnumDeclaration)) then false
+	else
+		if(self.type.oclIsTypeOf(JMM!ArrayType)) then not self.type.isArrayWithNonComplexType
+		else
+			true
+		endif
+	endif;
+
+-- ckecks if a type is primitive ...
+helper context JMM!TypeAccess def : isPrimitiveType() : Boolean =
+	-- if we have a kind of PrimitiveType (int, float, bool, etc.)
+	if (self.type.oclIsKindOf(JMM!PrimitiveType)) then true
+	else
+		-- wrapped primitive types (e.g., ClassDeclaration of type String etc.)
+		if ((self.type.name = 'String') or (self.type.name = 'Integer') 
+				or (self.type.name = 'Long') or (self.type.name = 'Short')
+				or (self.type.name = 'Float') or (self.type.name = 'Double')
+				or (self.type.name = 'Boolean') or (self.type.name = 'Number')) then true
+		else
+			-- finally, we have the case of Array's with primitive type
+			-- only in case it is an ArrayType, we check the type of the Array
+			if(not self.type.oclIsTypeOf(JMM!ArrayType)) then false
+			else
+				--if (self.type.elementType.isPrimitiveType() or self.type.elementType.type.oclIsTypeOf(JMM!EnumDeclaration)) then true
+				if(self.type.elementType.isPrimitiveType()) then true
+				else
+					false
+				endif
+			endif
+		endif
+	endif;
+				
+helper context JMM!TypeAccess def : isParameterizedType : Boolean = 
+	self.type.oclIsTypeOf(JMM!ParameterizedType) or self.type.isJavaLangClass();
+	
+helper context OclAny def : isJavaLangClass : Boolean =
+	self.refImmediateComposite().getFullyQualifiedPackageName.toString().concat('.').concat(self.name).toString() = 'java.lang.Class' or
+	self.refImmediateComposite().getFullyQualifiedPackageName.toString().concat('.').concat(self.name).toString() = 'java.lang.Class[]';
+	
+helper context JMM!ArrayType def : isArrayWithNonComplexType : Boolean =
+	if (self.elementType.isPrimitiveType() or self.elementType.type.oclIsTypeOf(JMM!EnumDeclaration)) then true
+	else false
+	endif;
+	
+-- TODO: here we could also use a Map
+-- returns the type for a given type access; required to determine on the return type of
+-- a method in the annotation type declaration
+helper context JMM!TypeAccess def : getType() : UMLMM!Type =
+	-- PrimitiveType, String
+	if self.isPrimitiveType() then self.type.getTypeFromPrimitiveType
+	else
+		-- Class / Parameterized Class (can only be java.lang.Class)
+		if (self.type.oclIsTypeOf(JMM!ClassDeclaration) or self.type.oclIsTypeOf(JMM!ParameterizedType)) then self.type.getTypeFromTypeDeclaration
+		else
+			-- EnumType
+			if self.type.oclIsTypeOf(JMM!EnumDeclaration) then self.type.getTypeFromEnumDeclaration()
+			else
+				-- AnnotationType
+				if self.type.oclIsTypeOf(JMM!AnnotationTypeDeclaration) then self.type.getTypeFromAnnotationTypeDeclaration()
+				else
+					-- ArrayType
+					if self.type.oclIsTypeOf(JMM!ArrayType) then self.type.getTypeFromArrayType
+					
+					-- UnresolvedType
+					else thisModule.resolveTemp(self.type, 't1')
+					endif
+				endif
+			endif
+		endif
+	endif;
+
+-- return for a given Java
+-- we should use here Java Primitive Types ... ????
+helper context JMM!Type def : getTypeFromPrimitiveType : UMLMM!Type =
+	thisModule.javaPrimitiveType.get(self.name.toString());
+
+-- can only be java.lang.Class
+helper context OclAny def : getTypeFromTypeDeclaration : UMLMM!Type =
+	UMLMM!Class.allInstancesFrom('MC') -> any(e | e.name = 'Class');
+	
+-- return for a given Java parameterized Class the appropriate UML Class
+helper context JMM!ParameterizedType def : getTypeFromParameterizedType() : UMLMM!Class =
+	UMLMM!Class.allInstancesFrom('MC') -> any(e | e.name = 'Class');
+
+-- return for a given Java Enum Type the appropriate UML instance of this Enum Type
+helper context JMM!EnumDeclaration def : getTypeFromEnumDeclaration() : UMLMM!Enumeration =
+	thisModule.resolveTemp(self, 't1');
+
+-- return for a given Java Annotation Type the appropriate UML instance of this 
+helper context JMM!AnnotationTypeDeclaration def : getTypeFromAnnotationTypeDeclaration() : UMLMM!Stereotype =
+	thisModule.resolveTemp(self, 't1');
+
+-- return for a given Java Annotation Type the appropriate UML instance of this 
+helper context JMM!UnresolvedTypeDeclaration def : getTypeFromUnresolvedTypeDeclaration() : UMLMM!Class =
+	thisModule.resolveTemp(self, 't1');
+
+-- return for a given Java ArrayType the appropriate UML Type  ... here deal only with
+-- complex types and enumerations
+helper context JMM!ArrayType def : getTypeFromArrayType : UMLMM!Type =	
+	if(self.elementType.type.oclIsTypeOf(JMM!ClassDeclaration) or
+	   self.elementType.type.oclIsTypeOf(JMM!InterfaceDeclaration)) then 
+	   		self.elementType.type.getTypeFromTypeDeclaration
+	else
+		if(self.elementType.type.oclIsTypeOf(JMM!ParameterizedType)) then
+			self.elementType.type.getTypeFromParameterizedType()
+		else
+			if(self.elementType.type.oclIsTypeOf(JMM!EnumDeclaration)) then
+				self.elementType.type.getTypeFromEnumDeclaration()
+			else
+				if(self.elementType.type.oclIsTypeOf(JMM!AnnotationTypeDeclaration)) then 
+					self.elementType.type.getTypeFromAnnotationTypeDeclaration()
+				else
+					if(self.elementType.type.oclIsTypeOf(JMM!UnresolvedTypeDeclaration)) then
+						self.elementType.type.getTypeFromUnresolvedTypeDeclaration()
+					else
+						-- TODO: check ... but should actually not happen ;)
+						OclUndefined
+					endif
+				endif
+			endif
+		endif
+	endif;
+
+-- decide if a class or interface is required for the annotation type declaration
+--helper context JMM!Type def : isRequiredForAnnotationTypes : Boolean = 
+--	if (JMM!AnnotationTypeMemberDeclaration.allInstances() ->
+--			select(e | e.type.type.oclIsTypeOf(JMM!ParameterizedType)) -> exists(f | f.type.type.typeArguments -> exists(g | g.type.name = s1.name)) or
+--		
+--		
+--	)
+
+--  get fully qualified package name of a java type
+helper context OclAny def : getFullyQualifiedPackageName : String =
+	if(self.refImmediateComposite().oclIsTypeOf(JMM!Package)) then 
+	   self.refImmediateComposite().getFullyQualifiedPackageName.concat('.').concat(self.name)
+	else
+	   self.name
+	endif;
+
+-- get Java package
+helper context OclAny def : getJavaPackage() : JMM!Package =
+	if(not self.package.oclIsUndefined()) then
+		self.package
+	else
+		self.refImmediateComposite().getPackage()
+	endif;
+
+-- get the package of a PackageableElement
+helper context UMLMM!PackageableElement def : getPackage() : UMLMM!Package =
+	if(self.refImmediateComposite().oclIsTypeOf(UMLMM!Package)) then
+		self.refImmediateComposite()
+	else
+		self.refImmediateComposite().getPackage()
+	endif;
+	
+-- only those code elements that are relevant element types / return values of annotation type declarations
+helper context OclAny def : isRelevantForAnnotationTypes : Boolean =
+	-- maybe the name matching here can be dangerous ...
+	if(self.oclIsKindOf(JMM!Type)) then
+		if ((self.oclIsTypeOf(JMM!AnnotationTypeDeclaration) and self.proxy = false)) or
+		    
+			(thisModule.getAnnotationTypeMemberDeclarations -> select(e | not e.type.oclIsUndefined())
+		    	-> exists(e | e.type.type = self) or
+				
+		    (thisModule.getAnnotationTypeMemberDeclarations -> select(e | not e.type.oclIsUndefined())
+		    	-> select(e | e.type.type.oclIsTypeOf(JMM!ArrayType)))
+		    	-> exists(e | e.type.type.elementType.type = self) or
+				
+			self.hasInnerAnnotationTypeDeclaration()
+		    
+		    ) then true
+		else false endif
+	else false
+	endif;
+
+-- we want to have only packages that serve as container for annotation type declarations
+helper context JMM!Package def : isAnnotationTypeContainer : Boolean =
+	if self.ownedElements -> exists(e | e.isRelevantForAnnotationTypes) or 
+	   self.ownedPackages -> exists(e | e.isAnnotationTypeContainer) then true
+	else false
+	endif;
+
+helper context JMM!Type def : hasInnerAnnotationTypeDeclaration() : Boolean =
+	if(self.bodyDeclarations -> exists(e | e.oclIsTypeOf(JMM!AnnotationTypeDeclaration)) or
+	   self.bodyDeclarations -> select(e | e.oclIsKindOf(JMM!Type)) -> exists(f | f.hasInnerAnnotationTypeDeclaration())
+	) then true
+	else false
+	endif;
+		
+helper context OclAny def : isEnumerationRelevant : Boolean =
+	 -- must be an EnumerationType
+	 if(not self.oclIsTypeOf(JMM!EnumDeclaration)) then false
+	 else
+	
+	 -- the Enumeration is the type of an AnnotationTypeMemberDeclaration
+	 thisModule.getAnnotationTypeMemberDeclarations -> select(e | not e.type.oclIsUndefined()) ->
+	    exists(e | e.type.type = self) or
+	
+	 -- the Enumeration is the element type of an Array which is the type of an AnnotationTypeMemberDeclaration 
+	 thisModule.getAnnotationTypeMemberDeclarations -> select(e | not e.type.oclIsUndefined()) ->
+	 	select(e | e.type.type.oclIsTypeOf(JMM!ArrayType)) ->
+		exists(f | f.type.type.elementType.type = self) or
+	 
+	 -- the Enumeration is the parameter of java.lang.Class which is the type of an AnnotationTypeMemberDeclaration
+	 thisModule.getAnnotationTypeMemberDeclarations -> select(e | not e.type.oclIsUndefined()) ->
+	    select(e | e.type.type.oclIsTypeOf(JMM!ParameterizedType)) -> 
+		exists(f | f.type.type.typeArguments -> exists(g | g.type = self))
+	 
+	 endif;
+
+-- required because the structure of the model differs depending on multi-valued vs. single-valued SingleVariableAccess elements 
+helper context JMM!SingleVariableAccess def : isMultiValuedAnnotationTarget : Boolean =
+	if self.refImmediateComposite().refImmediateComposite().refImmediateComposite().oclIsTypeOf(JMM!Annotation) then
+	   self.refImmediateComposite().refImmediateComposite().refImmediateComposite().type.type.name = 'Target'
+	else false
+	endif;
+
+-- required because the structure of the model differs depending on multi-valued vs. single-valued SingleVariableAccess elements 
+helper context JMM!SingleVariableAccess def : isSingleValuedAnnotationTarget : Boolean =
+	if self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JMM!Annotation) then
+	   self.refImmediateComposite().refImmediateComposite().type.type.name = 'Target'
+	else false
+	endif;
+
+-- mapping between java element type targets and UML targets, i.e., the extended UML element
+helper def : umlTarget : Map(String, Sequence(UMLMM!Element)) = 
+	Map{
+		('ANNOTATION_TYPE', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Stereotype').first()}),
+	    -- TODO: add constraint
+		('CONSTRUCTOR', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Operation').first()}),
+		-- maybe we could think also to annotate the association on a model level ... however
+		-- for this prototype we do not consider associations at all .. so it is sufficient to
+		-- have here Property only.
+		('FIELD', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Property').first(),
+			               UMLMM!Type.allInstances() -> select(e | e.name = 'EnumerationLiteral').first()--,
+--			               UMLMM!Type.allInstances() -> select(e | e.name = 'Association').first()
+							}),					
+	    ('LOCAL_VARIABLE', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Property').first()--,
+			                        -- UMLMM!Type.allInstances() -> select(e | e.name = 'Association').first()
+									}),
+		('METHOD', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Operation').first(),
+							UMLMM!Type.allInstances() -> select(e | e.name = 'Property').first()
+							}),
+		('PACKAGE', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Package').first()}),
+	    ('PARAMETER', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Parameter').first()}),
+		-- adaptation required ... Java Type --> Class, Interface, AnnotationType, Enumeration
+		-- TODO: add constraint!!
+		-- Idea: less explicit stereotypes in the profile
+		('TYPE', Sequence{UMLMM!Type.allInstances() -> select(e | e.name = 'Type').first()})};
+														  
+-- ensure the use of java primitive types
+helper def : javaPrimitiveType : Map(String, UMLMM!Element) = Map{('boolean', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'boolean').first()),
+	                                                      		  ('byte', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'byte').first()),
+														  		  ('char', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'char').first()),
+														  		  ('double', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'double').first()),
+														  		  ('float', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'float').first()),
+														  		  ('int', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'int').first()),
+														  		  ('integer', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'int').first()),																  
+														  		  ('long', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'long').first()),
+														  		  ('short', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'short').first()),
+																  -- first letter is capital																  
+																  ('Boolean', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'boolean').first()),
+	                                                      		  ('Byte', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'byte').first()),
+														  		  ('Char', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'char').first()),
+														  		  ('Double', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'double').first()),
+														  		  ('Float', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'float').first()),
+														  		  ('Int', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'int').first()),
+																  ('Integer', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'int').first()),
+														  		  ('Long', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'long').first()),
+														  		  ('Short', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'short').first()),
+																  -- TODO: maybe we should have here also a Java STRING
+																  ('String', UMLMM!Type.allInstancesFrom('UPT') -> select(e | e.name = 'String').first()),
+																  -- the array version ...
+																  ('boolean[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'boolean').first()),
+	                                                      		  ('byte[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'byte').first()),
+														  		  ('char[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'char').first()),
+														  		  ('double[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'double').first()),
+														  		  ('float[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'float').first()),
+														  		  ('int[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'int').first()),
+														  		  ('long[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'long').first()),
+														  		  ('short[]', UMLMM!Type.allInstancesFrom('JPT') -> select(e | e.name = 'short').first()),
+																  -- TODO: maybe we should have here also a Java STRING
+																  ('java.lang.String[]', UMLMM!Type.allInstancesFrom('UPT') -> select(e | e.name = 'String').first())};
+
+-- get package even though types are declared inside types																  
+helper context JMM!AbstractTypeDeclaration def : getPackage() : JMM!Package =
+	if(not self.package.oclIsUndefined()) then self.package
+	-- assumption: the type is declared inside another type
+	else self.refImmediateComposite().getPackage()
+	endif;
+															
+	
+
+
+
+
+
+

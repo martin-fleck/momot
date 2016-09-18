@@ -1,0 +1,37 @@
+package PrimitiveTypes {
+
+	datatype Boolean;
+
+	datatype Integer;
+
+	datatype String;
+}
+
+package XML {
+
+	abstract class Node {
+		reference parent[0-1] : Element oppositeOf children;
+		attribute startLine[0-1] : Integer;
+		attribute startColumn[0-1] : Integer;
+		attribute endLine[0-1] : Integer;
+		attribute endColumn[0-1] : Integer;
+		attribute name : String;
+		attribute value : String;
+	}
+
+	class Attribute extends Node {
+		
+	}
+
+	class Text extends Node {
+		
+	}
+
+	class Element extends Node {
+		reference children[*] ordered container : Node oppositeOf parent;
+	}
+
+	class Root extends Element {
+		
+	}
+}

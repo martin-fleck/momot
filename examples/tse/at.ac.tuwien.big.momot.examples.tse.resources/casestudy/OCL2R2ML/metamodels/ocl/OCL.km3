@@ -1,0 +1,364 @@
+-- @name		OCL
+-- @version		2.0 (revision c)
+-- @domains
+-- @authors		Milan Milanovic (milan at milanovic.org) and Mariano Belaunde (mariano.belaunde at orange-ft.com)
+-- @date		2006/05/24
+-- @licence             GNU General Public License, version 2
+-- @description	This metamodel describes latest version of OCL 2.0 metamodel with adoptions to TCS
+package OCL {
+
+	-- @begin EnhancedOCL
+	class ParameterExp extends OclExpression {
+		reference referredParameter : Parameter;
+	}
+	
+	class OclOperation extends Operation, OclFeature {
+		reference returnVariable container : Variable;
+		reference body container : OclExpression;
+		reference contextVariable container : Variable;
+	}
+
+	class OclProperty extends Property, OclFeature {
+		reference body container : OclExpression;
+		reference contextVariable container : Variable;
+	}
+	
+	abstract class OclFeature {
+	
+	}
+	
+	abstract class OclModuleElement {
+		reference contextDefinition[0-1] container : OclContextDefinition;
+	}
+
+	class DeriveOclModuleElement extends OclModuleElement  {
+		reference refAttr container : Parameter;
+		reference specification container : OclExpression;
+	}			
+	
+	class OclContextDefinition extends Element {
+		reference contextElement container : Class;
+	}
+		
+	class OclModule extends Package {
+		reference ownedElements[*] ordered container : OclModuleElement;
+	}
+
+	class Invariant extends OclModuleElement {
+		attribute name : String;
+		reference specification container : OclExpression;
+		reference contextVariable container : Variable;
+	}
+	
+	-- @end EnhancedOCL
+
+	-- @begin EMOF
+	class Comment extends Element {
+		reference annotatedElement[*] : NamedElement;
+	}
+
+	class URIExtent extends Extent {
+		
+	}
+
+	abstract class PrimitiveType extends DataType {
+		
+	}
+
+	class IntegerType extends PrimitiveType {
+	
+	}
+	
+	class RealType extends PrimitiveType {
+	
+	}
+	
+	class BooleanType extends PrimitiveType {
+	
+	}
+	
+	class StringType extends PrimitiveType {
+	
+	}
+	
+	abstract class TypedElement extends NamedElement {
+		reference type[0-1] container : Type;
+	}
+
+
+
+	class EnumerationLiteral extends NamedElement {
+		
+	}
+
+	class Parameter extends TypedElement, MultiplicityElement {
+		
+	}
+
+	abstract class Type extends NamedElement {
+		
+	}
+
+	class Package extends NamedElement {
+		reference ownedType[*] container : Type;
+		reference nestedPackage[*] : Package;
+		attribute uri : String;
+	}
+
+	abstract class MultiplicityElement {
+		attribute isOrdered : Boolean;
+		attribute isUnique : Boolean;
+		attribute lower : Integer;
+		attribute upper : Integer;
+	}
+			
+	abstract class Object {
+		
+	}
+
+	class Extent extends Object {
+		
+	}
+
+	abstract class NamedElement extends Element {
+		attribute name : String;
+	}
+
+	class Enumeration extends DataType {
+		reference ownedLiteral[*] ordered container : EnumerationLiteral;
+	}
+
+	class Tag extends Element {
+		reference element[*] : Element;
+		attribute value : String;
+		attribute name : String;
+	}
+
+	abstract class Element extends Object {
+		reference ownedComment[*] container : Comment;
+	}
+
+	abstract class DataType extends Type {
+		
+	}
+
+	class Operation extends TypedElement, MultiplicityElement {
+		reference ownedParameter[*] container : Parameter;
+		reference raisedException[*] : Type;
+	}
+	
+	class Property extends TypedElement, MultiplicityElement {
+		reference opposite[0-1] : Property;
+		attribute isReadOnly : Boolean;
+		attribute isDerived : Boolean;
+		attribute isComposite : Boolean;
+		attribute isId : Boolean;
+		attribute default : String;
+	}
+	
+	class Class extends Type {
+		reference ownedAttribute[*] container : Property;
+		reference ownedOperation[*] container : Operation;
+		attribute isAbstract : Boolean;
+	}
+
+	-- @end EMOF
+	
+	-- @begin EssentialOCL
+	enumeration CollectionKind {
+		literal OrderedSet;
+		literal Sequence;
+		literal Bag;
+		literal Set;
+	}
+
+	class AnyType extends Class {
+		
+	}
+
+	class VoidType extends Type {
+		
+	}
+
+	class TupleType extends DataType {
+		
+	}
+
+	class SetType extends CollectionType {
+		
+	}
+
+	class SequenceType extends CollectionType {
+		
+	}
+
+	class OrderedSetType extends CollectionType {
+		
+	}
+
+	class InvalidType extends Type {
+		
+	}
+
+	class EnumLiteralExp extends LiteralExp {
+		reference referredEnumLiteral[0-1] : EnumerationLiteral;
+	}
+
+	abstract class CollectionType extends DataType {
+		reference elementType[0-1] : Type;
+	}
+
+	class BagType extends CollectionType {
+		
+	}
+
+	class TupleLiteralPart extends TypedElement {
+		reference value container : OclExpression;
+		reference "attribute"[0-1] container : Property;
+	}
+
+	abstract class FeaturePropertyCall extends CallExp {
+		
+	}
+
+	class InvalidLiteralExp extends LiteralExp {
+		
+	}
+
+	class NullLiteralExp extends LiteralExp {
+		
+	}
+
+	class TupleLiteralExp extends LiteralExp {
+		reference part[*] container : TupleLiteralPart;
+	}
+
+	class CollectionRange extends CollectionLiteralPart {
+		reference first container : OclExpression;
+		reference last container : OclExpression;
+	}
+
+	class CollectionItem extends CollectionLiteralPart {
+		reference item container : OclExpression;
+	}
+
+	abstract class CollectionLiteralPart extends TypedElement {
+		
+	}
+
+	class CollectionLiteralExp extends LiteralExp {
+		reference part[*] container : CollectionLiteralPart;
+		attribute kind : CollectionKind;
+	}
+
+	abstract class NumericLiteralExp extends PrimitiveLiteralExp {
+		
+	}
+
+	abstract class PrimitiveLiteralExp extends LiteralExp {
+		
+	}
+
+	class IterateExp extends LoopExp {
+		reference result[0-1] container : Variable;
+	}
+
+	abstract class LiteralExp extends OclExpression {
+		
+	}
+
+	class OperationCallExp extends FeaturePropertyCall {
+		reference argument[*] container : OclExpression;
+		reference referredOperation[0-1] : Operation;
+	}
+
+	class CollectionOperationCallExp extends OperationCallExp {
+	
+	}
+	
+	class OperatorCallExp extends OperationCallExp {
+		
+	}
+
+	class IntegerLiteralExp extends NumericLiteralExp {
+		attribute integerSymbol : Integer;
+	}
+
+	class StringLiteralExp extends PrimitiveLiteralExp {
+		attribute stringSymbol : String;
+	}
+
+	class IteratorExp extends LoopExp {
+		
+	}
+
+	abstract class LoopExp extends CallExp {
+		reference body container : OclExpression;
+		reference iterator[*] container : Iterator;
+	}
+	
+	class Iterator extends Variable {
+
+	}
+
+	class TypeExp extends OclExpression {
+		reference referredType[0-1] : Type;
+	}
+
+	class VariableExp extends OclExpression {
+		reference referredVariable[0-1] : Variable;
+	}
+
+	class PropertyCallExp extends FeaturePropertyCall {
+		reference referredProperty[0-1] : Property;
+	}
+
+	class Variable extends TypedElement {
+		reference bindParameter[0-1] : Parameter;
+		reference initExpression[0-1] container : OclExpression;
+	}
+
+	class LetExp extends OclExpression {
+		reference variable container : Variable;
+		reference in container : OclExpression;
+	}
+
+	class IfExp extends OclExpression {
+		reference elseExpression container : OclExpression;
+		reference thenExpression container : OclExpression;
+		reference condition container : OclExpression;
+	}
+
+	class UnlimitedNaturalExp extends NumericLiteralExp {
+		attribute symbol : Integer;
+	}
+
+	abstract class OclExpression extends TypedElement {
+		
+	}
+
+	abstract class CallExp extends OclExpression {
+		reference source[0-1] container : OclExpression;
+	}
+
+	class BooleanLiteralExp extends PrimitiveLiteralExp {
+		attribute booleanSymbol : Boolean;
+	}
+	
+	class RealLiteralExp extends NumericLiteralExp {
+		attribute realSymbol : Double;
+	}
+
+	-- @end EssentialOCL
+}
+
+package PrimitiveTypes {
+
+	datatype Integer;
+
+	datatype Boolean;
+
+	datatype String;
+	
+	datatype Double;
+}

@@ -1,0 +1,1801 @@
+-- @nsURI UML=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI JAVA=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+
+-- ******************************************************************************
+-- Copyright (c) 2013 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  authors: Guillaume Doux (guillaume.doux at inria.fr) 
+--			 Matthieu Allon (matthieu.allon at gmail.com)
+-- Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- ******************************************************************************
+
+library java2UMLActivityHelpers;
+
+---Return the root Java model
+helper def : jModelRoot : JAVA!Model = JAVA!Model.allInstancesFrom('IN')->first();
+
+-------------------------------------------------------
+---Expressions (UML)
+-------------------------------------------------------
+helper context JAVA!Expression def: getBehavior : OclAny =
+	if (self.isMinus) then
+		thisModule.createIntegerMinusFumlLib(self)
+	else 
+		if (self.isPlus) then
+			thisModule.createIntegerPlusFumlLib(self) 
+		else
+			if (self.isLess) then
+				thisModule.createIntegerLessFumlLib(self)
+			else
+				if (self.isGreater) then
+					thisModule.createIntegerGreaterFumlLib(self)
+				else
+					if (self.isLessOrEquals) then
+						thisModule.createIntegerLessOrEqualsFumlLib(self)
+					else
+						if (self.isGreaterOrEquals) then
+							thisModule.createIntegerGreaterOrEqualsFumlLib(self)
+						else
+							if (self.isTimes) then
+								thisModule.createIntegerTimesFumlLib(self)
+							else
+								if (self.isDivide) then
+									thisModule.createIntegerDivideFumlLib(self)
+								else
+									OclUndefined
+								endif
+							endif
+						endif
+					endif
+				endif
+			endif
+		endif
+	endif
+;
+
+helper context JAVA!SingleVariableDeclaration def: getExpressionOfSingleVarDec : JAVA!Expression =
+	if self.refImmediateComposite().body.oclIsKindOf(JAVA!Block)then
+		let expressionSeq : Set(JAVA!Expression)=		
+			self.refImmediateComposite().body.statements
+				-> select(state | state.oclIsKindOf(JAVA!ExpressionStatement) 
+							or state.oclIsTypeOf(JAVA!ReturnStatement)
+				)
+				-> collect(state | state.expression)
+				-> flatten()
+				-> asSet()
+		in expressionSeq	
+			-> intersection(self.usageInVariableAccess
+								-> collect(varAccess | varAccess.refImmediateComposite())
+			)
+			-> asSequence()
+			-> first()
+	else OclUndefined endif	
+;
+
+-------------------------------------------------------
+---Packages (UML)
+-------------------------------------------------------
+helper context JAVA!Package def: getFirstDupBugModisco : JAVA!Package =
+	self.getPackSameName
+		-> first()
+;
+
+helper context UML!Element def: getClassifierPackage : UML!Package =
+	if self.refImmediateComposite().oclIsUndefined() then
+		OclUndefined
+	else 
+		if (self.refImmediateComposite().oclIsKindOf(UML!Model)) then
+			self.refImmediateComposite().packagedElement
+				-> select(pack | pack.name = 'Associated Classifiers')
+				-> first()
+		else 
+			self.refImmediateComposite().getClassifierPackage
+		endif
+	endif
+;
+
+helper context JAVA!Package def: isAnExternalPackage : Boolean =
+	not self.isRelatedToCompilationUnit
+;	
+
+helper def: getCompilationUnitNames(compUnitModel : Sequence(JAVA!CompilationUnit)) : Sequence(String) =
+	compUnitModel -> collect(compUnit | compUnit.name.split('[.][java]').at(1))
+;
+
+helper context OclAny def: getExternalElements : Sequence(JAVA!NamedElement) =
+	JAVA!Package.allInstancesFrom('IN')
+		-> select(pack | not pack.isRelatedToCompilationUnit)
+	-> union(
+		JAVA!TypeParameter.allInstancesFrom('IN')
+			-> reject(param | param.originalCompilationUnit.oclIsUndefined())
+			-> reject(param | param.originalCompilationUnit.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!ArrayType.allInstancesFrom('IN')
+			-> select(array | array.elementType.type.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!UnresolvedTypeDeclaration.allInstancesFrom('IN')
+			-> select(uTD | uTD.usagesInTypeAccess -> notEmpty()
+							and not
+							(uTD.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uTD.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+	-> union(
+		JAVA!UnresolvedItem.allInstancesFrom('IN')
+			-> select(uI | uI.usagesInImports -> notEmpty()
+							and not
+							(uI.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uI.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+;
+
+helper context JAVA!Package def : isRelatedToCompilationUnit : Boolean = 
+	if not self.ownedElements -> isEmpty() then
+		self.ownedElements
+			-> collect(elem | elem.name)
+			-> asSet()
+			-> intersection(thisModule.getCompilationUnitNames(JAVA!Model.allInstancesFrom('IN')->first().compilationUnits))
+			-> notEmpty()
+	else
+		if not self.ownedPackages -> isEmpty() then
+			self.ownedPackages
+				-> collect(pack | pack.isRelatedToCompilationUnit)
+				-> flatten()
+				-> includes(true)			
+		else false endif	
+	endif	
+;
+
+---Get the java package of the element
+helper context JAVA!ASTNode def: getPackage : JAVA!Package =
+	if (self.oclIsTypeOf(JAVA!Model) or self.refImmediateComposite().oclIsTypeOf(JAVA!Model)
+			or self.refImmediateComposite().oclIsUndefined()) then
+		OclUndefined
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!Package))then
+			self.refImmediateComposite()
+		else
+			self.refImmediateComposite().getPackage
+		endif
+	endif	
+;	
+
+------------------
+---Property (UML)
+------------------
+helper def: allASTNode : Map( JAVA!ASTNode, UML!Property) = Map{};
+
+helper context OclAny def: isEverTransformed : Boolean = 
+	not self.getProperty.oclIsUndefined()
+;
+
+helper context JAVA!ASTNode def: getProperty : UML!Property = 
+	thisModule.allASTNode
+		-> get(
+				thisModule.allASTNode
+					-> getKeys()
+					-> select(keyNode | keyNode.variable = self.variable)
+					-> first()
+		)
+;
+
+-------------------------------------------------------
+---Class/Interface (UML) and [Class/Interface]Declaration
+-------------------------------------------------------
+helper def: getTypeDec : Map(JAVA!Type, UML!Element) = Map{};
+
+helper context JAVA!ASTNode def : getClassOrModel : JAVA!ClassDeclaration =
+	if(self.refImmediateComposite().oclIsKindOf(JAVA!ClassDeclaration)
+		or
+		self.refImmediateComposite().oclIsTypeOf(JAVA!Model)
+	)then
+		self.refImmediateComposite()
+	else
+		self.refImmediateComposite().getClassOrModel
+	endif	
+	;
+
+helper context JAVA!SingleVariableAccess def: setOwnedAttribute(prop : UML!Property) : UML!Class = 
+	let class : UML!Class = 
+		thisModule.getTypeDec.get(self.getInstanciedClass)
+	in 
+		if (not class.oclIsUndefined()) then
+			class.refSetValue('ownedAttribute', prop)
+		else OclUndefined endif
+;
+
+helper context JAVA!ASTNode def: isLocalInnerClass : Boolean =
+	if (self.oclIsTypeOf(JAVA!ClassDeclaration)
+		or self.oclIsTypeOf(JAVA!AnonymousClassDeclaration)) then
+		self.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)
+	else
+		false
+	endif;
+
+helper context JAVA!UnresolvedItem def: getCorrespondingDec : JAVA!ASTNode =
+	if self.getCorrespondingClassDec -> first().oclIsUndefined() then
+		if self.getCorrespondingImportDec -> first().oclIsUndefined() then
+			if self.getCorrespondingInterfDec -> first().oclIsUndefined() then
+				if self.getCorrespondingEnumDec -> first().oclIsUndefined() then
+					if self.getCorrespondingMethodDec -> first().oclIsUndefined() then
+						if self.getCorrespondingLabelState -> first().oclIsUndefined() then
+							OclUndefined
+						else self.getCorrespondingLabelState -> first() endif	
+					else self.getCorrespondingMethodDec -> first() endif	
+				else self.getCorrespondingEnumDec -> first() endif
+			else self.getCorrespondingInterfDec -> first() endif	
+		else self.getCorrespondingImportDec -> first() endif	
+	else self.getCorrespondingClassDec -> first() endif			
+;
+
+---Return the corresponding classDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingClassDec : Sequence(JAVA!ClassDeclaration) =
+	JAVA!ClassDeclaration.allInstancesFrom('IN')
+		-> select(class | not class.oclIsKindOf(JAVA!UnresolvedClassDeclaration) 
+							and class.name = self.name
+		)
+;
+
+---Return the corresponding importDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingImportDec : Sequence(JAVA!ImportDeclaration) =
+	JAVA!ImportDeclaration.allInstancesFrom('IN')
+		-> select(import | import.importedElement.name = self.name)
+;
+
+---Return the corresponding InterfDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingInterfDec : Sequence(JAVA!InterfaceDeclaration) =
+	JAVA!InterfaceDeclaration.allInstancesFrom('IN')
+		-> select(interf | not interf.oclIsKindOf(JAVA!UnresolvedInterfaceDeclaration) 
+							and interf.name = self.name
+		)
+;
+
+---Return the corresponding enumDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingEnumDec : Sequence(JAVA!EnumDeclaration) =
+	JAVA!EnumDeclaration.allInstancesFrom('IN')
+		-> select(enum | not enum.oclIsKindOf(JAVA!UnresolvedEnumDeclaration) 
+							and enum.name = self.name
+		)
+;
+
+---Return the corresponding methodDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingMethodDec : Sequence(JAVA!MethodDeclaration) =
+	JAVA!MethodDeclaration.allInstancesFrom('IN')
+		-> select(method | not method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration) 
+							and method.name = self.name
+		)
+;
+
+---Return the corresponding labelStatement for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingLabelState : Sequence(JAVA!LabeledStatement) =
+	JAVA!LabeledStatement.allInstancesFrom('IN')
+		-> select(lState | not lState.oclIsKindOf(JAVA!UnresolvedLabeledStatement) 
+							and lState.name = self.name
+		)
+;
+
+
+-------------------------------------------------------
+---Attributes
+-------------------------------------------------------
+---Get the java attributes visibility
+helper context JAVA!NamedElement def: getFieldVisibility : JAVA!VisibilityKind =
+	if (self.modifier.oclIsUndefined()) then 
+		#package
+	else
+		if (self.modifier.visibility = #none) then
+			#package
+		else	
+			self.modifier.visibility
+		endif
+	endif;
+
+---Get the java attributes type
+helper context JAVA!FieldDeclaration def: getFieldType : JAVA!NamedElement =	
+	if (self.type.oclIsUndefined()) then
+		OclUndefined
+	else
+		if (self.type.type.oclIsUndefined()) then
+				OclUndefined
+		else
+			self.type.type.excludeUnresolvedTypeDec
+		endif
+	endif
+;	
+
+---Get the java attribute name 
+helper context JAVA!FieldDeclaration def: getFieldName : String =
+	if (self.fragments -> isEmpty()) then
+		OclUndefined
+	else		
+		self.fragments.at(1).name
+	endif
+;
+
+-------------------------------------------------------
+---StructuralFeatures
+-------------------------------------------------------
+helper context OclAny def : getSourceTargetOrOwnerSAN : OclAny =
+	if (self.oclIsTypeOf(JAVA!Block))then
+		if (self.getReturnStateGeneratingSAN
+				and not self.hasOnlyReturnInstanceCreateNoParam
+		)then 
+			self
+		else OclUndefined endif
+	else 
+		if self.oclIsTypeOf(JAVA!ReturnStatement) then
+			if not self.isReturnStateGeneratingObjectFlow 
+				and not self.isOnlyReturnInstanceCreateNoParam
+			then
+				self
+			else OclUndefined endif
+		else 
+			self 
+		endif	
+	endif
+;
+
+helper context OclAny def : getOwningMethodOnEmptySourceTargetOrOwnerSAN : JAVA!MethodDeclaration =
+	if not self.oclIsUndefined() then
+		if (self.getSourceTargetOrOwnerSAN.oclIsUndefined())then
+			self.getOwningMethod
+		else OclUndefined endif
+	else OclUndefined endif
+;
+
+helper context JAVA!Expression def : getVariableType : JAVA!Type =
+	if (self.oclIsKindOf(JAVA!InfixExpression))then
+		if (not self.leftOperand.oclIsKindOf(JAVA!UnresolvedItemAccess)
+			and not self.leftOperand.oclIsKindOf(JAVA!MethodInvocation))then
+			self.leftOperand.type
+		else OclUndefined endif	
+	else
+		if (self.oclIsKindOf(JAVA!TypeAccess))then
+			self.type
+		else
+			if (self.isALiteral) then
+				self.type.getVariableType
+			else
+				if (self.variable.oclIsKindOf(JAVA!VariableDeclarationFragment)) then
+					let varDecFrag : JAVA!VariableDeclarationFragment = self.variable
+					in
+					if (varDecFrag.variablesContainer.oclIsKindOf(JAVA!FieldDeclaration)
+							or varDecFrag.variablesContainer.oclIsKindOf(JAVA!VariableDeclarationStatement)
+					)then
+						let fieldDec : JAVA!FieldDeclaration = varDecFrag.variablesContainer
+						in
+						if (fieldDec.type.oclIsKindOf(JAVA!TypeAccess))then
+							let typAcc : JAVA!TypeAccess = fieldDec.type
+							in
+							typAcc.type
+						else OclUndefined endif
+					else OclUndefined endif		
+				else OclUndefined endif
+			endif	
+		endif
+	endif	
+;
+
+helper context JAVA!MethodInvocation def : getRemoveCollectionArgument : JAVA!SingleVariableDeclaration =
+	self.arguments
+		-> select(arg | arg.oclIsTypeOf(JAVA!SingleVariableAccess))
+		-> select(arg | arg.variable.name = 'removeAt')
+		-> collect(arg | arg.variable)
+		-> flatten()
+		-> first()
+;
+
+---A class/interface is directly/indirectly implementing the 'Collection' interface
+helper context JAVA!ASTNode def : isOwningInCollectionInterface : Boolean =
+	if (self.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration)) then
+		if (self.refImmediateComposite().name = 'Collection') then
+			true
+		else
+			self.refImmediateComposite().isImplementingCollectionInterface
+		endif	
+	else false endif
+;
+
+---A class/interface is directly implementing the 'Collection' interface
+---(Context is 'JAVA!AbstractTypeDeclaration' to consider 'InterfaceDeclaration'
+---and 'UnresolvedTypeDeclaration' elements.)
+helper context JAVA!AbstractTypeDeclaration def : isImplementingCollectionInterface : Boolean =
+	if (self.superInterfaces
+			-> select(si | si.type.name = 'Collection')
+			-> isEmpty()) then
+			self.superInterfaces
+				-> select(si | 	if (not si.type.oclIsKindOf(JAVA!ParameterizedType))then
+									si.type.isImplementingCollectionInterface	
+								else false endif
+				)
+				-> notEmpty()
+	else true endif		
+;
+
+--- Test if a java element is an empty collection
+helper context JAVA!ExpressionStatement def : isAnEmptyCollection: Boolean =	
+	if (self.expression.oclIsKindOf(JAVA!MethodInvocation)) then
+		if (self.expression.expression.oclIsKindOf(JAVA!SingleVariableAccess))then
+			if (self.expression.expression.variable.oclIsKindOf(JAVA!VariableDeclarationFragment))then
+				self.expression.expression.variable.initializer.oclIsKindOf(JAVA!ClassInstanceCreation)
+				and
+				self.expression.expression.isACollection
+			else false endif	
+		else false endif	
+	else false endif	
+;
+
+---Test if an index, for a remove operation in a collection, 
+---is less than 1 (for collection in FUML, 0 in JAVA coll.)
+helper context JAVA!MethodInvocation def : isIndexLessOne : Boolean =
+	self.arguments
+			-> select(arg | arg.oclIsTypeOf(JAVA!PrefixExpression) or arg.oclIsTypeOf(JAVA!PostfixExpression))
+			-> iterate(iter; indexResult: Integer = 0 |
+				(iter.operator.toString() + iter.operand.tokenValue.toString()).toInteger() + indexResult
+			)
+			< 0
+;
+
+--- Test if a java element is a collection
+helper context JAVA!SingleVariableAccess def : isACollection : Boolean =
+	if (self.getVariableType.oclIsKindOf(JAVA!ParameterizedType)) then
+		self.getVariableType.isACollection		
+	else false endif
+;
+
+helper context JAVA!ParameterizedType def : isACollection : Boolean =
+	if (self.type.oclIsKindOf(JAVA!TypeAccess)) then
+		self.type.isACollection
+	else false endif	
+;
+
+helper context JAVA!TypeAccess def : isACollection : Boolean =
+	(if self.type.oclIsKindOf(JAVA!InterfaceDeclaration) then
+			self.type.name = 'Collection'
+	 else false endif
+	 )
+		or
+	(
+		if (not self.type.oclIsKindOf(JAVA!ArrayType) and self.type.oclIsKindOf(JAVA!AbstractTypeDeclaration)) then
+			self.type.superInterfaces -> select(interf | interf.isACollection) -> notEmpty()
+		else 
+			if (self.type.oclIsKindOf(JAVA!ParameterizedType)) then
+				self.type.isACollection
+			else false endif
+		endif
+	)
+;
+
+--- Test if a java element is a list
+helper context JAVA!Expression def : isAList : Boolean =
+	if (self.isALiteral)then
+		if (not self.type.getVariableType.oclIsKindOf(JAVA!UnresolvedItem))then
+			self.type.getVariableType.isAList
+		else false endif
+	else
+		if (self.getVariableType.oclIsKindOf(JAVA!ParameterizedType)) then
+			self.getVariableType.isAList
+		else false endif
+	endif
+;
+
+helper context JAVA!FieldDeclaration def : isAList : Boolean =
+	if (not self.getFieldType.oclIsKindOf(JAVA!UnresolvedItem) 
+			and not self.getFieldType.oclIsKindOf(JAVA!EnumDeclaration)
+			and not self.getFieldType.oclIsKindOf(JAVA!Type)
+			and not self.getFieldType.oclIsUndefined()
+		)then
+		self.getFieldType.isAList
+	else 
+		if (self.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
+			self.getFieldType.isAList
+		else false endif
+	endif
+;
+
+helper context JAVA!ParameterizedType def : isAList : Boolean =
+	if (self.type.oclIsKindOf(JAVA!TypeAccess)) then
+		self.type.isAList
+	else false endif	
+;
+
+helper context JAVA!TypeAccess def : isAList : Boolean =
+	if (self.type.oclIsKindOf(JAVA!TypeDeclaration))then
+		self.type.isAList
+	else false endif	
+;
+
+helper context JAVA!TypeDeclaration def : isAList : Boolean =
+		self.name = 'List'
+			or
+		(self.superInterfaces -> select(interf | interf.isAList) -> notEmpty())
+;
+
+--- Test if a java element is a set
+helper context JAVA!Expression def : isASet : Boolean =
+	if (self.isALiteral)then
+		if (not self.type.getVariableType.oclIsKindOf(JAVA!UnresolvedItem))then
+			self.type.getVariableType.isAList
+		else false endif
+	else
+		if (self.getVariableType.oclIsKindOf(JAVA!ParameterizedType)) then
+			self.getVariableType.isASet
+		else false endif
+	endif
+;
+
+helper context JAVA!FieldDeclaration def : isASet : Boolean =
+	if (not self.getFieldType.oclIsKindOf(JAVA!UnresolvedItem)
+			and not self.getFieldType.oclIsKindOf(JAVA!EnumDeclaration)
+			and not self.getFieldType.oclIsKindOf(JAVA!Type)
+			and not self.getFieldType.oclIsUndefined()
+		)then
+		self.getFieldType.isAList
+	else 
+		if (self.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
+			self.getFieldType.isASet
+		else false endif
+	endif
+;
+
+helper context JAVA!ParameterizedType def : isASet : Boolean =
+	if (self.type.oclIsKindOf(JAVA!TypeAccess)) then
+		self.type.isASet
+	else false endif	
+;
+
+helper context JAVA!TypeAccess def : isASet : Boolean =
+	(self.type.oclIsKindOf(JAVA!InterfaceDeclaration) and self.type.name = 'Set')
+		or
+	(self.type.superInterfaces -> select(interf | interf.isASet) -> notEmpty())
+;
+
+helper context JAVA!Expression def : isALiteral : Boolean =
+	self.oclIsKindOf(JAVA!NumberLiteral)
+	or self.oclIsKindOf(JAVA!CharacterLiteral)
+	or self.oclIsKindOf(JAVA!NullLiteral)
+	or self.oclIsKindOf(JAVA!BooleanLiteral)
+	or self.oclIsKindOf(JAVA!StringLiteral)
+	or self.oclIsKindOf(JAVA!TypeLiteral)
+;
+
+helper context JAVA!CastExpression def : isANumericCast : Boolean =
+	self.type.type.oclIsKindOf(JAVA!PrimitiveTypeShort)
+		or
+	self.type.type.oclIsKindOf(JAVA!PrimitiveTypeInt)
+		or
+	self.type.type.oclIsKindOf(JAVA!PrimitiveTypeDouble)
+		or
+	self.type.type.oclIsKindOf(JAVA!PrimitiveTypeLong)
+		or
+	self.type.type.oclIsKindOf(JAVA!PrimitiveTypeFloat)
+;	
+
+-------------------------------------------------------
+---AbstractMethodDeclaration (Constructors and methods)
+-------------------------------------------------------
+helper context JAVA!AbstractMethodDeclaration def: getAbsMethDecName : String =
+	if (self.oclIsTypeOf(JAVA!ConstructorDeclaration))then
+		'_'+self.name
+	else self.refImmediateComposite().name+'_'+self.name endif
+;
+
+---Get the 'AbstractMethodDeclaration' visibility
+helper context JAVA!AbstractMethodDeclaration def: getAbsMethDecVisibility : JAVA!VisibilityKind =
+	if (self.modifier.oclIsUndefined()) then 
+		#package
+	else
+		if (self.modifier.visibility = #none) then
+			#package
+		else	
+			self.modifier.visibility
+		endif
+	endif
+;
+
+-----------------
+---All instances
+-----------------
+
+---Get all constructors and methods
+helper context JAVA!Model def: allAbstractMethodDeclaration : Sequence(JAVA!AbstractMethodDeclaration) = 
+	JAVA!AbstractMethodDeclaration.allInstancesFrom('IN')	
+		-> select(amd | amd.notInAnnotation 
+						and (
+							 	if amd.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+								 	not amd.getCorrespondingDec.oclIsKindOf(JAVA!MethodDeclaration)
+								else true endif	
+							)	
+		)
+;
+
+helper def: allMethods : Sequence(JAVA!MethodDeclaration) = 
+	JAVA!MethodDeclaration.allInstancesFrom('IN');
+
+helper def: allConstructors : Sequence(JAVA!ConstructorDeclaration) = 
+	JAVA!ConstructorDeclaration.allInstancesFrom('IN');
+
+helper def: allInterfaces : Sequence(JAVA!InterfaceDeclaration) = 
+	JAVA!InterfaceDeclaration.allInstancesFrom('IN');
+
+helper def: allClasses : Sequence(JAVA!ClassDeclaration) = 
+	JAVA!ClassDeclaration.allInstancesFrom('IN');
+
+helper def: allPrimitiveTypes : Sequence(JAVA!PrimitiveType) = 
+	JAVA!PrimitiveType.allInstancesFrom('IN');
+
+helper def: allTypes : Sequence(JAVA!Element) = 
+	JAVA!Type.allInstancesFrom('IN')
+		-> reject(type | type.oclIsKindOf(JAVA!UnresolvedTypeDeclaration))
+		-> union(JAVA!AnonymousClassDeclaration.allInstancesFrom('IN'))
+		-> union(thisModule.allClasses)
+	;
+
+-----------------
+---Assignments
+-----------------
+helper context JAVA!Statement def: getLastAssignment(varDecState : JAVA!VariableDeclarationFragment) : JAVA!ASTNode =
+	if (self.getPrecedingStatement.oclIsKindOf(JAVA!ExpressionStatement)) then
+		if (self.getPrecedingStatement.expression.oclIsKindOf(JAVA!Assignment)) then
+			if (self.getPrecedingStatement.expression.leftHandSide.getVarAccessExpression = varDecState) then
+				varDecState.getExpressionMap.get(self.getPrecedingStatement)
+			else
+				self.getPrecedingStatement.getLastAssignment(varDecState)
+			endif	
+		else
+			self.getPrecedingStatement.getLastAssignment(varDecState)
+		endif	
+	else
+		if (self.getPrecedingStatement.oclIsUndefined()) then
+			if (self.oclIsKindOf(JAVA!EnhancedForStatement)) then
+				if (self.parameter.name = varDecState.name)then
+					self.parameter
+				else
+					OclUndefined
+				endif	
+			else
+				--check parameters of the corresponding method
+				self.getOwningMethod.parameters->select(p | p.name = varDecState.name).first()
+			endif	
+		else	
+			self.getPrecedingStatement.getLastAssignment(varDecState)				
+		endif	
+	endif
+;
+
+helper context JAVA!Assignment def: getNextAssignment() : JAVA!ASTNode =
+	self.refImmediateComposite().refImmediateComposite().statements
+	-> iterate(p; res : JAVA!ASTNode = OclUndefined |
+			if self = p.expression then
+				self
+			else
+				if res = self then
+					p.expression
+				else
+					res
+				endif
+			endif
+		)
+;
+helper context JAVA!ASTNode def: getTargetForControlFlow() : OclAny =
+	if (thisModule.resolveTemp(self.getNextAssignment(), 'read').oclIsUndefined())then
+		if (thisModule.resolveTemp(self.getNextAssignment(), 'readStruct').oclIsUndefined()) then 
+			OclUndefined
+		else thisModule.resolveTemp(self.getNextAssignment(), 'readStruct').oclIsUndefined() endif	
+	else thisModule.resolveTemp(self.getNextAssignment(), 'read') endif
+;	
+helper context JAVA!VariableDeclarationFragment def: getExpressionMap : Map(JAVA!Statement, JAVA!Expression) =
+	JAVA!Assignment.allInstancesFrom('IN') 
+			-> select(assigns | assigns.leftHandSide.getVarAccessExpression = self)
+			-> iterate(assign; map : Map(JAVA!Statement, JAVA!Expression) = Map{} |
+					map -> including(assign.refImmediateComposite(), assign.rightHandSide)
+			)
+;
+
+helper context JAVA!Assignment def: isAbsDecMethContained : Boolean =
+	self.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
+;
+
+helper context JAVA!Assignment def: isAbsDecMethContainedAndArray : Boolean =
+	self.leftHandSide.oclIsKindOf(JAVA!ArrayAccess) 
+		and
+	self.isAbsDecMethContained
+;
+
+helper context JAVA!Assignment def: isAbsDecMethContainedAndNoList : Boolean =
+	not self.leftHandSide.isListType 
+		and
+	self.isAbsDecMethContained
+;
+
+helper context JAVA!Assignment def: isVariableAssignmentNoList : Boolean =
+	(self.leftHandSide.oclIsKindOf(JAVA!FieldAccess) or self.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess))
+		and
+	self.isAbsDecMethContainedAndNoList
+;
+
+helper context JAVA!Assignment def: isLocaleVariableAssignmentNoList : Boolean =
+	self.leftHandSide.oclIsKindOf(JAVA!SingleVariableAccess) 
+		and
+	self.isAbsDecMethContainedAndNoList
+;
+
+helper context JAVA!Assignment def: isAbsDecMethContainedAndList : Boolean =
+	self.leftHandSide.isListType 
+		and
+	self.isAbsDecMethContained	
+;
+
+helper context JAVA!Assignment def: isVariableAssignmentList : Boolean =
+	( self.leftHandSide.oclIsKindOf(JAVA!FieldAccess) or self.leftHandSide.oclIsKindOf(JAVA!SingleVariableAccess))
+		and
+	self.isAbsDecMethContainedAndList
+;
+
+---------------
+---Block
+---------------
+helper context JAVA!Statement def: getBlock : JAVA!Block =
+	if self.refImmediateComposite().oclIsUndefined()
+		then OclUndefined
+		else if (self.refImmediateComposite().oclIsKindOf(JAVA!Block))
+				then self.refImmediateComposite()
+				else if self.oclIsKindOf(JAVA!ClassDeclaration)
+						then OclUndefined
+						else self.refImmediateComposite().getBlock
+					endif
+				endif
+			endif;
+				
+helper context JAVA!Expression def: getBlock : JAVA!Block =
+	if self.refImmediateComposite().oclIsUndefined()
+		then OclUndefined
+		else if (self.refImmediateComposite().oclIsKindOf(JAVA!Block))
+				then self.refImmediateComposite()
+				else if self.oclIsKindOf(JAVA!ClassDeclaration)
+						then OclUndefined
+						else self.refImmediateComposite().getBlock
+					endif
+				endif
+			endif;
+				
+helper context JAVA!VariableDeclarationFragment def: getBlock : JAVA!Block =
+	if self.refImmediateComposite().oclIsUndefined()
+		then OclUndefined
+		else if (self.refImmediateComposite().oclIsKindOf(JAVA!Block))
+				then self.refImmediateComposite()
+				else if self.oclIsKindOf(JAVA!ClassDeclaration)
+						then OclUndefined
+						else self.refImmediateComposite().getBlock
+					endif
+				endif
+			endif;
+
+helper context JAVA!Statement def: isInstanceVarUse : Boolean =
+	if (not self.expression.oclIsUndefined()) then
+		if (self.expression.oclIsKindOf(JAVA!MethodInvocation)) then
+			not self.expression.getObject.oclIsUndefined()	
+		else
+			false
+		endif
+	else
+		false
+	endif
+;
+
+helper context JAVA!ReturnStatement def: getReturnParameters : Sequence(JAVA!SingleVariableDeclaration) =
+	if (self.expression.oclIsTypeOf(JAVA!ClassInstanceCreation) or self.expression.oclIsTypeOf(JAVA!MethodInvocation)) then
+		self.expression.method.parameters
+	else Sequence{} endif
+;
+
+helper context JAVA!ReturnStatement def: getCallerReturnParamName : String =
+	if (self.expression.oclIsTypeOf(JAVA!ClassInstanceCreation)) then
+		if (not self.expression.method.oclIsKindOf(JAVA!MethodDeclaration)) then
+			self.expression.method.getConstructorName
+		else self.expression.method.getMethodName endif
+	else OclUndefined endif
+;
+
+helper context JAVA!Block def: getReturnStateGeneratingSAN : Boolean =
+	self.statements
+		-> select(state | 	if self.oclIsTypeOf(JAVA!ReturnStatement) then
+								not state.isReturnStateGeneratingObjectFlow
+							else true endif	
+		)
+		-> notEmpty()			
+;
+
+helper context JAVA!ASTNode def: isReturnStateGeneratingObjectFlow : Boolean =
+	if (self.oclIsTypeOf(JAVA!ReturnStatement))then
+		if self.expression.oclIsKindOf(JAVA!ClassInstanceCreation)then
+				self.expression.arguments -> isEmpty()
+		else true endif		
+		and	not self.expression.oclIsKindOf(JAVA!MethodInvocation)	
+		and	not self.expression.oclIsKindOf(JAVA!SingleVariableAccess)
+		and	not self.expression.oclIsKindOf(JAVA!Assignment)
+		and	not self.expression.oclIsKindOf(JAVA!InstanceofExpression)
+		and	not self.expression.oclIsKindOf(JAVA!ThisExpression)
+		and (
+				if not self.expression.oclIsUndefined()then
+					not self.expression.isPrePostInfixExpression
+				else true endif	
+		)
+	else true endif	
+;		
+
+helper context JAVA!ReturnStatement def: isReturnSimpleImplicitThis : Boolean =
+ 	self.isImplicitThisExpression
+	and not self.isInstanceVarUse
+;
+
+helper context JAVA!Block def: hasOnlyReturnInstanceCreateNoParam : Boolean =
+	self.statements
+		-> reject(state | 	if state.oclIsKindOf(JAVA!ReturnStatement) then
+								if not state.expression.oclIsUndefined() then
+									if state.expression.oclIsKindOf(JAVA!ClassInstanceCreation) then
+										state.expression.arguments
+														-> isEmpty()
+									else false endif
+								else false endif
+							else false endif	
+		)
+		-> isEmpty()
+;
+
+---------------
+---Constructors
+---------------
+helper context JAVA!ConstructorDeclaration def: getConstructorName : String =
+	if self.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) then
+		'AnonymousClass'+self.name
+	else 
+		self.getAbsMethDecName
+	endif
+;
+
+-----------------------------
+---Elements attibutes
+-----------------------------
+helper context JAVA!Expression def : getVarOrElemName : String = 
+	if (self.oclIsKindOf(JAVA!Assignment))then
+		if (not self.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess))then
+			if (self.leftHandSide.oclIsTypeOf(JAVA!SingleVariableAccess)) then
+				self.leftHandSide.variable.name
+			else
+				if (self.leftHandSide.oclIsTypeOf(JAVA!FieldAccess)) then
+					self.leftHandSide.field.variable.name
+				else
+					if (self.leftHandSide.oclIsTypeOf(JAVA!MethodInvocation)) then
+						self.leftHandSide.method.name
+					else
+						if (self.leftHandSide.array.oclIsTypeOf(JAVA!SingleVariableAccess)) then
+							self.leftHandSide.array.variable.name
+						else
+							if (self.leftHandSide.array.oclIsTypeOf(JAVA!FieldAccess)) then
+								self.leftHandSide.array.field.variable.name
+							else
+								if (self.leftHandSide.array.oclIsTypeOf(JAVA!MethodInvocation)) then
+									self.leftHandSide.array.method.name
+								else
+									if (self.oclIsTypeOf(JAVA!ParenthesizedExpression)) then
+										self.type.name
+									else 
+										OclUndefined
+									endif
+								endif
+							endif	
+						endif
+					endif
+				endif
+			endif	
+		else
+			OclUndefined
+		endif	
+	else
+		if self.oclIsKindOf(JAVA!SingleVariableAccess)then
+			self.variable.name
+		else OclUndefined endif
+	endif
+;	
+
+helper context JAVA!ArrayLengthAccess def : getVarAccessExpression : JAVA!Expression = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif	
+;
+
+helper context JAVA!SingleVariableAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	self.variable
+;
+	
+helper context JAVA!FieldAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	self.field.variable
+;
+
+helper context JAVA!UnresolvedItemAccess def : getVarAccessExpression : JAVA!UnresolvedItem =
+	self.element
+;
+
+helper context JAVA!ArrayAccess def : getVarAccessExpression : JAVA!Expression = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif
+;	
+
+helper context JAVA!TypeAccess def : getVarAccessExpression : JAVA!Type = 
+	self.type
+;	
+
+helper context JAVA!PackageAccess def : getVarAccessExpression : JAVA!Package = 
+	self.package
+;
+
+--------------------------
+---Elements categorization
+--------------------------
+--new
+helper context OclAny def : notInClassInstanceCreation : Boolean =
+	if self.refImmediateComposite().oclIsTypeOf(JAVA!ClassInstanceCreation) then
+		false
+	else
+		if self.refImmediateComposite().oclIsUndefined() then
+			true
+		else
+			self.refImmediateComposite().notInClassInstanceCreation
+		endif
+	endif
+;
+--new
+helper context OclAny def : notInInterfaceDeclaration : Boolean =
+	if self.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration) then
+		false
+	else
+		if self.refImmediateComposite().oclIsUndefined() then
+			true
+		else
+			self.refImmediateComposite().notInInterfaceDeclaration
+		endif
+	endif
+;
+
+--new
+helper context OclAny def : notInEnumDeclaration : Boolean =
+	if self.refImmediateComposite().oclIsTypeOf(JAVA!EnumDeclaration) then
+		false
+	else
+		if self.refImmediateComposite().oclIsUndefined() then
+			true
+		else
+			self.refImmediateComposite().notInEnumDeclaration
+		endif
+	endif
+;
+
+helper context JAVA!ASTNode def : notInInitializerOrFieldOrEnum : Boolean = 
+	if self.refImmediateComposite().oclIsKindOf(JAVA!ClassDeclaration) then
+		true
+	else 
+		if self.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then
+			true
+		else
+			if self.refImmediateComposite().oclIsKindOf(JAVA!Initializer) then
+				false
+			else
+				if self.refImmediateComposite().oclIsKindOf(JAVA!EnumDeclaration) then
+					false
+				else
+					if self.refImmediateComposite().oclIsKindOf(JAVA!FieldDeclaration) then
+						false
+					else
+						self.refImmediateComposite().notInInitializerOrFieldOrEnum
+					endif
+				endif		
+			endif
+		endif
+	endif;
+
+
+helper context JAVA!Expression def : notInInitializerOrFieldOrEnum : Boolean =  self.refImmediateComposite().notInInitializerOrFieldOrEnum;
+
+
+helper context JAVA!Model def : notInInitializerOrFieldOrEnum : Boolean = true;
+
+helper context JAVA!ASTNode def : notInAnnotation : Boolean = 
+	if (self.refImmediateComposite().oclIsKindOf(JAVA!Annotation)
+			or self.refImmediateComposite().oclIsKindOf(JAVA!AnnotationTypeMemberDeclaration)
+			or self.refImmediateComposite().oclIsKindOf(JAVA!AnnotationTypeDeclaration)
+			or self.refImmediateComposite().oclIsKindOf(JAVA!AnnotationMemberValuePair)
+		)then 
+			false
+		else 
+			if (self.refImmediateComposite().oclIsTypeOf(JAVA!Model))
+				then 
+					true
+				else	
+					self.refImmediateComposite().notInAnnotation
+				endif	
+	endif		
+;
+
+helper context JAVA!ASTNode def : notInTypeDeclaration : Boolean = 
+	if (self.refImmediateComposite().oclIsKindOf(JAVA!AbstractTypeDeclaration))
+		then false
+		else 
+			if (self.refImmediateComposite().oclIsTypeOf(JAVA!Model))
+				then true
+				else	
+					self.refImmediateComposite().notInTypeDeclaration
+				endif	
+	endif		
+;
+
+helper context JAVA!Expression def: isListType : Boolean = 
+	if (self.oclIsKindOf(JAVA!SingleVariableAccess)) then
+		if (self.variable.oclIsKindOf(JAVA!VariableDeclarationFragment))then
+			if (not self.variable.variablesContainer.type.oclIsUndefined()) then
+				self.variable.variablesContainer.type.isACollection
+			else false endif	
+		else false endif	
+	else
+		if self.oclIsKindOf(JAVA!FieldAccess) then 
+				if (not self.field.variable.variablesContainer.oclIsUndefined()) then
+					if (not self.field.variable.variablesContainer.type.oclIsUndefined()) then
+						if (not self.field.variable.variablesContainer.type.type.oclIsUndefined()) then
+						  self.field.isACollection
+					 	 else 
+					 	  	false 
+						endif
+					else
+						false
+					endif	  
+				else
+					false 
+				endif
+		else 
+			if self.oclIsKindOf(JAVA!TypeAccess) then
+				self.isACollection
+			else 
+				if self.oclIsKindOf(JAVA!SingleVariableAccess) then
+					false
+				else
+					if self.oclIsKindOf(JAVA!MethodInvocation) then
+						self.method.returnType.type.isACollection or self.method.returnType.oclIsUndefined()
+					else 
+						false 
+					endif 
+				endif 
+			endif 
+		endif
+	endif	
+;
+
+helper context JAVA!ASTNode def : isInMethodOrConstructor : Boolean =
+	if (self.refImmediateComposite().oclIsKindOf(JAVA!Statement) 
+			and 
+		not (self.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodInvocation)) ) then
+		false
+	else		
+		if (self.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodInvocation)) then 
+			true
+		else
+			if (not self.refImmediateComposite().oclIsTypeOf(JAVA!Model)) then
+				self.refImmediateComposite().isInMethodOrConstructor
+			else false endif
+		endif			
+	endif	
+;
+
+helper context JAVA!Statement def : isImplicitThisExpression : Boolean =	
+	if (not self.expression.oclIsUndefined()) then
+		if (not self.expression.isExplicitThisExpression)then
+			if (not self.getOwningMethod.oclIsUndefined())then
+				if (self.getOwningMethod.refImmediateComposite().oclIsKindOf(JAVA!AbstractTypeDeclaration)
+						and
+					not self.expression.oclIsKindOf(JAVA!MethodInvocation)
+				) then
+					self.getOwningMethod.refImmediateComposite()
+					.bodyDeclarations 
+					-> reject(elem | elem.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
+									 or elem.oclIsKindOf(JAVA!AbstractTypeDeclaration)
+									 or elem.oclIsKindOf(JAVA!EnumConstantDeclaration)
+									 or elem.oclIsKindOf(JAVA!TypeDeclaration)
+									 or elem.oclIsKindOf(JAVA!Initializer)
+					)
+					-> select(elem | elem.fragments 
+										-> first().usageInVariableAccess
+										-> select(uVA |	uVA.refImmediateComposite().oclIsTypeOf(JAVA!Assignment)
+														or uVA.refImmediateComposite().oclIsTypeOf(JAVA!ReturnStatement) 		
+										)					
+										-> notEmpty()
+					)
+					-> select(elem | elem.fragments -> first().name 
+										= self.expression.getVarOrElemName
+					)
+					-> notEmpty()
+				else false endif
+			else false endif
+		else false endif
+	else false endif	
+;
+
+helper context JAVA!ASTNode def : isExplicitThisExpression : Boolean =
+	if (self.oclIsKindOf(JAVA!Assignment))then
+		if (not self.leftHandSide.oclIsKindOf(JAVA!SingleVariableAccess)
+				and not self.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess)	
+				and not self.leftHandSide.oclIsKindOf(JAVA!ArrayAccess)	
+		)then
+			self.leftHandSide.expression.oclIsKindOf(JAVA!ThisExpression)
+		else false endif	
+	else
+		if (self.oclIsKindOf(JAVA!ReturnStatement))then
+			if (not self.expression.oclIsKindOf(JAVA!SingleVariableAccess)
+					and not self.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess)
+					and not self.leftHandSide.oclIsKindOf(JAVA!ArrayAccess)	
+			)then
+				self.expression.oclIsKindOf(JAVA!ThisExpression)
+			else false endif	
+		else false endif
+	endif
+;	
+
+helper context JAVA!ExpressionStatement def: isSettingNull : Boolean =
+	if (self.expression.oclIsKindOf(JAVA!MethodInvocation)) then
+		self.expression.arguments
+			-> select(arg | arg.oclIsTypeOf(JAVA!NullLiteral))
+			-> notEmpty()
+	else false endif
+;
+
+helper context JAVA!ExpressionStatement def: isActingOnCollection(actionMethodName : String) : Boolean =
+	if (self.expression.oclIsKindOf(JAVA!MethodInvocation)) then
+		if (not self.expression.method.oclIsUndefined()) then
+			self.expression.method.name = actionMethodName and self.expression.method.isOwningInCollectionInterface
+		else false endif
+	else false endif	
+;
+
+helper context JAVA!ASTNode def: isAccessExpression : Boolean =
+	self.oclIsTypeOf(JAVA!FieldAccess)
+	or self.oclIsTypeOf(JAVA!SingleVariableAccess)
+	or self.oclIsTypeOf(JAVA!UnresolvedItemAccess)
+	or self.oclIsTypeOf(JAVA!ArrayAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
+	or self.oclIsTypeOf(JAVA!TypeAccess)
+	or self.oclIsTypeOf(JAVA!NamespaceAccess)
+	or self.oclIsTypeOf(JAVA!ArrayLengthAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
+	or self.oclIsTypeOf(JAVA!SuperFieldAccess)
+;
+
+helper context JAVA!ExpressionStatement def: isClearingList : Boolean =
+	self.isActingOnCollection('clear')
+;
+
+helper context JAVA!ExpressionStatement def: isAddingInList : Boolean =
+	self.isActingOnCollection('add')
+;
+
+helper context JAVA!ExpressionStatement def: isRemovingInList : Boolean =
+	self.isActingOnCollection('remove')
+;
+
+helper context JAVA!Expression def: isPrePostInfixExpression : Boolean =
+	self.oclIsTypeOf(JAVA!PostfixExpression) or 
+	self.oclIsTypeOf(JAVA!PrefixExpression) or 
+	self.oclIsTypeOf(JAVA!InfixExpression)		
+;
+
+helper context JAVA!Expression def: isGreater : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('>')
+		and self.operator.toString().endsWith('>')
+	else false endif		
+;
+
+helper context JAVA!Expression def: isLess : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('<')
+		and self.operator.toString().endsWith('<')
+	else false endif
+;
+
+helper context JAVA!Expression def: isLessOrEquals : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('<=')
+	else false endif
+;
+
+helper context JAVA!Expression def: isGreaterOrEquals : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('>=')
+	else false endif
+;
+
+helper context JAVA!Expression def: isMinus : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('-')
+	else false endif
+;
+
+helper context JAVA!Expression def: isPlus : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('+')
+	else false endif
+;
+
+helper context JAVA!Expression def: isTimes : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('*')
+	else false endif
+;
+
+helper context JAVA!Expression def: isDivide : Boolean =
+	if (self.isPrePostInfixExpression)then
+		self.operator.toString().startsWith('/')
+	else false endif
+;
+
+helper context JAVA!Expression def: isExpressionOperand : Boolean =
+	self.oclIsKindOf(JAVA!PostfixExpression)
+	or self.oclIsKindOf(JAVA!PrefixExpression)
+	or self.oclIsKindOf(JAVA!InfixExpression)
+;
+
+--------------------------
+---Elements navigation
+--------------------------
+helper context JAVA!ASTNode def: getSourceForObjectFlow() : OclAny =
+	if (thisModule.resolveTemp(self.expression, 'forkNode').oclIsUndefined())then
+		if (thisModule.resolveTemp(self.expression, 'op').oclIsUndefined())then
+			if (thisModule.resolveTemp(self.getVarDecStatement, 'forkNode').oclIsUndefined())then
+				if (self.expression.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
+					thisModule.resolveTemp(self.expression.variable, 'apn')
+				else OclUndefined endif	
+			else thisModule.resolveTemp(self.getVarDecStatement, 'forkNode') endif
+		else thisModule.resolveTemp(self.expression, 'op') endif
+	else thisModule.resolveTemp(self.expression, 'forkNode') endif
+;	
+						
+helper context JAVA!ASTNode def: getPreceding() : OclAny =
+	if (self.refImmediateComposite().oclIsKindOf(JAVA!IfStatement) or self.refImmediateComposite().oclIsKindOf(JAVA!WhileStatement) 
+		or self.refImmediateComposite().oclIsKindOf(JAVA!ForStatement)) then
+		thisModule.resolveTemp(self.refImmediateComposite(), 'dec')
+	else
+		if (self.refImmediateComposite().oclIsKindOf(JAVA!EnhancedForStatement)) then
+				thisModule.resolveTemp(self.refImmediateComposite(), 'ier')
+		else
+			if (self.refImmediateComposite().oclIsKindOf(JAVA!LabeledStatement)) then
+				thisModule.resolveTemp(self.refImmediateComposite(), 'init')
+			else
+				if (self.refImmediateComposite().oclIsKindOf(JAVA!ExpressionStatement))then 
+					thisModule.resolveTemp(self.refImmediateComposite(), 'initialNode')
+				else	
+					if (not self.refImmediateComposite().oclIsTypeOf(JAVA!Block))then		
+						if (self.refImmediateComposite().oclIsTypeOf(JAVA!Model)) then
+							OclUndefined
+						else
+							self.refImmediateComposite().getPreceding()		
+						endif	
+					else
+						if (self.refImmediateComposite().statements->indexOf(self)=1) then
+							thisModule.resolveTemp(self.refImmediateComposite(), 'init')
+						else
+							let res : JAVA!Statement = self.refImmediateComposite().statements.at((self.refImmediateComposite().statements->indexOf(self)-1))
+							in res
+						endif
+					endif	
+				endif	
+			endif
+		endif
+	endif;		
+					
+helper context JAVA!Statement def: getNext() : OclAny =
+	if ((self.refImmediateComposite().statements->indexOf(self)) < self.refImmediateComposite().statements->size()) then
+		let res : JAVA!Statement = self.refImmediateComposite().statements.at((self.refImmediateComposite().statements->indexOf(self)+1))
+--		in res
+		in
+			if (res.oclIsKindOf(JAVA!ReturnStatement))then
+				if not (not res.expression.oclIsKindOf(JAVA!MethodInvocation)	
+						and not res.isImplicitThisExpression
+						and not res.isInstanceVarUse
+				)then
+					res
+				else OclUndefined endif	
+			else res endif
+	else
+		thisModule.resolveTemp(self.refImmediateComposite(), 'final')
+	endif;	
+
+helper context JAVA!Expression def: getObject : JAVA!Expression =
+	if (not self.oclIsKindOf(JAVA!TypeAccess)
+		and not self.oclIsKindOf(JAVA!AbstractTypeQualifiedExpression)
+		and not self.oclIsKindOf(JAVA!AbstractMethodInvocation)
+		and not self.oclIsKindOf(JAVA!ParenthesizedExpression)
+		and not self.oclIsKindOf(JAVA!UnresolvedItemAccess)
+		and not self.oclIsKindOf(JAVA!ArrayLengthAccess)
+		and not self.oclIsKindOf(JAVA!ArrayCreation)
+		and not self.isALiteral)then
+		if (self.oclIsKindOf(JAVA!ArrayAccess)) then
+			if (self.array.oclIsKindOf(JAVA!MethodInvocation)) then
+				self.array.getObject
+			else OclUndefined endif
+		else	
+				if (self.oclIsTypeOf(JAVA!SingleVariableAccess))then
+					self
+				else
+					if (self.oclIsKindOf(JAVA!ThisExpression)) then
+						if(self.refImmediateComposite().oclIsKindOf(JAVA!FieldAccess))then
+							self.refImmediateComposite().field.getObject
+						else 
+							if(self.refImmediateComposite().oclIsKindOf(JAVA!ReturnStatement))then
+								self.refImmediateComposite().getOwningMethod.returnType.getObject
+							else OclUndefined endif
+						endif	
+					else
+						if(self.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
+							if (self.element.oclIsKindOf(JAVA!UnresolvedVariableDeclarationFragment)) then
+								if (self.element.usageInVariableAccess.size() = 1) then
+									self.element.usageInVariableAccess -> first().getObject
+								else OclUndefined endif
+							else OclUndefined endif	
+						else
+							if(self.oclIsKindOf(JAVA!Assignment)) then
+								self.leftHandSide.getObject
+							else
+								if (self.oclIsKindOf(JAVA!InstanceofExpression) or self.oclIsKindOf(JAVA!InfixExpression)) then
+									self.leftOperand.getObject
+								else
+									if (self.oclIsKindOf(JAVA!PostfixExpression) or self.oclIsKindOf(JAVA!PrefixExpression)) then
+										self.operand.getObject
+									else
+										if (not self.expression.oclIsKindOf(JAVA!TypeAccess)
+												and not self.expression.oclIsKindOf(JAVA!AbstractTypeQualifiedExpression)
+												and not self.expression.oclIsKindOf(JAVA!AbstractMethodInvocation)
+												and not self.expression.oclIsKindOf(JAVA!ParenthesizedExpression)
+												and not self.expression.oclIsKindOf(JAVA!UnresolvedItemAccess)
+												and not self.expression.oclIsKindOf(JAVA!ArrayCreation)
+										) then	
+											if (self.expression.oclIsKindOf(JAVA!ArrayAccess)) then
+												if (self.expression.array.oclIsKindOf(JAVA!MethodInvocation)) then
+													self.expression.array.getObject
+												else 
+													if (not self.expression.array.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
+														self.expression.array.getObject 
+													else OclUndefined endif		
+												endif
+											else 
+												if (self.expression.oclIsKindOf(JAVA!FieldAccess)) then
+													self.expression.field.getObject
+												else 
+													self.expression.getObject
+												endif	
+											endif
+										else OclUndefined endif	
+									endif	
+								endif
+							endif	
+						endif	
+					endif	
+				endif
+			endif	
+	else OclUndefined endif
+;	
+
+helper context JAVA!Expression def: getFieldDec : JAVA!FieldDeclaration =
+	if (self.variable.oclIsTypeOf(JAVA!VariableDeclarationFragment)) then
+		if self.variable.variablesContainer.oclIsTypeOf(JAVA!FieldDeclaration)then
+			self.variable.variablesContainer
+		else OclUndefined endif
+	else OclUndefined endif		
+;
+
+helper context JAVA!VariableDeclarationStatement def: isOtherVarDeclarUsingSelf : Boolean =
+	self.getOtherVarDeclarUsingSelf -> notEmpty()
+;
+
+helper context JAVA!VariableDeclarationStatement def: getOutgoingForkNode() : Boolean =
+	if (self.isOtherVarDeclarUsingSelf) then
+		thisModule.resolveTemp(self.getOtherVarDeclarUsingSelf, 'forkNode').outgoing
+	else Sequence{} endif	
+;
+
+--------------
+---Expression
+--------------
+
+helper context JAVA!Expression def : isPrimitiveType : Boolean = 
+	self.oclIsTypeOf(JAVA!PrimitiveType)	
+;
+
+helper context JAVA!Expression def : alreadyManage : Boolean = 
+	not self.oclIsKindOf(JAVA!NumberLiteral)
+		and
+	not self.oclIsKindOf(JAVA!BooleanLiteral)
+		and
+	not self.oclIsKindOf(JAVA!CharacterLiteral)
+		and
+	not self.oclIsKindOf(JAVA!NullLiteral)
+		and
+	not self.oclIsKindOf(JAVA!StringLiteral)
+		and
+	not self.oclIsKindOf(JAVA!TypeLiteral)
+		and
+	not self.oclIsKindOf(JAVA!ClassInstanceCreation)
+		and
+	not self.oclIsKindOf(JAVA!MethodInvocation)	
+		and
+	not self.oclIsKindOf(JAVA!PostfixExpression)	
+		and
+	not self.oclIsKindOf(JAVA!PrefixExpression)	
+		and
+	not self.oclIsKindOf(JAVA!InfixExpression)	
+		and
+	not self.oclIsKindOf(JAVA!ParenthesizedExpression)
+		and
+	not self.oclIsKindOf(JAVA!AbstractTypeQualifiedExpression)	
+		and
+	not self.oclIsKindOf(JAVA!Assignment)
+		and
+	not self.oclIsKindOf(JAVA!CastExpression)
+		and
+	not self.oclIsKindOf(JAVA!ConditionalExpression)	
+		and
+	not self.oclIsKindOf(JAVA!InstanceofExpression)	
+		and
+	not self.oclIsKindOf(JAVA!UnresolvedItemAccess)
+;
+
+helper context JAVA!ASTNode def : getInstanciedClass: JAVA!ClassDeclaration = 
+	if (self.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)
+			or self.refImmediateComposite().oclIsTypeOf(JAVA!AnonymousClassDeclaration)
+			or self.refImmediateComposite().oclIsTypeOf(JAVA!EnumDeclaration)
+			or self.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration)
+	)then
+		self.refImmediateComposite()
+	else
+		if (not self.refImmediateComposite().oclIsTypeOf(JAVA!Model)) then
+			self.refImmediateComposite().getInstanciedClass
+		else
+			if (self.refImmediateComposite().oclIsTypeOf(JAVA!Model)
+					and self.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)) then
+				let abstractMeth : Sequence(JAVA!AbstractMethodInvocation) =	
+					JAVA!AbstractMethodInvocation.allInstancesFrom('IN')
+						->select(mi | mi.getMethodDeclaration.name = self.name)
+				in
+					if (abstractMeth.notEmpty())then
+						abstractMeth -> first().getInstanciedClass
+					else OclUndefined endif	
+			else 
+				if (self.oclIsKindOf(JAVA!TypeAccess)) then
+					if (self.type.oclIsKindOf(JAVA!ClassDeclaration)) then
+						self.type
+					else OclUndefined endif	
+				else OclUndefined endif
+			endif	
+		endif	
+	endif	
+;
+
+-----------
+---Methods
+-----------
+
+helper context JAVA!AbstractMethodInvocation def: getMethodDeclaration : JAVA!MethodDeclaration =
+	if (self.method.oclIsUndefined())then
+		self.expression.variable.initializer.method
+	else self.method endif
+;
+
+helper context OclAny def: excludeUnresolvedMethodDec : OclAny = 
+	if not self.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+		self
+	else OclUndefined endif	
+;
+
+helper context JAVA!ASTNode def: getOwningMethodInvocation : JAVA!MethodInvocation =
+	if self.refImmediateComposite().oclIsUndefined() 
+		or self.refImmediateComposite().oclIsTypeOf(JAVA!Model) then
+		OclUndefined
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodInvocation))then
+			self.refImmediateComposite()
+		else self.refImmediateComposite().getOwningMethodInvocation endif
+	endif
+;
+
+helper context JAVA!Initializer def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
+
+helper context JAVA!Model def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
+
+helper context JAVA!FieldDeclaration def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
+
+helper context JAVA!Statement def: getOwningMethod : JAVA!MethodDeclaration =
+	if self.refImmediateComposite().oclIsUndefined() then
+		OclUndefined
+	else 
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
+			or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
+			self.refImmediateComposite()
+		else 
+			if self.oclIsKindOf(JAVA!ClassDeclaration) then
+				OclUndefined
+			else 
+				self.refImmediateComposite().getOwningMethod
+			endif
+		endif
+	endif
+;
+--new
+helper context JAVA!Block def: getOwningMethod : JAVA!MethodDeclaration =
+	if self.refImmediateComposite().oclIsUndefined() then
+		OclUndefined
+	else 
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
+			or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
+			self.refImmediateComposite()
+		else 
+			if self.oclIsKindOf(JAVA!ClassDeclaration) then
+				OclUndefined
+			else 
+				self.refImmediateComposite().getOwningMethod
+			endif
+		endif
+	endif
+;
+
+helper context JAVA!Expression def: getOwningMethod : JAVA!MethodDeclaration =
+	if self.refImmediateComposite().oclIsUndefined() then
+		OclUndefined
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
+				or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
+			self.refImmediateComposite()
+		else 
+			if self.oclIsKindOf(JAVA!ClassDeclaration) then
+				OclUndefined
+			else 
+				self.refImmediateComposite().getOwningMethod
+			endif
+		endif
+	endif
+;
+
+helper context JAVA!ASTNode def: getOwningMethod : JAVA!MethodDeclaration =
+	if self.refImmediateComposite().oclIsUndefined() then
+		OclUndefined
+	else 
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
+			or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
+			self.refImmediateComposite()
+		else
+			if self.oclIsKindOf(JAVA!ClassDeclaration) then
+				OclUndefined
+			else 
+				if self.refImmediateComposite().oclIsKindOf(JAVA!UnresolvedMethodDeclaration) then
+					self.refImmediateComposite().getCorrespondingDec
+				else	
+					self.refImmediateComposite().getOwningMethod
+				endif	
+			endif
+		endif
+	endif
+;
+
+helper context JAVA!MethodInvocation def: getLastListMethodArgument : UML!Element =
+	let argument : OclAny = if (self.arguments -> size() > 2)then
+								self.arguments -> last()
+							else self.arguments -> first() endif
+	in
+		if argument.oclIsKindOf(JAVA!Expression)then
+			if argument.isAccessExpression then
+				argument.getVarAccessExpression.getStatement
+			else argument endif	
+		else argument endif
+;
+
+---Get the java method name
+helper context JAVA!MethodDeclaration def: getMethodName : String =
+	if (self.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration)) then
+		self.refImmediateComposite().refImmediateComposite().type.type.name+self.name
+	else 
+		if self.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) then
+			self.name
+		else 
+			self.getAbsMethDecName
+		endif
+	endif
+;
+
+helper context JAVA!MethodDeclaration def: isVoidMethod : Boolean = 
+	if self.returnType.oclIsUndefined()then 
+			true 
+	else 
+		if self.returnType.type.oclIsUndefined() then 
+			false 
+		else 
+			(self.returnType.type.name='void') 
+		endif
+	endif		
+;
+
+helper context JAVA!MethodDeclaration def: isBuggedModiscoMethod : Boolean =
+	if self.returnType.oclIsUndefined() then
+		false
+	else
+		self.returnType.type.oclIsUndefined()
+	endif
+;
+
+helper context JAVA!Expression def: isRLOperandExpression : Boolean =
+	self.oclIsTypeOf(JAVA!InfixExpression)
+;
+
+helper context JAVA!Expression def: isOperandExpression : Boolean =
+	self.oclIsTypeOf(JAVA!PostfixExpression) or self.oclIsTypeOf(JAVA!PrefixExpression)
+;
+
+--------------
+---Statements
+--------------
+helper context JAVA!Statement def: getContainerActivity : OclAny =
+	if self.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then
+		self.refImmediateComposite() 
+	else OclUndefined endif
+;
+
+helper context JAVA!Statement def: getContainerStructuredNode : OclAny =
+	if self.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then
+		OclUndefined 
+	else 
+		self.refImmediateComposite() 
+	endif
+;
+
+helper context JAVA!ASTNode def : getStatement : JAVA!Statement =
+	if(not self.refImmediateComposite().oclIsTypeOf(JAVA!Model)) then
+		if (self.notInInitializerOrFieldOrEnum and self.notInAnnotation) then		
+			if(self.refImmediateComposite().oclIsKindOf(JAVA!Statement)) then
+					self.refImmediateComposite()
+			else
+				self.refImmediateComposite().getStatement
+			endif
+		else
+			OclUndefined
+		endif	
+	else
+		OclUndefined
+	endif	
+;
+
+---Get all the child statements of a block 
+helper context JAVA!Block def : getAllChildStatements : Sequence(JAVA!Statement) =
+	self.statements
+;
+
+---Return self if there is no previous element
+helper context JAVA!ASTNode def: getPrecedingStatement : JAVA!Statement =
+	if (self.refImmediateComposite().oclIsKindOf(JAVA!IfStatement) or self.refImmediateComposite().oclIsKindOf(JAVA!WhileStatement) 
+		or self.refImmediateComposite().oclIsKindOf(JAVA!ForStatement) or self.refImmediateComposite().oclIsKindOf(JAVA!EnhancedForStatement)
+		or 	self.refImmediateComposite().oclIsKindOf(JAVA!LabeledStatement) or self.refImmediateComposite().oclIsKindOf(JAVA!ExpressionStatement)
+	) then
+			self.refImmediateComposite()
+	else
+		if (not self.refImmediateComposite().oclIsTypeOf(JAVA!Block))then	
+			if (self.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)) then
+				OclUndefined
+			else	
+				self.refImmediateComposite().getPrecedingStatement
+			endif	
+		else
+			if (self.refImmediateComposite().statements->indexOf(self)=1) then
+				self.refImmediateComposite()
+			else
+				let res : JAVA!Statement = self.refImmediateComposite().statements.at((self.refImmediateComposite().statements->indexOf(self)-1))
+				in res
+			endif
+		endif
+	endif
+;	
+			
+helper context JAVA!AbstractMethodDeclaration def : getOwnedStructuredActivityNode : Sequence(JAVA!Statement) =
+	if (not self.body.oclIsUndefined()) then
+		self.body.statements
+	else OclUndefined endif
+;
+
+helper context JAVA!Statement def : getVarDecStatement : JAVA!VariableDeclarationStatement =
+	if (self.expression.oclIsKindOf(JAVA!SingleVariableAccess)
+		and not self.getBlock.oclIsUndefined())then
+		self.getBlock.statements
+			-> select(state | state.oclIsTypeOf(JAVA!VariableDeclarationStatement))
+			-> select(state | state.fragments
+								-> select(frag | frag.oclIsTypeOf(JAVA!VariableDeclarationFragment))
+								-> select(frag | (frag.name	= self.expression.variable.name) 
+													and (frag.originalCompilationUnit = self.expression.variable.originalCompilationUnit)
+								)
+								-> notEmpty()
+			)
+			-> first()
+	else OclUndefined endif
+;
+
+helper context JAVA!VariableDeclarationStatement def : hasVDSInROperand(vds : JAVA!VariableDeclarationStatement) : Boolean =
+	if (not self.fragments -> first().initializer.isPrePostInfixExpression) then
+		self.fragments -> first().initializer.rightOperand.variable.refImmediateComposite() = vds
+	else false endif
+;
+
+helper context JAVA!VariableDeclarationStatement def : hasVDSInLOperand(vds : JAVA!VariableDeclarationStatement) : Boolean =
+	if (not self.fragments -> first().initializer.isPrePostInfixExpression) then
+		self.fragments -> first().initializer.leftOperand.variable.refImmediateComposite() = vds
+	else false endif
+;
+
+helper context JAVA!VariableDeclarationStatement def : getOtherVDSInputPin(vds : JAVA!VariableDeclarationStatement) : UML!InputPin =
+	if(self.hasVDSInROperand(vds))then
+		thisModule.resolveTemp(self.fragments->first().initializer,'inputPinFirstLeft')
+	else 
+		if(self.hasVDSInLOperand(vds))then
+			thisModule.resolveTemp(self.fragments->first().initializer, 'inputPinSecondRight')
+		else
+			thisModule.resolveTemp(self.fragments->first().initializer, 'inputPinOperand')
+		endif
+	endif	
+;
+
+helper context JAVA!ReturnStatement def: isOnlyReturnInstanceCreateNoParam : Boolean =
+	if not self.expression.oclIsUndefined() then
+		if self.expression.oclIsKindOf(JAVA!ClassInstanceCreation) then
+			self.expression.arguments
+							-> isEmpty()
+		else false endif
+	else false endif
+;
+
+--------
+---Type
+--------
+helper context OclAny def: excludeUnresolvedTypeDec : OclAny = 
+	if not self.oclIsKindOf(JAVA!UnresolvedTypeDeclaration)then
+		self
+	else OclUndefined endif	
+;
+
+----------------
+---UML elements
+----------------
+---Obtain the corresponding UML!ActivityNode of a JAVA!Expression
+helper context JAVA!Expression def : getActivityNode() : UML!ActivityNode =
+	if (self.oclIsKindOf(JAVA!SingleVariableAccess))then
+			--'SingleVariableAccess' assignment is a parameter ('SingleVariableDeclaration')
+			if (self.getStatement.getLastAssignment(self.getVarAccessExpression)
+					.oclIsKindOf(JAVA!SingleVariableDeclaration)
+			)then
+				thisModule.resolveTemp(self.getStatement.getLastAssignment(self.getVarAccessExpression)
+										, 'apn')
+			else
+				if (not self.getStatement.getLastAssignment(self.getVarAccessExpression)
+						.oclIsUndefined()
+				)then
+					thisModule.resolveTemp(self.getStatement.getLastAssignment(self.getVarAccessExpression)
+											, 'op')
+				else
+					OclUndefined						
+				endif	
+			endif
+	else
+		thisModule.resolveTemp(self, 'op')
+	endif
+;	

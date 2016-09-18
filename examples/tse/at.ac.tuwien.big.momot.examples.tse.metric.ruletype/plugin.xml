@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated RuleTypes -->
+      <package
+            uri="http://www.big.tuwien.ac.at/tosem/ruletype"
+            class="at.ac.tuwien.big.momot.examples.tse.metric.ruletype.RuleTypePackage"
+            genModel="model/RuleType.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated RuleTypes -->
+      <parser
+            contentTypeIdentifier="at.ac.tuwien.big.momot.examples.tosem.metric.ruletype"
+            class="at.ac.tuwien.big.momot.examples.tse.metric.ruletype.util.RuleTypeResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated RuleTypes -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="ruletype"
+            id="at.ac.tuwien.big.momot.examples.tosem.metric.ruletype"
+            name="%_UI_RuleType_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.big.tuwien.ac.at/tosem/ruletype"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+</plugin>

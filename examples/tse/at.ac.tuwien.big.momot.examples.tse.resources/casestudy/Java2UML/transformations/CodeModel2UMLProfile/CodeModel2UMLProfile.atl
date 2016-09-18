@@ -1,0 +1,1159 @@
+--/*******************************************************************************
+-- * Copyright (c) 2013 Vienna University of Technology.
+-- * All rights reserved. This program and the accompanying materials
+-- * are made available under the terms of the Eclipse Public License v1.0
+-- * which accompanies this distribution, and is available at
+-- * http://www.eclipse.org/legal/epl-v10.html
+-- *
+-- * Contributors:
+-- * Alexander Bergmayr (Vienna University of Technology) - initial API and
+		-- implementation
+-- * Manuel Wimmer (Vienna University of Technology) - initial API and implementation 
+-- *
+-- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- *******************************************************************************/
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/3.0.0/UML
+-- @path JMM=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+-- @path TMM=pathmap://METAMODEL/Trace.ecore
+
+
+-- Discovers UML Profiles from Java application code, frameworks and libraries.
+
+module CodeModel2UMLProfile;-- creates UP the UML Profile and TM the Trace Model
+-- from CM the Code Model discovered from a Java application / library
+--      JP a Java-based UML Profile that provides Stereotypes for the parameterized types
+		-- and proxies
+--      JPT the Java Primitive Types library provided by the UML implementation
+--      MC the UML meta-classes in terms of a UML model
+--      UPT the UML Primitive Types library provided by the UML implementation
+create UP: UMLMM, TM: TMM from CM: JMM, JP: UMLMM, JPT: UMLMM, MC: UMLMM, UPT: UMLMM,
+		EPT: UMLMM;
+
+-- helpers for Java-based processing
+uses javaLibrary;
+-- helpers for Stereotype application
+uses profileLibrary;
+
+helper def: getAnnotationTypeMemberDeclarations:
+		Sequence(JMM!AnnotationTypeMemberDeclaration) =
+	JMM!AnnotationTypeMemberDeclaration.allInstancesFrom('CM');
+
+helper def: getStereotypes: Sequence(UMLMM!Stereotype) =
+	UMLMM!Stereotype.allInstancesFrom('JP');
+
+helper def: profile: UMLMM!Profile =
+	OclUndefined;
+
+helper def: stereotype: UMLMM!Stereotype =
+	OclUndefined;
+
+helper def: proxyPackage: UMLMM!Package =
+	OclUndefined;
+
+helper def: trace: TMM!Trace =
+	OclUndefined;
+
+-- ensure that the trace model is generated
+entrypoint rule createTrace() {
+	to
+		tr: TMM!Trace (
+		)
+	do {
+		thisModule.trace <- tr;	
+	}
+}
+
+-- init package for proxy elements
+lazy rule initProxyPackage {
+	from
+		s1: JMM!Type
+	to
+		t1: UMLMM!Package (
+			name <- 'proxy'
+		)
+	do {
+		thisModule.profile.packagedElement <- t1;
+		thisModule.proxyPackage <- t1;
+		
+		t1.applyProfile(UMLMM!Profile.allInstancesFrom('JP').first());
+	}
+}
+
+-- create the profile
+rule Model2Profile {
+	from
+		s1: JMM!Model
+	to
+		t1: UMLMM!Profile (
+			--			packageImport <- Sequence{jpt, mc, upt},
+			packageImport <- Sequence{mc,
+						upt},
+			metamodelReference <- mc,
+			name <- s1.name,
+			packagedElement <- s1.ownedElements -> select(e | not e.proxy and e.
+					isAnnotationTypeContainer)
+		),
+		-- java primitive types
+--		jpt : UMLMM!PackageImport(
+--			importedPackage <- UMLMM!Model.allInstancesFrom('JPT').first()
+--		),
+		-- uml meta-classes
+		mc: UMLMM!PackageImport (
+			importedPackage <- UMLMM!Model.allInstancesFrom('MC').first()
+		),
+		-- uml primitive types
+		upt: UMLMM!PackageImport (
+			importedPackage <- UMLMM!Model.allInstancesFrom('UPT').first()
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'Model2Profile',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- global access to the profile
+		thisModule.profile <- t1;
+		   -- apply the profile for java generics / proxies
+		t1.applyProfile(UMLMM!Profile.allInstancesFrom('JP').first());
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule Package2Package {
+	from
+		s1: JMM!Package (
+			not s1.proxy and s1.isAnnotationTypeContainer
+		)
+	to
+		t1: UMLMM!Package (
+			name <- s1.name,
+			packagedElement <- s1.ownedPackages -> select(e | not e.proxy and
+					e.isAnnotationTypeContainer) --,
+			-- instead of selecting all required elements here let's do it in the
+					-- corresponding rules
+			-- of ClassDeclaration, EnumDeclaration, InterfaceDeclaration,
+					-- AnnotationTypeDeclaration
+--			packagedElement <- s1.ownedElements
+			
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'Package2Package',
+			targetElements <- Sequence{t1}
+		)
+	do {		
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});	
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+-- but only enumerations that are required for the profile
+rule EnumDeclaration2Enumeration {
+	from
+		s1: JMM!EnumDeclaration (
+			s1.isEnumerationRelevant
+		)
+	to
+		t1: UMLMM!Enumeration (
+			name <- if (s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) then
+					s1.name
+				else
+					s1.name.concat('From').concat(s1.refImmediateComposite().name)
+				endif,
+			ownedLiteral <- s1.enumConstants -> select(e | not e.proxy or e.
+					refImmediateComposite().isEnumerationRelevant),
+			-- TODO: new CHECK !!
+			ownedAttribute <- s1.bodyDeclarations -> select(e | e.
+					oclIsTypeOf(JMM!FieldDeclaration)),
+			-- with 'not e.proxy' we exclude the 'valueOf' method generated by the java
+					-- compiler
+			ownedOperation <- s1.bodyDeclarations -> select(e | e.
+					oclIsTypeOf(JMM!MethodDeclaration) and not e.proxy)
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'EnumDeclaration2Enumeration',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		-- if the required class declaration is a proxy then the proxy stereotype is
+				-- applied
+		if(s1.proxy = true) {
+			if(thisModule.proxyPackage.oclIsUndefined()) {
+				thisModule -> initProxyPackage(s1);
+			}
+			thisModule.proxyPackage.packagedElement <- t1;
+			
+			   -- apply the proxy stereotype
+			thisModule.stereotype <- thisModule.getStereotypes -> select(e | e.name =
+					'JProxyType').first();
+			t1.applyStereotype(thisModule.stereotype);
+			
+			-- set the namepace of the proxy element if available
+			if(s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) {
+				t1.setValue(thisModule.stereotype, 'namespace', s1.
+						refImmediateComposite().getFullyQualifiedPackageName);
+			}
+			else {
+				t1.setValue(thisModule.stereotype, 'namespace', 'NOT_AVAILABLE');	
+			}
+		}
+		
+		-- elements are contained either by packages or classifiers (nested elements)
+		else {
+			if(not s1.package.oclIsUndefined()) {
+				thisModule.resolveTemp(s1.refImmediateComposite(), 't1').packagedElement
+						<- t1;
+			}
+			else {
+				   -- so let's get the package of the owner and put the stereotype there
+						-- ... however 
+				-- there is a problem when we generate code !!!!
+				thisModule.resolveTemp(s1.refImmediateComposite().getJavaPackage(), 't1').
+						packagedElement <- t1;
+			}
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;		
+	}
+}
+
+rule FieldDeclaration2Property {
+	from
+		s1: JMM!FieldDeclaration (
+			not s1.proxy and s1.refImmediateComposite().oclIsTypeOf(JMM!EnumDeclaration)
+					and s1.refImmediateComposite().isEnumerationRelevant
+		)
+	to
+		t1: UMLMM!Property (
+			-- TODO: fragments is 0..* - check the exact behaviour!
+			name <- s1.fragments.first().name,
+			type <- s1.type.getType(),
+			isStatic <- s1.modifier.static
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'FieldDeclaration2Property',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule MethodDeclaration2Operation {
+	from
+		s1: JMM!MethodDeclaration (
+			not s1.proxy and s1.refImmediateComposite().oclIsTypeOf(JMM!EnumDeclaration)
+					and s1.refImmediateComposite().isEnumerationRelevant
+		)
+	to
+		t1: UMLMM!Operation (
+			name <- s1.name,
+			ownedParameter <- s1.parameters -> collect(e | thisModule.createParameter(e))
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'MethodDeclaration2Operation',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- thisModule.applyStereotypes(s1, t1);
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+lazy rule createParameter {
+	from
+		s1: JMM!SingleVariableDeclaration
+	to
+		t1: UMLMM!Parameter (
+			name <- s1.name,
+			type <- s1.type.getType(),
+			direction <- #"in"
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'SingleVariableDeclaration2Paramter',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule EnumConstantDeclaration2EnumerationLiteral {
+	from
+		s1: JMM!EnumConstantDeclaration (
+			s1.refImmediateComposite().isEnumerationRelevant
+		)
+	to
+		t1: UMLMM!EnumerationLiteral (
+			name <- s1.name
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'EnumConstantDeclaration2EnumerationLiteral',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;	
+	}
+}
+
+-- but only classes that are required for the profile. Such classes can only be
+-- bounded type parameters of java.lang.class
+rule ClassDeclaration2Class {
+	from
+		-- since java.lang.Class is mapped to UML class, we need to exclude it here as
+				-- well
+		s1: JMM!ClassDeclaration (
+			(s1.refImmediateComposite().getFullyQualifiedPackageName.concat('.').
+					concat(s1.name) <> 'java.lang.Class') and (thisModule.
+					getAnnotationTypeMemberDeclarations -> select(e | not e.type.
+					oclIsUndefined()) -> select(e | e.type.type.
+					oclIsTypeOf(JMM!ParameterizedType)) -> exists(f | f.type.type.
+					typeArguments -> exists(g | g.type = s1)))
+		)
+	to
+		t1: UMLMM!Class (
+			name <- if (s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) then
+					s1.name
+				else
+					s1.name.concat('From').concat(s1.refImmediateComposite().name)
+				endif
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'ClassDeclaration2Class',
+			targetElements <- Sequence{t1}
+		)
+	do {		
+		-- if the required class declaration is a proxy then the proxy stereotype is
+				-- applied
+		if(s1.proxy = true) {			
+			if(thisModule.proxyPackage.oclIsUndefined()) {
+				thisModule -> initProxyPackage(s1);
+			}
+			thisModule.proxyPackage.packagedElement <- t1;
+			
+			   -- apply the proxy stereotype
+			thisModule.stereotype <- UMLMM!Stereotype.allInstancesFrom('JP') ->
+					select(e | e.name = 'JProxyType').first();			
+			t1.applyStereotype(thisModule.stereotype);
+			
+			-- set the namepace of the proxy element if available
+			if(s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) {
+				t1.setValue(thisModule.stereotype, 'namespace', s1.
+						refImmediateComposite().getFullyQualifiedPackageName);
+			}
+			else {
+				t1.setValue(thisModule.stereotype, 'namespace', 'NOT_AVAILABLE');	
+			}
+		}
+		
+		-- nested classifiers are contained by classifiers rather than packages ;)
+		else {
+			if(thisModule.resolveTemp(s1.refImmediateComposite(), 't1').
+					oclIsTypeOf(UMLMM!Package)) {
+				thisModule.resolveTemp(s1.refImmediateComposite(), 't1').packagedElement
+						<- t1;
+			}
+			else {
+				   -- so let's get the package of the owner and put the stereotype there
+						-- ... however 
+				-- there is a problem when we generate code !!!!
+				thisModule.resolveTemp(s1.refImmediateComposite().getJavaPackage(), 't1').
+						packagedElement <- t1;
+			}
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+-- but only interfaces that are required for the profile. Such classes can only be
+-- bounded type parameters of java.lang.class
+rule InterfaceDeclaration2Interface {
+	from
+		s1: JMM!InterfaceDeclaration (
+			thisModule.getAnnotationTypeMemberDeclarations -> select(e | not e.type.
+					oclIsUndefined()) -> select(e | e.type.type.
+					oclIsTypeOf(JMM!ParameterizedType)) -> exists(f | f.type.type.
+					typeArguments -> exists(g | g.type = s1))
+		)
+	to
+		t1: UMLMM!Interface (
+			name <- if (s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) then
+					s1.name
+				else
+					s1.name.concat('From').concat(s1.refImmediateComposite().name)
+				endif
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'InterfaceDeclaration2Interface',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		-- if the required class declaration is a proxy then the proxy stereotype is
+				-- applied
+		if(s1.proxy = true) {
+			if(thisModule.proxyPackage.oclIsUndefined()) {
+				thisModule.initProxyPackage(s1);
+			}
+			thisModule.proxyPackage.packagedElement <- t1;
+			
+			   -- apply the proxy stereotype
+			thisModule.stereotype <- UMLMM!Stereotype.allInstancesFrom('JP') -> select(e
+					| e.name = 'JProxyType').first();
+			t1.applyStereotype(thisModule.stereotype);
+			
+			-- set the namepace of the proxy element if available
+			if(s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) {
+				t1.setValue(thisModule.stereotype, 'namespace', s1.
+						refImmediateComposite().getFullyQualifiedPackageName);
+			}
+			else {
+				t1.setValue(thisModule.stereotype, 'namespace', 'NOT_AVAILABLE');	
+			}
+		}
+		
+		-- nested classifiers are contained by classifiers rather than packages ;)
+		else {
+			if(thisModule.resolveTemp(s1.refImmediateComposite(), 't1').
+					oclIsTypeOf(UMLMM!Package)) {
+				thisModule.resolveTemp(s1.refImmediateComposite(), 't1').packagedElement
+						<- t1;
+			}
+			else {
+				   -- so let's get the package of the owner and put the stereotype there
+						-- ... however 
+				-- there is a problem when we generate code !!!!
+				thisModule.resolveTemp(s1.refImmediateComposite().getJavaPackage(), 't1').
+						packagedElement <- t1;
+			}
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule AnnotationTypeDeclaration2Stereotype {
+	from
+		-- only those AnnotationTypeDeclarations that are not proxies or return value of
+				-- a AnnotationTypeMemberDeclaration
+		s1: JMM!AnnotationTypeDeclaration (
+			not s1.proxy or thisModule.getAnnotationTypeMemberDeclarations -> select(e |
+					not e.type.oclIsUndefined()) -> select(e |
+					e.type.type.oclIsTypeOf(JMM!ParameterizedType)) -> exists(f |
+					f.type.type.typeArguments -> exists(g | g.type = s1)) or (  -- or we
+					-- do
+					-- have a proxy element that has been resolved. This happens if a
+					-- missing library has
+										-- has been added to the build path. If this
+												-- library is not added then an
+												-- UnresolvedTypeDeclaration
+										-- is discovered by MoDisco.
+			s1.proxy = true and s1.isRelevantForAnnotationTypes)
+		)
+	to
+		t1: UMLMM!Stereotype (
+			name <- if (s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) then
+					s1.name
+				else
+					s1.name.concat('From').concat(s1.refImmediateComposite().name)
+				endif,
+			-- can be set to public as no other visibility modifier is allowed for
+					-- annotation types
+			visibility <- #public,
+			-- should not be done since then the stereotype cannot be instantiated (Java
+					-- Feature or Bug ;) )
+			-- isAbstract <- if s1.modifier.inheritance.toString() = 'abstract' then true
+					-- else false endif,
+			
+			-- TODO : According to JLS, an annotation type declaration can also contain
+					-- constant declarations
+			-- class declarations etc. ... even annotation type declarations -> inner
+					-- annotations
+			-- this means bodyDeclarations may also be of type JMM!FieldDeclaration
+			
+			-- in findbugs haben wir den Fall einer ClassDeclaration innerhabl eienr
+					-- AnnotationTypeDeclaration,
+			-- see: edu.umd.cs.findbugs.internalAnnotations.SlashedClassName
+			ownedAttribute <- s1.bodyDeclarations -> select(e | e.
+					oclIsTypeOf(JMM!AnnotationTypeMemberDeclaration))
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'AnnotationTypeDeclaration2Stereotype',
+			targetElements <- Sequence{t1}
+		)
+	do {		
+		-- if the required class declaration is a proxy then the proxy stereotype is
+				-- applied
+		-- and the stereotype is added to a dedicated proxy package
+		if(s1.proxy = true) {			
+			if(thisModule.proxyPackage.oclIsUndefined()) {
+				thisModule.initProxyPackage(s1);
+			}
+			thisModule.proxyPackage.packagedElement <- t1;
+			
+			   -- apply the proxy stereotype
+			thisModule.stereotype <- UMLMM!Stereotype.allInstancesFrom('JP') -> select(e
+					| e.name = 'JProxyType').first();
+			t1.applyStereotype(thisModule.stereotype);
+			
+			-- set the namepace of the proxy element if available
+			if(s1.refImmediateComposite().oclIsTypeOf(JMM!Package)) {
+				t1.setValue(thisModule.stereotype, 'namespace', s1.
+						refImmediateComposite().getFullyQualifiedPackageName);
+			}
+			else {
+				t1.setValue(thisModule.stereotype, 'namespace', 'NOT_AVAILABLE');	
+			}
+		}
+		
+		-- TODO: nested classifiers are contained by classifiers rather than packages ;)
+				-- ... however nested
+		-- stereotypes are not actuall supported
+		else {
+			if(thisModule.resolveTemp(s1.refImmediateComposite(), 't1').
+					oclIsTypeOf(UMLMM!Package)) {
+				thisModule.resolveTemp(s1.refImmediateComposite(), 't1').packagedElement
+						<- t1;
+			}
+			else {
+				   -- so let's get the package of the owner and put the stereotype there
+						-- ... however 
+				-- there is a problem when we generate code !!!!
+				thisModule.resolveTemp(s1.refImmediateComposite().getJavaPackage(), 't1').
+						packagedElement <- t1;
+			}
+		}
+		
+		-- if the target annotation is not set at all then we have to trigger a lazy rule
+				-- that produces extensions to
+		-- all possible candidates
+		if(not s1.proxy and not (s1.annotations -> exists(a | a.type.type.name =
+				'Target'))) {
+			for(javaElementType in thisModule.umlTarget.getKeys()) {
+				for(umlElementType in thisModule.umlTarget.get(javaElementType)) {
+ 					thisModule.createExtension(s1, t1, umlElementType, javaElementType);
+				}
+			}
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule createExtension(annotationType: JMM!AnnotationTypeDeclaration, stereotype:
+		UMLMM!Stereotype,
+					 metaClass: UMLMM!Element, elementType: String) {
+	to
+		-- the extension relationship
+		t1: UMLMM!Extension (
+			name <- 'extension_'.concat(stereotype.name).concat('_').concat(metaClass.
+					name),
+			memberEnd <- Sequence{t2,
+						t3},
+			ownedEnd <- t3
+		),
+		-- the properties of the relationship (end points)
+		t2: UMLMM!Property (
+			name <- 'base_'.concat(metaClass.name),
+			type <- metaClass,
+			lower <- 0,
+			upper <- 1
+		),
+		t3: UMLMM!ExtensionEnd (
+			name <- 'extension_'.concat(metaClass.name),
+			aggregation <- #composite,
+			type <- stereotype
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'createExtension',
+			targetElements <- Sequence{t1,
+						t2,
+						t3}
+		)		
+	do {	
+		   -- refers to the ownedAttribute of the stereotype
+		stereotype.ownedAttribute <- t2;
+		
+		   -- refers to the profile that contains the stereotype
+		stereotype.refImmediateComposite().packagedElement <- t1;
+		
+		-- if we create an extension of Type then we need a constraint as
+		-- UML:Type is more general then Java:Type
+		
+		if(elementType = 'TYPE') {
+			thisModule.createTypeConstraint(stereotype);
+		}
+		
+		else if(elementType = 'CONSTRUCTOR') {
+			thisModule.createConstructorConstraint(stereotype);
+		}
+		
+		else if(elementType = 'METHOD') {
+			thisModule.createMethodConstraint(stereotype);	
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{annotationType});	
+		thisModule.trace.traceLinks <- tl;
+	}	
+}
+
+rule SingleVariableAccessMultiValued2Extension {
+	from
+		s1: JMM!SingleVariableAccess (
+			s1.isMultiValuedAnnotationTarget
+		)
+	using {
+		s2: JMM!AnnotationTypeDeclaration = s1.refImmediateComposite().
+				refImmediateComposite().refImmediateComposite().refImmediateComposite();
+	}
+	to
+		-- the extension relationship
+		t1: UMLMM!Extension (
+			name <- 'extension_'.concat(thisModule.resolveTemp(s2, 't1').name).
+					concat('_').concat(thisModule.umlTarget.get(s1.variable.name).first().name),
+			memberEnd <- Sequence{t2,
+						t3},
+			ownedEnd <- t3
+		),
+		-- the properties of the relationship (end points)
+		t2: UMLMM!Property (
+			name <- 'base_'.concat(thisModule.umlTarget.get(s1.variable.name).first().
+					name),
+			type <- thisModule.umlTarget.get(s1.variable.name).first(),
+			lower <- 0,
+			upper <- 1
+		),
+		t3: UMLMM!ExtensionEnd (
+			name <- 'extension_'.concat(thisModule.umlTarget.get(s1.variable.name).
+					first().name),
+			aggregation <- #composite,
+			type <- thisModule.resolveTemp(s2, 't1')
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'SingleVariableAccessMultiValued2Extension',
+			targetElements <- Sequence{t1,
+						t2,
+						t3}
+		)
+	do {
+		   -- refers to the ownedAttribute of the stereotype
+		thisModule.resolveTemp(s2, 't1').ownedAttribute <- t2;
+		
+		   -- refers to the profile that contains the stereotype
+		thisModule.resolveTemp(s2.getPackage(), 't1').packagedElement <- t1;
+		
+		-- if the target is of type FIELD, we do have to create an extension for
+		-- EnumDeclaration as well;
+		-- if we use Associatons, we may have to add another extension
+		if(s1.variable.name = 'FIELD') {
+			thisModule.createExtension(s2, thisModule.resolveTemp(s2, 't1'), thisModule.
+					umlTarget.get(s1.variable.name).at(2), s1.variable.name);
+		}
+		
+		-- if the target is of type METHOD, we do have to create an extension for
+		-- Property as well as methods in annotationtypedeclrations are translated
+		-- to property
+		if(s1.variable.name = 'METHOD') {
+			thisModule.createExtension(s2, thisModule.resolveTemp(s2, 't1'), thisModule.
+					umlTarget.get(s1.variable.name).at(2), s1.variable.name);
+		}
+		
+		-- in case of TYPE we do have to create the type constraint
+		if(s1.variable.name = 'TYPE') {
+			thisModule.createTypeConstraint(thisModule.resolveTemp(s2, 't1'));
+		}
+		
+		-- in case of CONSTRUCTOR we do have to create the type constraint
+		else if(s1.variable.name = 'CONSTRUCTOR') {
+			thisModule.createConstructorConstraint(thisModule.resolveTemp(s2, 't1'));
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});	
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule SingleVariableAccessSingleValued2Extension {
+	from
+		s1: JMM!SingleVariableAccess (
+			s1.isSingleValuedAnnotationTarget
+		)
+	using {
+		s2: JMM!AnnotationTypeDeclaration = s1.refImmediateComposite().
+				refImmediateComposite().refImmediateComposite();
+	}
+	to
+		-- the extension relationship
+		t1: UMLMM!Extension (
+			name <- 'extension_'.concat(thisModule.resolveTemp(s2, 't1').name).
+					concat('_').concat(thisModule.umlTarget.get(s1.variable.name).first().name),
+			memberEnd <- Sequence{t2,
+						t3},
+			ownedEnd <- t3
+		),
+		-- the properties of the relationship (end points)
+		t2: UMLMM!Property (
+			name <- 'base_'.concat(thisModule.umlTarget.get(s1.variable.name).first().
+					name),
+			type <- thisModule.umlTarget.get(s1.variable.name).first(),
+			lower <- 0,
+			upper <- 1
+		),
+		t3: UMLMM!ExtensionEnd (
+			name <- 'extension_'.concat(thisModule.umlTarget.get(s1.variable.name).
+					first().name),
+			aggregation <- #composite,
+			type <- thisModule.resolveTemp(s2, 't1')
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'SingleVariableAccessSingleValued2Extension',
+			targetElements <- Sequence{t1,
+						t2,
+						t3}
+		)
+	do {
+		   -- refers to the ownedAttribute of the stereotype
+		thisModule.resolveTemp(s2, 't1').ownedAttribute <- t2;
+		
+		   -- refers to the profile that contains the stereotype
+		thisModule.resolveTemp(s2.getPackage(), 't1').packagedElement <- t1;
+		
+		-- if the target is of type FIELD, we do have to create an extension for
+		-- EnumDeclaration as well;
+		-- if we use Associatons, we may have to add another extension
+		if(s1.variable.name = 'FIELD') {
+			thisModule.createExtension(s2, thisModule.resolveTemp(s2, 't1'), thisModule.
+					umlTarget.get(s1.variable.name).at(2), s1.variable.name);
+		}
+		
+		-- if the target is of type METHOD, we do have to create an extension for
+		-- Property as well as methods in annotationtypedeclrations are translated
+		-- to property
+		if(s1.variable.name = 'METHOD') {
+			thisModule.createExtension(s2, thisModule.resolveTemp(s2, 't1'), thisModule.
+					umlTarget.get(s1.variable.name).at(2), s1.variable.name);
+		}
+		
+		-- in case of TYPE we do have to create the type constraint
+		if(s1.variable.name = 'TYPE') {
+			thisModule.createTypeConstraint(thisModule.resolveTemp(s2, 't1'));
+		}
+		
+		-- in case of CONSTRUCTOR we do have to create the type constraint
+		else if(s1.variable.name = 'CONSTRUCTOR') {
+			thisModule.createConstructorConstraint(thisModule.resolveTemp(s2, 't1'));
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+rule AnnotationTypeMemberDeclaration2Property {
+	from
+		s1: JMM!AnnotationTypeMemberDeclaration (
+			not s1.proxy or s1.refImmediateComposite().isRelevantForAnnotationTypes
+		)
+	to
+		t1: UMLMM!Property (
+			name <- s1.name,
+			-- can be set to public as no other visibility modifier is allowed for
+					-- annotation types
+			visibility <- #public,
+			-- the problem here is that we may have proxy member declaratios with no
+					-- further type information
+			type <- if (s1.type <> OclUndefined) then
+					s1.type.getType()
+				else
+					UMLMM!PrimitiveType.allInstancesFrom('EPT') -> select(e | e.name =
+							'EJavaObject').first()
+				endif,
+			-- is done in post processing ;)
+			-- default <- if s1.default <> OclUndefined and
+					-- s1.default.oclIsTypeOf(JMM!NumberLiteral) then 
+			--			 s1.default.tokenValue else OclUndefined endif,
+			-- TODO: provide example for an undefined type
+			lower <- if s1.default <> OclUndefined then
+					0
+				else
+					if s1.type <> OclUndefined then
+						if s1.type.type.oclIsTypeOf(JMM!ArrayType) then
+							0
+						else
+							1
+						endif
+					else
+						1
+					endif
+				endif,
+			upper <- if s1.type <> OclUndefined then
+					if s1.type.type.oclIsTypeOf(JMM!ArrayType) then
+						-1
+					else
+						1
+					endif
+				else
+					1
+				endif,
+			-- if stereotypes are composed by other stereotypes
+			aggregation <- if s1.type <> OclUndefined 
+						   then if(s1.type.isComplexType()) then #composite else #none
+								endif
+						   else #none
+						   endif
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'AnnotationTypeMemberDeclaration2Property',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		
+		-- TODO : Here we should also consider the discussion about OCL constraints for
+		--        the allowed types as specified by the binding Class<T>
+		-- same as above: the problem here is that we may have proxy member declaratios
+				-- with no further type information
+		if(s1.type <> OclUndefined) {
+			if (s1.type.type.oclIsTypeOf(JMM!ParameterizedType)) {
+				thisModule.stereotype <- thisModule.getStereotypes -> any(e | e.name =
+						'JGenericType');
+				t1.applyStereotype(thisModule.stereotype);
+				
+				t1.setValue(thisModule.stereotype, 'type', 'upperBounded');
+							
+				-- set the type of the 'binding' ... unbounded (default), upperbounded,
+						-- lowerbounded, bounded;
+				if (s1.type.type.typeArguments.first().type.
+						oclIsTypeOf(JMM!WildCardType)) {
+					
+					-- if the type parameterized type is unresolved then create a proxy
+							-- element
+					-- design decision: it seems to be rather hard to express this part
+							-- declaratively ;(
+	
+					if(not s1.type.type.typeArguments.first().type.bound.
+							oclIsUndefined()) {				
+						if(s1.type.type.typeArguments.first().type.bound.type.
+								oclIsTypeOf(JMM!UnresolvedTypeDeclaration)) {
+							
+							   -- s1.refImmediateComposite().name.debug();
+							-- s1.name.debug();
+							thisModule.UnresolvedTypeDeclaration2Type(s1.type.type.
+									typeArguments.first().type.bound.type); 	
+						}
+					}
+					
+					-- upperBounded case
+					if (s1.type.type.typeArguments.first().type.name.startsWith('?' + ''
+							+ ' extends')) {
+						thisModule.stereotype <- thisModule.getStereotypes -> any(e | e.
+								name = 'JGenericType');
+						t1.setValue(thisModule.stereotype, 'type', 'upperBounded');
+						
+					 	--t1.setValue(thisModule.stereotype, 'type', 'upperBounded');
+					 	--t1.setValue(thisModule.stereotype, 'parameter',
+							-- thisModule.resolveTemp(s1.type.type.typeArguments.first().type.bound.typ
+									-- e
+									-- ,
+							-- 't1').debug());
+					}
+					-- lowerBounded case
+					else if (s1.type.type.typeArguments.first().type.name.toString().
+							startsWith('? super')) {
+					    t1.setValue(thisModule.stereotype, 'type', 'lowerBounded');
+					   -- t1.setValue(thisModule.stereotype, 'parameter',
+							-- thisModule.resolveTemp(s1.type.type.typeArguments.first().type.bound.typ
+									-- e
+									-- ,
+							-- 't1').debug());
+					}
+				}
+				
+				-- bounded case
+				else if (not s1.type.type.typeArguments.first().type.oclIsUndefined()) {
+					
+					   -- s1.name.debug();
+						t1.setValue(thisModule.stereotype, 'type', 'bounded');
+					t1.setValue(thisModule.stereotype, 'parameter', thisModule.
+							resolveTemp(s1.type.type.typeArguments.first().type,
+							't1'));	
+				}
+			}
+			 
+			if (s1.type.isComplexType()) {
+				thisModule.AnnotationTypeMemberDeclaration2Association(s1);
+			}
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+-- if we have UML properties with a complex type then we should create an UML association
+lazy rule AnnotationTypeMemberDeclaration2Association {
+	from
+		s1: JMM!AnnotationTypeMemberDeclaration
+	to
+		t1: UMLMM!Association (
+			name <- if (not s1.type.getType().name.oclIsUndefined()) then
+					s1.name.concat('_').concat(s1.refImmediateComposite().name).concat('_').concat(s1.type.getType().name)
+				else
+					s1.name.concat('_').concat(s1.refImmediateComposite().name).concat('_').concat(s1.type.type.name)
+				endif,
+			memberEnd <- s1,
+			memberEnd <- t2
+		),
+		t2: UMLMM!Property (
+			-- the idea is to use the name of the Java field plus the classifier the 
+			-- association points to
+			name <- s1.name.concat('_').concat(s1.refImmediateComposite().name),
+			-- can be set to public as no other visibility modifier is allowed for
+					-- annotation types
+			visibility <- #public,
+			-- TODO: Think about the multiplicity
+			lower <- 0,
+			upper <- 1,
+			type <- s1.refImmediateComposite()
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'AnnotationTypeMemberDeclaration2Association',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		thisModule.resolveTemp(s1.refImmediateComposite().getPackage(), 't1').
+				packagedElement <- t1;
+		
+		-- case java.lang.Class / java.lang.Class[]: we do not want to change the
+				-- meta-class UML Class
+		-- so the produced property is contained by the association		
+		if( (s1.type.type.oclIsTypeOf(JMM!ParameterizedType)) or
+				(s1.type.type.refImmediateComposite().getFullyQualifiedPackageName.toString().concat('.').concat(s1.type.type.name).toString()
+				= 'java.lang.Class') or (  -- in case the Array is parameterized the name
+				-- string also contains '<...>'
+				s1.type.type.name.toString().startsWith('java.lang.Class') and s1.type.
+						type.name.toString().endsWith('[]')) ) {
+			
+			t1.ownedEnd <- t2;
+		}
+		-- we follow the standard procedure and put the produced property into the 
+		-- associated element
+		else {
+			if(s1.type.type.oclIsTypeOf(JMM!ArrayType)) {
+				
+				if(s1.type.type.elementType.type.
+						oclIsTypeOf(JMM!UnresolvedTypeDeclaration)) {
+					t1.ownedEnd <- t2;		
+				}
+				
+				
+				thisModule.resolveTemp(s1.type.type.elementType.type, 't1').
+						ownedAttribute <- t2;
+			}
+			else {
+				thisModule.resolveTemp(s1.type.type, 't1').ownedAttribute <- t2;
+			}
+		}
+		
+		-- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+
+	}
+}
+
+-- Refers to Types that cannot be resolved. This happens if a library references elements
+-- of another library for which we do not have access to the source. Then, we get only the
+-- type information and the type access but not further information.
+-- The idea is to transform those UnresolvedTypes that are used in the declaration of
+-- of annotations, i.e., AnnotationTypeMemberDeclarations. This seems to be essential
+-- to declare the AnnotationTypeMemberDeclaration.
+rule UnresolvedTypeDeclaration2Type {
+	from
+		s1: JMM!UnresolvedTypeDeclaration (
+			s1.usagesInTypeAccess -> exists(e | e.refImmediateComposite().
+					oclIsTypeOf(JMM!AnnotationTypeMemberDeclaration)) or
+			-- ArrayTypes need to be handled differently
+			s1.usagesInTypeAccess -> collect(e | e.refImmediateComposite()) -> 
+					select(e | e.oclIsTypeOf(JMM!ArrayType)) -> exists(e | e.usagesInTypeAccess ->
+					exists(f | f.refImmediateComposite().oclIsTypeOf(JMM!AnnotationTypeMemberDeclaration)))
+		)
+	to
+		t1: UMLMM!Class (
+			name <- s1.name
+		),
+		-- trace information
+		tl: TMM!TraceLink (
+			ruleName <- 'UnresolvedTypeDeclaration2Type',
+			targetElements <- Sequence{t1}
+		)
+	do {
+		if(thisModule.proxyPackage.oclIsUndefined()) {
+			thisModule -> initProxyPackage(s1);
+		}
+		thisModule.proxyPackage.packagedElement <- t1;
+		
+		   -- apply the proxy stereotype
+		thisModule.stereotype <- UMLMM!Stereotype.allInstancesFrom('JP') ->
+				select(e | e.name = 'JProxyType').first();			
+		t1.applyStereotype(thisModule.stereotype);
+		
+		   -- trace information
+		tl.refSetValue('sourceElements', Sequence{s1});
+		thisModule.trace.traceLinks <- tl;
+	}
+}
+
+-- we do need a constraint for the Type extension as only Class, Interface, Enumeration
+-- and Stereotype
+-- should be targets for the produced Stereotype
+rule createTypeConstraint(stereotype: UMLMM!Stereotype) {
+	to
+		t1: UMLMM!Constraint (
+			name <- 'typeConstraint',
+			constrainedElement <- stereotype,
+			context <- stereotype,
+			specification <- t2
+		),
+		t2: UMLMM!OpaqueExpression (
+			name <- 'typeConstraintExpression',
+			-- the type constraint
+--			body <- 'self.base_Type.oclIsUndefined() or
+--					 (self.base_Type.oclIsTypeOf(uml::Class) or
+--					  self.base_Type.oclIsTypeOf(uml::Interface) or
+--					  self.base_Type.oclIsTypeOf(uml::Enumeration) or
+--					  self.base_Type.oclIsTypeOf(uml::Stereotype))',
+			body <- 'not self.base_Type.oclIsUndefined() implies Set{uml::Stereotype,
+					uml::Class, uml::Enumeration, uml::Interface}
+					 -> includes(self.base_Type.oclType())',
+			-- the language we use to express the constraint
+			language <- 'OCL'
+		)
+}
+
+-- furthermore, we do need a constraint for the Operation extension if the Java element
+-- type Constructor
+-- is used
+rule createConstructorConstraint(stereotype: UMLMM!Stereotype) {
+	to
+		t1: UMLMM!Constraint (
+			name <- 'constructorConstraint',
+			constrainedElement <- stereotype,
+			context <- stereotype,
+			specification <- t2
+		),
+		t2: UMLMM!OpaqueExpression (
+			name <- 'constructorConstraintExpression',
+			-- the type constraint
+			-- body <- 'self.base_Operation.oclIsUndefined() or
+			--		 self.base_Operation.name =
+					-- self.base_Operation.oclContainer().oclAsType(uml::Classifier).name'
+					-- ,
+			body <- 'not self.base_Operation.oclIsUndefined() implies
+					self.base_Operation.name =
+				     self.base_Operation.oclContainer().oclAsType(uml::Classifier).name',
+			-- the language we use to express the constraint
+			language <- 'OCL'
+		)
+}
+
+-- since we translation methods of annotationtypedeclarations to properties, we do have
+-- to take care
+-- that such properties can be stereotyped if ElementType.Method is set
+rule createMethodConstraint(stereotype: UMLMM!Stereotype) {
+	to
+		t1: UMLMM!Constraint (
+			name <- 'methodConstraint',
+			constrainedElement <- stereotype,
+			context <- stereotype,
+			specification <- t2
+		),
+		t2: UMLMM!OpaqueExpression (
+			name <- 'methodConstraintExpression',
+			-- the type constraint
+--			body <- 'self.base_Property.oclIsUndefined() or
+--					 self.base_Property.oclContainer().oclIsTypeOf(uml::Stereotype)',
+			body <- 'not self.base_Property.oclIsUndefined() implies
+					 self.base_Property.oclContainer().oclIsTypeOf(uml::Stereotype)',
+			-- the language we use to express the constraint
+			language <- 'OCL'
+		)	
+}
+
+-- currently we do not use UML's support for templates and template binding!
+--rule ParameterizedType2Class {
+--	from
+--		s1 : JMM!ParameterizedType
+--	to
+--		t1 : UMLMM!Class (
+--			name <- s1.name,
+--			templateBinding <- s1.typeArguments
+--		)
+--}
+--
+--rule TypeAccessOfParameterizedType2TemplateBinding {
+--	from
+--		s1 : JMM!TypeAccess(
+--				if s1.refImmediateComposite().oclIsTypeOf(JMM!ParameterizedType)
+--				then s1.refImmediateComposite().typeArguments -> exists(e | e = s1)
+--				else false endif)
+--	to
+--		t1 : UMLMM!TemplateBinding (
+--			signature <-
+		-- s1.refImmediateComposite().getParameterizedClassFromJavaLibrary().ownedTemplateSignatur
+				-- e
+				-- ,
+		-- 
+--			parameterSubstitution <- t2
+--		),
+--		
+--		t2 : UMLMM!TemplateParameterSubstitution (
+--			-- TODO : the assumption here is that we have only one parameter
+--			formal <-
+		-- s1.refImmediateComposite().getParameterizedClassFromJavaLibrary().ownedTemplateSignature.ownedParameter.first(
+				-- )
+				-- ,
+		-- 
+--			actual <- if s1.type.oclIsTypeOf(JMM!AnnotationTypeDeclaration) then
+		-- s1.type else s1.getActualParameterFromModelLibrary() endif
+--			-- TODO : in RSA the property ownedActual is set as well ... but then the
+--- define step of UML2 plugin breaks!
+--		)
+--}

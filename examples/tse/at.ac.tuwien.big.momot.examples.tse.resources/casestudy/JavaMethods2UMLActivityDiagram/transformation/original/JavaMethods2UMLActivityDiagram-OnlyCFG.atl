@@ -1,0 +1,1292 @@
+-- @atlcompiler atl2010
+
+-- @nsURI UML=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI JAVA=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+
+-- ******************************************************************************
+-- Copyright (c) 2013 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  authors: Guillaume Doux (guillaume.doux at inria.fr) 
+--			 Matthieu Allon (matthieu.allon at gmail.com)
+-- Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- ******************************************************************************
+
+module JavaMethods2UMLActivityDiagramOnlyCFG;
+
+create OUT: UML from IN: JAVA;
+
+uses java2UMLActivityHelpers;
+
+
+	
+
+rule JModelRootToUmlModelRoot {
+	from 
+		jModelRoot : JAVA!Model
+	to 
+		umlModelRoot : UML!Model (
+			name <- 'root model', 
+			packagedElement <- thisModule.allMethods->union(thisModule.allConstructors)->including(cd)-->select(m | (not m.body.oclIsUndefined()))->select(m | (not m.body.oclIsUndefined()))
+		),
+		cd	:	UML!Package(
+			name <- 'Associated Classifiers',
+			packagedElement <- thisModule.allTypes-->union(thisModule.allInterfaces)->union(thisModule.allPrimitiveTypes)
+		)
+}
+
+rule Methods2Activity {
+	from
+		jMethod	:	JAVA!MethodDeclaration	( (not jMethod.body.oclIsUndefined()) and
+												(if jMethod.returnType.oclIsUndefined() then false 
+													else (if jMethod.returnType.type.oclIsUndefined() then false 
+															else not (jMethod.returnType.type.name='void') endif) endif) )
+	to
+		act	:	UML!Activity(
+			name <- if (jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) and jMethod.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration))
+						then jMethod.refImmediateComposite().refImmediateComposite().type.type.name+jMethod.name
+						else if jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration)
+								then jMethod.name
+								else jMethod.refImmediateComposite().name+'_'+jMethod.name
+							endif
+					endif,
+			visibility <- if jMethod.modifier.oclIsUndefined() 
+								then OclUndefined 
+								else if (jMethod.modifier.visibility.toString()='none') 
+									then OclUndefined 
+									else jMethod.modifier.visibility endif endif, --suposing undefined mean package...
+			redefinedBehavior <- jMethod.redefinedMethodDeclaration
+		),
+		init	:	UML!InitialNode(
+			activity <- act
+		),
+		final	:	UML!ActivityFinalNode(
+			activity <- act
+		),
+		fcf : UML!ControlFlow(
+			activity <- act,
+			target <- final,
+			source <- jMethod.body
+		),
+		icf : UML!ControlFlow(
+			activity <- act,
+			target <- jMethod.body,
+			source <- init 
+		)
+}
+
+
+rule Methods2ActivityBugModisco {
+	from
+		jMethod	:	JAVA!MethodDeclaration	(  (not jMethod.body.oclIsUndefined()) and
+											(if jMethod.returnType.oclIsUndefined() 
+													then false
+													else  jMethod.returnType.type.oclIsUndefined()
+											endif)
+											)
+	to
+		act	:	UML!Activity(
+			name <- if (jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) and jMethod.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration))
+						then jMethod.refImmediateComposite().refImmediateComposite().type.type.name+jMethod.name
+						else if jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration)
+								then jMethod.name
+								else jMethod.refImmediateComposite().name+'_'+jMethod.name
+							endif
+					endif,
+			visibility <- if jMethod.modifier.oclIsUndefined() 
+								then OclUndefined 
+								else if (jMethod.modifier.visibility.toString()='none') 
+									then OclUndefined 
+									else jMethod.modifier.visibility endif endif, --suposing undefined mean package...
+			redefinedBehavior <- jMethod.redefinedMethodDeclaration
+		),
+		init	:	UML!InitialNode(
+			activity <- act
+		),
+		final	:	UML!ActivityFinalNode(
+			activity <- act
+		),
+		fcf : UML!ControlFlow(
+			activity <- act,
+			target <- final,
+			source <- jMethod.body
+		),
+		icf : UML!ControlFlow(
+			activity <- act,
+			target <- jMethod.body,
+			source <- init 
+		)
+}
+
+rule VoidMethod2Activity { --needed for OF
+	from
+		jMethod	:	JAVA!MethodDeclaration	(	(not jMethod.body.oclIsUndefined()) and
+												(if jMethod.returnType.oclIsUndefined() 
+													then true 
+													else (if jMethod.returnType.type.oclIsUndefined() 
+															then false 
+															else (jMethod.returnType.type.name='void') endif) endif))
+	to
+		act	:	UML!Activity(
+			name <- if (jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) and jMethod.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration))
+						then jMethod.refImmediateComposite().refImmediateComposite().type.type.name+jMethod.name
+						else if jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration)
+								then jMethod.name
+								else jMethod.refImmediateComposite().name+'_'+jMethod.name
+							endif
+					endif,
+			visibility <- if jMethod.modifier.oclIsUndefined() 
+							then OclUndefined 
+							else if (jMethod.modifier.visibility.toString()='none') 
+								then OclUndefined 
+								else jMethod.modifier.visibility endif endif, --suposing undefined mean package...
+			redefinedBehavior <- jMethod.redefinedMethodDeclaration
+		),
+		init	:	UML!InitialNode(
+			activity <- act
+		),
+		final	:	UML!ActivityFinalNode(
+			activity <- act
+		),
+		fcf : UML!ControlFlow(
+			activity <- act,
+			target <- final,
+			source <- jMethod.body
+		),
+		icf : UML!ControlFlow(
+			activity <- act,
+			target <- jMethod.body,
+			source <- init 
+		)
+}
+
+
+rule Methods2ActivityEmptybody {
+	from
+		jMethod	:	JAVA!MethodDeclaration	( (jMethod.body.oclIsUndefined()) and
+												(if jMethod.returnType.oclIsUndefined() then false 
+													else (if jMethod.returnType.type.oclIsUndefined() then false 
+															else not (jMethod.returnType.type.name='void') endif) endif) )
+	to
+		act	:	UML!Activity(
+			name <- if (jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) and jMethod.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration))
+						then jMethod.refImmediateComposite().refImmediateComposite().type.type.name+jMethod.name
+						else if jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration)
+								then jMethod.name
+								else jMethod.refImmediateComposite().name+'_'+jMethod.name
+							endif
+					endif,
+			visibility <- if jMethod.modifier.oclIsUndefined() 
+								then OclUndefined 
+								else if (jMethod.modifier.visibility.toString()='none') 
+									then OclUndefined 
+									else jMethod.modifier.visibility endif endif, --suposing undefined mean package...
+			redefinedBehavior <- jMethod.redefinedMethodDeclaration
+		),
+		init	:	UML!InitialNode(
+			activity <- act
+		),
+		final	:	UML!ActivityFinalNode(
+			activity <- act
+		),
+		icf : UML!ControlFlow(
+			activity <- act,
+			target <- final,
+			source <- init 
+		)
+}
+
+
+rule Methods2ActivityBugModiscoEmptyBody {
+	from
+		jMethod	:	JAVA!MethodDeclaration	(  (jMethod.body.oclIsUndefined()) and
+											(if jMethod.returnType.oclIsUndefined() 
+													then false
+													else  jMethod.returnType.type.oclIsUndefined()
+											endif)
+											)
+	to
+		act	:	UML!Activity(
+			name <- if (jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) and jMethod.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration))
+						then jMethod.refImmediateComposite().refImmediateComposite().type.type.name+jMethod.name
+						else if jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration)
+								then jMethod.name
+								else jMethod.refImmediateComposite().name+'_'+jMethod.name
+							endif
+					endif,
+			visibility <- if jMethod.modifier.oclIsUndefined() 
+								then OclUndefined 
+								else if (jMethod.modifier.visibility.toString()='none') 
+									then OclUndefined 
+									else jMethod.modifier.visibility endif endif, --suposing undefined mean package...
+			redefinedBehavior <- jMethod.redefinedMethodDeclaration
+		),
+		init	:	UML!InitialNode(
+			activity <- act
+		),
+		final	:	UML!ActivityFinalNode(
+			activity <- act
+		),
+		icf : UML!ControlFlow(
+			activity <- act,
+			target <- final,
+			source <- init 
+		)
+}
+
+rule VoidMethod2ActivityEmptyBody { --needed for OF
+	from
+		jMethod	:	JAVA!MethodDeclaration	(	(jMethod.body.oclIsUndefined()) and
+												(if jMethod.returnType.oclIsUndefined() 
+													then true 
+													else (if jMethod.returnType.type.oclIsUndefined() 
+															then false 
+															else (jMethod.returnType.type.name='void') endif) endif))
+	to
+		act	:	UML!Activity(
+			name <- if (jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration) and jMethod.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration))
+						then jMethod.refImmediateComposite().refImmediateComposite().type.type.name+jMethod.name
+						else if jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration)
+								then jMethod.name
+								else jMethod.refImmediateComposite().name+'_'+jMethod.name
+							endif
+					endif,
+			visibility <- if jMethod.modifier.oclIsUndefined() 
+							then OclUndefined 
+							else if (jMethod.modifier.visibility.toString()='none') 
+								then OclUndefined 
+								else jMethod.modifier.visibility endif endif, --suposing undefined mean package...
+			redefinedBehavior <- jMethod.redefinedMethodDeclaration
+		),
+		init	:	UML!InitialNode(
+			activity <- act
+		),
+		final	:	UML!ActivityFinalNode(
+			activity <- act
+		),
+		icf : UML!ControlFlow(
+			activity <- act,
+			target <- final,
+			source <- init 
+		)
+}
+
+rule Parameters2ActivityParameterNode {
+	from
+		param	:	JAVA!SingleVariableDeclaration (param.methodDeclaration.oclIsKindOf(JAVA!AbstractMethodDeclaration))
+	to
+		apn	:	UML!ActivityParameterNode(
+			name <- param.name,
+			type <- param.type.type,
+			activity <- param.methodDeclaration
+		)
+}
+
+
+rule returnStatement {--maybe collision with end of block management here
+	from
+		s	:	JAVA!ReturnStatement
+	to
+		t	:	UML!StructuredActivityNode(
+--			activity <- s.getOwningMethod,
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- s.getOwningMethod.name+' return',
+			incoming <- ie
+--			,
+--			containedNode <- Sequence{s.expression}		
+		),
+--		ob	:	UML!ObjectFlow(
+--			activity <- s.getOwningMethod,
+--			source <- thisModule.resolveTemp(s.expression, 'op'),
+--			target <- thisModule.resolveTemp(s.getOwningMethod, 'outputPin')
+--		),
+		ie	:	UML!ControlFlow(
+--			activity <- s.getOwningMethod,
+			inStructuredNode <- s.refImmediateComposite(),
+			source <- thisModule.resolveTemp(s.getBlock, 'final')
+		)
+}
+
+rule constructor {
+	from
+		jMethod	:	JAVA!ConstructorDeclaration
+	to
+		act	:	UML!Activity(
+			name <- if jMethod.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration)
+						then 'AnonymousClass'+jMethod.name
+						else jMethod.refImmediateComposite().name+'_'+jMethod.name
+					endif,
+			visibility <- if jMethod.modifier.oclIsUndefined() 
+							then OclUndefined 
+							else if (jMethod.modifier.visibility.toString()='none') 
+								then OclUndefined 
+								else jMethod.modifier.visibility endif endif
+			
+		)
+}
+
+
+rule Block2StructuredActivityForM {
+	from
+		block	:	JAVA!Block	(block.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration))
+	to
+		struc	:	UML!StructuredActivityNode(
+			name <- 'structured_'+block.refImmediateComposite().name,
+			activity <- block.getOwningMethod,
+			
+			node <- Sequence{init, 
+				block.statements, final}->flatten()-->reject(c | c.oclIsKindOf(JAVA!ReturnStatement)) --->collect(c | if c.oclIsKindOf(JAVA!ExpressionStatement) then c.expression else c endif)
+		),
+		init	:	UML!InitialNode(),
+		final	:	UML!ActivityFinalNode(),
+		fcf : UML!ControlFlow(
+			inStructuredNode <- struc,
+			target <- final,
+			source <- if (block.statements.isEmpty())
+							then init
+							else block.statements.last()
+--							else if block.statements.last().oclIsKindOf(JAVA!ExpressionStatement)
+--									then block.statements.last().expression
+--									else block.statements.last()
+--								endif
+						endif
+		)
+}
+
+helper context JAVA!Statement def : notInInitializer : Boolean = 
+	if self.refImmediateComposite().oclIsKindOf(JAVA!ClassDeclaration)
+        then true
+        else if self.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)
+            then true
+            else if self.refImmediateComposite().oclIsKindOf(JAVA!Initializer)
+                then false
+                else if self.refImmediateComposite().oclIsKindOf(JAVA!EnumDeclaration)
+                    then false
+                        else if self.refImmediateComposite().oclIsKindOf(JAVA!FieldDeclaration)
+                            then false
+                            else self.refImmediateComposite().notInInitializer
+                            endif
+                    endif        
+            endif
+        endif
+    endif;
+
+
+helper context JAVA!Expression def : notInInitializer : Boolean =
+	if self.refImmediateComposite().oclIsKindOf(JAVA!ExpressionStatement)
+		then self.refImmediateComposite().notInInitializer
+		else true
+	endif;
+
+
+helper context JAVA!Model def : notInInitializer : Boolean = true;
+
+rule Block2StructuredActivity {
+	from
+		block	:	JAVA!Block	((not block.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)) and block.notInInitializer)
+	to
+		struc	:	UML!StructuredActivityNode(
+			name <- block.refImmediateComposite().oclType().toString(),
+			inStructuredNode <- block.refImmediateComposite(),--.debug(block.refImmediateComposite().oclType().toString()),
+			node <- Sequence{init, 
+				block.statements, final}->flatten()-->reject(c | c.oclIsKindOf(JAVA!ReturnStatement)) --->collect(c | if c.oclIsKindOf(JAVA!ExpressionStatement) then c.expression else c endif)
+		),
+		init	:	UML!InitialNode(),
+		final	:	UML!ActivityFinalNode(),
+		fcf : UML!ControlFlow(
+			inStructuredNode <- struc,
+			target <- final,
+			source <- if (block.statements.isEmpty())
+							then init
+							else block.statements.last()
+--							else if block.statements.last().oclIsKindOf(JAVA!ExpressionStatement)
+--									then block.statements.last().expression
+--									else block.statements.last()
+--								endif
+						endif
+		)
+}
+
+helper context JAVA!Statement def: getPreceding() : OclAny =
+	if (self.refImmediateComposite().oclIsKindOf(JAVA!IfStatement) or self.refImmediateComposite().oclIsKindOf(JAVA!WhileStatement) or self.refImmediateComposite().oclIsKindOf(JAVA!ForStatement)) 
+		then
+			thisModule.resolveTemp(self.refImmediateComposite(), 'dec')
+		else
+			if (self.refImmediateComposite().oclIsKindOf(JAVA!EnhancedForStatement)) 
+				then
+					thisModule.resolveTemp(self.refImmediateComposite(), 'ier')
+				else
+					if (self.refImmediateComposite().oclIsKindOf(JAVA!LabeledStatement)) 
+				then
+					OclUndefined
+				else
+					if (self.refImmediateComposite().statements->indexOf(self)=1)
+						then thisModule.resolveTemp(self.refImmediateComposite(), 'init')
+						else let res : JAVA!Statement = self.refImmediateComposite().statements.at((self.refImmediateComposite().statements->indexOf(self)-1))
+							in res --if res.oclIsKindOf(JAVA!ExpressionStatement) then res.expression else res endif
+					endif
+				endif
+			endif
+	endif;
+
+helper context JAVA!Statement def: getNext() : OclAny =
+	if ((self.refImmediateComposite().statements->indexOf(self)) < self.refImmediateComposite().statements->size())
+		then let res : JAVA!Statement = self.refImmediateComposite().statements.at((self.refImmediateComposite().statements->indexOf(self)+1))
+				in res--if res.oclIsKindOf(JAVA!ExpressionStatement) then res.expression else res endif
+		else thisModule.resolveTemp(self.refImmediateComposite(), 'final')
+	endif;	
+
+rule VariableDeclaration {
+	from
+		vd	:	JAVA!VariableDeclarationStatement (vd.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) and (vd.notInInitializer))
+	to
+		t	:	UML!OpaqueAction(--ForkNode(
+			inStructuredNode <- vd.refImmediateComposite(),
+			name <- 'declare_'+vd.fragments->first().name
+--			,
+--			incoming <- of
+		),
+--		of	:	UML!ObjectFlow(
+--			inStructuredNode <- vd.refImmediateComposite(),
+--			source <- vd.fragments->first().initializer
+--		),
+		icf	: UML!ControlFlow(
+			inStructuredNode <- vd.refImmediateComposite(),
+			source <- vd.getPreceding(),
+			target <- t)	
+}
+
+
+helper context JAVA!Expression def: isListType : Boolean = 
+	if self.oclIsKindOf(JAVA!FieldAccess)
+		then not (self.field.variable.variablesContainer.type.type.name.indexOf('List')=-1)
+		else if self.oclIsKindOf(JAVA!TypeAccess)
+		then not (self.type.name.indexOf('List')=-1)
+		else if self.oclIsKindOf(JAVA!SingleVariableAccess)
+		then false
+		else if self.oclIsKindOf(JAVA!MethodInvocation)
+		then (not (self.method.returnType.type.name.indexOf('List')=-1)) or self.method.returnType.oclIsUndefined()
+		else false 
+	endif 
+	endif 
+	endif 
+	endif;
+
+
+
+rule constructorCall2CreateObject {
+	from
+		ci	:	JAVA!ConstructorInvocation (ci.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) and (ci.notInInitializer))
+	to 
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- ci.getBlock,
+			name <- 'Constructor Invocation of'+ ci.originalCompilationUnit.name
+			
+		),
+		icf	: UML!ControlFlow(
+			inStructuredNode <- ci.refImmediateComposite(),
+			source <- ci.getPreceding(),
+			target <- t
+		)
+}
+
+rule superConstructorCall2CreateObject {
+	from
+		ci	:	JAVA!SuperConstructorInvocation (ci.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) and (ci.notInInitializer))
+	to 
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- ci.getBlock,
+			name <- 'Super constructor invocation of '+ ci.originalCompilationUnit.name
+			
+		),
+		icf	: UML!ControlFlow(
+			inStructuredNode <- ci.refImmediateComposite(),
+			source <- ci.getPreceding(),
+			target <- t
+		)
+}
+
+
+rule expressionStatement {
+	from
+		s	:	JAVA!ExpressionStatement (s.notInInitializer)
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- s.expression.getName
+			
+		),
+		icf	: UML!ControlFlow(
+			inStructuredNode <- s.refImmediateComposite(),
+			source <- s.getPreceding(),
+			target <- t)
+}
+
+helper context JAVA!Expression def: getName : String =
+	self.oclType().toString();
+
+helper context JAVA!AbstractMethodInvocation def: getName : String =
+	if self.method.oclIsUndefined()
+		then 'Method invocation : undefined'
+		else 'Method invocation : '+ self.method.name
+	endif;
+
+helper context JAVA!Assignment def: getName : String =
+	if self.leftHandSide.oclIsUndefined()
+		then 'Assignment : undefined'
+		else 'Assignment : '+ self.leftHandSide.getName
+	endif;
+
+helper context JAVA!SingleVariableAccess def: getName : String =
+	if self.variable.oclIsUndefined()
+		then 'undefined'
+		else self.variable.name
+	endif;
+
+helper context JAVA!FieldAccess def: getName : String =
+	if self.field.oclIsUndefined()
+		then 'undefined'
+		else self.field.getName
+	endif;
+
+helper context OclAny def: getName : String =
+	'undefined';
+
+rule ifStatement { --simplifed mapping in case of empty else branch
+	from
+		ifs	:	JAVA!IfStatement (ifs.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			inStructuredNode <- ifs.refImmediateComposite(),
+			name <- 'if'
+		),
+		dec	:	UML!DecisionNode(
+			decisionInputFlow <- td, 
+			inStructuredNode <- t			
+		),
+		ini	:	UML!InitialNode(
+			inStructuredNode <- t
+		),
+		id	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ini,
+			target <- dec
+		),
+		td	:	UML!ObjectFlow(
+			inStructuredNode <- t,
+			source <- ifs.expression,
+			target <- dec,
+			name <- '<<decisionInputFlow>>'
+		),
+		tru	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- ifs.thenStatement,
+			guard <- uvt
+		),
+		fal	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- if ifs.elseStatement.oclIsUndefined() 
+						then thisModule.createOpaqueAction(ifs)
+						else ifs.elseStatement 
+					endif,
+			guard <- uvf
+		),
+		uvt	:	UML!LiteralBoolean(
+			value <- true
+		),
+		uvf	:	UML!LiteralBoolean(
+			value <- false
+		),
+		jn	:	UML!JoinNode(
+			inStructuredNode <- t
+		),
+		fin	:	UML!ActivityFinalNode(
+			inStructuredNode <- t
+		),
+		t2j	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ifs.thenStatement,
+			target <- jn
+		),
+		e2j	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- if ifs.elseStatement.oclIsUndefined() 
+						then thisModule.createOpaqueAction(ifs)
+						else ifs.elseStatement 
+					endif,
+			target <- jn
+		),
+		id2	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- jn,
+			target <- fin
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if ifs.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then ifs.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if ifs.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else ifs.refImmediateComposite() endif,
+			source <- ifs.getPreceding(),
+			target <- t
+		)
+		
+}
+
+rule Expression{
+	from
+		s	:	JAVA!Expression ((s.refImmediateComposite().oclIsKindOf(JAVA!IfStatement) or s.refImmediateComposite().oclIsKindOf(JAVA!ForStatement) or s.refImmediateComposite().oclIsKindOf(JAVA!EnhancedForStatement) or s.refImmediateComposite().oclIsKindOf(JAVA!WhileStatement)) and (s.notInInitializer) )
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'testExpression'
+		)
+}
+
+
+
+
+unique lazy rule createOpaqueAction{
+	from
+		ifs	:	JAVA!IfStatement
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- ifs,
+			name <- 'Empty Else'
+		)
+}
+
+
+rule continue{
+	from
+		s	:	JAVA!ContinueStatement (s.notInInitializer)
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'continue'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		)
+}
+
+rule empty{
+	from
+		s	:	JAVA!EmptyStatement (s.notInInitializer)
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'empty'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		)
+}
+
+rule synchro{
+	from
+		s	:	JAVA!SynchronizedStatement (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'Synchronized-incomplete'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		)
+}
+
+rule throw{
+	from
+		s	:	JAVA!ThrowStatement (s.notInInitializer)
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'throw'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		),
+		pos	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- t,
+			target <- thisModule.resolveTemp(s.getOwningMethod.body, 'final')
+		)
+}
+
+rule break{
+	from
+		s	:	JAVA!BreakStatement (s.notInInitializer)
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'break'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		),
+		pos	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- t,
+			target <- thisModule.resolveTemp(s.refImmediateComposite(), 'fin')
+		)
+}
+
+rule switchCase{
+	from
+		s	:	JAVA!SwitchCase (s.notInInitializer)
+	to
+		t	:	UML!OpaqueAction(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'SwitchCase-Incomplete'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		)
+}
+
+rule switchStatement{
+	from
+		s	:	JAVA!SwitchStatement (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'SwitchStatement-Incomplete'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		)
+}
+
+rule assertStatement{
+	from
+		s	:	JAVA!AssertStatement (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			inStructuredNode <- s.refImmediateComposite(),
+			name <- 'AssertStatement-Incomplete'
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		)
+}
+
+rule labeledStatement{
+	from
+		s	:	JAVA!LabeledStatement (s.refImmediateComposite().oclIsKindOf(JAVA!Block) and (s.notInInitializer))
+	to
+		struc	:	UML!StructuredActivityNode(
+			name <- 'LabeledStatement '+s.name,
+			inStructuredNode <- s.refImmediateComposite(),--.debug(block.refImmediateComposite().oclType().toString()),
+			node <- Sequence{init, 
+				s.body, final}->flatten()-->reject(c | c.oclIsKindOf(JAVA!ReturnStatement)) --->collect(c | if c.oclIsKindOf(JAVA!ExpressionStatement) then c.expression else c endif)
+		),
+		init	:	UML!InitialNode(),
+		final	:	UML!ActivityFinalNode(),
+		fcf : UML!ControlFlow(
+			inStructuredNode <- struc,
+			target <- final,
+			source <- s.body
+		),
+		pre	:	UML!ControlFlow(
+			inStructuredNode <- s.refImmediateComposite(),
+			source <- s.getPreceding(),
+			target <- struc
+		)
+}
+
+--rule initializer{
+--	from
+--		s	:	JAVA!Initializer
+--	to
+--		t	:	UML!StructuredActivityNode(
+--			name <- 'Initializer-Incomplete'
+--		)
+--}
+
+rule forStatement {
+	from
+		s	:	JAVA!ForStatement (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			name <- 'for',
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		),
+		jn	:	UML!JoinNode(
+			inStructuredNode <- t
+		),
+		dec	:	UML!DecisionNode(
+			decisionInputFlow <- td, 
+			inStructuredNode <- t			
+		),
+		ini	:	UML!InitialNode(
+			inStructuredNode <- t
+		),
+		id1	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ini,
+			target <- s.initializers->first()
+		),
+		id2	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- s.initializers->first(),
+			target <- jn
+		),
+		id3	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- jn,
+			target <- dec
+		),
+		td	:	UML!ObjectFlow(
+			inStructuredNode <- t,
+			source <- s.expression,
+			target <- dec,
+			name <- '<<decisionInputFlow>>'
+		),
+		fc	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- s.body,
+			guard <- uvt
+		),
+		ef	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- fin,
+			guard <- uvf
+		),
+		uvt	:	UML!LiteralBoolean(
+			value <- true
+		),
+		uvf	:	UML!LiteralBoolean(
+			value <- false
+		),
+		fin	:	UML!ActivityFinalNode(
+			inStructuredNode <- t
+		),
+		id4	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- s.body,
+			target <- s.updaters->first()
+		),
+		id5	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- s.updaters->first(),
+			target <- jn
+		)
+}
+
+rule enhancedForStatement { 
+	from
+		s	:	JAVA!EnhancedForStatement (s.notInInitializer)
+	to
+		
+		t	:	UML!StructuredActivityNode(
+			name <- 'foreach',
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		),
+		ini	:	UML!InitialNode(
+			inStructuredNode <- t
+		),
+		id1	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ini,
+			target <- s.expression
+		),
+		of	:	UML!ObjectFlow(
+			inStructuredNode <- t,
+			source <- s.expression,
+			target <- er
+		),
+		er	:	UML!ExpansionRegion(
+			inStructuredNode <- t
+		),
+		ier	:	UML!InitialNode(
+			inStructuredNode <- er
+		),
+		fe1	:	UML!ControlFlow(
+			inStructuredNode <- er,
+			source <- ier,
+			target <- s.body
+		),
+		fe2	:	UML!ControlFlow(
+			inStructuredNode <- er,
+			source <- s.body,
+			target <- eer
+		),
+		eer	:	UML!ActivityFinalNode(
+			inStructuredNode <- er
+		),
+		id2	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- er,
+			target <- fin
+		),
+		fin	:	UML!ActivityFinalNode(
+			inStructuredNode <- t
+		)
+}
+
+rule whileStatement {
+	from
+		s	:	JAVA!WhileStatement (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			name <- 'while',
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		),
+		jn	:	UML!JoinNode(
+			inStructuredNode <- t
+		),
+		dec	:	UML!DecisionNode(
+			decisionInputFlow <- td, 
+			inStructuredNode <- t			
+		),
+		ini	:	UML!InitialNode(
+			inStructuredNode <- t
+		),
+		id1	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ini,
+			target <- jn
+		),
+		id2	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- jn,
+			target <- dec
+		),
+		td	:	UML!ObjectFlow(
+			inStructuredNode <- t,
+			source <- s.expression,
+			target <- dec,
+			name <- '<<decisionInputFlow>>'
+		),
+		fc	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- s.body,
+			guard <- uvt
+		),
+		ef	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- fin,
+			guard <- uvf
+		),
+		uvt	:	UML!LiteralBoolean(
+			value <- true
+		),
+		uvf	:	UML!LiteralBoolean(
+			value <- false
+		),
+		fin	:	UML!ActivityFinalNode(
+			inStructuredNode <- t
+		),
+		id3	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- s.body,
+			target <- jn
+		)
+}
+
+
+rule doWhileStatement {
+	from
+		s	:	JAVA!DoStatement (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			name <- 'doWhile',
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		),
+		jn	:	UML!JoinNode(
+			inStructuredNode <- t
+		),
+		dec	:	UML!DecisionNode(
+			decisionInputFlow <- td, 
+			inStructuredNode <- t			
+		),
+		ini	:	UML!InitialNode(
+			inStructuredNode <- t
+		),
+		id1	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ini,
+			target <- jn
+		),
+		id2	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- jn,
+			target <- s.body
+		),
+		td	:	UML!ObjectFlow(
+			inStructuredNode <- t,
+			source <- s.expression,
+			target <- dec,
+			name <- '<<decisionInputFlow>>'
+		),
+		fc	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- jn,
+			guard <- uvt
+		),
+		ef	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- dec,
+			target <- fin,
+			guard <- uvf
+		),
+		uvt	:	UML!LiteralBoolean(
+			value <- true
+		),
+		uvf	:	UML!LiteralBoolean(
+			value <- false
+		),
+		fin	:	UML!ActivityFinalNode(
+			inStructuredNode <- t
+		),
+		id3	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- s.body,
+			target <- dec
+		)
+}
+
+
+rule tryStatement {
+	from
+		s	:	JAVA!TryStatement (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			name <- 'try',
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif
+			
+		),
+		ini	:	UML!InitialNode(
+			inStructuredNode <- t
+		),
+		ib	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ini,
+			target <- s.body
+		),
+		bf	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- s.body,
+			target <- fin
+		),
+		fin	:	UML!ActivityFinalNode(
+			inStructuredNode <- t
+		),
+		pre	:	UML!ControlFlow(
+			inActivity <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then s.refImmediateComposite() else OclUndefined endif,
+			inStructuredNode <- if s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) then OclUndefined else s.refImmediateComposite() endif,
+			source <- s.getPreceding(),
+			target <- t
+		)
+}
+
+rule catchClause {
+	from
+		s	:	JAVA!CatchClause (s.notInInitializer)
+	to
+		t	:	UML!StructuredActivityNode(
+			name <- 'catch ' + if s.exception.type.type.oclIsUndefined() 
+									then 'Unknown Exception'
+									else s.exception.type.type.name
+								endif,
+			inStructuredNode <- s.refImmediateComposite()
+		),
+		ini	:	UML!InitialNode(
+			inStructuredNode <- t
+		),
+		ib	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- ini,
+			target <- s.body
+		),
+		bf	:	UML!ControlFlow(
+			inStructuredNode <- t,
+			source <- s.body,
+			target <- fin
+		),
+		fin	:	UML!ActivityFinalNode(
+			inStructuredNode <- t
+		),
+		tc	:	UML!ControlFlow(
+			name <- if s.exception.type.type.oclIsUndefined() 
+									then 'Unknown Exception'
+									else s.exception.type.type.name
+								endif,
+			inStructuredNode <- s.refImmediateComposite(),
+			source <- s.refImmediateComposite().body,
+			target <- t,
+			guard <- ivs
+		),
+		ivs	:	UML!InstanceValue(
+			name <- if s.exception.type.type.oclIsUndefined() 
+									then 'Unknown Exception'
+									else s.exception.type.type.name
+								endif,
+			type <- s.exception.type.type
+		)
+		
+}
+
+rule unresolvedType {
+	from
+		s	:	JAVA!UnresolvedTypeDeclaration
+	to
+		t	:	UML!Class(
+			name <- s.name	
+		)
+}
+
+rule parameterizedType {
+	from
+		s	:	JAVA!ParameterizedType
+	to
+		t	:	UML!Class(
+			name <- s.name + '-unsupported'	
+		)
+}
+
+rule typeParameter {
+	from
+		s	:	JAVA!TypeParameter
+	to
+		t	:	UML!Class(
+			name <- s.name + '-unsupported'	
+		)
+}
+
+rule arrayType {
+	from
+		s	:	JAVA!ArrayType
+	to
+		t	:	UML!Class(
+			name <- s.name + '-unsupported'	
+		)
+}
+
+rule enumDeclaration{
+	from
+		s	:	JAVA!EnumDeclaration
+	to
+		t	:	UML!Class(
+			name <- s.name + '-unsupported'	
+		)
+}
+
+rule wildCardType{
+	from
+		s	:	JAVA!WildCardType
+	to
+		t	:	UML!Class(
+			name <- s.name + '-unsupported'	
+		)
+}
+
+rule annotationTypeDeclaration{
+	from
+		s	:	JAVA!AnnotationTypeDeclaration
+	to
+		t	:	UML!Class(
+			name <- s.name + '-unsupported'	
+		)
+}
+
+rule unresolvedAnnotationDeclaration{
+	from
+		s	:	JAVA!UnresolvedAnnotationDeclaration
+	to
+		t	:	UML!Class(
+			name <- s.name + '-unsupported'	
+		)
+}
+
+rule Class {
+	from
+		s	:	JAVA!ClassDeclaration
+	to
+		t	:	UML!Class(
+			name <- s.name	
+		)
+}
+
+rule Interface {
+	from
+		s	:	JAVA!InterfaceDeclaration
+	to
+		t	:	UML!Interface(
+			name <- s.name	
+		)
+}
+
+rule PrimitiveType {
+	from
+		s	:	JAVA!PrimitiveType
+	to
+		t	:	UML!PrimitiveType(
+			name <- s.name	
+		)
+}

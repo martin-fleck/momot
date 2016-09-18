@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:modularization="http://www.big.tuwien.ac.at/tosem/modularization" name="JavaMethods2UMLActivityDiagram_Mini">
+  <modules name="JavaMethods2UMLActivityDiagram_Mini">
+    <rules name="JModelRootToUmlModelRoot" helperDependencies="//@modules.0/@helpers.88 //@modules.0/@helpers.51 //@modules.0/@helpers.57">
+      <bindingTypes>src_Dependency</bindingTypes>
+      <inPattElTypes>src_Model</inPattElTypes>
+      <bindingNavigations>src_Dependency</bindingNavigations>
+    </rules>
+    <rules name="abstratASTNodeToClass" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.51 //@modules.0/@helpers.57">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_ASTNode</inPattElTypes>
+      <bindingNavigations>src_MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="Class" inheritsFrom="//@modules.0/@rules.1">
+      <bindingTypes>src_ClassDeclaration.name</bindingTypes>
+      <inPattElTypes>src_ClassDeclaration</inPattElTypes>
+      <bindingNavigations>src_ClassDeclaration.name</bindingNavigations>
+      <bindingNavigations>src_ClassDeclaration.originalCompilationUnit</bindingNavigations>
+    </rules>
+    <rules name="constructorAndMethod2Activity" ruleDependencies="//@modules.0/@rules.5 //@modules.0/@rules.6 //@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.79 //@modules.0/@helpers.137">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_AbstractMethodDeclaration.name</bindingTypes>
+      <inPattElTypes>src_AbstractMethodDeclaration</inPattElTypes>
+      <bindingNavigations>src_MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_AbstractMethodDeclaration.name</bindingNavigations>
+    </rules>
+    <rules name="Methods2Activity" inheritsFrom="//@modules.0/@rules.3" helperDependencies="//@modules.0/@helpers.138 //@modules.0/@helpers.139 //@modules.0/@helpers.94 //@modules.0/@helpers.137 //@modules.0/@helpers.50">
+      <bindingTypes>src_VisibilityKind</bindingTypes>
+      <inPattElTypes>src_MethodDeclaration</inPattElTypes>
+      <bindingNavigations>src_MethodDeclaration.VisibilityKind</bindingNavigations>
+      <bindingNavigations>src_MethodDeclaration.redefinedMethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="Parameters2ActivityParameter" helperDependencies="//@modules.0/@helpers.137 //@modules.0/@helpers.50">
+      <bindingTypes>src_SingleVariableDeclaration.name</bindingTypes>
+      <inPattElTypes>src_SingleVariableDeclaration</inPattElTypes>
+      <bindingNavigations>src_SingleVariableDeclaration.name</bindingNavigations>
+    </rules>
+    <rules name="ReturnType2Parameter">
+      <inPattElTypes>src_TypeAccess</inPattElTypes>
+    </rules>
+    <rules name="VoidMethod2Activity" inheritsFrom="//@modules.0/@rules.3" helperDependencies="//@modules.0/@helpers.138 //@modules.0/@helpers.94 //@modules.0/@helpers.137 //@modules.0/@helpers.50">
+      <bindingTypes>src_VisibilityKind</bindingTypes>
+      <inPattElTypes>src_MethodDeclaration</inPattElTypes>
+      <bindingNavigations>src_MethodDeclaration.VisibilityKind</bindingNavigations>
+      <bindingNavigations>src_MethodDeclaration.redefinedMethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="classInstanceCreation2CreateObject" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.127 //@modules.0/@helpers.153 //@modules.0/@helpers.28 //@modules.0/@helpers.144">
+      <bindingTypes>src_ParameterizedType</bindingTypes>
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_ClassInstanceCreation</inPattElTypes>
+      <bindingNavigations>src_ClassInstanceCreation.originalCompilationUnit.name</bindingNavigations>
+      <bindingNavigations>src_ParameterizedType</bindingNavigations>
+      <bindingNavigations>src_ClassInstanceCreation.getStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="classInstanceCreation2CreateObjectNoArgument" inheritsFrom="//@modules.0/@rules.8">
+      <inPattElTypes>src_ClassInstanceCreation</inPattElTypes>
+    </rules>
+    <rules name="methodCallExpressionNotNullArgument" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.160">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_MethodInvocation</inPattElTypes>
+      <bindingNavigations>src_MethodInvocation.method.name</bindingNavigations>
+      <bindingNavigations>src_MethodInvocation.method</bindingNavigations>
+      <bindingNavigations>src_MethodInvocation.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_MethodInvocation.expression</bindingNavigations>
+    </rules>
+    <rules name="methodCallExpressionNotNullArgumentNotNullExpress" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" inheritsFrom="//@modules.0/@rules.10" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.162 //@modules.0/@helpers.129">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_MethodInvocation</inPattElTypes>
+      <bindingNavigations>src_MethodInvocation.method.name</bindingNavigations>
+      <bindingNavigations>src_MethodInvocation.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_MethodInvocation.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_MethodInvocation.arguments</bindingNavigations>
+    </rules>
+    <rules name="methodCallExpressionNotNullArgumentNotNullExpressClear" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" inheritsFrom="//@modules.0/@rules.10" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.27 //@modules.0/@helpers.144 //@modules.0/@helpers.28">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_MethodInvocation</inPattElTypes>
+      <bindingNavigations>src_MethodInvocation.method.name</bindingNavigations>
+      <bindingNavigations>src_MethodInvocation.getStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="numberLiteral2ValueSpecification" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.155 //@modules.0/@helpers.28 //@modules.0/@helpers.144">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_NumberLiteral</inPattElTypes>
+      <bindingNavigations>src_NumberLiteral.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_NumberLiteral.tokenValue</bindingNavigations>
+    </rules>
+    <rules name="numberLiteralArrayAccess2ValueSpecification" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.155 //@modules.0/@helpers.28 //@modules.0/@helpers.144">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_NumberLiteral</inPattElTypes>
+      <bindingNavigations>src_NumberLiteral.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_NumberLiteral.tokenValue</bindingNavigations>
+    </rules>
+    <rules name="returnStatementGlobal" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.21" helperDependencies="//@modules.0/@helpers.155 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.159 //@modules.0/@helpers.129 //@modules.0/@helpers.170">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_Block</bindingTypes>
+      <inPattElTypes>src_ReturnStatement</inPattElTypes>
+      <bindingNavigations>src_ReturnStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_Block</bindingNavigations>
+    </rules>
+    <rules name="returnStatementNoMethodCall" inheritsFrom="//@modules.0/@rules.15" helperDependencies="//@modules.0/@helpers.76 //@modules.0/@helpers.98 //@modules.0/@helpers.72">
+      <inPattElTypes>src_ReturnStatement</inPattElTypes>
+    </rules>
+    <rules name="returnStatementNoMethodCall_Expression2APN" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" inheritsFrom="//@modules.0/@rules.15" helperDependencies="//@modules.0/@helpers.76 //@modules.0/@helpers.98 //@modules.0/@helpers.72 //@modules.0/@helpers.158 //@modules.0/@helpers.129 //@modules.0/@helpers.169">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_ReturnStatement</inPattElTypes>
+      <bindingNavigations>src_ReturnStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="infixOperatorExpressionTest" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.34 //@modules.0/@rules.35 //@modules.0/@rules.36" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.27 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.184">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_VariableDeclarationStatement</bindingTypes>
+      <inPattElTypes>src_InfixExpression</inPattElTypes>
+      <bindingNavigations>src_InfixExpression.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.leftOperand</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.rightOperand</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.operator</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.leftOperand.VariableDeclarationStatement</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.rightOperand.VariableDeclarationStatement</bindingNavigations>
+    </rules>
+    <rules name="infixOperatorExpressionBody" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.174 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.156 //@modules.0/@helpers.171 //@modules.0/@helpers.157">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_InfixExpression</inPattElTypes>
+      <bindingNavigations>src_InfixExpression.operator</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.leftOperand</bindingNavigations>
+    </rules>
+    <rules name="infixOperatorExpression" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.174 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.156 //@modules.0/@helpers.171 //@modules.0/@helpers.157">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_InfixExpression</inPattElTypes>
+      <bindingNavigations>src_InfixExpression.operator</bindingNavigations>
+      <bindingNavigations>src_InfixExpression.getStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="Block2StructuredActivityNode" helperDependencies="//@modules.0/@helpers.181">
+      <inPattElTypes>src_Block</inPattElTypes>
+    </rules>
+    <rules name="SingleVariableAccessExpressionWhile" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.165 //@modules.0/@helpers.28">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_SingleVariableAccess</inPattElTypes>
+      <bindingNavigations>src_SingleVariableAccess.variable.name</bindingNavigations>
+      <bindingNavigations>src_SingleVariableAccess.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_SingleVariableAccess.variable</bindingNavigations>
+    </rules>
+    <rules name="SingleVariableAccessBodyWhile" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.165 //@modules.0/@helpers.168 //@modules.0/@helpers.28">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_SingleVariableAccess</inPattElTypes>
+      <bindingNavigations>src_SingleVariableAccess.variable.name</bindingNavigations>
+      <bindingNavigations>src_SingleVariableAccess.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_SingleVariableAccess.variable.variablesContainer</bindingNavigations>
+    </rules>
+    <rules name="createIntegerLessFumlLib" helperDependencies="//@modules.0/@helpers.28">
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+    </rules>
+    <rules name="createIntegerTimesFumlLib">
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+    </rules>
+    <rules name="createIntegerMinusFumlLib">
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+    </rules>
+    <rules name="createIntegerPlusFumlLib">
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+    </rules>
+    <rules name="Parameters2ActivityParameterAndParamNode" helperDependencies="//@modules.0/@helpers.91">
+      <bindingTypes>src_SingleVariableDeclaration.name</bindingTypes>
+      <inPattElTypes>src_SingleVariableDeclaration</inPattElTypes>
+      <bindingNavigations>src_SingleVariableDeclaration.name</bindingNavigations>
+    </rules>
+    <rules name="Parameters2ActivityParameterAndParamNodeNotMethInvoc" inheritsFrom="//@modules.0/@rules.28" helperDependencies="//@modules.0/@helpers.186">
+      <inPattElTypes>src_SingleVariableDeclaration</inPattElTypes>
+    </rules>
+    <rules name="Parameters2ActivityParameterAndParamNodeNotMethInvoc_Fac" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.31" inheritsFrom="//@modules.0/@rules.28" helperDependencies="//@modules.0/@helpers.186 //@modules.0/@helpers.129 //@modules.0/@helpers.175">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_IfStatement</bindingTypes>
+      <inPattElTypes>src_SingleVariableDeclaration</inPattElTypes>
+      <bindingNavigations>src_SingleVariableDeclaration.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_SingleVariableDeclaration.IfStatement</bindingNavigations>
+    </rules>
+    <rules name="ifStatement" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.34 //@modules.0/@rules.35 //@modules.0/@rules.36" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.154 //@modules.0/@helpers.176 //@modules.0/@helpers.28">
+      <bindingTypes>src_VariableDeclarationStatement</bindingTypes>
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_IfStatement</inPattElTypes>
+      <bindingNavigations>src_IfStatement.expression</bindingNavigations>
+      <bindingNavigations>src_VariableDeclarationStatement</bindingNavigations>
+      <bindingNavigations>src_IfStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="explicitThis2readSelf" ruleDependencies="//@modules.0/@rules.38 //@modules.0/@rules.43 //@modules.0/@rules.44" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.28 //@modules.0/@helpers.144">
+      <bindingTypes>src_Statement</bindingTypes>
+      <inPattElTypes>src_ThisExpression</inPattElTypes>
+      <bindingNavigations>src_ThisExpression.Statement</bindingNavigations>
+    </rules>
+    <rules name="explicitThis2readSelfNotInReturn" ruleDependencies="//@modules.0/@rules.38 //@modules.0/@rules.43 //@modules.0/@rules.44" inheritsFrom="//@modules.0/@rules.32" helperDependencies="//@modules.0/@helpers.161 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.177">
+      <bindingTypes>src_Statement</bindingTypes>
+      <inPattElTypes>src_ThisExpression</inPattElTypes>
+      <bindingNavigations>src_ThisExpression.Statement</bindingNavigations>
+    </rules>
+    <rules name="VariableDeclaration" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.180 //@modules.0/@helpers.185 //@modules.0/@helpers.28 //@modules.0/@helpers.178">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_VariableDeclarationStatement</inPattElTypes>
+      <bindingNavigations>src_VariableDeclarationStatement.fragments</bindingNavigations>
+      <bindingNavigations>src_VariableDeclarationStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="VariableDeclarationAddition" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.180 //@modules.0/@helpers.185 //@modules.0/@helpers.28 //@modules.0/@helpers.178">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_VariableDeclarationStatement</inPattElTypes>
+      <bindingNavigations>src_VariableDeclarationStatement.fragments</bindingNavigations>
+      <bindingNavigations>src_VariableDeclarationStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="VariableDeclarationInWhile" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.180 //@modules.0/@helpers.28 //@modules.0/@helpers.178">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_VariableDeclarationStatement</inPattElTypes>
+      <bindingNavigations>src_VariableDeclarationStatement.fragments</bindingNavigations>
+      <bindingNavigations>src_VariableDeclarationStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="arrayToClass" helperDependencies="//@modules.0/@helpers.28 //@modules.0/@helpers.178">
+      <inPattElTypes>src_ArrayType</inPattElTypes>
+      <bindingNavigations>src_ArrayType.elementType.type.name</bindingNavigations>
+    </rules>
+    <rules name="abstractLoopAndTryStatement">
+      <inPattElTypes>src_Statement</inPattElTypes>
+    </rules>
+    <rules name="whileStatement" inheritsFrom="//@modules.0/@rules.38" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.94">
+      <bindingTypes>src_TypeLiteral</bindingTypes>
+      <inPattElTypes>src_WhileStatement</inPattElTypes>
+      <bindingNavigations>src_TypeLiteral</bindingNavigations>
+    </rules>
+    <rules name="Parameters2ActivityParameterAndParamNodeMethInvoc" inheritsFrom="//@modules.0/@rules.28">
+      <inPattElTypes>src_SingleVariableDeclaration</inPattElTypes>
+    </rules>
+    <rules name="returnStatementConstructCall" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.76 //@modules.0/@helpers.129 //@modules.0/@helpers.116">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_ReturnStatement</inPattElTypes>
+      <bindingNavigations>src_ReturnStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="fieldDeclarationToProperty" ruleDependencies="//@modules.0/@rules.37" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.116 //@modules.0/@helpers.26 //@modules.0/@helpers.43 //@modules.0/@helpers.38 //@modules.0/@helpers.25 //@modules.0/@helpers.24">
+      <bindingTypes>src_PrimitiveType.name</bindingTypes>
+      <bindingTypes>src_PrimitiveType</bindingTypes>
+      <bindingTypes>src_ArrayType</bindingTypes>
+      <bindingTypes>src_VisibilityKind</bindingTypes>
+      <inPattElTypes>src_FieldDeclaration</inPattElTypes>
+      <bindingNavigations>src_PrimitiveType.name</bindingNavigations>
+      <bindingNavigations>src_ArrayType</bindingNavigations>
+      <bindingNavigations>src_FieldDeclaration.VisibilityKind</bindingNavigations>
+    </rules>
+    <rules name="abstractExpressStatement" helperDependencies="//@modules.0/@helpers.91">
+      <inPattElTypes>src_Statement</inPattElTypes>
+    </rules>
+    <rules name="abstractSpecificExpressStatement" helperDependencies="//@modules.0/@helpers.91">
+      <inPattElTypes>src_Statement</inPattElTypes>
+    </rules>
+    <rules name="expressionStatementAddListThisInstanVar" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.15 //@modules.0/@rules.16 //@modules.0/@rules.17 //@modules.0/@rules.41" inheritsFrom="//@modules.0/@rules.43" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.104 //@modules.0/@helpers.98 //@modules.0/@helpers.72 //@modules.0/@helpers.27 //@modules.0/@helpers.144 //@modules.0/@helpers.28 //@modules.0/@helpers.120 //@modules.0/@helpers.119 //@modules.0/@helpers.129 //@modules.0/@helpers.76 //@modules.0/@helpers.136 //@modules.0/@helpers.33">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_TypeLiteral</bindingTypes>
+      <bindingTypes>src_ReturnStatement</bindingTypes>
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+      <bindingNavigations>src_ExpressionStatement.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_TypeLiteral</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.expression</bindingNavigations>
+      <bindingNavigations>src_ReturnStatement</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.expression.arguments</bindingNavigations>
+    </rules>
+    <rules name="expressionStatementAddListInstanVar" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.15 //@modules.0/@rules.16 //@modules.0/@rules.17 //@modules.0/@rules.41" inheritsFrom="//@modules.0/@rules.43" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.104 //@modules.0/@helpers.98 //@modules.0/@helpers.72 //@modules.0/@helpers.27 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.120 //@modules.0/@helpers.119 //@modules.0/@helpers.129 //@modules.0/@helpers.76 //@modules.0/@helpers.136 //@modules.0/@helpers.33">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_TypeLiteral</bindingTypes>
+      <bindingTypes>src_ReturnStatement</bindingTypes>
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+      <bindingNavigations>src_ExpressionStatement.expression</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_TypeLiteral</bindingNavigations>
+      <bindingNavigations>src_ReturnStatement</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.expression.arguments</bindingNavigations>
+    </rules>
+    <rules name="expressionStatementAddListImpThisInstanVar" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" inheritsFrom="//@modules.0/@rules.43" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.104 //@modules.0/@helpers.98 //@modules.0/@helpers.72 //@modules.0/@helpers.27 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.136 //@modules.0/@helpers.33">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_TypeLiteral</bindingTypes>
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+      <bindingNavigations>src_ExpressionStatement.expression</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_TypeLiteral</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.expression.arguments</bindingNavigations>
+    </rules>
+    <rules name="expressionStatementAddList" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" inheritsFrom="//@modules.0/@rules.44" helperDependencies="//@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.104 //@modules.0/@helpers.98 //@modules.0/@helpers.72 //@modules.0/@helpers.27 //@modules.0/@helpers.144 //@modules.0/@helpers.28 //@modules.0/@helpers.136 //@modules.0/@helpers.33">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_TypeLiteral</bindingTypes>
+      <inPattElTypes>src_ExpressionStatement</inPattElTypes>
+      <bindingNavigations>src_ExpressionStatement.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_TypeLiteral</bindingNavigations>
+      <bindingNavigations>src_ExpressionStatement.expression.arguments</bindingNavigations>
+    </rules>
+    <rules name="VariableAssignmentNoList" ruleDependencies="//@modules.0/@rules.22 //@modules.0/@rules.23 //@modules.0/@rules.38 //@modules.0/@rules.43 //@modules.0/@rules.44" helperDependencies="//@modules.0/@helpers.65 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.27 //@modules.0/@helpers.144 //@modules.0/@helpers.28 //@modules.0/@helpers.120">
+      <bindingTypes>src_SingleVariableAccess</bindingTypes>
+      <bindingTypes>src_Statement</bindingTypes>
+      <bindingTypes>src_UnresolvedItemAccess</bindingTypes>
+      <inPattElTypes>src_Assignment</inPattElTypes>
+      <bindingNavigations>src_SingleVariableAccess</bindingNavigations>
+      <bindingNavigations>src_Assignment.Statement</bindingNavigations>
+      <bindingNavigations>src_UnresolvedItemAccess</bindingNavigations>
+    </rules>
+    <rules name="variableAssignmentListOrArray" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7 //@modules.0/@rules.22 //@modules.0/@rules.23" helperDependencies="//@modules.0/@helpers.68 //@modules.0/@helpers.63 //@modules.0/@helpers.91 //@modules.0/@helpers.94 //@modules.0/@helpers.163 //@modules.0/@helpers.120 //@modules.0/@helpers.161 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.60">
+      <bindingTypes>src_SingleVariableAccess</bindingTypes>
+      <bindingTypes>src_PrimitiveType.name</bindingTypes>
+      <bindingTypes>src_PrimitiveType</bindingTypes>
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <inPattElTypes>src_Assignment</inPattElTypes>
+      <bindingNavigations>src_SingleVariableAccess</bindingNavigations>
+      <bindingNavigations>src_Assignment.rightHandSide</bindingNavigations>
+      <bindingNavigations>src_Assignment.leftHandSide.index</bindingNavigations>
+      <bindingNavigations>src_PrimitiveType.name</bindingNavigations>
+      <bindingNavigations>src_Assignment.getStatement.MethodDeclaration</bindingNavigations>
+    </rules>
+    <rules name="ArrayAccessInReturn" ruleDependencies="//@modules.0/@rules.4 //@modules.0/@rules.7" helperDependencies="//@modules.0/@helpers.161 //@modules.0/@helpers.28 //@modules.0/@helpers.144 //@modules.0/@helpers.164">
+      <bindingTypes>src_MethodDeclaration</bindingTypes>
+      <bindingTypes>src_OpaqueBehavior</bindingTypes>
+      <inPattElTypes>src_ArrayAccess</inPattElTypes>
+      <bindingNavigations>src_ArrayAccess.getStatement.MethodDeclaration</bindingNavigations>
+      <bindingNavigations>src_ArrayAccess.index.variable</bindingNavigations>
+      <bindingNavigations>src_ArrayAccess.array.variable.variablesContainer</bindingNavigations>
+      <bindingNavigations>src_OpaqueBehavior.name</bindingNavigations>
+    </rules>
+    <helpers name="_jModelRoot_"/>
+    <helpers name="Expression__getBehavior_" helperDependencies="//@modules.0/@helpers.111 //@modules.0/@helpers.112 //@modules.0/@helpers.108 //@modules.0/@helpers.107 //@modules.0/@helpers.109 //@modules.0/@helpers.110 //@modules.0/@helpers.113 //@modules.0/@helpers.114">
+      <helperDepNames>Expression__isMinus_</helperDepNames>
+      <helperDepNames>Expression__isPlus_</helperDepNames>
+      <helperDepNames>Expression__isLess_</helperDepNames>
+      <helperDepNames>Expression__isGreater_</helperDepNames>
+      <helperDepNames>Expression__isLessOrEquals_</helperDepNames>
+      <helperDepNames>Expression__isGreaterOrEquals_</helperDepNames>
+      <helperDepNames>Expression__isTimes_</helperDepNames>
+      <helperDepNames>Expression__isDivide_</helperDepNames>
+    </helpers>
+    <helpers name="SingleVariableDeclaration__getExpressionOfSingleVarDec_"/>
+    <helpers name="Package__getFirstDupBugModisco_"/>
+    <helpers name="Element__getClassifierPackage_" helperDependencies="//@modules.0/@helpers.4">
+      <helperDepNames>Element__getClassifierPackage_</helperDepNames>
+    </helpers>
+    <helpers name="Package__isAnExternalPackage_" helperDependencies="//@modules.0/@helpers.8">
+      <helperDepNames>Package__isRelatedToCompilationUnit_</helperDepNames>
+    </helpers>
+    <helpers name="_getCompilationUnitNames_compUnitModel"/>
+    <helpers name="MM_ATL!OclAnyType_getExternalElements_" helperDependencies="//@modules.0/@helpers.8 //@modules.0/@helpers.9 //@modules.0/@helpers.18 //@modules.0/@helpers.19">
+      <helperDepNames>Package__isRelatedToCompilationUnit_</helperDepNames>
+      <helperDepNames>ASTNode__getPackage_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingClassDec_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingImportDec_</helperDepNames>
+    </helpers>
+    <helpers name="Package__isRelatedToCompilationUnit_" helperDependencies="//@modules.0/@helpers.6 //@modules.0/@helpers.8">
+      <helperDepNames>_getCompilationUnitNames_compUnitModel</helperDepNames>
+      <helperDepNames>Package__isRelatedToCompilationUnit_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__getPackage_" helperDependencies="//@modules.0/@helpers.9">
+      <helperDepNames>ASTNode__getPackage_</helperDepNames>
+    </helpers>
+    <helpers name="_allASTNode_"/>
+    <helpers name="MM_ATL!OclAnyType_isEverTransformed_" helperDependencies="//@modules.0/@helpers.12">
+      <helperDepNames>ASTNode__getProperty_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__getProperty_" helperDependencies="//@modules.0/@helpers.10">
+      <helperDepNames>_allASTNode_</helperDepNames>
+    </helpers>
+    <helpers name="_getTypeDec_"/>
+    <helpers name="ASTNode__getClassOrModel_" helperDependencies="//@modules.0/@helpers.14">
+      <helperDepNames>ASTNode__getClassOrModel_</helperDepNames>
+    </helpers>
+    <helpers name="SingleVariableAccess__setOwnedAttribute_prop" helperDependencies="//@modules.0/@helpers.13 //@modules.0/@helpers.125">
+      <helperDepNames>_getTypeDec_</helperDepNames>
+      <helperDepNames>ASTNode__getInstanciedClass_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__isLocalInnerClass_"/>
+    <helpers name="UnresolvedItem__getCorrespondingDec_" helperDependencies="//@modules.0/@helpers.23 //@modules.0/@helpers.22 //@modules.0/@helpers.21 //@modules.0/@helpers.20 //@modules.0/@helpers.19 //@modules.0/@helpers.18">
+      <helperDepNames>UnresolvedItem__getCorrespondingLabelState_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingMethodDec_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingEnumDec_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingInterfDec_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingImportDec_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingClassDec_</helperDepNames>
+    </helpers>
+    <helpers name="UnresolvedItem__getCorrespondingClassDec_"/>
+    <helpers name="UnresolvedItem__getCorrespondingImportDec_"/>
+    <helpers name="UnresolvedItem__getCorrespondingInterfDec_"/>
+    <helpers name="UnresolvedItem__getCorrespondingEnumDec_"/>
+    <helpers name="UnresolvedItem__getCorrespondingMethodDec_"/>
+    <helpers name="UnresolvedItem__getCorrespondingLabelState_"/>
+    <helpers name="NamedElement__getFieldVisibility_"/>
+    <helpers name="FieldDeclaration__getFieldType_" helperDependencies="//@modules.0/@helpers.153">
+      <helperDepNames>MM_ATL!OclAnyType_excludeUnresolvedTypeDec_</helperDepNames>
+    </helpers>
+    <helpers name="FieldDeclaration__getFieldName_"/>
+    <helpers name="MM_ATL!OclAnyType_getSourceTargetOrOwnerSAN_" helperDependencies="//@modules.0/@helpers.75 //@modules.0/@helpers.78 //@modules.0/@helpers.76 //@modules.0/@helpers.152">
+      <helperDepNames>Block__getReturnStateGeneratingSAN_</helperDepNames>
+      <helperDepNames>Block__hasOnlyReturnInstanceCreateNoParam_</helperDepNames>
+      <helperDepNames>ASTNode__isReturnStateGeneratingObjectFlow_</helperDepNames>
+      <helperDepNames>ReturnStatement__isOnlyReturnInstanceCreateNoParam_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_getOwningMethodOnEmptySourceTargetOrOwnerSAN_" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.27">
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+      <helperDepNames>MM_ATL!OclAnyType_getSourceTargetOrOwnerSAN_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__getVariableType_" helperDependencies="//@modules.0/@helpers.29 //@modules.0/@helpers.47">
+      <helperDepNames>Expression__getVariableType_</helperDepNames>
+      <helperDepNames>Expression__isALiteral_</helperDepNames>
+    </helpers>
+    <helpers name="MethodInvocation__getRemoveCollectionArgument_"/>
+    <helpers name="ASTNode__isOwningInCollectionInterface_" helperDependencies="//@modules.0/@helpers.32">
+      <helperDepNames>AbstractTypeDeclaration__isImplementingCollectionInterface_</helperDepNames>
+    </helpers>
+    <helpers name="AbstractTypeDeclaration__isImplementingCollectionInterface_" helperDependencies="//@modules.0/@helpers.32">
+      <helperDepNames>AbstractTypeDeclaration__isImplementingCollectionInterface_</helperDepNames>
+    </helpers>
+    <helpers name="ExpressionStatement__isAnEmptyCollection_" helperDependencies="//@modules.0/@helpers.35">
+      <helperDepNames>SingleVariableAccess__isACollection_</helperDepNames>
+    </helpers>
+    <helpers name="MethodInvocation__isIndexLessOne_"/>
+    <helpers name="SingleVariableAccess__isACollection_" helperDependencies="//@modules.0/@helpers.35 //@modules.0/@helpers.29">
+      <helperDepNames>SingleVariableAccess__isACollection_</helperDepNames>
+      <helperDepNames>Expression__getVariableType_</helperDepNames>
+    </helpers>
+    <helpers name="ParameterizedType__isACollection_" helperDependencies="//@modules.0/@helpers.35">
+      <helperDepNames>SingleVariableAccess__isACollection_</helperDepNames>
+    </helpers>
+    <helpers name="TypeAccess__isACollection_" helperDependencies="//@modules.0/@helpers.35">
+      <helperDepNames>SingleVariableAccess__isACollection_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isAList_" helperDependencies="//@modules.0/@helpers.38 //@modules.0/@helpers.29 //@modules.0/@helpers.47">
+      <helperDepNames>Expression__isAList_</helperDepNames>
+      <helperDepNames>Expression__getVariableType_</helperDepNames>
+      <helperDepNames>Expression__isALiteral_</helperDepNames>
+    </helpers>
+    <helpers name="FieldDeclaration__isAList_" helperDependencies="//@modules.0/@helpers.38 //@modules.0/@helpers.25">
+      <helperDepNames>Expression__isAList_</helperDepNames>
+      <helperDepNames>FieldDeclaration__getFieldType_</helperDepNames>
+    </helpers>
+    <helpers name="ParameterizedType__isAList_" helperDependencies="//@modules.0/@helpers.38">
+      <helperDepNames>Expression__isAList_</helperDepNames>
+    </helpers>
+    <helpers name="TypeAccess__isAList_" helperDependencies="//@modules.0/@helpers.38">
+      <helperDepNames>Expression__isAList_</helperDepNames>
+    </helpers>
+    <helpers name="TypeDeclaration__isAList_" helperDependencies="//@modules.0/@helpers.38">
+      <helperDepNames>Expression__isAList_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isASet_" helperDependencies="//@modules.0/@helpers.38 //@modules.0/@helpers.29 //@modules.0/@helpers.47 //@modules.0/@helpers.43">
+      <helperDepNames>Expression__isAList_</helperDepNames>
+      <helperDepNames>Expression__getVariableType_</helperDepNames>
+      <helperDepNames>Expression__isALiteral_</helperDepNames>
+      <helperDepNames>Expression__isASet_</helperDepNames>
+    </helpers>
+    <helpers name="FieldDeclaration__isASet_" helperDependencies="//@modules.0/@helpers.38 //@modules.0/@helpers.25 //@modules.0/@helpers.43">
+      <helperDepNames>Expression__isAList_</helperDepNames>
+      <helperDepNames>FieldDeclaration__getFieldType_</helperDepNames>
+      <helperDepNames>Expression__isASet_</helperDepNames>
+    </helpers>
+    <helpers name="ParameterizedType__isASet_" helperDependencies="//@modules.0/@helpers.43">
+      <helperDepNames>Expression__isASet_</helperDepNames>
+    </helpers>
+    <helpers name="TypeAccess__isASet_" helperDependencies="//@modules.0/@helpers.43">
+      <helperDepNames>Expression__isASet_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isALiteral_"/>
+    <helpers name="CastExpression__isANumericCast_"/>
+    <helpers name="AbstractMethodDeclaration__getAbsMethDecName_"/>
+    <helpers name="AbstractMethodDeclaration__getAbsMethDecVisibility_"/>
+    <helpers name="Model__allAbstractMethodDeclaration_" helperDependencies="//@modules.0/@helpers.94 //@modules.0/@helpers.17">
+      <helperDepNames>ASTNode__notInAnnotation_</helperDepNames>
+      <helperDepNames>UnresolvedItem__getCorrespondingDec_</helperDepNames>
+    </helpers>
+    <helpers name="_allMethods_"/>
+    <helpers name="_allConstructors_"/>
+    <helpers name="_allInterfaces_"/>
+    <helpers name="_allClasses_"/>
+    <helpers name="_allPrimitiveTypes_"/>
+    <helpers name="_allTypes_" helperDependencies="//@modules.0/@helpers.55">
+      <helperDepNames>_allClasses_</helperDepNames>
+    </helpers>
+    <helpers name="Statement__getLastAssignment_varDecState" helperDependencies="//@modules.0/@helpers.61 //@modules.0/@helpers.146 //@modules.0/@helpers.81 //@modules.0/@helpers.58 //@modules.0/@helpers.129">
+      <helperDepNames>VariableDeclarationFragment__getExpressionMap_</helperDepNames>
+      <helperDepNames>ASTNode__getPrecedingStatement_</helperDepNames>
+      <helperDepNames>ArrayLengthAccess__getVarAccessExpression_</helperDepNames>
+      <helperDepNames>Statement__getLastAssignment_varDecState</helperDepNames>
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__getNextAssignment_"/>
+    <helpers name="ASTNode__getTargetForControlFlow_" helperDependencies="//@modules.0/@helpers.59">
+      <helperDepNames>Assignment__getNextAssignment_</helperDepNames>
+    </helpers>
+    <helpers name="VariableDeclarationFragment__getExpressionMap_" helperDependencies="//@modules.0/@helpers.81">
+      <helperDepNames>ArrayLengthAccess__getVarAccessExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__isAbsDecMethContained_" helperDependencies="//@modules.0/@helpers.129">
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__isAbsDecMethContainedAndArray_" helperDependencies="//@modules.0/@helpers.62">
+      <helperDepNames>Assignment__isAbsDecMethContained_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__isAbsDecMethContainedAndNoList_" helperDependencies="//@modules.0/@helpers.96 //@modules.0/@helpers.62">
+      <helperDepNames>Expression__isListType_</helperDepNames>
+      <helperDepNames>Assignment__isAbsDecMethContained_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__isVariableAssignmentNoList_" helperDependencies="//@modules.0/@helpers.64">
+      <helperDepNames>Assignment__isAbsDecMethContainedAndNoList_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__isLocaleVariableAssignmentNoList_" helperDependencies="//@modules.0/@helpers.64">
+      <helperDepNames>Assignment__isAbsDecMethContainedAndNoList_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__isAbsDecMethContainedAndList_" helperDependencies="//@modules.0/@helpers.96 //@modules.0/@helpers.62">
+      <helperDepNames>Expression__isListType_</helperDepNames>
+      <helperDepNames>Assignment__isAbsDecMethContained_</helperDepNames>
+    </helpers>
+    <helpers name="Assignment__isVariableAssignmentList_" helperDependencies="//@modules.0/@helpers.67">
+      <helperDepNames>Assignment__isAbsDecMethContainedAndList_</helperDepNames>
+    </helpers>
+    <helpers name="Statement__getBlock_" helperDependencies="//@modules.0/@helpers.69">
+      <helperDepNames>Statement__getBlock_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__getBlock_" helperDependencies="//@modules.0/@helpers.69">
+      <helperDepNames>Statement__getBlock_</helperDepNames>
+    </helpers>
+    <helpers name="VariableDeclarationFragment__getBlock_" helperDependencies="//@modules.0/@helpers.69">
+      <helperDepNames>Statement__getBlock_</helperDepNames>
+    </helpers>
+    <helpers name="Statement__isInstanceVarUse_" helperDependencies="//@modules.0/@helpers.119">
+      <helperDepNames>Expression__getObject_</helperDepNames>
+    </helpers>
+    <helpers name="ReturnStatement__getReturnParameters_"/>
+    <helpers name="ReturnStatement__getCallerReturnParamName_" helperDependencies="//@modules.0/@helpers.79 //@modules.0/@helpers.137">
+      <helperDepNames>ConstructorDeclaration__getConstructorName_</helperDepNames>
+      <helperDepNames>MethodDeclaration__getMethodName_</helperDepNames>
+    </helpers>
+    <helpers name="Block__getReturnStateGeneratingSAN_" helperDependencies="//@modules.0/@helpers.76">
+      <helperDepNames>ASTNode__isReturnStateGeneratingObjectFlow_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__isReturnStateGeneratingObjectFlow_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="ReturnStatement__isReturnSimpleImplicitThis_" helperDependencies="//@modules.0/@helpers.98 //@modules.0/@helpers.72">
+      <helperDepNames>Statement__isImplicitThisExpression_</helperDepNames>
+      <helperDepNames>Statement__isInstanceVarUse_</helperDepNames>
+    </helpers>
+    <helpers name="Block__hasOnlyReturnInstanceCreateNoParam_"/>
+    <helpers name="ConstructorDeclaration__getConstructorName_" helperDependencies="//@modules.0/@helpers.49">
+      <helperDepNames>AbstractMethodDeclaration__getAbsMethDecName_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__getVarOrElemName_"/>
+    <helpers name="ArrayLengthAccess__getVarAccessExpression_" helperDependencies="//@modules.0/@helpers.81 //@modules.0/@helpers.102">
+      <helperDepNames>ArrayLengthAccess__getVarAccessExpression_</helperDepNames>
+      <helperDepNames>ASTNode__isAccessExpression_</helperDepNames>
+    </helpers>
+    <helpers name="SingleVariableAccess__getVarAccessExpression_"/>
+    <helpers name="FieldAccess__getVarAccessExpression_"/>
+    <helpers name="UnresolvedItemAccess__getVarAccessExpression_"/>
+    <helpers name="ArrayAccess__getVarAccessExpression_" helperDependencies="//@modules.0/@helpers.81 //@modules.0/@helpers.102">
+      <helperDepNames>ArrayLengthAccess__getVarAccessExpression_</helperDepNames>
+      <helperDepNames>ASTNode__isAccessExpression_</helperDepNames>
+    </helpers>
+    <helpers name="TypeAccess__getVarAccessExpression_"/>
+    <helpers name="PackageAccess__getVarAccessExpression_"/>
+    <helpers name="MM_ATL!OclAnyType_notInClassInstanceCreation_" helperDependencies="//@modules.0/@helpers.88">
+      <helperDepNames>MM_ATL!OclAnyType_notInClassInstanceCreation_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_notInInterfaceDeclaration_" helperDependencies="//@modules.0/@helpers.89">
+      <helperDepNames>MM_ATL!OclAnyType_notInInterfaceDeclaration_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_notInEnumDeclaration_" helperDependencies="//@modules.0/@helpers.90">
+      <helperDepNames>MM_ATL!OclAnyType_notInEnumDeclaration_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__notInInitializerOrFieldOrEnum_" helperDependencies="//@modules.0/@helpers.91">
+      <helperDepNames>ASTNode__notInInitializerOrFieldOrEnum_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__notInInitializerOrFieldOrEnum_"/>
+    <helpers name="Model__notInInitializerOrFieldOrEnum_"/>
+    <helpers name="ASTNode__notInAnnotation_" helperDependencies="//@modules.0/@helpers.94">
+      <helperDepNames>ASTNode__notInAnnotation_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__notInTypeDeclaration_" helperDependencies="//@modules.0/@helpers.95">
+      <helperDepNames>ASTNode__notInTypeDeclaration_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isListType_" helperDependencies="//@modules.0/@helpers.35">
+      <helperDepNames>SingleVariableAccess__isACollection_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__isInMethodOrConstructor_" helperDependencies="//@modules.0/@helpers.97">
+      <helperDepNames>ASTNode__isInMethodOrConstructor_</helperDepNames>
+    </helpers>
+    <helpers name="Statement__isImplicitThisExpression_" helperDependencies="//@modules.0/@helpers.129 //@modules.0/@helpers.80 //@modules.0/@helpers.99">
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+      <helperDepNames>Expression__getVarOrElemName_</helperDepNames>
+      <helperDepNames>ASTNode__isExplicitThisExpression_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__isExplicitThisExpression_"/>
+    <helpers name="ExpressionStatement__isSettingNull_"/>
+    <helpers name="ExpressionStatement__isActingOnCollection_actionMethodName" helperDependencies="//@modules.0/@helpers.31">
+      <helperDepNames>ASTNode__isOwningInCollectionInterface_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__isAccessExpression_"/>
+    <helpers name="ExpressionStatement__isClearingList_"/>
+    <helpers name="ExpressionStatement__isAddingInList_"/>
+    <helpers name="ExpressionStatement__isRemovingInList_"/>
+    <helpers name="Expression__isPrePostInfixExpression_"/>
+    <helpers name="Expression__isGreater_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isLess_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isLessOrEquals_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isGreaterOrEquals_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isMinus_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isPlus_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isTimes_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isDivide_" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isExpressionOperand_"/>
+    <helpers name="ASTNode__getSourceForObjectFlow_" helperDependencies="//@modules.0/@helpers.148">
+      <helperDepNames>Statement__getVarDecStatement_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__getPreceding_" helperDependencies="//@modules.0/@helpers.117">
+      <helperDepNames>ASTNode__getPreceding_</helperDepNames>
+    </helpers>
+    <helpers name="Statement__getNext_" helperDependencies="//@modules.0/@helpers.98 //@modules.0/@helpers.72">
+      <helperDepNames>Statement__isImplicitThisExpression_</helperDepNames>
+      <helperDepNames>Statement__isInstanceVarUse_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__getObject_" helperDependencies="//@modules.0/@helpers.119 //@modules.0/@helpers.129 //@modules.0/@helpers.47">
+      <helperDepNames>Expression__getObject_</helperDepNames>
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+      <helperDepNames>Expression__isALiteral_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__getFieldDec_"/>
+    <helpers name="VariableDeclarationStatement__isOtherVarDeclarUsingSelf_"/>
+    <helpers name="VariableDeclarationStatement__getOutgoingForkNode_" helperDependencies="//@modules.0/@helpers.121">
+      <helperDepNames>VariableDeclarationStatement__isOtherVarDeclarUsingSelf_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__isPrimitiveType_"/>
+    <helpers name="Expression__alreadyManage_"/>
+    <helpers name="ASTNode__getInstanciedClass_" helperDependencies="//@modules.0/@helpers.125 //@modules.0/@helpers.126">
+      <helperDepNames>ASTNode__getInstanciedClass_</helperDepNames>
+      <helperDepNames>AbstractMethodInvocation__getMethodDeclaration_</helperDepNames>
+    </helpers>
+    <helpers name="AbstractMethodInvocation__getMethodDeclaration_"/>
+    <helpers name="MM_ATL!OclAnyType_excludeUnresolvedMethodDec_"/>
+    <helpers name="ASTNode__getOwningMethodInvocation_" helperDependencies="//@modules.0/@helpers.128">
+      <helperDepNames>ASTNode__getOwningMethodInvocation_</helperDepNames>
+    </helpers>
+    <helpers name="Initializer__getOwningMethod_"/>
+    <helpers name="Model__getOwningMethod_"/>
+    <helpers name="FieldDeclaration__getOwningMethod_"/>
+    <helpers name="Statement__getOwningMethod_" helperDependencies="//@modules.0/@helpers.129">
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+    </helpers>
+    <helpers name="Block__getOwningMethod_" helperDependencies="//@modules.0/@helpers.129">
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+    </helpers>
+    <helpers name="Expression__getOwningMethod_" helperDependencies="//@modules.0/@helpers.129">
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+    </helpers>
+    <helpers name="ASTNode__getOwningMethod_" helperDependencies="//@modules.0/@helpers.17 //@modules.0/@helpers.129">
+      <helperDepNames>UnresolvedItem__getCorrespondingDec_</helperDepNames>
+      <helperDepNames>Initializer__getOwningMethod_</helperDepNames>
+    </helpers>
+    <helpers name="MethodInvocation__getLastListMethodArgument_" helperDependencies="//@modules.0/@helpers.144 //@modules.0/@helpers.81 //@modules.0/@helpers.102">
+      <helperDepNames>ASTNode__getStatement_</helperDepNames>
+      <helperDepNames>ArrayLengthAccess__getVarAccessExpression_</helperDepNames>
+      <helperDepNames>ASTNode__isAccessExpression_</helperDepNames>
+    </helpers>
+    <helpers name="MethodDeclaration__getMethodName_" helperDependencies="//@modules.0/@helpers.49">
+      <helperDepNames>AbstractMethodDeclaration__getAbsMethDecName_</helperDepNames>
+    </helpers>
+    <helpers name="MethodDeclaration__isVoidMethod_"/>
+    <helpers name="MethodDeclaration__isBuggedModiscoMethod_"/>
+    <helpers name="Expression__isRLOperandExpression_"/>
+    <helpers name="Expression__isOperandExpression_"/>
+    <helpers name="Statement__getContainerActivity_"/>
+    <helpers name="Statement__getContainerStructuredNode_"/>
+    <helpers name="ASTNode__getStatement_" helperDependencies="//@modules.0/@helpers.144 //@modules.0/@helpers.91 //@modules.0/@helpers.94">
+      <helperDepNames>ASTNode__getStatement_</helperDepNames>
+      <helperDepNames>ASTNode__notInInitializerOrFieldOrEnum_</helperDepNames>
+      <helperDepNames>ASTNode__notInAnnotation_</helperDepNames>
+    </helpers>
+    <helpers name="Block__getAllChildStatements_"/>
+    <helpers name="ASTNode__getPrecedingStatement_" helperDependencies="//@modules.0/@helpers.146">
+      <helperDepNames>ASTNode__getPrecedingStatement_</helperDepNames>
+    </helpers>
+    <helpers name="AbstractMethodDeclaration__getOwnedStructuredActivityNode_"/>
+    <helpers name="Statement__getVarDecStatement_" helperDependencies="//@modules.0/@helpers.69">
+      <helperDepNames>Statement__getBlock_</helperDepNames>
+    </helpers>
+    <helpers name="VariableDeclarationStatement__hasVDSInROperand_vds" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="VariableDeclarationStatement__hasVDSInLOperand_vds" helperDependencies="//@modules.0/@helpers.106">
+      <helperDepNames>Expression__isPrePostInfixExpression_</helperDepNames>
+    </helpers>
+    <helpers name="VariableDeclarationStatement__getOtherVDSInputPin_vds" helperDependencies="//@modules.0/@helpers.149 //@modules.0/@helpers.150">
+      <helperDepNames>VariableDeclarationStatement__hasVDSInROperand_vds</helperDepNames>
+      <helperDepNames>VariableDeclarationStatement__hasVDSInLOperand_vds</helperDepNames>
+    </helpers>
+    <helpers name="ReturnStatement__isOnlyReturnInstanceCreateNoParam_"/>
+    <helpers name="MM_ATL!OclAnyType_excludeUnresolvedTypeDec_"/>
+    <helpers name="Expression__getActivityNode_" helperDependencies="//@modules.0/@helpers.58 //@modules.0/@helpers.144 //@modules.0/@helpers.81">
+      <helperDepNames>Statement__getLastAssignment_varDecState</helperDepNames>
+      <helperDepNames>ASTNode__getStatement_</helperDepNames>
+      <helperDepNames>ArrayLengthAccess__getVarAccessExpression_</helperDepNames>
+    </helpers>
+    <helpers name="_getIdVSA_"/>
+    <helpers name="_getIdOFLeftOperand2CBA_"/>
+    <helpers name="_getIdOFRightOperand2CBA_"/>
+    <helpers name="_getIdOFExpression2APN_"/>
+    <helpers name="_getIdOFCBA2APN_"/>
+    <helpers name="_getIdOFExpressionOutput2COA_"/>
+    <helpers name="_getIdReadSelfAction_"/>
+    <helpers name="_getIdOFVSA2COA_"/>
+    <helpers name="_getIdAddStructuralFeatureValueAction_"/>
+    <helpers name="_getIdReadStructuralFeatureAction_"/>
+    <helpers name="MM_ATL!OclAnyType_isInExpressionOfWhileStatement_" helperDependencies="//@modules.0/@helpers.165">
+      <helperDepNames>MM_ATL!OclAnyType_isInExpressionOfWhileStatement_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_isInBlock_" helperDependencies="//@modules.0/@helpers.166">
+      <helperDepNames>MM_ATL!OclAnyType_isInBlock_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_getParentBlock_" helperDependencies="//@modules.0/@helpers.167">
+      <helperDepNames>MM_ATL!OclAnyType_getParentBlock_</helperDepNames>
+    </helpers>
+    <helpers name="MM_ATL!OclAnyType_isInBodyOfWhileStatement_" helperDependencies="//@modules.0/@helpers.174 //@modules.0/@helpers.166">
+      <helperDepNames>MM_ATL!OclAnyType_isInWhileStatement_</helperDepNames>
+      <helperDepNames>MM_ATL!OclAnyType_isInBlock_</helperDepNames>
+    </helpers>
+    <helpers name="ReturnStatement__getNumberLiteralFromReturnStatement_"/>
+    <helpers name="ReturnStatement__getInfixExpressionFromReturnStatement_"/>
+    <helpers name="_getIfStatementFromContainers_param" helperDependencies="//@modules.0/@helpers.171">
+      <helperDepNames>_getIfStatementFromContainers_param</helperDepNames>
+    </helpers>
+    <helpers name="InfixExpression__getMethodInvocationFromInfixExpression_"/>
+    <helpers name="InfixExpression__getNumberLiteralFromInfixExpression_"/>
+    <helpers name="MM_ATL!OclAnyType_isInWhileStatement_" helperDependencies="//@modules.0/@helpers.174">
+      <helperDepNames>MM_ATL!OclAnyType_isInWhileStatement_</helperDepNames>
+    </helpers>
+    <helpers name="SingleVariableDeclaration__getIfStatementOfSingleVarDec_"/>
+    <helpers name="IfStatement__getNumberLiteralFromIfStatement_"/>
+    <helpers name="ThisExpression__getVariableDeclarationStatementFromThisExpression_"/>
+    <helpers name="VariableDeclarationStatement__getNumberLiteralFromVariableDeclaration_"/>
+    <helpers name="Block__hasWhileStatement_"/>
+    <helpers name="MM_ATL!OclAnyType_isVariableDeclarationInMethodDeclaration_" helperDependencies="//@modules.0/@helpers.179 //@modules.0/@helpers.180">
+      <helperDepNames>Block__hasWhileStatement_</helperDepNames>
+      <helperDepNames>MM_ATL!OclAnyType_isVariableDeclarationInMethodDeclaration_</helperDepNames>
+    </helpers>
+    <helpers name="Block__singleVariableAccessesFromBlock_" helperDependencies="//@modules.0/@helpers.168 //@modules.0/@helpers.165">
+      <helperDepNames>MM_ATL!OclAnyType_isInBodyOfWhileStatement_</helperDepNames>
+      <helperDepNames>MM_ATL!OclAnyType_isInExpressionOfWhileStatement_</helperDepNames>
+    </helpers>
+    <helpers name="VariableDeclarationStatement__getWhileStatementFromVariableDeclaration_"/>
+    <helpers name="_getWhileStatementFromContainers_param" helperDependencies="//@modules.0/@helpers.183">
+      <helperDepNames>_getWhileStatementFromContainers_param</helperDepNames>
+    </helpers>
+    <helpers name="Expression__getVariableDeclarationStatementFromOperand_"/>
+    <helpers name="_existsInfixExpressionSum_"/>
+    <helpers name="_existsInfixExpressionMinus_"/>
+  </modules>
+</modularization:Transformation>

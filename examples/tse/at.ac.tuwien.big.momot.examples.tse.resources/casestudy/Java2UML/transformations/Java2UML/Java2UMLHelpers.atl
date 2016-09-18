@@ -1,0 +1,711 @@
+-- @nsURI UML=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI JAVA=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+
+-- ******************************************************************************
+-- Copyright (c) 2013 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  authors: - Matthieu Allon (matthieu.allon at inria.fr)
+--           - Guillaume Doux (guillaume.doux at inria.fr) 
+--
+-- ******************************************************************************
+
+library java2UMLHelpers;
+
+--***************JAVA!AllInstances***************
+helper def: getParamType : Sequence(JAVA!ParameterizedType) =
+	JAVA!ParameterizedType.allInstancesFrom('IN')
+;
+
+helper context OclAny def: getExternalElements : Sequence(JAVA!NamedElement) =
+	JAVA!Package.allInstancesFrom('IN')
+		-> select(pack | pack.getPackage.oclIsUndefined())
+	-> union(
+		JAVA!TypeParameter.allInstancesFrom('IN')
+			-> reject(param | param.originalCompilationUnit.oclIsUndefined())
+			-> reject(param | param.originalCompilationUnit.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!ArrayType.allInstancesFrom('IN')
+			-> select(array | array.elementType.type.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!UnresolvedTypeDeclaration.allInstancesFrom('IN')
+			-> select(uTD | uTD.usagesInTypeAccess -> notEmpty()
+							and not
+							(uTD.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uTD.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+	-> union(
+		JAVA!UnresolvedItem.allInstancesFrom('IN')
+			-> select(uI | uI.usagesInImports -> notEmpty()
+							and not
+							(uI.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uI.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+;
+
+--***************"Access" Expression***************
+
+helper context JAVA!ArrayLengthAccess def : getVarAccessExpression : JAVA!Expression = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif	
+;
+
+helper context JAVA!SingleVariableAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	self.variable
+;
+	
+helper context JAVA!FieldAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	self.field.variable
+;
+
+helper context JAVA!UnresolvedItemAccess def : getVarAccessExpression : JAVA!UnresolvedItem =
+	self.element
+;
+
+helper context JAVA!ArrayAccess def : getVarAccessExpression : JAVA!Expression = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif
+;	
+
+helper context JAVA!TypeAccess def : getVarAccessExpression : JAVA!Type = 
+	self.type
+;	
+
+helper context JAVA!PackageAccess def : getVarAccessExpression : JAVA!Package = 
+	self.package
+;	
+
+helper context JAVA!ASTNode def: isAccessExpression : Boolean =
+	self.oclIsTypeOf(JAVA!FieldAccess)
+	or self.oclIsTypeOf(JAVA!SingleVariableAccess)
+	or self.oclIsTypeOf(JAVA!UnresolvedItemAccess)
+	or self.oclIsTypeOf(JAVA!ArrayAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
+	or self.oclIsTypeOf(JAVA!TypeAccess)
+	or self.oclIsTypeOf(JAVA!NamespaceAccess)
+	or self.oclIsTypeOf(JAVA!ArrayLengthAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
+	or self.oclIsTypeOf(JAVA!SuperFieldAccess)
+;
+
+--***************JAVA!X sequences***************
+
+helper def: unresolvedItem : Sequence(UML!Class) =
+	Sequence{}
+;
+
+helper context UML!Class def: searchElementByName(firstSeq : Sequence(UML!Class)) : Boolean =
+	firstSeq
+		-> select(elem | elem.name = self.name)
+		-> notEmpty()
+;
+
+--***************Annotations***************
+---Create a string (to stock in JAVA!Comment.body) containing a java annotation
+helper context JAVA!Annotation def: getAnnotation : String =
+ '@'+self.manageQualifier+self.type.type.name+self.manageAnnotationValues
+;
+
+---Test if it exists a qualifier for an annotation
+helper context JAVA!Annotation def: manageQualifier : String =	
+	if (not self.type.qualifier.oclIsUndefined()) then
+		self.type.qualifier.getQualifier+'.'
+	else
+		''
+	endif	
+;
+
+---Return the entire qualifier (package(s)) as a string for an annotation
+helper context JAVA!ASTNode def: getQualifier : String =
+	if (not self.qualifier.oclIsUndefined())then
+		self.qualifier.getQualifier+'.'
+	else '' endif
+	+ 	if (not self.oclIsKindOf(JAVA!UnresolvedItem) and not self.isAccessExpression) then
+			self.package.name
+		else 
+			if(self.isAccessExpression) then
+				self.getVarAccessExpression.name
+			else 	
+				''
+			endif
+		endif
+;
+
+---Return empty string when there are no values for an annotation
+helper context JAVA!Annotation def: manageAnnotationValues : String =	
+	if (self.values -> isEmpty() )then
+		''
+	else
+		self.values 
+			-> collect(annotMemb | 	if (annotMemb.oclIsKindOf(JAVA!AnnotationMemberValuePair))then
+											annotMemb.manageNameOfAnnotationMemberValuePair +
+											annotMemb.manageTypeOfAnnotationMemberValuePair
+									else OclUndefined endif	
+			)
+	endif	
+;
+
+---Return empty string when there is no name for a JAVA!AnnotationMemberValuePair
+helper context JAVA!AnnotationMemberValuePair def: manageNameOfAnnotationMemberValuePair : String =	
+	if (self.name.oclIsUndefined()) then
+		''
+	else
+		self.name + '='
+	endif	
+;
+
+---Return various strings/values according to the type of a JAVA!AnnotationMemberValuePair
+helper context JAVA!AnnotationMemberValuePair def: manageTypeOfAnnotationMemberValuePair : String =		
+	if (self.value.oclIsKindOf(JAVA!StringLiteral))then
+		self.value.getStringFromStringLiteral
+	else 		
+		if (self.value.oclIsKindOf(JAVA!ArrayInitializer))then
+			self.value.getStringFromArrayInitializer
+		else  
+			if (self.value.oclIsKindOf(JAVA!BooleanLiteral))then
+						self.value.value.toString()
+			else				
+				if (self.value.oclIsKindOf(JAVA!TypeLiteral))then
+					self.value.getStringFromTypeLiteral
+				else
+					if (self.value.oclIsKindOf(JAVA!SingleVariableAccess))then
+						self.value.getQualifierAndTypeForSVAValue +	
+						self.value.getStringFromSingleVariableAccess
+					else
+						''
+					endif
+				endif	
+			endif
+		endif
+	endif	
+;	
+
+---Return complete qualifier and value name for a JAVA!Expression
+helper context JAVA!Expression def: getQualifierAndTypeForSVAValue : String =	
+	if (not self.qualifier.oclIsUndefined()) then
+		if (not self.qualifier.qualifier.oclIsUndefined()) then
+			self.qualifier.qualifier.getQualifier + '.' +
+			if (not self.qualifier.type.oclIsUndefined()) then
+				self.qualifier.type.name + '.'
+			else ''	endif
+		else ''	endif
+	else '' endif		
+;	
+	
+---Return the name of the corresponding JAVA!AbstractTypeDeclaration for a JAVA!TypeLiteral
+helper context JAVA!Expression def: getStringFromTypeLiteral : String =	
+	if (self.type.type.oclIsKindOf(JAVA!AbstractTypeDeclaration))then
+		self.type.type.name + '.class'
+	else ''	endif
+;	
+	
+---Return the value of a JAVA!StringLiteral
+helper context JAVA!Expression def: getStringFromStringLiteral : String =		
+	self.escapedValue
+;	
+
+---Return the value of a JAVA!SingleVariableAccess
+helper context JAVA!Expression def: getStringFromSingleVariableAccess : String =		
+	if (self.variable.oclIsKindOf(JAVA!EnumConstantDeclaration))then
+		self.variable.name
+	else '' endif	
+;	
+
+---Return the values (collection serialized) of a JAVA!ArrayInitializer
+helper context JAVA!Expression def: getStringFromArrayInitializer : String =	
+self.expressions
+	-> collect(express | if (express.oclIsKindOf(JAVA!StringLiteral)) then
+							express.escapedValue
+						 else
+						 	if (express.oclIsKindOf(JAVA!ArrayInitializer)) then
+								express.getStringFromArrayInitializer
+							else OclUndefined endif
+						 endif	
+	)
+;	
+
+--***************Binding and templates***************
+
+---Get the instance(s) name(s) for a binding (template class /interface)
+helper context JAVA!TypeAccess def: getBindingInstances : Sequence(JAVA!TypeDeclaration) =
+	 self.type.typeArguments
+		-> collect(argument | argument.type)
+		-> select(type | type.oclIsKindOf(JAVA!TypeDeclaration))--Only instances, not templates (e.g. T, n, ...) themselves
+;
+
+---Test if a class is also a template instance for an other
+helper context JAVA!ClassDeclaration def: isATemplateInstance : Boolean =
+	 self.usagesInTypeAccess
+			-> select(type | type.refImmediateComposite().oclIsTypeOf(JAVA!ParameterizedType))
+			-> notEmpty()
+;							
+
+---Return the class name and its eventual template parameter(s)
+helper context JAVA!AbstractTypeDeclaration def: getNameWithTemplateParam : String =
+	if (self.typeParameters -> notEmpty())then
+		self.name + '<' + self.getParamNamesList + '>'
+	else self.name endif
+;
+
+helper context JAVA!AbstractTypeDeclaration def: getParamNamesList : String =
+	self.typeParameters
+		-> iterate(currentStr; paramsNameList: String = '' |
+				paramsNameList.concat(
+					if (self.typeParameters.indexOf(currentStr) < self.typeParameters->size()) then
+						currentStr.name + ','
+					else currentStr.name endif
+				)	
+		)
+;	
+
+--***************BodyDeclaration***************
+---return boolean value for no-static/static java BodyDec elements (Fields and operations)
+helper context JAVA!BodyDeclaration def: isBodyDecStatic : Boolean =
+	if (self.modifier.oclIsUndefined()) then
+		false
+	else
+		self.modifier.static	
+	endif;
+
+---return boolean value for no-final/final java BodyDec elements (Fields and operations)
+helper context JAVA!BodyDeclaration def: isBodyDecFinal : Boolean =
+	if (self.modifier.oclIsUndefined()) then
+		false
+	else
+		self.modifier.inheritance = #final	
+	endif;
+
+--***************AbstractTypeDeclaration***************
+---Get the java abstractType visibility
+---('VisibilityKind' of java ecore used specified 'none' value wich corresponding to 
+---the value 'package', in uml2 ecore)
+helper context JAVA!AbstractTypeDeclaration def: getAbstractTypeVisibility : JAVA!VisibilityKind =	
+	if (self.modifier.oclIsUndefined()) then 
+		#package
+	else
+		if (self.modifier.visibility = #none) then
+			#package
+		else	
+			self.modifier.visibility
+		endif
+	endif;
+
+---return boolean value for no-abstract or abstract java abstractType
+helper context JAVA!AbstractTypeDeclaration def: isAbstractTypeAbstract : Boolean =
+	if (self.modifier.oclIsUndefined()) then
+		false
+	else		
+		self.modifier.inheritance.toString() = 'abstract'
+	endif;
+
+---return boolean value for no-final or final java abstractType
+helper context JAVA!AbstractTypeDeclaration def: isAbstractTypeFinal : Boolean =
+	if (self.modifier.oclIsUndefined()) then
+		false
+	else		
+		self.modifier.inheritance.toString() = 'final'
+	endif;
+
+--***************Classes***************
+
+---Return the corresponding classDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingClassDec : Sequence(JAVA!ClassDeclaration) =
+	JAVA!ClassDeclaration.allInstancesFrom('IN')
+		-> select(class | class.name = self.name)
+;
+
+---Return the corresponding classDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingInterfDec : Sequence(JAVA!InterfaceDeclaration) =
+	JAVA!InterfaceDeclaration.allInstancesFrom('IN')
+		-> select(interf | interf.name = self.name)
+;
+
+---Return the corresponding classDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingEnumDec : Sequence(JAVA!EnumDeclaration) =
+	JAVA!EnumDeclaration.allInstancesFrom('IN')
+		-> select(enum | enum.name = self.name)
+;
+
+---Return the corresponding classDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingImportDec : Sequence(JAVA!ImportDeclaration) =
+	JAVA!ImportDeclaration.allInstancesFrom('IN')
+		-> select(import | 	import.importedElement.name = self.name)
+;
+
+---Return the containing anonymous class
+helper context JAVA!ASTNode def : getAnnonymousClass : JAVA!AnonymousClassDeclaration =
+	if(self.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration))then
+		self.refImmediateComposite()
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!Model))then
+			OclUndefined
+		else
+			self.refImmediateComposite().getAnnonymousClass
+		endif	
+	endif
+	;
+
+--ImportDeclaration
+---Get the super class (Extends)
+helper context JAVA!ClassDeclaration def: getSuperClass : JAVA!ClassDeclaration =
+	if (self.superClass.oclIsUndefined()) then
+		OclUndefined
+	else	
+		if (self.superClass.type.oclIsTypeOf(JAVA!ClassDeclaration)) then
+			self.superClass.type
+		else
+			if (self.superClass.type.oclIsTypeOf(JAVA!ParameterizedType)) then
+				let paramType : JAVA!ParameterizedType = self.superClass.type in paramType.type.type
+			else
+				OclUndefined
+			endif	
+		endif	
+	endif;
+
+
+---Return boolean for local inner classes or not
+helper context JAVA!NamedElement def: isLocalInnerClass : Boolean =
+	if (self.oclIsTypeOf(JAVA!ClassDeclaration)) then
+		self.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)
+	else
+		false
+	endif;
+
+---Leave local inner class besides model, and prefixe them
+helper context JAVA!ClassDeclaration def: toLocalInnerClass : JAVA!ClassDeclaration =
+	self.name.concat('_LOCAL_INNER_CLASS');
+
+---Test if a class is implementing an interface
+helper context JAVA!ClassDeclaration def: isImplementingInterface : Boolean =
+	not self.superInterfaces -> isEmpty() 
+	and 
+	self.superInterfaces -> select(sI | not sI.type.oclIsKindOf(JAVA!ParameterizedType) 
+										and
+										not sI.type.oclIsKindOf(JAVA!UnresolvedItem)
+						 ) -> notEmpty()		
+;
+
+---Test if a class is implementing an interface wich is an unresolved item
+helper context JAVA!ClassDeclaration def: isImplementingInterfaceUnresolvedItem : Boolean =
+	self.superInterfaces -> select(sI | not sI.type.oclIsKindOf(JAVA!ParameterizedType) 
+												and sI.type.oclIsKindOf(JAVA!UnresolvedItem)
+						 ) -> isEmpty()	
+;
+
+--***************Anonymous classes***************
+---return class declaration for anonymous classes
+helper context JAVA!AnonymousClassDeclaration def: getTypeDeclarationForAnonymousClass : JAVA!TypeDeclaration =
+	let class : Sequence(JAVA!TypeDeclaration) = self.originalCompilationUnit.types 
+		-> select(compilUnit | compilUnit.name.toLower()+'.java' = self.originalCompilationUnit.name.toLower())
+	in class.at(1);
+
+--***************Interfaces***************
+---Get the java interface visibility
+helper context JAVA!InterfaceDeclaration def: getInterfaceVisibility : JAVA!VisibilityKind =
+	if (self.modifier.oclIsUndefined()) then 
+		#package
+	else
+		if (self.modifier.visibility = #none) then
+			#package
+		else	
+			self.modifier.visibility
+		endif
+	endif;
+
+---return boolean value for no-abs./abstract java interface
+helper context JAVA!InterfaceDeclaration def: isInterfaceAbstract : Boolean =
+	if (self.modifier.oclIsUndefined()) then
+		false
+	else		
+		self.modifier.inheritance.toString() = 'abstract'
+	endif;	
+
+---Test if a 'TypeAccess' corresponds to a parameterized interface ('InterfaceRealization')
+helper context JAVA!TypeAccess def: isInterfaceParameterized : Boolean =
+	if (self.type.oclIsKindOf(JAVA!ParameterizedType)) then		
+		(
+			 --In case of parameterized classes
+			self.type.type.oclIsKindOf(JAVA!InterfaceDeclaration)
+		)
+		and
+			(
+				(
+					self.refImmediateComposite().oclIsKindOf(JAVA!AbstractTypeDeclaration)
+						and not 
+					self.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration)
+				)	
+				or
+			 self.refImmediateComposite().oclIsTypeOf(JAVA!TypeParameter)	
+			) 
+	else 
+		--In case of an 'UnresolvedItem' (and sons) element
+		if (self.type.oclIsKindOf(JAVA!UnresolvedItem))then					
+			self.type.getCorrespondingInterfDec -> notEmpty()
+		else false endif	
+	endif	
+;	
+
+--***************Attributes***************
+---Get the java attribute name 
+helper context JAVA!FieldDeclaration def: getFieldName : String =
+	if (self.fragments -> isEmpty()) then
+		OclUndefined
+	else		
+		self.fragments.at(1).name
+	endif;
+
+---Get the java attributes visibility
+helper context JAVA!FieldDeclaration def: getFieldVisibility : JAVA!VisibilityKind =
+	if (self.modifier.oclIsUndefined()) then 
+		#package
+	else
+		if (self.modifier.visibility = #none) then
+			#package
+		else	
+			self.modifier.visibility
+		endif
+	endif;
+
+---Get the java attributes type
+helper context JAVA!FieldDeclaration def: getFieldType : JAVA!NamedElement =
+	
+	if (self.type.oclIsUndefined()) then
+		OclUndefined
+	else
+		if (self.type.type.oclIsUndefined()) then
+				OclUndefined
+		else
+			self.type.type
+		endif
+	endif;	
+
+---Return boolean value for member of an association or not
+helper context JAVA!FieldDeclaration def: isMember : Boolean =
+	if (self.type.oclIsUndefined()) then
+		false
+	else
+		--A class of the project (So, not in the 'externals' package)
+		self.type.type.oclIsTypeOf(JAVA!ClassDeclaration) and not self.type.type.originalCompilationUnit.oclIsUndefined()
+	endif;	
+
+---Return boolean value for instanciation of a field in its class constructor (Relation of compostion between classes)
+helper context JAVA!FieldDeclaration def: isInConstructor : Boolean =
+	if (not self.abstractTypeDeclaration.oclIsTypeOf(JAVA!ClassDeclaration)) then
+		false
+	else
+		if (self.abstractTypeDeclaration.bodyDeclarations -> isEmpty()) then
+			false
+		else
+			if (self.abstractTypeDeclaration.bodyDeclarations -> select(bD | bD.oclIsTypeOf(JAVA!ConstructorDeclaration)) -> isEmpty()) then
+				false
+			else	
+				if (let constructor : JAVA!ConstructorDeclaration = self.abstractTypeDeclaration.bodyDeclarations -> select(bD | bD.oclIsTypeOf(JAVA!ConstructorDeclaration)).at(1)
+					in constructor.body.oclIsUndefined()) then
+					false
+				else
+					if (let constructor : JAVA!ConstructorDeclaration = self.abstractTypeDeclaration.bodyDeclarations -> select(bD | bD.oclIsTypeOf(JAVA!ConstructorDeclaration)).at(1)
+						in constructor.body.statements -> isEmpty()) then
+						false
+					else	
+						if (let constructor : JAVA!ConstructorDeclaration = self.abstractTypeDeclaration.bodyDeclarations -> select(bD | bD.oclIsTypeOf(JAVA!ConstructorDeclaration)).at(1)
+							in not constructor.body.statements.at(1).oclIsTypeOf(JAVA!ExpressionStatement)) then
+							 false
+						else	 
+							if (let express : JAVA!ExpressionStatement = 
+											(	let constructor : JAVA!ConstructorDeclaration = self.abstractTypeDeclaration.bodyDeclarations -> select(bD | bD.oclIsTypeOf(JAVA!ConstructorDeclaration)).at(1)
+												in constructor.body.statements.at(1)) 
+									in not express.expression.oclIsTypeOf(JAVA!ClassInstanceCreation)) then
+									false
+							else
+								let express : JAVA!ExpressionStatement = 
+											(	let constructor : JAVA!ConstructorDeclaration = self.abstractTypeDeclaration.bodyDeclarations -> select(bD | bD.oclIsTypeOf(JAVA!ConstructorDeclaration)).at(1)
+												in constructor.body.statements.at(1)) 
+								in express.expression.type.type.name.toString().toLower() = self.getFieldName.toLower()
+							endif	
+						endif	
+					endif	
+				endif	
+			endif		
+		endif
+	endif;	
+
+---
+helper context JAVA!FieldDeclaration def: isAParameter : Boolean =
+	--Field instanciate in the class
+	if (let fieldDec : Sequence(JAVA!FieldDeclaration) =
+			self.abstractTypeDeclaration.bodyDeclarations -> select(iter | iter.oclIsTypeOf(JAVA!FieldDeclaration)) 
+		in fieldDec	-> select(elem | elem.type = self.getFieldType and elem.name = self.getFieldName) -> notEmpty()) then
+		false
+	else
+		--Field not instantiate in the class, but used in it (Parameter)
+		if ( (
+				let param : Sequence(JAVA!SingleVariableDeclaration) = 
+					let methodDec : Sequence(JAVA!MethodDeclaration) = 
+						self.abstractTypeDeclaration.bodyDeclarations -> select(iter | iter.oclIsTypeOf(JAVA!MethodDeclaration))
+					in methodDec -> select(elem | elem.parameters
+														-> select(par | par.type.type = self.getFieldType and par.name = self.getFieldName
+																	) -> notEmpty()) 		
+				in param -> notEmpty()
+			  )
+			or
+			(
+				let param : Sequence(JAVA!SingleVariableDeclaration) = 
+					let methodDec : Sequence(JAVA!ConstructorDeclaration) = 
+						self.abstractTypeDeclaration.bodyDeclarations -> select(iter | iter.oclIsTypeOf(JAVA!ConstructorDeclaration))
+					in methodDec -> select(elem | elem.parameters
+														-> select(par | par.type.type = self.getFieldType and par.name = self.getFieldName
+																	) -> notEmpty())
+				in param -> notEmpty()
+			)
+		   ) then
+			true
+		else
+			if (self.getFieldName = 'classFiveTest') then self else false endif
+		endif	
+	endif;							
+
+helper context JAVA!AbstractTypeDeclaration def: isTypeDec : Boolean =
+	self.oclIsKindOf(JAVA!TypeDeclaration)
+;	
+
+--***************Methods***************
+---Get the java method return type
+helper context JAVA!MethodDeclaration def: getReturnType : JAVA!NamedElement =
+	if (self.returnType.oclIsUndefined()) then
+		OclUndefined
+	else			
+		self.returnType.type
+	endif;
+
+---return boolean value for no-abstract] or abstract java method
+helper context JAVA!MethodDeclaration def: isMethodAbstract : Boolean = 
+	if (self.modifier.oclIsUndefined()) then
+		false
+	else	
+		self.modifier.inheritance = 'abstract'
+	endif;
+
+---Get the java method visibility
+helper context JAVA!AbstractMethodDeclaration def: getMethodVisibility : JAVA!VisibilityKind =
+	if (self.modifier.oclIsUndefined()) then 
+		#package
+	else
+		if (self.modifier.visibility = #none) then
+			#package
+		else	
+			self.modifier.visibility
+		endif
+	endif;
+
+---Get the java package of the element
+helper context JAVA!ASTNode def: getPackage : JAVA!Package =
+	if (self.oclIsTypeOf(JAVA!Model) or self.refImmediateComposite().oclIsTypeOf(JAVA!Model)
+			or self.refImmediateComposite().oclIsUndefined()) then
+		OclUndefined
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!Package))then
+			self.refImmediateComposite()
+		else
+			self.refImmediateComposite().getPackage
+		endif
+	endif	
+;	
+
+helper def: getPackageOfPackage(pack : JAVA!Package) : JAVA!Package =
+	pack.getPackage
+;
+
+--***************Types***************
+---Test if an attribute is a kind of java primitive wrapper
+helper context JAVA!FieldDeclaration def: isJavaPrimitiveWrapper : Boolean =
+	self.getFieldType.name = 'String' 
+	or self.getFieldType.name = 'Integer'
+	or self.getFieldType.name = 'Long'
+	or self.getFieldType.name = 'Short'
+	or self.getFieldType.name = 'Double'
+	or self.getFieldType.name = 'Float'
+	or self.getFieldType.name = 'Boolean'
+	or self.getFieldType.name = 'Byte';
+
+--***************Packages***************
+
+helper context JAVA!Package def: getPackSameName : Sequence(JAVA!Package) =
+	JAVA!Package.allInstancesFrom('IN')
+				-> select(pack | pack.getPackName = self.getPackName
+				)
+;
+
+helper context JAVA!Package def: getPackName : String =
+	self.name + 
+	if (not self.package.oclIsUndefined())then
+		self.package.getPackName
+	else '' endif
+;
+
+helper context JAVA!Package def: isDupBugModisco : Boolean =
+	self.getPackSameName
+		-> select(pack | pack.ownedElements = self.ownedElements)
+		-> size() > 1
+;
+
+helper context JAVA!Package def: getFirstDupBugModisco : JAVA!Package =
+--	self.getPackSameName
+	self.getPackSameName
+		-> select(pack | pack.ownedElements = self.ownedElements)
+		-> first()
+;
+
+helper context JAVA!Package def: isFirstDupBugModisco : Boolean =
+	self.isDupBugModisco
+	and 
+	self.getPackSameName
+		-> select(pack | pack.ownedElements = self.ownedElements)
+		-> indexOf(self) = 1
+;	
+
+helper context JAVA!Package def: getSamePackfeature : Sequence(JAVA!AbstractTypeDeclaration) =
+	self.getPackSameName
+		-- -> reject(pack | self.getPackSameName.indexOf(pack) = 1)
+		-> reject(pack | self = pack)
+		-> collect(pack | pack.ownedElements
+							-> reject(elem | elem.oclIsTypeOf(JAVA!AnnotationTypeDeclaration))
+							-> union(
+									pack.ownedElements
+										-> reject(elem | elem.oclIsTypeOf(JAVA!AnnotationTypeDeclaration))
+										-> select(aTDec | not aTDec.originalCompilationUnit.oclIsUndefined())
+										-> collect(aTDec | aTDec.originalCompilationUnit.imports)
+										-> flatten()
+							)
+		)
+		-> flatten()
+;
+
+helper context JAVA!Package def: getOwnNestedPackWithoutDup : Sequence(JAVA!Package) =
+	self.ownedPackages 
+		-> reject(pack | pack.isDupBugModisco
+						 and not pack.isFirstDupBugModisco
+		) 
+;
+
+helper context JAVA!Package def: getSamePackNestedPack : Sequence(JAVA!Package) =
+	self.getPackSameName
+		-> reject(pack | self = pack)
+		-> collect(pack | pack.ownedPackages)
+		-> flatten()
+		-> reject(pack | pack.isDupBugModisco
+				 		 and not pack.isFirstDupBugModisco
+		)
+;

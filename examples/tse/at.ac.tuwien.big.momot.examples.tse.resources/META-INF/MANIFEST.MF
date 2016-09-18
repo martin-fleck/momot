@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Resources
+Bundle-SymbolicName: at.ac.tuwien.big.momot.examples.tse.resources
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.m2m.atl.engine,
+ org.eclipse.m2m.atl.engine.emfvm.launch,
+ org.eclipse.m2m.atl.dsls;bundle-version="3.6.0"

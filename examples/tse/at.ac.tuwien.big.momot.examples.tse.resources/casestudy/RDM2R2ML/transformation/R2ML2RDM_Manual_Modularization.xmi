@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:modularization="http://www.big.tuwien.ac.at/atl/modularization"
+    name="R2ML2RDM">
+  <modules name="lightBlue">
+    <rules name="Implication2Rule"
+        ruleDependencies="//@modules.0/@rules.1"
+        helperDependencies="//@modules.1/@helpers.3 //@modules.0/@helpers.1 //@modules.0/@helpers.2 //@modules.0/@helpers.3 //@modules.0/@helpers.0">
+      <inPattElTypes>src_Implication</inPattElTypes>
+      <bindingNavigations>src_Implication.antecedent</bindingNavigations>
+      <bindingNavigations>src_Implication.consequent</bindingNavigations>
+    </rules>
+    <rules name="LogicalFormula2Intersection"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.15/@rules.1 //@modules.5/@rules.2 //@modules.21/@rules.3"
+        helperDependencies="//@modules.1/@helpers.3 //@modules.0/@helpers.1 //@modules.0/@helpers.2 //@modules.0/@helpers.3 //@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_LogicalFormula</inPattElTypes>
+      <bindingNavigations>src_LogicalFormula.ObjectVariable</bindingNavigations>
+      <bindingNavigations>src_LogicalFormula.getTerm.classRef</bindingNavigations>
+    </rules>
+    <rules name="ObjectVariable2IndividualVariable"
+        ruleDependencies="//@modules.15/@rules.1">
+      <bindingTypes>src_ObjectVariable.name</bindingTypes>
+      <inPattElTypes>src_ObjectVariable</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable.name</bindingNavigations>
+      <bindingNavigations>src_ObjectVariable.classRef</bindingNavigations>
+    </rules>
+    <helpers
+        name="ObjectClassificationAtom__getTerm_"/>
+    <helpers
+        name="LogicalFormula__getDatatypePredicateAtomsWithSubElems_"
+        helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>ReferencePropertyAtom__getElementWithSubElems_</helperDepNames>
+    </helpers>
+    <helpers
+        name="LogicalFormula__getReferencePropertyAtomsWithTermsWithSubElems_"
+        helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>ReferencePropertyAtom__getElementWithSubElems_</helperDepNames>
+    </helpers>
+    <helpers
+        name="ReferencePropertyAtom__getElementWithSubElems_"
+        helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>ReferencePropertyAtom__getElementWithSubElems_</helperDepNames>
+    </helpers>
+    <helpers
+        name="DatatypePredicateAtom__getElementWithSubElems_"
+        helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>ReferencePropertyAtom__getElementWithSubElems_</helperDepNames>
+    </helpers>
+    <helpers
+        name="AttributeFunctionTerm__getElementWithSubElems_"
+        helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>ReferencePropertyAtom__getElementWithSubElems_</helperDepNames>
+    </helpers>
+    <helpers
+        name="ReferencePropertyFunctionTerm__getElementWithSubElems_"
+        helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>ReferencePropertyAtom__getElementWithSubElems_</helperDepNames>
+    </helpers>
+    <helpers
+        name="DataOperationTerm__getElementWithSubElems_"
+        helperDependencies="//@modules.0/@helpers.3">
+      <helperDepNames>ReferencePropertyAtom__getElementWithSubElems_</helperDepNames>
+    </helpers>
+  </modules>
+  <modules name="darkYellow">
+    <helpers
+        name="Implication__getChildren_"
+        helperDependencies="//@modules.1/@helpers.1 //@modules.1/@helpers.2">
+      <helperDepNames>Implication__getAntecedent_</helperDepNames>
+      <helperDepNames>Implication__getConsequent_</helperDepNames>
+    </helpers>
+    <helpers
+        name="Implication__getAntecedent_"
+        helperDependencies="//@modules.1/@helpers.3">
+      <helperDepNames>Conjuction__isConjuctionFromIntersection_</helperDepNames>
+    </helpers>
+    <helpers
+        name="Implication__getConsequent_"
+        helperDependencies="//@modules.1/@helpers.3">
+      <helperDepNames>Conjuction__isConjuctionFromIntersection_</helperDepNames>
+    </helpers>
+    <helpers
+        name="Conjuction__isConjuctionFromIntersection_"
+        helperDependencies="//@modules.0/@helpers.0">
+      <helperDepNames>ObjectClassificationAtom__getTerm_</helperDepNames>
+    </helpers>
+  </modules>
+  <modules name="purple">
+    <rules name="DataVariable2IndividualVariable">
+      <bindingTypes>src_DataVariable.name</bindingTypes>
+      <inPattElTypes>src_DataVariable</inPattElTypes>
+      <bindingNavigations>src_DataVariable.name</bindingNavigations>
+    </rules>
+    <rules name="AtLeastQuantifiedFormulaInClassAtom2MinCardinalityRestriction"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.23/@rules.1"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.formula.subject</bindingNavigations>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.formula.referenceProperty</bindingNavigations>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.minCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastQuantifiedFormulaInDataRangeAtom2MinCardinalityRestriction"
+        ruleDependencies="//@modules.2/@rules.0 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.formula.dataValue</bindingNavigations>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.minCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtMostQuantifiedFormulaClass2MaxCardinalityRestriction"
+        ruleDependencies="//@modules.23/@rules.1 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtMostQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtMostQuantifiedFormulaInDataRangeAtom2MaxCardinalityRestriction"
+        ruleDependencies="//@modules.2/@rules.0 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtMostQuantifiedFormula.formula.dataValue</bindingNavigations>
+      <bindingNavigations>src_AtMostQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastAndAtMostQuantifiedFormulaInClassAtom2CardinalityRestriction"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.23/@rules.1"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastAndAtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.subject</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.referenceProperty</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastAndAtMostQuantifiedFormulaInDataRangeAtom2CardinalityRestriction"
+        ruleDependencies="//@modules.2/@rules.0 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastAndAtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.dataValue</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastAndAtMostQuantifiedFormulaClass2MinMaxCardinalityRestriction"
+        ruleDependencies="//@modules.23/@rules.1 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastAndAtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.minCardinality</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastAndAtMostQuantifiedFormulaClassAtom2MinMaxCardinalityRestriction"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.23/@rules.1"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastAndAtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.subject</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.referenceProperty</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.minCardinality</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastAndAtMostQuantifiedFormulaDataRangeAtom2MinMaxCardinalityRestriction"
+        ruleDependencies="//@modules.2/@rules.0 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastAndAtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.dataValue</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.minCardinality</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="DataClassificationAtom2DataRangeAtomOneOf"
+        ruleDependencies="//@modules.2/@rules.0"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_DataClassificationAtom</inPattElTypes>
+      <bindingNavigations>src_DataClassificationAtom.term</bindingNavigations>
+      <bindingNavigations>src_DataClassificationAtom.type</bindingNavigations>
+    </rules>
+    <rules name="DataClassificationAtom2DataRange"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_DataClassificationAtom</inPattElTypes>
+      <bindingNavigations>src_DataClassificationAtom.type</bindingNavigations>
+    </rules>
+    <rules name="Disjunction2DataRangeAtom"
+        ruleDependencies="//@modules.2/@rules.0"
+        helperDependencies="//@modules.2/@helpers.0 //@modules.0/@helpers.0">
+      <inPattElTypes>src_Disjunction</inPattElTypes>
+      <bindingNavigations>src_Disjunction.formulas</bindingNavigations>
+    </rules>
+    <rules name="Disjunction2DataRange"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_Disjunction</inPattElTypes>
+      <bindingNavigations>src_Disjunction.formulas</bindingNavigations>
+    </rules>
+    <rules name="Attribute2DatatypeProperty"
+        helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_Attribute.name</bindingTypes>
+      <inPattElTypes>src_Attribute</inPattElTypes>
+      <bindingNavigations>src_Attribute.name</bindingNavigations>
+    </rules>
+    <rules name="UniversallyQuantifiedFormulaData2AllValuesFromRestriction"
+        ruleDependencies="//@modules.2/@rules.14"
+        helperDependencies="//@modules.21/@helpers.0 //@modules.2/@helpers.0">
+      <inPattElTypes>src_UniversallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula.consequent</bindingNavigations>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula.antecedent.attribute</bindingNavigations>
+    </rules>
+    <helpers
+        name="_getChildrenOfAllTopMostImplications_"
+        helperDependencies="//@modules.21/@helpers.0 //@modules.1/@helpers.0">
+      <helperDepNames>_getTopMostUniversallyQuantifiedFormulas_</helperDepNames>
+      <helperDepNames>Implication__getChildren_</helperDepNames>
+    </helpers>
+    <helpers
+        name="AtLeastAndAtMostQuantifiedFormula__getTerm_"/>
+  </modules>
+  <modules name="pink">
+    <rules name="Conjuction2ClassAtom"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.15/@rules.1 //@modules.14/@rules.2 //@modules.14/@rules.3"
+        helperDependencies="//@modules.1/@helpers.3 //@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectClassificationAtom</bindingTypes>
+      <inPattElTypes>src_Conjuction</inPattElTypes>
+      <bindingNavigations>src_Conjuction.formulas</bindingNavigations>
+      <bindingNavigations>src_ObjectClassificationAtom</bindingNavigations>
+    </rules>
+    <helpers
+        name="Conjuction__getTerm_"/>
+  </modules>
+  <modules name="lightPink">
+    <rules name="AtMostQuantifiedFormulaInClassAtom2MaxCardinalityRestriction"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.23/@rules.1"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtMostQuantifiedFormula.formula.subject</bindingNavigations>
+      <bindingNavigations>src_AtMostQuantifiedFormula.formula.referenceProperty</bindingNavigations>
+      <bindingNavigations>src_AtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <helpers
+        name="AtMostQuantifiedFormula__getTerm_"/>
+  </modules>
+  <modules name="darkGray">
+    <rules name="ReferencePropertyAtomClass2HasValue"
+        ruleDependencies="//@modules.5/@rules.2 //@modules.23/@rules.1"
+        helperDependencies="//@modules.23/@helpers.1 //@modules.2/@helpers.0">
+      <inPattElTypes>src_ReferencePropertyAtom</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyAtom.object</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom.referenceProperty</bindingNavigations>
+    </rules>
+    <rules name="ReferencePropertyAtomClass2ClassAtomHasValue"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.5/@rules.2 //@modules.23/@rules.1"
+        helperDependencies="//@modules.23/@helpers.1 //@modules.2/@helpers.0">
+      <inPattElTypes>src_ReferencePropertyAtom</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyAtom.subject</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom.object</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom.referenceProperty</bindingNavigations>
+    </rules>
+    <rules name="ObjectVariable2Individual">
+      <bindingTypes>src_ObjectVariable.name</bindingTypes>
+      <inPattElTypes>src_ObjectVariable</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable.name</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lightGray">
+    <rules name="UniversallyQuantifiedFormulaClass2AllValuesFromRestriction"
+        ruleDependencies="//@modules.15/@rules.1 //@modules.23/@rules.1"
+        helperDependencies="//@modules.21/@helpers.0">
+      <inPattElTypes>src_UniversallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula.consequent</bindingNavigations>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula.antecedent.referenceProperty</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="gray">
+    <helpers
+        name="MM_ATL!StringType_toBoolean_"/>
+    <helpers
+        name="ObjectVariable__getElementWithSubElems_"/>
+    <helpers
+        name="DatatypePredicateAtom__getTerm_"/>
+  </modules>
+  <modules name="green">
+    <rules name="TypedLiteral2DataValue">
+      <inPattElTypes>src_TypedLiteral</inPattElTypes>
+      <bindingNavigations>src_TypedLiteral.lexicalValue</bindingNavigations>
+      <bindingNavigations>src_TypedLiteral.type</bindingNavigations>
+    </rules>
+    <rules name="TypedLiteral2TypedLiteral">
+      <inPattElTypes>src_TypedLiteral</inPattElTypes>
+      <bindingNavigations>src_TypedLiteral.type.name</bindingNavigations>
+      <bindingNavigations>src_TypedLiteral.lexicalValue</bindingNavigations>
+    </rules>
+    <rules name="DatatypePredicateAtom2TypedLiteral"
+        ruleDependencies="//@modules.8/@rules.1 //@modules.8/@rules.0">
+      <bindingTypes>src_TypedLiteral</bindingTypes>
+      <inPattElTypes>src_DatatypePredicateAtom</inPattElTypes>
+      <bindingNavigations>src_TypedLiteral</bindingNavigations>
+    </rules>
+    <rules name="DatatypePredicateAtomWithAttributeFuncTerm2BuiltinAtom"
+        ruleDependencies="//@modules.9/@rules.2 //@modules.11/@rules.2 //@modules.11/@rules.1 //@modules.8/@rules.0 //@modules.8/@rules.1">
+      <bindingTypes>src_TypedLiteral</bindingTypes>
+      <inPattElTypes>src_DatatypePredicateAtom</inPattElTypes>
+      <bindingNavigations>src_DatatypePredicateAtom.predicate</bindingNavigations>
+      <bindingNavigations>src_TypedLiteral</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="darkGreen">
+    <rules name="DataVariable2DataVariable">
+      <bindingTypes>src_DataVariable.name</bindingTypes>
+      <inPattElTypes>src_DataVariable</inPattElTypes>
+      <bindingNavigations>src_DataVariable.name</bindingNavigations>
+    </rules>
+    <rules name="DatatypePredicateAtom2BulitinAtom"
+        ruleDependencies="//@modules.9/@rules.2 //@modules.9/@rules.0 //@modules.8/@rules.0 //@modules.8/@rules.1">
+      <bindingTypes>src_TypedLiteral</bindingTypes>
+      <inPattElTypes>src_DatatypePredicateAtom</inPattElTypes>
+      <bindingNavigations>src_DatatypePredicateAtom.predicate</bindingNavigations>
+      <bindingNavigations>src_TypedLiteral</bindingNavigations>
+    </rules>
+    <rules name="DatatypePredicate2BuiltIn">
+      <bindingTypes>src_DatatypePredicate.name</bindingTypes>
+      <inPattElTypes>src_DatatypePredicate</inPattElTypes>
+      <bindingNavigations>src_DatatypePredicate.name</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lightGreen">
+    <rules name="ExistentiallyQuantifiedFormulaData2SomeValuesFromRestriction"
+        ruleDependencies="//@modules.2/@rules.14 //@modules.10/@rules.1 //@modules.10/@rules.2"
+        helperDependencies="//@modules.2/@helpers.0">
+      <bindingTypes>src_AttributionAtom</bindingTypes>
+      <inPattElTypes>src_ExistentiallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AttributionAtom</bindingNavigations>
+    </rules>
+    <rules name="AttributeAtomData2DataValuedPropertyAtom"
+        ruleDependencies="//@modules.2/@rules.14 //@modules.8/@rules.0 //@modules.0/@rules.2 //@modules.9/@rules.0"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AttributionAtom</inPattElTypes>
+      <bindingNavigations>src_AttributionAtom.attribute</bindingNavigations>
+      <bindingNavigations>src_AttributionAtom.subject</bindingNavigations>
+    </rules>
+    <rules name="AttributionAtomData2HasValueRestriction"
+        ruleDependencies="//@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AttributionAtom</inPattElTypes>
+      <bindingNavigations>src_AttributionAtom.dataValue</bindingNavigations>
+      <bindingNavigations>src_AttributionAtom.attribute</bindingNavigations>
+    </rules>
+    <helpers
+        name="AttributionAtom__getTerm_"/>
+  </modules>
+  <modules name="lightBlue1">
+    <rules name="ReferencePropertyFunctionTerm2IndividualVariable"
+        helperDependencies="//@modules.11/@helpers.0 //@modules.11/@helpers.1">
+      <inPattElTypes>src_ReferencePropertyFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyFunctionTerm.contextArgument</bindingNavigations>
+    </rules>
+    <rules name="DataOperationTerm2IndividualVariable"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.5/@rules.2 //@modules.21/@rules.3"
+        helperDependencies="//@modules.11/@helpers.0 //@modules.11/@helpers.1">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_DataOperationTerm</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable</bindingNavigations>
+    </rules>
+    <rules name="AttributeFunctionTerm2IndividualVariable"
+        helperDependencies="//@modules.11/@helpers.0 //@modules.11/@helpers.1">
+      <inPattElTypes>src_AttributeFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_AttributeFunctionTerm.contextArgument</bindingNavigations>
+    </rules>
+    <helpers
+        name="MM_ATL!StringType_firstCharToUpper_"/>
+    <helpers
+        name="ReferencePropertyFunctionTerm__getVariableName_"
+        helperDependencies="//@modules.11/@helpers.0">
+      <helperDepNames>MM_ATL!StringType_firstCharToUpper_</helperDepNames>
+    </helpers>
+  </modules>
+  <modules name="yellow">
+    <rules name="Attribute2ObjectProperty">
+      <bindingTypes>src_Attribute.name</bindingTypes>
+      <inPattElTypes>src_Attribute</inPattElTypes>
+      <bindingNavigations>src_Attribute.name</bindingNavigations>
+    </rules>
+    <rules name="AttributeFunctionTerm2IndividualPropertyAtom"
+        ruleDependencies="//@modules.12/@rules.0 //@modules.0/@rules.2 //@modules.11/@rules.0 //@modules.11/@rules.2">
+      <inPattElTypes>src_AttributeFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_AttributeFunctionTerm.attribute</bindingNavigations>
+      <bindingNavigations>src_AttributeFunctionTerm.contextArgument</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lightYellow">
+    <rules name="DisjunctionFromIntersection2EnumeratedClass"
+        ruleDependencies="//@modules.13/@rules.2">
+      <bindingTypes>src_ObjectName</bindingTypes>
+      <inPattElTypes>src_Disjunction</inPattElTypes>
+      <bindingNavigations>src_ObjectName</bindingNavigations>
+    </rules>
+    <rules name="DisjunctionFromAtom2EnumeratedClass"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.13/@rules.2"
+        helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectName</bindingTypes>
+      <inPattElTypes>src_Disjunction</inPattElTypes>
+      <bindingNavigations>src_Disjunction.formulas</bindingNavigations>
+      <bindingNavigations>src_ObjectName</bindingNavigations>
+    </rules>
+    <rules name="ObjectName2Individual">
+      <bindingTypes>src_ObjectName.name</bindingTypes>
+      <inPattElTypes>src_ObjectName</inPattElTypes>
+      <bindingNavigations>src_ObjectName.name</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="yellowGold">
+    <rules name="DisjunctionAtom2Union"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.15/@rules.1 //@modules.14/@rules.2 //@modules.14/@rules.3"
+        helperDependencies="//@modules.2/@helpers.0 //@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectClassificationAtom</bindingTypes>
+      <inPattElTypes>src_Disjunction</inPattElTypes>
+      <bindingNavigations>src_Disjunction.formulas</bindingNavigations>
+      <bindingNavigations>src_ObjectClassificationAtom</bindingNavigations>
+    </rules>
+    <rules name="Disjunction2Union"
+        ruleDependencies="//@modules.15/@rules.1 //@modules.14/@rules.2 //@modules.14/@rules.3"
+        helperDependencies="//@modules.2/@helpers.0 //@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectClassificationAtom</bindingTypes>
+      <inPattElTypes>src_Disjunction</inPattElTypes>
+      <bindingNavigations>src_ObjectClassificationAtom</bindingNavigations>
+    </rules>
+    <rules name="ObjectClassificationAtom2ClassAtom"
+        ruleDependencies="//@modules.15/@rules.1 //@modules.0/@rules.2"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_ObjectClassificationAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectClassificationAtom.type</bindingNavigations>
+      <bindingNavigations>src_ObjectClassificationAtom.term</bindingNavigations>
+    </rules>
+    <rules name="ObjectClassificationAtomNegated2ComplementClassAtom"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.15/@rules.1"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_ObjectClassificationAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectClassificationAtom.term</bindingNavigations>
+      <bindingNavigations>src_ObjectClassificationAtom.type</bindingNavigations>
+    </rules>
+    <helpers
+        name="Disjunction__getTerm_"/>
+  </modules>
+  <modules name="blue">
+    <rules name="Negation2Complement"
+        ruleDependencies="//@modules.15/@rules.1"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_StrongNegation</inPattElTypes>
+      <bindingNavigations>src_StrongNegation.formula</bindingNavigations>
+    </rules>
+    <rules name="Class2Class">
+      <bindingTypes>src_Class.name</bindingTypes>
+      <inPattElTypes>src_Class</inPattElTypes>
+      <bindingNavigations>src_Class.name</bindingNavigations>
+    </rules>
+    <rules name="ExistentiallyQuantifiedFormulaData2DataRangeAtomSomeValuesFromRestriction"
+        ruleDependencies="//@modules.2/@rules.0 //@modules.2/@rules.14 //@modules.0/@rules.2 //@modules.5/@rules.2 //@modules.10/@rules.1 //@modules.10/@rules.2 //@modules.21/@rules.3"
+        helperDependencies="//@modules.2/@helpers.0 //@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <bindingTypes>src_AttributionAtom</bindingTypes>
+      <inPattElTypes>src_ExistentiallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_ExistentiallyQuantifiedFormula.formula.antecedent.ObjectVariable</bindingNavigations>
+      <bindingNavigations>src_AttributionAtom</bindingNavigations>
+    </rules>
+    <helpers
+        name="ExistentiallyQuantifiedFormula__getTerm_"/>
+  </modules>
+  <modules name="lonely1">
+    <rules name="PlainLiteral2PlainLiteral">
+      <inPattElTypes>src_PlainLiteral</inPattElTypes>
+      <bindingNavigations>src_PlainLiteral.languageTag</bindingNavigations>
+      <bindingNavigations>src_PlainLiteral.lexicalValue</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lonely2">
+    <rules name="DatatypePredicateAtom2PlainLiteral">
+      <bindingTypes>src_DataLiteral</bindingTypes>
+      <inPattElTypes>src_DatatypePredicateAtom</inPattElTypes>
+      <bindingNavigations>src_DataLiteral</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lonely3">
+    <rules name="ReferenceProperty2DatatypeProperty">
+      <bindingTypes>src_ReferenceProperty.name</bindingTypes>
+      <inPattElTypes>src_ReferenceProperty</inPattElTypes>
+      <bindingNavigations>src_ReferenceProperty.name</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lonely4">
+    <rules name="Datatype2PrimitiveType">
+      <bindingTypes>src_Datatype.name</bindingTypes>
+      <inPattElTypes>src_Datatype</inPattElTypes>
+      <bindingNavigations>src_Datatype.name</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lonely5">
+    <helpers
+        name="EqualityAtom__getTerm_"/>
+  </modules>
+  <modules name="orange">
+    <rules name="NegationAtom2Complement"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.15/@rules.1 //@modules.5/@rules.2 //@modules.21/@rules.3"
+        helperDependencies="//@modules.2/@helpers.0 //@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_StrongNegation</inPattElTypes>
+      <bindingNavigations>src_StrongNegation.formula.ObjectVariable</bindingNavigations>
+      <bindingNavigations>src_StrongNegation.formula</bindingNavigations>
+    </rules>
+    <rules name="EqualityAtom2SameIndividualAtom"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.5/@rules.2 //@modules.21/@rules.3">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_EqualityAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable</bindingNavigations>
+    </rules>
+    <rules name="InequalityAtom2DifferentIndividualAtom"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.5/@rules.2 //@modules.21/@rules.3">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_InequalityAtom</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable</bindingNavigations>
+    </rules>
+    <rules name="ObjectVariable2ClassAtom"
+        ruleDependencies="//@modules.15/@rules.1 //@modules.0/@rules.2">
+      <inPattElTypes>src_ObjectVariable</inPattElTypes>
+      <bindingNavigations>src_ObjectVariable.classRef</bindingNavigations>
+    </rules>
+    <rules name="UniversallyQuantifiedFormulaData2DataRangeAtomAllValuesFromRestriction"
+        ruleDependencies="//@modules.2/@rules.0 //@modules.2/@rules.14 //@modules.0/@rules.2 //@modules.5/@rules.2 //@modules.21/@rules.3"
+        helperDependencies="//@modules.21/@helpers.0 //@modules.2/@helpers.0 //@modules.0/@helpers.0">
+      <bindingTypes>src_ObjectVariable</bindingTypes>
+      <inPattElTypes>src_UniversallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula.antecedent.ObjectVariable</bindingNavigations>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula.consequent</bindingNavigations>
+      <bindingNavigations>src_UniversallyQuantifiedFormula.formula.antecedent.attribute</bindingNavigations>
+    </rules>
+    <helpers
+        name="_getTopMostUniversallyQuantifiedFormulas_"/>
+    <helpers
+        name="UniversallyQuantifiedFormula__getTerm_"/>
+  </modules>
+  <modules name="red">
+    <rules name="DataOperation2ObjectProperty">
+      <bindingTypes>src_DataOperation.name</bindingTypes>
+      <inPattElTypes>src_DataOperation</inPattElTypes>
+      <bindingNavigations>src_DataOperation.name</bindingNavigations>
+    </rules>
+    <rules name="DataOperationTerm2IndividualPropertyAtom"
+        ruleDependencies="//@modules.22/@rules.0 //@modules.0/@rules.2 //@modules.11/@rules.1">
+      <inPattElTypes>src_DataOperationTerm</inPattElTypes>
+      <bindingNavigations>src_DataOperationTerm.dataOperationRef</bindingNavigations>
+      <bindingNavigations>src_DataOperationTerm.contextArgument</bindingNavigations>
+    </rules>
+  </modules>
+  <modules name="lightOrange">
+    <rules name="ReferencePropertyAtom2IndividualPropertyAtom"
+        ruleDependencies="//@modules.23/@rules.1 //@modules.0/@rules.2"
+        helperDependencies="//@modules.23/@helpers.1 //@modules.23/@helpers.2">
+      <inPattElTypes>src_ReferencePropertyAtom</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyAtom.referenceProperty</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom.subject</bindingNavigations>
+    </rules>
+    <rules name="ReferenceProperty2ObjectProperty">
+      <bindingTypes>src_ReferenceProperty.name</bindingTypes>
+      <inPattElTypes>src_ReferenceProperty</inPattElTypes>
+      <bindingNavigations>src_ReferenceProperty.name</bindingNavigations>
+    </rules>
+    <rules name="ExistentiallyQuantifiedFormulaClass2SomeValuesFromRestriction"
+        ruleDependencies="//@modules.15/@rules.1 //@modules.23/@rules.1 //@modules.23/@rules.0 //@modules.14/@rules.2 //@modules.14/@rules.3 //@modules.5/@rules.0 //@modules.5/@rules.1 //@modules.23/@rules.7"
+        helperDependencies="//@modules.2/@helpers.0">
+      <bindingTypes>src_ObjectClassificationAtom</bindingTypes>
+      <bindingTypes>src_ReferencePropertyAtom</bindingTypes>
+      <inPattElTypes>src_ExistentiallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_ObjectClassificationAtom</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom</bindingNavigations>
+    </rules>
+    <rules name="ExistentiallyQuantifiedFormulaClass2ClassAtomSomeValuesFromRestriction"
+        ruleDependencies="//@modules.0/@rules.2 //@modules.15/@rules.1 //@modules.23/@rules.1 //@modules.23/@rules.0 //@modules.14/@rules.2 //@modules.14/@rules.3 //@modules.5/@rules.0 //@modules.5/@rules.1 //@modules.23/@rules.7"
+        helperDependencies="//@modules.2/@helpers.0 //@modules.0/@helpers.0">
+      <bindingTypes>src_ReferencePropertyAtom</bindingTypes>
+      <bindingTypes>src_ObjectClassificationAtom</bindingTypes>
+      <inPattElTypes>src_ExistentiallyQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyAtom</bindingNavigations>
+      <bindingNavigations>src_ObjectClassificationAtom</bindingNavigations>
+    </rules>
+    <rules name="AtLeastQuantifiedFormula2MinCardinalityRestriction"
+        ruleDependencies="//@modules.23/@rules.1 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtLeastQuantifiedFormula.minCardinality</bindingNavigations>
+    </rules>
+    <rules name="AtLeastAndAtMostQuantifiedFormulaClass2CardinalityRestriction"
+        ruleDependencies="//@modules.23/@rules.1 //@modules.2/@rules.14"
+        helperDependencies="//@modules.2/@helpers.0">
+      <inPattElTypes>src_AtLeastAndAtMostQuantifiedFormula</inPattElTypes>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.formula.attribute</bindingNavigations>
+      <bindingNavigations>src_AtLeastAndAtMostQuantifiedFormula.maxCardinality</bindingNavigations>
+    </rules>
+    <rules name="ReferencePropertyFunctionTerm2IndividualPropertyAtom"
+        ruleDependencies="//@modules.23/@rules.1 //@modules.0/@rules.2 //@modules.11/@rules.0">
+      <inPattElTypes>src_ReferencePropertyFunctionTerm</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyFunctionTerm.referencePropertyRef</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyFunctionTerm.contextVariable</bindingNavigations>
+    </rules>
+    <rules name="ReferencePropertyAtom2IndividualPropertyAtoms"
+        ruleDependencies="//@modules.23/@rules.1 //@modules.0/@rules.2 //@modules.11/@rules.0"
+        helperDependencies="//@modules.23/@helpers.1 //@modules.23/@helpers.2">
+      <inPattElTypes>src_ReferencePropertyAtom</inPattElTypes>
+      <bindingNavigations>src_ReferencePropertyAtom.referenceProperty</bindingNavigations>
+      <bindingNavigations>src_ReferencePropertyAtom.object</bindingNavigations>
+    </rules>
+    <helpers
+        name="ReferencePropertyAtom__getTerm_"/>
+    <helpers
+        name="ReferencePropertyAtom__isRefPropAtomForHasValue_"
+        helperDependencies="//@modules.2/@helpers.0 //@modules.21/@helpers.0">
+      <helperDepNames>_getChildrenOfAllTopMostImplications_</helperDepNames>
+      <helperDepNames>_getTopMostUniversallyQuantifiedFormulas_</helperDepNames>
+    </helpers>
+    <helpers
+        name="ReferencePropertyAtom__areAllObjectVariables_"/>
+    <helpers
+        name="AtLeastQuantifiedFormula__getTerm_"/>
+  </modules>
+</modularization:Transformation>

@@ -1,0 +1,1376 @@
+-- @atlcompiler atl2006
+module ec2ma; -- Module Template
+create OUT : Maude from IN : Ecore; --, INPAR : Parameter;
+
+helper def : metamodelName : String = 
+	let rootPackages : Sequence(Ecore!EPackage) = 
+		Ecore!EPackage.allInstancesFrom('IN')->select(p | p.eSuperPackage.oclIsUndefined()) in
+		'@' + rootPackages->first().name.processSpecModChars().processSpecOpChars() + '@'
+--			'@' + thisModule.getParameter('metamodelName').processSpecModChars().processSpecOpChars() + '@'
+;
+
+--Precede la barra invertida (\) a todas las dobles comillas que aparezcan en la cadena
+--	(a modo de escape para poder tratarlos en Maude)
+helper context String def: escapeQuotes() : String =
+	--Esta hecho asi porque aunque replaceAll funciona con \, no regexReplaceAll
+	let finalString : String = self.split('"')->iterate(e; res : String = '' | res + e + '\\"') in
+	finalString->substring(1, finalString.size()-2);
+
+--helper def : getParameter(name : String) : String =
+--    Parameter!Parameter.allInstances()->select(p | p.name = name)->first().value;	
+
+--- Descarta los caracteres especiales en la declaracion de operaciones. Como cada elemento
+---		se transforma en una operacion, se lo procesamos a todos los elementos del metamodelo
+---		En la trasnformacion inversa, estos cambios se desharan...
+helper context String def : processSpecOpChars() : String =
+    self.regexReplaceAll('`','@\'@').regexReplaceAll('_','@-@').regexReplaceAll(' ','@#@');	
+
+helper context String def : processSpecModChars() : String =
+   self.replaceAll('{','-').replaceAll('}','-').replaceAll('(','-').replaceAll(')','-').replaceAll('[','-')
+	.replaceAll(']','-').replaceAll(',','-').replaceAll(' ','-');
+
+-- Como puede que no se consiga llamar este helper de todos lados (Los Enumeration que no son de Ecore), cada vez que se use un literal hay
+-- que añadirle .processSpecOpChars()
+helper context OclAny def : maudeLiteralName(enum : Ecore!EEnum) : String =
+   self.toString().processSpecOpChars() + '@' + enum.maudeNameAux(); 
+
+helper context OclAny def : maudeName() : String =
+	-- Por la referencia a elementos de otro mtemodelos externos
+	let maudeName : String = self.maudeNameAux() in
+	if maudeName.oclIsUndefined() then 'NONAMED' + self.oclType().toString()
+	else maudeName.processSpecOpChars() endif;
+--- Los enumLiterasl no entraran por aqui porqeu se tratan de forma especial.
+--- Asi, hay que ejecutarles la operacion .processSpecOpChars() donde se usen 
+	
+helper context OclAny def : maudeNameAux() : String =
+if (self.oclIsKindOf(Ecore!EPackage)) then
+	if (self.eSuperPackage.oclIsUndefined())then 
+		self.name -- + '@' + thisModule.metamodelName
+    else 
+    	self.name + '@' + self.eSuperPackage.maudeName()  
+    endif
+else if (self.oclIsKindOf(Ecore!EClassifier)) then
+	    if (self.ePackage.oclIsUndefined())then 
+			self.name
+	    else 
+	    	self.name + '@' + self.ePackage.maudeName()  
+	    endif
+	else if (self.oclIsKindOf(Ecore!EStructuralFeature)) then
+			self.name + '@' + if (self.eContainingClass.oclIsUndefined()) 
+								-- Para los structural features definidos dentro de anotations
+								then self.refImmediateComposite().refImmediateComposite().maudeName()
+								else self.eContainingClass.maudeName() endif
+		else if (self.oclIsKindOf(Ecore!EEnumLiteral)) then
+				self.name + '@' + self.eEnum.maudeName()
+			else 'NONAMED' + self.oclType().toString() 
+			endif
+		endif
+	endif
+endif;
+ 
+
+helper context Ecore!ENamedElement def: normalizedName() : String = '"' + self.name + '"';
+	
+helper context OclAny def: maudeSort() : Maude!Sort =
+		if self.oclIsTypeOf(Ecore!EPackage) then
+				thisModule.sortPack										
+		else
+			if self.oclIsTypeOf(Ecore!EClass) then
+				thisModule.sortClass
+			else
+				if self.oclIsTypeOf(Ecore!EReference) then
+					thisModule.sortRef
+				else
+					if self.oclIsTypeOf(Ecore!EAttribute) then
+						thisModule.sortAtt
+					else
+						if self.oclIsTypeOf(Ecore!EEnum) then
+							thisModule.sortEnumeration
+						else if self.oclIsTypeOf(Ecore!EEnumLiteral) then
+								thisModule.sortEnumInst
+							else		
+								thisModule.errorSort
+							endif
+						endif
+					endif
+				endif
+			endif	
+		endif;
+
+helper def : lhsType(s : Sequence(Ecore!ENamedElement)) : Maude!Sort =
+	if s -> size()=1 then
+		s->first().maudeSort()
+	else
+		thisModule.myListSort
+	endif;
+
+
+helper context Ecore!EPackage def: maudeMaybePackSort() : Maude!Sort =
+	if self.eSuperPackage.oclIsUndefined() then	
+		thisModule.sortOclVoid
+	else
+		thisModule.sortPack
+	endif;
+
+helper context Ecore!EReference def: maudeMaybeRefSort() : Maude!Sort =
+	if self.eOpposite.oclIsUndefined() then	
+		thisModule.sortOclVoid
+	else
+		thisModule.sortRef
+	endif;
+
+helper context Ecore!EStructuralFeature def: maudeEqTypeAttRef() : Maude!Sort =
+	if self.oclIsTypeOf(Ecore!EReference) then
+		thisModule.sortClass
+	else
+		thisModule.sortDataType
+	endif;
+
+helper context Ecore!EAttribute def: attDataType() : String = --El último or de cada línea es por los PrimitiveTypes de KM3
+	if self.eAttributeType = Ecore!EString or self.eAttributeType.name = 'String' then
+		'@String'
+	else
+		if self.eAttributeType = Ecore!EBoolean or self.eAttributeType = Ecore!EBooleanObject or self.eAttributeType.name = 'Boolean' then
+			'@Bool'
+		else
+			if self.eAttributeType = Ecore!EInt or self.eAttributeType = Ecore!EIntegerObject or self.eAttributeType.name = 'Integer' then
+				'@Int'
+			else
+				if self.eAttributeType = Ecore!EFloat or self.eAttributeType = Ecore!EFloatObject 
+					or self.eAttributeType = Ecore!EDouble or self.eAttributeType = Ecore!EDoubleObject
+					or self.eAttributeType.name = 'Double' then
+					'@Float'
+				else
+					if self.eAttributeType.oclIsTypeOf(Ecore!EEnum) then--self.eAttributeType.oclType() = Ecore!EEnum then ESTO SI FUNCIONA
+						self.eAttributeType.maudeName()					--self.eAttributeType = Ecore!EEnum then ESTO NO FUNCIONA
+					else
+						'@DataType'
+					endif
+				endif
+			endif
+		endif
+	endif;
+
+-- Así defino variables globales
+
+helper def: listSort : Maude!Sort = OclUndefined;
+helper def: listOperator : String = '_#_';
+helper def: mtOrdOperator : String = 'mt-ord';
+--helper def: undefinedOp : String = 'Undefined';
+helper def: nullMaybeOp : String = 'null'; --'undefined';
+helper def: emptyListOp : String = 'nil';
+helper def: myListOp : String = '__';
+--helper def: sequenceOperator : String = 'Sequence[_]';
+helper def: mSpec : Maude!MaudeSpec = OclUndefined;
+helper def: sortMetamod : Maude!Sort = OclUndefined;
+helper def: sortClass : Maude!Sort = OclUndefined; 
+helper def: sModule : Maude!SModule = OclUndefined;
+helper def: sModuleEcore : Maude!SModule = OclUndefined;
+helper def: sortPack : Maude!Sort = OclUndefined;
+helper def: sortDataType : Maude!Sort = OclUndefined;
+helper def: sortClassifier : Maude!Sort = OclUndefined;
+helper def: sortRef : Maude!Sort = OclUndefined;
+helper def: sortAtt : Maude!Sort = OclUndefined;
+helper def: sortInt : Maude!Sort = OclUndefined;
+helper def: sortBool : Maude!Sort = OclUndefined;
+helper def: sortString : Maude!Sort = OclUndefined;
+--helper def: sortList : Maude!Sort = OclUndefined;
+helper def: sortEnumeration : Maude!Sort = OclUndefined;
+helper def: sortEnumInst : Maude!Sort = OclUndefined;
+helper def: errorSort : Maude!Sort = OclUndefined;
+helper def: namedElList : Maude!Sort = OclUndefined;
+helper def: myListSort : Maude!Sort = OclUndefined;
+--helper def: sortSequence : Maude!Sort = OclUndefined;
+helper def: sortOclVoid : Maude!Sort = OclUndefined;
+helper def: sortBasicType : Maude!Sort = OclUndefined;
+
+-- rule 1
+-- Aquí defino los sorts necesarios
+entrypoint rule Initialize(){
+	to
+		mSpec : Maude!MaudeSpec(
+			els <- Sequence{sModuleEcore},
+			printableEls <- Sequence{}
+			),
+		sModule : Maude!SModule(
+			name <- thisModule.metamodelName.toUpper(),  
+			els <- mImport
+			),
+		
+		mImport : Maude!ModImportation(
+			mode <- #protecting,			
+			imports <- moduleIdModExp		
+			),
+		moduleIdModExp : Maude!ModuleIdModExp(
+			"module" <- sModuleEcore
+			),
+			--Asi inluimos Ecore y la validacion de modelos conforme a su metamodelo. 
+		sModuleEcore : Maude!SModule(
+			name <- '@ECORE@'
+			),		
+		
+		sortPack : Maude!Sort (
+			name <- '@Package',
+			"module" <- sModuleEcore
+			),
+		sortBasicType : Maude!Sort (
+			name <- '@BasicType',
+			"module" <- sModuleEcore
+			),
+		sortClassifier : Maude!Sort (
+			name <- '@Classifier',
+			"module" <- sModuleEcore
+			),
+		sortDataType : Maude!Sort (
+			name <- '@DataType',
+			"module" <- sModuleEcore
+			),
+		sortClass : Maude!Sort (
+			name <- '@Class',	
+			"module" <- sModuleEcore
+			),
+		sortMetamod : Maude!Sort (
+			name <- '@Metamodel',
+			"module" <- sModuleEcore
+			),
+		errorSort : Maude!Sort (
+			name <- '@ERROR@',
+			"module" <- sModuleEcore
+		),			
+		sortAtt : Maude!Sort (
+			name <- '@Attribute',
+			"module" <- sModuleEcore
+			),
+		sortRef : Maude!Sort (
+			name <- '@Reference',
+			"module" <- sModuleEcore
+			),
+		
+			
+-- Constantes para tipos (string,int...)
+
+		sortInt : Maude!Sort (		
+			name <- 'Int',
+			"module" <- sModuleEcore
+			),
+		sortNat : Maude!Sort (		
+			name <- 'Nat',
+			"module" <- sModuleEcore
+			),
+		sortNat2 : Maude!Sort (		
+			name <- 'Nat',
+			"module" <- sModuleEcore
+			),
+		sortBool : Maude!Sort (	
+			name <- 'Bool',
+			"module" <- sModuleEcore
+			),
+		sortString : Maude!Sort (		
+			name <- 'String',
+			"module" <- sModuleEcore
+			),
+--		sortList : Maude!Sort (		
+--			name <- 'List',
+--			"module" <- sModuleEcore
+--			),
+
+		listSort : Maude!Sort ( --un poco confuso darle este nombre. No confundir con sortList. Se le da este nombre para no variarlo respecto al resto de transformaciones		
+			name <- 'List{OCL-Exp}',
+			"module" <- sModuleEcore
+			),	
+			
+		sortEnumeration : Maude!Sort (
+			name <- '@Enumeration',
+			"module" <- sModuleEcore		
+			),
+		sortEnumInst : Maude!Sort (
+			name <- '@EnumerationInstance',
+			"module" <- sModuleEcore		
+			),
+		myListSort : Maude!Sort (
+			name <- 'MyList', --'ListOrd',
+			"module" <- sModuleEcore
+			),
+--		sortSequence : Maude!Sort (
+--			name <- 'Sequence',
+--			"module" <- sModuleEcore
+--			),
+		sortOclVoid : Maude!Sort (
+			name <- 'OclVoid',
+			"module" <- sModuleEcore
+			),
+			
+-- Operación del METAMODELO
+		opMetaMod : Maude!Operation (
+			name <- thisModule.metamodelName,
+			coarity <- sortMetamod,
+			"module" <- sModule
+			)
+--Ahora inicializo los SORT
+		do{
+			thisModule.mSpec <- mSpec; 
+			thisModule.sortMetamod <- sortMetamod;
+			thisModule.mSpec <- mSpec;
+			thisModule.sortClass <- sortClass;
+			thisModule.sModule <- sModule;
+			thisModule.sModuleEcore <- sModuleEcore;
+			thisModule.sortClassifier <- sortClassifier;
+			thisModule.sortPack <- sortPack;
+			thisModule.sortDataType <- sortDataType;
+			thisModule.sortRef <- sortRef;			
+			thisModule.sortAtt <- sortAtt;			
+			thisModule.sortInt <- sortInt;
+			thisModule.sortBool <- sortBool;
+			thisModule.sortString <- sortString;
+			--thisModule.sortList <- sortString;		
+			thisModule.sortEnumeration <- sortEnumeration;
+			thisModule.sortEnumInst <- sortEnumInst;
+			thisModule.MetamodelEqName();
+			thisModule.MetamodelEqPackages();	
+			thisModule.errorSort <- errorSort;
+			thisModule.myListSort <- myListSort;
+--			thisModule.sortSequence <- sortSequence;
+			thisModule.sortOclVoid <- sortOclVoid;
+			thisModule.sortBasicType <- sortBasicType;
+			thisModule.listSort <- listSort;
+		}
+}
+
+-- rule 2
+--Rule para crear la ecuación NAME de METAMODEL
+rule MetamodelEqName() {		--Para el nombre del metamodel he creado una rule diferente
+	to							--porque no tengo un objeto Ecore que pasarle
+		eqName : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqName,
+			rhs <- rhsEqName
+			),
+		lhsEqName : Maude!RecTerm(
+			op <- 'name',
+			type <- thisModule.sortString,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- thisModule.metamodelName,
+			type <- thisModule.sortMetamod
+			),
+		rhsEqName : Maude!Constant(
+			op <- '"' + thisModule.metamodelName.substring(2,thisModule.metamodelName.size() - 1) + '"',
+			type <- thisModule.sortString
+			)
+}
+
+
+-- rule 3
+--Rule para crear la ecuación que define los PACKAGES que hay en el METAMODEL
+rule MetamodelEqPackages() {
+	to
+		eqPack : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqPack,
+			rhs <- if Ecore!EPackage.allInstancesFrom('IN')->select(p|p.eSuperPackage.oclIsUndefined()) -> isEmpty() then
+						thisModule.EmptyList('')
+					else
+						if Ecore!EPackage.allInstancesFrom('IN')->select(p|p.eSuperPackage.oclIsUndefined()) -> size() = 1 then
+							thisModule.NamedElConstant(Ecore!EPackage.allInstancesFrom('IN')->select(p|p.eSuperPackage.oclIsUndefined())->first())
+						else
+							thisModule.NamedElList(Ecore!EPackage.allInstancesFrom('IN')->select(p|p.eSuperPackage.oclIsUndefined()))
+						endif
+					endif
+
+			),
+		lhsEqPack : Maude!RecTerm(
+			op <- 'packages',
+			type <- thisModule.lhsType(Ecore!EPackage.allInstancesFrom('IN')->select(p|p.eSuperPackage.oclIsUndefined()).asSequence()),
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- thisModule.metamodelName,
+			type <- thisModule.sortMetamod
+			)
+}
+	
+-- rule 4
+--Rule para transformar PACKAGE en OPERATION
+rule Package2Operation{
+	from
+		pack : Ecore!EPackage
+	to
+		opPack : Maude!Operation(
+			name <- pack.maudeName(),
+			coarity <- thisModule.sortPack,
+			"module" <- thisModule.sModule
+			)
+	do{
+		thisModule.EqName(pack);
+		thisModule.PackEqMetamodel(pack);
+		thisModule.PackEqSupPackage(pack);
+		thisModule.PackEqSubPackages(pack);
+		thisModule.PackEqClasses(pack);
+	}
+}
+
+-- rule 5
+--Regla que crea la ecuación que indica el METAMODELO de un PACKAGE
+rule PackEqMetamodel (pack : Ecore!EPackage) {
+	to
+		eqName : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqName,
+			rhs <- rhsEqName
+			),
+		lhsEqName : Maude!RecTerm(
+			op <- 'metamodel',
+			type <- thisModule.sortMetamod,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- pack.maudeName(),
+			type <- thisModule.sortPack
+			),
+		rhsEqName : Maude!Constant(
+			op <- thisModule.metamodelName,
+			type <- thisModule.sortMetamod
+			)
+}
+
+-- rule 6
+--Rule para crear la ecuación que indica el SUPERPACKAGE de un PACKAGE
+rule PackEqSupPackage (pack : Ecore!EPackage) {
+	to
+		eqSupPack : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqSupPack,
+			rhs <- rhsEqSupPack
+			),
+		lhsEqSupPack : Maude!RecTerm(
+			op <- 'superPackage',
+			type <- pack.maudeMaybePackSort(),
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- pack.maudeName(),
+			type <- thisModule.sortPack
+			),
+		rhsEqSupPack : Maude!Constant(
+			op <- if pack.eSuperPackage.oclIsUndefined() then
+						thisModule.nullMaybeOp--thisModule.undefinedOp
+					else
+						pack.eSuperPackage.maudeName()
+					endif,
+			type <- pack.maudeMaybePackSort()
+			)
+}
+
+-- rule 7
+--Rule para la ecuación que define los SUBPACKAGES contenidos en un PACKAGE
+rule PackEqSubPackages(pack : Ecore!EPackage) {
+	to
+		eqSubPack : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqSubPack,
+			rhs <- --thisModule.SeqSubPackages(pack)
+					if pack.eSubpackages -> isEmpty() then
+						thisModule.EmptyList('')
+					else
+						if pack.eSubpackages -> size() = 1 then
+							thisModule.NamedElConstant(pack.eSubpackages->first())
+						else
+							thisModule.NamedElList(pack.eSubpackages)
+						endif
+					endif
+			),
+		lhsEqSubPack : Maude!RecTerm(
+			op <- 'subPackages',
+			type <- thisModule.myListSort,--thisModule.sortSequence,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- pack.maudeName(),
+			type <- thisModule.sortPack
+			)
+}
+
+--lazy rule SeqSubPackages{
+--	from
+--		pack : Ecore!EPackage
+--	to
+--		seq : Maude!RecTerm(
+--			op <- thisModule.sequenceOperator,
+--			type <- thisModule.sortSequence,
+--			args <- if pack.eSubpackages -> isEmpty() then
+--						thisModule.EmptyList('')
+--					else
+--						if pack.eSubpackages -> size() = 1 then
+--							thisModule.NamedElConstant(pack.eSubpackages->first())
+--						else
+--							thisModule.NamedElList(pack.eSubpackages)
+--						endif
+--					endif
+--			)
+--}
+-- rule 8
+--Rule para la ecuación que define los CLASSIFIER contenidos en un PACKAGE
+rule PackEqClasses (pack : Ecore!ENamedElement) {
+	to
+		eqClasses : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqClasses,
+			rhs <- --thisModule.SeqClasses(pack)
+					if pack.eClassifiers -> select(c|c.oclIsTypeOf(Ecore!EClass)) -> isEmpty() then
+						thisModule.EmptyList('')
+					else
+						if pack.eClassifiers -> select(c|c.oclIsTypeOf(Ecore!EClass))-> size() = 1 then
+							thisModule.NamedElConstant(pack.eClassifiers->first())
+						else
+							thisModule.NamedElList(pack.eClassifiers -> select(c|c.oclIsTypeOf(Ecore!EClass))) --para que sólo se metan en la lista los EClass y no los EDataType
+						endif
+					endif
+			),
+		lhsEqClasses : Maude!RecTerm(
+			op <- 'classes',
+			type <- thisModule.myListSort, --thisModule.sortSequence,--thisModule.lhsType(pack.eClassifiers),
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- pack.maudeName(),
+			type <- thisModule.sortPack
+			)
+}
+
+--lazy rule SeqClasses{
+--	from
+--		pack : Ecore!EPackage
+--	to
+--		seq : Maude!RecTerm(
+--			op <- thisModule.sequenceOperator,
+--			type <- thisModule.sortSequence,
+--			args <- if pack.eClassifiers -> select(c|c.oclIsTypeOf(Ecore!EClass)) -> isEmpty() then
+--						thisModule.EmptyList('')
+--					else
+--						if pack.eClassifiers -> select(c|c.oclIsTypeOf(Ecore!EClass))-> size() = 1 then
+--							thisModule.NamedElConstant(pack.eClassifiers->first())
+--						else
+--							thisModule.NamedElList(pack.eClassifiers -> select(c|c.oclIsTypeOf(Ecore!EClass))) --para que sólo se metan en la lista los EClass y no los EDataType
+--						endif
+--					endif
+--			)
+--}
+
+-- rule 9
+--Rule para transformar CLASE en SORT
+rule Class2Sort{
+	from
+		class : Ecore!EClass
+	to
+		sort : Maude!Sort (
+			name <- class.maudeName(),
+			"module" <- thisModule.sModule 
+			),
+		
+		ssort : Maude!SubsortRel(
+			"module" <- thisModule.sModule,
+			supersorts <- if class.eSuperTypes.isEmpty() then
+								thisModule.sortClass 
+							else 
+								--class.eSuperTypes
+								--class.eSuperTypes->collect(c | if c.ePackage.name = 'ecore' then 
+									--thisModule.createSort(c) else c endif)
+								class.eSuperTypes->collect(c | if (not c.ePackage.oclIsUndefined()) then
+                                       if c.ePackage.name = 'ecore' then
+                                       thisModule.createSort(c) else c endif
+                                   		else c endif)
+							endif, 
+			subsorts <- Set{sort}
+			),
+			
+		cte : Maude!Operation(
+			name <- class.maudeName(),
+			"module" <- thisModule.sModule,
+			coarity <- class
+			)
+	do{
+		
+	--class.eResource().toString().println();
+		-- Pensar seguir
+--		if (class.name = 'Element'){
+--			class.eSuperTypes->first()->toString().println();
+--		}
+		thisModule.EqName(class);
+		thisModule.ClassEqIsAbstract(class);
+		thisModule.EqPackage(class);
+		thisModule.ClassEqSuperTypes(class);
+		thisModule.ClassEqReferences(class);
+		thisModule.ClassEqAttributes(class);
+	}
+}
+
+-- rule 10
+-- Se usa para crear el sort correspondiente ecore para poder referirte a el
+-- Solo lo controlamos en el supertipo pues es en lo unico que se hace referencia al tipo en si.
+-- (En las ecuaciones, se crea el elemento que lo representa (un termino).)
+unique lazy rule createSort{
+	from
+		class : Ecore!EClassifier(class.oclIsTypeOf(Ecore!EClass))
+	to
+		sort : Maude!Sort (
+			name <- class.maudeName(),
+			"module" <- thisModule.sModuleEcore 
+			)
+
+}
+
+-- rule 11
+--Regla para crear la ecuación del NOMBRE de una CLASE
+rule EqName (namedElement : Ecore!ENamedElement) {
+	to
+		eqName : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqName,
+			rhs <- rhsEqName
+			),
+		lhsEqName : Maude!RecTerm(
+			op <- 'name',
+			type <- thisModule.sortString,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- namedElement.maudeName(),
+			type <- namedElement.maudeSort()
+			),
+		rhsEqName : Maude!Constant(
+			op <- namedElement.normalizedName(),--'"' + namedElement.name + '"',
+			type <- thisModule.sortString
+			)
+}
+
+-- rule 12
+--Regla para crear la ecuación que indica si una CLASE es ABSTRACTA
+rule ClassEqIsAbstract(class : Ecore!EClassifier) {
+	to
+		eqIsAbs : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqIsAbs,
+			rhs <- rhsEqIsAbs
+			),
+		lhsEqIsAbs : Maude!RecTerm(
+			op <- 'isAbstract',
+			type <- thisModule.sortBool,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- class.maudeName(),
+			type <- thisModule.sortClass
+			),
+		rhsEqIsAbs : Maude!Constant(
+			op <- class.isAbstract().toString(),
+			type <- thisModule.sortBool
+			)
+}
+
+
+-- rule 13
+--Regla para crear la ecuación que indica el PAQUETE de una CLASE
+rule EqPackage(eClassif : Ecore!EClassifier) {
+	to
+		eqPack : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqPack,
+			rhs <- rhsEqPack
+			),
+		lhsEqPack : Maude!RecTerm(
+			op <- 'package',
+			type <- thisModule.sortPack,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- eClassif.maudeName(),
+			type <- eClassif.maudeSort()
+			),							
+		rhsEqPack : Maude!Constant(
+			op <- eClassif.ePackage.maudeName(),
+			type <- thisModule.sortPack
+			)
+}
+
+-- rule 14
+--Rule para la ecuación que define las SUPERCLASES DE UNA CLASE
+rule ClassEqSuperTypes(class : Ecore!EClassifier) {
+	to
+		eqSuperTypes : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqSuperTypes,
+			rhs <- --thisModule.SeqSupertypes(class)
+					if class.eSuperTypes -> isEmpty() then
+						thisModule.EmptyList('')
+					else						
+						if class.eSuperTypes -> size() = 1 then
+							thisModule.NamedElConstant(class.eSuperTypes->first())
+						else
+							thisModule.NamedElList(class.eSuperTypes)
+						endif
+					endif
+			),
+		lhsEqSuperTypes : Maude!RecTerm(
+			op <- 'superTypes',
+			type <- thisModule.myListSort, --thisModule.sortSequence,--thisModule.lhsType(class.eSuperTypes),
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- class.maudeName(),
+			type <- thisModule.sortClass
+			)
+}
+
+--lazy rule SeqSupertypes{
+--	from
+--		class : Ecore!EClassifier
+--	to
+--		seq : Maude!RecTerm(
+--			op <- thisModule.sequenceOperator,
+--			type <- thisModule.sortSequence,
+--			args <- if class.eSuperTypes -> isEmpty() then
+--						thisModule.EmptyList('')
+--					else						
+--						if class.eSuperTypes -> size() = 1 then
+--							thisModule.NamedElConstant(class.eSuperTypes->first())
+--						else
+--							thisModule.NamedElList(class.eSuperTypes)
+--						endif
+--					endif
+--			)
+--}
+
+-- rule 15
+lazy rule EmptyList {
+	from	
+		blank : String							--Las Lazy rules nos obligan a poner un source pattern
+	to											--Es preferible ponerlo así a tener que crear una lazy rule para cada tipo de elemento
+		rhsEmptyList : Maude!Constant(
+			op <- thisModule.emptyListOp,
+			type <- thisModule.myListSort
+		)
+}
+
+
+-- rule 16
+lazy rule NamedElList {
+	from
+		namedElList : Sequence(Ecore!ENamedElement)
+	to
+		rhsList : Maude!RecTerm(
+			op <- thisModule.myListOp,
+			type <- thisModule.myListSort,
+			args <- namedElList->collect(c|thisModule.NamedElConstant(c))
+		)
+}
+
+-- rule 17
+lazy rule NamedElConstant {
+	from
+		namedEl : Ecore!ENamedElement
+	to
+		rhsConstant : Maude!Constant(
+			op <- namedEl.maudeName(),
+			type <- namedEl.maudeSort() --devuelve un sort constante que indica si la constante es Class,Package,Attribute o Reference
+		)
+}
+
+-- rule 18
+--Rule para la ecuación que define las REFERENCIAS DE UNA CLASE
+rule ClassEqReferences(class : Ecore!EClassifier) {
+	to
+		eqReferences : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqReferences,
+			rhs <- --thisModule.SeqReferences(class)
+					if class.eReferences -> isEmpty() then
+						thisModule.EmptyList('')
+					else
+						if class.eReferences->size() = 1 then
+							thisModule.NamedElConstant(class.eReferences->first())
+						else
+							thisModule.NamedElList(class.eReferences)
+						endif
+					endif
+			),
+		lhsEqReferences : Maude!RecTerm(
+			op <- 'references',
+			type <- thisModule.myListSort,--thisModule.sortSequence,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- class.maudeName(),
+			type <- thisModule.sortClass
+			)
+}
+
+
+--lazy rule SeqReferences{
+--	from
+--		class : Ecore!EClassifier
+--	to
+--		seq : Maude!RecTerm(
+--			op <- thisModule.sequenceOperator,
+--			type <- thisModule.sortSequence,
+--			args <- if class.eReferences -> isEmpty() then
+--						thisModule.EmptyList('')
+--					else
+--						if class.eReferences->size() = 1 then
+--							thisModule.NamedElConstant(class.eReferences->first())
+--						else
+--							thisModule.NamedElList(class.eReferences)
+--						endif
+--					endif
+--			)
+--}
+
+-- rule 19
+--Rule para la ecuación que define los ATRIBUTOS DE UNA CLASE
+rule ClassEqAttributes(class : Ecore!EClassifier) {
+	to
+		eqAttributes : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqAttributes,
+			rhs <- --thisModule.SeqAttributes(class)
+					if class.eAttributes -> isEmpty() then
+						thisModule.EmptyList('')
+					else
+						if class.eAttributes->size() = 1 then
+							thisModule.NamedElConstant(class.eAttributes->first())
+						else
+							thisModule.NamedElList(class.eAttributes)
+						endif
+					endif
+			),
+		lhsEqAttributes : Maude!RecTerm(
+			op <- 'attributes',
+			type <- thisModule.myListSort,--thisModule.sortSequence,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- class.maudeName(),
+			type <- thisModule.sortClass
+			)
+}
+
+--lazy rule SeqAttributes{
+--	from
+--		class : Ecore!EClassifier
+--	to
+--		seq : Maude!RecTerm(
+--			op <- thisModule.sequenceOperator,
+--			type <- thisModule.sortSequence,
+--			args <- if class.eAttributes -> isEmpty() then
+--						thisModule.EmptyList('')
+--					else
+--						if class.eAttributes->size() = 1 then
+--							thisModule.NamedElConstant(class.eAttributes->first())
+--						else
+--							thisModule.NamedElList(class.eAttributes)
+--						endif
+--					endif
+--			)
+--}
+
+-- rule 20
+--Rule para transformar REFERENCE en OPERATION
+rule Reference2Operation {
+	from
+		ref : Ecore!EReference
+	to
+		opRef : Maude!Operation(
+			name <- ref.maudeName(),
+			"module" <- thisModule.sModule,
+			coarity <- thisModule.sortRef
+			)
+	do{
+		thisModule.EqName(ref);
+		thisModule.EqType(ref);
+		thisModule.RefEqOpposite(ref);
+		thisModule.EqLowerBound(ref);
+		thisModule.EqUpperBound(ref);
+		thisModule.EqContainingClass(ref);
+		thisModule.RefEqIsContainment(ref);
+		thisModule.EqIsOrdered(ref);
+		thisModule.EqIsUnique(ref);
+	}
+}
+
+-- rule 21
+--Rule para crear la ecuación que define el TYPE de una REFERENCE/ATTRIBUTE
+rule EqType (stFeat : Ecore!EStructuralFeature ) {
+	to
+		eqType : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqType,
+			rhs <- rhsEqType
+			),
+		lhsEqType : Maude!RecTerm(
+			op <- 'type',
+			type <- stFeat.maudeEqTypeAttRef(),
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- stFeat.maudeName(),
+			type <- stFeat.maudeSort()
+			),
+		rhsEqType : Maude!Constant(
+			op <- if stFeat.oclIsTypeOf(Ecore!EReference) then
+						stFeat.eReferenceType.maudeName()
+					else
+						stFeat.attDataType()
+					endif,
+			type <- stFeat.maudeEqTypeAttRef()
+			)
+}
+
+-- rule 22
+--Rule para crear la ecuación OPPOSITE de una REFERENCIA
+rule RefEqOpposite (ref : Ecore!EReference ) {
+	to
+		eqOpposite : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqOpposite,
+			rhs <- rhsEqOpposite
+			),
+		lhsEqOpposite : Maude!RecTerm(
+			op <- 'opposite',
+			type <- ref.maudeMaybeRefSort(),
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- ref.maudeName(),
+			type <- thisModule.sortRef
+			),
+		rhsEqOpposite : Maude!Constant(
+			op <- if ref.eOpposite.oclIsUndefined() then
+						thisModule.nullMaybeOp--thisModule.undefinedOp
+					else
+						ref.getEOpposite().maudeName()
+					endif,
+			type <- ref.maudeMaybeRefSort()
+			)
+}
+
+-- rule 23
+--Rule para crear la ecuación LOWERBOUND de ATTRIBUTE/REFERENCE
+rule EqLowerBound (stFeat : Ecore!EStructuralFeature ) {
+	to
+		eqLBound : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqLBound,
+			rhs <- rhsEqLBound
+			),
+		lhsEqLBound : Maude!RecTerm(
+			op <- 'lowerBound',
+			type <- thisModule.sortInt,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- stFeat.maudeName(),
+			type <- stFeat.maudeSort()
+			),
+		rhsEqLBound : Maude!Constant(
+			op <- stFeat.getLowerBound().toString(),
+			type <- thisModule.sortInt
+			)
+}
+
+-- rule 24
+--Rule para crear la ecuación UPPERBOUND de ATTRIBUTE/REFERENCE
+rule EqUpperBound (stFeat : Ecore!EStructuralFeature) {
+	to
+		eqUBound : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqUBound,
+			rhs <- rhsEqUBound
+			),
+		lhsEqUBound : Maude!RecTerm(
+			op <- 'upperBound',
+			type <- thisModule.sortInt,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- stFeat.maudeName(),
+			type <- stFeat.maudeSort()
+			),
+		rhsEqUBound : Maude!Constant(
+			op <- if stFeat.getUpperBound() = -1 then 
+						'*'
+					else
+						stFeat.getUpperBound().toString()
+					endif,
+			type <- thisModule.sortInt
+			)
+}
+-- rule 25
+--Rule para crear la ecuación CONTAININGCLASS de ATTRIBUTE/REFERENCE
+rule EqContainingClass (stFeat : Ecore!EStructuralFeature ) {
+	to
+		eqContClass : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqContClass,
+			rhs <- rhsEqContClass
+			),
+		lhsEqContClass : Maude!RecTerm(
+			op <- 'containingClass',
+			type <- thisModule.sortClass,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- stFeat.maudeName(),
+			type <- stFeat.maudeSort()
+			),
+		rhsEqContClass : Maude!Constant(
+			op <- if (stFeat.eContainingClass.oclIsUndefined()) 
+								-- Para los structural features definidos dentro de anotations
+						then stFeat.refImmediateComposite().refImmediateComposite().maudeName()
+					else 
+						stFeat.eContainingClass.maudeName() 
+					endif, 
+			type <- thisModule.sortClass
+			)
+}
+
+-- rule 26
+--Rule para crear la ecuación ISCONTAINMENT de REFERENCE
+rule RefEqIsContainment (ref : Ecore!EReference ) {
+	to
+		eqIsContain : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqIsContain,
+			rhs <- rhsEqIsContain
+			),
+		lhsEqIsContain : Maude!RecTerm(
+			op <- 'isContainment',
+			type <- thisModule.sortBool,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- ref.maudeName(),
+			type <- thisModule.sortRef
+			),
+		rhsEqIsContain : Maude!Constant(
+			op <- ref.isContainment().toString(),
+			type <- thisModule.sortBool
+			)
+}
+
+-- rule 27
+--Rule para crear la ecuación ISORDERED
+rule EqIsOrdered (stFeat : Ecore!EStructuralFeature ) {
+	to
+		eqIsOrdered : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqIsOrdered,
+			rhs <- rhsEqIsOrdered
+			),
+		lhsEqIsOrdered : Maude!RecTerm(
+			op <- 'isOrdered',
+			type <- thisModule.sortBool,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- stFeat.maudeName(),
+			type <- thisModule.maudeSort()
+			),
+		rhsEqIsOrdered : Maude!Constant(
+			op <- stFeat.isOrdered().toString(),
+			type <- thisModule.sortBool
+			)
+}
+
+-- rule 28
+--Rule para crear la ecuación ISUNIQUE
+rule EqIsUnique (stFeat : Ecore!EStructuralFeature ) {
+	to
+		eqIsUnique : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqIsUnique,
+			rhs <- rhsEqIsUnique
+			),
+		lhsEqIsUnique : Maude!RecTerm(
+			op <- 'isUnique',
+			type <- thisModule.sortBool,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- stFeat.maudeName(),
+			type <- thisModule.maudeSort()
+			),
+		rhsEqIsUnique : Maude!Constant(
+			op <- stFeat.isUnique().toString(),
+			type <- thisModule.sortBool
+			)
+}
+
+-- rule 29
+--Rule para transformar ATTRIBUTE en OPERATION
+rule Attribute2Operation {
+	from
+		att : Ecore!EAttribute
+	to
+		opAtt : Maude!Operation(
+			name <- att.maudeName(),
+			"module" <- thisModule.sModule,
+			coarity <- thisModule.sortAtt
+			)
+	do{
+		thisModule.EqName(att);
+		thisModule.EqType(att);
+		thisModule.EqLowerBound(att);
+		thisModule.EqUpperBound(att);
+		thisModule.EqContainingClass(att);
+		thisModule.AttEqIsId(att);
+		thisModule.EqIsOrdered(att);
+		thisModule.EqIsUnique(att);
+		if (not att.defaultValueLiteral.oclIsUndefined()){
+			thisModule.AttEqSpecificDefaultValue(att);
+		}
+	}
+} 
+
+-- rule 30
+--Rule para crear la ecuación ISID de ATTRIBUTE
+rule AttEqIsId(att : Ecore!EAttribute) {
+	to
+		eqIsId : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqIsId,
+			rhs <- rhsEqIsId
+			),
+		lhsEqIsId : Maude!RecTerm(
+			op <- 'isId',
+			type <- thisModule.sortBool,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- att.maudeName(),
+			type <- thisModule.sortAtt
+			),
+		rhsEqIsId : Maude!Constant(
+			op <- att.isID().toString(),
+			type <- thisModule.sortBool
+			)
+}
+
+-- rule 31
+--Rule para crear la ecuación SPECIFIC DEFAULT VALUE de ATTRIBUTE
+rule AttEqSpecificDefaultValue(att : Ecore!EAttribute) {
+	to
+		eqSDValue : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqSDValue,
+			rhs <- rhsEqSDValue
+			),
+		lhsEqSDValue : Maude!RecTerm(
+			op <- 'specificDefaultValue',
+			type <- thisModule.sortBasicType,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- att.maudeName(),
+			type <- thisModule.sortAtt
+			),
+		rhsEqSDValue : Maude!Constant(
+			op <- 	if (att.eAttributeType = Ecore!EString) or (att.eAttributeType.name = 'String') then
+						'"' + att.defaultValueLiteral.escapeQuotes() + '"'
+					else 
+						if att.eAttributeType.oclIsTypeOf(Ecore!EEnum) then 
+							att.defaultValueLiteral.maudeLiteralName(att.getEType()).processSpecOpChars()
+						else att.defaultValueLiteral
+						endif
+					endif,
+			type <- thisModule.sortBasicType
+			)
+}
+
+-- rule 32
+--Rule que crea a partir de un ENUMERADO, el MODULE de dicho enumerado (incluyendo el SORT y la VIEW)
+rule Enum2Sort{
+	from
+		enum : Ecore!EEnum
+	to
+		sortEnum : Maude!Sort (
+			name <- enum.maudeName(),
+			"module" <- thisModule.sModule 
+			),		
+		ssortEnum : Maude!SubsortRel(
+			"module" <- thisModule.sModule,
+			supersorts <- thisModule.sortEnumInst,
+			subsorts <- Set{sortEnum}
+			),
+		constantEnum : Maude!Operation(
+			name <- enum.maudeName(),
+			"module" <- thisModule.sModule,
+			coarity <- thisModule.sortEnumeration
+			)
+	do{		
+		thisModule.EnumEqMetaAux(enum);
+		thisModule.EqName(enum);
+		thisModule.EqPackage(enum);
+		thisModule.EnumEqDefaultValue(enum);
+		thisModule.EqLiterals(enum);
+	}
+}
+
+-- rule 33
+--Rule para crear la ecuación METAAUX de un ENUMERADO
+rule EnumEqMetaAux (enum : Ecore!EEnum) {
+	to
+		eqMetaAux : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqMetaAux,
+			rhs <- rhsEqMetaAux
+			),
+		lhsEqMetaAux : Maude!RecTerm(
+			op <- 'metaAux',
+			type <- thisModule.sortEnumeration, 
+			args <- variable
+			),
+		variable : Maude!Variable(
+			name <- 'X',	
+			type <- enum --thisModule.resolveTemp(enum,'sortEnum')
+			),							
+		rhsEqMetaAux : Maude!Constant(
+			op <- thisModule.resolveTemp(enum,'sortEnum').name,--enum.eLiterals->first().toString(),
+			type <- thisModule.sortEnumeration		 			
+			)										
+}
+
+-- rule 34
+--Rule para crear la ecuación DEFAULTVALUE de un ENUMERADO
+rule EnumEqDefaultValue(enum : Ecore!EEnum) {
+	to
+		eqEnum : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqEnum,
+			rhs <- rhsEqEnum
+			),
+		lhsEqEnum : Maude!RecTerm(
+			op <- 'defaultValue',
+			type <- thisModule.sortEnumInst,
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- enum.maudeName(),
+			type <- thisModule.sortEnumeration
+			),							
+		rhsEqEnum : Maude!Constant(
+			op <- enum.eLiterals->first().toString().processSpecOpChars() + '@' + enum.maudeName(),
+			type <- thisModule.sortEnumInst			 			
+			)										
+}
+
+-- rule 35
+--Rule para crear la ecuación LITERALS de un ENUMERADO
+rule EqLiterals(enum : Ecore!EClassifier) {
+	to
+		eqLiterals : Maude!Equation (
+			"module" <- thisModule.sModule,
+			lhs <- lhsEqLiterals,
+			rhs <- --thisModule.SeqLiterals(enum)
+					if enum.eLiterals -> isEmpty() then--rhs <- if enum.getELiterals() -> isEmpty() then
+						thisModule.mtOrdConstant('') --thisModule.EmptyList('')
+					else
+						if enum.eLiterals->size() = 1 then
+							thisModule.EnumLitConstant(enum.eLiterals->first())--enum.getELiterals())
+						else
+							thisModule.EnumLitList(enum.eLiterals, enum)--enum.getELiterals())--
+						endif
+					endif
+			),
+		lhsEqLiterals : Maude!RecTerm(
+			op <- 'literals',
+			type <- thisModule.myListSort,--thisModule.sortSequence,
+--					if enum.eLiterals -> isEmpty() then
+--						thisModule.myListSort
+--					else
+--						thisModule.listEnumInst
+--					endif,--thisModule.lhsType(enum.eLiterals),
+			args <- cteName
+			),
+		cteName : Maude!Constant(
+			op <- enum.maudeName(),
+			type <- thisModule.sortEnumeration
+			)
+}
+
+--lazy rule SeqLiterals{
+--	from
+--		enum : Ecore!EClassifier
+--	to
+--		seq : Maude!RecTerm(
+--			op <- thisModule.sequenceOperator,
+--			type <- thisModule.sortSequence,
+--			args <- if enum.eLiterals -> isEmpty() then--rhs <- if enum.getELiterals() -> isEmpty() then
+--						thisModule.EmptyList('')
+--					else
+--						if enum.eLiterals->size() = 1 then
+--							thisModule.EnumLitConstant(enum.eLiterals->first())--enum.getELiterals())
+--						else
+--							thisModule.EnumLitList(enum.eLiterals, enum)--enum.getELiterals())--
+--						endif
+--					endif
+--			)
+--}
+-- rule 36
+lazy rule mtOrdConstant{
+	from
+		blank : String
+	to
+		mt : Maude!Constant(
+			op <- thisModule.mtOrdOperator,
+			type <- thisModule.listSort
+			)
+}
+
+-- rule 37
+--Las dos lazy rules siguientes sirven para crear la lista de LITERALS de la ecuación literals del ENUMERADO
+--No usamos las lazy rules de las ecuaciones anteriores porque ATL da error al intentar acceder a literal y sus propiedades,
+--de ahí que lo hagamos de forma diferente)		
+lazy rule EnumLitList {
+	from
+		enumLitList : Sequence(Ecore!EEnumLiteral),
+		enum : Ecore!EEnum--Ecore!ENamedElement
+	to
+		rhsList : Maude!RecTerm(
+			op <- thisModule.listOperator, --thisModule.myListOp,
+			type <- thisModule.listSort,--thisModule.myListSort,
+			args <- enumLitList->collect(c|thisModule.EnumLitConstant(c, enum))
+		)
+}
+
+-- rule 37
+lazy rule EnumLitConstant {
+	from
+		namedEl : Ecore!EEnumLiteral,--Ecore!ENamedElement
+		enum : Ecore!EEnum--Ecore!ENamedElement
+	to
+		rhsConstant : Maude!Constant(
+			op <- namedEl.toString().processSpecOpChars() + '@' + enum.maudeName(), 
+			type <- thisModule.sortEnumInst--namedEl.maudeSort() --devuelve un sort constante que indica si la constante es Class,Package,Attribute o Reference
+		)
+}
+
+-- rule 38
+--Rule para crear las OPERATION correspondientes a los LITERALS
+rule EnumLiteral2Operation {
+	from
+		enumLit : Ecore!EEnumLiteral
+	to
+		opLit : Maude!Operation (
+			name <- enumLit.maudeName(),
+			"module" <- thisModule.sModule,
+			coarity <- enumLit.eEnum
+			)
+}
+
+-- rule 39
+endpoint rule Finalize(){
+	do{
+--		thisModule.mSpec.els <- thisModule.mSpec.els->append(thisModule.sModule);
+--		thisModule.mSpec.printableEls <- thisModule.mSpec.printableEls->append(thisModule.sModule);
+		}
+	}

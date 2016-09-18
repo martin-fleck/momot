@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Modularization -->
+      <package
+            uri="http://www.big.tuwien.ac.at/tosem/modularization"
+            class="at.ac.tuwien.big.momot.examples.tse.modularization.ModularizationPackage"
+            genModel="model/Modularization.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated Modularization -->
+      <parser
+            contentTypeIdentifier="at.ac.tuwien.big.momot.examples.tosem"
+            class="at.ac.tuwien.big.momot.examples.tse.modularization.util.ModularizationResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated Modularization -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="modularization"
+            id="at.ac.tuwien.big.momot.examples.tosem"
+            name="%_UI_Modularization_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.big.tuwien.ac.at/tosem/modularization"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+</plugin>

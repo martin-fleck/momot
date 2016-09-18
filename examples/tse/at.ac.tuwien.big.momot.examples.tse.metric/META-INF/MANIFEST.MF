@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Metric
+Bundle-SymbolicName: at.ac.tuwien.big.momot.examples.tse.metric
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: at.ac.tuwien.big.momot.examples.tse.modularization;bundle-version="1.0.0",
+ org.apache.commons.lang,
+ com.google.guava,
+ at.ac.tuwien.big.momot.examples.tse.ruletype;bundle-version="1.0.0"
+Export-Package: at.ac.tuwien.big.momot.examples.tse.metric,
+ at.ac.tuwien.big.momot.examples.tse.metric.calc

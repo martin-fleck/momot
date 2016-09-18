@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:modularization="http://www.big.tuwien.ac.at/atl/modularization"
+    name="XML2Ant">
+  <modules name="1">
+    <rules name="Root2Project"
+        ruleDependencies="//@modules.0/@rules.1 //@modules.0/@rules.2 //@modules.0/@rules.3 //@modules.0/@rules.4 //@modules.0/@rules.5 //@modules.0/@rules.6 //@modules.0/@rules.7 //@modules.0/@rules.16 //@modules.0/@rules.8"
+        helperDependencies="//@modules.0/@helpers.4 //@modules.0/@helpers.6">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <bindingTypes>src_Element</bindingTypes>
+      <inPattElTypes>src_Root</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Root.children.name</bindingNavigations>
+    </rules>
+    <rules name="PropertyLocation"
+        helperDependencies="//@modules.0/@helpers.3 //@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="PropertyValue"
+        helperDependencies="//@modules.0/@helpers.3 //@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="PropertyFile"
+        helperDependencies="//@modules.0/@helpers.3 //@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="PropertyEnv"
+        helperDependencies="//@modules.0/@helpers.3 //@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="Target"
+        helperDependencies="//@modules.0/@helpers.4 //@modules.0/@helpers.0">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element</bindingNavigations>
+    </rules>
+    <rules name="TaskDef"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="NewTask"
+        ruleDependencies="//@modules.0/@rules.8"
+        helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <bindingTypes>src_Attribute</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Attribute</bindingNavigations>
+    </rules>
+    <rules name="Attribut"
+        helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Attribute.name</bindingTypes>
+      <inPattElTypes>src_Attribute</inPattElTypes>
+      <bindingNavigations>src_Attribute.name</bindingNavigations>
+      <bindingNavigations>src_Attribute.value</bindingNavigations>
+    </rules>
+    <rules name="Mkdir"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="Java"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+    <rules name="Javac"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+    <rules name="Javadoc"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="Copy"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+    <rules name="Delete"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="Jar"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="Path"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+    <rules name="FileSet"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+    <rules name="ClassPath"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+    <rules name="PathElement"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="FilterSet"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+    <rules name="Filter"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="FiltersFile"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="Includes"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="Excludes"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="IncludesFile"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <rules name="ExcludesFile"
+        helperDependencies="//@modules.0/@helpers.4">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+    <helpers
+        name="_getList_listString"
+        helperDependencies="//@modules.0/@helpers.1">
+      <helperDepNames>_getListAux_listStringindex1index2provSequence</helperDepNames>
+    </helpers>
+    <helpers
+        name="_getListAux_listStringindex1index2provSequence"
+        helperDependencies="//@modules.0/@helpers.1">
+      <helperDepNames>_getListAux_listStringindex1index2provSequence</helperDepNames>
+    </helpers>
+    <helpers
+        name="Element__getAttrVal_name"/>
+    <helpers
+        name="Element__testAttribute_name"/>
+    <helpers
+        name="Element__getAttribute_name"
+        helperDependencies="//@modules.0/@helpers.2 //@modules.0/@helpers.3">
+      <helperDepNames>Element__getAttrVal_name</helperDepNames>
+      <helperDepNames>Element__testAttribute_name</helperDepNames>
+    </helpers>
+    <helpers
+        name="Element__testElement_name"/>
+    <helpers
+        name="Element__getText_name"
+        helperDependencies="//@modules.0/@helpers.5">
+      <helperDepNames>Element__testElement_name</helperDepNames>
+    </helpers>
+  </modules>
+  <modules name="2">
+    <rules name="Tstamp">
+      <inPattElTypes>src_Element</inPattElTypes>
+    </rules>
+  </modules>
+  <modules name="3">
+    <rules name="PatternSet">
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.children.name</bindingNavigations>
+    </rules>
+  </modules>
+</modularization:Transformation>

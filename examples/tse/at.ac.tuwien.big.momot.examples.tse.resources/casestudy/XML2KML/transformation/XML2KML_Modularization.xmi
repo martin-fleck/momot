@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modularization:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:modularization="http://www.big.tuwien.ac.at/tosem/modularization" name="XML2KML">
+  <modules name="XML2KML">
+    <rules name="Address" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="AltitudeMode" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="BalloonStyle" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Color" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="ColorMode" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Cookie" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Coordinates">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <bindingTypes>src_OclUndefined</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_OclUndefined</bindingNavigations>
+    </rules>
+    <rules name="Description" helperDependencies="//@modules.0/@helpers.3">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Document" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="DrawOrder" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="East" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Extrude" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Fill" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Folder" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="GroundOverlay" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="H" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Heading" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Href" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Icon" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="IconStyle" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="InnerBoundaryIs" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Key" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="LabelStyle" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Latitude" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="LatLonBox" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="LinearRing" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="LineString" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="LineStyle" helperDependencies="//@modules.0/@helpers.0 //@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="LinkDescription" helperDependencies="//@modules.0/@helpers.3">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="LinkName" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Longitude" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="LookAt" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Message">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <bindingTypes>src_OclUndefined</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_OclUndefined</bindingNavigations>
+    </rules>
+    <rules name="MinRefreshPeriod" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="MultiGeometry" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Name" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="NetworkLink" helperDependencies="//@modules.0/@helpers.1 //@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="NetworkLinkControl" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="North" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="ObjArrayField" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="ObjField" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Open" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="OuterBoundaryIs" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Outline" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="OverlayXY" helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Pair" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Parent" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Placemark" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Point" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Polygon" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="PolyStyle" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Range" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="RefreshInterval" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="RefreshMode" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="RefreshVisibility" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Rotation" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Schema" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Scale" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="ScreenOverlay" helperDependencies="//@modules.0/@helpers.0 //@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="ScreenXY" helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="SimpleArrayField" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="SimpleField" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="Size" helperDependencies="//@modules.0/@helpers.0">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="South" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Snippet">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <bindingTypes>src_OclUndefined</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_OclUndefined</bindingNavigations>
+    </rules>
+    <rules name="Style" helperDependencies="//@modules.0/@helpers.0 //@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="StyleMap" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="StyleUrl" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Tessellate" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Text" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <bindingTypes>src_OclUndefined</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+      <bindingNavigations>src_OclUndefined</bindingNavigations>
+    </rules>
+    <rules name="TextColor" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Tilt" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Type" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Url" helperDependencies="//@modules.0/@helpers.1">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+      <bindingNavigations>src_Element.Element</bindingNavigations>
+    </rules>
+    <rules name="ViewBoundScale" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="ViewRefreshMode" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="ViewRefreshTime" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="ViewFormat" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Visibility" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="W" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="West" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Width" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="X" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <rules name="Y" helperDependencies="//@modules.0/@helpers.4">
+      <bindingTypes>src_Element.name</bindingTypes>
+      <inPattElTypes>src_Element</inPattElTypes>
+      <bindingNavigations>src_Element.name</bindingNavigations>
+    </rules>
+    <helpers name="Element__getAttrVal_name"/>
+    <helpers name="Element__getChildren_seq"/>
+    <helpers name="Element__getText_"/>
+    <helpers name="Element__getAllText_" helperDependencies="//@modules.0/@helpers.2">
+      <helperDepNames>Element__getText_</helperDepNames>
+    </helpers>
+    <helpers name="Element__getValue_" helperDependencies="//@modules.0/@helpers.2">
+      <helperDepNames>Element__getText_</helperDepNames>
+    </helpers>
+  </modules>
+</modularization:Transformation>
