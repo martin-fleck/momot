@@ -42,6 +42,7 @@ import org.eclipse.xtext.xtype.XImportDeclaration
 import org.moeaframework.algorithm.NSGAII
 import org.eclipse.emf.common.util.URI
 import java.io.File
+import at.ac.tuwien.big.momot.lang.preference.MOMoTPreferences
 
 /**
  * This class contains custom validation rules. 
@@ -150,6 +151,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    
    @Check
    def checkUnitApplicability(MOMoTSearch it) {
+   	if(!MOMoTPreferences.evaluationUnitApplicability)
+   		return;
+   		
       val manager = getManager
       val graph = getInputGraph
       if(manager == null || graph == null || searchOrchestration.model?.adaptation != null)
@@ -175,12 +179,10 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check
-   def checkUserParameters(MOMoTSearch it) {
-      // TODO: Implement
-   }
-   
-   @Check
    def checkAlgorithmRuns(ExperimentOrchestration it) {
+   	if(!MOMoTPreferences.evaluationAlgorithmRuns)
+   		return;
+   		
       val runs = nrRuns.interpret(typeof(Integer))
       if(runs == null)
          return;
@@ -194,6 +196,8 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    
    @Check
    def checkNumberOfIterations(ExperimentOrchestration it) {
+   	if(!MOMoTPreferences.evaluationPopulationSize)
+   		return;
       val maxEval = maxEvaluations.interpret(typeof(Integer))
       val population = populationSize.interpret(typeof(Integer))
       if(maxEval == null || population == null)
@@ -220,7 +224,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check
-   def checkManyObjective(SearchOrchestration it) {      
+   def checkManyObjective(SearchOrchestration it) {
+   	if(!MOMoTPreferences.evaluationManyObjectives)
+   		return;
       val nrObjectives = fitnessFunction.objectives.size
       if(nrObjectives > 3) {
          for(algorithm : algorithms.specifications) {
@@ -235,6 +241,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    
    @Check
    def checkObjectIdentity(MOMoTSearch it) {
+   	if(!MOMoTPreferences.evaluationObjectIdentity)
+   		return;
+   		
       if(searchOrchestration.equalityHelper != null)
          return;
 
@@ -266,6 +275,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    
    @Check
    def checkPopulationSize(ExperimentOrchestration it) {
+   	if(!MOMoTPreferences.evaluationNrIterations)
+   		return;
+   		
       val population = populationSize.interpret(typeof(Integer))
       if(population == null)
          return;
@@ -278,6 +290,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    
    @Check
    def checkSingleObjective(SearchOrchestration it) {
+   	if(!MOMoTPreferences.evaluationSingleObjective)
+   		return;
+   		
       val nrObjectives = fitnessFunction.objectives.size
       if(nrObjectives == 1) {
          info("For single objective search, please consider using local search algorithms, such as HillClimbing or RandomDescent.",
@@ -292,7 +307,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
     ******************************************/
    
    @Check
-   def checkModules(ModuleOrchestration it) {
+   def checkModuleFileExistence(ModuleOrchestration it) {
+   	if(!MOMoTPreferences.evaluationModuleFileExistence)
+   		return
       var index = 0
       for(module : modules.elements) {
          val path = module.interpret(typeof(String))
@@ -307,7 +324,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check
-   def checkAlgorithmName(AlgorithmList it) {
+   def checkDuplicateAlgorithmName(AlgorithmList it) {
+   	if(!MOMoTPreferences.evaluationDuplicateAlgorithmName)
+   		return;
       val names = new HashSet
       val duplicates = new ArrayList
       for(spec : specifications) {
@@ -324,7 +343,10 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check
-   def checkAlgorithmReferences(AlgorithmReferences it) {
+   def checkDuplicateAlgorithmReference(AlgorithmReferences it) {
+   		if(!MOMoTPreferences.evaluationDuplicateAlgorithmReference)
+   		return;
+   		
       val names = new HashSet
       val duplicates = new ArrayList
       for(spec : elements) {
@@ -341,7 +363,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check
-   def checkModel(SearchOrchestration it) {
+   def checkModelFileExistence(SearchOrchestration it) {
+   	if(!MOMoTPreferences.evaluationModelFileExistence)
+   		return;
       if(model != null) {
          val path = model.path.interpret(typeof(String))
          if(path != null) {
@@ -354,9 +378,10 @@ class MOMoTValidator extends AbstractMOMoTValidator {
       }
    }
 
-//   @Check(EXPENSIVE)
    @Check
    def checkOCL(SearchOrchestration it) {
+   	if(!MOMoTPreferences.evaluationOCL)
+   		return;
       if(it != null && model != null && fitnessFunction != null) {
          val path = model.path.interpret(typeof(String))
          if(path != null) {
@@ -403,6 +428,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    
    @Check
    def checkDuplicateParameterKeys(ModuleOrchestration it) {
+   	if(!MOMoTPreferences.evaluationDuplicateParameterKeys)
+   		return;
+   		
       val names = new HashSet
       val duplicates = new ArrayList
       for(spec : parameterValues) {
@@ -420,11 +448,12 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    
    @Check
    def checkTransformationOrchestration(MOMoTSearch it) {
+   		
       if(it != null && searchOrchestration != null && searchOrchestration.moduleOrchestration != null) {
          val transOrchestration = searchOrchestration.moduleOrchestration
          val manager = getManager(it)
          
-         if(transOrchestration.unitsToRemove != null) {
+         if(transOrchestration.unitsToRemove != null && MOMoTPreferences.evaluationUnitExistence) {
             var index = 0
             for(unit : transOrchestration.unitsToRemove.elements) {
                val name = unit.interpret(typeof(String))
@@ -439,7 +468,7 @@ class MOMoTValidator extends AbstractMOMoTValidator {
             }
          }
          
-         if(transOrchestration.parameterValues != null) {
+         if(transOrchestration.parameterValues != null && MOMoTPreferences.evaluationParameterExistence) {
             var index = 0
             val names = new HashSet
             val duplicates = new ArrayList
@@ -467,7 +496,7 @@ class MOMoTValidator extends AbstractMOMoTValidator {
                )
          }
          
-         if(transOrchestration.nonSolutionParameters != null) {
+         if(transOrchestration.nonSolutionParameters != null && MOMoTPreferences.evaluationParameterExistence) {
             var index = 0;
             for(p : transOrchestration.nonSolutionParameters.elements) {
                val name = p.interpret(typeof(String))
@@ -485,7 +514,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check
-   def checkReferenceSet(ExperimentOrchestration it) {
+   def checkReferenceSetExistence(ExperimentOrchestration it) {
+   	if(!MOMoTPreferences.evaluationReferenceSetExistence)
+   		return;
       if(referenceSet != null) {
          val path = referenceSet.interpret(typeof(String))
          if(path != null) {
@@ -499,7 +530,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check 
-   def checkResultAnalysis(SaveAnalysisCommand it) {
+   def checkAnalysisFileOverriden(SaveAnalysisCommand it) {
+   	if(!MOMoTPreferences.evaluationAnalysisFileOverriden)
+   		return;
       if(it != null && file != null) {
          val path = file.interpret(typeof(String))
          if(path != null) {
@@ -513,7 +546,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check 
-   def checkResultObjectives(ObjectivesCommand it) {
+   def checkObjectivesFileOverriden(ObjectivesCommand it) {
+   	if(!MOMoTPreferences.evaluationObjectivesFileOverriden)
+   		return;
       if(it != null && file != null) {
          if(it.projectFileExists(file))
             info("Objective file '" + file + "' will be overridden.", 
@@ -524,7 +559,9 @@ class MOMoTValidator extends AbstractMOMoTValidator {
    }
    
    @Check 
-   def checkKneePointObjectives(SolutionsCommand it) {
+   def checkSolutionsFileOverriden(SolutionsCommand it) {
+   	if(!MOMoTPreferences.evaluationSolutionsFileOverriden)
+   		return;
       if(it != null && file != null) {
          if(it.projectFileExists(file))
             info("Objective file '" + file + "' will be overridden.", 

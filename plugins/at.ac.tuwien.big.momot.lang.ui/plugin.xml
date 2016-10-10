@@ -672,4 +672,16 @@
             name="MOMoT Search File">
       </wizard>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="at.ac.tuwien.big.momot.lang.MOMoT"
+            class="at.ac.tuwien.big.momot.lang.ui.preference.EvaluationPreferencePage"
+            id="at.ac.tuwien.big.momot.lang.MOMoT.evaluation"
+            name="Evaluation">
+         <keywordReference
+               id="at.ac.tuwien.big.momot.lang.ui.keyword_MOMoT">
+         </keywordReference>
+      </page>
+   </extension>
 </plugin>
