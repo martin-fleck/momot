@@ -1,7 +1,0 @@
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:univ="http://univ/1.0">
-  <univ:Course attending="/1/@persons.1"/>
-  <univ:School>
-    <persons xsi:type="univ:Teacher" name="StudentName" email="bobbug@gmx.at"/>
-    <persons xsi:type="univ:Student" name="TeacherName" matrNr="3" attends="/0"/>
-  </univ:School>
-</xmi:XMI>

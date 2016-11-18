@@ -1,13 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Big MOEA Extension
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: at.ac.tuwien.big.moea
-Bundle-Version: 1.0.0.qualifier
+Bundle-Description: %Bundle-Description
+Bundle-Vendor: %Bundle-Vendor
+Bundle-Version: 2.0.0.qualifier
 Export-Package: 
  at.ac.tuwien.big.moea,
  at.ac.tuwien.big.moea.experiment.analyzer,
  at.ac.tuwien.big.moea.experiment.analyzer.kneepoint,
- at.ac.tuwien.big.moea.experiment.analyzer.statistic,
  at.ac.tuwien.big.moea.experiment.executor,
  at.ac.tuwien.big.moea.experiment.executor.listener,
  at.ac.tuwien.big.moea.experiment.executor.listener.terminate,
@@ -18,21 +19,18 @@ Export-Package:
  at.ac.tuwien.big.moea.problem.solution,
  at.ac.tuwien.big.moea.problem.solution.variable,
  at.ac.tuwien.big.moea.search.algorithm,
- at.ac.tuwien.big.moea.search.algorithm.iterating,
  at.ac.tuwien.big.moea.search.algorithm.local,
  at.ac.tuwien.big.moea.search.algorithm.local.neighborhood,
  at.ac.tuwien.big.moea.search.algorithm.operator,
  at.ac.tuwien.big.moea.search.algorithm.operator.crossover,
  at.ac.tuwien.big.moea.search.algorithm.operator.mutation,
- at.ac.tuwien.big.moea.search.algorithm.operator.subalgo,
  at.ac.tuwien.big.moea.search.algorithm.provider,
  at.ac.tuwien.big.moea.search.fitness,
  at.ac.tuwien.big.moea.search.fitness.comparator,
  at.ac.tuwien.big.moea.search.fitness.dimension,
  at.ac.tuwien.big.moea.search.solution.generator,
- at.ac.tuwien.big.moea.search.solution.generator.solution, 
+ at.ac.tuwien.big.moea.search.solution.generator.solution,
  at.ac.tuwien.big.moea.search.solution.repair,
- at.ac.tuwien.big.moea.singleobjectivizer,
  at.ac.tuwien.big.moea.ui,
  at.ac.tuwien.big.moea.util,
  at.ac.tuwien.big.moea.util.random,
@@ -110,13 +108,7 @@ Export-Package:
  org.moeaframework.util.sequence,
  org.moeaframework.util.statistics,
  org.moeaframework.util.tree
-Require-Bundle: com.google.guava;bundle-version="15.0.0",
- org.eclipse.emf.ecore
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: at.ac.tuwien.big.momot.search.algorithm.init,
- at.ac.tuwien.big.momot.search.algorithm.operator.mutation,
- at.ac.tuwien.big.momot.search.solution.executor,
- org.apache.commons.lang
 Bundle-ClassPath: .,
  lib/jfreechart-1.0.19.jar,
  lib/commons-io-2.4.jar,
@@ -125,3 +117,7 @@ Bundle-ClassPath: .,
  lib/MOEAFramework-2.8.jar,
  lib/commons-math3-3.6.jar,
  lib/commons-lang3-3.4.jar
+Import-Package: com.google.common.base,
+ com.google.common.primitives;version="15.0.0",
+ org.apache.commons.lang;version="1.8.0"
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="[2.11.2,3.0.0)"

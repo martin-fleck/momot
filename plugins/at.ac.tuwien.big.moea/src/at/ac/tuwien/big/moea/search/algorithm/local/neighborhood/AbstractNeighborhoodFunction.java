@@ -12,70 +12,66 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.algorithm.local.neighborhood;
 
-import java.util.Collection;
+import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhood;
+import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhoodFunction;
+
 import java.util.Iterator;
 
 import org.moeaframework.core.Solution;
 
-import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhood;
-import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhoodFunction;
-
 public abstract class AbstractNeighborhoodFunction<S extends Solution> implements INeighborhoodFunction<S> {
 
-	private int maxNeighbors = UNLIMITED;
-	
-	public AbstractNeighborhoodFunction() {
-	}
-	
-	public AbstractNeighborhoodFunction(int maxNeighbors) {
-		setMaxNeighbors(maxNeighbors);
-	}
-	
-	@Override
-	public int getMaxNeighbors() {
-		return maxNeighbors;
-	}
+   private int maxNeighbors = UNLIMITED;
 
-	@Override
-	public INeighborhoodFunction<S> setMaxNeighbors(int maxNeighbors) {
-		this.maxNeighbors = maxNeighbors;
-		return this;
-	}
-	
-	@Override
-	public INeighborhood<S> generateNeighbors(S solution, Collection<Integer> forbiddenIndices) {
-		return generateNeighbors(solution, getMaxNeighbors(), forbiddenIndices);
-	}
-	
-	@Override
-	public INeighborhood<S> createEmptyNeighborhood() {
-		return new INeighborhood<S>() {
+   public AbstractNeighborhoodFunction() {}
 
-			@Override
-			public Iterator<S> iterator() {
-				return new Iterator<S>() {
+   public AbstractNeighborhoodFunction(final int maxNeighbors) {
+      setMaxNeighbors(maxNeighbors);
+   }
 
-					@Override
-					public boolean hasNext() {
-						return false;
-					}
+   @Override
+   public INeighborhood<S> createEmptyNeighborhood() {
+      return new INeighborhood<S>() {
 
-					@Override
-					public S next() {
-						return null;
-					}
+         @Override
+         public int getMaxNeighbors() {
+            return 0;
+         }
 
-					@Override
-					public void remove() {
-						; // not implemented
-					}
-				};
-			}
+         @Override
+         public Iterator<S> iterator() {
+            return new Iterator<S>() {
 
-			@Override
-			public int getMaxNeighbors() {
-				return 0;
-			}
-		};
-	}
+               @Override
+               public boolean hasNext() {
+                  return false;
+               }
+
+               @Override
+               public S next() {
+                  return null;
+               }
+
+               @Override
+               public void remove() {}
+            };
+         }
+      };
+   }
+
+   @Override
+   public INeighborhood<S> generateNeighbors(final S solution) {
+      return generateNeighbors(solution, getMaxNeighbors());
+   }
+
+   @Override
+   public int getMaxNeighbors() {
+      return maxNeighbors;
+   }
+
+   @Override
+   public INeighborhoodFunction<S> setMaxNeighbors(final int maxNeighbors) {
+      this.maxNeighbors = maxNeighbors;
+      return this;
+   }
 }

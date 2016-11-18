@@ -9,61 +9,64 @@ import org.moeaframework.Analyzer.AlgorithmResult;
 import org.moeaframework.Analyzer.IndicatorResult;
 
 public class SearchAlgorithmResult {
-	protected final String algorithm;
-	protected List<SearchIndicatorResult> indicatorResults;
+   protected final String algorithm;
+   protected List<SearchIndicatorResult> indicatorResults;
 
-	public SearchAlgorithmResult(String algorithm) {
-		this.algorithm = algorithm;
-		this.indicatorResults = new ArrayList<SearchIndicatorResult>();
-	}
+   public SearchAlgorithmResult(final AlgorithmResult result) {
+      this(result.getAlgorithm());
+      for(final String indicator : result.getIndicators()) {
+         final IndicatorResult indicatorResult = result.get(indicator);
+         if(indicatorResult != null) {
+            indicatorResults.add(new SearchIndicatorResult(indicatorResult));
+         }
+      }
+   }
 
-	public SearchAlgorithmResult(AlgorithmResult result) {
-		this(result.getAlgorithm());
-		for(String indicator : result.getIndicators()) {
-			IndicatorResult indicatorResult = result.get(indicator);
-			if(indicatorResult != null)
-				indicatorResults.add(new SearchIndicatorResult(indicatorResult));
-		}
-	}
-	
-	public String getAlgorithm() {
-		return algorithm;
-	}
+   public SearchAlgorithmResult(final String algorithm) {
+      this.algorithm = algorithm;
+      this.indicatorResults = new ArrayList<>();
+   }
 
-	public List<String> getIndicators() {
-		List<String> indicators = new ArrayList<String>();
-		for (SearchIndicatorResult result : indicatorResults) 
-			indicators.add(result.getIndicator());
-		return indicators;
-	}
-	
-	public SearchIndicatorResult get(String indicator) {
-		for (SearchIndicatorResult result : indicatorResults) 
-			if (result.getIndicator().equals(indicator)) 
-				return result;
-		return null;
-	}
+   void add(final IndicatorResult result) {
+      add(new SearchIndicatorResult(result));
+   }
 
-	public List<SearchIndicatorResult> getIndicatorResults() {
-		return indicatorResults;
-	}
-	
-	void add(IndicatorResult result) {
-		add(new SearchIndicatorResult(result));
-	}
-	
-	void add(SearchIndicatorResult result) {
-		indicatorResults.add(result);
-	}
-	
-	void print(PrintStream ps, boolean showAggregate, 
-			boolean showStatisticalSignificance, 
-			boolean showIndividualValues, 
-			List<UnivariateStatistic> statistics) {
-		ps.print(getAlgorithm());
-		ps.println(':');
-		
-		for (SearchIndicatorResult indicatorResult : indicatorResults) 
-			indicatorResult.print(ps, showAggregate, showStatisticalSignificance, showIndividualValues, statistics);
-	}
+   void add(final SearchIndicatorResult result) {
+      indicatorResults.add(result);
+   }
+
+   public SearchIndicatorResult get(final String indicator) {
+      for(final SearchIndicatorResult result : indicatorResults) {
+         if(result.getIndicator().equals(indicator)) {
+            return result;
+         }
+      }
+      return null;
+   }
+
+   public String getAlgorithm() {
+      return algorithm;
+   }
+
+   public List<SearchIndicatorResult> getIndicatorResults() {
+      return indicatorResults;
+   }
+
+   public List<String> getIndicators() {
+      final List<String> indicators = new ArrayList<>();
+      for(final SearchIndicatorResult result : indicatorResults) {
+         indicators.add(result.getIndicator());
+      }
+      return indicators;
+   }
+
+   void print(final PrintStream ps, final boolean showAggregate, final boolean showStatisticalSignificance,
+         final boolean showIndividualValues, final List<UnivariateStatistic> statistics) {
+      ps.print(getAlgorithm());
+      ps.println(':');
+
+      for(final SearchIndicatorResult indicatorResult : indicatorResults) {
+         indicatorResult.print(ps, showAggregate, showStatisticalSignificance, showIndividualValues, statistics);
+      }
+   }
 }

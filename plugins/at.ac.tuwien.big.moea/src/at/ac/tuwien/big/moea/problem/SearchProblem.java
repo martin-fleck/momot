@@ -12,39 +12,42 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.problem;
 
-import org.moeaframework.core.Solution;
-import org.moeaframework.problem.AbstractProblem;
-
 import at.ac.tuwien.big.moea.search.fitness.IFitnessFunction;
 import at.ac.tuwien.big.moea.search.solution.generator.solution.ISolutionGenerator;
 
+import org.moeaframework.core.Solution;
+import org.moeaframework.problem.AbstractProblem;
+
 public class SearchProblem<S extends Solution> extends AbstractProblem implements ISearchProblem<S> {
-	
-	private ISolutionGenerator<S> solutionGenerator;
-	private IFitnessFunction<S> fitnessFunction;
 
-	public SearchProblem(IFitnessFunction<S> fitnessFunction, ISolutionGenerator<S> solutionGenerator) {
-		super(solutionGenerator.getSolutionLength(), solutionGenerator.getNrObjectives(), solutionGenerator.getNrConstraints());
-		this.fitnessFunction = fitnessFunction;
-		this.solutionGenerator = solutionGenerator;
-	}
+   private final ISolutionGenerator<S> solutionGenerator;
+   private final IFitnessFunction<S> fitnessFunction;
 
-	public ISolutionGenerator<S> getSolutionGenerator() {
-		return solutionGenerator;
-	}
+   public SearchProblem(final IFitnessFunction<S> fitnessFunction, final ISolutionGenerator<S> solutionGenerator) {
+      super(solutionGenerator.getSolutionLength(), solutionGenerator.getNrObjectives(),
+            solutionGenerator.getNrConstraints());
+      this.fitnessFunction = fitnessFunction;
+      this.solutionGenerator = solutionGenerator;
+   }
 
-	public IFitnessFunction<S> getFitnessFunction() {
-		return fitnessFunction;
-	}
+   @Override
+   public void evaluate(final Solution solution) {
+      getFitnessFunction().doEvaluate(solution);
+   }
 
-	@Override
-	public void evaluate(Solution solution) {
-		getFitnessFunction().doEvaluate(solution);
-	}
+   @Override
+   public IFitnessFunction<S> getFitnessFunction() {
+      return fitnessFunction;
+   }
 
-	@Override
-	public Solution newSolution() {
-		return getSolutionGenerator().createNewSolution();
-	}
+   @Override
+   public ISolutionGenerator<S> getSolutionGenerator() {
+      return solutionGenerator;
+   }
+
+   @Override
+   public Solution newSolution() {
+      return getSolutionGenerator().createNewSolution();
+   }
 
 }

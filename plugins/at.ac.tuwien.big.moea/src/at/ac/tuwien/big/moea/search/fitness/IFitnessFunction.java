@@ -15,9 +15,11 @@ package at.ac.tuwien.big.moea.search.fitness;
 import org.moeaframework.core.Solution;
 
 public interface IFitnessFunction<T extends Solution> extends IFitnessEvaluation<T> {
-	int[] evaluatesObjectives();
-	int evaluatesNrObjectives();
-	
-	int[] evaluatesConstraints();
-	int evaluatesNrConstraints();
+   int[] evaluatesConstraints();
+
+   int evaluatesNrConstraints();
+
+   int evaluatesNrObjectives();
+
+   int[] evaluatesObjectives();
 }

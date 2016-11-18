@@ -9,348 +9,357 @@
 
 package at.ac.tuwien.big.moea.util;
 
+import com.google.common.base.Predicate;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-
-
-
-
-import com.google.common.base.Function;
-import com.google.common.base.Predicate;
 
 /**
  * @author Sven Efftinge - Initial contribution and API
  */
-public class PolymorphicDispatcher<RT> {
+public class PolymorphicDispatcher<T> {
 
-	private final List<? extends Object> targets;
-	private final Predicate<Method> methodFilter;
+   public static class DefaultErrorHandler<T> implements ErrorHandler<T> {
+      @Override
+      public T handle(final Object[] params, final Throwable e) {
+         return ExceptionUtil.throwUncheckedException(e);
+      }
+   }
 
-	private List<MethodDesc> declaredMethodsOrderedBySpecificParameterType;
+   public interface ErrorHandler<P> {
+      P handle(Object[] params, Throwable throwable);
+   }
 
-	public static class DefaultErrorHandler<RT> implements ErrorHandler<RT> {
-		public RT handle(Object[] params, Throwable e) {
-			return ExceptionUtil.throwUncheckedException(e);
-		}
-	}
+   protected class MethodDesc {
+      private final Object target;
+      private final Method method;
 
-	public static class NullErrorHandler<RT> implements ErrorHandler<RT> {
+      protected MethodDesc(final Object target, final Method method) {
+         super();
+         this.target = target;
+         this.method = method;
+      }
 
-		public static <RT> ErrorHandler<RT> get() {
-			return new NullErrorHandler<RT>();
-		}
+      public Class<?> getDeclaringClass() {
+         return method.getDeclaringClass();
+      }
 
-		public RT handle(Object[] params, Throwable throwable) {
-			// ignore
-			return null;
-		}
-	}
+      public Method getMethod() {
+         return method;
+      }
 
-	public static class MethodNameFilter implements Predicate<Method> {
+      public Class<?>[] getParameterTypes() {
+         return method.getParameterTypes();
+      }
 
-		protected final int maxParams;
+      public Object getTarget() {
+         return target;
+      }
 
-		protected final String methodName;
+      public boolean isInvokeable(final List<Class<?>> paramTypes) {
+         if(getParameterTypes().length != paramTypes.size()) {
+            return false;
+         }
+         for(int i = 0; i < paramTypes.size(); i++) {
+            final Class<?> paramClass = paramTypes.get(i);
+            if(paramClass != null && !Void.class.equals(paramClass) && !CastUtil.getObjectType(getParameterTypes()[i])
+                  .isAssignableFrom(CastUtil.getObjectType(paramClass))) {
+               return false;
+            }
+         }
+         return true;
+      }
 
-		protected final int minParams;
+      @Override
+      public String toString() {
+         return this.method.toString();
+      }
+   }
 
-		public MethodNameFilter(String methodName, int minParams, int maxParams) {
-			this.maxParams = maxParams;
-			this.methodName = methodName;
-			this.minParams = minParams;
-		}
+   public static class MethodNameFilter implements Predicate<Method> {
 
-		public boolean apply(Method param) {
-			return param.getName().equals(methodName) && param.getParameterTypes().length >= minParams
-					&& param.getParameterTypes().length <= maxParams;
-		}
+      protected final int maxParams;
 
-		@Override
-		public String toString() {
-			return "'" + methodName + "'";
-		}
-		
-		public int getMaxParams() {
-			return maxParams;
-		}
-		
-		public int getMinParams() {
-			return minParams;
-		}
-	}
+      protected final String methodName;
 
-	public static class Predicates {
+      protected final int minParams;
 
-		public static Predicate<Method> forName(String name) {
-			return new MethodNameFilter(name, 1, 1);
-		}
+      public MethodNameFilter(final String methodName, final int minParams, final int maxParams) {
+         this.maxParams = maxParams;
+         this.methodName = methodName;
+         this.minParams = minParams;
+      }
 
-		public static Predicate<Method> forName(String name, int params) {
-			return new MethodNameFilter(name, params, params);
-		}
+      @Override
+      public boolean apply(final Method param) {
+         return param.getName().equals(methodName) && param.getParameterTypes().length >= minParams
+               && param.getParameterTypes().length <= maxParams;
+      }
 
-	}
+      public int getMaxParams() {
+         return maxParams;
+      }
 
-	public static interface ErrorHandler<P> {
-		P handle(Object[] params, Throwable throwable);
-	}
+      public int getMinParams() {
+         return minParams;
+      }
 
-	private final ErrorHandler<RT> handler;
+      @Override
+      public String toString() {
+         return "'" + methodName + "'";
+      }
+   }
 
-	public static <T> PolymorphicDispatcher<T> createForSingleTarget(final String methodName, final Object singleTarget) {
-		return new PolymorphicDispatcher<T>(methodName, Collections.singletonList(singleTarget));
-	}
+   private static class NoSuchMethodException extends java.lang.NoSuchMethodException {
 
-	public static <T> PolymorphicDispatcher<T> createForSingleTarget(final String methodName, int min, int max, final Object singleTarget) {
-		return new PolymorphicDispatcher<T>(methodName, min, max, Collections.singletonList(singleTarget));
-	}
-	
-	public static <T> PolymorphicDispatcher<T> createForSingleTarget(Predicate<Method> methodFilter, Object singleTarget) {
-		return new PolymorphicDispatcher<T>(Collections.singletonList(singleTarget), methodFilter);
-	}
+      private static final long serialVersionUID = 1L;
+      private final Predicate<Method> methodFilter;
+      private final Object[] params;
 
-	public static <T> PolymorphicDispatcher<T> createForVarTarget(final String methodName, final Object... targets) {
-		return new PolymorphicDispatcher<T>(methodName, Arrays.asList(targets));
-	}
+      NoSuchMethodException(final Predicate<Method> methodFilter, final Object[] params) {
+         this.methodFilter = methodFilter;
+         this.params = params;
+      }
 
-	public PolymorphicDispatcher(final String methodName, final List<? extends Object> targets) {
-		this(methodName, 1, 1, targets);
-	}
+      @Override
+      public String getMessage() {
+         return "Couldn't find method '" + methodFilter.toString() + "' for objects " + Arrays.toString(params);
+      }
+   }
 
-	public PolymorphicDispatcher(final String methodName, final int minParams, final int maxParams, final List<? extends Object> targets) {
-		this(methodName, minParams, maxParams, targets, new DefaultErrorHandler<RT>());
-	}
+   public static class NullErrorHandler<T> implements ErrorHandler<T> {
 
-	public PolymorphicDispatcher(final String methodName, final int minParams, final int maxParams, final List<? extends Object> targets,
-			ErrorHandler<RT> handler) {
-		this(targets, new MethodNameFilter(methodName, minParams, maxParams), handler);
-	}
+      public static <T> ErrorHandler<T> get() {
+         return new NullErrorHandler<>();
+      }
 
-	public PolymorphicDispatcher(final List<? extends Object> targets, Predicate<Method> methodFilter) {
-		this(targets, methodFilter, new DefaultErrorHandler<RT>());
-	}
+      @Override
+      public T handle(final Object[] params, final Throwable throwable) {
+         // ignore
+         return null;
+      }
+   }
 
-	public PolymorphicDispatcher(final List<? extends Object> targets, Predicate<Method> methodFilter, ErrorHandler<RT> handler) {
-		this.targets = targets;
-		this.methodFilter = methodFilter;
-		this.handler = handler;
-		declaredMethodsOrderedBySpecificParameterType = getDeclaredMethodsOrderedBySpecificParameterType();
-	}
+   public static class Predicates {
 
-	protected class MethodDesc {
-		private final Object target;
-		private final Method method;
+      public static Predicate<Method> forName(final String name) {
+         return new MethodNameFilter(name, 1, 1);
+      }
 
-		protected MethodDesc(Object target, Method method) {
-			super();
-			this.target = target;
-			this.method = method;
-		}
+      public static Predicate<Method> forName(final String name, final int params) {
+         return new MethodNameFilter(name, params, params);
+      }
 
-		public Class<?> getDeclaringClass() {
-			return method.getDeclaringClass();
-		}
+   }
 
-		public Class<?>[] getParameterTypes() {
-			return method.getParameterTypes();
-		}
+   public static <T> PolymorphicDispatcher<T> createForSingleTarget(final Predicate<Method> methodFilter,
+         final Object singleTarget) {
+      return new PolymorphicDispatcher<>(Collections.singletonList(singleTarget), methodFilter);
+   }
 
-		public Method getMethod() {
-			return method;
-		}
+   public static <T> PolymorphicDispatcher<T> createForSingleTarget(final String methodName, final int min,
+         final int max, final Object singleTarget) {
+      return new PolymorphicDispatcher<>(methodName, min, max, Collections.singletonList(singleTarget));
+   }
 
-		public Object getTarget() {
-			return target;
-		}
+   public static <T> PolymorphicDispatcher<T> createForSingleTarget(final String methodName,
+         final Object singleTarget) {
+      return new PolymorphicDispatcher<>(methodName, Collections.singletonList(singleTarget));
+   }
 
-		public boolean isInvokeable(final List<Class<?>> paramTypes) {
-			if (getParameterTypes().length != paramTypes.size())
-				return false;
-			for (int i = 0; i < paramTypes.size(); i++) {
-				Class<?> paramClass = paramTypes.get(i);
-				if (paramClass!=null && !Void.class.equals(paramClass) && !(CastUtil.getObjectType(getParameterTypes()[i]).isAssignableFrom(CastUtil.getObjectType(paramClass))))
-					return false;
-			}
-			return true;
-		}
+   public static <T> PolymorphicDispatcher<T> createForVarTarget(final String methodName, final Object... targets) {
+      return new PolymorphicDispatcher<>(methodName, Arrays.asList(targets));
+   }
 
-		@Override
-		public String toString() {
-			return this.method.toString();
-		}
-	}
+   private final List<? extends Object> targets;
 
-	protected int compare(MethodDesc o1, MethodDesc o2) {
-		final List<Class<?>> paramTypes1 = Arrays.asList(o1.getParameterTypes());
-		final List<Class<?>> paramTypes2 = Arrays.asList(o2.getParameterTypes());
+   private final Predicate<Method> methodFilter;
 
-		// sort by number of parameters
-		if (paramTypes1.size() > paramTypes2.size())
-			return 1;
-		if (paramTypes2.size() > paramTypes1.size())
-			return -1;
+   private List<MethodDesc> declaredMethodsByParameterType;
 
-		// sort by parameter types from left to right
-		for (int i = 0; i < paramTypes1.size(); i++) {
-			final Class<?> class1 = paramTypes1.get(i);
-			final Class<?> class2 = paramTypes2.get(i);
+   private final ErrorHandler<T> handler;
 
-			if (class1.equals(class2))
-				continue;
-			if (class1.isAssignableFrom(class2) || Void.class.equals(class2))
-				return -1;
-			if (class2.isAssignableFrom(class1) || Void.class.equals(class1))
-				return 1;
-		}
+   private final SimpleCache<List<Class<?>>, List<MethodDesc>> cache = new SimpleCache<>(paramTypes -> {
+      final List<MethodDesc> result = new ArrayList<>();
+      final Iterator<MethodDesc> iterator = declaredMethodsByParameterType.iterator();
+      while(iterator.hasNext()) {
+         final MethodDesc methodDesc = iterator.next();
+         if(methodDesc.isInvokeable(paramTypes)) {
+            if(result.isEmpty()) {
+               result.add(methodDesc);
+            } else {
+               final int compare = compare(result.get(0), methodDesc);
+               if(compare < 0) {
+                  result.clear();
+                  result.add(methodDesc);
+               } else if(compare == 0) {
+                  result.add(methodDesc);
+               }
+            }
+         }
+      }
+      return result;
+   });
 
-		// sort by declaring class (more specific comes first).
-		if (!o1.getDeclaringClass().equals(o2.getDeclaringClass())) {
-			if (o1.getDeclaringClass().isAssignableFrom(o2.getDeclaringClass()))
-				return 1;
-			if (o2.getDeclaringClass().isAssignableFrom(o1.getDeclaringClass()))
-				return -1;
-		}
+   public PolymorphicDispatcher(final List<? extends Object> targets, final Predicate<Method> methodFilter) {
+      this(targets, methodFilter, new DefaultErrorHandler<T>());
+   }
 
-		// sort by target
-		final int compareTo = ((Integer) targets.indexOf(o2.target)).compareTo(targets.indexOf(o1.target));
-		return compareTo;
-	}
+   public PolymorphicDispatcher(final List<? extends Object> targets, final Predicate<Method> methodFilter,
+         final ErrorHandler<T> handler) {
+      this.targets = targets;
+      this.methodFilter = methodFilter;
+      this.handler = handler;
+      declaredMethodsByParameterType = getDeclaredMethodsOrderedBySpecificParameterType();
+   }
 
-	private final SimpleCache<List<Class<?>>, List<MethodDesc>> cache =
-		new SimpleCache<List<Class<?>>, List<MethodDesc>>(
-			new Function<List<Class<?>>, List<MethodDesc>>() {
-				public List<MethodDesc> apply(List<Class<?>> paramTypes) {
-					List<MethodDesc> result = new ArrayList<MethodDesc>();
-					Iterator<MethodDesc> iterator = declaredMethodsOrderedBySpecificParameterType.iterator();
-					while (iterator.hasNext()) {
-						MethodDesc methodDesc = iterator.next();
-						if (methodDesc.isInvokeable(paramTypes)) {
-							if (result.isEmpty()) {
-								result.add(methodDesc);
-							} else {
-								int compare = compare(result.get(0), methodDesc);
-								if (compare < 0) {
-									result.clear();
-									result.add(methodDesc);
-								} else if (compare == 0) {
-									result.add(methodDesc);
-								}
-							}
-						}
-					}
-					return result;
-				}
-			}
-		);
+   public PolymorphicDispatcher(final String methodName, final int minParams, final int maxParams,
+         final List<? extends Object> targets) {
+      this(methodName, minParams, maxParams, targets, new DefaultErrorHandler<T>());
+   }
 
-	@SuppressWarnings("unchecked")
-	public RT invoke(Object... params) {
-		if (methodFilter instanceof MethodNameFilter) {
-			MethodNameFilter filter = (MethodNameFilter) methodFilter;
-			if (params.length<filter.getMinParams() || params.length > filter.getMaxParams()) {
-				throw new IllegalArgumentException("Wrong number of arguments. Expected "+filter.getMinParams()+" to "+filter.getMaxParams()+".");
-			}
-		}
-		List<MethodDesc> result = cache.get(getTypes(params));
-		// check if ambiguous
-		if (result.size()>1)
-			return handleAmbigousMethods(result, params);
-		
-		if (result.isEmpty())
-			return handleNoSuchMethod(params);
+   public PolymorphicDispatcher(final String methodName, final int minParams, final int maxParams,
+         final List<? extends Object> targets, final ErrorHandler<T> handler) {
+      this(targets, new MethodNameFilter(methodName, minParams, maxParams), handler);
+   }
 
-		try {
-			MethodDesc current = result.get(0);
-			current.method.setAccessible(true);
-			return (RT) current.method.invoke(current.target, params);
-		} catch (InvocationTargetException e) {
-			if (e.getTargetException() instanceof Error)
-				throw (Error) e.getTargetException();
-			return handler.handle(params, e.getTargetException());
-		} catch (IllegalArgumentException e) {
-			return handler.handle(params, e);
-		} catch (IllegalAccessException e) {
-			return handler.handle(params, e);
-		}
-	}
+   public PolymorphicDispatcher(final String methodName, final List<? extends Object> targets) {
+      this(methodName, 1, 1, targets);
+   }
 
-	protected RT handleNoSuchMethod(Object... params) {
-		return handler.handle(params, new NoSuchMethodException(methodFilter, params));
-	}
+   protected int compare(final MethodDesc o1, final MethodDesc o2) {
+      final List<Class<?>> paramTypes1 = Arrays.asList(o1.getParameterTypes());
+      final List<Class<?>> paramTypes2 = Arrays.asList(o2.getParameterTypes());
 
-	protected RT handleAmbigousMethods(List<MethodDesc> result, Object... params) {
-		throw new IllegalStateException("Ambiguous methods " + result + " for params " + Arrays.toString(params));
-	}
+      // sort by number of parameters
+      if(paramTypes1.size() > paramTypes2.size()) {
+         return 1;
+      }
+      if(paramTypes2.size() > paramTypes1.size()) {
+         return -1;
+      }
 
-	/**
-	 * @param params
-	 * @return
-	 */
-	private List<Class<?>> getTypes(Object[] params) {
-		List<Class<?>> result = new ArrayList<Class<?>>(params.length);
-		for (int i = 0; i < params.length; i++) {
-			if (params[i]!=null) {
-				result.add(params[i].getClass());
-			} else {
-				result.add(getDefaultClass(i));
-			}
-		}
-		return result;
-	}
+      // sort by parameter types from left to right
+      for(int i = 0; i < paramTypes1.size(); i++) {
+         final Class<?> class1 = paramTypes1.get(i);
+         final Class<?> class2 = paramTypes2.get(i);
 
-	/**
-	 * @return
-	 */
-	protected Class<?> getDefaultClass(int paramIndex) {
-		return Void.class;
-	}
+         if(class1.equals(class2)) {
+            continue;
+         }
+         if(class1.isAssignableFrom(class2) || Void.class.equals(class2)) {
+            return -1;
+         }
+         if(class2.isAssignableFrom(class1) || Void.class.equals(class1)) {
+            return 1;
+         }
+      }
 
-	private List<MethodDesc> getDeclaredMethodsOrderedBySpecificParameterType() {
-		ArrayList<MethodDesc> cachedDescriptors = new ArrayList<MethodDesc>();
-		for (Object target : targets) {
-			Class<?> current = target.getClass();
-			while (current != Object.class) {
-				Method[] methods = current.getDeclaredMethods();
-				for (Method method : methods) {
-					if (methodFilter.apply(method)) {
-						cachedDescriptors.add(createMethodDesc(target, method));
-					}
-				}
-				current = current.getSuperclass();
-			}
-		}
-		Collections.sort(cachedDescriptors, new Comparator<MethodDesc>() {
-			public int compare(MethodDesc o1, MethodDesc o2) {
-				return PolymorphicDispatcher.this.compare(o1, o2);
-			}
-		});
-		return cachedDescriptors;
-	}
-	
-	protected MethodDesc createMethodDesc(Object target, Method method) {
-		return new MethodDesc(target, method);
-	}
+      // sort by declaring class (more specific comes first).
+      if(!o1.getDeclaringClass().equals(o2.getDeclaringClass())) {
+         if(o1.getDeclaringClass().isAssignableFrom(o2.getDeclaringClass())) {
+            return 1;
+         }
+         if(o2.getDeclaringClass().isAssignableFrom(o1.getDeclaringClass())) {
+            return -1;
+         }
+      }
 
-	private static class NoSuchMethodException extends java.lang.NoSuchMethodException {
+      // sort by target
+      final int compareTo = ((Integer) targets.indexOf(o2.target)).compareTo(targets.indexOf(o1.target));
+      return compareTo;
+   }
 
-		private static final long serialVersionUID = 1L;
-		private final Predicate<Method> methodFilter;
-		private final Object[] params;
+   protected MethodDesc createMethodDesc(final Object target, final Method method) {
+      return new MethodDesc(target, method);
+   }
 
-		public NoSuchMethodException(Predicate<Method> methodFilter, Object[] params) {
-			this.methodFilter = methodFilter;
-			this.params = params;
-		}
+   private List<MethodDesc> getDeclaredMethodsOrderedBySpecificParameterType() {
+      final ArrayList<MethodDesc> cachedDescriptors = new ArrayList<>();
+      for(final Object target : targets) {
+         Class<?> current = target.getClass();
+         while(current != Object.class) {
+            final Method[] methods = current.getDeclaredMethods();
+            for(final Method method : methods) {
+               if(methodFilter.apply(method)) {
+                  cachedDescriptors.add(createMethodDesc(target, method));
+               }
+            }
+            current = current.getSuperclass();
+         }
+      }
+      Collections.sort(cachedDescriptors, (o1, o2) -> PolymorphicDispatcher.this.compare(o1, o2));
+      return cachedDescriptors;
+   }
 
-		@Override
-		public String getMessage() {
-			return "Couldn't find method '" + methodFilter.toString() + "' for objects " + Arrays.toString(params);
-		}
-	}
+   /**
+    * @return
+    */
+   protected Class<?> getDefaultClass(final int paramIndex) {
+      return Void.class;
+   }
+
+   /**
+    * @param params
+    * @return
+    */
+   private List<Class<?>> getTypes(final Object[] params) {
+      final List<Class<?>> result = new ArrayList<>(params.length);
+      for(int i = 0; i < params.length; i++) {
+         if(params[i] != null) {
+            result.add(params[i].getClass());
+         } else {
+            result.add(getDefaultClass(i));
+         }
+      }
+      return result;
+   }
+
+   protected T handleAmbigousMethods(final List<MethodDesc> result, final Object... params) {
+      throw new IllegalStateException("Ambiguous methods " + result + " for params " + Arrays.toString(params));
+   }
+
+   protected T handleNoSuchMethod(final Object... params) {
+      return handler.handle(params, new NoSuchMethodException(methodFilter, params));
+   }
+
+   @SuppressWarnings("unchecked")
+   public T invoke(final Object... params) {
+      if(methodFilter instanceof MethodNameFilter) {
+         final MethodNameFilter filter = (MethodNameFilter) methodFilter;
+         if(params.length < filter.getMinParams() || params.length > filter.getMaxParams()) {
+            throw new IllegalArgumentException("Wrong number of arguments. Expected " + filter.getMinParams() + " to "
+                  + filter.getMaxParams() + ".");
+         }
+      }
+      final List<MethodDesc> result = cache.get(getTypes(params));
+      // check if ambiguous
+      if(result.size() > 1) {
+         return handleAmbigousMethods(result, params);
+      }
+
+      if(result.isEmpty()) {
+         return handleNoSuchMethod(params);
+      }
+
+      try {
+         final MethodDesc current = result.get(0);
+         current.method.setAccessible(true);
+         return (T) current.method.invoke(current.target, params);
+      } catch(final InvocationTargetException e) {
+         if(e.getTargetException() instanceof Error) {
+            throw(Error) e.getTargetException();
+         }
+         return handler.handle(params, e.getTargetException());
+      } catch(final IllegalArgumentException e) {
+         return handler.handle(params, e);
+      } catch(final IllegalAccessException e) {
+         return handler.handle(params, e);
+      }
+   }
 }
