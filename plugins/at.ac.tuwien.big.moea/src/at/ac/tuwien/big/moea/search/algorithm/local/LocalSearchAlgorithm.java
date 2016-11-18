@@ -13,20 +13,31 @@
 package at.ac.tuwien.big.moea.search.algorithm.local;
 
 import org.moeaframework.core.Algorithm;
+import org.moeaframework.core.NondominatedPopulation;
+import org.moeaframework.core.Problem;
 import org.moeaframework.core.Solution;
 
-public interface LocalSearchAlgorithm<S extends Solution> extends Algorithm {
-   Comparable<?> getBestFitness();
+import at.ac.tuwien.big.moea.search.algorithm.RestartableAlgorithm;
 
-   S getBestSolution();
+public interface LocalSearchAlgorithm<S extends Solution> extends RestartableAlgorithm<S> {
+	S getInitialSolution();
+	INeighborhoodFunction<S> getNeighborhoodFunction();
+	IFitnessComparator<?, S> getFitnessComparator();	
 
-   Comparable<?> getCurrentFitness();
-
-   S getCurrentSolution();
-
-   IFitnessComparator<?, S> getFitnessComparator();
-
-   S getInitialSolution();
-
-   INeighborhoodFunction<S> getNeighborhoodFunction();
+	S getCurrentSolution();
+	Comparable<?> getCurrentFitness();
+	
+	S getBestSolution();
+	Comparable<?> getBestFitness();
+	
+	public void copyFor(AbstractLocalSearchAlgorithm<S> algorithm, S initialSolution);
+	
+	public abstract AbstractLocalSearchAlgorithm<S> newInstance(Problem problem);
+		
+	public AbstractLocalSearchAlgorithm<S> prototypeFor(S s, IFitnessComparatorGenerator<?, S> comparatorGenerator, NondominatedPopulation ndp);
+	
+	
+	public AbstractLocalSearchAlgorithm<S> prototypeForF(S s, IFitnessComparator<?, S> comparator);
+	
+	public int getStepNum();
 }

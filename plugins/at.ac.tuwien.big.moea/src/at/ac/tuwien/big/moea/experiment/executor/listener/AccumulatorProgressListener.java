@@ -20,26 +20,26 @@ import org.moeaframework.Instrumenter;
 import org.moeaframework.analysis.collector.Accumulator;
 import org.moeaframework.util.progress.ProgressEvent;
 
-public class AccumulatorProgressListener extends AbstractProgressListener {
+public class AccumulatorProgressListener extends AbstractProgressListener{
 
-   private final List<Accumulator> accumulators = new ArrayList<>();
+	private List<Accumulator> accumulators = new ArrayList<>();
+	
+	@Override
+	public void update(ProgressEvent event) {
+		if (isSeedFinished(event) || isFinished(event)) {
+			Executor executor = event.getExecutor();
+			Instrumenter instrumenter = executor.getInstrumenter();
+			
+			accumulators.add(instrumenter.getLastAccumulator());
+		}
+	}
 
-   public List<Accumulator> getAccumulators() {
-      return accumulators;
-   }
-
-   public AccumulatorProgressListener reset() {
-      accumulators.clear();
-      return this;
-   }
-
-   @Override
-   public void update(final ProgressEvent event) {
-      if(isSeedFinished(event) || isFinished(event)) {
-         final Executor executor = event.getExecutor();
-         final Instrumenter instrumenter = executor.getInstrumenter();
-
-         accumulators.add(instrumenter.getLastAccumulator());
-      }
-   }
+	public List<Accumulator> getAccumulators() {
+		return accumulators;
+	}
+	
+	public AccumulatorProgressListener reset() {
+		accumulators.clear();
+		return this;
+	}
 }

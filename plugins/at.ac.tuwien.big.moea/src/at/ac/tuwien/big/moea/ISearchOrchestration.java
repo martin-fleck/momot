@@ -12,6 +12,15 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea;
 
+import java.util.List;
+
+import org.moeaframework.core.Algorithm;
+import org.moeaframework.core.EpsilonBoxDominanceArchive;
+import org.moeaframework.core.NondominatedPopulation;
+import org.moeaframework.core.NondominatedSortingPopulation;
+import org.moeaframework.core.Population;
+import org.moeaframework.core.Solution;
+
 import at.ac.tuwien.big.moea.print.IPopulationWriter;
 import at.ac.tuwien.big.moea.print.ISolutionWriter;
 import at.ac.tuwien.big.moea.problem.ISearchProblem;
@@ -22,68 +31,41 @@ import at.ac.tuwien.big.moea.search.fitness.IMultiDimensionalFitnessFunction;
 import at.ac.tuwien.big.moea.search.solution.generator.IInjectedPopulationGenerator;
 import at.ac.tuwien.big.moea.search.solution.generator.solution.ISolutionGenerator;
 
-import java.util.List;
-
-import org.moeaframework.core.Algorithm;
-import org.moeaframework.core.EpsilonBoxDominanceArchive;
-import org.moeaframework.core.NondominatedPopulation;
-import org.moeaframework.core.NondominatedSortingPopulation;
-import org.moeaframework.core.Population;
-import org.moeaframework.core.Solution;
-
 public interface ISearchOrchestration<S extends Solution> {
-   void addAlgorithm(IRegisteredAlgorithm<? extends Algorithm> algorithm);
-
-   void addAlgorithm(String name, IRegisteredAlgorithm<? extends Algorithm> algorithm);
-
-   EpsilonBoxDominanceArchive createEpsilonBoxArchive(double... epsilon);
-
-   EvolutionaryAlgorithmFactory<S> createEvolutionaryAlgorithmFactory(int populationSize);
-
-   LocalSearchAlgorithmFactory<S> createLocalSearchAlgorithmFactory();
-
-   S createNewRandomSolution();
-
-   S createNewRandomSolution(int solutionLength);
-
-   S createNewSolution();
-
-   S createNewSolution(int solutionLength);
-
-   NondominatedPopulation createPopulation(double... epsilon);
-
-   IInjectedPopulationGenerator<S> createPopulationGenerator(int populationSize);
-
-   IPopulationWriter<S> createPopulationWriter();
-
-   ISearchProblem<S> createProblem();
-
-   ISolutionWriter<S> createSolutionWriter();
-
-   NondominatedSortingPopulation createSortingPopulation();
-
-   String getAlgorithmName(IRegisteredAlgorithm<? extends Algorithm> algorithm);
-
-   List<IRegisteredAlgorithm<? extends Algorithm>> getAlgorithms();
-
-   IMultiDimensionalFitnessFunction<S> getFitnessFunction();
-
-   int getNumberOfConstraints();
-
-   int getNumberOfObjectives();
-
-   ISearchProblem<S> getProblem();
-
-   ISolutionGenerator<S> getSolutionGenerator();
-
-   int getSolutionLength();
-
-   String print(Iterable<S> population);
-
-   String print(Population population);
-
-   String print(S solution);
-
-   void setAlgorithms(List<IRegisteredAlgorithm<? extends Algorithm>> algorithms);
-
+	ISearchProblem<S> createProblem();
+	ISearchProblem<S> getProblem();
+	IMultiDimensionalFitnessFunction<S> getFitnessFunction();
+	ISolutionGenerator<S> getSolutionGenerator();
+	
+	int getSolutionLength();
+	int getNumberOfObjectives();
+	int getNumberOfConstraints();
+	
+	String print(Iterable<S> population);
+	String print(Population population);
+	String print(S solution);
+	
+	EvolutionaryAlgorithmFactory<S> createEvolutionaryAlgorithmFactory(int populationSize);
+	LocalSearchAlgorithmFactory<S> createLocalSearchAlgorithmFactory();
+	
+	List<IRegisteredAlgorithm<? extends Algorithm>> getAlgorithms();
+	void setAlgorithms(List<IRegisteredAlgorithm<? extends Algorithm>> algorithms);
+	void addAlgorithm(IRegisteredAlgorithm<? extends Algorithm> algorithm);
+	void addAlgorithm(String name, IRegisteredAlgorithm<? extends Algorithm> algorithm);
+	String getAlgorithmName(IRegisteredAlgorithm<? extends Algorithm> algorithm);
+	
+	IInjectedPopulationGenerator<S> createPopulationGenerator(int populationSize);
+	
+	S createNewSolution(int solutionLength);
+	S createNewSolution();
+	S createNewRandomSolution(int solutionLength);
+	S createNewRandomSolution();
+	
+	ISolutionWriter<S> createSolutionWriter();
+	IPopulationWriter<S> createPopulationWriter();
+	
+	NondominatedPopulation createPopulation(double... epsilon);
+	NondominatedSortingPopulation createSortingPopulation();
+	EpsilonBoxDominanceArchive createEpsilonBoxArchive(double... epsilon);
+	
 }

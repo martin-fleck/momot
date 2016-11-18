@@ -17,45 +17,32 @@ import java.io.PrintStream;
 import org.moeaframework.core.Solution;
 
 public interface ISolutionWriter<S extends Solution> {
-   ISolutionWriter<S> addConstraintName(int index, String name);
-
-   ISolutionWriter<S> addObjectiveName(int index, String name);
-
-   ISolutionWriter<S> addVariableName(int index, String name);
-
-   String getConstraintData(S solution, int index);
-
-   String getConstraintName(int index);
-
-   String getObjectiveData(S solution, int index);
-
-   String getObjectiveName(int index);
-
-   String getVariableData(S solution, int index);
-
-   String getVariableName(int index);
-
-   ISolutionWriter<S> setConstraintNames(Iterable<String> names);
-
-   ISolutionWriter<S> setObjectiveNames(Iterable<String> names);
-
-   ISolutionWriter<S> setPrintPlaceholders(boolean printPlaceholders);
-
-   ISolutionWriter<S> setVariableNames(Iterable<String> names);
-
-   void write(PrintStream ps, S solution);
-
-   String write(S solution);
-
-   boolean writeAttributes();
-
-   boolean writeConstraints();
-
-   boolean writeObjectives();
-
-   boolean writePlaceholders();
-
-   boolean writeSummaries();
-
-   boolean writeVariables();
+	ISolutionWriter<S> addObjectiveName(int index, String name);
+	ISolutionWriter<S> addVariableName(int index, String name);
+	ISolutionWriter<S> addConstraintName(int index, String name);
+	
+	ISolutionWriter<S> setObjectiveNames(Iterable<String> names);
+	ISolutionWriter<S> setVariableNames(Iterable<String> names);
+	ISolutionWriter<S> setConstraintNames(Iterable<String> names);
+	
+	public String getObjectiveName(int index);
+	public String getVariableName(int index);
+	public String getConstraintName(int index);
+	
+	public String getObjectiveData(S solution, int index);
+	public String getVariableData(S solution, int index);
+	public String getConstraintData(S solution, int index);
+	
+	boolean writeVariables();
+	boolean writeObjectives();
+	boolean writeAttributes();
+	boolean writeConstraints();
+	
+	boolean writeSummaries();
+	boolean writePlaceholders();
+	
+	ISolutionWriter<S> setPrintPlaceholders(boolean printPlaceholders);
+	
+	String write(S solution);
+	void write(PrintStream ps, S solution);
 }

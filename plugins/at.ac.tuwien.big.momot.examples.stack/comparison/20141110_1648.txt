@@ -1,0 +1,94 @@
+Solving [107, 145, 175, 191, 62, 35, 53, 179, 68, 45, 136, 89, 155, 90, 64, 146, 167, 48, 126, 84, 171, 124, 166, 45, 119, 52, 67, 88, 26, 134, 188, 147, 50, 158, 153, 99, 186, 113, 106, 138, 90, 17, 36, 59, 110, 92, 95, 14, 192, 97, 131, 191, 17, 56, 171, 71, 97, 36, 183, 195, 163, 182, 157, 82, 59, 173, 43, 66, 123, 147, 27, 37, 76, 49, 1, 66, 76, 139, 44, 191, 146, 173, 119, 46, 198, 176, 45, 166, 13, 69, 68, 194, 192, 136, 81, 45, 49, 160, 86, 153] (mean: 106.61, stddev: 55.62731253619933):
+---------------------
+Solve  [107, 145, 175, 191, 62, 35, 53, 179, 68, 45, 136, 89, 155, 90, 64, 146, 167, 48, 126, 84, 171, 124, 166, 45, 119, 52, 67, 88, 26, 134, 188, 147, 50, 158, 153, 99, 186, 113, 106, 138, 90, 17, 36, 59, 110, 92, 95, 14, 192, 97, 131, 191, 17, 56, 171, 71, 97, 36, 183, 195, 163, 182, 157, 82, 59, 173, 43, 66, 123, 147, 27, 37, 76, 49, 1, 66, 76, 139, 44, 191, 146, 173, 119, 46, 198, 176, 45, 166, 13, 69, 68, 194, 192, 136, 81, 45, 49, 160, 86, 153] with 125 solutions per population for 10000 evaluations.
+Execute 20 runs per executor.
+---------------------
+Transformation
+---------------------
+Population of 125 with length 100 created in: 0:00:10.472 (10472750605ns)
+[16:50:11.043] Run 1 of 20 terminated after 0:01:48.750.
+Population of 125 with length 100 created in: 0:00:04.911 (4911699842ns)
+[16:51:59.645] Run 2 of 20 terminated after 0:01:48.596.
+Population of 125 with length 100 created in: 0:00:05.014 (5014545116ns)
+[16:53:01.017] Run 3 of 20 terminated after 0:01:01.368.
+Population of 125 with length 100 created in: 0:00:04.961 (4961697494ns)
+[16:53:56.119] Run 4 of 20 terminated after 0:00:55.098.
+Population of 125 with length 100 created in: 0:00:04.872 (4872527739ns)
+[16:55:01.082] Run 5 of 20 terminated after 0:01:04.966.
+Population of 125 with length 100 created in: 0:00:04.942 (4942721501ns)
+[16:56:01.996] Run 6 of 20 terminated after 0:01:00.906.
+Population of 125 with length 100 created in: 0:00:04.824 (4824322175ns)
+[16:56:57.958] Run 7 of 20 terminated after 0:00:55.959.
+Population of 125 with length 100 created in: 0:00:04.903 (4903766501ns)
+[16:58:07.820] Run 8 of 20 terminated after 0:01:09.863.
+Population of 125 with length 100 created in: 0:00:04.821 (4821371152ns)
+[16:59:07.682] Run 9 of 20 terminated after 0:00:59.860.
+Population of 125 with length 100 created in: 0:00:04.873 (4873455756ns)
+[17:00:07.984] Run 10 of 20 terminated after 0:01:00.295.
+Population of 125 with length 100 created in: 0:00:04.813 (4813643073ns)
+[17:01:08.836] Run 11 of 20 terminated after 0:01:00.852.
+Population of 125 with length 100 created in: 0:00:04.854 (4854666078ns)
+[17:01:57.168] Run 12 of 20 terminated after 0:00:48.335.
+Population of 125 with length 100 created in: 0:00:04.878 (4878346890ns)
+[17:03:05.720] Run 13 of 20 terminated after 0:01:08.546.
+Population of 125 with length 100 created in: 0:00:04.808 (4808517071ns)
+[17:04:09.682] Run 14 of 20 terminated after 0:01:03.960.
+Population of 125 with length 100 created in: 0:00:04.860 (4860881146ns)
+[17:05:04.367] Run 15 of 20 terminated after 0:00:54.686.
+Population of 125 with length 100 created in: 0:00:05.001 (5001168804ns)
+[17:07:06.662] Run 16 of 20 terminated after 0:02:02.282.
+Population of 125 with length 100 created in: 0:00:04.887 (4887286011ns)
+[17:08:07.224] Run 17 of 20 terminated after 0:01:00.566.
+Population of 125 with length 100 created in: 0:00:04.775 (4775444380ns)
+[17:09:24.038] Run 18 of 20 terminated after 0:01:16.811.
+Population of 125 with length 100 created in: 0:00:04.809 (4809064171ns)
+[17:10:25.500] Run 19 of 20 terminated after 0:01:01.458.
+Population of 125 with length 100 created in: 0:00:09.220 (9220879473ns)
+[17:11:31.262] Run 20 of 20 terminated after 0:01:05.757.
+[17:11:31.262] Total runtime for 20 seeds: 0:23:08.939 (1388939796531).
+[17:11:31.262] Average runtime per seed 0:01:09.446 (69446989826).
+---------------------
+Native
+---------------------
+Population of 125 with length 100 created in: 0:00:00.010 (10232659ns)
+[17:11:32.754] Run 1 of 20 terminated after 0:00:01.467.
+Population of 125 with length 100 created in: 0:00:00.004 (4875740ns)
+[17:11:34.217] Run 2 of 20 terminated after 0:00:01.456.
+Population of 125 with length 100 created in: 0:00:00.005 (5298894ns)
+[17:11:35.629] Run 3 of 20 terminated after 0:00:01.417.
+Population of 125 with length 100 created in: 0:00:00.004 (4066538ns)
+[17:11:37.048] Run 4 of 20 terminated after 0:00:01.417.
+Population of 125 with length 100 created in: 0:00:00.003 (3971013ns)
+[17:11:38.452] Run 5 of 20 terminated after 0:00:01.406.
+Population of 125 with length 100 created in: 0:00:00.003 (3931539ns)
+[17:11:39.944] Run 6 of 20 terminated after 0:00:01.488.
+Population of 125 with length 100 created in: 0:00:00.004 (4003381ns)
+[17:11:41.415] Run 7 of 20 terminated after 0:00:01.467.
+Population of 125 with length 100 created in: 0:00:00.004 (4060616ns)
+[17:11:42.856] Run 8 of 20 terminated after 0:00:01.439.
+Population of 125 with length 100 created in: 0:00:00.003 (3987196ns)
+[17:11:44.337] Run 9 of 20 terminated after 0:00:01.482.
+Population of 125 with length 100 created in: 0:00:00.003 (3841935ns)
+[17:11:45.758] Run 10 of 20 terminated after 0:00:01.422.
+Population of 125 with length 100 created in: 0:00:00.004 (4149432ns)
+[17:11:47.209] Run 11 of 20 terminated after 0:00:01.453.
+Population of 125 with length 100 created in: 0:00:00.004 (4159300ns)
+[17:11:48.711] Run 12 of 20 terminated after 0:00:01.501.
+Population of 125 with length 100 created in: 0:00:00.004 (4124959ns)
+[17:11:50.163] Run 13 of 20 terminated after 0:00:01.445.
+Population of 125 with length 100 created in: 0:00:00.004 (4012459ns)
+[17:11:51.614] Run 14 of 20 terminated after 0:00:01.457.
+Population of 125 with length 100 created in: 0:00:00.004 (4983897ns)
+[17:11:53.116] Run 15 of 20 terminated after 0:00:01.492.
+Population of 125 with length 100 created in: 0:00:00.004 (4006144ns)
+[17:11:54.528] Run 16 of 20 terminated after 0:00:01.420.
+Population of 125 with length 100 created in: 0:00:00.004 (4181799ns)
+[17:11:55.980] Run 17 of 20 terminated after 0:00:01.444.
+Population of 125 with length 100 created in: 0:00:00.003 (3755093ns)
+[17:11:57.451] Run 18 of 20 terminated after 0:00:01.472.
+Population of 125 with length 100 created in: 0:00:00.003 (3761409ns)
+[17:11:58.873] Run 19 of 20 terminated after 0:00:01.423.
+Population of 125 with length 100 created in: 0:00:00.003 (3844304ns)
+[17:12:00.287] Run 20 of 20 terminated after 0:00:01.411.
+[17:12:00.287] Total runtime for 20 seeds: 0:00:28.996 (28996843716).
+[17:12:00.287] Average runtime per seed 0:00:01.449 (1449842185).

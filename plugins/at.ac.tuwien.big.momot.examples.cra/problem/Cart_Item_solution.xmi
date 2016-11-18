@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<architecture:ClassModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:architecture="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0"
+    xsi:schemaLocation="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0 ../metamodel/architecture.ecore">
+  <classes name="Class"
+      encapsulates="//@features.5 //@features.0 //@features.1 //@features.2"/>
+  <classes name="Class"
+      encapsulates="//@features.6 //@features.7 //@features.8 //@features.4 //@features.3"/>
+  <features
+      xsi:type="architecture:Method"
+      name="addItem"
+      isEncapsulatedBy="//@classes.0"
+      dataDependency="//@features.5 //@features.6"/>
+  <features
+      xsi:type="architecture:Method"
+      name="cartTotal"
+      isEncapsulatedBy="//@classes.0"
+      dataDependency="//@features.5"
+      functionalDependency="//@features.4"/>
+  <features
+      xsi:type="architecture:Method"
+      name="checkOut"
+      isEncapsulatedBy="//@classes.0"
+      dataDependency="//@features.5"
+      functionalDependency="//@features.1"/>
+  <features
+      xsi:type="architecture:Method"
+      name="print"
+      isEncapsulatedBy="//@classes.1"
+      dataDependency="//@features.6 //@features.7 //@features.8"/>
+  <features
+      xsi:type="architecture:Method"
+      name="itemTotal"
+      isEncapsulatedBy="//@classes.1"
+      dataDependency="//@features.7 //@features.8"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="items"
+      isEncapsulatedBy="//@classes.0"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="name"
+      isEncapsulatedBy="//@classes.1"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="price"
+      isEncapsulatedBy="//@classes.1"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="qty"
+      isEncapsulatedBy="//@classes.1"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="asd"/>
+</architecture:ClassModel>

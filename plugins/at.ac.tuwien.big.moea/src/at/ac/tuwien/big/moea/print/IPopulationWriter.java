@@ -18,11 +18,8 @@ import org.moeaframework.core.Population;
 import org.moeaframework.core.Solution;
 
 public interface IPopulationWriter<S extends Solution> {
-   String write(Iterable<S> population);
-
-   String write(Population population);
-
-   void write(PrintStream ps, Iterable<S> population);
-
-   void write(PrintStream ps, Population population);
+	void write(PrintStream ps, Iterable<S> population);
+	void write(PrintStream ps, Population population);
+	String write(Iterable<S> population);
+	String write(Population population);
 }

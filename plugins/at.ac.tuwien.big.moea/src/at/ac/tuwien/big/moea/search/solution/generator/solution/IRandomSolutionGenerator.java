@@ -15,11 +15,8 @@ package at.ac.tuwien.big.moea.search.solution.generator.solution;
 import org.moeaframework.core.Solution;
 
 public interface IRandomSolutionGenerator<S extends Solution> extends ISolutionGenerator<S> {
-   S createRandomSolution();
-
-   S createRandomSolution(int solutionLength);
-
-   S createRandomSolution(int solutionLength, int nrObjectives);
-
-   S createRandomSolution(int solutionLength, int nrObjectives, int nrConstraints);
+	S createRandomSolution();
+	S createRandomSolution(int solutionLength);
+	S createRandomSolution(int solutionLength, int nrObjectives);
+	S createRandomSolution(int solutionLength, int nrObjectives, int nrConstraints);
 }

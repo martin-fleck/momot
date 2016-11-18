@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<univ:School
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:univ="http://univ/1.0"
+    xsi:schemaLocation="http://univ/1.0 univ.ecore">
+  <persons xsi:type="univ:Teacher"
+      name="StudentName"
+      email="bobbug@gmx.at"/>
+  <persons xsi:type="univ:Student"
+      name="TeacherName"
+      matrNr="1"/>
+</univ:School>

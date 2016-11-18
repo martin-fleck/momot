@@ -14,20 +14,19 @@ package at.ac.tuwien.big.moea.search.algorithm.operator.crossover;
 
 import at.ac.tuwien.big.moea.search.algorithm.operator.AbstractProbabilityVariation;
 
-public abstract class AbstractParentalCrossoverVariation extends AbstractProbabilityVariation
-      implements ICrossoverVariation {
+public abstract class AbstractParentalCrossoverVariation extends AbstractProbabilityVariation implements ICrossoverVariation {
 
-   public AbstractParentalCrossoverVariation() {
-      super();
-   }
-
-   public AbstractParentalCrossoverVariation(final double probability) {
-      super(probability);
-   }
-
-   @Override
-   public int getArity() {
-      return 2;
-   }
+	public AbstractParentalCrossoverVariation() {
+		super();
+	}
+	
+	public AbstractParentalCrossoverVariation(double probability) {
+		super(probability);
+	}
+	
+	@Override
+	public int getArity() {
+		return 2;
+	}
 
 }

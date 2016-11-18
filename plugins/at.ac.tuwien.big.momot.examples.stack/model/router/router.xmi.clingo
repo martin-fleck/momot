@@ -1,0 +1,672 @@
+m1_Agent(O) :- current_m1_Agent(O), preserve(O).
+preserve(O) :- m1_Agent(O), current_m1_Agent(O).
+create(O) :- m1_Agent(O), not current_m1_Agent(O).
+delete(O) :- not m1_Agent(O), current_m1_Agent(O).
+1 {attr_Agent_name(S,T): string(T)} 1 :- m1_Agent(S).
+string(T) :- attr_Agent_name(_,T).
+string(T) :- current_attr_Agent_name(_,T).
+m1_Agent(S) :- attr_Agent_name(S,_).
+1 {preserve_attr_Agent_name(S,T); delete_attr_Agent_name(S,T) } 1 :- current_attr_Agent_name(S,T).
+create_attr_Agent_name(S,T) :- not current_attr_Agent_name(S,T), attr_Agent_name(S,T).
+delete_attr_Agent_name(S,T) :- current_attr_Agent_name(S,T), not attr_Agent_name(S,T).
+attr_Agent_name(S,T) :- current_attr_Agent_name(S,T), preserve_attr_Agent_name(S,T).
+attr_Agent_name(S,T) :- create_attr_Agent_name(S,T).
+1 {attr_Agent_speed(S,T): integer(T)} 1 :- m1_Agent(S).
+integer(T) :- attr_Agent_speed(_,T).
+integer(T) :- current_attr_Agent_speed(_,T).
+m1_Agent(S) :- attr_Agent_speed(S,_).
+1 {preserve_attr_Agent_speed(S,T); delete_attr_Agent_speed(S,T) } 1 :- current_attr_Agent_speed(S,T).
+create_attr_Agent_speed(S,T) :- not current_attr_Agent_speed(S,T), attr_Agent_speed(S,T).
+delete_attr_Agent_speed(S,T) :- current_attr_Agent_speed(S,T), not attr_Agent_speed(S,T).
+attr_Agent_speed(S,T) :- current_attr_Agent_speed(S,T), preserve_attr_Agent_speed(S,T).
+attr_Agent_speed(S,T) :- create_attr_Agent_speed(S,T).
+current_m1_Agent(O) :- current_m1_Provider(O).
+m1_Agent(O) :- m1_Provider(O).
+m1_Provider(O) :- current_m1_Provider(O), preserve(O).
+preserve(O) :- m1_Provider(O), current_m1_Provider(O).
+create(O) :- m1_Provider(O), not current_m1_Provider(O).
+delete(O) :- not m1_Provider(O), current_m1_Provider(O).
+1 {assoc_Provider_rightserv(S,T): m1_Server(T)} 1 :- m1_Provider(S).
+m1_Server(T) :- assoc_Provider_rightserv(_,T).
+m1_Provider(S) :- assoc_Provider_rightserv(S,_).
+assoc_Provider_rightserv(S,T) :- assoc_Server_provider(T,S).
+create_assoc_Provider_rightserv(S,T) :- create_assoc_Server_provider(T,S).
+delete_assoc_Provider_rightserv(S,T) :- delete_assoc_Server_provider(T,S).
+1 {preserve_assoc_Provider_rightserv(S,T); delete_assoc_Provider_rightserv(S,T) } 1 :- current_assoc_Provider_rightserv(S,T).
+create_assoc_Provider_rightserv(S,T) :- not current_assoc_Provider_rightserv(S,T), assoc_Provider_rightserv(S,T).
+delete_assoc_Provider_rightserv(S,T) :- current_assoc_Provider_rightserv(S,T), not assoc_Provider_rightserv(S,T).
+assoc_Provider_rightserv(S,T) :- current_assoc_Provider_rightserv(S,T), preserve_assoc_Provider_rightserv(S,T).
+assoc_Provider_rightserv(S,T) :- create_assoc_Provider_rightserv(S,T).
+current_m1_Agent(O) :- current_m1_Consumer(O).
+m1_Agent(O) :- m1_Consumer(O).
+m1_Consumer(O) :- current_m1_Consumer(O), preserve(O).
+preserve(O) :- m1_Consumer(O), current_m1_Consumer(O).
+create(O) :- m1_Consumer(O), not current_m1_Consumer(O).
+delete(O) :- not m1_Consumer(O), current_m1_Consumer(O).
+1 {assoc_Consumer_rightcomp(S,T): m1_Computer(T)} 1 :- m1_Consumer(S).
+m1_Computer(T) :- assoc_Consumer_rightcomp(_,T).
+m1_Consumer(S) :- assoc_Consumer_rightcomp(S,_).
+assoc_Consumer_rightcomp(S,T) :- assoc_Computer_consumer(T,S).
+create_assoc_Consumer_rightcomp(S,T) :- create_assoc_Computer_consumer(T,S).
+delete_assoc_Consumer_rightcomp(S,T) :- delete_assoc_Computer_consumer(T,S).
+1 {preserve_assoc_Consumer_rightcomp(S,T); delete_assoc_Consumer_rightcomp(S,T) } 1 :- current_assoc_Consumer_rightcomp(S,T).
+create_assoc_Consumer_rightcomp(S,T) :- not current_assoc_Consumer_rightcomp(S,T), assoc_Consumer_rightcomp(S,T).
+delete_assoc_Consumer_rightcomp(S,T) :- current_assoc_Consumer_rightcomp(S,T), not assoc_Consumer_rightcomp(S,T).
+assoc_Consumer_rightcomp(S,T) :- current_assoc_Consumer_rightcomp(S,T), preserve_assoc_Consumer_rightcomp(S,T).
+assoc_Consumer_rightcomp(S,T) :- create_assoc_Consumer_rightcomp(S,T).
+m1_Device(O) :- current_m1_Device(O), preserve(O).
+preserve(O) :- m1_Device(O), current_m1_Device(O).
+create(O) :- m1_Device(O), not current_m1_Device(O).
+delete(O) :- not m1_Device(O), current_m1_Device(O).
+0 {assoc_Device_outgoing(S,T): m1_Cable(T)} :- m1_Device(S).
+m1_Cable(T) :- assoc_Device_outgoing(_,T).
+m1_Device(S) :- assoc_Device_outgoing(S,_).
+assoc_Device_outgoing(S,T) :- assoc_Cable_source(T,S).
+create_assoc_Device_outgoing(S,T) :- create_assoc_Cable_source(T,S).
+delete_assoc_Device_outgoing(S,T) :- delete_assoc_Cable_source(T,S).
+1 {preserve_assoc_Device_outgoing(S,T); delete_assoc_Device_outgoing(S,T) } 1 :- current_assoc_Device_outgoing(S,T).
+create_assoc_Device_outgoing(S,T) :- not current_assoc_Device_outgoing(S,T), assoc_Device_outgoing(S,T).
+delete_assoc_Device_outgoing(S,T) :- current_assoc_Device_outgoing(S,T), not assoc_Device_outgoing(S,T).
+assoc_Device_outgoing(S,T) :- current_assoc_Device_outgoing(S,T), preserve_assoc_Device_outgoing(S,T).
+assoc_Device_outgoing(S,T) :- create_assoc_Device_outgoing(S,T).
+0 {assoc_Device_incoming(S,T): m1_Cable(T)} :- m1_Device(S).
+m1_Cable(T) :- assoc_Device_incoming(_,T).
+m1_Device(S) :- assoc_Device_incoming(S,_).
+assoc_Device_incoming(S,T) :- assoc_Cable_target(T,S).
+create_assoc_Device_incoming(S,T) :- create_assoc_Cable_target(T,S).
+delete_assoc_Device_incoming(S,T) :- delete_assoc_Cable_target(T,S).
+1 {preserve_assoc_Device_incoming(S,T); delete_assoc_Device_incoming(S,T) } 1 :- current_assoc_Device_incoming(S,T).
+create_assoc_Device_incoming(S,T) :- not current_assoc_Device_incoming(S,T), assoc_Device_incoming(S,T).
+delete_assoc_Device_incoming(S,T) :- current_assoc_Device_incoming(S,T), not assoc_Device_incoming(S,T).
+assoc_Device_incoming(S,T) :- current_assoc_Device_incoming(S,T), preserve_assoc_Device_incoming(S,T).
+assoc_Device_incoming(S,T) :- create_assoc_Device_incoming(S,T).
+1 {attr_Device_name(S,T): string(T)} 1 :- m1_Device(S).
+string(T) :- attr_Device_name(_,T).
+string(T) :- current_attr_Device_name(_,T).
+m1_Device(S) :- attr_Device_name(S,_).
+1 {preserve_attr_Device_name(S,T); delete_attr_Device_name(S,T) } 1 :- current_attr_Device_name(S,T).
+create_attr_Device_name(S,T) :- not current_attr_Device_name(S,T), attr_Device_name(S,T).
+delete_attr_Device_name(S,T) :- current_attr_Device_name(S,T), not attr_Device_name(S,T).
+attr_Device_name(S,T) :- current_attr_Device_name(S,T), preserve_attr_Device_name(S,T).
+attr_Device_name(S,T) :- create_attr_Device_name(S,T).
+m1_Cable(O) :- current_m1_Cable(O), preserve(O).
+preserve(O) :- m1_Cable(O), current_m1_Cable(O).
+create(O) :- m1_Cable(O), not current_m1_Cable(O).
+delete(O) :- not m1_Cable(O), current_m1_Cable(O).
+1 {attr_Cable_speed(S,T): integer(T)} 1 :- m1_Cable(S).
+integer(T) :- attr_Cable_speed(_,T).
+integer(T) :- current_attr_Cable_speed(_,T).
+m1_Cable(S) :- attr_Cable_speed(S,_).
+1 {preserve_attr_Cable_speed(S,T); delete_attr_Cable_speed(S,T) } 1 :- current_attr_Cable_speed(S,T).
+create_attr_Cable_speed(S,T) :- not current_attr_Cable_speed(S,T), attr_Cable_speed(S,T).
+delete_attr_Cable_speed(S,T) :- current_attr_Cable_speed(S,T), not attr_Cable_speed(S,T).
+attr_Cable_speed(S,T) :- current_attr_Cable_speed(S,T), preserve_attr_Cable_speed(S,T).
+attr_Cable_speed(S,T) :- create_attr_Cable_speed(S,T).
+1 {assoc_Cable_source(S,T): m1_Device(T)} 1 :- m1_Cable(S).
+m1_Device(T) :- assoc_Cable_source(_,T).
+m1_Cable(S) :- assoc_Cable_source(S,_).
+assoc_Cable_source(S,T) :- assoc_Device_outgoing(T,S).
+create_assoc_Cable_source(S,T) :- create_assoc_Device_outgoing(T,S).
+delete_assoc_Cable_source(S,T) :- delete_assoc_Device_outgoing(T,S).
+1 {preserve_assoc_Cable_source(S,T); delete_assoc_Cable_source(S,T) } 1 :- current_assoc_Cable_source(S,T).
+create_assoc_Cable_source(S,T) :- not current_assoc_Cable_source(S,T), assoc_Cable_source(S,T).
+delete_assoc_Cable_source(S,T) :- current_assoc_Cable_source(S,T), not assoc_Cable_source(S,T).
+assoc_Cable_source(S,T) :- current_assoc_Cable_source(S,T), preserve_assoc_Cable_source(S,T).
+assoc_Cable_source(S,T) :- create_assoc_Cable_source(S,T).
+1 {assoc_Cable_target(S,T): m1_Device(T)} 1 :- m1_Cable(S).
+m1_Device(T) :- assoc_Cable_target(_,T).
+m1_Cable(S) :- assoc_Cable_target(S,_).
+assoc_Cable_target(S,T) :- assoc_Device_incoming(T,S).
+create_assoc_Cable_target(S,T) :- create_assoc_Device_incoming(T,S).
+delete_assoc_Cable_target(S,T) :- delete_assoc_Device_incoming(T,S).
+1 {preserve_assoc_Cable_target(S,T); delete_assoc_Cable_target(S,T) } 1 :- current_assoc_Cable_target(S,T).
+create_assoc_Cable_target(S,T) :- not current_assoc_Cable_target(S,T), assoc_Cable_target(S,T).
+delete_assoc_Cable_target(S,T) :- current_assoc_Cable_target(S,T), not assoc_Cable_target(S,T).
+assoc_Cable_target(S,T) :- current_assoc_Cable_target(S,T), preserve_assoc_Cable_target(S,T).
+assoc_Cable_target(S,T) :- create_assoc_Cable_target(S,T).
+current_m1_Device(O) :- current_m1_Server(O).
+m1_Device(O) :- m1_Server(O).
+m1_Server(O) :- current_m1_Server(O), preserve(O).
+preserve(O) :- m1_Server(O), current_m1_Server(O).
+create(O) :- m1_Server(O), not current_m1_Server(O).
+delete(O) :- not m1_Server(O), current_m1_Server(O).
+0 {assoc_Server_provider(S,T): m1_Provider(T)} 1 :- m1_Server(S).
+m1_Provider(T) :- assoc_Server_provider(_,T).
+m1_Server(S) :- assoc_Server_provider(S,_).
+assoc_Server_provider(S,T) :- assoc_Provider_rightserv(T,S).
+create_assoc_Server_provider(S,T) :- create_assoc_Provider_rightserv(T,S).
+delete_assoc_Server_provider(S,T) :- delete_assoc_Provider_rightserv(T,S).
+1 {preserve_assoc_Server_provider(S,T); delete_assoc_Server_provider(S,T) } 1 :- current_assoc_Server_provider(S,T).
+create_assoc_Server_provider(S,T) :- not current_assoc_Server_provider(S,T), assoc_Server_provider(S,T).
+delete_assoc_Server_provider(S,T) :- current_assoc_Server_provider(S,T), not assoc_Server_provider(S,T).
+assoc_Server_provider(S,T) :- current_assoc_Server_provider(S,T), preserve_assoc_Server_provider(S,T).
+assoc_Server_provider(S,T) :- create_assoc_Server_provider(S,T).
+current_m1_Device(O) :- current_m1_Computer(O).
+m1_Device(O) :- m1_Computer(O).
+m1_Computer(O) :- current_m1_Computer(O), preserve(O).
+preserve(O) :- m1_Computer(O), current_m1_Computer(O).
+create(O) :- m1_Computer(O), not current_m1_Computer(O).
+delete(O) :- not m1_Computer(O), current_m1_Computer(O).
+1 {assoc_Computer_consumer(S,T): m1_Consumer(T)} 1 :- m1_Computer(S).
+m1_Consumer(T) :- assoc_Computer_consumer(_,T).
+m1_Computer(S) :- assoc_Computer_consumer(S,_).
+assoc_Computer_consumer(S,T) :- assoc_Consumer_rightcomp(T,S).
+create_assoc_Computer_consumer(S,T) :- create_assoc_Consumer_rightcomp(T,S).
+delete_assoc_Computer_consumer(S,T) :- delete_assoc_Consumer_rightcomp(T,S).
+1 {preserve_assoc_Computer_consumer(S,T); delete_assoc_Computer_consumer(S,T) } 1 :- current_assoc_Computer_consumer(S,T).
+create_assoc_Computer_consumer(S,T) :- not current_assoc_Computer_consumer(S,T), assoc_Computer_consumer(S,T).
+delete_assoc_Computer_consumer(S,T) :- current_assoc_Computer_consumer(S,T), not assoc_Computer_consumer(S,T).
+assoc_Computer_consumer(S,T) :- current_assoc_Computer_consumer(S,T), preserve_assoc_Computer_consumer(S,T).
+assoc_Computer_consumer(S,T) :- create_assoc_Computer_consumer(S,T).
+current_m1_Device(O) :- current_m1_Router(O).
+m1_Device(O) :- m1_Router(O).
+m1_Router(O) :- current_m1_Router(O), preserve(O).
+preserve(O) :- m1_Router(O), current_m1_Router(O).
+create(O) :- m1_Router(O), not current_m1_Router(O).
+delete(O) :- not m1_Router(O), current_m1_Router(O).
+1 {attr_Router_maxspeed(S,T): integer(T)} 1 :- m1_Router(S).
+integer(T) :- attr_Router_maxspeed(_,T).
+integer(T) :- current_attr_Router_maxspeed(_,T).
+m1_Router(S) :- attr_Router_maxspeed(S,_).
+1 {preserve_attr_Router_maxspeed(S,T); delete_attr_Router_maxspeed(S,T) } 1 :- current_attr_Router_maxspeed(S,T).
+create_attr_Router_maxspeed(S,T) :- not current_attr_Router_maxspeed(S,T), attr_Router_maxspeed(S,T).
+delete_attr_Router_maxspeed(S,T) :- current_attr_Router_maxspeed(S,T), not attr_Router_maxspeed(S,T).
+attr_Router_maxspeed(S,T) :- current_attr_Router_maxspeed(S,T), preserve_attr_Router_maxspeed(S,T).
+attr_Router_maxspeed(S,T) :- create_attr_Router_maxspeed(S,T).
+current_m1_Cable(O) :- current_m1_CopperCable(O).
+m1_Cable(O) :- m1_CopperCable(O).
+m1_CopperCable(O) :- current_m1_CopperCable(O), preserve(O).
+preserve(O) :- m1_CopperCable(O), current_m1_CopperCable(O).
+create(O) :- m1_CopperCable(O), not current_m1_CopperCable(O).
+delete(O) :- not m1_CopperCable(O), current_m1_CopperCable(O).
+current_m1_Cable(O) :- current_m1_GlassFiberCable(O).
+m1_Cable(O) :- m1_GlassFiberCable(O).
+m1_GlassFiberCable(O) :- current_m1_GlassFiberCable(O), preserve(O).
+preserve(O) :- m1_GlassFiberCable(O), current_m1_GlassFiberCable(O).
+create(O) :- m1_GlassFiberCable(O), not current_m1_GlassFiberCable(O).
+delete(O) :- not m1_GlassFiberCable(O), current_m1_GlassFiberCable(O).
+m1_Container(O) :- current_m1_Container(O), preserve(O).
+preserve(O) :- m1_Container(O), current_m1_Container(O).
+create(O) :- m1_Container(O), not current_m1_Container(O).
+delete(O) :- not m1_Container(O), current_m1_Container(O).
+0 {assoc_Container_agents(S,T): m1_Agent(T)} :- m1_Container(S).
+m1_Agent(T) :- assoc_Container_agents(_,T).
+m1_Container(S) :- assoc_Container_agents(S,_).
+1 {preserve_assoc_Container_agents(S,T); delete_assoc_Container_agents(S,T) } 1 :- current_assoc_Container_agents(S,T).
+create_assoc_Container_agents(S,T) :- not current_assoc_Container_agents(S,T), assoc_Container_agents(S,T).
+delete_assoc_Container_agents(S,T) :- current_assoc_Container_agents(S,T), not assoc_Container_agents(S,T).
+assoc_Container_agents(S,T) :- current_assoc_Container_agents(S,T), preserve_assoc_Container_agents(S,T).
+assoc_Container_agents(S,T) :- create_assoc_Container_agents(S,T).
+0 {assoc_Container_devices(S,T): m1_Device(T)} :- m1_Container(S).
+m1_Device(T) :- assoc_Container_devices(_,T).
+m1_Container(S) :- assoc_Container_devices(S,_).
+1 {preserve_assoc_Container_devices(S,T); delete_assoc_Container_devices(S,T) } 1 :- current_assoc_Container_devices(S,T).
+create_assoc_Container_devices(S,T) :- not current_assoc_Container_devices(S,T), assoc_Container_devices(S,T).
+delete_assoc_Container_devices(S,T) :- current_assoc_Container_devices(S,T), not assoc_Container_devices(S,T).
+assoc_Container_devices(S,T) :- current_assoc_Container_devices(S,T), preserve_assoc_Container_devices(S,T).
+assoc_Container_devices(S,T) :- create_assoc_Container_devices(S,T).
+current_m1_Container(container1).
+curobj(container1).
+current_assoc_Container_agents(container1,provider1).
+current_assoc_Container_agents(container1,provider2).
+current_assoc_Container_agents(container1,consumer1).
+current_assoc_Container_agents(container1,consumer2).
+current_assoc_Container_agents(container1,consumer3).
+current_assoc_Container_devices(container1,server1).
+current_assoc_Container_devices(container1,server2).
+current_assoc_Container_devices(container1,router1).
+current_assoc_Container_devices(container1,router2).
+current_assoc_Container_devices(container1,computer1).
+current_assoc_Container_devices(container1,computer2).
+current_m1_Provider(provider1).
+curobj(provider1).
+current_attr_Agent_name(provider1,s1).
+current_attr_Agent_speed(provider1,3).
+current_m1_Provider(provider2).
+curobj(provider2).
+current_attr_Agent_name(provider2,s2).
+current_attr_Agent_speed(provider2,3).
+current_m1_Consumer(consumer1).
+curobj(consumer1).
+current_attr_Agent_name(consumer1,pc1).
+current_attr_Agent_speed(consumer1,2).
+current_m1_Consumer(consumer2).
+curobj(consumer2).
+current_attr_Agent_name(consumer2,pc2).
+current_attr_Agent_speed(consumer2,2).
+current_m1_Consumer(consumer3).
+curobj(consumer3).
+current_attr_Agent_name(consumer3,pc3).
+current_attr_Agent_speed(consumer3,2).
+current_m1_Server(server1).
+curobj(server1).
+current_assoc_Device_outgoing(server1,glassfibercable1).
+current_attr_Device_name(server1,s1).
+current_m1_GlassFiberCable(glassfibercable1).
+curobj(glassfibercable1).
+current_attr_Cable_speed(glassfibercable1,4).
+current_assoc_Cable_source(glassfibercable1,server1).
+current_assoc_Cable_target(glassfibercable1,router1).
+current_m1_Server(server2).
+curobj(server2).
+current_assoc_Device_outgoing(server2,glassfibercable2).
+current_attr_Device_name(server2,s2).
+current_m1_GlassFiberCable(glassfibercable2).
+curobj(glassfibercable2).
+current_attr_Cable_speed(glassfibercable2,4).
+current_assoc_Cable_source(glassfibercable2,server2).
+current_assoc_Cable_target(glassfibercable2,router2).
+current_m1_Router(router1).
+curobj(router1).
+current_assoc_Device_outgoing(router1,coppercable1).
+current_assoc_Device_incoming(router1,glassfibercable1).
+current_attr_Device_name(router1,r1).
+current_attr_Router_maxspeed(router1,4).
+current_m1_CopperCable(coppercable1).
+curobj(coppercable1).
+current_attr_Cable_speed(coppercable1,2).
+current_assoc_Cable_source(coppercable1,router1).
+current_assoc_Cable_target(coppercable1,computer1).
+current_m1_Router(router2).
+curobj(router2).
+current_assoc_Device_outgoing(router2,coppercable2).
+current_assoc_Device_incoming(router2,glassfibercable2).
+current_attr_Device_name(router2,r2).
+current_attr_Router_maxspeed(router2,4).
+current_m1_CopperCable(coppercable2).
+curobj(coppercable2).
+current_attr_Cable_speed(coppercable2,2).
+current_assoc_Cable_source(coppercable2,router2).
+current_assoc_Cable_target(coppercable2,computer2).
+current_m1_Computer(computer1).
+curobj(computer1).
+current_assoc_Device_incoming(computer1,coppercable1).
+current_attr_Device_name(computer1,pc1).
+current_m1_Computer(computer2).
+curobj(computer2).
+current_assoc_Device_incoming(computer2,coppercable2).
+current_attr_Device_name(computer2,pc3).
+boolean(true).
+boolean(false).
+integer(0).
+integer(1).
+integer(2).
+integer(3).
+integer(4).
+integer(5).
+integer(6).
+integer(7).
+integer(8).
+integer(9).
+integer(10).
+integer(11).
+integer(12).
+integer(13).
+integer(14).
+integer(15).
+integer(16).
+integer(17).
+integer(18).
+integer(19).
+integer(20).
+newobj(0).
+newobj(1).
+newobj(2).
+newobj(3).
+newobj(4).
+1 {preserve(T); delete(T)} 1 :- curobj(T).
+:~ delete(T). [2,delete(T)]
+1 {nouse(T); create(T)} 1 :- newobj(T).
+create(J) :- create(I), I = J+1, newobj(I), newobj(J).
+:~ create(T). [2,create(T)]
+bop_not(true,false).
+bop_not(false,true).
+bop_and(true,true,true).
+bop_or(true,true,true).
+bop_implies(true,true,true).
+bop_and(true,false,false).
+bop_or(true,false,true).
+bop_implies(true,false,false).
+bop_and(false,true,false).
+bop_or(false,true,true).
+bop_implies(false,true,true).
+bop_and(false,false,false).
+bop_or(false,false,false).
+bop_implies(false,false,true).
+1 {m1_Provider(O); m1_Consumer(O); m1_Computer(O); m1_Server(O); m1_GlassFiberCable(O); m1_Agent(O); m1_Device(O); m1_Router(O); m1_Container(O); m1_CopperCable(O); m1_Cable(O)} :- create(O).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Computer(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Server(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_GlassFiberCable(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Device(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Router(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_Container(I).
+:- create(I), create(J), J=I+1, not m1_GlassFiberCable(J),not m1_CopperCable(J),m1_Cable(J), m1_CopperCable(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Computer(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Server(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_GlassFiberCable(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Device(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Router(I).
+:- create(I), create(J), J=I+1, m1_CopperCable(J), m1_Container(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Computer(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Server(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Device(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Router(I).
+:- create(I), create(J), J=I+1, m1_GlassFiberCable(J), m1_Container(I).
+:- create(I), create(J), J=I+1, m1_Container(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, m1_Container(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, m1_Container(J), m1_Computer(I).
+:- create(I), create(J), J=I+1, m1_Container(J), m1_Server(I).
+:- create(I), create(J), J=I+1, m1_Container(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, m1_Container(J), m1_Device(I).
+:- create(I), create(J), J=I+1, m1_Container(J), m1_Router(I).
+:- create(I), create(J), J=I+1, not m1_Computer(J),not m1_Server(J),not m1_Router(J),m1_Device(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, not m1_Computer(J),not m1_Server(J),not m1_Router(J),m1_Device(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, not m1_Computer(J),not m1_Server(J),not m1_Router(J),m1_Device(J), m1_Computer(I).
+:- create(I), create(J), J=I+1, not m1_Computer(J),not m1_Server(J),not m1_Router(J),m1_Device(J), m1_Server(I).
+:- create(I), create(J), J=I+1, not m1_Computer(J),not m1_Server(J),not m1_Router(J),m1_Device(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, not m1_Computer(J),not m1_Server(J),not m1_Router(J),m1_Device(J), m1_Router(I).
+:- create(I), create(J), J=I+1, m1_Router(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, m1_Router(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, m1_Router(J), m1_Computer(I).
+:- create(I), create(J), J=I+1, m1_Router(J), m1_Server(I).
+:- create(I), create(J), J=I+1, m1_Router(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, m1_Server(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, m1_Server(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, m1_Server(J), m1_Computer(I).
+:- create(I), create(J), J=I+1, m1_Server(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, m1_Computer(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, m1_Computer(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, m1_Computer(J), m1_Agent(I).
+:- create(I), create(J), J=I+1, not m1_Provider(J),not m1_Consumer(J),m1_Agent(J), m1_Provider(I).
+:- create(I), create(J), J=I+1, not m1_Provider(J),not m1_Consumer(J),m1_Agent(J), m1_Consumer(I).
+:- create(I), create(J), J=I+1, m1_Consumer(J), m1_Provider(I).
+1 {op_increaseSpeed2(O); pseudocreate(O)} 1 :- create(O).
+1 {pseudodelete(O)} 1 :- delete(O).
+op_increaseSpeed2(IS,IS) :- op_increaseSpeed2(IS).
+create(O) :- pseudocreate(O).
+delete(O) :- pseudodelete(O).
+1 {m1_Provider(O); m1_Consumer(O); m1_Computer(O); m1_Server(O); m1_GlassFiberCable(O); m1_Agent(O); m1_Device(O); m1_Router(O); m1_Container(O); m1_CopperCable(O); m1_Cable(O)}:- pseudocreate(O).
+1 {pseudodelete(O)} 1 :- current_m1_Provider(O), delete(O).
+:~ pseudodelete(O), current_m1_Provider(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_Provider(O), create(O).
+:~ pseudocreate(O), m1_Provider(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Consumer(O), delete(O).
+:~ pseudodelete(O), current_m1_Consumer(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_Consumer(O), create(O).
+:~ pseudocreate(O), m1_Consumer(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Computer(O), delete(O).
+:~ pseudodelete(O), current_m1_Computer(O). [5,pseudodelete(O)]
+1 {op_increaseSpeed2(O); pseudocreate(O)} 1 :- m1_Computer(O), create(O).
+:~ pseudocreate(O), m1_Computer(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Server(O), delete(O).
+:~ pseudodelete(O), current_m1_Server(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_Server(O), create(O).
+:~ pseudocreate(O), m1_Server(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_GlassFiberCable(O), delete(O).
+:~ pseudodelete(O), current_m1_GlassFiberCable(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_GlassFiberCable(O), create(O).
+:~ pseudocreate(O), m1_GlassFiberCable(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Agent(O), delete(O).
+:~ pseudodelete(O), current_m1_Agent(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_Agent(O), create(O).
+:~ pseudocreate(O), m1_Agent(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Device(O), delete(O).
+:~ pseudodelete(O), current_m1_Device(O). [5,pseudodelete(O)]
+1 {op_increaseSpeed2(O); pseudocreate(O)} 1 :- m1_Device(O), create(O).
+:~ pseudocreate(O), m1_Device(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Router(O), delete(O).
+:~ pseudodelete(O), current_m1_Router(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_Router(O), create(O).
+:~ pseudocreate(O), m1_Router(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Container(O), delete(O).
+:~ pseudodelete(O), current_m1_Container(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_Container(O), create(O).
+:~ pseudocreate(O), m1_Container(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_CopperCable(O), delete(O).
+:~ pseudodelete(O), current_m1_CopperCable(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_CopperCable(O), create(O).
+:~ pseudocreate(O), m1_CopperCable(O). [5,pseudocreate(O)]
+1 {pseudodelete(O)} 1 :- current_m1_Cable(O), delete(O).
+:~ pseudodelete(O), current_m1_Cable(O). [5,pseudodelete(O)]
+0 {op_increaseSpeedc(O); pseudodelete(O)} :- current_m1_Cable(O).
+:~ pseudodelete(O), current_m1_Cable(O). [5,pseudodelete(O)]
+1 {pseudocreate(O)} 1 :- m1_Cable(O), create(O).
+:~ pseudocreate(O), m1_Cable(O). [5,pseudocreate(O)]
+:~ pseudodelete_assoc_Device_outgoing(S,T). [2,pseudodelete_assoc_Device_outgoing(S,T)]
+1 {pseudodelete_assoc_Device_outgoing(S,T)} 1 :- delete_assoc_Device_outgoing(S,T).
+delete_assoc_Device_outgoing(S,T) :- pseudodelete_assoc_Device_outgoing(S,T).
+:~ pseudocreate_assoc_Device_outgoing(S,T). [2,pseudocreate_assoc_Device_outgoing(S,T)]
+1 {pseudocreate_assoc_Device_outgoing(S,T)} 1 :- create_assoc_Device_outgoing(S,T).
+create_assoc_Device_outgoing(S,T) :- pseudocreate_assoc_Device_outgoing(S,T).
+delete_assoc_Device_outgoing(S,T) :- pseudodelete_assoc_Device_outgoing(S,T).
+:~ pseudodelete_assoc_Container_agents(S,T). [0,pseudodelete_assoc_Container_agents(S,T)]
+1 {pseudodelete_assoc_Container_agents(S,T)} 1 :- delete_assoc_Container_agents(S,T).
+delete_assoc_Container_agents(S,T) :- pseudodelete_assoc_Container_agents(S,T).
+:~ pseudocreate_assoc_Container_agents(S,T). [0,pseudocreate_assoc_Container_agents(S,T)]
+1 {pseudocreate_assoc_Container_agents(S,T)} 1 :- create_assoc_Container_agents(S,T).
+create_assoc_Container_agents(S,T) :- pseudocreate_assoc_Container_agents(S,T).
+delete_assoc_Container_agents(S,T) :- pseudodelete_assoc_Container_agents(S,T).
+:~ pseudodelete_assoc_Cable_target(S,T). [2,pseudodelete_assoc_Cable_target(S,T)]
+1 {pseudodelete_assoc_Cable_target(S,T)} 1 :- delete_assoc_Cable_target(S,T).
+delete_assoc_Cable_target(S,T) :- pseudodelete_assoc_Cable_target(S,T).
+:~ pseudocreate_assoc_Cable_target(S,T). [2,pseudocreate_assoc_Cable_target(S,T)]
+1 {op_increaseSpeed1(S,T); op_increaseSpeed2(T,S); pseudocreate_assoc_Cable_target(S,T)} 1 :- create_assoc_Cable_target(S,T).
+create_assoc_Cable_target(S,T) :- pseudocreate_assoc_Cable_target(S,T).
+delete_assoc_Cable_target(S,T) :- pseudodelete_assoc_Cable_target(S,T).
+:~ pseudodelete_assoc_Cable_source(S,T). [2,pseudodelete_assoc_Cable_source(S,T)]
+1 {pseudodelete_assoc_Cable_source(S,T)} 1 :- delete_assoc_Cable_source(S,T).
+delete_assoc_Cable_source(S,T) :- pseudodelete_assoc_Cable_source(S,T).
+:~ pseudocreate_assoc_Cable_source(S,T). [2,pseudocreate_assoc_Cable_source(S,T)]
+1 {pseudocreate_assoc_Cable_source(S,T)} 1 :- create_assoc_Cable_source(S,T).
+create_assoc_Cable_source(S,T) :- pseudocreate_assoc_Cable_source(S,T).
+delete_assoc_Cable_source(S,T) :- pseudodelete_assoc_Cable_source(S,T).
+:~ pseudodelete_assoc_Server_provider(S,T). [2,pseudodelete_assoc_Server_provider(S,T)]
+1 {pseudodelete_assoc_Server_provider(S,T)} 1 :- delete_assoc_Server_provider(S,T).
+delete_assoc_Server_provider(S,T) :- pseudodelete_assoc_Server_provider(S,T).
+:~ pseudocreate_assoc_Server_provider(S,T). [2,pseudocreate_assoc_Server_provider(S,T)]
+1 {pseudocreate_assoc_Server_provider(S,T)} 1 :- create_assoc_Server_provider(S,T).
+create_assoc_Server_provider(S,T) :- pseudocreate_assoc_Server_provider(S,T).
+delete_assoc_Server_provider(S,T) :- pseudodelete_assoc_Server_provider(S,T).
+:~ pseudodelete_assoc_Container_devices(S,T). [0,pseudodelete_assoc_Container_devices(S,T)]
+1 {pseudodelete_assoc_Container_devices(S,T)} 1 :- delete_assoc_Container_devices(S,T).
+delete_assoc_Container_devices(S,T) :- pseudodelete_assoc_Container_devices(S,T).
+:~ pseudocreate_assoc_Container_devices(S,T). [0,pseudocreate_assoc_Container_devices(S,T)]
+1 {pseudocreate_assoc_Container_devices(S,T)} 1 :- create_assoc_Container_devices(S,T).
+create_assoc_Container_devices(S,T) :- pseudocreate_assoc_Container_devices(S,T).
+delete_assoc_Container_devices(S,T) :- pseudodelete_assoc_Container_devices(S,T).
+:~ pseudodelete_assoc_Provider_rightserv(S,T). [2,pseudodelete_assoc_Provider_rightserv(S,T)]
+1 {pseudodelete_assoc_Provider_rightserv(S,T)} 1 :- delete_assoc_Provider_rightserv(S,T).
+delete_assoc_Provider_rightserv(S,T) :- pseudodelete_assoc_Provider_rightserv(S,T).
+:~ pseudocreate_assoc_Provider_rightserv(S,T). [2,pseudocreate_assoc_Provider_rightserv(S,T)]
+1 {pseudocreate_assoc_Provider_rightserv(S,T)} 1 :- create_assoc_Provider_rightserv(S,T).
+create_assoc_Provider_rightserv(S,T) :- pseudocreate_assoc_Provider_rightserv(S,T).
+delete_assoc_Provider_rightserv(S,T) :- pseudodelete_assoc_Provider_rightserv(S,T).
+:~ pseudodelete_assoc_Computer_consumer(S,T). [2,pseudodelete_assoc_Computer_consumer(S,T)]
+1 {pseudodelete_assoc_Computer_consumer(S,T)} 1 :- delete_assoc_Computer_consumer(S,T).
+delete_assoc_Computer_consumer(S,T) :- pseudodelete_assoc_Computer_consumer(S,T).
+:~ pseudocreate_assoc_Computer_consumer(S,T). [2,pseudocreate_assoc_Computer_consumer(S,T)]
+1 {pseudocreate_assoc_Computer_consumer(S,T)} 1 :- create_assoc_Computer_consumer(S,T).
+create_assoc_Computer_consumer(S,T) :- pseudocreate_assoc_Computer_consumer(S,T).
+delete_assoc_Computer_consumer(S,T) :- pseudodelete_assoc_Computer_consumer(S,T).
+:~ pseudodelete_assoc_Consumer_rightcomp(S,T). [2,pseudodelete_assoc_Consumer_rightcomp(S,T)]
+1 {pseudodelete_assoc_Consumer_rightcomp(S,T)} 1 :- delete_assoc_Consumer_rightcomp(S,T).
+delete_assoc_Consumer_rightcomp(S,T) :- pseudodelete_assoc_Consumer_rightcomp(S,T).
+:~ pseudocreate_assoc_Consumer_rightcomp(S,T). [2,pseudocreate_assoc_Consumer_rightcomp(S,T)]
+1 {pseudocreate_assoc_Consumer_rightcomp(S,T)} 1 :- create_assoc_Consumer_rightcomp(S,T).
+create_assoc_Consumer_rightcomp(S,T) :- pseudocreate_assoc_Consumer_rightcomp(S,T).
+delete_assoc_Consumer_rightcomp(S,T) :- pseudodelete_assoc_Consumer_rightcomp(S,T).
+:~ pseudodelete_assoc_Device_incoming(S,T). [2,pseudodelete_assoc_Device_incoming(S,T)]
+1 {pseudodelete_assoc_Device_incoming(S,T)} 1 :- delete_assoc_Device_incoming(S,T).
+delete_assoc_Device_incoming(S,T) :- pseudodelete_assoc_Device_incoming(S,T).
+:~ pseudocreate_assoc_Device_incoming(S,T). [2,pseudocreate_assoc_Device_incoming(S,T)]
+1 {op_increaseSpeed2(S,T); op_increaseSpeed1(T,S); pseudocreate_assoc_Device_incoming(S,T)} 1 :- create_assoc_Device_incoming(S,T).
+create_assoc_Device_incoming(S,T) :- pseudocreate_assoc_Device_incoming(S,T).
+delete_assoc_Device_incoming(S,T) :- pseudodelete_assoc_Device_incoming(S,T).
+1 { op_increaseSpeedc(IS,O): current_m1_Cable(O)} 1 :- op_increaseSpeed2(IS,IT).
+m1_Computer(O) :- op_increaseSpeed2(IS,O).
+create(O) :- op_increaseSpeed2(IS,O).
+create_assoc_Cable_target(S,T) :- op_increaseSpeedc(IS,S),op_increaseSpeed2(IS,T),op_increaseSpeed2(IS,IT).
+create_assoc_Device_incoming(S,T) :- op_increaseSpeed2(IS,S),op_increaseSpeedc(IS,T),op_increaseSpeed2(IS,IT).
+:- op_increaseSpeed2(IS,IT), op_increaseSpeedc(IS,M1_CABLE), BOOLEAN = false,constraint_increaseSpeed_lowSpeed(M1_CABLE,BOOLEAN).
+:~ op_increaseSpeed2(IS,IT), op_increaseSpeedc(IS,M1_CABLE), costRuleincreaseSpeed(M1_CABLE,COST). [COST,op_increaseSpeed2(IS,IT)]
+delete_attr_Cable_speed(S,T) :- op_increaseSpeedc(IS,S),current_attr_Cable_speed(S,T),op_increaseSpeed2(IS,IT).
+create_attr_Cable_speed(S,INTEGER2) :- op_increaseSpeedc(IS,S), current_attr_Cable_speed(S,INTEGER),op_increaseSpeed2(IS,IT), attrRuleincreaseSpeed_c_speed(INTEGER,INTEGER2).
+:- m1_Provider(O), m1_Consumer(O).
+:- m1_Provider(O), m1_Computer(O).
+:- m1_Provider(O), m1_Server(O).
+:- m1_Provider(O), m1_GlassFiberCable(O).
+:- m1_Provider(O), m1_Device(O).
+:- m1_Provider(O), m1_Router(O).
+:- m1_Provider(O), m1_Container(O).
+:- m1_Provider(O), m1_CopperCable(O).
+:- m1_Provider(O), m1_Cable(O).
+:- m1_Consumer(O), m1_Provider(O).
+:- m1_Consumer(O), m1_Computer(O).
+:- m1_Consumer(O), m1_Server(O).
+:- m1_Consumer(O), m1_GlassFiberCable(O).
+:- m1_Consumer(O), m1_Device(O).
+:- m1_Consumer(O), m1_Router(O).
+:- m1_Consumer(O), m1_Container(O).
+:- m1_Consumer(O), m1_CopperCable(O).
+:- m1_Consumer(O), m1_Cable(O).
+:- m1_Computer(O), m1_Provider(O).
+:- m1_Computer(O), m1_Consumer(O).
+:- m1_Computer(O), m1_Server(O).
+:- m1_Computer(O), m1_GlassFiberCable(O).
+:- m1_Computer(O), m1_Agent(O).
+:- m1_Computer(O), m1_Router(O).
+:- m1_Computer(O), m1_Container(O).
+:- m1_Computer(O), m1_CopperCable(O).
+:- m1_Computer(O), m1_Cable(O).
+:- m1_Server(O), m1_Provider(O).
+:- m1_Server(O), m1_Consumer(O).
+:- m1_Server(O), m1_Computer(O).
+:- m1_Server(O), m1_GlassFiberCable(O).
+:- m1_Server(O), m1_Agent(O).
+:- m1_Server(O), m1_Router(O).
+:- m1_Server(O), m1_Container(O).
+:- m1_Server(O), m1_CopperCable(O).
+:- m1_Server(O), m1_Cable(O).
+:- m1_GlassFiberCable(O), m1_Provider(O).
+:- m1_GlassFiberCable(O), m1_Consumer(O).
+:- m1_GlassFiberCable(O), m1_Computer(O).
+:- m1_GlassFiberCable(O), m1_Server(O).
+:- m1_GlassFiberCable(O), m1_Agent(O).
+:- m1_GlassFiberCable(O), m1_Device(O).
+:- m1_GlassFiberCable(O), m1_Router(O).
+:- m1_GlassFiberCable(O), m1_Container(O).
+:- m1_GlassFiberCable(O), m1_CopperCable(O).
+:- m1_Agent(O), m1_Computer(O).
+:- m1_Agent(O), m1_Server(O).
+:- m1_Agent(O), m1_GlassFiberCable(O).
+:- m1_Agent(O), m1_Device(O).
+:- m1_Agent(O), m1_Router(O).
+:- m1_Agent(O), m1_Container(O).
+:- m1_Agent(O), m1_CopperCable(O).
+:- m1_Agent(O), m1_Cable(O).
+:- m1_Device(O), m1_Provider(O).
+:- m1_Device(O), m1_Consumer(O).
+:- m1_Device(O), m1_GlassFiberCable(O).
+:- m1_Device(O), m1_Agent(O).
+:- m1_Device(O), m1_Container(O).
+:- m1_Device(O), m1_CopperCable(O).
+:- m1_Device(O), m1_Cable(O).
+:- m1_Router(O), m1_Provider(O).
+:- m1_Router(O), m1_Consumer(O).
+:- m1_Router(O), m1_Computer(O).
+:- m1_Router(O), m1_Server(O).
+:- m1_Router(O), m1_GlassFiberCable(O).
+:- m1_Router(O), m1_Agent(O).
+:- m1_Router(O), m1_Container(O).
+:- m1_Router(O), m1_CopperCable(O).
+:- m1_Router(O), m1_Cable(O).
+:- m1_Container(O), m1_Provider(O).
+:- m1_Container(O), m1_Consumer(O).
+:- m1_Container(O), m1_Computer(O).
+:- m1_Container(O), m1_Server(O).
+:- m1_Container(O), m1_GlassFiberCable(O).
+:- m1_Container(O), m1_Agent(O).
+:- m1_Container(O), m1_Device(O).
+:- m1_Container(O), m1_Router(O).
+:- m1_Container(O), m1_CopperCable(O).
+:- m1_Container(O), m1_Cable(O).
+:- m1_CopperCable(O), m1_Provider(O).
+:- m1_CopperCable(O), m1_Consumer(O).
+:- m1_CopperCable(O), m1_Computer(O).
+:- m1_CopperCable(O), m1_Server(O).
+:- m1_CopperCable(O), m1_GlassFiberCable(O).
+:- m1_CopperCable(O), m1_Agent(O).
+:- m1_CopperCable(O), m1_Device(O).
+:- m1_CopperCable(O), m1_Router(O).
+:- m1_CopperCable(O), m1_Container(O).
+:- m1_Cable(O), m1_Provider(O).
+:- m1_Cable(O), m1_Consumer(O).
+:- m1_Cable(O), m1_Computer(O).
+:- m1_Cable(O), m1_Server(O).
+:- m1_Cable(O), m1_Agent(O).
+:- m1_Cable(O), m1_Device(O).
+:- m1_Cable(O), m1_Router(O).
+:- m1_Cable(O), m1_Container(O).
+cons_m1_Consumer1Left(M1_CONSUMER,STRING):- attr_Agent_name(M1_CONSUMER,STRING), string(STRING).
+cons_m1_Consumer1RightSrc(M1_CONSUMER,M1_COMPUTER):- assoc_Consumer_rightcomp(M1_CONSUMER,M1_COMPUTER), m1_Computer(M1_COMPUTER).
+cons_m1_Consumer1Right(M1_CONSUMER,STRING):- attr_Device_name(M1_COMPUTER,STRING), cons_m1_Consumer1RightSrc(M1_CONSUMER,M1_COMPUTER), string(STRING).
+cons_m1_Consumer1(M1_CONSUMER,BOOLEAN):- not cons_m1_Consumer1Unequal(M1_CONSUMER,BOOLEAN2), BOOLEAN = true, BOOLEAN2 = true, m1_Consumer(M1_CONSUMER), boolean(BOOLEAN2), boolean(BOOLEAN), m1_Consumer(M1_CONSUMER).
+cons_m1_Consumer1(M1_CONSUMER,BOOLEAN):- cons_m1_Consumer1Unequal(M1_CONSUMER,BOOLEAN2), BOOLEAN = false, BOOLEAN2 = true, m1_Consumer(M1_CONSUMER), boolean(BOOLEAN).
+cons_m1_Consumer1Unequal(M1_CONSUMER,BOOLEAN2):- cons_m1_Consumer1Left(M1_CONSUMER,STRING), not cons_m1_Consumer1Right(M1_CONSUMER,STRING), true = BOOLEAN2, false = BOOLEAN, m1_Consumer(M1_CONSUMER).
+cons_m1_Consumer1Unequal(M1_CONSUMER,BOOLEAN2):- not cons_m1_Consumer1Left(M1_CONSUMER,STRING), cons_m1_Consumer1Right(M1_CONSUMER,STRING), true = BOOLEAN2, false = BOOLEAN, m1_Consumer(M1_CONSUMER).
+:- not cons_m1_Consumer1(M1_CONSUMER,BOOLEAN), BOOLEAN = true, boolean(BOOLEAN), m1_Consumer(M1_CONSUMER).
+:- not cons_m1_Server1(M1_SERVER,BOOLEAN), BOOLEAN = true, m1_Server(M1_SERVER), boolean(BOOLEAN).
+:- not cons_m1_Computer1(M1_COMPUTER,BOOLEAN), BOOLEAN = true, boolean(BOOLEAN), m1_Computer(M1_COMPUTER).
+:- not cons_m1_Router1(M1_ROUTER,M1_CABLE,M1_CABLE2,BOOLEAN), BOOLEAN = true, m1_Cable(M1_CABLE2), m1_Router(M1_ROUTER), boolean(BOOLEAN), m1_Cable(M1_CABLE).
+:- not cons_m1_CopperCable1(M1_COPPERCABLE,BOOLEAN), BOOLEAN = true, m1_CopperCable(M1_COPPERCABLE), boolean(BOOLEAN).
+:- not cons_m1_GlassFiberCable1(M1_GLASSFIBERCABLE,BOOLEAN), BOOLEAN = true, m1_GlassFiberCable(M1_GLASSFIBERCABLE), boolean(BOOLEAN).
+cons_m1_Server1Src(M1_SERVER,M1_CABLE):- assoc_Device_incoming(M1_SERVER,M1_CABLE), m1_Cable(M1_CABLE).
+cons_m1_Server1(M1_SERVER,BOOLEAN):- cons_m1_Server1Src(M1_SERVER,M1_CABLE), BOOLEAN = false, boolean(BOOLEAN).
+cons_m1_Server1(M1_SERVER,BOOLEAN):- not cons_m1_Server1(M1_SERVER,BOOLEAN2), BOOLEAN = true, BOOLEAN2 = false, boolean(BOOLEAN2), m1_Server(M1_SERVER), boolean(BOOLEAN).
+cons_m1_Computer1Src(M1_COMPUTER,M1_CABLE):- assoc_Device_outgoing(M1_COMPUTER,M1_CABLE), m1_Cable(M1_CABLE).
+cons_m1_Computer1(M1_COMPUTER,BOOLEAN):- cons_m1_Computer1Src(M1_COMPUTER,M1_CABLE), BOOLEAN = false, boolean(BOOLEAN).
+cons_m1_Computer1(M1_COMPUTER,BOOLEAN):- not cons_m1_Computer1(M1_COMPUTER,BOOLEAN2), BOOLEAN = true, BOOLEAN2 = false, boolean(BOOLEAN), m1_Computer(M1_COMPUTER), boolean(BOOLEAN2).
+cons_m1_Router1LeftSourceSrc(M1_ROUTER,var(M1_ROUTER,0,M1_CABLE)):- assoc_Device_outgoing(M1_ROUTER,M1_CABLE), m1_Cable(M1_CABLE), m1_Router(M1_ROUTER).
+cons_m1_Router1LeftSourceBody(M1_CABLE,var(M1_CABLE,0,INTEGER)):- attr_Cable_speed(M1_CABLE,INTEGER), integer(INTEGER), m1_Cable(M1_CABLE).
+cons_m1_Router1LeftSource(M1_ROUTER,M1_CABLE,var(var(M1_ROUTER,0,M1_CABLE),0,INTEGER)):- cons_m1_Router1LeftSourceBody(M1_CABLE,var(M1_CABLE,0,INTEGER)), cons_m1_Router1LeftSourceSrc(M1_ROUTER,var(M1_ROUTER,0,M1_CABLE)), integer(INTEGER), m1_Cable(M1_CABLE), m1_Router(M1_ROUTER).
+cons_m1_Router1Left(M1_ROUTER,M1_CABLE,INTEGER):- #sum{INTEGER2: cons_m1_Router1LeftSource(M1_ROUTER,M1_CABLE,var(var(M1_ROUTER,0,M1_CABLE),0,INTEGER2))} = INTEGER, m1_Cable(M1_CABLE), m1_Router(M1_ROUTER).
+cons_m1_Router1RightSourceSrc(M1_ROUTER,var(M1_ROUTER,0,M1_CABLE)):- assoc_Device_incoming(M1_ROUTER,M1_CABLE), m1_Cable(M1_CABLE), m1_Router(M1_ROUTER).
+cons_m1_Router1RightSourceBody(M1_CABLE,var(M1_CABLE,0,INTEGER)):- attr_Cable_speed(M1_CABLE,INTEGER), integer(INTEGER), m1_Cable(M1_CABLE).
+cons_m1_Router1RightSource(M1_ROUTER,M1_CABLE,var(var(M1_ROUTER,0,M1_CABLE),0,INTEGER)):- cons_m1_Router1RightSourceBody(M1_CABLE,var(M1_CABLE,0,INTEGER)), cons_m1_Router1RightSourceSrc(M1_ROUTER,var(M1_ROUTER,0,M1_CABLE)), integer(INTEGER), m1_Cable(M1_CABLE), m1_Router(M1_ROUTER).
+cons_m1_Router1Right(M1_ROUTER,M1_CABLE,INTEGER):- #sum{INTEGER2: cons_m1_Router1RightSource(M1_ROUTER,M1_CABLE,var(var(M1_ROUTER,0,M1_CABLE),0,INTEGER2))} = INTEGER, m1_Router(M1_ROUTER), m1_Cable(M1_CABLE).
+cons_m1_Router1(M1_ROUTER,M1_CABLE,M1_CABLE2,BOOLEAN):- cons_m1_Router1Mid(M1_ROUTER,M1_CABLE2,R3), cons_m1_Router1Left(M1_ROUTER,M1_CABLE,INTEGER), true = BOOLEAN, INTEGER = R3.
+cons_m1_Router1(M1_ROUTER,M1_CABLE,M1_CABLE2,BOOLEAN):- not cons_m1_Router1(M1_ROUTER,M1_CABLE,M1_CABLE2,R), false = BOOLEAN, true = R, m1_Cable(M1_CABLE), m1_Router(M1_ROUTER), m1_Cable(M1_CABLE2).
+cons_m1_Router1Mid(M1_ROUTER,M1_CABLE2,R2):- cons_m1_Router1Right(M1_ROUTER,M1_CABLE2,INTEGER2), R2 = INTEGER2, integer(R2).
+cons_m1_Router1Mid(M1_ROUTER,M1_CABLE2,R2):- cons_m1_Router1Mid(M1_ROUTER,M1_CABLE2,R3), 1 + R2 = R3, integer(R3), integer(R2), integer(R2).
+cons_m1_CopperCable1Left(M1_COPPERCABLE,INTEGER):- attr_Cable_speed(M1_COPPERCABLE,INTEGER), integer(INTEGER).
+cons_m1_CopperCable1Right(INTEGER):- 4 = INTEGER.
+cons_m1_CopperCable1(M1_COPPERCABLE,BOOLEAN):- cons_m1_CopperCable1Mid(R3), cons_m1_CopperCable1Left(M1_COPPERCABLE,INTEGER), true = BOOLEAN, INTEGER = R3.
+cons_m1_CopperCable1(M1_COPPERCABLE,BOOLEAN):- not cons_m1_CopperCable1(M1_COPPERCABLE,R), false = BOOLEAN, true = R, m1_CopperCable(M1_COPPERCABLE).
+cons_m1_CopperCable1Mid(R2):- cons_m1_CopperCable1Right(INTEGER2), R2 = INTEGER2, integer(R2).
+cons_m1_CopperCable1Mid(R2):- cons_m1_CopperCable1Mid(R3), 1 + R2 = R3, integer(R3), integer(R2), integer(R2).
+cons_m1_GlassFiberCable1Right(INTEGER):- 4 = INTEGER.
+cons_m1_GlassFiberCable1Left(M1_GLASSFIBERCABLE,INTEGER):- attr_Cable_speed(M1_GLASSFIBERCABLE,INTEGER), integer(INTEGER).
+cons_m1_GlassFiberCable1(M1_GLASSFIBERCABLE,BOOLEAN):- cons_m1_GlassFiberCable1Mid(M1_GLASSFIBERCABLE,R3), cons_m1_GlassFiberCable1Right(INTEGER), true = BOOLEAN, INTEGER = R3.
+cons_m1_GlassFiberCable1(M1_GLASSFIBERCABLE,BOOLEAN):- not cons_m1_GlassFiberCable1(M1_GLASSFIBERCABLE,R), false = BOOLEAN, true = R, m1_GlassFiberCable(M1_GLASSFIBERCABLE).
+cons_m1_GlassFiberCable1Mid(M1_GLASSFIBERCABLE,R2):- cons_m1_GlassFiberCable1Left(M1_GLASSFIBERCABLE,INTEGER2), R2 = INTEGER2, integer(R2).
+cons_m1_GlassFiberCable1Mid(M1_GLASSFIBERCABLE,R2):- cons_m1_GlassFiberCable1Mid(M1_GLASSFIBERCABLE,R3), 1 + R2 = R3, integer(R3), integer(R2), integer(R2).
+constraint_increaseSpeed_lowSpeedLeft(M1_CABLE,INTEGER):- current_attr_Cable_speed(M1_CABLE,INTEGER), integer(INTEGER).
+constraint_increaseSpeed_lowSpeedRight(INTEGER):- 4 = INTEGER.
+constraint_increaseSpeed_lowSpeed(M1_CABLE,BOOLEAN):- constraint_increaseSpeed_lowSpeedMid(R3), constraint_increaseSpeed_lowSpeedLeft(M1_CABLE,INTEGER), true = BOOLEAN, INTEGER = R3.
+constraint_increaseSpeed_lowSpeed(M1_CABLE,BOOLEAN):- not constraint_increaseSpeed_lowSpeed(M1_CABLE,R), false = BOOLEAN, true = R, current_m1_Cable(M1_CABLE).
+constraint_increaseSpeed_lowSpeedMid(R2):- constraint_increaseSpeed_lowSpeedRight(R_), 1 + R2 = R_, integer(R_), integer(R2), integer(R2).
+constraint_increaseSpeed_lowSpeedMid(R2):- constraint_increaseSpeed_lowSpeedMid(R3), 1 + R2 = R3, integer(R3), integer(R2), integer(R2).
+costRuleincreaseSpeedLeft(INTEGER):- 2 = INTEGER.
+costRuleincreaseSpeedRight(M1_CABLE,INTEGER):- current_attr_Cable_speed(M1_CABLE,INTEGER), integer(INTEGER).
+costRuleincreaseSpeed(M1_CABLE,COST):- costRuleincreaseSpeedLeft(INTEGER2), costRuleincreaseSpeedRight(M1_CABLE,INTEGER3), INTEGER2 * INTEGER3 = COST.
+attrRuleincreaseSpeed_c_speedRight(INTEGER):- 1 = INTEGER.
+attrRuleincreaseSpeed_c_speed(INTEGER,INTEGER2):- attrRuleincreaseSpeed_c_speedRight(INTEGER3), INTEGER + INTEGER3 = INTEGER2, integer(INTEGER).

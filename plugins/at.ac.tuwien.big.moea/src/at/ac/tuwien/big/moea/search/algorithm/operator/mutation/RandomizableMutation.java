@@ -12,28 +12,27 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.algorithm.operator.mutation;
 
-import at.ac.tuwien.big.moea.util.random.IRandomizable;
-
 import org.moeaframework.core.PRNG;
 import org.moeaframework.core.Solution;
 
+import at.ac.tuwien.big.moea.util.random.IRandomizable;
+
 public class RandomizableMutation extends AbstractMutationVariation {
 
-   public RandomizableMutation() {}
-
-   public RandomizableMutation(final double probability) {
-      super(probability);
-   }
-
-   @Override
-   protected Solution[] doEvolve(final Solution[] parents) {
-      final Solution copy = parents[0].copy();
-      final int nrVariables = copy.getNumberOfVariables();
-      final int randomVar = PRNG.nextInt(nrVariables);
-      if(copy.getVariable(randomVar) instanceof IRandomizable<?>) {
-         ((IRandomizable<?>) copy.getVariable(randomVar)).randomize();
-      }
-      return new Solution[] { copy };
-   }
+	public RandomizableMutation() { }
+	
+	public RandomizableMutation(double probability) {
+		super(probability);
+	}
+	
+	@Override
+	protected Solution[] doEvolve(Solution[] parents) {
+		Solution copy = parents[0].copy();
+		int nrVariables = copy.getNumberOfVariables();
+		int randomVar = PRNG.nextInt(nrVariables);
+		if(copy.getVariable(randomVar) instanceof IRandomizable<?>) 
+			((IRandomizable<?>)copy.getVariable(randomVar)).randomize();
+		return new Solution[] { copy };
+	}
 
 }

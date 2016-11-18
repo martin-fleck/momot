@@ -1,0 +1,138 @@
+NSGA_III:
+    Hypervolume: 
+        Aggregate: 0.31405079509119865
+        Min: 0.290360605556564
+        Median: 0.31405079509119865
+        Max: 0.31405079509119865
+        Mean: 0.3093127571842717
+        StandardDeviation: 0.010594574839859434
+        Variance: 1.1224501603738254E-4
+        Count: 5
+        Indifferent: [NSGA_II]
+        EffectSize: [
+            - { measure: CohensD, algorithm: Random, effectSize: 41.28851821210192 }
+            - { measure: CohensD, algorithm: NSGA_II, effectSize: 1.0658031815438007 }
+        ]
+        Values: [0.31405079509119865, 0.31405079509119865, 0.31405079509119865, 0.290360605556564, 0.31405079509119865]
+    AdditiveEpsilonIndicator: 
+        Aggregate: 0.0
+        Min: 0.07107056860390376
+        Median: 0.22360679774997896
+        Max: 0.22360679774997896
+        Mean: 0.19309955192076392
+        StandardDeviation: 0.06821627548042176
+        Variance: 0.0046534602404207925
+        Count: 5
+        Indifferent: [NSGA_II]
+        EffectSize: [
+            - { measure: CohensD, algorithm: Random, effectSize: 51.28031597265552 }
+            - { measure: CohensD, algorithm: NSGA_II, effectSize: 0.4071027773965859 }
+        ]
+        Values: [0.22360679774997896, 0.22360679774997896, 0.22360679774997896, 0.07107056860390376, 0.22360679774997896]
+    MaximumParetoFrontError: 
+        Aggregate: 0.0
+        Min: 0.07107056860390376
+        Median: 0.22360679774997896
+        Max: 0.22360679774997896
+        Mean: 0.19309955192076392
+        StandardDeviation: 0.06821627548042176
+        Variance: 0.0046534602404207925
+        Count: 5
+        Indifferent: [NSGA_II]
+        EffectSize: [
+            - { measure: CohensD, algorithm: Random, effectSize: 30.858577040820318 }
+            - { measure: CohensD, algorithm: NSGA_II, effectSize: 0.6885263904091965 }
+        ]
+        Values: [0.22360679774997896, 0.22360679774997896, 0.22360679774997896, 0.07107056860390376, 0.22360679774997896]
+Random:
+    Hypervolume: 
+        Aggregate: 0.0
+        Min: 0.0
+        Median: 0.0
+        Max: 0.0
+        Mean: 0.0
+        StandardDeviation: 0.0
+        Variance: 0.0
+        Count: 5
+        Indifferent: []
+        EffectSize: [
+            - { measure: CohensD, algorithm: NSGA_III, effectSize: 41.28851821210192 }
+            - { measure: CohensD, algorithm: NSGA_II, effectSize: 12.618905692025164 }
+        ]
+        Values: [0.0, 0.0, 0.0, 0.0, 0.0]
+    AdditiveEpsilonIndicator: 
+        Aggregate: 2.6666666666666665
+        Min: 2.6666666666666665
+        Median: 2.6666666666666665
+        Max: 2.6666666666666665
+        Mean: 2.6666666666666665
+        StandardDeviation: 0.0
+        Variance: 0.0
+        Count: 5
+        Indifferent: []
+        EffectSize: [
+            - { measure: CohensD, algorithm: NSGA_III, effectSize: 51.28031597265552 }
+            - { measure: CohensD, algorithm: NSGA_II, effectSize: 24.569158933767095 }
+        ]
+        Values: [2.6666666666666665, 2.6666666666666665, 2.6666666666666665, 2.6666666666666665, 2.6666666666666665]
+    MaximumParetoFrontError: 
+        Aggregate: 1.6815997674172583
+        Min: 1.6815997674172583
+        Median: 1.6815997674172583
+        Max: 1.6815997674172583
+        Mean: 1.6815997674172583
+        StandardDeviation: 0.0
+        Variance: 0.0
+        Count: 5
+        Indifferent: []
+        EffectSize: [
+            - { measure: CohensD, algorithm: NSGA_III, effectSize: 30.858577040820318 }
+            - { measure: CohensD, algorithm: NSGA_II, effectSize: 11.140332124197544 }
+        ]
+        Values: [1.6815997674172583, 1.6815997674172583, 1.6815997674172583, 1.6815997674172583, 1.6815997674172583]
+NSGA_II:
+    Hypervolume: 
+        Aggregate: 0.31405079509119865
+        Min: 0.2488920871982733
+        Median: 0.290360605556564
+        Max: 0.31405079509119865
+        Mean: 0.2840295333401425
+        StandardDeviation: 0.031831477940118175
+        Variance: 0.00101324298785223
+        Count: 5
+        Indifferent: [NSGA_III]
+        EffectSize: [
+            - { measure: CohensD, algorithm: NSGA_III, effectSize: 1.0658031815438007 }
+            - { measure: CohensD, algorithm: Random, effectSize: 12.618905692025164 }
+        ]
+        Values: [0.25279338376347793, 0.31405079509119865, 0.2488920871982733, 0.290360605556564, 0.31405079509119865]
+    AdditiveEpsilonIndicator: 
+        Aggregate: 0.0
+        Min: 0.0
+        Median: 0.3162277660168379
+        Max: 0.33333333333333326
+        Mean: 0.2378791326233976
+        StandardDeviation: 0.13980227324941025
+        Variance: 0.01954467560570277
+        Count: 5
+        Indifferent: [NSGA_III]
+        EffectSize: [
+            - { measure: CohensD, algorithm: NSGA_III, effectSize: 0.4071027773965859 }
+            - { measure: CohensD, algorithm: Random, effectSize: 24.569158933767095 }
+        ]
+        Values: [0.3162277660168379, 0.3162277660168379, 0.33333333333333326, 0.22360679774997896, 0.0]
+    MaximumParetoFrontError: 
+        Aggregate: 0.0
+        Min: 0.0
+        Median: 0.40138648595974313
+        Max: 0.40138648595974313
+        Mean: 0.2855532511258417
+        StandardDeviation: 0.17722163890919418
+        Variance: 0.031407509297660806
+        Count: 5
+        Indifferent: [NSGA_III]
+        EffectSize: [
+            - { measure: CohensD, algorithm: NSGA_III, effectSize: 0.6885263904091965 }
+            - { measure: CohensD, algorithm: Random, effectSize: 11.140332124197544 }
+        ]
+        Values: [0.40138648595974313, 0.40138648595974313, 0.40138648595974313, 0.22360679774997896, 0.0]

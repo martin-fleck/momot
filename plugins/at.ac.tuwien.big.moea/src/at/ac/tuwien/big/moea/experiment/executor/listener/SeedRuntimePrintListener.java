@@ -17,37 +17,32 @@ import org.moeaframework.util.progress.ProgressEvent;
 
 public class SeedRuntimePrintListener extends AbstractProgressListener {
 
-   private final StopWatch seedWatch = new StopWatch();
-   private final StopWatch totalWatch = new StopWatch();
+	private StopWatch seedWatch = new StopWatch();
+	private StopWatch totalWatch = new StopWatch();
 
-   @Override
-   public void update(final ProgressEvent event) {
-      if(isStarted(event)) {
-         if(!totalWatch.isStarted()) {
-            totalWatch.start();
-         }
-      }
-
-      if(isStarted(event) || isSeedStarted(event)) {
-         if(!seedWatch.isStarted()) {
-            seedWatch.start();
-         }
-         println("Run " + event.getCurrentSeed() + " of " + event.getTotalSeeds() + " started.");
-      }
-
-      if(isSeedFinished(event)) {
-         seedWatch.stop();
-         println("Run " + event.getCurrentSeed() + " of " + event.getTotalSeeds() + " terminated after " + seedWatch
-               + " (" + seedWatch.getTime() + " ms).");
-         seedWatch.reset();
-      }
-
-      if(isFinished(event)) {
-         totalWatch.stop();
-         println("Total runtime for " + event.getTotalSeeds() + " seeds: " + totalWatch + " (" + totalWatch.getTime()
-               + " ms).");
-         totalWatch.reset();
-      }
-   }
+	@Override
+	public void update(ProgressEvent event) {
+		if(isStarted(event))
+			if(!totalWatch.isStarted())
+				totalWatch.start();
+		
+		if(isStarted(event) || isSeedStarted(event)) {
+			if(!seedWatch.isStarted()) 
+				seedWatch.start();
+			println("Run " + event.getCurrentSeed() + " of " + event.getTotalSeeds() + " started.");
+		}
+		
+		if(isSeedFinished(event)) {
+			seedWatch.stop();
+			println("Run " + event.getCurrentSeed() + " of " + event.getTotalSeeds() + " terminated after " + seedWatch + " (" + seedWatch.getTime() + " ms).");
+			seedWatch.reset();
+		}
+			
+		if(isFinished(event)) {
+			totalWatch.stop();
+			println("Total runtime for " + event.getTotalSeeds() + " seeds: " + totalWatch + " (" + totalWatch.getTime() + " ms).");
+			totalWatch.reset();
+		}
+	}
 
 }

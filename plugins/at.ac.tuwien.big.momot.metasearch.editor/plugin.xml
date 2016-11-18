@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated metasearch -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="metasearch.presentation.MetasearchModelWizardID"
+            name="%_UI_MetasearchModelWizard_label"
+            class="metasearch.presentation.MetasearchModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MetasearchModelFile.gif">
+         <description>%_UI_MetasearchModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated metasearch -->
+      <editor
+            id="metasearch.presentation.MetasearchEditorID"
+            name="%_UI_MetasearchEditor_label"
+            icon="icons/full/obj16/MetasearchModelFile.gif"
+            extensions="metasearch"
+            class="metasearch.presentation.MetasearchEditor"
+            contributorClass="metasearch.presentation.MetasearchActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

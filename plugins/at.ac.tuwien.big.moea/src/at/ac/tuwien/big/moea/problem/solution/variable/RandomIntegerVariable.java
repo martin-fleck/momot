@@ -12,101 +12,81 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.problem.solution.variable;
 
-import at.ac.tuwien.big.moea.util.TextUtil;
-import at.ac.tuwien.big.moea.util.random.RandomInteger;
-
 import org.moeaframework.core.Variable;
 import org.moeaframework.core.variable.EncodingUtils;
 import org.moeaframework.core.variable.RealVariable;
 
+import at.ac.tuwien.big.moea.util.TextUtil;
+import at.ac.tuwien.big.moea.util.random.RandomInteger;
+
 public class RandomIntegerVariable implements Variable {
 
-   private static final long serialVersionUID = -8144298676316291939L;
+	private static final long serialVersionUID = -8144298676316291939L;
+	
+	private RandomInteger randomInteger;
+	private Integer value;
+	
+	public RandomIntegerVariable(int lowerBound, int upperBound) {
+		randomInteger = new RandomInteger(lowerBound, upperBound);
+		randomize();
+	}
+	
+	public RandomIntegerVariable(int value, int lowerBound, int upperBound) {
+		randomInteger = new RandomInteger(lowerBound, upperBound);
+		setValue(value);
+	}
+	
+	public int getLowerBound() {
+		return randomInteger.getLowerBound();
+	}
+	
+	public int getUpperBound() {
+		return randomInteger.getUpperBound();
+	}
+	
+	public int getValue() {
+		return value;
+	}
+	
+	public void setValue(int value) {
+		if(value < getLowerBound() || value > getUpperBound())
+			throw new IllegalArgumentException("Value must be between lower and upper bound.");
+		this.value = value;
+	}
+	
+	@Override
+	public void randomize() {
+		this.value = randomInteger.nextRandom();
+	}
+	
+	@Override
+	public RandomIntegerVariable copy() {
+		return new RandomIntegerVariable(getValue(), randomInteger.getLowerBound(), randomInteger.getUpperBound());
+	}
 
-   private final RandomInteger randomInteger;
-   private Integer value;
-
-   public RandomIntegerVariable(final int lowerBound, final int upperBound) {
-      randomInteger = new RandomInteger(lowerBound, upperBound);
-      randomize();
-   }
-
-   public RandomIntegerVariable(final int value, final int lowerBound, final int upperBound) {
-      randomInteger = new RandomInteger(lowerBound, upperBound);
-      setValue(value);
-   }
-
-   @Override
-   public RandomIntegerVariable copy() {
-      return new RandomIntegerVariable(getValue(), randomInteger.getLowerBound(), randomInteger.getUpperBound());
-   }
-
-   @Override
-   public boolean equals(final Object obj) {
-      if(this == obj) {
-         return true;
-      }
-      if(obj == null) {
-         return false;
-      }
-      if(getClass() != obj.getClass()) {
-         return false;
-      }
-      final RandomIntegerVariable other = (RandomIntegerVariable) obj;
-      if(value == null) {
-         if(other.value != null) {
-            return false;
-         }
-      } else if(!value.equals(other.value)) {
-         return false;
-      }
-      return true;
-   }
-
-   public int getLowerBound() {
-      return randomInteger.getLowerBound();
-   }
-
-   public int getUpperBound() {
-      return randomInteger.getUpperBound();
-   }
-
-   public int getValue() {
-      return value;
-   }
-
-   @Override
-   public int hashCode() {
-      final int prime = 31;
-      int result = 1;
-      result = prime * result + (value == null ? 0 : value.hashCode());
-      return result;
-   }
-
-   @Override
-   public void randomize() {
-      this.value = randomInteger.nextRandom();
-   }
-
-   public void setValue(final int value) {
-      if(value < getLowerBound() || value > getUpperBound()) {
-         throw new IllegalArgumentException("Value must be between lower and upper bound.");
-      }
-      this.value = value;
-   }
-
-   public String toRangeString() {
-      return TextUtil.toRangeString(this);
-   }
-
-   public RealVariable toRealVariable() {
-      final RealVariable var = EncodingUtils.newInt(randomInteger.getLowerBound(), randomInteger.getUpperBound() - 1);
-      EncodingUtils.setInt(var, getValue());
-      return var;
-   }
-
-   @Override
-   public String toString() {
-      return "" + getValue();
-   }
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == this)
+			return true;
+		if(obj == null || obj.getClass() != getClass())
+			return false;
+		
+		RandomIntegerVariable other = (RandomIntegerVariable) obj;
+		return Integer.compare(getValue(), other.getValue()) == 0;
+	}
+	
+	@Override
+	public String toString() {
+		return "" + getValue();
+	}
+	
+	public RealVariable toRealVariable() {
+		RealVariable var = EncodingUtils.newInt(randomInteger.getLowerBound(), randomInteger.getUpperBound() - 1);
+		EncodingUtils.setInt(var, getValue());
+		return var;
+	}
+	
+	public String toRangeString() {
+		return TextUtil.toRangeString(this);
+	}
 }

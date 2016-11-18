@@ -12,32 +12,28 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.fitness.comparator;
 
-import at.ac.tuwien.big.moea.search.algorithm.local.IFitnessComparator;
-
 import java.io.Serializable;
 
 import org.moeaframework.core.Solution;
 
-public abstract class AbstractFitnessComparator<C extends Comparable<C> & Serializable, S extends Solution>
-      implements IFitnessComparator<C, S> {
+import at.ac.tuwien.big.moea.search.algorithm.local.IFitnessComparator;
 
-   @Override
-   public int compare(final S firstSolution, final S secondSolution) {
-      final C firstValue = getValue(firstSolution);
-      final C secondValue = getValue(secondSolution);
+public abstract class AbstractFitnessComparator<C extends Comparable<C> & Serializable, S extends Solution> implements IFitnessComparator<C, S>  {
 
-      if(firstValue == null && secondValue == null) {
-         return 0;
-      }
-
-      if(firstValue == null) {
-         return 1;
-      }
-
-      if(secondValue == null) {
-         return -1;
-      }
-
-      return firstValue.compareTo(secondValue);
-   }
+	@Override
+	public int compare(S firstSolution, S secondSolution) {
+		C firstValue = getValue(firstSolution);
+		C secondValue = getValue(secondSolution);
+		
+		if(firstValue == null && secondValue == null)
+			return 0;
+		
+		if(firstValue == null)
+			return 1;
+		
+		if(secondValue == null)
+			return -1;
+		
+		return firstValue.compareTo(secondValue);
+	}
 }

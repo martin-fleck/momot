@@ -1,0 +1,93 @@
+Solving [107, 145, 175, 191, 62, 35, 53, 179, 68, 45, 136, 89, 155, 90, 64, 146, 167, 48, 126, 84, 171, 124, 166, 45, 119, 52, 67, 88, 26, 134, 188, 147, 50, 158, 153, 99, 186, 113, 106, 138, 90, 17, 36, 59, 110, 92, 95, 14, 192, 97, 131, 191, 17, 56, 171, 71, 97, 36, 183, 195, 163, 182, 157, 82, 59, 173, 43, 66, 123, 147, 27, 37, 76, 49, 1, 66, 76, 139, 44, 191, 146, 173, 119, 46, 198, 176, 45, 166, 13, 69, 68, 194, 192, 136, 81, 45, 49, 160, 86, 153] (mean: 106.61, stddev: 55.62731253619933):
+---------------------
+Solve  [107, 145, 175, 191, 62, 35, 53, 179, 68, 45, 136, 89, 155, 90, 64, 146, 167, 48, 126, 84, 171, 124, 166, 45, 119, 52, 67, 88, 26, 134, 188, 147, 50, 158, 153, 99, 186, 113, 106, 138, 90, 17, 36, 59, 110, 92, 95, 14, 192, 97, 131, 191, 17, 56, 171, 71, 97, 36, 183, 195, 163, 182, 157, 82, 59, 173, 43, 66, 123, 147, 27, 37, 76, 49, 1, 66, 76, 139, 44, 191, 146, 173, 119, 46, 198, 176, 45, 166, 13, 69, 68, 194, 192, 136, 81, 45, 49, 160, 86, 153] with 10 solutions per population for 1000 evaluations.
+Execute 20 runs per executor.
+PopulationSize: 10, MaxEvaluations: 1000
+---------------------
+Transformation
+---------------------
+Population of 10 with length 100 created in: 0:00:01.848
+Run 1 of 20 terminated after 0:00:07.839.
+Population of 10 with length 100 created in: 0:00:01.352
+Run 2 of 20 terminated after 0:00:10.123.
+Population of 10 with length 100 created in: 0:00:01.125
+Run 3 of 20 terminated after 0:00:10.859.
+Population of 10 with length 100 created in: 0:00:01.625
+Run 4 of 20 terminated after 0:00:13.439.
+Population of 10 with length 100 created in: 0:00:01.006
+Run 5 of 20 terminated after 0:00:08.361.
+Population of 10 with length 100 created in: 0:00:01.769
+Run 6 of 20 terminated after 0:00:11.012.
+Population of 10 with length 100 created in: 0:00:01.428
+Run 7 of 20 terminated after 0:00:10.268.
+Population of 10 with length 100 created in: 0:00:01.135
+Run 8 of 20 terminated after 0:00:11.313.
+Population of 10 with length 100 created in: 0:00:01.899
+Run 9 of 20 terminated after 0:00:11.848.
+Population of 10 with length 100 created in: 0:00:01.992
+Run 10 of 20 terminated after 0:00:10.242.
+Population of 10 with length 100 created in: 0:00:02.080
+Run 11 of 20 terminated after 0:00:10.210.
+Population of 10 with length 100 created in: 0:00:01.894
+Run 12 of 20 terminated after 0:00:09.692.
+Population of 10 with length 100 created in: 0:00:01.651
+Run 13 of 20 terminated after 0:00:08.474.
+Population of 10 with length 100 created in: 0:00:01.700
+Run 14 of 20 terminated after 0:00:13.482.
+Population of 10 with length 100 created in: 0:00:02.381
+Run 15 of 20 terminated after 0:00:18.017.
+Population of 10 with length 100 created in: 0:00:02.455
+Run 16 of 20 terminated after 0:00:11.717.
+Population of 10 with length 100 created in: 0:00:01.078
+Run 17 of 20 terminated after 0:00:08.365.
+Population of 10 with length 100 created in: 0:00:01.924
+Run 18 of 20 terminated after 0:00:09.256.
+Population of 10 with length 100 created in: 0:00:01.805
+Run 19 of 20 terminated after 0:00:11.549.
+Population of 10 with length 100 created in: 0:00:01.449
+Run 20 of 20 terminated after 0:00:09.965.
+Total runtime for 20 seeds: 0:03:36.047.
+---------------------
+Native
+---------------------
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.009
+Run 1 of 20 terminated after 0:00:00.242.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 2 of 20 terminated after 0:00:00.238.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.001
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 3 of 20 terminated after 0:00:00.247.
+Run 4 of 20 terminated after 0:00:00.242.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 5 of 20 terminated after 0:00:00.255.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 6 of 20 terminated after 0:00:00.236.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 7 of 20 terminated after 0:00:00.240.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 8 of 20 terminated after 0:00:00.241.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 9 of 20 terminated after 0:00:00.247.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 10 of 20 terminated after 0:00:00.236.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 11 of 20 terminated after 0:00:00.239.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 12 of 20 terminated after 0:00:00.236.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 13 of 20 terminated after 0:00:00.234.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 14 of 20 terminated after 0:00:00.232.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 15 of 20 terminated after 0:00:00.246.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 16 of 20 terminated after 0:00:00.235.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 17 of 20 terminated after 0:00:00.235.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 18 of 20 terminated after 0:00:00.241.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 19 of 20 terminated after 0:00:00.244.
+Random Initialization of 10 solutions with length 100 created in: 0:00:00.000
+Run 20 of 20 terminated after 0:00:00.234.
+Total runtime for 20 seeds: 0:00:04.813.

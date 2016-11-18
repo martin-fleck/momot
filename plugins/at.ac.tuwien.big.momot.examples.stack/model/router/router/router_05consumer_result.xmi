@@ -1,0 +1,14 @@
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:router="http://router/1.0">
+  <router:Computer name="c2" consumer="/5/@agents.1"/>
+  <router:Computer name="c3" consumer="/5/@agents.2"/>
+  <router:Computer name="c4" consumer="/5/@agents.3"/>
+  <router:Computer name="c5" consumer="/5/@agents.4"/>
+  <router:Computer name="c1" consumer="/5/@agents.0"/>
+  <router:Container>
+    <agents xsi:type="router:Consumer" name="c1" speed="2" rightcomp="/4"/>
+    <agents xsi:type="router:Consumer" name="c2" speed="2" rightcomp="/0"/>
+    <agents xsi:type="router:Consumer" name="c3" speed="2" rightcomp="/1"/>
+    <agents xsi:type="router:Consumer" name="c4" speed="2" rightcomp="/2"/>
+    <agents xsi:type="router:Consumer" name="c5" speed="2" rightcomp="/3"/>
+  </router:Container>
+</xmi:XMI>

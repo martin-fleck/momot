@@ -16,28 +16,27 @@ import org.moeaframework.core.Solution;
 
 public class MinimumSolutionLengthDimension<S extends Solution> extends SolutionLengthDimension<S> {
 
-   private int minimum;
+	private int minimum;
 
-   public MinimumSolutionLengthDimension(final Class<S> solutionClazz, final String name, final int minimum) {
-      super(solutionClazz, name);
-      this.setMinimum(minimum);
-   }
+	public MinimumSolutionLengthDimension(Class<S> solutionClazz, String name, int minimum) {
+		super(solutionClazz, name);
+		this.setMinimum(minimum);
+	}	
 
-   @Override
-   public double evaluate(final S solution) {
-      final double nrSolutions = super.evaluate(solution);
-      if(nrSolutions < getMinimum()) {
-         return getMinimum() - nrSolutions;
-      }
-      return CONSTRAINT_OK;
-   }
+	@Override
+	public double evaluate(S solution) {
+		double nrSolutions = super.evaluate(solution);
+		if(nrSolutions < getMinimum())
+			return getMinimum() - nrSolutions;
+		return CONSTRAINT_OK;
+	}
 
-   public int getMinimum() {
-      return minimum;
-   }
+	public int getMinimum() {
+		return minimum;
+	}
 
-   public void setMinimum(final int minimum) {
-      this.minimum = minimum;
-   }
-
+	public void setMinimum(int minimum) {
+		this.minimum = minimum;
+	}
+	
 }

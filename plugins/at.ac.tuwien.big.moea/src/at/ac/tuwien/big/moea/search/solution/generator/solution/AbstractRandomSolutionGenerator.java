@@ -14,29 +14,26 @@ package at.ac.tuwien.big.moea.search.solution.generator.solution;
 
 import org.moeaframework.core.Solution;
 
-public abstract class AbstractRandomSolutionGenerator<S extends Solution> extends AbstractSolutionGenerator<S>
-      implements IRandomSolutionGenerator<S> {
-
-   public AbstractRandomSolutionGenerator(final int solutionLength, final int nrObjectives) {
-      super(solutionLength, nrObjectives, 0);
-   }
-
-   public AbstractRandomSolutionGenerator(final int solutionLength, final int nrObjectives, final int nrConstraints) {
-      super(solutionLength, nrObjectives, nrConstraints);
-   }
-
-   @Override
-   public S createRandomSolution() {
-      return createRandomSolution(getSolutionLength());
-   }
-
-   @Override
-   public S createRandomSolution(final int solutionLength) {
-      return createRandomSolution(solutionLength, getNrObjectives());
-   }
-
-   @Override
-   public S createRandomSolution(final int solutionLength, final int nrObjectives) {
-      return createRandomSolution(solutionLength, nrObjectives, getNrConstraints());
-   }
+public abstract class AbstractRandomSolutionGenerator<S extends Solution> extends AbstractSolutionGenerator<S> implements IRandomSolutionGenerator<S> {
+	
+	public AbstractRandomSolutionGenerator(int solutionLength, int nrObjectives,
+			int nrConstraints) {
+		super(solutionLength, nrObjectives, nrConstraints);
+	}
+	
+	public AbstractRandomSolutionGenerator(int solutionLength, int nrObjectives) {
+		super(solutionLength, nrObjectives, 0);
+	}
+	
+	public S createRandomSolution() {
+		return createRandomSolution(getSolutionLength());
+	}
+	
+	public S createRandomSolution(int solutionLength) {
+		return createRandomSolution(solutionLength, getNrObjectives());
+	}
+	
+	public S createRandomSolution(int solutionLength, int nrObjectives) {
+		return createRandomSolution(solutionLength, nrObjectives, getNrConstraints());
+	}
 }

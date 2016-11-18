@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated architecture -->
+      <package
+            uri="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0"
+            class="icmt.tool.momot.demo.architecture.ArchitecturePackage"
+            genModel="metamodel/architecture.genmodel"/>
+   </extension>
+
+</plugin>

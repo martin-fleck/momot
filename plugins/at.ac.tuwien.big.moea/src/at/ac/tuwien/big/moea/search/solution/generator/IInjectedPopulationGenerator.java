@@ -5,11 +5,8 @@ import java.util.List;
 import org.moeaframework.core.Solution;
 
 public interface IInjectedPopulationGenerator<T extends Solution> extends IPopulationGenerator<T> {
-   void addInjectedSolution(T injectedSolution);
-
-   void addInjectedSolutions(Iterable<T> injectedSolutions);
-
-   List<T> getInjectedSolutions();
-
-   void setInjectedSolutions(List<T> injectedSolutions);
+	List<T> getInjectedSolutions();
+	void setInjectedSolutions(List<T> injectedSolutions);
+	public void addInjectedSolution(T injectedSolution);
+	public void addInjectedSolutions(Iterable<T> injectedSolutions);
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="topologysync" nsURI="http://topologysync/1.0" nsPrefix="topologysync">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Topology">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trackSegments" upperBound="-1"
+        eType="#//TrackSegment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evp" eType="#//EVP" eOpposite="#//EVP/topology"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TrackSegment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conns" lowerBound="2" upperBound="3"
+        eType="#//Connector" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//TrackSegment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="numberOfConnectors"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="numberOfConnectors" value="conns->size() = 3"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branchTracks" eType="#//Track"
+        eOpposite="#//Track/point"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evpPoint" lowerBound="1"
+        eType="#//EVPPoint" eOpposite="#//EVPPoint/topPoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Track" eSuperTypes="#//TrackSegment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="numberOfConnectors"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="numberOfConnectors" value="conns->size() = 2"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elems" eType="#//TrackElement"
+        eOpposite="#//TrackElement/track"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="point" eType="#//Point"
+        eOpposite="#//Point/branchTracks"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evpTrack" eType="#//EVPTrack"
+        eOpposite="#//EVPTrack/topTrack"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details value="Type = 1"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Connector"
+        eOpposite="#//Connector/from"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//Connector"
+        eOpposite="#//Connector/to"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TrackElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="track" lowerBound="1" eType="#//Track"
+        eOpposite="#//Track/elems"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Signal" eSuperTypes="#//TrackElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataPoint" eSuperTypes="#//TrackElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EVP">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evpElements" upperBound="-1"
+        eType="#//EVPElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topology" eType="#//Topology"
+        eOpposite="#//Topology/evp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EVPElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EVPTrack" eSuperTypes="#//EVPElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighborA" eType="#//EVPElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighborB" eType="#//EVPElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="len" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topTrack" lowerBound="1"
+        eType="#//Track" eOpposite="#//Track/evpTrack"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EVPPoint" eSuperTypes="#//EVPElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighborA" eType="#//EVPElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighborR" eType="#//EVPElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighborL" eType="#//EVPElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lenA" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lenR" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lenL" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topPoint" lowerBound="1"
+        eType="#//Point" eOpposite="#//Point/evpPoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topology" upperBound="-1"
+        eType="#//Topology" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evp" upperBound="-1" eType="#//EVP"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -15,44 +15,44 @@ package at.ac.tuwien.big.moea.search.solution.generator.solution;
 import org.moeaframework.core.Solution;
 
 public abstract class AbstractSolutionGenerator<S extends Solution> implements ISolutionGenerator<S> {
-   private final int nrConstraints;
-   private final int nrObjectives;
-   private final int solutionLength;
+	private int nrConstraints;
+	private int nrObjectives;
+	private int solutionLength;
+	
+	public AbstractSolutionGenerator(int solutionLength, int nrObjectives, int nrConstraints) {
+		this.solutionLength = solutionLength;
+		this.nrObjectives = nrObjectives;
+		this.nrConstraints = nrConstraints;
+	}
 
-   public AbstractSolutionGenerator(final int solutionLength, final int nrObjectives, final int nrConstraints) {
-      this.solutionLength = solutionLength;
-      this.nrObjectives = nrObjectives;
-      this.nrConstraints = nrConstraints;
-   }
+	@Override
+	public int getNrConstraints() {
+		return nrConstraints;
+	}
 
-   @Override
-   public S createNewSolution() {
-      return createNewSolution(getSolutionLength());
-   }
+	@Override
+	public int getNrObjectives() {
+		return nrObjectives;
+	}
 
-   @Override
-   public S createNewSolution(final int solutionLength) {
-      return createNewSolution(solutionLength, getNrObjectives(), getNrConstraints());
-   }
-
-   @Override
-   public S createNewSolution(final int solutionLength, final int nrObjectives) {
-      return createNewSolution(solutionLength, nrObjectives, getNrConstraints());
-   }
-
-   @Override
-   public int getNrConstraints() {
-      return nrConstraints;
-   }
-
-   @Override
-   public int getNrObjectives() {
-      return nrObjectives;
-   }
-
-   @Override
-   public int getSolutionLength() {
-      return solutionLength;
-   }
-
+	@Override
+	public int getSolutionLength() {
+		return solutionLength;
+	}
+	
+	@Override
+	public S createNewSolution() {
+		return createNewSolution(getSolutionLength());
+	}
+	
+	@Override
+	public S createNewSolution(int solutionLength, int nrObjectives) {
+		return createNewSolution(solutionLength, nrObjectives, getNrConstraints());
+	}
+	
+	@Override
+	public S createNewSolution(int solutionLength) {
+		return createNewSolution(solutionLength, getNrObjectives(), getNrConstraints());
+	}
+	
 }

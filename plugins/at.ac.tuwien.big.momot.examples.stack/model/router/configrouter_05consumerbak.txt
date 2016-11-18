@@ -1,0 +1,44 @@
+#0-* Eintraege der Form transformation=Henshin-Datei, die die Transformation beschreiben
+#transformation=henshin/univ.henshin
+#Das Ecore-Modell zu allen Instanzen
+ecore=model/router/router.ecore
+#Die Vorgänger-Datei, deren Änderungen nicht rückgängig gemacht werden sollen (optional)
+#previous=model/router.xmi
+#Das aktuelle Modell
+model=model/router/router_05consumer.xmi
+#Der Speicherort für das Zielmodell
+output=model/router/router_05consumer_result.xmi
+#Der Ort der clingo.exe
+clingo=model/clingo44.exe
+#Ob die "Standard-Transformationen" erlaubt sein sollen. Wenn nein, sind Änderungen, die nicht in den Henshin-Dateien beschrieben sind, nicht möglich
+allowpseudotrafo=true
+#Danach kommen die Kosten der Standardtransformationen
+#Attribut- und Referenzänderungen haben die Syntax: Klasse.attribut:Änderungstyp=Kosten
+#Mögliche Änderungstypen sind Create und Delete.
+#Die Klasse eines Attributes ist immer die, in dem das Attribut definiert wurde
+#Beispiel: Person.matrNr:Create=5 bedeutet, dass es 5 kostet, wenn ein Attribut matrNr in der Klasse Person erstellt wird
+#Eine Änderung eines Attributs entspricht dem Löschen des alten Wertes und dem Erstellen eines neuen Wertes
+#Objektänderungen haben die Syntax: Klasse:Änderungstyp=Kosten
+#Beispiel: Person:Delete=4 bedeutet, dass es 4 kostet, wenn ein Objekt vom Typ Person gelöscht wird
+#Alle Klassen, Attribute und Änderungstypen können leer gelassen werden, dann gelten sie für alle Klassen, Attribute, ...
+#für die nichts genaueres spezifiziert wurde.
+#Beispiel: :5 bedeutet, dass das Erstellen und Löschen von Objekten egal welchen Typs 5 kostet.
+#.name:Create=2 bedeutet, dass jede Änderungsoperation irgendeines Namens 2 kostet  
+Container.:=0
+Consumer.:Delete=10
+Consumer.:Create=0
+Consumer:Delete=100
+Consumer:Create=1
+Computer.:Delete=1
+Computer.:Create=0
+Computer:=1
+.:=0
+:=0
+#.:=2
+#:=5
+#Maximalzahl erstellter Objekte
+maxObjs=20
+#Maximale Integerzahl
+maxInt=20
+#For debugging purposes: Cardinality constraints are optimization criteria, "normal" constraints removed
+relaxConstraints=false

@@ -12,42 +12,41 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.algorithm.operator.mutation;
 
-import at.ac.tuwien.big.moea.search.algorithm.operator.IProbabilityVariation;
-import at.ac.tuwien.big.moea.util.CollectionUtil;
-
 import java.util.List;
 
 import org.moeaframework.core.Solution;
 
+import at.ac.tuwien.big.moea.search.algorithm.operator.IProbabilityVariation;
+import at.ac.tuwien.big.moea.util.CollectionUtil;
+
 public class CompoundMutationVariation extends AbstractMutationVariation {
+	
+	private List<IProbabilityVariation> operators;
 
-   private final List<IProbabilityVariation> operators;
+	public CompoundMutationVariation(double probability) {
+		this(probability, new IProbabilityVariation[] { });
+	}
+	
+	public CompoundMutationVariation(double probability, IProbabilityVariation... operators) {
+		super(probability);
+		this.operators = CollectionUtil.newList(operators);
+	}
+	
+	public CompoundMutationVariation addOperator(IProbabilityVariation operator) {
+		this.operators.add(operator);
+		return this;
+	}
 
-   public CompoundMutationVariation(final double probability) {
-      this(probability, new IProbabilityVariation[] {});
-   }
-
-   public CompoundMutationVariation(final double probability, final IProbabilityVariation... operators) {
-      super(probability);
-      this.operators = CollectionUtil.newList(operators);
-   }
-
-   public CompoundMutationVariation addOperator(final IProbabilityVariation operator) {
-      this.operators.add(operator);
-      return this;
-   }
-
-   @Override
-   public Solution[] doEvolve(final Solution[] parents) {
-      Solution[] evolved = parents;
-      for(final IProbabilityVariation op : getOperators()) {
-         evolved = op.evolve(evolved);
-      }
-      return evolved;
-   }
-
-   public List<IProbabilityVariation> getOperators() {
-      return operators;
-   }
+	public List<IProbabilityVariation> getOperators() {
+		return operators;
+	}
+	
+	@Override
+	public Solution[] doEvolve(Solution[] parents) {
+		Solution[] evolved = parents;
+		for(IProbabilityVariation op : getOperators())
+			evolved = op.evolve(evolved);
+		return evolved;
+	}
 
 }

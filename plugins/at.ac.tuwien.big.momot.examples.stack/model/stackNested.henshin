@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kG2Z0COnEeSSgIOxgt2tSw">
+  <imports href="stack.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_pd5XACOnEeSSgIOxgt2tSw" name="createStack">
+    <parameters xmi:id="_tmHJkCOnEeSSgIOxgt2tSw" name="stackId">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_tmKz8COnEeSSgIOxgt2tSw" name="stackLoad">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_phCxoCOnEeSSgIOxgt2tSw" name="Lhs">
+      <nodes xmi:id="_wptdcCOnEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_6LyQoCOnEeSSgIOxgt2tSw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_6LyQoSOnEeSSgIOxgt2tSw">
+          <conclusion xmi:id="_6LyQoiOnEeSSgIOxgt2tSw">
+            <nodes xmi:id="_6LyQoyOnEeSSgIOxgt2tSw" outgoing="_0X4YUCOnEeSSgIOxgt2tSw">
+              <type href="stack.ecore#//StackModel"/>
+            </nodes>
+            <nodes xmi:id="_x6pg4COnEeSSgIOxgt2tSw" incoming="_0X4YUCOnEeSSgIOxgt2tSw">
+              <type href="stack.ecore#//Stack"/>
+              <attributes xmi:id="_3M6rwCOnEeSSgIOxgt2tSw" value="stackId">
+                <type href="stack.ecore#//Stack/id"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_0X4YUCOnEeSSgIOxgt2tSw" source="_6LyQoyOnEeSSgIOxgt2tSw" target="_x6pg4COnEeSSgIOxgt2tSw">
+              <type href="stack.ecore#//StackModel/stacks"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_6Ly3sCOnEeSSgIOxgt2tSw" origin="_wptdcCOnEeSSgIOxgt2tSw" image="_6LyQoyOnEeSSgIOxgt2tSw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_phCxoSOnEeSSgIOxgt2tSw" name="Rhs">
+      <nodes xmi:id="_wptdcSOnEeSSgIOxgt2tSw" outgoing="_0180YCOnEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel"/>
+      </nodes>
+      <nodes xmi:id="_xlV_QCOnEeSSgIOxgt2tSw" incoming="_0180YCOnEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_2BPi0COnEeSSgIOxgt2tSw" value="stackId">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+        <attributes xmi:id="_2ewlQCOnEeSSgIOxgt2tSw" value="stackLoad">
+          <type href="stack.ecore#//Stack/load"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_0180YCOnEeSSgIOxgt2tSw" source="_wptdcSOnEeSSgIOxgt2tSw" target="_xlV_QCOnEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_wptdciOnEeSSgIOxgt2tSw" origin="_wptdcCOnEeSSgIOxgt2tSw" image="_wptdcSOnEeSSgIOxgt2tSw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_EV_a0COoEeSSgIOxgt2tSw" name="shiftLeft">
+    <parameters xmi:id="_8vd0cCkwEeSEpvItAImEdg" name="fromId">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_8vd0cSkwEeSEpvItAImEdg" name="toId">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_JvkHkSOoEeSSgIOxgt2tSw" name="amount">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_EWGvkCOoEeSSgIOxgt2tSw" name="Lhs">
+      <nodes xmi:id="_H4s7gCPHEeSSgIOxgt2tSw" name="root" outgoing="_H4s7gyPHEeSSgIOxgt2tSw _H4s7hSPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel"/>
+      </nodes>
+      <nodes xmi:id="_KiG-0COoEeSSgIOxgt2tSw" name="from" incoming="_H4s7gyPHEeSSgIOxgt2tSw" outgoing="_LUUe4COoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_OXptACOoEeSSgIOxgt2tSw" value="fromId">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_KwgAICOoEeSSgIOxgt2tSw" name="to" incoming="_LUUe4COoEeSSgIOxgt2tSw _H4s7hSPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_VNYOsCOoEeSSgIOxgt2tSw" value="toId">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_LUUe4COoEeSSgIOxgt2tSw" source="_KiG-0COoEeSSgIOxgt2tSw" target="_KwgAICOoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack/left"/>
+      </edges>
+      <edges xmi:id="_H4s7gyPHEeSSgIOxgt2tSw" source="_H4s7gCPHEeSSgIOxgt2tSw" target="_KiG-0COoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+      <edges xmi:id="_H4s7hSPHEeSSgIOxgt2tSw" source="_H4s7gCPHEeSSgIOxgt2tSw" target="_KwgAICOoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_EWGvkSOoEeSSgIOxgt2tSw" name="Rhs">
+      <nodes xmi:id="_KiHl4COoEeSSgIOxgt2tSw" name="from" incoming="_H4s7hCPHEeSSgIOxgt2tSw" outgoing="_LUVF8COoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_OXptASOoEeSSgIOxgt2tSw" value="fromId">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_KwgAISOoEeSSgIOxgt2tSw" name="to" incoming="_LUVF8COoEeSSgIOxgt2tSw _H4s7hiPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_VNYOsSOoEeSSgIOxgt2tSw" value="toId">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_H4s7gSPHEeSSgIOxgt2tSw" name="root" outgoing="_H4s7hCPHEeSSgIOxgt2tSw _H4s7hiPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel"/>
+      </nodes>
+      <edges xmi:id="_LUVF8COoEeSSgIOxgt2tSw" source="_KiHl4COoEeSSgIOxgt2tSw" target="_KwgAISOoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack/left"/>
+      </edges>
+      <edges xmi:id="_H4s7hCPHEeSSgIOxgt2tSw" source="_H4s7gSPHEeSSgIOxgt2tSw" target="_KiHl4COoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+      <edges xmi:id="_H4s7hiPHEeSSgIOxgt2tSw" source="_H4s7gSPHEeSSgIOxgt2tSw" target="_KwgAISOoEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_KiHl4SOoEeSSgIOxgt2tSw" origin="_KiG-0COoEeSSgIOxgt2tSw" image="_KiHl4COoEeSSgIOxgt2tSw"/>
+    <mappings xmi:id="_KwgnMCOoEeSSgIOxgt2tSw" origin="_KwgAICOoEeSSgIOxgt2tSw" image="_KwgAISOoEeSSgIOxgt2tSw"/>
+    <mappings xmi:id="_H4s7giPHEeSSgIOxgt2tSw" origin="_H4s7gCPHEeSSgIOxgt2tSw" image="_H4s7gSPHEeSSgIOxgt2tSw"/>
+    <multiRules xmi:id="_3EeDoCn4EeSXqI2GaBvyjQ" name="changeLoad">
+      <parameters xmi:id="_kqtWsin7EeSXqI2GaBvyjQ" name="fromLoad">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </parameters>
+      <parameters xmi:id="_kqtWsyn7EeSXqI2GaBvyjQ" name="toLoad">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </parameters>
+      <lhs xmi:id="_3EqQ4Cn4EeSXqI2GaBvyjQ" name="Lhs">
+        <nodes xmi:id="_8DSHASn4EeSXqI2GaBvyjQ" name="from" outgoing="_8DSHBin4EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//Stack"/>
+          <attributes xmi:id="_IthlACn5EeSXqI2GaBvyjQ" value="fromLoad">
+            <type href="stack.ecore#//Stack/load"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_8DSHAyn4EeSXqI2GaBvyjQ" name="to" incoming="_8DSHBin4EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//Stack"/>
+          <attributes xmi:id="_-d36KCn4EeSXqI2GaBvyjQ" value="toLoad">
+            <type href="stack.ecore#//Stack/load"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_UkqDsCn8EeSXqI2GaBvyjQ" name="root">
+          <type href="stack.ecore#//StackModel"/>
+        </nodes>
+        <edges xmi:id="_8DSHBin4EeSXqI2GaBvyjQ" source="_8DSHASn4EeSXqI2GaBvyjQ" target="_8DSHAyn4EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//Stack/left"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_3EqQ4Sn4EeSXqI2GaBvyjQ" name="Rhs">
+        <nodes xmi:id="_-d36Iin4EeSXqI2GaBvyjQ" name="from" incoming="_1-UXECn8EeSXqI2GaBvyjQ" outgoing="_RlJtACn5EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//Stack"/>
+          <attributes xmi:id="_KF1bwCn5EeSXqI2GaBvyjQ" value="fromLoad - amount">
+            <type href="stack.ecore#//Stack/load"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_-d36Jin4EeSXqI2GaBvyjQ" name="to" incoming="_RlJtACn5EeSXqI2GaBvyjQ _1-UXESn8EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//Stack"/>
+          <attributes xmi:id="_kqtWsCn7EeSXqI2GaBvyjQ" value="toLoad + amount">
+            <type href="stack.ecore#//Stack/load"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_WwwH0Cn8EeSXqI2GaBvyjQ" name="root" outgoing="_1-UXECn8EeSXqI2GaBvyjQ _1-UXESn8EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//StackModel"/>
+        </nodes>
+        <edges xmi:id="_RlJtACn5EeSXqI2GaBvyjQ" source="_-d36Iin4EeSXqI2GaBvyjQ" target="_-d36Jin4EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//Stack/left"/>
+        </edges>
+        <edges xmi:id="_1-UXECn8EeSXqI2GaBvyjQ" source="_WwwH0Cn8EeSXqI2GaBvyjQ" target="_-d36Iin4EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//StackModel/stacks"/>
+        </edges>
+        <edges xmi:id="_1-UXESn8EeSXqI2GaBvyjQ" source="_WwwH0Cn8EeSXqI2GaBvyjQ" target="_-d36Jin4EeSXqI2GaBvyjQ">
+          <type href="stack.ecore#//StackModel/stacks"/>
+        </edges>
+      </rhs>
+      <attributeConditions xmi:id="_BujkoCkxEeSEpvItAImEdg" name="SufficientLoad" conditionText="amount &lt;= fromLoad"/>
+      <mappings xmi:id="_-d36JCn4EeSXqI2GaBvyjQ" origin="_8DSHASn4EeSXqI2GaBvyjQ" image="_-d36Iin4EeSXqI2GaBvyjQ"/>
+      <mappings xmi:id="_-d36KSn4EeSXqI2GaBvyjQ" origin="_8DSHAyn4EeSXqI2GaBvyjQ" image="_-d36Jin4EeSXqI2GaBvyjQ"/>
+      <mappings xmi:id="_WwwH0Sn8EeSXqI2GaBvyjQ" origin="_UkqDsCn8EeSXqI2GaBvyjQ" image="_WwwH0Cn8EeSXqI2GaBvyjQ"/>
+      <multiMappings xmi:id="_bHgssCn8EeSXqI2GaBvyjQ" origin="_KiG-0COoEeSSgIOxgt2tSw" image="_8DSHASn4EeSXqI2GaBvyjQ"/>
+      <multiMappings xmi:id="_dMjGkCn8EeSXqI2GaBvyjQ" origin="_H4s7gCPHEeSSgIOxgt2tSw" image="_UkqDsCn8EeSXqI2GaBvyjQ"/>
+      <multiMappings xmi:id="_gv54kCn8EeSXqI2GaBvyjQ" origin="_KwgAICOoEeSSgIOxgt2tSw" image="_8DSHAyn4EeSXqI2GaBvyjQ"/>
+      <multiMappings xmi:id="_sGsxsCn8EeSXqI2GaBvyjQ" origin="_KiHl4COoEeSSgIOxgt2tSw" image="_-d36Iin4EeSXqI2GaBvyjQ"/>
+      <multiMappings xmi:id="_twRXkCn8EeSXqI2GaBvyjQ" origin="_H4s7gSPHEeSSgIOxgt2tSw" image="_WwwH0Cn8EeSXqI2GaBvyjQ"/>
+      <multiMappings xmi:id="_vhkWECn8EeSXqI2GaBvyjQ" origin="_KwgAISOoEeSSgIOxgt2tSw" image="_-d36Jin4EeSXqI2GaBvyjQ"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_Jd5roCOvEeSSgIOxgt2tSw" name="connectStacks">
+    <parameters xmi:id="_MIbYMCOvEeSSgIOxgt2tSw" name="left">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_MIbYMSOvEeSSgIOxgt2tSw" name="right">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_JeBncCOvEeSSgIOxgt2tSw" name="Lhs">
+      <nodes xmi:id="_Ia1_QCPHEeSSgIOxgt2tSw" name="root" outgoing="_Ia8F4CPHEeSSgIOxgt2tSw _Ia8F4iPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel"/>
+      </nodes>
+      <nodes xmi:id="_MuPbACOvEeSSgIOxgt2tSw" incoming="_Ia8F4CPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_OI6pQCOvEeSSgIOxgt2tSw" value="left">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_NHAgUCOvEeSSgIOxgt2tSw" incoming="_Ia8F4iPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_OhStACOvEeSSgIOxgt2tSw" value="right">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Ia8F4CPHEeSSgIOxgt2tSw" source="_Ia1_QCPHEeSSgIOxgt2tSw" target="_MuPbACOvEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+      <edges xmi:id="_Ia8F4iPHEeSSgIOxgt2tSw" source="_Ia1_QCPHEeSSgIOxgt2tSw" target="_NHAgUCOvEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_JeBncSOvEeSSgIOxgt2tSw" name="Rhs">
+      <nodes xmi:id="_MuSeUCOvEeSSgIOxgt2tSw" incoming="_Ia8F4SPHEeSSgIOxgt2tSw" outgoing="_SkyXoCOvEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_OI6pQSOvEeSSgIOxgt2tSw" value="left">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_NHAgUSOvEeSSgIOxgt2tSw" incoming="_SkyXoCOvEeSSgIOxgt2tSw _Ia8F4yPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack"/>
+        <attributes xmi:id="_OhStASOvEeSSgIOxgt2tSw" value="right">
+          <type href="stack.ecore#//Stack/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Ia1_QSPHEeSSgIOxgt2tSw" name="root" outgoing="_Ia8F4SPHEeSSgIOxgt2tSw _Ia8F4yPHEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel"/>
+      </nodes>
+      <edges xmi:id="_SkyXoCOvEeSSgIOxgt2tSw" source="_MuSeUCOvEeSSgIOxgt2tSw" target="_NHAgUSOvEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//Stack/right"/>
+      </edges>
+      <edges xmi:id="_Ia8F4SPHEeSSgIOxgt2tSw" source="_Ia1_QSPHEeSSgIOxgt2tSw" target="_MuSeUCOvEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+      <edges xmi:id="_Ia8F4yPHEeSSgIOxgt2tSw" source="_Ia1_QSPHEeSSgIOxgt2tSw" target="_NHAgUSOvEeSSgIOxgt2tSw">
+        <type href="stack.ecore#//StackModel/stacks"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_MuTFYCOvEeSSgIOxgt2tSw" origin="_MuPbACOvEeSSgIOxgt2tSw" image="_MuSeUCOvEeSSgIOxgt2tSw"/>
+    <mappings xmi:id="_NHAgUiOvEeSSgIOxgt2tSw" origin="_NHAgUCOvEeSSgIOxgt2tSw" image="_NHAgUSOvEeSSgIOxgt2tSw"/>
+    <mappings xmi:id="_Ia1_QiPHEeSSgIOxgt2tSw" origin="_Ia1_QCPHEeSSgIOxgt2tSw" image="_Ia1_QSPHEeSSgIOxgt2tSw"/>
+  </units>
+</henshin:Module>

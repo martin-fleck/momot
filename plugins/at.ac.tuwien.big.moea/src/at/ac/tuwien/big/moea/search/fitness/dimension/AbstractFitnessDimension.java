@@ -14,84 +14,82 @@ package at.ac.tuwien.big.moea.search.fitness.dimension;
 
 import org.moeaframework.core.Solution;
 
-public abstract class AbstractFitnessDimension<T extends Solution>
-      implements IFitnessDimension<T>, Comparable<IFitnessDimension<T>> {
+public abstract class AbstractFitnessDimension<T extends Solution> implements IFitnessDimension<T>, Comparable<IFitnessDimension<T>> {
 
-   private Class<T> clazz;
-   private String name;
-   private FunctionType functionType;
-   private double weight = 1.0;
+	private Class<T> clazz;
+	private String name;
+	private FunctionType functionType;
+	private double weight = 1.0;
+	
+	public AbstractFitnessDimension(Class<T> solutionClazz, String name, FunctionType type) {
+		this.clazz = solutionClazz;
+		this.name = name;
+		this.functionType = type;
+	}
+	
+	public AbstractFitnessDimension(Class<T> solutionClazz, String name) {
+		this(solutionClazz, name, FunctionType.Minimum);
+	}
 
-   public AbstractFitnessDimension(final Class<T> solutionClazz, final String name) {
-      this(solutionClazz, name, FunctionType.Minimum);
-   }
+	@Override
+	public String getName() {
+		return name;
+	}
+	
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public FunctionType getFunctionType() {
+		return functionType;
+	}
 
-   public AbstractFitnessDimension(final Class<T> solutionClazz, final String name, final FunctionType type) {
-      this.clazz = solutionClazz;
-      this.name = name;
-      this.functionType = type;
-   }
+	@Override
+	public void setFunctionType(FunctionType functionType) {
+		this.functionType = functionType;
+	}
+	
+	@Override
+	public boolean isMaximumFunction() {
+		return FunctionType.Maximum == getFunctionType();
+	}
 
-   @Override
-   public int compareTo(final IFitnessDimension<T> o) {
-      return getName().compareTo(o.getName());
-   }
-
-   @Override
-   public double doEvaluate(final Solution solution) {
-      if(clazz.isInstance(solution)) {
-         final double result = evaluate(clazz.cast(solution));
-         if(Double.isInfinite(result)) {
-            return result;
-         }
-         return getWeight() * result;
-      }
-      return WORST_FITNESS;
-   }
-
-   @Override
-   public FunctionType getFunctionType() {
-      return functionType;
-   }
-
-   @Override
-   public String getName() {
-      return name;
-   }
-
-   @Override
-   public double getWeight() {
-      return weight;
-   }
-
-   @Override
-   public boolean isMaximumFunction() {
-      return FunctionType.Maximum == getFunctionType();
-   }
-
-   @Override
-   public boolean isMinimumFunction() {
-      return FunctionType.Minimum == getFunctionType();
-   }
-
-   @Override
-   public void setFunctionType(final FunctionType functionType) {
-      this.functionType = functionType;
-   }
-
-   @Override
-   public void setName(final String name) {
-      this.name = name;
-   }
-
-   @Override
-   public IFitnessDimension<T> setWeight(final double weight) {
-      this.weight = weight;
-      return this;
-   }
-
-   @Override
-   public String toString() {
-      return getName();
-   }
+	@Override
+	public boolean isMinimumFunction() {
+		return FunctionType.Minimum == getFunctionType();
+	}
+	
+	@Override
+	public double doEvaluate(Solution solution) {
+		if(clazz.isInstance(solution)) {
+			double result = evaluate(clazz.cast(solution));
+			if(Double.isInfinite(result))
+				return result;
+			return getWeight() * result;
+		}
+		return WORST_FITNESS;
+	}
+	
+	@Override
+	public IFitnessDimension<T> setWeight(double weight) {
+		this.weight = weight;
+		return this;
+	}
+	
+	@Override
+	public double getWeight() {
+		return weight;
+	}
+	
+	@Override
+	public String toString() {
+		return getName();
+	}
+	
+	@Override
+	public int compareTo(IFitnessDimension<T> o) {
+		return getName().compareTo(o.getName());
+	}	
 }

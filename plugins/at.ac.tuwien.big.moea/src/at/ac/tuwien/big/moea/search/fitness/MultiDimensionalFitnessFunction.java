@@ -12,261 +12,234 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.fitness;
 
-import at.ac.tuwien.big.moea.problem.solution.SearchSolution;
-import at.ac.tuwien.big.moea.search.fitness.dimension.IFitnessDimension;
-import at.ac.tuwien.big.moea.search.solution.repair.ISolutionRepairer;
-import at.ac.tuwien.big.moea.util.MathUtil;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.moeaframework.core.Solution;
 
+import at.ac.tuwien.big.moea.problem.solution.SearchSolution;
+import at.ac.tuwien.big.moea.search.fitness.dimension.IFitnessDimension;
+import at.ac.tuwien.big.moea.search.solution.repair.ISolutionRepairer;
+import at.ac.tuwien.big.moea.util.MathUtil;
+
 public class MultiDimensionalFitnessFunction<T extends Solution> implements IMultiDimensionalFitnessFunction<T> {
 
-   // protected Map<String, IFitnessDimension<T>> objectives;
-   // protected Map<String, IFitnessDimension<T>> constraints;
+//	protected Map<String, IFitnessDimension<T>> objectives;
+//	protected Map<String, IFitnessDimension<T>> constraints;
+	
+	protected List<IFitnessDimension<T>> objectives;
+	protected List<IFitnessDimension<T>> constraints;
+	
+	protected Class<T> clazz;
+	protected ISolutionRepairer<T> repairer;
+	
+	public MultiDimensionalFitnessFunction(Class<T> clazz) {
+		this.objectives = new ArrayList<>();
+		this.constraints = new ArrayList<>();
+		this.clazz = clazz;
+	}
+	
+	@Override
+	public double doEvaluate(Solution solution) {
+		if(clazz.isInstance(solution)) 
+			preprocessEvaluation(clazz.cast(solution));
+				
+		double result = delegateEvaluation(solution);
+		
+		if(clazz.isInstance(solution)) 
+			postprocessEvaluation(clazz.cast(solution), result);
+					
+		return result;
+	}
+	
+	private double evaluate(IFitnessDimension<T> dimension, Solution solution) {
+		Double evaluation = dimension.doEvaluate(solution);
+		if(dimension.isMaximumFunction())
+			return -evaluation;
+		
+		return evaluation;
+	}
 
-   protected List<IFitnessDimension<T>> objectives;
-   protected List<IFitnessDimension<T>> constraints;
+	private double delegateEvaluation(Solution solution) {
+		int i = 0;
+		for(IFitnessDimension<T> dimension : objectives)
+			solution.setObjective(i++, evaluate(dimension, solution));
 
-   protected Class<T> clazz;
-   protected ISolutionRepairer<T> repairer;
+		i = 0;
+		for(IFitnessDimension<T> dimension : constraints)
+			solution.setConstraint(i++, evaluate(dimension, solution));
+		
+		return getAggregateFitness(solution);
+	}
+	
+	@Override
+	public double evaluate(T solution) {
+		return delegateEvaluation(solution);
+	}
+	
+	protected void postprocessEvaluation(T solution, double result) {
+		solution.setAttribute(SearchSolution.ATTRIBUTE_AGGREGATED_FITNESS, result);
+	}
 
-   public MultiDimensionalFitnessFunction(final Class<T> clazz) {
-      this.objectives = new ArrayList<>();
-      this.constraints = new ArrayList<>();
-      this.clazz = clazz;
-   }
+	protected void preprocessEvaluation(T solution) {
+		if(repairsSolutions() && solution != null) 
+			solution = getSolutionRepairer().repair(solution);
+	}
 
-   @Override
-   public <D extends IFitnessDimension<T>> IFitnessFunction<T> addConstraint(final D constraint) {
-      constraints.add(constraint);
-      return this;
-   }
+	@Override
+	public int[] evaluatesObjectives() {
+		int[] objectiveIndices = new int[constraints.size()];
+		for(int i = 0; i < constraints.size(); i++)
+			objectiveIndices[i] = i;
+		return objectiveIndices;
+	}
+	
+	@Override
+	public int evaluatesNrObjectives() {
+		return objectives.size();
+	}
+	
+	@Override
+	public int[] evaluatesConstraints() {
+		int[] constraintIndices = new int[constraints.size()];
+		for(int i = 0; i < constraints.size(); i++)
+			constraintIndices[i] = i;
+		return constraintIndices;
+	}
+	
+	@Override
+	public int evaluatesNrConstraints() {
+		return constraints.size();
+	}
+	
+	@Override	
+	public <D extends IFitnessDimension<T>> IFitnessFunction<T> addConstraint(D constraint) {
+		constraints.add(constraint);
+		return this;
+	}
+	
+	@Override
+	public <D extends IFitnessDimension<T>> IFitnessFunction<T> addObjective(D objective) {
+		objectives.add(objective);
+		return this;
+	}
+	
+	protected double getAggregateFitness(Solution solution) {
+		return MathUtil.getSum(solution.getObjectives(), solution.getConstraints());
+	}
 
-   @Override
-   public <D extends IFitnessDimension<T>> IFitnessFunction<T> addObjective(final D objective) {
-      objectives.add(objective);
-      return this;
-   }
+	@Override
+	public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeObjective(D objective) {
+		this.objectives.remove(objective);
+		return this;
+	}
+	
+	@Override
+	public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeObjective(String objectiveName) {
+		this.objectives.remove(getByName(objectiveName, objectives));
+		return this;
+	}
 
-   private double delegateEvaluation(final Solution solution) {
-      boolean failedConstraint = false;
+	@Override
+	public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeConstraint(D constraint) {
+		if(constraint == null)
+			return this;
+		this.constraints.remove(constraint.getName());
+		return this;
+	}
+	
+	@Override
+	public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeConstraint(String constraintName) {
+		this.constraints.remove(getByName(constraintName, constraints));
+		return this;
+	}
 
-      int i = 0;
-      for(final IFitnessDimension<T> dimension : constraints) {
-         if(!failedConstraint) {
-            final double constraintEvaluation = evaluate(dimension, solution);
-            solution.setConstraint(i++, constraintEvaluation);
-            failedConstraint = IFitnessDimension.CONSTRAINT_OK != constraintEvaluation;
-         } else {
-            solution.setConstraint(i++, IFitnessDimension.CONSTRAINT_VIOLATED);
-         }
-      }
+	@Override
+	public ISolutionRepairer<T> getSolutionRepairer() {
+		return repairer;
+	}
+	
+	@Override
+	public boolean repairsSolutions() {
+		return getSolutionRepairer() != null;
+	}
+	
+	@Override
+	public String getObjectiveName(int index) {
+		if(index < objectives.size())
+			return objectives.get(index).getName();
+		return null;
+	}
 
-      i = 0;
-      for(final IFitnessDimension<T> dimension : objectives) {
-         if(!failedConstraint) {
-            solution.setObjective(i++, evaluate(dimension, solution));
-         } else {
-            solution.setObjective(i++, IFitnessDimension.CONSTRAINT_VIOLATED);
-         }
-      }
-
-      return getAggregateFitness(solution);
-   }
-
-   @Override
-   public double doEvaluate(final Solution solution) {
-      if(clazz.isInstance(solution)) {
-         preprocessEvaluation(clazz.cast(solution));
-      }
-
-      final double result = delegateEvaluation(solution);
-
-      if(clazz.isInstance(solution)) {
-         postprocessEvaluation(clazz.cast(solution), result);
-      }
-
-      return result;
-   }
-
-   private double evaluate(final IFitnessDimension<T> dimension, final Solution solution) {
-      final Double evaluation = dimension.doEvaluate(solution);
-      if(dimension.isMaximumFunction()) {
-         return -evaluation;
-      }
-
-      return evaluation;
-   }
-
-   @Override
-   public double evaluate(final T solution) {
-      return delegateEvaluation(solution);
-   }
-
-   @Override
-   public int[] evaluatesConstraints() {
-      final int[] constraintIndices = new int[constraints.size()];
-      for(int i = 0; i < constraints.size(); i++) {
-         constraintIndices[i] = i;
-      }
-      return constraintIndices;
-   }
-
-   @Override
-   public int evaluatesNrConstraints() {
-      return constraints.size();
-   }
-
-   @Override
-   public int evaluatesNrObjectives() {
-      return objectives.size();
-   }
-
-   @Override
-   public int[] evaluatesObjectives() {
-      final int[] objectiveIndices = new int[constraints.size()];
-      for(int i = 0; i < constraints.size(); i++) {
-         objectiveIndices[i] = i;
-      }
-      return objectiveIndices;
-   }
-
-   protected double getAggregateFitness(final Solution solution) {
-      return MathUtil.getSum(solution.getObjectives(), solution.getConstraints());
-   }
-
-   protected IFitnessDimension<T> getByName(final String name, final Iterable<IFitnessDimension<T>> list) {
-      for(final IFitnessDimension<T> dimension : list) {
-         if(dimension.getName().equals(name)) {
-            return dimension;
-         }
-      }
-      return null;
-   }
-
-   @Override
-   public IFitnessDimension<T> getConstraint(final String name) {
-      return getByName(name, constraints);
-   }
-
-   @Override
-   public int getConstraintIndex(final String name) {
-      return getIndex(name, constraints);
-   }
-
-   @Override
-   public String getConstraintName(final int index) {
-      if(index < constraints.size()) {
-         return constraints.get(index).getName();
-      }
-      return null;
-   }
-
-   @Override
-   public List<String> getConstraintNames() {
-      return getNames(constraints);
-   }
-
-   @Override
-   public Collection<IFitnessDimension<T>> getConstraints() {
-      return constraints;
-   }
-
-   protected int getIndex(final String name, final Iterable<IFitnessDimension<T>> values) {
-      int index = 0;
-      for(final IFitnessDimension<T> dimension : values) {
-         if(dimension.getName().equals(name)) {
-            return index;
-         }
-         index++;
-      }
-      return -1;
-   }
-
-   private List<String> getNames(final Iterable<IFitnessDimension<T>> list) {
-      final List<String> names = new ArrayList<>();
-      for(final IFitnessDimension<?> element : list) {
-         names.add(element.getName());
-      }
-      return names;
-   }
-
-   @Override
-   public IFitnessDimension<T> getObjective(final String name) {
-      return getByName(name, objectives);
-   }
-
-   @Override
-   public int getObjectiveIndex(final String name) {
-      return getIndex(name, objectives);
-   }
-
-   @Override
-   public String getObjectiveName(final int index) {
-      if(index < objectives.size()) {
-         return objectives.get(index).getName();
-      }
-      return null;
-   }
-
-   @Override
-   public List<String> getObjectiveNames() {
-      return getNames(objectives);
-   }
-
-   @Override
-   public Collection<IFitnessDimension<T>> getObjectives() {
-      return objectives;
-   }
-
-   @Override
-   public ISolutionRepairer<T> getSolutionRepairer() {
-      return repairer;
-   }
-
-   protected void postprocessEvaluation(final T solution, final double result) {
-      solution.setAttribute(SearchSolution.ATTRIBUTE_AGGREGATED_FITNESS, result);
-   }
-
-   protected void preprocessEvaluation(T solution) {
-      if(repairsSolutions() && solution != null) {
-         solution = getSolutionRepairer().repair(solution);
-      }
-   }
-
-   @Override
-   public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeConstraint(final D constraint) {
-      if(constraint == null) {
-         return this;
-      }
-      this.constraints.remove(constraint.getName());
-      return this;
-   }
-
-   @Override
-   public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeConstraint(final String constraintName) {
-      this.constraints.remove(getByName(constraintName, constraints));
-      return this;
-   }
-
-   @Override
-   public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeObjective(final D objective) {
-      this.objectives.remove(objective);
-      return this;
-   }
-
-   @Override
-   public <D extends IFitnessDimension<T>> IFitnessFunction<T> removeObjective(final String objectiveName) {
-      this.objectives.remove(getByName(objectiveName, objectives));
-      return this;
-   }
-
-   @Override
-   public boolean repairsSolutions() {
-      return getSolutionRepairer() != null;
-   }
+	@Override
+	public String getConstraintName(int index) {
+		if(index < constraints.size())
+			return constraints.get(index).getName();
+		return null;
+	}
+	
+	private List<String> getNames(Iterable<IFitnessDimension<T>> list) {
+		List<String> names = new ArrayList<>();
+		for(IFitnessDimension<?> element : list)
+			names.add(element.getName());
+		return names;
+	}
+	
+	@Override
+	public List<String> getConstraintNames() {
+		return getNames(constraints);
+	}
+	
+	@Override
+	public List<String> getObjectiveNames() {
+		return getNames(objectives);
+	}
+	
+	@Override
+	public Collection<IFitnessDimension<T>> getConstraints() {
+		return constraints;
+	}
+	
+	@Override
+	public Collection<IFitnessDimension<T>> getObjectives() {
+		return objectives;
+	}
+	
+	protected IFitnessDimension<T> getByName(String name, Iterable<IFitnessDimension<T>> list) {
+		for(IFitnessDimension<T> dimension : list)
+			if(dimension.getName().equals(name))
+				return dimension;
+		return null;
+	}
+	
+	@Override
+	public IFitnessDimension<T> getObjective(String name) {
+		return getByName(name, objectives);
+	}
+	
+	@Override
+	public IFitnessDimension<T> getConstraint(String name) {
+		return getByName(name, constraints);
+	}
+	
+	protected int getIndex(String name, Iterable<IFitnessDimension<T>> values) {
+		int index = 0;
+		for(IFitnessDimension<T> dimension : values) {
+			if(dimension.getName().equals(name))
+				return index;
+			index++;
+		}
+		return -1;
+	}
+	
+	@Override
+	public int getConstraintIndex(String name) {
+		return getIndex(name, constraints);
+	}
+	
+	@Override
+	public int getObjectiveIndex(String name) {
+		return getIndex(name, objectives);
+	}
 }
