@@ -13,5 +13,5 @@
 package at.ac.tuwien.big.moea.util.random;
 
 public interface IRandomGenerator<T> {
-   T nextRandom();
+	public T nextRandom();
 }

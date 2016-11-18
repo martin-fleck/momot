@@ -14,4 +14,5 @@ package at.ac.tuwien.big.moea.search.algorithm.operator.mutation;
 
 import at.ac.tuwien.big.moea.search.algorithm.operator.IProbabilityVariation;
 
-public interface IMutationVariation extends IProbabilityVariation {}
+public interface IMutationVariation extends IProbabilityVariation {
+}

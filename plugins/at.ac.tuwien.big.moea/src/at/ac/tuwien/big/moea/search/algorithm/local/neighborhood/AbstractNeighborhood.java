@@ -12,37 +12,37 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.algorithm.local.neighborhood;
 
+import org.moeaframework.core.Solution;
+
 import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhood;
 import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhoodFunction;
 
-import org.moeaframework.core.Solution;
-
 public abstract class AbstractNeighborhood<S extends Solution> implements INeighborhood<S> {
 
-   protected S baseSolution;
-   protected int maxNeighbors = INeighborhoodFunction.UNLIMITED;
-
-   public AbstractNeighborhood(final S baseSolution) {
-      this.baseSolution = baseSolution;
-   }
-
-   public AbstractNeighborhood(final S baseSolution, final int maxNeighbors) {
-      this.baseSolution = baseSolution;
-      this.maxNeighbors = maxNeighbors;
-   }
-
-   public S getBaseSolution() {
-      return baseSolution;
-   }
-
-   @Override
-   public int getMaxNeighbors() {
-      return maxNeighbors;
-   }
-
-   public INeighborhood<S> setMaxNeighbors(final int maxNeighbors) {
-      this.maxNeighbors = maxNeighbors;
-      return this;
-   }
-
+	protected S baseSolution;
+	protected int maxNeighbors = INeighborhoodFunction.UNLIMITED;
+	
+	public AbstractNeighborhood(S baseSolution, int maxNeighbors) {
+		this.baseSolution = baseSolution;
+		this.maxNeighbors = maxNeighbors;
+	}
+	
+	public AbstractNeighborhood(S baseSolution) {
+		this.baseSolution = baseSolution;
+	}
+	
+	public S getBaseSolution() {
+		return baseSolution;
+	}
+	
+	@Override
+	public int getMaxNeighbors() {
+		return maxNeighbors;
+	}
+	
+	public INeighborhood<S> setMaxNeighbors(int maxNeighbors) {
+		this.maxNeighbors = maxNeighbors;
+		return this;
+	}
+	
 }

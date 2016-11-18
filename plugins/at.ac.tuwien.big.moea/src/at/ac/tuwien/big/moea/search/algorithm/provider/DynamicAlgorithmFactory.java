@@ -20,14 +20,14 @@ import org.moeaframework.core.spi.AlgorithmFactory;
 
 public class DynamicAlgorithmFactory extends AlgorithmFactory {
 
-   private final DynamicAlgorithmProvider dynamicProvider = new DynamicAlgorithmProvider();
-
-   @Override
-   public synchronized Algorithm getAlgorithm(final String name, final Properties properties, final Problem problem) {
-      final Algorithm algorithm = dynamicProvider.getAlgorithm(name, properties, problem);
-      if(algorithm != null) {
-         return algorithm;
-      }
-      return super.getAlgorithm(name, properties, problem);
-   }
+	private DynamicAlgorithmProvider dynamicProvider = new DynamicAlgorithmProvider();
+	
+	@Override
+	public synchronized Algorithm getAlgorithm(String name, 
+			Properties properties, Problem problem) {
+		Algorithm algorithm = dynamicProvider.getAlgorithm(name, properties, problem);
+		if (algorithm != null) 
+			return algorithm;
+		return super.getAlgorithm(name, properties, problem);
+	}
 }

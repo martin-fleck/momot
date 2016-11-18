@@ -1,0 +1,130 @@
+Solving [4, 3, 0] (mean: 2.3333333333333335, stddev: 1.699673171197595):
+---------------------
+Solve  [4, 3, 0] with 100 solutions per population for 1000 evaluations.
+Execute 20 runs per executor.
+---------------------
+Transformation
+---------------------
+Population of 100 with length 3 created in: 0:00:00.951
+Population of 100 with length 3 created in: 0:00:00.395
+Population of 100 with length 3 created in: 0:00:00.396
+Population of 100 with length 3 created in: 0:00:00.395
+Population of 100 with length 3 created in: 0:00:00.329
+Population of 100 with length 3 created in: 0:00:00.355
+Population of 100 with length 3 created in: 0:00:00.329
+Population of 100 with length 3 created in: 0:00:00.244
+Population of 100 with length 3 created in: 0:00:00.379
+Population of 100 with length 3 created in: 0:00:00.379
+Population of 100 with length 3 created in: 0:00:00.379
+Population of 100 with length 3 created in: 0:00:00.323
+Population of 100 with length 3 created in: 0:00:00.372
+Population of 100 with length 3 created in: 0:00:00.380
+Population of 100 with length 3 created in: 0:00:00.375
+Population of 100 with length 3 created in: 0:00:00.383
+Population of 100 with length 3 created in: 0:00:00.328
+Population of 100 with length 3 created in: 0:00:00.376
+Population of 100 with length 3 created in: 0:00:00.376
+Population of 100 with length 3 created in: 0:00:00.329
+[12:00:28.077] Total runtime for 20 seeds: 0:00:57.688 (57688527761).
+[12:00:28.077] Average runtime per seed 0:00:02.884 (2884426388).
+---------------------
+Native
+---------------------
+Population of 100 with length 3 created in: 0:00:00.005
+Population of 100 with length 3 created in: 0:00:00.001
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+Population of 100 with length 3 created in: 0:00:00.000
+[12:00:30.030] Total runtime for 20 seeds: 0:00:01.937 (1937370108).
+[12:00:30.030] Average runtime per seed 0:00:00.096 (96868505).
+-----------------------------
+---------------------
+Transformation
+---------------------
+Population with 2 solution(s):
+
+------------------
+Solution 1/2
+------------------
+Number of variables: 3
+  Variable[0]: Match for rule 'shiftLeft':
+- parameter 'fromId' => 'Stack_1'
+- parameter 'toId' => 'Stack_3'
+- parameter 'amount' => 2
+
+Number of attributes: 4
+  rank: 0
+  AggregatedFitness: 1.4714045207910318
+  MatchExecutionResults: [true, true, true]
+  crowdingDistance: Infinity
+Number of objectives: 2
+  SolutionLength: 1.0
+  Standard Deviation: 0.4714045207910317
+Number of constraints: 0
+------------
+Stack_1: 2
+Stack_2: 3
+Stack_3: 2
+
+------------------
+Solution 2/2
+------------------
+Number of variables: 3
+Number of attributes: 4
+  rank: 0
+  AggregatedFitness: 1.699673171197595
+  MatchExecutionResults: [true, true, true]
+  crowdingDistance: Infinity
+Number of objectives: 2
+  SolutionLength: 0.0
+  Standard Deviation: 1.699673171197595
+Number of constraints: 0
+------------
+Stack_1: 4
+Stack_2: 3
+Stack_3: 0
+
+
+---------------------
+Native
+---------------------
+Solution 1 of 2:
+variable[0]: shiftLeft:  = 0
+variable[1]: shiftLeft:  = 0
+variable[2]: shiftRight:  = 0
+--
+constraint[0]: 0.0
+--
+objective[0]: 0.0
+objective[1]: 1.699673171197595
+---
+[4, 3, 0]
+
+Solution 2 of 2:
+variable[0]: shiftLeft: 10 = 2
+variable[1]: shiftLeft:  = 0
+variable[2]: shiftLeft:  = 0
+--
+constraint[0]: 0.0
+--
+objective[0]: 1.0
+objective[1]: 0.4714045207910317
+---
+[2, 3, 2]
+
+-----------------------------

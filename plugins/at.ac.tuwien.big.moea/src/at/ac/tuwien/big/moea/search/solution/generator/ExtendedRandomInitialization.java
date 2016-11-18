@@ -16,15 +16,15 @@ import org.moeaframework.core.Problem;
 import org.moeaframework.core.operator.RandomInitialization;
 
 public class ExtendedRandomInitialization extends RandomInitialization {
-
-   private final int populationSize;
-
-   public ExtendedRandomInitialization(final Problem problem, final int populationSize) {
-      super(problem, populationSize);
-      this.populationSize = populationSize;
-   }
-
-   public int getPopulationSize() {
-      return populationSize;
-   }
+	
+	private int populationSize;
+	
+	public ExtendedRandomInitialization(Problem problem, int populationSize) {
+		super(problem, populationSize);
+		this.populationSize = populationSize;
+	}
+	
+	public int getPopulationSize() {
+		return populationSize;
+	}
 }

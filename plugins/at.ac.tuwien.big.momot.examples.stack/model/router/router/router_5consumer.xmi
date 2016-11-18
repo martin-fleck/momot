@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<router:Container
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:router="http://router/1.0"
+    xsi:schemaLocation="http://router/1.0 router.ecore">
+  <agents xsi:type="router:Consumer"
+      name="p1"
+      speed="2"/>
+  <agents xsi:type="router:Consumer"
+      name="p2"
+      speed="2"/>
+  <agents xsi:type="router:Consumer"
+      name="p3"
+      speed="2"/>      
+  <agents xsi:type="router:Consumer"
+      name="p4"
+      speed="2"/>      
+  <agents xsi:type="router:Consumer"
+      name="p5"
+      speed="2"/>     
+  <!-- 
+  <devices xsi:type="router:Computer"
+      name="p1"/>
+  <devices xsi:type="router:Computer"
+      name="p2"/>
+  <devices xsi:type="router:Computer"
+      name="p3"/>
+  <devices xsi:type="router:Computer"
+      name="p4"/>
+  <devices xsi:type="router:Computer"
+      name="p5"/>
+   -->      
+</router:Container>

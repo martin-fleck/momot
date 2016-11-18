@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metasearch" nsURI="http://www.example.org/metasearch" nsPrefix="metasearch">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+    <details key="ecore.xml.type" value="http://www.eclipse.org/emf/2003/XMLType"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneticAlgorithm" abstract="true" eSuperTypes="#//Algorithm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutateDelete" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutateModifyRule" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutateReplaceRule" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalSearchAlgorithm" abstract="true"
+      eSuperTypes="#//Algorithm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighborhood" lowerBound="1"
+        eType="#//Neighborhood"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HillClimbing" eSuperTypes="#//TabuSupportingLocalSearch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="neighborsize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nextImprovement" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxNoImprovement" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NSGAII" eSuperTypes="#//GeneticAlgorithm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NSGAIII" eSuperTypes="#//GeneticAlgorithm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimulatedAnnealing" eSuperTypes="#//TabuSupportingLocalSearch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTemp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempIncrease" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="restartNoCurrentImp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="restartNoBestImp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemeticAlgorithm" eSuperTypes="#//Algorithm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="localsearchapplication"
+        eType="#//LocalSearchApplication" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="globalSearch" lowerBound="1"
+        eType="#//GeneticAlgorithm"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalSearchApplication">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tournamentSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="localsearchalgorithm" lowerBound="1"
+        eType="#//LocalSearchAlgorithm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastSolution" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startAtEvalPerc" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedGenerator" lowerBound="1"
+        eType="#//FitnessComparatorGenerator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedAlgorithm" lowerBound="1"
+        eType="#//Algorithm"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithm" upperBound="-1"
+        eType="#//Algorithm" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighborhood" upperBound="-1"
+        eType="#//Neighborhood" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="solutioninitializer" upperBound="-1"
+        eType="#//SolutionInitializer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Algorithm" abstract="true">
+    <eOperations name="createRegisteredAlgorithm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nrEvaluations" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FitnessComparatorGenerator" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comparatorContainer" upperBound="-1"
+        eType="#//Container" containment="true">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DecreasingMaximumComparatorGenerator"
+      eSuperTypes="#//FitnessComparatorGenerator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RandomWeightGenerator" eSuperTypes="#//FitnessComparatorGenerator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TabuSupportingLocalSearch" abstract="true"
+      eSuperTypes="#//LocalSearchAlgorithm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tabuSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Neighborhood" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangingNeighborhood" eSuperTypes="#//Neighborhood">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deleteProbability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="atEndProbability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifyRuleProbability"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IteratingAlgorithm" eSuperTypes="#//Algorithm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="solutioninitializer" lowerBound="1"
+        eType="#//SolutionInitializer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithm" lowerBound="1"
+        eType="#//LocalSearchAlgorithm"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fitnesscomparatorgenerator"
+        eType="#//FitnessComparatorGenerator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tournamentSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tournamentRemain" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionInitializer" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RandomSolutionInitializer" eSuperTypes="#//SolutionInitializer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DiscardingSolutionInitializer" eSuperTypes="#//SolutionInitializer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solutionConsiderSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solutionUseSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solutionsPerQueue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numQueues" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numInitSolutions" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+</ecore:EPackage>

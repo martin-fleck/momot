@@ -15,8 +15,8 @@ package at.ac.tuwien.big.moea.search.algorithm.local;
 import org.moeaframework.core.Solution;
 
 public interface INeighborhood<S extends Solution> extends Iterable<S> {
-   int UNLIMITED = INeighborhoodFunction.UNLIMITED;
-
-   int getMaxNeighbors();
-   // INeighborhood<S> setMaxNeighbors(int maxNeighbors);
+	public static final int UNLIMITED = INeighborhoodFunction.UNLIMITED;
+	
+	int getMaxNeighbors();
+//	INeighborhood<S> setMaxNeighbors(int maxNeighbors);
 }

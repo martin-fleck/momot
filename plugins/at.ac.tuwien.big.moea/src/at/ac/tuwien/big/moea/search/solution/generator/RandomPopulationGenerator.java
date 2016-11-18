@@ -12,44 +12,43 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.solution.generator;
 
-import at.ac.tuwien.big.moea.search.solution.generator.solution.IRandomSolutionGenerator;
-
 import org.moeaframework.core.Solution;
 
+import at.ac.tuwien.big.moea.search.solution.generator.solution.IRandomSolutionGenerator;
+
 public class RandomPopulationGenerator<S extends Solution> implements IPopulationGenerator<S> {
+	
+	private IRandomSolutionGenerator<S> solutionGenerator;
+	private int populationSize;
 
-   private final IRandomSolutionGenerator<S> solutionGenerator;
-   private int populationSize;
+	public RandomPopulationGenerator(int populationSize, IRandomSolutionGenerator<S> solutionGenerator) {
+		this.populationSize = populationSize;
+		this.solutionGenerator = solutionGenerator;
+	}
+	
+	@Override
+	public IPopulationGenerator<S> setPopulationSize(int populationSize) {
+		this.populationSize = populationSize;
+		return this;
+	}
+	
+	@Override
+	public int getPopulationSize() {
+		return populationSize;
+	}
 
-   public RandomPopulationGenerator(final int populationSize, final IRandomSolutionGenerator<S> solutionGenerator) {
-      this.populationSize = populationSize;
-      this.solutionGenerator = solutionGenerator;
-   }
+	public IRandomSolutionGenerator<S> getSolutionGenerator() {
+		return solutionGenerator;
+	}
+	
+	@Override
+	public S[] initialize() {
+		@SuppressWarnings("unchecked")
+		S[] population = (S[]) new Solution[getPopulationSize()];
 
-   @Override
-   public int getPopulationSize() {
-      return populationSize;
-   }
+		for (int i = 0; i < getPopulationSize(); i++)
+			population[i] = solutionGenerator.createRandomSolution();
 
-   public IRandomSolutionGenerator<S> getSolutionGenerator() {
-      return solutionGenerator;
-   }
-
-   @Override
-   public S[] initialize() {
-      @SuppressWarnings("unchecked")
-      final S[] population = (S[]) new Solution[getPopulationSize()];
-
-      for(int i = 0; i < getPopulationSize(); i++) {
-         population[i] = solutionGenerator.createRandomSolution();
-      }
-
-      return population;
-   }
-
-   @Override
-   public IPopulationGenerator<S> setPopulationSize(final int populationSize) {
-      this.populationSize = populationSize;
-      return this;
-   }
+		return population;
+	}
 }

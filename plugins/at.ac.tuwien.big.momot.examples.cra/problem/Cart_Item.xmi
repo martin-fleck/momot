@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ASCII"?>
+<architecture:ClassModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:architecture="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0"
+    xsi:schemaLocation="http://momot.big.tuwien.ac.at/examples/icmt/architecture/1.0 ../metamodel/architecture.ecore">
+  <features
+      xsi:type="architecture:Method"
+      name="addItem"
+      dataDependency="//@features.5 //@features.6"/>
+  <features
+      xsi:type="architecture:Method"
+      name="cartTotal"
+      dataDependency="//@features.5"
+      functionalDependency="//@features.4"/>
+  <features
+      xsi:type="architecture:Method"
+      name="checkOut"
+      dataDependency="//@features.5"
+      functionalDependency="//@features.1"/>
+  <features
+      xsi:type="architecture:Method"
+      name="print"
+      dataDependency="//@features.6 //@features.7 //@features.8"/>
+  <features
+      xsi:type="architecture:Method"
+      name="itemTotal"
+      dataDependency="//@features.7 //@features.8"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="items"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="name"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="price"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="qty"/>
+  <features
+      xsi:type="architecture:Attribute"
+      name="asd"/>
+</architecture:ClassModel>

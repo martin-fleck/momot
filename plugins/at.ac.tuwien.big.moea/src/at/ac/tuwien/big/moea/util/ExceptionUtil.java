@@ -7,17 +7,13 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.util;
 
-public final class ExceptionUtil {
+public class ExceptionUtil {
 
-   public static <T> T throwUncheckedException(final Throwable e) {
-      if(e instanceof RuntimeException) {
-         throw(RuntimeException) e;
-      }
-      if(e instanceof Error) {
-         throw(Error) e;
-      }
-      throw new RuntimeException(e);
-   }
-
-   private ExceptionUtil() {}
+	public static <T> T throwUncheckedException(Throwable e) {
+		if (e instanceof RuntimeException)
+			throw (RuntimeException) e;
+		if (e instanceof Error)
+			throw (Error) e;
+		throw new RuntimeException(e);
+	}
 }

@@ -12,18 +12,16 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.algorithm.local;
 
+import java.util.Collection;
+
 import org.moeaframework.core.Solution;
 
 public interface INeighborhoodFunction<S extends Solution> {
-   int UNLIMITED = Integer.MAX_VALUE;
-
-   INeighborhood<S> createEmptyNeighborhood();
-
-   INeighborhood<S> generateNeighbors(S solution);
-
-   INeighborhood<S> generateNeighbors(S solution, int maxNeighbors);
-
-   int getMaxNeighbors();
-
-   INeighborhoodFunction<S> setMaxNeighbors(int maxNeighbors);
+	public static final int UNLIMITED = Integer.MAX_VALUE;
+	
+	int getMaxNeighbors();
+	INeighborhoodFunction<S> setMaxNeighbors(int maxNeighbors);
+	INeighborhood<S> generateNeighbors(S solution, Collection<Integer> forbiddenIndices);
+	INeighborhood<S> generateNeighbors(S solution, int maxNeighbors, Collection<Integer> forbiddenIndices);
+	INeighborhood<S> createEmptyNeighborhood();
 }

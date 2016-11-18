@@ -12,32 +12,27 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.search.fitness.dimension;
 
-import at.ac.tuwien.big.moea.search.fitness.IFitnessEvaluation;
-
 import org.moeaframework.core.Solution;
 
+import at.ac.tuwien.big.moea.search.fitness.IFitnessEvaluation;
+
 public interface IFitnessDimension<T extends Solution> extends IFitnessEvaluation<T> {
-   enum FunctionType {
-      Minimum, Maximum
-   }
-
-   double CONSTRAINT_VIOLATED = WORST_FITNESS;
-
-   double CONSTRAINT_OK = 0;
-
-   FunctionType getFunctionType();
-
-   String getName();
-
-   double getWeight();
-
-   boolean isMaximumFunction();
-
-   boolean isMinimumFunction();
-
-   void setFunctionType(FunctionType functionType);
-
-   void setName(String name);
-
-   IFitnessDimension<T> setWeight(double weight);
+	static final double CONSTRAINT_VIOLATED = WORST_FITNESS;
+	static final double CONSTRAINT_OK = 0;
+	
+	public enum FunctionType {
+		Minimum,
+		Maximum
+	}
+	
+	String getName();
+	void setName(String name);
+	
+	FunctionType getFunctionType();
+	void setFunctionType(FunctionType functionType);
+	boolean isMaximumFunction();
+	boolean isMinimumFunction();
+	
+	IFitnessDimension<T> setWeight(double weight);
+	double getWeight();
 }

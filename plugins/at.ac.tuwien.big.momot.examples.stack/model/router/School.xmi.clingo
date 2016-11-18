@@ -1,0 +1,611 @@
+weekday(monday).
+weekday(tuesday).
+weekday(wednesday).
+weekday(thursday).
+weekday(friday).
+weekday(saturday).
+m1_Person(O) :- current_m1_Person(O), preserve(O).
+preserve(O) :- m1_Person(O), current_m1_Person(O).
+create(O) :- m1_Person(O), not current_m1_Person(O).
+delete(O) :- not m1_Person(O), current_m1_Person(O).
+0 {attr_Person_name(S,T): string(T)} 1 :- m1_Person(S).
+string(T) :- attr_Person_name(_,T).
+m1_Person(S) :- attr_Person_name(S,_).
+1 {preserve_attr_Person_name(S,T); delete_attr_Person_name(S,T) } 1 :- current_attr_Person_name(S,T).
+create_attr_Person_name(S,T) :- not current_attr_Person_name(S,T), attr_Person_name(S,T).
+delete_attr_Person_name(S,T) :- current_attr_Person_name(S,T), not attr_Person_name(S,T).
+:~ delete_attr_Person_name(S,T). [1,delete_attr_Person_name(S,T)]
+:~ create_attr_Person_name(S,T). [1,create_attr_Person_name(S,T)]
+attr_Person_name(S,T) :- current_attr_Person_name(S,T), preserve_attr_Person_name(S,T).
+attr_Person_name(S,T) :- create_attr_Person_name(S,T).
+0 {attr_Person_email(S,T): string(T)} 1 :- m1_Person(S).
+string(T) :- attr_Person_email(_,T).
+m1_Person(S) :- attr_Person_email(S,_).
+1 {preserve_attr_Person_email(S,T); delete_attr_Person_email(S,T) } 1 :- current_attr_Person_email(S,T).
+create_attr_Person_email(S,T) :- not current_attr_Person_email(S,T), attr_Person_email(S,T).
+delete_attr_Person_email(S,T) :- current_attr_Person_email(S,T), not attr_Person_email(S,T).
+:~ delete_attr_Person_email(S,T). [1,delete_attr_Person_email(S,T)]
+:~ create_attr_Person_email(S,T). [1,create_attr_Person_email(S,T)]
+attr_Person_email(S,T) :- current_attr_Person_email(S,T), preserve_attr_Person_email(S,T).
+attr_Person_email(S,T) :- create_attr_Person_email(S,T).
+current_m1_Person(O) :- current_m1_Teacher(O).
+m1_Person(O) :- m1_Teacher(O).
+m1_Teacher(O) :- current_m1_Teacher(O), preserve(O).
+preserve(O) :- m1_Teacher(O), current_m1_Teacher(O).
+create(O) :- m1_Teacher(O), not current_m1_Teacher(O).
+delete(O) :- not m1_Teacher(O), current_m1_Teacher(O).
+0 {assoc_Teacher_subject(S,T): m1_Subject(T)} :- m1_Teacher(S).
+m1_Subject(T) :- assoc_Teacher_subject(_,T).
+m1_Teacher(S) :- assoc_Teacher_subject(S,_).
+1 {preserve_assoc_Teacher_subject(S,T); delete_assoc_Teacher_subject(S,T) } 1 :- current_assoc_Teacher_subject(S,T).
+create_assoc_Teacher_subject(S,T) :- not current_assoc_Teacher_subject(S,T), assoc_Teacher_subject(S,T).
+delete_assoc_Teacher_subject(S,T) :- current_assoc_Teacher_subject(S,T), not assoc_Teacher_subject(S,T).
+:~ delete_assoc_Teacher_subject(S,T). [1,delete_assoc_Teacher_subject(S,T)]
+:~ create_assoc_Teacher_subject(S,T). [1,create_assoc_Teacher_subject(S,T)]
+assoc_Teacher_subject(S,T) :- current_assoc_Teacher_subject(S,T), preserve_assoc_Teacher_subject(S,T).
+assoc_Teacher_subject(S,T) :- create_assoc_Teacher_subject(S,T).
+0 {assoc_Teacher_supply(S,T): m1_Teacher(T)} :- m1_Teacher(S).
+m1_Teacher(T) :- assoc_Teacher_supply(_,T).
+m1_Teacher(S) :- assoc_Teacher_supply(S,_).
+1 {preserve_assoc_Teacher_supply(S,T); delete_assoc_Teacher_supply(S,T) } 1 :- current_assoc_Teacher_supply(S,T).
+create_assoc_Teacher_supply(S,T) :- not current_assoc_Teacher_supply(S,T), assoc_Teacher_supply(S,T).
+delete_assoc_Teacher_supply(S,T) :- current_assoc_Teacher_supply(S,T), not assoc_Teacher_supply(S,T).
+:~ delete_assoc_Teacher_supply(S,T). [1,delete_assoc_Teacher_supply(S,T)]
+:~ create_assoc_Teacher_supply(S,T). [1,create_assoc_Teacher_supply(S,T)]
+assoc_Teacher_supply(S,T) :- current_assoc_Teacher_supply(S,T), preserve_assoc_Teacher_supply(S,T).
+assoc_Teacher_supply(S,T) :- create_assoc_Teacher_supply(S,T).
+0 {assoc_Teacher_teaches(S,T): m1_Course(T)} :- m1_Teacher(S).
+m1_Course(T) :- assoc_Teacher_teaches(_,T).
+m1_Teacher(S) :- assoc_Teacher_teaches(S,_).
+assoc_Teacher_teaches(S,T) :- assoc_Course_teacher(T,S).
+create_assoc_Teacher_teaches(S,T) :- create_assoc_Course_teacher(T,S).
+delete_assoc_Teacher_teaches(S,T) :- delete_assoc_Course_teacher(T,S).
+1 {preserve_assoc_Teacher_teaches(S,T); delete_assoc_Teacher_teaches(S,T) } 1 :- current_assoc_Teacher_teaches(S,T).
+create_assoc_Teacher_teaches(S,T) :- not current_assoc_Teacher_teaches(S,T), assoc_Teacher_teaches(S,T).
+delete_assoc_Teacher_teaches(S,T) :- current_assoc_Teacher_teaches(S,T), not assoc_Teacher_teaches(S,T).
+:~ delete_assoc_Teacher_teaches(S,T). [1,delete_assoc_Teacher_teaches(S,T)]
+:~ create_assoc_Teacher_teaches(S,T). [1,create_assoc_Teacher_teaches(S,T)]
+assoc_Teacher_teaches(S,T) :- current_assoc_Teacher_teaches(S,T), preserve_assoc_Teacher_teaches(S,T).
+assoc_Teacher_teaches(S,T) :- create_assoc_Teacher_teaches(S,T).
+current_m1_Person(O) :- current_m1_Student2(O).
+m1_Person(O) :- m1_Student2(O).
+m1_Student2(O) :- current_m1_Student2(O), preserve(O).
+preserve(O) :- m1_Student2(O), current_m1_Student2(O).
+create(O) :- m1_Student2(O), not current_m1_Student2(O).
+delete(O) :- not m1_Student2(O), current_m1_Student2(O).
+0 {assoc_Student2_studies(S,T): m1_Study(T)} :- m1_Student2(S).
+m1_Study(T) :- assoc_Student2_studies(_,T).
+m1_Student2(S) :- assoc_Student2_studies(S,_).
+1 {preserve_assoc_Student2_studies(S,T); delete_assoc_Student2_studies(S,T) } 1 :- current_assoc_Student2_studies(S,T).
+create_assoc_Student2_studies(S,T) :- not current_assoc_Student2_studies(S,T), assoc_Student2_studies(S,T).
+delete_assoc_Student2_studies(S,T) :- current_assoc_Student2_studies(S,T), not assoc_Student2_studies(S,T).
+:~ delete_assoc_Student2_studies(S,T). [1,delete_assoc_Student2_studies(S,T)]
+:~ create_assoc_Student2_studies(S,T). [1,create_assoc_Student2_studies(S,T)]
+assoc_Student2_studies(S,T) :- current_assoc_Student2_studies(S,T), preserve_assoc_Student2_studies(S,T).
+assoc_Student2_studies(S,T) :- create_assoc_Student2_studies(S,T).
+0 {attr_Student2_matrnr(S,T): integer(T)} 1 :- m1_Student2(S).
+integer(T) :- attr_Student2_matrnr(_,T).
+m1_Student2(S) :- attr_Student2_matrnr(S,_).
+1 {preserve_attr_Student2_matrnr(S,T); delete_attr_Student2_matrnr(S,T) } 1 :- current_attr_Student2_matrnr(S,T).
+create_attr_Student2_matrnr(S,T) :- not current_attr_Student2_matrnr(S,T), attr_Student2_matrnr(S,T).
+delete_attr_Student2_matrnr(S,T) :- current_attr_Student2_matrnr(S,T), not attr_Student2_matrnr(S,T).
+:~ delete_attr_Student2_matrnr(S,T). [1,delete_attr_Student2_matrnr(S,T)]
+:~ create_attr_Student2_matrnr(S,T). [1,create_attr_Student2_matrnr(S,T)]
+attr_Student2_matrnr(S,T) :- current_attr_Student2_matrnr(S,T), preserve_attr_Student2_matrnr(S,T).
+attr_Student2_matrnr(S,T) :- create_attr_Student2_matrnr(S,T).
+1 {assoc_Student2_attends(S,T): m1_Course(T)} :- m1_Student2(S).
+m1_Course(T) :- assoc_Student2_attends(_,T).
+m1_Student2(S) :- assoc_Student2_attends(S,_).
+assoc_Student2_attends(S,T) :- assoc_Course_attending(T,S).
+create_assoc_Student2_attends(S,T) :- create_assoc_Course_attending(T,S).
+delete_assoc_Student2_attends(S,T) :- delete_assoc_Course_attending(T,S).
+1 {preserve_assoc_Student2_attends(S,T); delete_assoc_Student2_attends(S,T) } 1 :- current_assoc_Student2_attends(S,T).
+create_assoc_Student2_attends(S,T) :- not current_assoc_Student2_attends(S,T), assoc_Student2_attends(S,T).
+delete_assoc_Student2_attends(S,T) :- current_assoc_Student2_attends(S,T), not assoc_Student2_attends(S,T).
+:~ delete_assoc_Student2_attends(S,T). [1,delete_assoc_Student2_attends(S,T)]
+:~ create_assoc_Student2_attends(S,T). [1,create_assoc_Student2_attends(S,T)]
+assoc_Student2_attends(S,T) :- current_assoc_Student2_attends(S,T), preserve_assoc_Student2_attends(S,T).
+assoc_Student2_attends(S,T) :- create_assoc_Student2_attends(S,T).
+m1_Subject(O) :- current_m1_Subject(O), preserve(O).
+preserve(O) :- m1_Subject(O), current_m1_Subject(O).
+create(O) :- m1_Subject(O), not current_m1_Subject(O).
+delete(O) :- not m1_Subject(O), current_m1_Subject(O).
+0 {attr_Subject_name(S,T): string(T)} 1 :- m1_Subject(S).
+string(T) :- attr_Subject_name(_,T).
+m1_Subject(S) :- attr_Subject_name(S,_).
+1 {preserve_attr_Subject_name(S,T); delete_attr_Subject_name(S,T) } 1 :- current_attr_Subject_name(S,T).
+create_attr_Subject_name(S,T) :- not current_attr_Subject_name(S,T), attr_Subject_name(S,T).
+delete_attr_Subject_name(S,T) :- current_attr_Subject_name(S,T), not attr_Subject_name(S,T).
+:~ delete_attr_Subject_name(S,T). [1,delete_attr_Subject_name(S,T)]
+:~ create_attr_Subject_name(S,T). [1,create_attr_Subject_name(S,T)]
+attr_Subject_name(S,T) :- current_attr_Subject_name(S,T), preserve_attr_Subject_name(S,T).
+attr_Subject_name(S,T) :- create_attr_Subject_name(S,T).
+0 {attr_Subject_weekhours(S,T): integer(T)} 1 :- m1_Subject(S).
+integer(T) :- attr_Subject_weekhours(_,T).
+m1_Subject(S) :- attr_Subject_weekhours(S,_).
+1 {preserve_attr_Subject_weekhours(S,T); delete_attr_Subject_weekhours(S,T) } 1 :- current_attr_Subject_weekhours(S,T).
+create_attr_Subject_weekhours(S,T) :- not current_attr_Subject_weekhours(S,T), attr_Subject_weekhours(S,T).
+delete_attr_Subject_weekhours(S,T) :- current_attr_Subject_weekhours(S,T), not attr_Subject_weekhours(S,T).
+:~ delete_attr_Subject_weekhours(S,T). [1,delete_attr_Subject_weekhours(S,T)]
+:~ create_attr_Subject_weekhours(S,T). [1,create_attr_Subject_weekhours(S,T)]
+attr_Subject_weekhours(S,T) :- current_attr_Subject_weekhours(S,T), preserve_attr_Subject_weekhours(S,T).
+attr_Subject_weekhours(S,T) :- create_attr_Subject_weekhours(S,T).
+0 {attr_Subject_required(S,T): boolean(T)} 1 :- m1_Subject(S).
+boolean(T) :- attr_Subject_required(_,T).
+m1_Subject(S) :- attr_Subject_required(S,_).
+1 {preserve_attr_Subject_required(S,T); delete_attr_Subject_required(S,T) } 1 :- current_attr_Subject_required(S,T).
+create_attr_Subject_required(S,T) :- not current_attr_Subject_required(S,T), attr_Subject_required(S,T).
+delete_attr_Subject_required(S,T) :- current_attr_Subject_required(S,T), not attr_Subject_required(S,T).
+:~ delete_attr_Subject_required(S,T). [1,delete_attr_Subject_required(S,T)]
+:~ create_attr_Subject_required(S,T). [1,create_attr_Subject_required(S,T)]
+attr_Subject_required(S,T) :- current_attr_Subject_required(S,T), preserve_attr_Subject_required(S,T).
+attr_Subject_required(S,T) :- create_attr_Subject_required(S,T).
+m1_Classroom(O) :- current_m1_Classroom(O), preserve(O).
+preserve(O) :- m1_Classroom(O), current_m1_Classroom(O).
+create(O) :- m1_Classroom(O), not current_m1_Classroom(O).
+delete(O) :- not m1_Classroom(O), current_m1_Classroom(O).
+0 {attr_Classroom_name(S,T): string(T)} 1 :- m1_Classroom(S).
+string(T) :- attr_Classroom_name(_,T).
+m1_Classroom(S) :- attr_Classroom_name(S,_).
+1 {preserve_attr_Classroom_name(S,T); delete_attr_Classroom_name(S,T) } 1 :- current_attr_Classroom_name(S,T).
+create_attr_Classroom_name(S,T) :- not current_attr_Classroom_name(S,T), attr_Classroom_name(S,T).
+delete_attr_Classroom_name(S,T) :- current_attr_Classroom_name(S,T), not attr_Classroom_name(S,T).
+:~ delete_attr_Classroom_name(S,T). [1,delete_attr_Classroom_name(S,T)]
+:~ create_attr_Classroom_name(S,T). [1,create_attr_Classroom_name(S,T)]
+attr_Classroom_name(S,T) :- current_attr_Classroom_name(S,T), preserve_attr_Classroom_name(S,T).
+attr_Classroom_name(S,T) :- create_attr_Classroom_name(S,T).
+m1_Course(O) :- current_m1_Course(O), preserve(O).
+preserve(O) :- m1_Course(O), current_m1_Course(O).
+create(O) :- m1_Course(O), not current_m1_Course(O).
+delete(O) :- not m1_Course(O), current_m1_Course(O).
+0 {assoc_Course_lectures(S,T): m1_Lecture(T)} :- m1_Course(S).
+m1_Lecture(T) :- assoc_Course_lectures(_,T).
+m1_Course(S) :- assoc_Course_lectures(S,_).
+1 {preserve_assoc_Course_lectures(S,T); delete_assoc_Course_lectures(S,T) } 1 :- current_assoc_Course_lectures(S,T).
+create_assoc_Course_lectures(S,T) :- not current_assoc_Course_lectures(S,T), assoc_Course_lectures(S,T).
+delete_assoc_Course_lectures(S,T) :- current_assoc_Course_lectures(S,T), not assoc_Course_lectures(S,T).
+:~ delete_assoc_Course_lectures(S,T). [1,delete_assoc_Course_lectures(S,T)]
+:~ create_assoc_Course_lectures(S,T). [1,create_assoc_Course_lectures(S,T)]
+assoc_Course_lectures(S,T) :- current_assoc_Course_lectures(S,T), preserve_assoc_Course_lectures(S,T).
+assoc_Course_lectures(S,T) :- create_assoc_Course_lectures(S,T).
+0 {assoc_Course_attending(S,T): m1_Student2(T)} :- m1_Course(S).
+m1_Student2(T) :- assoc_Course_attending(_,T).
+m1_Course(S) :- assoc_Course_attending(S,_).
+assoc_Course_attending(S,T) :- assoc_Student2_attends(T,S).
+create_assoc_Course_attending(S,T) :- create_assoc_Student2_attends(T,S).
+delete_assoc_Course_attending(S,T) :- delete_assoc_Student2_attends(T,S).
+1 {preserve_assoc_Course_attending(S,T); delete_assoc_Course_attending(S,T) } 1 :- current_assoc_Course_attending(S,T).
+create_assoc_Course_attending(S,T) :- not current_assoc_Course_attending(S,T), assoc_Course_attending(S,T).
+delete_assoc_Course_attending(S,T) :- current_assoc_Course_attending(S,T), not assoc_Course_attending(S,T).
+:~ delete_assoc_Course_attending(S,T). [1,delete_assoc_Course_attending(S,T)]
+:~ create_assoc_Course_attending(S,T). [1,create_assoc_Course_attending(S,T)]
+assoc_Course_attending(S,T) :- current_assoc_Course_attending(S,T), preserve_assoc_Course_attending(S,T).
+assoc_Course_attending(S,T) :- create_assoc_Course_attending(S,T).
+0 {assoc_Course_subject(S,T): m1_Subject(T)} 1 :- m1_Course(S).
+m1_Subject(T) :- assoc_Course_subject(_,T).
+m1_Course(S) :- assoc_Course_subject(S,_).
+1 {preserve_assoc_Course_subject(S,T); delete_assoc_Course_subject(S,T) } 1 :- current_assoc_Course_subject(S,T).
+create_assoc_Course_subject(S,T) :- not current_assoc_Course_subject(S,T), assoc_Course_subject(S,T).
+delete_assoc_Course_subject(S,T) :- current_assoc_Course_subject(S,T), not assoc_Course_subject(S,T).
+:~ delete_assoc_Course_subject(S,T). [1,delete_assoc_Course_subject(S,T)]
+:~ create_assoc_Course_subject(S,T). [1,create_assoc_Course_subject(S,T)]
+assoc_Course_subject(S,T) :- current_assoc_Course_subject(S,T), preserve_assoc_Course_subject(S,T).
+assoc_Course_subject(S,T) :- create_assoc_Course_subject(S,T).
+0 {assoc_Course_teacher(S,T): m1_Teacher(T)} 1 :- m1_Course(S).
+m1_Teacher(T) :- assoc_Course_teacher(_,T).
+m1_Course(S) :- assoc_Course_teacher(S,_).
+assoc_Course_teacher(S,T) :- assoc_Teacher_teaches(T,S).
+create_assoc_Course_teacher(S,T) :- create_assoc_Teacher_teaches(T,S).
+delete_assoc_Course_teacher(S,T) :- delete_assoc_Teacher_teaches(T,S).
+1 {preserve_assoc_Course_teacher(S,T); delete_assoc_Course_teacher(S,T) } 1 :- current_assoc_Course_teacher(S,T).
+create_assoc_Course_teacher(S,T) :- not current_assoc_Course_teacher(S,T), assoc_Course_teacher(S,T).
+delete_assoc_Course_teacher(S,T) :- current_assoc_Course_teacher(S,T), not assoc_Course_teacher(S,T).
+:~ delete_assoc_Course_teacher(S,T). [1,delete_assoc_Course_teacher(S,T)]
+:~ create_assoc_Course_teacher(S,T). [1,create_assoc_Course_teacher(S,T)]
+assoc_Course_teacher(S,T) :- current_assoc_Course_teacher(S,T), preserve_assoc_Course_teacher(S,T).
+assoc_Course_teacher(S,T) :- create_assoc_Course_teacher(S,T).
+m1_Lecture(O) :- current_m1_Lecture(O), preserve(O).
+preserve(O) :- m1_Lecture(O), current_m1_Lecture(O).
+create(O) :- m1_Lecture(O), not current_m1_Lecture(O).
+delete(O) :- not m1_Lecture(O), current_m1_Lecture(O).
+0 {attr_Lecture_weekday(S,T): weekday(T)} 1 :- m1_Lecture(S).
+weekday(T) :- attr_Lecture_weekday(_,T).
+m1_Lecture(S) :- attr_Lecture_weekday(S,_).
+1 {preserve_attr_Lecture_weekday(S,T); delete_attr_Lecture_weekday(S,T) } 1 :- current_attr_Lecture_weekday(S,T).
+create_attr_Lecture_weekday(S,T) :- not current_attr_Lecture_weekday(S,T), attr_Lecture_weekday(S,T).
+delete_attr_Lecture_weekday(S,T) :- current_attr_Lecture_weekday(S,T), not attr_Lecture_weekday(S,T).
+:~ delete_attr_Lecture_weekday(S,T). [1,delete_attr_Lecture_weekday(S,T)]
+:~ create_attr_Lecture_weekday(S,T). [1,create_attr_Lecture_weekday(S,T)]
+attr_Lecture_weekday(S,T) :- current_attr_Lecture_weekday(S,T), preserve_attr_Lecture_weekday(S,T).
+attr_Lecture_weekday(S,T) :- create_attr_Lecture_weekday(S,T).
+0 {attr_Lecture_from(S,T): integer(T)} 1 :- m1_Lecture(S).
+integer(T) :- attr_Lecture_from(_,T).
+m1_Lecture(S) :- attr_Lecture_from(S,_).
+1 {preserve_attr_Lecture_from(S,T); delete_attr_Lecture_from(S,T) } 1 :- current_attr_Lecture_from(S,T).
+create_attr_Lecture_from(S,T) :- not current_attr_Lecture_from(S,T), attr_Lecture_from(S,T).
+delete_attr_Lecture_from(S,T) :- current_attr_Lecture_from(S,T), not attr_Lecture_from(S,T).
+:~ delete_attr_Lecture_from(S,T). [1,delete_attr_Lecture_from(S,T)]
+:~ create_attr_Lecture_from(S,T). [1,create_attr_Lecture_from(S,T)]
+attr_Lecture_from(S,T) :- current_attr_Lecture_from(S,T), preserve_attr_Lecture_from(S,T).
+attr_Lecture_from(S,T) :- create_attr_Lecture_from(S,T).
+0 {attr_Lecture_to(S,T): integer(T)} 1 :- m1_Lecture(S).
+integer(T) :- attr_Lecture_to(_,T).
+m1_Lecture(S) :- attr_Lecture_to(S,_).
+1 {preserve_attr_Lecture_to(S,T); delete_attr_Lecture_to(S,T) } 1 :- current_attr_Lecture_to(S,T).
+create_attr_Lecture_to(S,T) :- not current_attr_Lecture_to(S,T), attr_Lecture_to(S,T).
+delete_attr_Lecture_to(S,T) :- current_attr_Lecture_to(S,T), not attr_Lecture_to(S,T).
+:~ delete_attr_Lecture_to(S,T). [1,delete_attr_Lecture_to(S,T)]
+:~ create_attr_Lecture_to(S,T). [1,create_attr_Lecture_to(S,T)]
+attr_Lecture_to(S,T) :- current_attr_Lecture_to(S,T), preserve_attr_Lecture_to(S,T).
+attr_Lecture_to(S,T) :- create_attr_Lecture_to(S,T).
+1 {assoc_Lecture_in(S,T): m1_Classroom(T)} 1 :- m1_Lecture(S).
+m1_Classroom(T) :- assoc_Lecture_in(_,T).
+m1_Lecture(S) :- assoc_Lecture_in(S,_).
+1 {preserve_assoc_Lecture_in(S,T); delete_assoc_Lecture_in(S,T) } 1 :- current_assoc_Lecture_in(S,T).
+create_assoc_Lecture_in(S,T) :- not current_assoc_Lecture_in(S,T), assoc_Lecture_in(S,T).
+delete_assoc_Lecture_in(S,T) :- current_assoc_Lecture_in(S,T), not assoc_Lecture_in(S,T).
+:~ delete_assoc_Lecture_in(S,T). [1,delete_assoc_Lecture_in(S,T)]
+:~ create_assoc_Lecture_in(S,T). [1,create_assoc_Lecture_in(S,T)]
+assoc_Lecture_in(S,T) :- current_assoc_Lecture_in(S,T), preserve_assoc_Lecture_in(S,T).
+assoc_Lecture_in(S,T) :- create_assoc_Lecture_in(S,T).
+m1_Study(O) :- current_m1_Study(O), preserve(O).
+preserve(O) :- m1_Study(O), current_m1_Study(O).
+create(O) :- m1_Study(O), not current_m1_Study(O).
+delete(O) :- not m1_Study(O), current_m1_Study(O).
+0 {attr_Study_name(S,T): string(T)} 1 :- m1_Study(S).
+string(T) :- attr_Study_name(_,T).
+m1_Study(S) :- attr_Study_name(S,_).
+1 {preserve_attr_Study_name(S,T); delete_attr_Study_name(S,T) } 1 :- current_attr_Study_name(S,T).
+create_attr_Study_name(S,T) :- not current_attr_Study_name(S,T), attr_Study_name(S,T).
+delete_attr_Study_name(S,T) :- current_attr_Study_name(S,T), not attr_Study_name(S,T).
+:~ delete_attr_Study_name(S,T). [1,delete_attr_Study_name(S,T)]
+:~ create_attr_Study_name(S,T). [1,create_attr_Study_name(S,T)]
+attr_Study_name(S,T) :- current_attr_Study_name(S,T), preserve_attr_Study_name(S,T).
+attr_Study_name(S,T) :- create_attr_Study_name(S,T).
+0 {assoc_Study_compulsory(S,T): m1_Subject(T)} :- m1_Study(S).
+m1_Subject(T) :- assoc_Study_compulsory(_,T).
+m1_Study(S) :- assoc_Study_compulsory(S,_).
+1 {preserve_assoc_Study_compulsory(S,T); delete_assoc_Study_compulsory(S,T) } 1 :- current_assoc_Study_compulsory(S,T).
+create_assoc_Study_compulsory(S,T) :- not current_assoc_Study_compulsory(S,T), assoc_Study_compulsory(S,T).
+delete_assoc_Study_compulsory(S,T) :- current_assoc_Study_compulsory(S,T), not assoc_Study_compulsory(S,T).
+:~ delete_assoc_Study_compulsory(S,T). [1,delete_assoc_Study_compulsory(S,T)]
+:~ create_assoc_Study_compulsory(S,T). [1,create_assoc_Study_compulsory(S,T)]
+assoc_Study_compulsory(S,T) :- current_assoc_Study_compulsory(S,T), preserve_assoc_Study_compulsory(S,T).
+assoc_Study_compulsory(S,T) :- create_assoc_Study_compulsory(S,T).
+0 {assoc_Study_elective(S,T): m1_Subject(T)} :- m1_Study(S).
+m1_Subject(T) :- assoc_Study_elective(_,T).
+m1_Study(S) :- assoc_Study_elective(S,_).
+1 {preserve_assoc_Study_elective(S,T); delete_assoc_Study_elective(S,T) } 1 :- current_assoc_Study_elective(S,T).
+create_assoc_Study_elective(S,T) :- not current_assoc_Study_elective(S,T), assoc_Study_elective(S,T).
+delete_assoc_Study_elective(S,T) :- current_assoc_Study_elective(S,T), not assoc_Study_elective(S,T).
+:~ delete_assoc_Study_elective(S,T). [1,delete_assoc_Study_elective(S,T)]
+:~ create_assoc_Study_elective(S,T). [1,create_assoc_Study_elective(S,T)]
+assoc_Study_elective(S,T) :- current_assoc_Study_elective(S,T), preserve_assoc_Study_elective(S,T).
+assoc_Study_elective(S,T) :- create_assoc_Study_elective(S,T).
+m1_School(O) :- current_m1_School(O), preserve(O).
+preserve(O) :- m1_School(O), current_m1_School(O).
+create(O) :- m1_School(O), not current_m1_School(O).
+delete(O) :- not m1_School(O), current_m1_School(O).
+0 {assoc_School_persons(S,T): m1_Person(T)} :- m1_School(S).
+m1_Person(T) :- assoc_School_persons(_,T).
+m1_School(S) :- assoc_School_persons(S,_).
+1 {preserve_assoc_School_persons(S,T); delete_assoc_School_persons(S,T) } 1 :- current_assoc_School_persons(S,T).
+create_assoc_School_persons(S,T) :- not current_assoc_School_persons(S,T), assoc_School_persons(S,T).
+delete_assoc_School_persons(S,T) :- current_assoc_School_persons(S,T), not assoc_School_persons(S,T).
+:~ delete_assoc_School_persons(S,T). [1,delete_assoc_School_persons(S,T)]
+:~ create_assoc_School_persons(S,T). [1,create_assoc_School_persons(S,T)]
+assoc_School_persons(S,T) :- current_assoc_School_persons(S,T), preserve_assoc_School_persons(S,T).
+assoc_School_persons(S,T) :- create_assoc_School_persons(S,T).
+0 {assoc_School_studies(S,T): m1_Study(T)} :- m1_School(S).
+m1_Study(T) :- assoc_School_studies(_,T).
+m1_School(S) :- assoc_School_studies(S,_).
+1 {preserve_assoc_School_studies(S,T); delete_assoc_School_studies(S,T) } 1 :- current_assoc_School_studies(S,T).
+create_assoc_School_studies(S,T) :- not current_assoc_School_studies(S,T), assoc_School_studies(S,T).
+delete_assoc_School_studies(S,T) :- current_assoc_School_studies(S,T), not assoc_School_studies(S,T).
+:~ delete_assoc_School_studies(S,T). [1,delete_assoc_School_studies(S,T)]
+:~ create_assoc_School_studies(S,T). [1,create_assoc_School_studies(S,T)]
+assoc_School_studies(S,T) :- current_assoc_School_studies(S,T), preserve_assoc_School_studies(S,T).
+assoc_School_studies(S,T) :- create_assoc_School_studies(S,T).
+0 {assoc_School_subjects(S,T): m1_Subject(T)} :- m1_School(S).
+m1_Subject(T) :- assoc_School_subjects(_,T).
+m1_School(S) :- assoc_School_subjects(S,_).
+1 {preserve_assoc_School_subjects(S,T); delete_assoc_School_subjects(S,T) } 1 :- current_assoc_School_subjects(S,T).
+create_assoc_School_subjects(S,T) :- not current_assoc_School_subjects(S,T), assoc_School_subjects(S,T).
+delete_assoc_School_subjects(S,T) :- current_assoc_School_subjects(S,T), not assoc_School_subjects(S,T).
+:~ delete_assoc_School_subjects(S,T). [1,delete_assoc_School_subjects(S,T)]
+:~ create_assoc_School_subjects(S,T). [1,create_assoc_School_subjects(S,T)]
+assoc_School_subjects(S,T) :- current_assoc_School_subjects(S,T), preserve_assoc_School_subjects(S,T).
+assoc_School_subjects(S,T) :- create_assoc_School_subjects(S,T).
+0 {assoc_School_courses(S,T): m1_Course(T)} :- m1_School(S).
+m1_Course(T) :- assoc_School_courses(_,T).
+m1_School(S) :- assoc_School_courses(S,_).
+1 {preserve_assoc_School_courses(S,T); delete_assoc_School_courses(S,T) } 1 :- current_assoc_School_courses(S,T).
+create_assoc_School_courses(S,T) :- not current_assoc_School_courses(S,T), assoc_School_courses(S,T).
+delete_assoc_School_courses(S,T) :- current_assoc_School_courses(S,T), not assoc_School_courses(S,T).
+:~ delete_assoc_School_courses(S,T). [1,delete_assoc_School_courses(S,T)]
+:~ create_assoc_School_courses(S,T). [1,create_assoc_School_courses(S,T)]
+assoc_School_courses(S,T) :- current_assoc_School_courses(S,T), preserve_assoc_School_courses(S,T).
+assoc_School_courses(S,T) :- create_assoc_School_courses(S,T).
+0 {assoc_School_classrooms(S,T): m1_Classroom(T)} :- m1_School(S).
+m1_Classroom(T) :- assoc_School_classrooms(_,T).
+m1_School(S) :- assoc_School_classrooms(S,_).
+1 {preserve_assoc_School_classrooms(S,T); delete_assoc_School_classrooms(S,T) } 1 :- current_assoc_School_classrooms(S,T).
+create_assoc_School_classrooms(S,T) :- not current_assoc_School_classrooms(S,T), assoc_School_classrooms(S,T).
+delete_assoc_School_classrooms(S,T) :- current_assoc_School_classrooms(S,T), not assoc_School_classrooms(S,T).
+:~ delete_assoc_School_classrooms(S,T). [1,delete_assoc_School_classrooms(S,T)]
+:~ create_assoc_School_classrooms(S,T). [1,create_assoc_School_classrooms(S,T)]
+assoc_School_classrooms(S,T) :- current_assoc_School_classrooms(S,T), preserve_assoc_School_classrooms(S,T).
+assoc_School_classrooms(S,T) :- create_assoc_School_classrooms(S,T).
+current_m1_School(school1).
+curobj(school1).
+current_assoc_School_persons(school1,teacher1).
+current_assoc_School_persons(school1,student1).
+current_m1_Teacher(teacher1).
+curobj(teacher1).
+current_attr_Person_name(teacher1,studentname).
+current_attr_Person_email(teacher1,bobbuggmxat).
+current_m1_Student2(student1).
+curobj(student1).
+current_attr_Person_name(student1,teachername).
+current_attr_Student2_matrnr(student1,1).
+
+%Forbidden changes
+:~ delete(school1). [5@2, obj(school1)]
+boolean(true).
+boolean(false).
+integer(0).
+integer(1).
+integer(2).
+integer(3).
+integer(4).
+integer(5).
+integer(6).
+integer(7).
+integer(8).
+integer(9).
+integer(10).
+integer(11).
+integer(12).
+integer(13).
+integer(14).
+integer(15).
+integer(16).
+integer(17).
+integer(18).
+integer(19).
+integer(20).
+newobj(0).
+newobj(1).
+newobj(2).
+newobj(3).
+newobj(4).
+newobj(5).
+newobj(6).
+newobj(7).
+1 {preserve(T); delete(T)} 1 :- curobj(T).
+:~ delete(T). [2,delete(T)]
+1 {nouse(T); create(T)} 1 :- newobj(T).
+create(J) :- create(I), I = J+1, newobj(I), newobj(J).
+:~ create(T). [2,create(T)]
+bop_not(true,false).
+bop_not(false,true).
+bop_and(true,true,true).
+bop_or(true,true,true).
+bop_implies(true,true,true).
+bop_and(true,false,false).
+bop_or(true,false,true).
+bop_implies(true,false,false).
+bop_and(false,true,false).
+bop_or(false,true,true).
+bop_implies(false,true,true).
+bop_and(false,false,false).
+bop_or(false,false,false).
+bop_implies(false,false,true).
+1 {m1_Classroom(O); m1_Study(O); m1_School(O); m1_Lecture(O); m1_Person(O); m1_Teacher(O); m1_Course(O); m1_Student2(O); m1_Subject(O)} :- create(O).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_Classroom(I).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_Study(I).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_School(I).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_Lecture(I).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_Person(I).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_Teacher(I).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_Course(I).
+:- create(I), create(J), J=I+1, m1_Subject(J), m1_Student2(I).
+:- create(I), create(J), J=I+1, m1_Course(J), m1_Classroom(I).
+:- create(I), create(J), J=I+1, m1_Course(J), m1_Study(I).
+:- create(I), create(J), J=I+1, m1_Course(J), m1_School(I).
+:- create(I), create(J), J=I+1, m1_Course(J), m1_Lecture(I).
+:- create(I), create(J), J=I+1, m1_Course(J), m1_Person(I).
+:- create(I), create(J), J=I+1, m1_Course(J), m1_Teacher(I).
+:- create(I), create(J), J=I+1, m1_Course(J), m1_Student2(I).
+:- create(I), create(J), J=I+1, not m1_Teacher(J),not m1_Student2(J),m1_Person(J), m1_Classroom(I).
+:- create(I), create(J), J=I+1, not m1_Teacher(J),not m1_Student2(J),m1_Person(J), m1_Study(I).
+:- create(I), create(J), J=I+1, not m1_Teacher(J),not m1_Student2(J),m1_Person(J), m1_School(I).
+:- create(I), create(J), J=I+1, not m1_Teacher(J),not m1_Student2(J),m1_Person(J), m1_Lecture(I).
+:- create(I), create(J), J=I+1, not m1_Teacher(J),not m1_Student2(J),m1_Person(J), m1_Teacher(I).
+:- create(I), create(J), J=I+1, not m1_Teacher(J),not m1_Student2(J),m1_Person(J), m1_Student2(I).
+:- create(I), create(J), J=I+1, m1_Student2(J), m1_Classroom(I).
+:- create(I), create(J), J=I+1, m1_Student2(J), m1_Study(I).
+:- create(I), create(J), J=I+1, m1_Student2(J), m1_School(I).
+:- create(I), create(J), J=I+1, m1_Student2(J), m1_Lecture(I).
+:- create(I), create(J), J=I+1, m1_Student2(J), m1_Teacher(I).
+:- create(I), create(J), J=I+1, m1_Teacher(J), m1_Classroom(I).
+:- create(I), create(J), J=I+1, m1_Teacher(J), m1_Study(I).
+:- create(I), create(J), J=I+1, m1_Teacher(J), m1_School(I).
+:- create(I), create(J), J=I+1, m1_Teacher(J), m1_Lecture(I).
+:- create(I), create(J), J=I+1, m1_Lecture(J), m1_Classroom(I).
+:- create(I), create(J), J=I+1, m1_Lecture(J), m1_Study(I).
+:- create(I), create(J), J=I+1, m1_Lecture(J), m1_School(I).
+:- create(I), create(J), J=I+1, m1_School(J), m1_Classroom(I).
+:- create(I), create(J), J=I+1, m1_School(J), m1_Study(I).
+:- create(I), create(J), J=I+1, m1_Study(J), m1_Classroom(I).
+1 {op_test2(O)} 1 :- create(O).
+1 {} 1 :- delete(O).
+op_test2(IS,IS) :- op_test2(IS).
+1 {} 1 :- m1_Classroom(O), create(O).
+1 {} 1 :- current_m1_Classroom(O), delete(O).
+1 {} 1 :- m1_Study(O), create(O).
+1 {} 1 :- current_m1_Study(O), delete(O).
+1 {} 1 :- m1_School(O), create(O).
+1 {} 1 :- current_m1_School(O), delete(O).
+1 {} 1 :- m1_Person(O), create(O).
+0 {op_testp(O)} :- current_m1_Person(O).
+1 {} 1 :- current_m1_Person(O), delete(O).
+1 {} 1 :- m1_Teacher(O), create(O).
+1 {} 1 :- current_m1_Teacher(O), delete(O).
+1 {} 1 :- m1_Student2(O), create(O).
+0 {op_testp(O)} :- current_m1_Student2(O).
+1 {} 1 :- current_m1_Student2(O), delete(O).
+1 {} 1 :- m1_Lecture(O), create(O).
+1 {} 1 :- current_m1_Lecture(O), delete(O).
+
+1 {} 1 :- current_m1_Course(O), delete(O).
+1 {} 1 :- m1_Subject(O), create(O).
+1 {} 1 :- current_m1_Subject(O), delete(O).
+1 {} 1 :- create_assoc_Course_lectures(S,T).
+1 {} 1 :- delete_assoc_Course_lectures(S,T).
+1 {} 1 :- create_assoc_Lecture_in(S,T).
+1 {} 1 :- delete_assoc_Lecture_in(S,T).
+1 {} 1 :- create_assoc_Study_elective(S,T).
+1 {} 1 :- delete_assoc_Study_elective(S,T).
+1 {} 1 :- create_assoc_School_studies(S,T).
+1 {} 1 :- delete_assoc_School_studies(S,T).
+1 {} 1 :- create_assoc_Teacher_teaches(S,T).
+1 {} 1 :- delete_assoc_Teacher_teaches(S,T).
+1 {} 1 :- create_assoc_School_courses(S,T).
+1 {} 1 :- delete_assoc_School_courses(S,T).
+1 {op_test1(T,S)} 1 :- create_assoc_Course_attending(S,T).
+1 {} 1 :- delete_assoc_Course_attending(S,T).
+1 {} 1 :- create_assoc_Student2_studies(S,T).
+1 {} 1 :- delete_assoc_Student2_studies(S,T).
+1 {} 1 :- create_assoc_Teacher_subject(S,T).
+1 {} 1 :- delete_assoc_Teacher_subject(S,T).
+1 {op_test1(S,T)} 1 :- create_assoc_Device_incoming(S,T).
+1 {} 1 :- delete_assoc_Student2_attends(S,T).
+1 {} 1 :- create_assoc_Teacher_supply(S,T).
+1 {} 1 :- delete_assoc_Teacher_supply(S,T).
+1 {} 1 :- create_assoc_School_classrooms(S,T).
+1 {} 1 :- delete_assoc_School_classrooms(S,T).
+1 {} 1 :- create_assoc_Course_subject(S,T).
+1 {} 1 :- delete_assoc_Course_subject(S,T).
+1 {} 1 :- create_assoc_Course_teacher(S,T).
+1 {} 1 :- delete_assoc_Course_teacher(S,T).
+1 {} 1 :- create_assoc_School_persons(S,T).
+1 {} 1 :- delete_assoc_School_persons(S,T).
+1 {} 1 :- create_assoc_School_subjects(S,T).
+1 {} 1 :- delete_assoc_School_subjects(S,T).
+1 {} 1 :- create_assoc_Study_compulsory(S,T).
+1 {} 1 :- delete_assoc_Study_compulsory(S,T).
+1 { op_testp(IS,O): current_m1_Student2(O)} 1 :- op_test2(IS,IT).
+m1_Course(O) :- op_test2(IS,O).
+create(O) :- op_test2(IS,O).
+create_assoc_Student2_attends(S,T) :- op_testp(IS,S),op_test2(IS,T),op_test2(IS,IT).
+:- op_test2(IS,IT), op_testp(IS,M1_STUDENT2), BOOLEAN = false,constraint_test_bla(M1_STUDENT2,BOOLEAN).
+:~ op_test2(IS,IT), op_testp(IS,M1_STUDENT2), costRuletest(M1_STUDENT2,COST). [COST,op_test2(IS,IT)]
+delete_attr_Student2_matrnr(S,T) :- op_testp(IS,S),current_attr_Student2_matrnr(S,T),op_test2(IS,IT).
+create_attr_Student2_matrnr(S,INTEGER2) :- op_testp(IS,S), current_attr_Student2_matrnr(S,INTEGER),op_test2(IS,IT), attrRuletest_p_matrNr(INTEGER,INTEGER2).
+:- m1_Classroom(O), m1_Study(O).
+:- m1_Classroom(O), m1_School(O).
+:- m1_Classroom(O), m1_Lecture(O).
+:- m1_Classroom(O), m1_Person(O).
+:- m1_Classroom(O), m1_Teacher(O).
+:- m1_Classroom(O), m1_Course(O).
+:- m1_Classroom(O), m1_Student2(O).
+:- m1_Classroom(O), m1_Subject(O).
+:- m1_Study(O), m1_Classroom(O).
+:- m1_Study(O), m1_School(O).
+:- m1_Study(O), m1_Lecture(O).
+:- m1_Study(O), m1_Person(O).
+:- m1_Study(O), m1_Teacher(O).
+:- m1_Study(O), m1_Course(O).
+:- m1_Study(O), m1_Student2(O).
+:- m1_Study(O), m1_Subject(O).
+:- m1_School(O), m1_Classroom(O).
+:- m1_School(O), m1_Study(O).
+:- m1_School(O), m1_Lecture(O).
+:- m1_School(O), m1_Person(O).
+:- m1_School(O), m1_Teacher(O).
+:- m1_School(O), m1_Course(O).
+:- m1_School(O), m1_Student2(O).
+:- m1_School(O), m1_Subject(O).
+:- m1_Lecture(O), m1_Classroom(O).
+:- m1_Lecture(O), m1_Study(O).
+:- m1_Lecture(O), m1_School(O).
+:- m1_Lecture(O), m1_Person(O).
+:- m1_Lecture(O), m1_Teacher(O).
+:- m1_Lecture(O), m1_Course(O).
+:- m1_Lecture(O), m1_Student2(O).
+:- m1_Lecture(O), m1_Subject(O).
+:- m1_Person(O), m1_Classroom(O).
+:- m1_Person(O), m1_Study(O).
+:- m1_Person(O), m1_School(O).
+:- m1_Person(O), m1_Lecture(O).
+:- m1_Person(O), m1_Course(O).
+:- m1_Person(O), m1_Subject(O).
+:- m1_Teacher(O), m1_Classroom(O).
+:- m1_Teacher(O), m1_Study(O).
+:- m1_Teacher(O), m1_School(O).
+:- m1_Teacher(O), m1_Lecture(O).
+:- m1_Teacher(O), m1_Course(O).
+:- m1_Teacher(O), m1_Student2(O).
+:- m1_Teacher(O), m1_Subject(O).
+:- m1_Course(O), m1_Classroom(O).
+:- m1_Course(O), m1_Study(O).
+:- m1_Course(O), m1_School(O).
+:- m1_Course(O), m1_Lecture(O).
+:- m1_Course(O), m1_Person(O).
+:- m1_Course(O), m1_Teacher(O).
+:- m1_Course(O), m1_Student2(O).
+:- m1_Course(O), m1_Subject(O).
+:- m1_Student2(O), m1_Classroom(O).
+:- m1_Student2(O), m1_Study(O).
+:- m1_Student2(O), m1_School(O).
+:- m1_Student2(O), m1_Lecture(O).
+:- m1_Student2(O), m1_Teacher(O).
+:- m1_Student2(O), m1_Course(O).
+:- m1_Student2(O), m1_Subject(O).
+:- m1_Subject(O), m1_Classroom(O).
+:- m1_Subject(O), m1_Study(O).
+:- m1_Subject(O), m1_School(O).
+:- m1_Subject(O), m1_Lecture(O).
+:- m1_Subject(O), m1_Person(O).
+:- m1_Subject(O), m1_Teacher(O).
+:- m1_Subject(O), m1_Course(O).
+:- m1_Subject(O), m1_Student2(O).
+
+cons_m1_Person_personnameBodyLeft(M1_PERSON,STRING):- attr_Person_name(M1_PERSON,STRING), string(STRING).
+cons_m1_Person_personnameBodyRight(M1_PERSON,STRING):- attr_Person_name(M1_PERSON,STRING), string(STRING).
+cons_m1_Person_personnameBody(M1_PERSON,BOOLEAN):- not cons_m1_Person_personnameBodyUnequal(M1_PERSON,BOOLEAN2), BOOLEAN = true, BOOLEAN2 = true, m1_Person(M1_PERSON), boolean(BOOLEAN), m1_Person(M1_PERSON), boolean(BOOLEAN2).
+cons_m1_Person_personnameBody(M1_PERSON,BOOLEAN):- cons_m1_Person_personnameBodyUnequal(M1_PERSON,BOOLEAN2), BOOLEAN = false, BOOLEAN2 = true, m1_Person(M1_PERSON), boolean(BOOLEAN).
+cons_m1_Person_personnameBodyUnequal(M1_PERSON,BOOLEAN2):- cons_m1_Person_personnameBodyLeft(M1_PERSON2,STRING), not cons_m1_Person_personnameBodyRight(M1_PERSON,STRING), true = BOOLEAN2, false = BOOLEAN, m1_Person(M1_PERSON), m1_Person(M1_PERSON).
+cons_m1_Person_personnameBodyUnequal(M1_PERSON,BOOLEAN2):- not cons_m1_Person_personnameBodyLeft(M1_PERSON2,STRING), cons_m1_Person_personnameBodyRight(M1_PERSON,STRING), true = BOOLEAN2, false = BOOLEAN, m1_Person(M1_PERSON2), m1_Person(M1_PERSON).
+cons_m1_Person_personnameHave(M1_PERSON,BOOLEAN):- m1_Person(M1_PERSON2), cons_m1_Person_personnameBody(M1_PERSON,BOOLEAN).
+cons_m1_Person_personnameDouble(M1_PERSON,BOOLEAN):- m1_Person(M1_PERSON2), cons_m1_Person_personnameBody(M1_PERSON,BOOLEAN), m1_Person(M1_PERSON3), cons_m1_Person_personnameBody(M1_PERSON,BOOLEAN2), BOOLEAN = true, BOOLEAN2 = true, M1_PERSON2 <> M1_PERSON3.
+cons_m1_Person_personname(M1_PERSON,BOOLEAN3):- cons_m1_Person_personnameHave(M1_PERSON,BOOLEAN), not cons_m1_Person_personnameDouble(M1_PERSON,BOOLEAN), BOOLEAN3 = true, boolean(BOOLEAN3).
+cons_m1_Person_personname(M1_PERSON,BOOLEAN3):- cons_m1_Person_personnameDouble(M1_PERSON,BOOLEAN), BOOLEAN3 = false, boolean(BOOLEAN3).
+cons_m1_Person_personname(M1_PERSON,BOOLEAN3):- not cons_m1_Person_personnameHave(M1_PERSON,BOOLEAN), BOOLEAN3 = false, boolean(BOOLEAN), m1_Person(M1_PERSON), boolean(BOOLEAN3).
+:- not cons_m1_Person_personname(M1_PERSON,BOOLEAN), BOOLEAN = true, boolean(BOOLEAN), m1_Person(M1_PERSON).
+:- not cons_m1_Student2_haveattends(M1_STUDENT2,BOOLEAN), BOOLEAN = true, m1_Student2(M1_STUDENT2), boolean(BOOLEAN).
+:- not cons_m1_Student2_sizekl15(M1_STUDENT2,BOOLEAN), BOOLEAN = true, boolean(BOOLEAN), m1_Student2(M1_STUDENT2).
+cons_m1_Student2_haveattendsSourceSrc(M1_STUDENT2,M1_COURSE):- assoc_Student2_attends(M1_STUDENT2,M1_COURSE), m1_Course(M1_COURSE).
+cons_m1_Student2_haveattendsSource(M1_STUDENT2,BOOLEAN):- cons_m1_Student2_haveattendsSourceSrc(M1_STUDENT2,M1_COURSE), BOOLEAN = false, boolean(BOOLEAN).
+cons_m1_Student2_haveattendsSource(M1_STUDENT2,BOOLEAN):- not cons_m1_Student2_haveattendsSource(M1_STUDENT2,BOOLEAN2), BOOLEAN = true, BOOLEAN2 = false, boolean(BOOLEAN), m1_Student2(M1_STUDENT2), boolean(BOOLEAN2).
+cons_m1_Student2_haveattends(M1_STUDENT2,BOOLEAN):- cons_m1_Student2_haveattendsSource(M1_STUDENT2,BOOLEAN2), bop_not(BOOLEAN2,BOOLEAN).
+cons_m1_Student2_sizekl15LeftSource(M1_STUDENT2,var(M1_STUDENT2,0,M1_COURSE)):- assoc_Student2_attends(M1_STUDENT2,M1_COURSE), m1_Course(M1_COURSE).
+cons_m1_Student2_sizekl15LeftSource(M1_STUDENT2,var(M1_STUDENT2,0,M1_COURSE)):- assoc_Student2_attends(M1_STUDENT2,M1_COURSE), m1_Student2(M1_STUDENT2).
+cons_m1_Student2_sizekl15Left(M1_STUDENT2,INTEGER):- #count{cons_m1_Student2_sizekl15LeftSource(M1_STUDENT2,var(M1_STUDENT2,0,M1_COURSE)): cons_m1_Student2_sizekl15LeftSource(M1_STUDENT2,var(M1_STUDENT2,0,M1_COURSE))} = INTEGER, m1_Student2(M1_STUDENT2).
+cons_m1_Student2_sizekl15Right(INTEGER):- 5 = INTEGER.
+cons_m1_Student2_sizekl15(M1_STUDENT2,BOOLEAN):- cons_m1_Student2_sizekl15Mid(R3), cons_m1_Student2_sizekl15Left(M1_STUDENT2,INTEGER), true = BOOLEAN, INTEGER = R3.
+cons_m1_Student2_sizekl15(M1_STUDENT2,BOOLEAN):- not cons_m1_Student2_sizekl15(M1_STUDENT2,R), false = BOOLEAN, true = R, m1_Student2(M1_STUDENT2).
+cons_m1_Student2_sizekl15Mid(R2):- cons_m1_Student2_sizekl15Right(R_), 1 + R2 = R_, integer(R_), integer(R2), integer(R2).
+cons_m1_Student2_sizekl15Mid(R2):- cons_m1_Student2_sizekl15Mid(R3), 1 + R2 = R3, integer(R3), integer(R2), integer(R2).
+constraint_test_blaLeft(M1_STUDENT2,INTEGER):- current_attr_Student2_matrnr(M1_STUDENT2,INTEGER), integer(INTEGER).
+constraint_test_blaRight(INTEGER):- 2 = INTEGER.
+constraint_test_bla(M1_STUDENT2,BOOLEAN):- constraint_test_blaMid(R3), constraint_test_blaLeft(M1_STUDENT2,INTEGER), true = BOOLEAN, INTEGER = R3.
+constraint_test_bla(M1_STUDENT2,BOOLEAN):- not constraint_test_bla(M1_STUDENT2,R), false = BOOLEAN, true = R, current_m1_Student2(M1_STUDENT2).
+constraint_test_blaMid(R2):- constraint_test_blaRight(R_), 1 + R2 = R_, integer(R_), integer(R2), integer(R2).
+constraint_test_blaMid(R2):- constraint_test_blaMid(R3), 1 + R2 = R3, integer(R3), integer(R2), integer(R2).
+costRuletestLeft(INTEGER):- 5 = INTEGER.
+costRuletestRight(M1_STUDENT2,INTEGER):- current_attr_Student2_matrnr(M1_STUDENT2,INTEGER), integer(INTEGER).
+costRuletest(M1_STUDENT2,COST):- costRuletestLeft(INTEGER2), costRuletestRight(M1_STUDENT2,INTEGER3), INTEGER2 * INTEGER3 = COST.
+attrRuletest_p_matrNrRight(INTEGER):- 1 = INTEGER.
+attrRuletest_p_matrNr(INTEGER,INTEGER2):- attrRuletest_p_matrNrRight(INTEGER3), INTEGER + INTEGER3 = INTEGER2, integer(INTEGER).

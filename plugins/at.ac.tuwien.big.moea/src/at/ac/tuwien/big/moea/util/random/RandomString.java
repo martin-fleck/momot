@@ -16,18 +16,18 @@ import org.apache.commons.lang.RandomStringUtils;
 
 public class RandomString implements IRandomGenerator<String> {
 
-   private final RandomInteger randomInteger;
+	RandomInteger randomInteger;
+	
+	public RandomString(int lowerBoundLength, int upperBoundLength) {
+		randomInteger = new RandomInteger(lowerBoundLength, upperBoundLength);
+	}
+	
+	public RandomString(int length) {
+		this(length, length);
+	}
 
-   public RandomString(final int length) {
-      this(length, length);
-   }
-
-   public RandomString(final int lowerBoundLength, final int upperBoundLength) {
-      randomInteger = new RandomInteger(lowerBoundLength, upperBoundLength);
-   }
-
-   @Override
-   public String nextRandom() {
-      return RandomStringUtils.random(randomInteger.nextRandom());
-   }
+	@Override
+	public String nextRandom() {
+		return RandomStringUtils.random(randomInteger.nextRandom());
+	}
 }

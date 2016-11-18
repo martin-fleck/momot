@@ -16,14 +16,14 @@ import org.moeaframework.core.Solution;
 
 public class NullMutationVariation extends AbstractMutationVariation {
 
-   public NullMutationVariation(final double probability) {
-      super(probability);
-   }
+	public NullMutationVariation(double probability) {
+		super(probability);
+	}
 
-   @Override
-   public Solution[] doEvolve(final Solution[] parents) {
-      final Solution mutant = parents[0].copy();
-      return new Solution[] { mutant };
-   }
+	@Override
+	public Solution[] doEvolve(Solution[] parents) {
+		Solution mutant = parents[0].copy();
+		return new Solution[] { mutant };
+	}
 
 }

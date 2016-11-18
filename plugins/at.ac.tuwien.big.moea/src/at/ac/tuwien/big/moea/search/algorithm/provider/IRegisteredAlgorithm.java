@@ -15,11 +15,8 @@ package at.ac.tuwien.big.moea.search.algorithm.provider;
 import org.moeaframework.core.Algorithm;
 
 public interface IRegisteredAlgorithm<A extends Algorithm> {
-   A createAlgorithm();
-
-   String getRegisteredName();
-
-   boolean isRegistered();
-
-   String register();
+	A createAlgorithm();
+	boolean isRegistered();
+	String getRegisteredName();
+	String register();
 }

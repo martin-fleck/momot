@@ -19,42 +19,41 @@ import org.moeaframework.util.progress.ProgressEvent;
 import org.moeaframework.util.progress.ProgressListener;
 
 public abstract class AbstractProgressListener implements ProgressListener {
-   protected static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("[HH:mm:ss.SSS] ");
-
-   private int currentSeed = 0;
-
-   public boolean isFinished(final ProgressEvent event) {
-      return event.getCurrentSeed() > event.getTotalSeeds();
-   }
-
-   public boolean isRunning(final ProgressEvent event) {
-      return !isFinished(event) && currentSeed > 0;
-   }
-
-   public boolean isSeedFinished(final ProgressEvent event) {
-      return !isFinished(event) && event.getCurrentNFE() >= event.getMaxNFE();
-   }
-
-   public boolean isSeedStarted(final ProgressEvent event) {
-      return !isFinished(event) && event.getCurrentSeed() > currentSeed;
-   }
-
-   public boolean isStarted(final ProgressEvent event) {
-      return currentSeed == 0;
-   }
-
-   protected void println(final String message) {
-      System.out.println(DATE_FORMAT.format(Calendar.getInstance().getTime()) + message);
-   }
-
-   @Override
-   public void progressUpdate(final ProgressEvent event) {
-      update(event);
-      currentSeed = event.getCurrentSeed();
-      if(isFinished(event)) {
-         currentSeed = 0;
-      }
-   }
-
-   public abstract void update(ProgressEvent event);
+	protected static final SimpleDateFormat df = new SimpleDateFormat("[HH:mm:ss.SSS] ");
+	
+	private int currentSeed = 0;
+	
+	protected void println(String message) {
+		System.out.println(df.format(Calendar.getInstance().getTime()) + message);
+	}
+	
+	public boolean isStarted(ProgressEvent event) {
+		return currentSeed == 0;
+	}
+	
+	public boolean isSeedStarted(ProgressEvent event) {
+		return !isFinished(event) && event.getCurrentSeed() > currentSeed;
+	}
+	
+	public boolean isRunning(ProgressEvent event) {
+		return !isFinished(event) && currentSeed > 0;
+	}
+	
+	public boolean isSeedFinished(ProgressEvent event) {
+		return !isFinished(event) && event.getCurrentNFE() >= event.getMaxNFE();
+	}
+	
+	public boolean isFinished(ProgressEvent event) {
+		return event.getCurrentSeed() > event.getTotalSeeds();
+	}	
+	
+	@Override
+	public void progressUpdate(ProgressEvent event) {
+		update(event);
+		currentSeed = event.getCurrentSeed();
+		if(isFinished(event)) 
+			currentSeed = 0;
+	}
+	
+	public abstract void update(ProgressEvent event);
 }

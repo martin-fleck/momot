@@ -21,42 +21,38 @@ import org.moeaframework.core.Problem;
 import org.moeaframework.core.spi.AlgorithmProvider;
 
 public class DynamicAlgorithmProvider extends AlgorithmProvider {
+	
+	private static Map<String, IRegisteredAlgorithm<?>> registeredAlgorithms = new HashMap<>();
+	
+	@Override
+	public Algorithm getAlgorithm(String name, Properties properties,
+			Problem problem) {
+		IRegisteredAlgorithm<?> registered = getAlgorithm(name);
+		if(registered == null)
+			return null;
+		Algorithm algorithm = registered.createAlgorithm();
+		if(algorithm != null)
+			if(!algorithm.getProblem().getName().equals(problem.getName()))
+				System.err.println("Algorithm retrieved for wrong problem: " + algorithm.getProblem().getName() + " vs " + problem.getName());
+		return algorithm;
+	}
 
-   private static Map<String, IRegisteredAlgorithm<?>> registeredAlgorithms = new HashMap<>();
-
-   public static void clear() {
-      registeredAlgorithms.clear();
-   }
-
-   public static IRegisteredAlgorithm<?> getAlgorithm(final String name) {
-      return registeredAlgorithms.get(name);
-   }
-
-   public static boolean registerAlgorithm(final String name, final IRegisteredAlgorithm<?> registeredAlgorithm) {
-      if(registeredAlgorithms.containsKey(name)) {
-         return false;
-      }
-      registeredAlgorithms.put(name, registeredAlgorithm);
-      return true;
-   }
-
-   public static IRegisteredAlgorithm<?> removeAlgorithm(final String name) {
-      return registeredAlgorithms.remove(name);
-   }
-
-   @Override
-   public Algorithm getAlgorithm(final String name, final Properties properties, final Problem problem) {
-      final IRegisteredAlgorithm<?> registered = getAlgorithm(name);
-      if(registered == null) {
-         return null;
-      }
-      final Algorithm algorithm = registered.createAlgorithm();
-      if(algorithm != null) {
-         if(!algorithm.getProblem().getName().equals(problem.getName())) {
-            System.err.println("Algorithm retrieved for wrong problem: " + algorithm.getProblem().getName() + " vs "
-                  + problem.getName());
-         }
-      }
-      return algorithm;
-   }
+	public static boolean registerAlgorithm(String name, IRegisteredAlgorithm<?> registeredAlgorithm) {
+		if(registeredAlgorithms.containsKey(name))
+			return false;
+		registeredAlgorithms.put(name, registeredAlgorithm);
+		return true;
+	}
+	
+	public static IRegisteredAlgorithm<?> getAlgorithm(String name) {
+		return registeredAlgorithms.get(name);
+	}
+	
+	public static IRegisteredAlgorithm<?> removeAlgorithm(String name) {
+		return registeredAlgorithms.remove(name);
+	}
+	
+	public static void clear() {
+		registeredAlgorithms.clear();
+	}
 }

@@ -13,40 +13,181 @@
 package at.ac.tuwien.big.moea.search.algorithm.local;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
+import org.moeaframework.core.NondominatedPopulation;
 import org.moeaframework.core.Problem;
 import org.moeaframework.core.Solution;
 
+import at.ac.tuwien.big.moea.search.algorithm.local.neighborhood.MaximumDecreasingFitnessEstimator;
+
+
+
 public class HillClimbing<S extends Solution> extends AbstractLocalSearchAlgorithm<S> {
 
-   private int noImprovement = 0;
+	private int noImprovement = 0;
+	private int maxNoImprovements = 100;
+	
+	private boolean nextImprovement;
+	
+	protected HillClimbing(Problem problem) {
+		super(problem);
+	}
+	
 
-   public HillClimbing(final Problem problem, final S initialSolution,
-         final INeighborhoodFunction<S> neighborhoodFunction, final IFitnessComparator<?, S> fitnessComparator) {
-      super(problem, initialSolution, neighborhoodFunction, fitnessComparator);
-      if(neighborhoodFunction.getMaxNeighbors() == INeighborhoodFunction.UNLIMITED) {
-         System.err.println(
-               "Warning: Neighborhood-Function may produce infinite neighbors, Hill-Climbing may get stuck in infinite loop.");
-      }
-   }
+	public HillClimbing(Problem problem, S initialSolution,
+			INeighborhoodFunction<S> neighborhoodFunction,
+			IFitnessComparator<?, S> fitnessComparator, int maxNoImprovements) {
+		this(problem,initialSolution,neighborhoodFunction,fitnessComparator,false, maxNoImprovements, new NondominatedPopulation());
+	}
+	
+	public HillClimbing(Problem problem, S initialSolution,
+			INeighborhoodFunction<S> neighborhoodFunction,
+			IFitnessComparator<?, S> fitnessComparator, boolean nextImprovement, int maxNoImprovements, Iterable<Solution> initPop) {
+		super(problem, initialSolution, neighborhoodFunction, fitnessComparator);
+		this.nextImprovement = nextImprovement;
+		this.maxNoImprovements = maxNoImprovements;
+		pop.addAll(initPop);
+		if(neighborhoodFunction.getMaxNeighbors() == INeighborhoodFunction.UNLIMITED)
+			System.err.println("Warning: Neighborhood-Function may produce infinite neighbors, Hill-Climbing may get stuck in infinite loop.");
+	}
+	
+	private int curStep = 0;
+	
 
-   @Override
-   protected void iterate() {
-      final List<S> neighbors = new ArrayList<>();
-      for(final S neighbor : generateCurrentNeighbors()) {
-         evaluate(neighbor);
-         neighbors.add(neighbor);
-      }
-      if(neighbors.isEmpty()) {
-         terminate();
-         return;
-      }
-      final S bestNeighbor = getBest(neighbors);
-      if(!update(bestNeighbor)) {
-         noImprovement++;
-         // else
-         // System.err.println("improvmeent");
-      }
-   }
+	List<S> tryNeighbors = new ArrayList<S>();
+	
+	public void reset() {
+		super.reset();
+		tryNeighbors.clear();
+	}
+	
+	@Override
+	protected void iterate() {
+		++curStep;
+		Object oldFitness = currentFitness;
+		List<S> neighbors = new ArrayList<>();	
+		long curTime = new Date().getTime();
+		List<S> consideredNeighbors = new ArrayList<S>();
+		S cur2 = getCurrentSolution();
+		evaluate(cur2);
+		for(S neighbor : generateCurrentNeighbors()) {
+			if (neighbor == null){
+				continue;
+			}
+			evaluate(neighbor);
+			neighbors.add(neighbor);
+			if (isBetter(neighbor, getCurrentSolution())) {
+				if (nextImprovement) {
+					update(neighbor);
+					return;
+				} else {
+					consideredNeighbors.add(neighbor);
+				}
+			} else if (pop.add(neighbor)) {
+				tryNeighbors.add(neighbor);
+			}
+		}
+		evaluate(cur2);
+		if(neighbors.isEmpty()) {
+			terminate();
+			return;
+		}
+		if (!consideredNeighbors.isEmpty()) {
+			//Select the one dominathing the most
+			
+			S cur = getCurrentSolution();
+			
+			IDeltaEstimator est;
+			boolean firstUseComp;
+			if (getFitnessComparator() instanceof IDeltaEstimator) {
+				est = (IDeltaEstimator) getFitnessComparator();
+				firstUseComp = false;
+			} else {
+				est = new MaximumDecreasingFitnessEstimator();
+				firstUseComp = true;
+			}
+					 
+			
+			
+			double bestSolVal = 0.0;
+			S bestSol = null;
+			
+			S curBest = getBestSolution();
+			for (S consider: consideredNeighbors) {
+				if (bestSol == null) {
+					bestSol = consider;
+					bestSolVal = est.getWorseAmount(consider, curBest);
+				} else {
+					int compare = 0;
+					if (firstUseComp) {
+						compare = getFitnessComparator().compare(consider,bestSol);
+					}
+					if (compare == 0) {
+						double curWorseAmount = est.getWorseAmount(consider, curBest); 
+						if (curWorseAmount > bestSolVal) {
+							bestSol = consider;
+							bestSolVal = curWorseAmount;
+						}
+					} else if (compare == -1) {
+						bestSol = consider;
+						bestSolVal = est.getWorseAmount(consider, curBest);
+					}
+				}
+			}
+			
+			
+			if(bestSol == null || !update(bestSol)) {
+				if (++noImprovement > maxNoImprovements) {
+					terminate();
+				}
+			} else {
+				noImprovement = 0;
+			}
+		} else {
+			if (++noImprovement > maxNoImprovements) {
+				while (!tryNeighbors.isEmpty()) {
+					double[] curSolutionO = getCurrentSolution().getObjectives();
+					Solution newCurrent = tryNeighbors.remove(tryNeighbors.size()-1);
+					double[] newCurrentO = newCurrent.getObjectives();
+					double[] val = new double[newCurrentO.length];
+					double sum = 0.0;
+					for (int i = 0; i < val.length; ++i) {
+						double myBetter = Math.min(curSolutionO[i]-newCurrentO[i], 0.0);
+						val[i] = myBetter;
+						sum+= myBetter;
+					}
+					if (sum > 0) {
+						setCurrentSolution(tryNeighbors.remove(tryNeighbors.size()-1));
+						noImprovement = 0;
+						continue;
+					}
+				}
+				terminate();
+			}
+		}
+		
+//		else
+//			System.err.println("improvmeent");
+		//System.out.println("Single Hill-Climing iteration took " + (new Date().getTime()-curTime)+" ms, "+bestFitness+ " VS "+oldFitness);
+	}
+
+	@Override
+	public HillClimbing<S> newInstance(Problem problem) {
+		return new HillClimbing<S>(problem);
+	}	
+	
+	@Override
+	public void copyFor(AbstractLocalSearchAlgorithm<S> other, S initial) {
+		super.copyFor(other, initial);
+		this.nextImprovement = ((HillClimbing)other).nextImprovement;
+		this.maxNoImprovements = ((HillClimbing)other).maxNoImprovements;
+		this.pop = ((HillClimbing)other).pop;
+	}
+	
+	public int getStepNum() {
+		return curStep;
+	}
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="univ" nsURI="http://univ/1.0" nsPrefix="univ">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="WeekDay">
+    <eLiterals name="Monday"/>
+    <eLiterals name="Tuesday" value="1"/>
+    <eLiterals name="Wednesday" value="2"/>
+    <eLiterals name="Thursday" value="3"/>
+    <eLiterals name="Friday" value="4"/>
+    <eLiterals name="Saturday" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="personname"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="personname" value="Person.allInstances()->one(p | p.name = name)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Teacher" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" upperBound="-1"
+        eType="#//Subject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supply" upperBound="-1"
+        eType="#//Teacher"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teaches" upperBound="-1"
+        eType="#//Course" containment="true" eOpposite="#//Course/teacher"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Student2" eSuperTypes="#//Person">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="haveattends"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="haveattends" value="not attends->isEmpty()"/>
+      <details key="sizekl15" value="attends->size() &lt; 5"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="studies" upperBound="-1"
+        eType="#//Study"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="matrNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attends" lowerBound="1"
+        upperBound="-1" eType="#//Course" eOpposite="#//Course/attending"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weekHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Classroom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Course">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lectures" upperBound="-1"
+        eType="#//Lecture" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attending" upperBound="-1"
+        eType="#//Student2" eOpposite="#//Student2/attends"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" eType="#//Subject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teacher" eType="#//Teacher"
+        eOpposite="#//Teacher/teaches"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lecture">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weekDay" eType="#//WeekDay"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="in" lowerBound="1" eType="#//Classroom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Study">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compulsory" upperBound="-1"
+        eType="#//Subject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elective" upperBound="-1"
+        eType="#//Subject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="School">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persons" upperBound="-1"
+        eType="#//Person" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="studies" upperBound="-1"
+        eType="#//Study" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subjects" upperBound="-1"
+        eType="#//Subject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
+        eType="#//Course" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classrooms" upperBound="-1"
+        eType="#//Classroom" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

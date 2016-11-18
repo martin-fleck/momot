@@ -18,5 +18,5 @@ import java.util.Comparator;
 import org.moeaframework.core.Solution;
 
 public interface IFitnessComparator<C extends Comparable<C> & Serializable, S extends Solution> extends Comparator<S> {
-   C getValue(S solution);
+	C getValue(S solution);
 }
