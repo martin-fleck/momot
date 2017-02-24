@@ -295,7 +295,7 @@ public class SearchExecutor extends Executor {
                problem = new DistributedProblem(problem, getExecutorService());
             } else if(getNumberOfThreads() > 1) {
                executorService = Executors.newFixedThreadPool(getNumberOfThreads());
-               problem = new DistributedProblem(problem, getExecutorService());
+               problem = new DistributedProblem(problem, executorService);
             }
 
             return runAlgorithm(problem, maxEvaluations);
