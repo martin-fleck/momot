@@ -186,7 +186,8 @@ MOMoT Checkstyle
       <property name="format" value="^(.*[\.])?Abstract$"/>
     </module>
     <module name="InnerAssignment">
-      <property name="severity" value="error"/>
+      <property name="severity" value="warning"/>
+      <property name="tokens" value="DIV_ASSIGN,BXOR_ASSIGN,STAR_ASSIGN,BAND_ASSIGN,MOD_ASSIGN,PLUS_ASSIGN,SL_ASSIGN,ASSIGN,MINUS_ASSIGN,SR_ASSIGN,BSR_ASSIGN,BOR_ASSIGN"/>
     </module>
     <module name="MissingSwitchDefault">
       <property name="severity" value="warning"/>
