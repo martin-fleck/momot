@@ -24,6 +24,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
@@ -37,6 +38,7 @@ import org.moeaframework.algorithm.Checkpoints;
 import org.moeaframework.core.Algorithm;
 import org.moeaframework.core.NondominatedPopulation;
 import org.moeaframework.core.Problem;
+import org.moeaframework.core.TerminationCondition;
 import org.moeaframework.core.comparator.ParetoDominanceComparator;
 import org.moeaframework.core.spi.AlgorithmFactory;
 import org.moeaframework.core.spi.ProblemFactory;
@@ -61,11 +63,14 @@ public class SearchExecutor extends Executor {
    private static final String ALGORITHM_FACTORY_NAME = "algorithmFactory";
    private static final String PROGRESSHELPER_NAME = "progress";
    private static final String ISCANCELED_NAME = "isCanceled";
+   private static final String TERMINATION_CONDITIONS = "terminationConditions";
    protected String name;
    protected Algorithm algorithm;
    protected Map<String, Field> reflectiveFields = new HashMap<>();
 
    public SearchExecutor() {
+      super();
+
       final Field[] fields = getClass().getSuperclass().getDeclaredFields();
       for(final Field field : fields) {
          field.setAccessible(true);
@@ -224,6 +229,11 @@ public class SearchExecutor extends Executor {
       return getField(PROGRESSHELPER_NAME, ProgressHelper.class);
    }
 
+   @SuppressWarnings("unchecked")
+   protected List<TerminationCondition> getTerminationConditions() {
+      return getField(TERMINATION_CONDITIONS, List.class);
+   }
+
    protected TypedProperties getTypedProperties() {
       return getField(PROPERTIES_NAME, TypedProperties.class);
    }
@@ -254,33 +264,55 @@ public class SearchExecutor extends Executor {
    public NondominatedPopulation run() {
       setCanceled(false);
       final int maxEvaluations = getTypedProperties().getInt("maxEvaluations", 25000);
-      getProgressHelper().start(1, maxEvaluations);
-      final NondominatedPopulation population = runSingleSeed(1, 1, maxEvaluations);
+      getProgressHelper().start(1, maxEvaluations, Long.MAX_VALUE);
+      final NondominatedPopulation population = runSingleSeed(1, 1, createTerminationCondition());
       getProgressHelper().stop();
       return population;
+      // return runSingleSeed(1, 1, createTerminationCondition());
    }
 
-   protected NondominatedPopulation runAlgorithm(final Problem problem, final int maxEvaluations) {
+   protected NondominatedPopulation runAlgorithm(final Problem problem,
+         final TerminationCondition terminationCondition) {
       final NondominatedPopulation result = newArchivePopulation();
       try {
          final Algorithm algorithm = createAlgorithm(problem);
 
-         while(!algorithm.isTerminated() && algorithm.getNumberOfEvaluations() < maxEvaluations && !isCanceled()) {
+         // Create any initial conditions for termination condition
+         terminationCondition.initialize(algorithm);
+
+         while(!algorithm.isTerminated() && !terminationCondition.shouldTerminate(algorithm)) {
+            if(isCanceled()) {
+               return null;
+            }
+
             algorithm.step();
             getProgressHelper().setCurrentNFE(algorithm.getNumberOfEvaluations());
          }
 
          result.addAll(algorithm.getResult());
       } finally {
-         if(algorithm != null && !algorithm.isTerminated()) {
+         if(algorithm != null) {
             algorithm.terminate();
          }
       }
       return result;
    }
 
-   @Override
    protected NondominatedPopulation runSingleSeed(final int seed, final int numberOfSeeds, final int maxEvaluations) {
+      this.withMaxEvaluations(maxEvaluations);
+
+      return runSingleSeed(seed, numberOfSeeds, createTerminationCondition());
+   }
+
+   /**
+    * MOEA 2.12 changed parameter "maxEvaluations" to a termination condition, which is:
+    * - Max function evaluations
+    * - Max time elepased
+    * - Compound
+    */
+   @Override
+   protected NondominatedPopulation runSingleSeed(final int seed, final int numberOfSeeds,
+         final TerminationCondition terminationCondition) {
       if(getAlgorithmName() == null) {
          throw new IllegalArgumentException("No algorithm specified");
       }
@@ -298,7 +330,7 @@ public class SearchExecutor extends Executor {
                problem = new DistributedProblem(problem, executorService);
             }
 
-            return runAlgorithm(problem, maxEvaluations);
+            return runAlgorithm(problem, terminationCondition);
          } catch(final AlgorithmTerminationException e) {
             System.err.println(e.getMessage());
             return null;
@@ -401,9 +433,15 @@ public class SearchExecutor extends Executor {
       return (SearchExecutor) super.withMaxEvaluations(maxEvaluations);
    }
 
+   @Override
+   public SearchExecutor withMaxTime(final long maxTime) {
+      return (SearchExecutor) super.withMaxTime(maxTime);
+   }
+
    public SearchExecutor withProblem(final ISearchProblem<?> problem) {
-      super.withProblemClass(problem.getClass(), problem.getFitnessFunction(), problem.getSolutionGenerator());
-      return this;
+      return (SearchExecutor) super.withProblem(problem);
+      // super.withProblemClass(problem.getClass(), problem.getFitnessFunction(), problem.getSolutionGenerator());
+      // return this;
    }
 
    @Override
@@ -581,5 +619,10 @@ public class SearchExecutor extends Executor {
    @Override
    public SearchExecutor withProperty(final String key, final String[] values) {
       return (SearchExecutor) super.withProperty(key, values);
+   }
+
+   @Override
+   public SearchExecutor withTerminationCondition(final TerminationCondition condition) {
+      return (SearchExecutor) super.withTerminationCondition(condition);
    }
 }
