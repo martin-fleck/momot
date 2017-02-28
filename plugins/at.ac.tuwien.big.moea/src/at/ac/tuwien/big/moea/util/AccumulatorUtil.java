@@ -28,6 +28,7 @@ import org.moeaframework.analysis.collector.EpsilonProgressCollector;
 import org.moeaframework.analysis.collector.IndicatorCollector;
 import org.moeaframework.analysis.collector.InstrumentedAlgorithm;
 import org.moeaframework.analysis.collector.PopulationSizeCollector;
+import org.moeaframework.core.Algorithm;
 import org.moeaframework.core.Solution;
 
 public final class AccumulatorUtil {
@@ -207,7 +208,7 @@ public final class AccumulatorUtil {
       return getLatestAccumulatorData(executor.getInstrumenter(), key);
    }
 
-   public static <T extends Serializable> T getLatestAccumulatorData(final Executor executor, final String key,
+   public static <T extends Object> T getLatestAccumulatorData(final Executor executor, final String key,
          final Class<T> clazz) {
       return CastUtil.asClass(getLatestAccumulatorData(executor, key), clazz);
    }
@@ -219,7 +220,7 @@ public final class AccumulatorUtil {
       return getLatestAccumulatorData(instrumenter.getLastAccumulator(), key);
    }
 
-   public static <T extends Serializable> T getLatestAccumulatorData(final Instrumenter instrumenter, final String key,
+   public static <T extends Object> T getLatestAccumulatorData(final Instrumenter instrumenter, final String key,
          final Class<T> clazz) {
       return CastUtil.asClass(getLatestAccumulatorData(instrumenter, key), clazz);
    }
@@ -228,12 +229,12 @@ public final class AccumulatorUtil {
       return getLatestAccumulatorData(accumulator, Keys.INDICATOR_ADDITIVE_EPSILON, Double.class);
    }
 
-   public static Solution getLatestAlgorithm(final Accumulator accumulator) {
-      return getLatestAccumulatorData(accumulator, Keys.ALGORITHM, Solution.class);
+   public static Algorithm getLatestAlgorithm(final Accumulator accumulator) {
+      return getLatestAccumulatorData(accumulator, Keys.ALGORITHM, Algorithm.class);
    }
 
-   public static Solution getLatestAlgorithm(final Executor executor) {
-      return getLatestAccumulatorData(executor, Keys.ALGORITHM, Solution.class);
+   public static Algorithm getLatestAlgorithm(final Executor executor) {
+      return getLatestAccumulatorData(executor, Keys.ALGORITHM, Algorithm.class);
    }
 
    @SuppressWarnings("unchecked")
