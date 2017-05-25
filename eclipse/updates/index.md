@@ -20,7 +20,8 @@ Currently the following archived states are available:
 
 | Release | Eclipse Update Site URL |
 | --- | --- |
-| Version 1.0.0 | [`http://martin-fleck.github.io/momot/eclipse/updates/archive/v1.0.0/`](http://martin-fleck.github.io/momot/eclipse/updates/archive/v1.0.0/) |
+| Version 1.0.0.201605221935 | [`http://martin-fleck.github.io/momot/eclipse/updates/archive/v1.0.0/`](http://martin-fleck.github.io/momot/eclipse/updates/archive/1.0.0.201605221935/) |
+| Version 2.0.0.201608120834 | [`http://martin-fleck.github.io/momot/eclipse/updates/archive/v1.0.0/`](http://martin-fleck.github.io/momot/eclipse/updates/archive/2.0.0.201608120834/) |
 
 
 
