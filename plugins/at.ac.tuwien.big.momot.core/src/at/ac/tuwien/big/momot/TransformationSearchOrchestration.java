@@ -17,6 +17,7 @@ import at.ac.tuwien.big.moea.print.ISolutionWriter;
 import at.ac.tuwien.big.moea.search.fitness.IMultiDimensionalFitnessFunction;
 import at.ac.tuwien.big.momot.print.ITransformationSolutionPrinter;
 import at.ac.tuwien.big.momot.print.TransformationSolutionWriter;
+import at.ac.tuwien.big.momot.problem.DistributedTransformationProblem;
 import at.ac.tuwien.big.momot.problem.TransformationProblem;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.unit.parameter.comparator.IEObjectEqualityHelper;
@@ -28,6 +29,7 @@ import at.ac.tuwien.big.momot.search.solution.generator.TransformationSolutionGe
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.impl.ChangeImpl;
@@ -131,7 +133,12 @@ public class TransformationSearchOrchestration extends AbstractSearchOrchestrati
 
    @Override
    public TransformationProblem createProblem() {
-      return new TransformationProblem(getFitnessFunction(), getSolutionGenerator());
+      // TODO This is probably not the cleanest way... but I'm having problems integrating
+      // this properly with MOEA's FutureSolution and DistributedProblem concept. E.g., a
+      // FutureSolution is constructed by copying constraint, objectives, etc. - but, a
+      // TransformationSolution has a variety of other objects (e.g., equality helper)
+      return new DistributedTransformationProblem(getFitnessFunction(), getSolutionGenerator(),
+            Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()));
    }
 
    protected SearchHelper createSearchHelper() {

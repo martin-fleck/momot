@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.moeaframework.Executor;
@@ -43,7 +42,6 @@ import org.moeaframework.core.comparator.ParetoDominanceComparator;
 import org.moeaframework.core.spi.AlgorithmFactory;
 import org.moeaframework.core.spi.ProblemFactory;
 import org.moeaframework.util.TypedProperties;
-import org.moeaframework.util.distributed.DistributedProblem;
 import org.moeaframework.util.progress.ProgressHelper;
 import org.moeaframework.util.progress.ProgressListener;
 
@@ -113,7 +111,7 @@ public class SearchExecutor extends Executor {
    }
 
    protected Algorithm createAlgorithm(final Problem problem) {
-      Algorithm algorithm = getAlgorithm();
+      Algorithm algorithm = getAlgorithm(problem);
 
       if(getCheckpointFile() != null) {
          algorithm = new Checkpoints(algorithm, getCheckpointFile(), getCheckpointFrequency());
@@ -149,13 +147,17 @@ public class SearchExecutor extends Executor {
    }
 
    public Algorithm getAlgorithm() {
+      return getAlgorithm(getProblem());
+   }
+
+   public Algorithm getAlgorithm(final Problem problem) {
       AlgorithmFactory factory = getAlgorithmFactory();
       if(factory == null) {
          factory = new DynamicAlgorithmFactory();
       }
 
       final Algorithm algorithm = factory.getAlgorithm(getAlgorithmName(), getTypedProperties().getProperties(),
-            getProblem());
+            problem);
 
       return algorithm;
    }
@@ -286,6 +288,7 @@ public class SearchExecutor extends Executor {
             }
 
             algorithm.step();
+
             getProgressHelper().setCurrentNFE(algorithm.getNumberOfEvaluations());
          }
 
@@ -318,18 +321,20 @@ public class SearchExecutor extends Executor {
       }
 
       Problem problem = null;
-      ExecutorService executorService = null;
+      final ExecutorService executorService = null;
 
       try {
          problem = getProblem();
          try {
-            if(getExecutorService() != null) {
-               problem = new DistributedProblem(problem, getExecutorService());
-            } else if(getNumberOfThreads() > 1) {
-               executorService = Executors.newFixedThreadPool(getNumberOfThreads());
-               problem = new DistributedProblem(problem, executorService);
-            }
+            // if(getExecutorService() != null) {
+            // problem = new DistributedProblem(problem, getExecutorService());
+            // } else if(getNumberOfThreads() > 1) {
+            // executorService = Executors.newFixedThreadPool(getNumberOfThreads());
+            // problem = new DistributedProblem(problem, executorService);
+            // }
 
+            // Problem will already be a DistributedTransformationSolution, so no need
+            // for folding into a DistributedProblem
             return runAlgorithm(problem, terminationCondition);
          } catch(final AlgorithmTerminationException e) {
             System.err.println(e.getMessage());
@@ -397,7 +402,7 @@ public class SearchExecutor extends Executor {
    public <A extends Algorithm> SearchExecutor withAlgorithm(final A algorithm) {
       return withAlgorithm(new AbstractRegisteredAlgorithm<A>() {
          @Override
-         public A createAlgorithm() {
+         public A createAlgorithm(final Problem problem) {
             return algorithm;
          }
       }.register());

@@ -22,6 +22,7 @@ import org.moeaframework.algorithm.SPEA2;
 import org.moeaframework.algorithm.VEGA;
 import org.moeaframework.core.FitnessEvaluator;
 import org.moeaframework.core.Initialization;
+import org.moeaframework.core.Problem;
 import org.moeaframework.core.Selection;
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.Variation;
@@ -56,8 +57,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Selection selection, final Variation... variation) {
       return new AbstractRegisteredAlgorithm<AdaptiveTimeContinuation>() {
          @Override
-         public AdaptiveTimeContinuation createAlgorithm() {
-            return new AdaptiveTimeContinuation(createNSGAII(selection, variation).createAlgorithm(),
+         public AdaptiveTimeContinuation createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new AdaptiveTimeContinuation(createNSGAII(selection, variation).createAlgorithm(problem),
                   DEFAULT_WINDOW_SIZE, DEFAULT_MAX_WINDOW_SIZE, 1.0 / injectionRate, getPopulationSize(),
                   getPopulationSize() * MAX_POPULATIONSIZE_FACTOR, new UniformSelection(), new UM(1.0));
          }
@@ -73,8 +78,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Variation... variation) {
       return new AbstractRegisteredAlgorithm<EpsilonMOEA>() {
          @Override
-         public EpsilonMOEA createAlgorithm() {
-            return new EpsilonMOEA(createProblem(), createPopulation(), createEpsilonBoxArchive(epsilon), selection,
+         public EpsilonMOEA createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new EpsilonMOEA(problem, createPopulation(), createEpsilonBoxArchive(epsilon), selection,
                   createVariation(variation), createInitialization());
          }
       };
@@ -84,9 +93,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Variation... variation) {
       return new AbstractRegisteredAlgorithm<IBEA>() {
          @Override
-         public IBEA createAlgorithm() {
-            return new IBEA(createProblem(), createPopulation(), createInitialization(), createVariation(variation),
-                  evaluator);
+         public IBEA createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new IBEA(problem, createPopulation(), createInitialization(), createVariation(variation), evaluator);
          }
       };
    }
@@ -106,8 +118,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
    public IRegisteredAlgorithm<NSGAII> createNSGAII(final Selection selection, final Variation... variation) {
       return new AbstractRegisteredAlgorithm<NSGAII>() {
          @Override
-         public NSGAII createAlgorithm() {
-            return new NSGAII(createProblem(), createSortingPopulation(), createEpsilonBoxArchive(), selection,
+         public NSGAII createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new NSGAII(problem, createSortingPopulation(), createEpsilonBoxArchive(), selection,
                   createVariation(variation), createInitialization());
          }
       };
@@ -122,8 +138,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Selection selection, final Variation... variation) {
       return new AbstractRegisteredAlgorithm<NSGAII>() {
          @Override
-         public NSGAII createAlgorithm() {
-            return new NSGAII(createProblem(),
+         public NSGAII createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new NSGAII(problem,
                   new ReferencePointNondominatedSortingPopulation(
                         getSearchOrchestration().getProblem().getNumberOfObjectives(), divisionsOuter, divisionsInner),
                   createEpsilonBoxArchive(), selection, createVariation(variation), createInitialization());
@@ -144,8 +164,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Variation... variation) {
       return new AbstractRegisteredAlgorithm<PAES>() {
          @Override
-         public PAES createAlgorithm() {
-            return new PAES(createProblem(), createVariation(variation), bisections, archiveSize);
+         public PAES createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new PAES(problem, createVariation(variation), bisections, archiveSize);
          }
       };
    }
@@ -154,9 +178,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Variation... variation) {
       return new AbstractRegisteredAlgorithm<PESA2>() {
          @Override
-         public PESA2 createAlgorithm() {
-            return new PESA2(createProblem(), createVariation(variation), createInitialization(), bisections,
-                  archiveSize);
+         public PESA2 createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new PESA2(problem, createVariation(variation), createInitialization(), bisections, archiveSize);
          }
       };
    }
@@ -164,8 +191,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
    public IRegisteredAlgorithm<RandomSearch> createRandomSearch() {
       return new AbstractRegisteredAlgorithm<RandomSearch>() {
          @Override
-         public RandomSearch createAlgorithm() {
-            return new RandomSearch(createProblem(), createInitialization(), createPopulation());
+         public RandomSearch createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new RandomSearch(problem, createInitialization(), createPopulation());
          }
       };
    }
@@ -174,8 +205,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Variation... variation) {
       return new AbstractRegisteredAlgorithm<SMSEMOA>() {
          @Override
-         public SMSEMOA createAlgorithm() {
-            return new SMSEMOA(createProblem(), createInitialization(), createVariation(variation), evaluator);
+         public SMSEMOA createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new SMSEMOA(problem, createInitialization(), createVariation(variation), evaluator);
          }
       };
    }
@@ -184,8 +219,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
          final Variation... variation) {
       return new AbstractRegisteredAlgorithm<SPEA2>() {
          @Override
-         public SPEA2 createAlgorithm() {
-            return new SPEA2(createProblem(), createInitialization(), createVariation(variation), numberOfOffspring, k);
+         public SPEA2 createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new SPEA2(problem, createInitialization(), createVariation(variation), numberOfOffspring, k);
          }
       };
    }
@@ -201,8 +240,12 @@ public class EvolutionaryAlgorithmFactory<S extends Solution> extends AbstractAl
    public AbstractRegisteredAlgorithm<VEGA> createVEGA(final Variation... variation) {
       return new AbstractRegisteredAlgorithm<VEGA>() {
          @Override
-         public VEGA createAlgorithm() {
-            return new VEGA(createProblem(), createPopulation(), createPopulation(), createInitialization(),
+         public VEGA createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new VEGA(problem, createPopulation(), createPopulation(), createInitialization(),
                   createVariation(variation));
          }
       };

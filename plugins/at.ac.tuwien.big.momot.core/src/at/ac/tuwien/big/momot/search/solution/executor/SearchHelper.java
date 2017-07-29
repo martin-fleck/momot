@@ -15,6 +15,7 @@ package at.ac.tuwien.big.momot.search.solution.executor;
 import at.ac.tuwien.big.moea.util.CollectionUtil;
 import at.ac.tuwien.big.momot.ModuleManager;
 import at.ac.tuwien.big.momot.TransformationSearchOrchestration;
+import at.ac.tuwien.big.momot.problem.solution.FutureTransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.ITransformationVariable;
 import at.ac.tuwien.big.momot.problem.solution.variable.RuleApplicationVariable;
@@ -105,12 +106,17 @@ public class SearchHelper {
 
    public TransformationSolution createEmptyTransformationSolution(final int solutionLength, final int nrObjectives,
          final int nrConstraints) {
-      final TransformationSolution solution = new TransformationSolution(getSearchOrchestration().getProblemGraph(),
-            solutionLength, nrObjectives, nrConstraints);
+      // TODO This assumes that a FutureTransformationSolution is used by default
+      // (consistent with DistributedTransformationProblem being used as default)
+      final TransformationSolution solution = new FutureTransformationSolution(
+            getSearchOrchestration().getProblemGraph(), solutionLength, nrObjectives, nrConstraints);
+
       for(int i = 0; i < solutionLength; i++) {
          solution.setVariable(i, new TransformationPlaceholderVariable());
       }
+
       solution.setEqualityHelper(getSearchOrchestration().getEqualityHelper());
+
       return solution;
    }
 

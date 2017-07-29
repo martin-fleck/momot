@@ -54,14 +54,18 @@ public class MultiDimensionalFitnessFunction<T extends Solution> implements IMul
 
    private double delegateEvaluation(final Solution solution) {
       boolean failedConstraint = false;
+      final double[] constraintValues = new double[constraints.size()];
+      final double[] objectiveValues = new double[objectives.size()];
 
       int i = 0;
       for(final IFitnessDimension<T> dimension : constraints) {
          if(!failedConstraint) {
             final double constraintEvaluation = evaluate(dimension, solution);
+            constraintValues[i] = constraintEvaluation;
             solution.setConstraint(i++, constraintEvaluation);
             failedConstraint = IFitnessDimension.CONSTRAINT_OK != constraintEvaluation;
          } else {
+            constraintValues[i] = IFitnessDimension.CONSTRAINT_VIOLATED;
             solution.setConstraint(i++, IFitnessDimension.CONSTRAINT_VIOLATED);
          }
       }
@@ -69,13 +73,17 @@ public class MultiDimensionalFitnessFunction<T extends Solution> implements IMul
       i = 0;
       for(final IFitnessDimension<T> dimension : objectives) {
          if(!failedConstraint) {
-            solution.setObjective(i++, evaluate(dimension, solution));
+            final double objectiveValue = evaluate(dimension, solution);
+            objectiveValues[i] = objectiveValue;
+            solution.setObjective(i++, objectiveValue);
          } else {
+            objectiveValues[i] = IFitnessDimension.CONSTRAINT_VIOLATED;
             solution.setObjective(i++, IFitnessDimension.CONSTRAINT_VIOLATED);
          }
       }
 
-      return getAggregateFitness(solution);
+      // This will avoid a deadlock in FutureTransformationSolution
+      return getAggregateFitness(constraintValues, objectiveValues);
    }
 
    @Override
@@ -135,8 +143,16 @@ public class MultiDimensionalFitnessFunction<T extends Solution> implements IMul
       return objectiveIndices;
    }
 
+   protected double getAggregateFitness(final double[]... values) {
+      return MathUtil.getSum(values);
+   }
+
    protected double getAggregateFitness(final Solution solution) {
       return MathUtil.getSum(solution.getObjectives(), solution.getConstraints());
+   }
+
+   protected double getAggregateFitnessWithFailedConstraints(final Solution solution) {
+      return MathUtil.getSum(solution.getConstraints());
    }
 
    protected IFitnessDimension<T> getByName(final String name, final Iterable<IFitnessDimension<T>> list) {
