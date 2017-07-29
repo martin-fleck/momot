@@ -19,9 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
+import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
@@ -29,6 +32,31 @@ import org.moeaframework.core.Population;
 import org.moeaframework.core.Solution;
 
 public final class MomotUtil {
+
+   /**
+    * Specific {@link CrossReferencer} to detect dangling references.
+    */
+   private static class DanglingReferencesDetector extends EcoreUtil.CrossReferencer {
+
+      public DanglingReferencesDetector(final Resource resource) {
+         super(resource);
+         crossReference();
+         done();
+      }
+
+      public DanglingReferencesDetector(final ResourceSet resourceSet) {
+         super(resourceSet);
+         crossReference();
+         done();
+      }
+
+      @Override
+      protected boolean crossReference(final EObject eObject, final EReference eReference,
+            final EObject crossReferencedEObject) {
+         return crossReferencedEObject.eResource() == null;
+      }
+
+   }
 
    public static <T extends Solution> Iterable<T> asIterables(final Population population, final Class<T> clazz) {
       final List<T> solutions = new ArrayList<>();
@@ -45,6 +73,41 @@ public final class MomotUtil {
    public static TransformationSolution asTransformationSolution(final Solution solution) {
       return CastUtil.asClass(solution, TransformationSolution.class);
    }
+
+   // public static void cleanGraph(final EGraph graph) {
+   // // Ensure that there are no dangling resources in the graph
+   // // final List<EObject> toRemove = new ArrayList<>();
+   // final Iterator<EObject> contents = getRoot(graph).eAllContents();
+   //
+   // System.out.println("Analyzing " + graph.toString());
+   //
+   // final Diagnostic d = Diagnostician.INSTANCE.validate(getRoot(graph));
+   // final int numViolations = d.getChildren().size();
+   //
+   // if(numViolations > 0) {
+   // System.out.println(" Invalid solution");
+   // }
+   //
+   // while(contents.hasNext()) {
+   // final EObject nextObject = contents.next();
+   //
+   // if(nextObject.eResource() == null) {
+   // // contents.remove();
+   // // System.out.println(" To remove: " + nextObject.toString());
+   // // toRemove.add(nextObject);
+   // } else {
+   // removeDanglingReferences(nextObject.eResource());
+   // }
+   // }
+   // //
+   // // for(final EObject o : toRemove) {
+   // // if(o.eContainer() != null) {
+   // // // o.eContainer().eContents().remove(o);
+   // // EcoreUtil.remove(o);
+   // // }
+   // // }
+   //
+   // }
 
    public static EGraph copy(final EGraph original) {
       if(original == null) {
@@ -138,7 +201,13 @@ public final class MomotUtil {
 
    public static void saveGraph(final HenshinResourceSet set, final EGraph graph, final String targetResource) {
       if(targetResource != null) {
-         set.saveEObject(getRoot(graph), targetResource);
+         // Added catching since occasionally (rarely) saves can fail due to objects not being
+         // contained in a resource?
+         try {
+            set.saveEObject(getRoot(graph), targetResource);
+         } catch(final Throwable t) {
+            System.out.println("[Error] Could not save solution " + getRoot(graph).toString());
+         }
       }
    }
 

@@ -50,7 +50,7 @@ public class DynamicAlgorithmProvider extends AlgorithmProvider {
       if(registered == null) {
          return null;
       }
-      final Algorithm algorithm = registered.createAlgorithm();
+      final Algorithm algorithm = registered.createAlgorithm(problem);
       if(algorithm != null) {
          if(!algorithm.getProblem().getName().equals(problem.getName())) {
             System.err.println("Algorithm retrieved for wrong problem: " + algorithm.getProblem().getName() + " vs "

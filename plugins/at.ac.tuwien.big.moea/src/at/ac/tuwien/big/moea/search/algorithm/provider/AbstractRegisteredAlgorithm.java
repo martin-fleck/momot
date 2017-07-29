@@ -1,6 +1,7 @@
 package at.ac.tuwien.big.moea.search.algorithm.provider;
 
 import org.moeaframework.core.Algorithm;
+import org.moeaframework.core.Problem;
 
 public abstract class AbstractRegisteredAlgorithm<A extends Algorithm> implements IRegisteredAlgorithm<A> {
    protected boolean isRegistered = false;
@@ -11,7 +12,7 @@ public abstract class AbstractRegisteredAlgorithm<A extends Algorithm> implement
    }
 
    @Override
-   public abstract A createAlgorithm();
+   public abstract A createAlgorithm(Problem problem);
 
    @Override
    public String getRegisteredName() {

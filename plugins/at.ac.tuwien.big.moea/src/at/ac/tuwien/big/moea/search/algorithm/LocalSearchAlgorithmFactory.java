@@ -7,6 +7,7 @@ import at.ac.tuwien.big.moea.search.algorithm.local.INeighborhoodFunction;
 import at.ac.tuwien.big.moea.search.algorithm.local.RandomDescent;
 import at.ac.tuwien.big.moea.search.algorithm.provider.AbstractRegisteredAlgorithm;
 
+import org.moeaframework.core.Problem;
 import org.moeaframework.core.Solution;
 
 public class LocalSearchAlgorithmFactory<S extends Solution> extends AbstractAlgorithmFactory<S> {
@@ -22,8 +23,12 @@ public class LocalSearchAlgorithmFactory<S extends Solution> extends AbstractAlg
          final INeighborhoodFunction<S> neighborhoodFunction, final IFitnessComparator<?, S> comparator) {
       return new AbstractRegisteredAlgorithm<HillClimbing<S>>() {
          @Override
-         public HillClimbing<S> createAlgorithm() {
-            return new HillClimbing<>(createProblem(), getInitialSolution(), neighborhoodFunction, comparator);
+         public HillClimbing<S> createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new HillClimbing<>(problem, getInitialSolution(), neighborhoodFunction, comparator);
          }
       };
    }
@@ -32,8 +37,12 @@ public class LocalSearchAlgorithmFactory<S extends Solution> extends AbstractAlg
          final INeighborhoodFunction<S> neighborhoodFunction, final IFitnessComparator<?, S> comparator) {
       return new AbstractRegisteredAlgorithm<RandomDescent<S>>() {
          @Override
-         public RandomDescent<S> createAlgorithm() {
-            return new RandomDescent<>(createProblem(), getInitialSolution(), neighborhoodFunction, comparator);
+         public RandomDescent<S> createAlgorithm(Problem problem) {
+            if(problem == null) {
+               problem = createProblem();
+            }
+
+            return new RandomDescent<>(problem, getInitialSolution(), neighborhoodFunction, comparator);
          }
       };
    }
