@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<planning:Plan xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:planning="http://www.kcl.ac.uk/mdeoptimiser/sprint-planning">
+  <stakeholders workitem="//@backlog/@workitems.0 //@backlog/@workitems.1 //@backlog/@workitems.2"/>
+  <stakeholders workitem="//@backlog/@workitems.3 //@backlog/@workitems.4"/>
+  <stakeholders workitem="//@backlog/@workitems.5 //@backlog/@workitems.6 //@backlog/@workitems.7"/>
+  <stakeholders workitem="//@backlog/@workitems.8"/>
+  <stakeholders workitem="//@backlog/@workitems.9 //@backlog/@workitems.10"/>
+  <backlog>
+    <workitems Importance="3" Effort="8" stakeholder="//@stakeholders.0"/>
+    <workitems Importance="8" Effort="5" stakeholder="//@stakeholders.0"/>
+    <workitems Importance="8" Effort="8" stakeholder="//@stakeholders.0"/>
+    <workitems Importance="1" Effort="1" stakeholder="//@stakeholders.1"/>
+    <workitems Importance="1" Effort="8" stakeholder="//@stakeholders.1"/>
+    <workitems Importance="5" Effort="5" stakeholder="//@stakeholders.2"/>
+    <workitems Importance="3" Effort="8" stakeholder="//@stakeholders.2"/>
+    <workitems Importance="3" Effort="1" stakeholder="//@stakeholders.2"/>
+    <workitems Importance="1" Effort="3" stakeholder="//@stakeholders.3"/>
+    <workitems Importance="5" Effort="5" stakeholder="//@stakeholders.4"/>
+    <workitems Importance="5" Effort="3" stakeholder="//@stakeholders.4"/>
+  </backlog>
+</planning:Plan>

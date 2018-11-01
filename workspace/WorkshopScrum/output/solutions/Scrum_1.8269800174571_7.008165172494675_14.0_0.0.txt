@@ -1,0 +1,489 @@
+Number of variables: 200
+  Variable[0]: -Placeholder-
+
+  Variable[1]: -Placeholder-
+
+  Variable[2]: -Placeholder-
+
+  Variable[3]: -Placeholder-
+
+  Variable[4]: -Placeholder-
+
+  Variable[5]: -Placeholder-
+
+  Variable[6]: -Placeholder-
+
+  Variable[7]: -Placeholder-
+
+  Variable[8]: -Placeholder-
+
+  Variable[9]: -Placeholder-
+
+  Variable[10]: -Placeholder-
+
+  Variable[11]: -Placeholder-
+
+  Variable[12]: -Placeholder-
+
+  Variable[13]: -Placeholder-
+
+  Variable[14]: -Placeholder-
+
+  Variable[15]: -Placeholder-
+
+  Variable[16]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 18
+
+  Variable[17]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 75
+
+  Variable[18]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 16
+
+  Variable[19]: -Placeholder-
+
+  Variable[20]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 18
+
+  Variable[21]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 39
+
+  Variable[22]: -Placeholder-
+
+  Variable[23]: -Placeholder-
+
+  Variable[24]: -Placeholder-
+
+  Variable[25]: -Placeholder-
+
+  Variable[26]: -Placeholder-
+
+  Variable[27]: -Placeholder-
+
+  Variable[28]: -Placeholder-
+
+  Variable[29]: -Placeholder-
+
+  Variable[30]: -Placeholder-
+
+  Variable[31]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 111
+
+  Variable[32]: -Placeholder-
+
+  Variable[33]: -Placeholder-
+
+  Variable[34]: -Placeholder-
+
+  Variable[35]: -Placeholder-
+
+  Variable[36]: -Placeholder-
+
+  Variable[37]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 96
+
+  Variable[38]: -Placeholder-
+
+  Variable[39]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 102
+
+  Variable[40]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 7
+- parameter 'workItemId' => 0
+
+  Variable[41]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 111
+
+  Variable[42]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 93
+
+  Variable[43]: -Placeholder-
+
+  Variable[44]: -Placeholder-
+
+  Variable[45]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 92
+
+  Variable[46]: -Placeholder-
+
+  Variable[47]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 10
+
+  Variable[48]: -Placeholder-
+
+  Variable[49]: -Placeholder-
+
+  Variable[50]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 67
+
+  Variable[51]: -Placeholder-
+
+  Variable[52]: -Placeholder-
+
+  Variable[53]: -Placeholder-
+
+  Variable[54]: -Placeholder-
+
+  Variable[55]: -Placeholder-
+
+  Variable[56]: -Placeholder-
+
+  Variable[57]: -Placeholder-
+
+  Variable[58]: -Placeholder-
+
+  Variable[59]: -Placeholder-
+
+  Variable[60]: -Placeholder-
+
+  Variable[61]: -Placeholder-
+
+  Variable[62]: -Placeholder-
+
+  Variable[63]: -Placeholder-
+
+  Variable[64]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 73
+
+  Variable[65]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 64
+
+  Variable[66]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 106
+
+  Variable[67]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 80
+
+  Variable[68]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 58
+
+  Variable[69]: -Placeholder-
+
+  Variable[70]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 98
+
+  Variable[71]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 18
+
+  Variable[72]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 100
+
+  Variable[73]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 58
+
+  Variable[74]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 43
+
+  Variable[75]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 30
+
+  Variable[76]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 106
+
+  Variable[77]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 93
+
+  Variable[78]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 63
+
+  Variable[79]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 36
+
+  Variable[80]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 56
+
+  Variable[81]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 105
+
+  Variable[82]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 51
+
+  Variable[83]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 65
+
+  Variable[84]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 88
+
+  Variable[85]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 14
+
+  Variable[86]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 39
+
+  Variable[87]: -Placeholder-
+
+  Variable[88]: -Placeholder-
+
+  Variable[89]: -Placeholder-
+
+  Variable[90]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 59
+
+  Variable[91]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 110
+
+  Variable[92]: -Placeholder-
+
+  Variable[93]: -Placeholder-
+
+  Variable[94]: -Placeholder-
+
+  Variable[95]: -Placeholder-
+
+  Variable[96]: -Placeholder-
+
+  Variable[97]: -Placeholder-
+
+  Variable[98]: -Placeholder-
+
+  Variable[99]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 74
+
+  Variable[100]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 57
+
+  Variable[101]: -Placeholder-
+
+  Variable[102]: -Placeholder-
+
+  Variable[103]: -Placeholder-
+
+  Variable[104]: -Placeholder-
+
+  Variable[105]: -Placeholder-
+
+  Variable[106]: -Placeholder-
+
+  Variable[107]: -Placeholder-
+
+  Variable[108]: -Placeholder-
+
+  Variable[109]: -Placeholder-
+
+  Variable[110]: -Placeholder-
+
+  Variable[111]: -Placeholder-
+
+  Variable[112]: -Placeholder-
+
+  Variable[113]: -Placeholder-
+
+  Variable[114]: -Placeholder-
+
+  Variable[115]: -Placeholder-
+
+  Variable[116]: -Placeholder-
+
+  Variable[117]: -Placeholder-
+
+  Variable[118]: -Placeholder-
+
+  Variable[119]: -Placeholder-
+
+  Variable[120]: -Placeholder-
+
+  Variable[121]: -Placeholder-
+
+  Variable[122]: -Placeholder-
+
+  Variable[123]: -Placeholder-
+
+  Variable[124]: -Placeholder-
+
+  Variable[125]: -Placeholder-
+
+  Variable[126]: -Placeholder-
+
+  Variable[127]: -Placeholder-
+
+  Variable[128]: -Placeholder-
+
+  Variable[129]: -Placeholder-
+
+  Variable[130]: -Placeholder-
+
+  Variable[131]: -Placeholder-
+
+  Variable[132]: -Placeholder-
+
+  Variable[133]: -Placeholder-
+
+  Variable[134]: -Placeholder-
+
+  Variable[135]: -Placeholder-
+
+  Variable[136]: -Placeholder-
+
+  Variable[137]: -Placeholder-
+
+  Variable[138]: -Placeholder-
+
+  Variable[139]: -Placeholder-
+
+  Variable[140]: -Placeholder-
+
+  Variable[141]: -Placeholder-
+
+  Variable[142]: -Placeholder-
+
+  Variable[143]: -Placeholder-
+
+  Variable[144]: -Placeholder-
+
+  Variable[145]: -Placeholder-
+
+  Variable[146]: -Placeholder-
+
+  Variable[147]: -Placeholder-
+
+  Variable[148]: -Placeholder-
+
+  Variable[149]: -Placeholder-
+
+  Variable[150]: -Placeholder-
+
+  Variable[151]: -Placeholder-
+
+  Variable[152]: -Placeholder-
+
+  Variable[153]: -Placeholder-
+
+  Variable[154]: -Placeholder-
+
+  Variable[155]: -Placeholder-
+
+  Variable[156]: -Placeholder-
+
+  Variable[157]: -Placeholder-
+
+  Variable[158]: -Placeholder-
+
+  Variable[159]: -Placeholder-
+
+  Variable[160]: -Placeholder-
+
+  Variable[161]: -Placeholder-
+
+  Variable[162]: -Placeholder-
+
+  Variable[163]: -Placeholder-
+
+  Variable[164]: -Placeholder-
+
+  Variable[165]: -Placeholder-
+
+  Variable[166]: -Placeholder-
+
+  Variable[167]: -Placeholder-
+
+  Variable[168]: -Placeholder-
+
+  Variable[169]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 43
+
+  Variable[170]: -Placeholder-
+
+  Variable[171]: -Placeholder-
+
+  Variable[172]: -Placeholder-
+
+  Variable[173]: -Placeholder-
+
+  Variable[174]: -Placeholder-
+
+  Variable[175]: -Placeholder-
+
+  Variable[176]: -Placeholder-
+
+  Variable[177]: -Placeholder-
+
+  Variable[178]: -Placeholder-
+
+  Variable[179]: -Placeholder-
+
+  Variable[180]: -Placeholder-
+
+  Variable[181]: -Placeholder-
+
+  Variable[182]: -Placeholder-
+
+  Variable[183]: -Placeholder-
+
+  Variable[184]: -Placeholder-
+
+  Variable[185]: -Placeholder-
+
+  Variable[186]: -Placeholder-
+
+  Variable[187]: -Placeholder-
+
+  Variable[188]: -Placeholder-
+
+  Variable[189]: -Placeholder-
+
+  Variable[190]: -Placeholder-
+
+  Variable[191]: -Placeholder-
+
+  Variable[192]: -Placeholder-
+
+  Variable[193]: -Placeholder-
+
+  Variable[194]: -Placeholder-
+
+  Variable[195]: -Placeholder-
+
+  Variable[196]: -Placeholder-
+
+  Variable[197]: -Placeholder-
+
+  Variable[198]: -Placeholder-
+
+  Variable[199]: -Placeholder-
+
+Number of attributes: 1
+  AggregatedFitness: 22.835145189951774
+Number of objectives: 4
+  satisfaction: 1.8269800174571
+  costs: 7.008165172494675
+  nounassignedwi: 14.0
+  maximalnumberofsprints: 0.0
+Number of constraints: 0

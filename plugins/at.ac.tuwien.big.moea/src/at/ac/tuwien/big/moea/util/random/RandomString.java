@@ -12,11 +12,14 @@
  *******************************************************************************/
 package at.ac.tuwien.big.moea.util.random;
 
-import org.apache.commons.lang.RandomStringUtils;
+import java.util.Random;
 
 public class RandomString implements IRandomGenerator<String> {
 
    private final RandomInteger randomInteger;
+   private final Random random = new Random();
+
+   private final char[] name = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890".toCharArray();
 
    public RandomString(final int length) {
       this(length, length);
@@ -28,6 +31,11 @@ public class RandomString implements IRandomGenerator<String> {
 
    @Override
    public String nextRandom() {
-      return RandomStringUtils.random(randomInteger.nextRandom());
+      final int length = randomInteger.nextRandom();
+      final StringBuilder ret = new StringBuilder();
+      for(int i = 0; i < length; ++i) {
+         ret.append(name[random.nextInt(name.length)]);
+      }
+      return ret.toString();
    }
 }

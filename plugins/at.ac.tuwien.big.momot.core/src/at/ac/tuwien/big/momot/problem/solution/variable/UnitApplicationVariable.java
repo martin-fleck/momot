@@ -1,6 +1,9 @@
 package at.ac.tuwien.big.momot.problem.solution.variable;
 
 import at.ac.tuwien.big.moea.util.CastUtil;
+import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
+
+import java.util.List;
 
 import org.eclipse.emf.henshin.interpreter.ApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.Assignment;
@@ -46,7 +49,9 @@ public class UnitApplicationVariable extends UnitApplicationImpl implements IUni
 
    @Override
    public boolean execute(final ApplicationMonitor monitor) {
+      SearchHelper.startExecutionTime();
       isExecuted = super.execute(monitor);
+      SearchHelper.endExecutionTime();
       return isExecuted;
    }
 
@@ -56,6 +61,11 @@ public class UnitApplicationVariable extends UnitApplicationImpl implements IUni
          return isExecuted;
       }
       return execute();
+   }
+
+   @Override
+   public List<RuleApplication> getAppliedRules() {
+      return super.getAppliedRules();
    }
 
    @Override

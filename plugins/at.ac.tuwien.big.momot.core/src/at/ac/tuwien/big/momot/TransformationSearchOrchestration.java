@@ -25,6 +25,7 @@ import at.ac.tuwien.big.momot.search.fitness.EGraphMultiDimensionalFitnessFuncti
 import at.ac.tuwien.big.momot.search.fitness.IEGraphMultiDimensionalFitnessFunction;
 import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 import at.ac.tuwien.big.momot.search.solution.generator.TransformationSolutionGenerator;
+import at.ac.tuwien.big.momot.util.MomotUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,8 +92,25 @@ public class TransformationSearchOrchestration extends AbstractSearchOrchestrati
       setSolutionLength(solutionLength);
    }
 
+   public TransformationSearchOrchestration(final TransformationSearchOrchestration copyFrom) {
+      this(copyFrom.moduleManager, MomotUtil.copy(copyFrom.problemGraph), copyFrom.getSolutionLength());
+      this.globalJavaImports.addAll(copyFrom.getGlobalJavaImports());
+      setAlgorithms(copyFrom.getAlgorithms());
+      setDeterministic(copyFrom.isDeterministic());
+      setEqualityHelper(copyFrom.getEqualityHelper());
+      setFitnessFunction(copyFrom.getFitnessFunction());
+      setSolutionClass(copyFrom.getSolutionClass());
+      setSolutionWriter(copyFrom.getSolutionPrinter());
+   }
+
    public void addGlobalJavaImport(final String globalJavaImport) {
       getGlobalJavaImports().add(globalJavaImport);
+   }
+
+   @Override
+   public TransformationSearchOrchestration clone() {
+      return new TransformationSearchOrchestration(this);
+
    }
 
    public NondominatedPopulation createArchive(final double... epsilon) {

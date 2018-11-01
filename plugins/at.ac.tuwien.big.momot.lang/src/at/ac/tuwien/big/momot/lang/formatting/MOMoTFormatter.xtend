@@ -20,7 +20,7 @@ import org.eclipse.xtext.GrammarUtil
  * 
  * Also see {@link org.eclipse.xtext.xtext.XtextFormattingTokenSerializer} as an example
  */
-class MOMoTFormatter extends AbstractDeclarativeFormatter {
+class MOMoTFormatter extends AbstractDeclarativeFormatter { 
 
 	@Inject extension MOMoTGrammarAccess
   

@@ -17,8 +17,11 @@ import at.ac.tuwien.big.moea.problem.SearchProblem;
 import at.ac.tuwien.big.moea.search.algorithm.provider.AbstractRegisteredAlgorithm;
 import at.ac.tuwien.big.moea.search.algorithm.provider.DynamicAlgorithmFactory;
 import at.ac.tuwien.big.moea.util.CastUtil;
+import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
+import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper.ProfileValues;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -67,6 +70,8 @@ public class SearchExecutor extends Executor {
    protected String name;
    protected Algorithm algorithm;
    protected Map<String, Field> reflectiveFields = new HashMap<>();
+
+   public ProfileValues lastValues;
 
    public SearchExecutor() {
       super();
@@ -271,8 +276,9 @@ public class SearchExecutor extends Executor {
       // return runSingleSeed(1, 1, createTerminationCondition());
    }
 
-   protected NondominatedPopulation runAlgorithm(final Problem problem,
-         final TerminationCondition terminationCondition) {
+   protected NondominatedPopulation runAlgorithm(final Problem problem, final TerminationCondition terminationCondition,
+         final long maxSeconds) {
+      SearchHelper.pollProfile();
       final NondominatedPopulation result = newArchivePopulation();
       try {
          final Algorithm algorithm = createAlgorithm(problem);
@@ -280,15 +286,37 @@ public class SearchExecutor extends Executor {
          // Create any initial conditions for termination condition
          terminationCondition.initialize(algorithm);
 
+         final long startTime = System.nanoTime();
          while(!algorithm.isTerminated() && !terminationCondition.shouldTerminate(algorithm)) {
             if(isCanceled()) {
                return null;
             }
 
-            algorithm.step();
+            try {
+               algorithm.step();
+               final long curTime = System.nanoTime() - startTime;
+               if(curTime / (1000 * 1000L * 1000) >= maxSeconds) {
+                  break;
+               }
+            } catch(final Exception e) {
+               e.printStackTrace();
+               System.err.println(e.getMessage());
+            }
+
             getProgressHelper().setCurrentNFE(algorithm.getNumberOfEvaluations());
          }
-
+         lastValues = SearchHelper.pollProfile();
+         final String csv = problem.getName() + "," + getAlgorithmName() + "," + getName() + "," + lastValues.toCsv()
+               + "\n";
+         try {
+            System.out.print("Ran: " + csv);
+            final FileOutputStream fos = new FileOutputStream("basicprofile.csv", true);
+            fos.write(csv.getBytes());
+            fos.flush();
+            fos.close();
+         } catch(final Exception e) {
+            e.printStackTrace();
+         }
          result.addAll(algorithm.getResult());
       } finally {
          if(algorithm != null) {
@@ -329,8 +357,11 @@ public class SearchExecutor extends Executor {
                executorService = Executors.newFixedThreadPool(getNumberOfThreads());
                problem = new DistributedProblem(problem, executorService);
             }
-
-            return runAlgorithm(problem, terminationCondition);
+            int maxSeconds = getTypedProperties().getInt("MAX_SECONDS", 0);
+            if(maxSeconds <= 0) {
+               maxSeconds = Integer.MAX_VALUE;
+            }
+            return runAlgorithm(problem, terminationCondition, maxSeconds);
          } catch(final AlgorithmTerminationException e) {
             System.err.println(e.getMessage());
             return null;
@@ -431,6 +462,10 @@ public class SearchExecutor extends Executor {
    @Override
    public SearchExecutor withMaxEvaluations(final int maxEvaluations) {
       return (SearchExecutor) super.withMaxEvaluations(maxEvaluations);
+   }
+
+   public SearchExecutor withMaxSeconds(final int maxSeconds) {
+      return (SearchExecutor) super.withProperty("MAX_SECONDS", maxSeconds);
    }
 
    @Override
@@ -625,4 +660,5 @@ public class SearchExecutor extends Executor {
    public SearchExecutor withTerminationCondition(final TerminationCondition condition) {
       return (SearchExecutor) super.withTerminationCondition(condition);
    }
+
 }

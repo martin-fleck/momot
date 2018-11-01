@@ -1,0 +1,42 @@
+Number of variables: 10
+  Variable[0]: -Placeholder-
+
+  Variable[1]: Assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+  Variable[2]: Assignment for unit 'fixDependencies':
+- no parameters
+
+  Variable[3]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[4]: Match for rule 'repairDependenciesOfSa':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[5]: Match for rule 'repairDependenciesOfSa':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[6]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[7]: Assignment for unit 'fixDependencies':
+- no parameters
+
+  Variable[8]: Match for rule 'deleteDependenciesOfSa':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[9]: Assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+Number of attributes: 1
+  AggregatedFitness: 289.00962406871867
+Number of objectives: 2
+  satisfaction: -1.9903759312813298
+  costs: 291.0
+Number of constraints: 0

@@ -446,6 +446,11 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
               initializer = experiment.nrRuns
            ]
            
+           members += search.toField(MOMoTInferrer::Name::FIELD_MAX_SECONDS, intRef) [
+              visibility = JvmVisibility::PROTECTED
+              initializer = experiment.maxSeconds
+           ]
+           
            members += search.toField(MOMoTInferrer::Name::FIELD_BASE_NAME, stringRef) [
               visibility = JvmVisibility::PROTECTED
            ]
@@ -721,6 +726,11 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
                   appendLine(searchExperimentRef.type, "<TransformationSolution> experiment = new ", searchExperimentRef.type, "<TransformationSolution>(", MOMoTInferrer::Name::PARAM_ORCHESTRATION, ", ", MOMoTInferrer::Name::FIELD_MAX_EVALUATIONS + ");");
                   if(experiment.referenceSet != null)
                      appendLine("experiment.setReferenceSetFile(", MOMoTInferrer::Name::FIELD_REFERENCE_SET, ");")
+                     
+                  if (experiment.maxSeconds !== null) { 
+                  	appendLine("experiment.setMaxSeconds(", MOMoTInferrer::Name::FIELD_MAX_SECONDS, ");")	
+                  }
+                     
                   appendLine("experiment.setNumberOfRuns(", MOMoTInferrer::Name::FIELD_NR_RUNS, ");")
                   for(listener : experiment.progressListeners)
                      appendLine("experiment.addProgressListener(", listener.listenerMethodName, "());")

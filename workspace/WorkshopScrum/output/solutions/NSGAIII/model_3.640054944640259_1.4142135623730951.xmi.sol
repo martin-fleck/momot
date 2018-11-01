@@ -1,0 +1,31 @@
+[Match for rule 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 7
+, Match for rule 'createSprint':
+- parameter 'initId' => 3
+- parameter 'workItem' => 8
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 2
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 5
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 6
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 4
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 10
+, Match for rule 'createSprint':
+- parameter 'initId' => 9
+- parameter 'workItem' => 7
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 3
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 9
+]

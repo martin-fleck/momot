@@ -1897,13 +1897,13 @@ ruleOpSingleAssign
 	    }
 
 )
-)	otherlv_8='nrRuns' 
+)(	otherlv_8='maxSeconds' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getExperimentOrchestrationAccess().getNrRunsKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getExperimentOrchestrationAccess().getMaxSecondsKeyword_8_0());
     }
 
     { 
-        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getOpSingleAssignParserRuleCall_9()); 
+        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getOpSingleAssignParserRuleCall_8_1()); 
     }
 ruleOpSingleAssign
     { 
@@ -1912,54 +1912,54 @@ ruleOpSingleAssign
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getNrRunsXNumberLiteralParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getMaxSecondsXExpressionParserRuleCall_8_2_0()); 
 	    }
-		lv_nrRuns_10_0=ruleXNumberLiteral		{
+		lv_maxSeconds_10_0=ruleXExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
+	        }
+       		set(
+       			$current, 
+       			"maxSeconds",
+        		lv_maxSeconds_10_0, 
+        		"org.eclipse.xtext.xbase.Xbase.XExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_11='nrRuns' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getExperimentOrchestrationAccess().getNrRunsKeyword_9());
+    }
+
+    { 
+        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getOpSingleAssignParserRuleCall_10()); 
+    }
+ruleOpSingleAssign
+    { 
+        afterParserOrEnumRuleCall();
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getNrRunsXNumberLiteralParserRuleCall_11_0()); 
+	    }
+		lv_nrRuns_13_0=ruleXNumberLiteral		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
 	        }
        		set(
        			$current, 
        			"nrRuns",
-        		lv_nrRuns_10_0, 
+        		lv_nrRuns_13_0, 
         		"org.eclipse.xtext.xbase.Xbase.XNumberLiteral");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_11='referenceSet' 
+)(	otherlv_14='referenceSet' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getExperimentOrchestrationAccess().getReferenceSetKeyword_11_0());
-    }
-
-    { 
-        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getOpSingleAssignParserRuleCall_11_1()); 
-    }
-ruleOpSingleAssign
-    { 
-        afterParserOrEnumRuleCall();
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getReferenceSetXExpressionParserRuleCall_11_2_0()); 
-	    }
-		lv_referenceSet_13_0=ruleXExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
-	        }
-       		set(
-       			$current, 
-       			"referenceSet",
-        		lv_referenceSet_13_0, 
-        		"org.eclipse.xtext.xbase.Xbase.XExpression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?(	otherlv_14='progressListeners' 
-    {
-    	newLeafNode(otherlv_14, grammarAccess.getExperimentOrchestrationAccess().getProgressListenersKeyword_12_0());
+    	newLeafNode(otherlv_14, grammarAccess.getExperimentOrchestrationAccess().getReferenceSetKeyword_12_0());
     }
 
     { 
@@ -1969,57 +1969,27 @@ ruleOpSingleAssign
     { 
         afterParserOrEnumRuleCall();
     }
-	otherlv_16='[' 
-    {
-    	newLeafNode(otherlv_16, grammarAccess.getExperimentOrchestrationAccess().getLeftSquareBracketKeyword_12_2());
-    }
-((
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getProgressListenersXConstructorCallParserRuleCall_12_3_0_0()); 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getReferenceSetXExpressionParserRuleCall_12_2_0()); 
 	    }
-		lv_progressListeners_17_0=ruleXConstructorCall		{
+		lv_referenceSet_16_0=ruleXExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"progressListeners",
-        		lv_progressListeners_17_0, 
-        		"org.eclipse.xtext.xbase.Xbase.XConstructorCall");
+       			"referenceSet",
+        		lv_referenceSet_16_0, 
+        		"org.eclipse.xtext.xbase.Xbase.XExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_18=',' 
+))?(	otherlv_17='progressListeners' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getExperimentOrchestrationAccess().getCommaKeyword_12_3_1_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getProgressListenersXConstructorCallParserRuleCall_12_3_1_1_0()); 
-	    }
-		lv_progressListeners_19_0=ruleXConstructorCall		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
-	        }
-       		add(
-       			$current, 
-       			"progressListeners",
-        		lv_progressListeners_19_0, 
-        		"org.eclipse.xtext.xbase.Xbase.XConstructorCall");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))*)?	otherlv_20=']' 
-    {
-    	newLeafNode(otherlv_20, grammarAccess.getExperimentOrchestrationAccess().getRightSquareBracketKeyword_12_4());
-    }
-)?(	otherlv_21='collectors' 
-    {
-    	newLeafNode(otherlv_21, grammarAccess.getExperimentOrchestrationAccess().getCollectorsKeyword_13_0());
+    	newLeafNode(otherlv_17, grammarAccess.getExperimentOrchestrationAccess().getProgressListenersKeyword_13_0());
     }
 
     { 
@@ -2029,23 +1999,83 @@ ruleOpSingleAssign
     { 
         afterParserOrEnumRuleCall();
     }
-	otherlv_23='[' 
+	otherlv_19='[' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getExperimentOrchestrationAccess().getLeftSquareBracketKeyword_13_2());
+    	newLeafNode(otherlv_19, grammarAccess.getExperimentOrchestrationAccess().getLeftSquareBracketKeyword_13_2());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getCollectorsCollectorArrayParserRuleCall_13_3_0_0()); 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getProgressListenersXConstructorCallParserRuleCall_13_3_0_0()); 
 	    }
-		lv_collectors_24_0=ruleCollectorArray		{
+		lv_progressListeners_20_0=ruleXConstructorCall		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
+	        }
+       		add(
+       			$current, 
+       			"progressListeners",
+        		lv_progressListeners_20_0, 
+        		"org.eclipse.xtext.xbase.Xbase.XConstructorCall");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_21=',' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getExperimentOrchestrationAccess().getCommaKeyword_13_3_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getProgressListenersXConstructorCallParserRuleCall_13_3_1_1_0()); 
+	    }
+		lv_progressListeners_22_0=ruleXConstructorCall		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
+	        }
+       		add(
+       			$current, 
+       			"progressListeners",
+        		lv_progressListeners_22_0, 
+        		"org.eclipse.xtext.xbase.Xbase.XConstructorCall");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*)?	otherlv_23=']' 
+    {
+    	newLeafNode(otherlv_23, grammarAccess.getExperimentOrchestrationAccess().getRightSquareBracketKeyword_13_4());
+    }
+)?(	otherlv_24='collectors' 
+    {
+    	newLeafNode(otherlv_24, grammarAccess.getExperimentOrchestrationAccess().getCollectorsKeyword_14_0());
+    }
+
+    { 
+        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getOpSingleAssignParserRuleCall_14_1()); 
+    }
+ruleOpSingleAssign
+    { 
+        afterParserOrEnumRuleCall();
+    }
+	otherlv_26='[' 
+    {
+    	newLeafNode(otherlv_26, grammarAccess.getExperimentOrchestrationAccess().getLeftSquareBracketKeyword_14_2());
+    }
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getCollectorsCollectorArrayParserRuleCall_14_3_0_0()); 
+	    }
+		lv_collectors_27_0=ruleCollectorArray		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
 	        }
        		set(
        			$current, 
        			"collectors",
-        		lv_collectors_24_0, 
+        		lv_collectors_27_0, 
         		"at.ac.tuwien.big.momot.lang.MOMoT.CollectorArray");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2054,50 +2084,50 @@ ruleOpSingleAssign
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getCustomCollectorsXConstructorCallParserRuleCall_13_3_1_0()); 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getCustomCollectorsXConstructorCallParserRuleCall_14_3_1_0()); 
 	    }
-		lv_customCollectors_25_0=ruleXConstructorCall		{
+		lv_customCollectors_28_0=ruleXConstructorCall		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
 	        }
        		add(
        			$current, 
        			"customCollectors",
-        		lv_customCollectors_25_0, 
+        		lv_customCollectors_28_0, 
         		"org.eclipse.xtext.xbase.Xbase.XConstructorCall");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_26=',' 
+)(	otherlv_29=',' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getExperimentOrchestrationAccess().getCommaKeyword_13_3_2_0());
+    	newLeafNode(otherlv_29, grammarAccess.getExperimentOrchestrationAccess().getCommaKeyword_14_3_2_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getCustomCollectorsXConstructorCallParserRuleCall_13_3_2_1_0()); 
+	        newCompositeNode(grammarAccess.getExperimentOrchestrationAccess().getCustomCollectorsXConstructorCallParserRuleCall_14_3_2_1_0()); 
 	    }
-		lv_customCollectors_27_0=ruleXConstructorCall		{
+		lv_customCollectors_30_0=ruleXConstructorCall		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExperimentOrchestrationRule());
 	        }
        		add(
        			$current, 
        			"customCollectors",
-        		lv_customCollectors_27_0, 
+        		lv_customCollectors_30_0, 
         		"org.eclipse.xtext.xbase.Xbase.XConstructorCall");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*)?	otherlv_28=']' 
+))*)?	otherlv_31=']' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getExperimentOrchestrationAccess().getRightSquareBracketKeyword_13_4());
+    	newLeafNode(otherlv_31, grammarAccess.getExperimentOrchestrationAccess().getRightSquareBracketKeyword_14_4());
     }
-)?	otherlv_29='}' 
+)?	otherlv_32='}' 
     {
-    	newLeafNode(otherlv_29, grammarAccess.getExperimentOrchestrationAccess().getRightCurlyBracketKeyword_14());
+    	newLeafNode(otherlv_32, grammarAccess.getExperimentOrchestrationAccess().getRightCurlyBracketKeyword_15());
     }
 )
 ;

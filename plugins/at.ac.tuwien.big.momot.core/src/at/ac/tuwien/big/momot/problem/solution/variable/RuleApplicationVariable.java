@@ -1,6 +1,7 @@
 package at.ac.tuwien.big.momot.problem.solution.variable;
 
 import at.ac.tuwien.big.moea.util.CastUtil;
+import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 
 import org.eclipse.emf.henshin.interpreter.Assignment;
 import org.eclipse.emf.henshin.interpreter.Change;
@@ -46,7 +47,10 @@ public class RuleApplicationVariable extends RuleApplicationImpl implements IRul
       if(isExecuted && !reexecute) {
          return isExecuted;
       }
-      return execute(null);
+      SearchHelper.startExecutionTime();
+      final boolean ret = execute(null);
+      SearchHelper.endExecutionTime();
+      return ret;
    }
 
    public Change getChange() {

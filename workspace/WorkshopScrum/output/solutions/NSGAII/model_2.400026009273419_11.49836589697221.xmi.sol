@@ -1,0 +1,216 @@
+[-Placeholder-
+, -Placeholder-
+, -Placeholder-
+, Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 78
+- node #1 => SprintPlanning.impl.SprintImpl@4ddd32ad (id: 14)
+- node #2 => SprintPlanning.impl.PlanImpl@1788e55d
+- node #3 => SprintPlanning.impl.WorkItemImpl@10fbe56d (Importance: 1, Effort: 1, id: 78)
+, -Placeholder-
+, -Placeholder-
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 78
+- node #1 => SprintPlanning.impl.SprintImpl@535aa700 (id: 4)
+- node #2 => SprintPlanning.impl.PlanImpl@1788e55d
+- node #3 => SprintPlanning.impl.WorkItemImpl@10fbe56d (Importance: 1, Effort: 1, id: 78)
+, -Placeholder-
+, Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 37
+- node #1 => SprintPlanning.impl.SprintImpl@6712da29 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@1788e55d
+- node #3 => SprintPlanning.impl.WorkItemImpl@48a183da (Importance: 8, Effort: 5, id: 37)
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+, -Placeholder-
+]

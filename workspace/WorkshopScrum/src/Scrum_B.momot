@@ -1,0 +1,151 @@
+package icmt.tool.momot.demo
+
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.moea.util.MathUtil
+import org.moeaframework.core.operator.TournamentSelection
+import org.moeaframework.core.operator.OnePointCrossover
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import SprintPlanning.SprintPlanningPackage
+import SprintPlanning.SprintPlanningFactory
+import mdetools.momot.scrum.HasNoUnassignedWorkItems
+import SprintPlanning.Plan
+import mdetools.momot.scrum.HasTheAllowedMaximalNumberOfSprints
+import mdetools.momot.scrum.MinimiseCustomerSatisfactionIndex
+import mdetools.momot.scrum.MinimiseSprintEffortDeviation
+import SprintPlanning.WorkItem
+import at.ac.tuwien.big.momot.problem.unit.parameter.random.RandomIntegerValue
+
+initialization = {
+   SprintPlanningPackage.eINSTANCE.eClass // register package
+   SprintPlanningFactory.eINSTANCE.eClass
+   System.out.println("Search started.");
+} 
+
+search = {  
+   model = {
+      file       = "models/sprint-planning-model-10-stakeholders-254-items.xmi"
+      adapt = {
+      	var cm = root as Plan
+      	var filtered = cm.eAllContents.filter(WorkItem)
+      	var tid = 0;
+      	//Create desired number of sprints
+      	var backlog = cm.backlog;
+      	var sum = backlog.workitems.fold(0)[p,n | p+n.effort];
+      	var numSprints = sum/25;
+      	for (i: 0 ..< numSprints) {
+      		var sprint = SprintPlanningFactory.eINSTANCE.createSprint;
+      		sprint.id =  (i+1);
+      		cm.sprints.add(sprint);
+      	}
+      	
+      	while (filtered.hasNext) {
+      		var wi = filtered.next()
+      		wi.setId(tid)
+      		tid = tid+1
+      		cm.sprints.get(MathUtil.randomInteger(cm.sprints.size)).committedItem.add(wi);
+      	}
+      	      	
+      	return cm;
+      }
+//      adapt      = {
+//         // add one class per feature
+//         var cm = root as ClassModel
+//         /*for(i : 0 ..< cm.features.size - cm.classes.size) {
+//            var newClass = ArchitectureFactory::eINSTANCE.createClass()
+//            newClass.name = "Class_" + i
+//            cm.classes.add(newClass)
+//         }
+//         for(feature : cm.features) // distribute features randomly
+//            if(feature.isEncapsulatedBy == null)
+//               cm.classes.get(MathUtil.randomInteger(cm.classes.size)).encapsulates.add(feature)*/
+//         return cm 
+//      }
+   }
+   solutionLength  = 550 // at most 30 orchestrated transformation units
+
+
+   transformations = {
+      modules = [ "transformations/sprint.henshin" ]
+      ignoreUnits = ["sprint::createSprint", "sprint::deleteSprint", "sprint::addItemToSprint", "sprint::removeItemFromSprint"]
+      parameterValues = {
+		'sprint::createSprint::initId'  : new RandomIntegerValue(1, 10)
+      }  
+   }
+ 
+   fitness         = {
+      objectives = {
+      	 satisfaction: minimize { MinimiseCustomerSatisfactionIndex.computeFitness(root as Plan)}
+      	 costs: minimize { MinimiseSprintEffortDeviation.computeFitness(root as Plan)}
+       }
+      constraints = {
+      	 nounassignedwi: minimize{ HasNoUnassignedWorkItems.computeFitness(root as Plan)}
+      	 maximalnumberofsprints: minimize { HasTheAllowedMaximalNumberOfSprints.computeFitness(root as Plan)}
+      } 
+   }
+
+   algorithms      = { 
+      NSGAII : moea.createNSGAII()
+//      NSGAIII : moea.createNSGAIII()
+//      eMOEA   : moea.createEpsilonMOEA()
+   }
+}
+
+experiment = {
+   populationSize    = 40
+   maxEvaluations    = 100000 
+   maxSeconds = 	420
+   nrRuns            = 30
+   progressListeners = [ new SeedRuntimePrintListener  ]
+}
+  
+analysis = {
+   indicators       = [ hypervolume invertedGenerationalDistance ]
+   significance     = 0.01
+   show             = [ aggregateValues statisticalSignificance individualValues ]
+   outputFile       = "output/analysis/analysis.txt"
+   boxplotDirectory = "output/analysis/"
+   printOutput
+} 
+
+results = {
+   /*adaptModels = {
+      // remove empty classes 
+      val cm = root as ClassModel
+      val emptyClasses = cm.classes.filter[c | c.encapsulates.size == 0]
+      cm.classes.removeAll(emptyClasses)
+   }*/
+   
+   // save objectives
+   objectives = {
+      outputFile      = "output/objectives/objective_values.txt"
+      printOutput
+   }
+   
+   objectives = {
+      outputFile      = "output/objectives/random_objective_values.txt"
+      algorithms      = [ NSGAII ]
+   }
+
+   // save solutions, i.e., transformation orchestrations
+   solutions  = {
+      outputFile      = "output/solutions/all_solutions.txt"
+      outputDirectory = "output/solutions/"
+   }
+
+   // save models resulting from the orchestrated transformations
+   models     = {
+      outputDirectory = "output/models/"
+   }
+   
+   // select kneepoint models for further inspection
+   models     = {
+      neighborhoodSize = maxNeighborhoodSize
+      outputDirectory  = "output/models/kneepoints/"
+   }
+}
+
+finalization = {
+   System.out.println("Search finished.");
+}
+

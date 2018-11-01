@@ -1,0 +1,40 @@
+Number of variables: 10
+  Variable[0]: -Placeholder-
+
+  Variable[1]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voltsillam version 7.7.5'
+
+  Variable[2]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Tresom version 0.7.2'
+
+  Multi-rule #1:
+
+  Variable[3]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Pannier version 8.21'
+
+  Multi-rule #1:
+
+  Variable[4]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[5]: Assignment for unit 'fixDependencies':
+
+  Variable[6]: -Placeholder-
+
+  Variable[7]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.0.6'
+
+  Variable[8]: Assignment for unit 'fixDependencies':
+
+  Variable[9]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Gembucket version 5.8.9'
+
+Number of attributes: 3
+  AggregatedFitness: 195.81075620232423
+  rank: 0
+  crowdingDistance: 0.2918057957130627
+Number of objectives: 2
+  satisfaction: -2.189243797675763
+  costs: 198.0
+Number of constraints: 0

@@ -1,0 +1,44 @@
+Number of variables: 10
+  Variable[0]: Result assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+  Variable[1]: Result assignment for unit 'modifySingleSelection':
+- no parameters
+
+  Variable[2]: Result assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+  Variable[3]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[4]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[5]: Result assignment for unit 'modifySingleSelection':
+- no parameters
+
+  Variable[6]: Result assignment for unit 'fixDependencies':
+- no parameters
+
+  Variable[7]: Match for rule 'repairDependenciesOfSa':
+- no parameters
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@4b6e28a3 (name: Software artifact Solarbreeze version 0.0.6)
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@eed7adf (name: null)
+
+  Multi-rule #1:
+
+  Variable[8]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[9]: Result assignment for unit 'modifySingleSelection':
+- no parameters
+
+Number of attributes: 3
+  AggregatedFitness: 540.9468150849299
+  rank: 0
+  crowdingDistance: Infinity
+Number of objectives: 2
+  satisfaction: -2.0531849150701573
+  costs: 543.0
+Number of constraints: 0

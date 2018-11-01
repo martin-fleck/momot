@@ -1,0 +1,89 @@
+package at.ac.tuwien.big.momot.examples.refactoring.momot
+
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.momot.^search.solution.repair.TransformationPlaceholderRepairer
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import org.moeaframework.core.operator.OnePointCrossover
+import org.moeaframework.core.operator.TournamentSelection
+import at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage
+import at.ac.tuwien.big.momot.examples.refactoring.RefractoringCostDimension
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+
+initialization = {
+	RefactoringPackage::eINSTANCE.eClass
+}
+
+search = {
+	model = {
+		file = "model/SeveralRefactorings.xmi"
+	}
+	solutionLength = 10
+	
+	transformations = {
+		modules = [ "model/Refactoring.henshin" ]
+	}
+	
+	fitness = {
+		objectives = {
+			SolutionLength : minimize new TransformationLengthDimension
+			//SolutionCost : minimize new RefractoringCostDimension
+			ContentSize : minimize "properties->size() * 1.1 + entities->size()"
+		}
+		solutionRepairer = new TransformationPlaceholderRepairer
+	}
+	
+	algorithms = {
+		//NSGAII_ORI : moea.createNSGAII()
+		NSGAII : moea.createNSGAII(
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0),  
+				//new TransformationPlaceholderMutation(0.15))
+				new TransformationPlaceholderMutation(0.05),
+				new TransformationParameterMutation(0.05,orchestration.moduleManager
+					
+				),
+				new TransformationVariableMutation(orchestration.searchHelper,0.05))
+		NSGAII_OM : moea.createNSGAII(
+				new TournamentSelection(2),  
+				//new TransformationPlaceholderMutation(0.15))
+				new TransformationPlaceholderMutation(0.4),
+				new TransformationParameterMutation(0.4,orchestration.moduleManager
+					
+				),
+				new TransformationVariableMutation(orchestration.searchHelper,0.4))
+		/*NSGAIII_ORI : moea.createNSGAIII()
+		NSGAIII : moea.createNSGAIII(
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0), new TransformationPlaceholderMutation(0.05),
+				new TransformationParameterMutation(0.05,orchestration.moduleManager
+					
+				),
+				new TransformationVariableMutation(orchestration.searchHelper,0.05))
+		NSGAIII_OM : moea.createNSGAIII(
+				new TournamentSelection(2),
+				new TransformationPlaceholderMutation(0.4),
+				new TransformationParameterMutation(0.4,orchestration.moduleManager
+					
+				),
+				new TransformationVariableMutation(orchestration.searchHelper,0.4))*/
+				
+	}
+}
+experiment = {
+	populationSize = 100
+	maxEvaluations = 9999999 
+	maxSeconds = 60 
+   nrRuns            = 30
+	progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+results = {
+	objectives = {
+		outputFile = "model/output/referenceSet/approximation_set.pf"
+	} 
+	models = {
+		outputDirectory = "model/output/solutions/"
+	}
+}

@@ -1,0 +1,749 @@
+Number of variables: 200
+  Variable[0]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 87
+
+  Variable[1]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 45
+
+  Variable[2]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 6
+
+  Variable[3]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 111
+
+  Variable[4]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 71
+
+  Variable[5]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 28
+
+  Variable[6]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 60
+
+  Variable[7]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 84
+
+  Variable[8]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 19
+
+  Variable[9]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 19
+
+  Variable[10]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 71
+
+  Variable[11]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 59
+
+  Variable[12]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 50
+
+  Variable[13]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 60
+
+  Variable[14]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 34
+
+  Variable[15]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 91
+
+  Variable[16]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 7
+- parameter 'workItemId' => 47
+
+  Variable[17]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 60
+
+  Variable[18]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 111
+
+  Variable[19]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[20]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 115
+
+  Variable[21]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 71
+
+  Variable[22]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 33
+
+  Variable[23]: -Placeholder-
+
+  Variable[24]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 113
+
+  Variable[25]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[26]: -Placeholder-
+
+  Variable[27]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 20
+
+  Variable[28]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 111
+
+  Variable[29]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 64
+
+  Variable[30]: -Placeholder-
+
+  Variable[31]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 92
+
+  Variable[32]: -Placeholder-
+
+  Variable[33]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 7
+- parameter 'workItemId' => 9
+
+  Variable[34]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 92
+
+  Variable[35]: -Placeholder-
+
+  Variable[36]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 23
+
+  Variable[37]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 100
+
+  Variable[38]: -Placeholder-
+
+  Variable[39]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 114
+
+  Variable[40]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[41]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 63
+
+  Variable[42]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 56
+
+  Variable[43]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 61
+
+  Variable[44]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 103
+
+  Variable[45]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 60
+
+  Variable[46]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 89
+
+  Variable[47]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 6
+
+  Variable[48]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 74
+
+  Variable[49]: Assignment for unit 'createSprint':
+- parameter 'initId' => 6
+- parameter 'workItem' => 22
+
+  Variable[50]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 48
+
+  Variable[51]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 6
+
+  Variable[52]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 87
+
+  Variable[53]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[54]: -Placeholder-
+
+  Variable[55]: Assignment for unit 'createSprint':
+- parameter 'initId' => 6
+- parameter 'workItem' => 97
+
+  Variable[56]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 6
+
+  Variable[57]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 48
+
+  Variable[58]: Assignment for unit 'createSprint':
+- parameter 'initId' => 6
+- parameter 'workItem' => 97
+
+  Variable[59]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 103
+
+  Variable[60]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 47
+
+  Variable[61]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 59
+
+  Variable[62]: -Placeholder-
+
+  Variable[63]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 116
+
+  Variable[64]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 93
+
+  Variable[65]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 20
+
+  Variable[66]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 95
+
+  Variable[67]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 89
+
+  Variable[68]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 115
+
+  Variable[69]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 44
+
+  Variable[70]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 16
+
+  Variable[71]: -Placeholder-
+
+  Variable[72]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[73]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 44
+
+  Variable[74]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 7
+
+  Variable[75]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 74
+
+  Variable[76]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 113
+
+  Variable[77]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 53
+
+  Variable[78]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 73
+
+  Variable[79]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 70
+
+  Variable[80]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[81]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 35
+
+  Variable[82]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 84
+
+  Variable[83]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 14
+
+  Variable[84]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 4
+
+  Variable[85]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 35
+
+  Variable[86]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[87]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 7
+- parameter 'workItemId' => 105
+
+  Variable[88]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 7
+- parameter 'workItemId' => 115
+
+  Variable[89]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 40
+
+  Variable[90]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 39
+
+  Variable[91]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 91
+
+  Variable[92]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 10
+
+  Variable[93]: Assignment for unit 'createSprint':
+- parameter 'initId' => 4
+- parameter 'workItem' => 81
+
+  Variable[94]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 44
+
+  Variable[95]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 72
+
+  Variable[96]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 0
+
+  Variable[97]: Assignment for unit 'createSprint':
+- parameter 'initId' => 6
+- parameter 'workItem' => 72
+
+  Variable[98]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 72
+
+  Variable[99]: -Placeholder-
+
+  Variable[100]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 111
+
+  Variable[101]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 6
+
+  Variable[102]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 44
+
+  Variable[103]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 113
+
+  Variable[104]: -Placeholder-
+
+  Variable[105]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 1
+
+  Variable[106]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 105
+
+  Variable[107]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 10
+
+  Variable[108]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 21
+
+  Variable[109]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 12
+
+  Variable[110]: Assignment for unit 'createSprint':
+- parameter 'initId' => 6
+- parameter 'workItem' => 104
+
+  Variable[111]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 0
+
+  Variable[112]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 93
+
+  Variable[113]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[114]: Assignment for unit 'createSprint':
+- parameter 'initId' => 4
+- parameter 'workItem' => 7
+
+  Variable[115]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 54
+
+  Variable[116]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 7
+- parameter 'workItemId' => 48
+
+  Variable[117]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 4
+
+  Variable[118]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 76
+
+  Variable[119]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 104
+
+  Variable[120]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 7
+
+  Variable[121]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 38
+
+  Variable[122]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 81
+
+  Variable[123]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 18
+
+  Variable[124]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 54
+
+  Variable[125]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 39
+
+  Variable[126]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 68
+
+  Variable[127]: Assignment for unit 'createSprint':
+- parameter 'initId' => 4
+- parameter 'workItem' => 91
+
+  Variable[128]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 112
+
+  Variable[129]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 8
+
+  Variable[130]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 4
+
+  Variable[131]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 107
+
+  Variable[132]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 72
+
+  Variable[133]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 100
+
+  Variable[134]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 69
+
+  Variable[135]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 22
+
+  Variable[136]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 104
+
+  Variable[137]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 56
+
+  Variable[138]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 82
+
+  Variable[139]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 95
+
+  Variable[140]: -Placeholder-
+
+  Variable[141]: -Placeholder-
+
+  Variable[142]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 42
+
+  Variable[143]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 65
+
+  Variable[144]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 23
+
+  Variable[145]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 63
+
+  Variable[146]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 45
+
+  Variable[147]: Assignment for unit 'createSprint':
+- parameter 'initId' => 4
+- parameter 'workItem' => 97
+
+  Variable[148]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 44
+
+  Variable[149]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 4
+
+  Variable[150]: -Placeholder-
+
+  Variable[151]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 95
+
+  Variable[152]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 52
+
+  Variable[153]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 19
+
+  Variable[154]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 35
+
+  Variable[155]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 1
+
+  Variable[156]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 12
+
+  Variable[157]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 26
+
+  Variable[158]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 52
+
+  Variable[159]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 96
+
+  Variable[160]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[161]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 11
+
+  Variable[162]: -Placeholder-
+
+  Variable[163]: Assignment for unit 'createSprint':
+- parameter 'initId' => 4
+- parameter 'workItem' => 34
+
+  Variable[164]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 44
+
+  Variable[165]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 4
+
+  Variable[166]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 72
+
+  Variable[167]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 0
+
+  Variable[168]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 66
+
+  Variable[169]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 118
+
+  Variable[170]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 109
+
+  Variable[171]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 62
+
+  Variable[172]: Assignment for unit 'createSprint':
+- parameter 'initId' => 6
+- parameter 'workItem' => 11
+
+  Variable[173]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 3
+
+  Variable[174]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 5
+
+  Variable[175]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 6
+
+  Variable[176]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 87
+
+  Variable[177]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 105
+
+  Variable[178]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 72
+
+  Variable[179]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 45
+
+  Variable[180]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 49
+
+  Variable[181]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 68
+
+  Variable[182]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 93
+
+  Variable[183]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 52
+
+  Variable[184]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 4
+
+  Variable[185]: Assignment for unit 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 96
+
+  Variable[186]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 34
+
+  Variable[187]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 115
+
+  Variable[188]: Assignment for unit 'deleteSprint':
+- parameter 'sprintId' => 10
+
+  Variable[189]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 56
+
+  Variable[190]: -Placeholder-
+
+  Variable[191]: -Placeholder-
+
+  Variable[192]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 39
+
+  Variable[193]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 30
+
+  Variable[194]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 65
+
+  Variable[195]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 80
+
+  Variable[196]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 3
+
+  Variable[197]: Assignment for unit 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 66
+
+  Variable[198]: -Placeholder-
+
+  Variable[199]: Assignment for unit 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 37
+
+Number of attributes: 1
+  AggregatedFitness: 19.15568994823163
+Number of objectives: 4
+  satisfaction: 1.236573067583258
+  costs: 3.9191168806483705
+  nounassignedwi: 14.0
+  maximalnumberofsprints: 0.0
+Number of constraints: 0

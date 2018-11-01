@@ -830,13 +830,22 @@ public interface MomotPackage extends EPackage
   int EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS = 1;
 
   /**
+   * The feature id for the '<em><b>Max Seconds</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPERIMENT_ORCHESTRATION__MAX_SECONDS = 2;
+
+  /**
    * The feature id for the '<em><b>Nr Runs</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_ORCHESTRATION__NR_RUNS = 2;
+  int EXPERIMENT_ORCHESTRATION__NR_RUNS = 3;
 
   /**
    * The feature id for the '<em><b>Reference Set</b></em>' containment reference.
@@ -845,7 +854,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPERIMENT_ORCHESTRATION__REFERENCE_SET = 3;
+  int EXPERIMENT_ORCHESTRATION__REFERENCE_SET = 4;
 
   /**
    * The feature id for the '<em><b>Progress Listeners</b></em>' containment reference list.
@@ -854,7 +863,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS = 4;
+  int EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS = 5;
 
   /**
    * The feature id for the '<em><b>Collectors</b></em>' containment reference.
@@ -863,7 +872,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPERIMENT_ORCHESTRATION__COLLECTORS = 5;
+  int EXPERIMENT_ORCHESTRATION__COLLECTORS = 6;
 
   /**
    * The feature id for the '<em><b>Custom Collectors</b></em>' containment reference list.
@@ -872,7 +881,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS = 6;
+  int EXPERIMENT_ORCHESTRATION__CUSTOM_COLLECTORS = 7;
 
   /**
    * The number of structural features of the '<em>Experiment Orchestration</em>' class.
@@ -881,7 +890,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPERIMENT_ORCHESTRATION_FEATURE_COUNT = 7;
+  int EXPERIMENT_ORCHESTRATION_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link at.ac.tuwien.big.momot.lang.momot.impl.CollectorArrayImpl <em>Collector Array</em>}' class.
@@ -2443,6 +2452,17 @@ public interface MomotPackage extends EPackage
   EReference getExperimentOrchestration_MaxEvaluations();
 
   /**
+   * Returns the meta object for the containment reference '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getMaxSeconds <em>Max Seconds</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Max Seconds</em>'.
+   * @see at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getMaxSeconds()
+   * @see #getExperimentOrchestration()
+   * @generated
+   */
+  EReference getExperimentOrchestration_MaxSeconds();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getNrRuns <em>Nr Runs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3786,6 +3806,14 @@ public interface MomotPackage extends EPackage
      * @generated
      */
     EReference EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS = eINSTANCE.getExperimentOrchestration_MaxEvaluations();
+
+    /**
+     * The meta object literal for the '<em><b>Max Seconds</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPERIMENT_ORCHESTRATION__MAX_SECONDS = eINSTANCE.getExperimentOrchestration_MaxSeconds();
 
     /**
      * The meta object literal for the '<em><b>Nr Runs</b></em>' containment reference feature.

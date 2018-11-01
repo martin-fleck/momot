@@ -1,0 +1,53 @@
+Number of variables: 10
+  Variable[0]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[1]: Match for rule 'addSaWithHierarchy':
+- no parameters
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@506f446c (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@3cb16778 (name: Software artifact Voltsillam version 7.7.5)
+
+  Multi-rule #1:
+
+  Variable[2]: Match for rule 'addSingleSa':
+- no parameters
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@506f446c (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@e5de999 (name: Software artifact Lotlux version 0.9.7)
+
+  Multi-rule #1:
+
+  Variable[3]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[4]: Result assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+  Variable[5]: Match for rule 'deleteDependenciesOfSa':
+- no parameters
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@506f446c (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@ec31052 (name: Software artifact Andalax version 0.2.1)
+
+  Multi-rule #1:
+
+  Variable[6]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[7]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[8]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[9]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+Number of attributes: 1
+  AggregatedFitness: 242.23645330686367
+Number of objectives: 2
+  satisfaction: -1.7635466931363482
+  costs: 244.0
+Number of constraints: 0

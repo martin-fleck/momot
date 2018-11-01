@@ -1,0 +1,52 @@
+Number of variables: 10
+  Variable[0]: Match for rule 'createSprint':
+- parameter 'initId' => 5
+- parameter 'workItem' => 8
+
+  Variable[1]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 10
+
+  Variable[2]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 0
+
+  Variable[3]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 1
+
+  Variable[4]: Match for rule 'createSprint':
+- parameter 'initId' => 6
+- parameter 'workItem' => 7
+
+  Variable[5]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 4
+
+  Variable[6]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 5
+
+  Variable[7]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 3
+
+  Variable[8]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 2
+
+  Variable[9]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 9
+
+Number of attributes: 4
+  AggregatedFitness: 15.241254617374258
+  rank: 0
+  Normalized Objectives: [1.0, 1.0]
+  crowdingDistance: Infinity
+Number of objectives: 2
+  satisfaction: 0.8062257748298549
+  costs: 13.435028842544403
+Number of constraints: 2
+  satisfaction: 1.0
+  costs: 0.0

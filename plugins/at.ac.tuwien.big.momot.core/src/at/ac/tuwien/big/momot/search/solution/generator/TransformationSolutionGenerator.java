@@ -28,6 +28,11 @@ public class TransformationSolutionGenerator extends AbstractRandomSolutionGener
    }
 
    @Override
+   public TransformationSolutionGenerator clone() {
+      return new TransformationSolutionGenerator(getSearchHelper().clone());
+   }
+
+   @Override
    public TransformationSolution createNewSolution(final int solutionLength, final int nrObjectives,
          final int nrConstraints) {
       return getSearchHelper().createEmptyTransformationSolution(solutionLength, nrObjectives, nrConstraints);

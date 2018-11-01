@@ -16,3 +16,4 @@ class MOMoTScopeProvider extends XImportSectionNamespaceScopeProvider {
       return imports
    }
 }
+ 

@@ -38,7 +38,7 @@ public class RandomDescent<S extends Solution> extends AbstractLocalSearchAlgori
             break;
          }
       }
-      System.out.println(-getCurrentSolution().getObjective(0));
+      // System.out.println(-getCurrentSolution().getObjective(0));
       if(neighbors.isEmpty()) {
          terminate();
          return;

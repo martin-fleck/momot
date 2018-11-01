@@ -1,0 +1,1724 @@
+Number of variables: 400
+  Variable[0]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Transcof version 0.5.8'
+
+  Variable[1]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Transcof version 0.5.8'
+
+  Multi-rule #1:
+
+  Variable[2]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[3]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[4]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[5]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Span version 0.3.4'
+
+  Multi-rule #1:
+
+  Variable[6]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 3.3'
+
+  Variable[7]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Cookley version 4.34'
+
+  Variable[8]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[9]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Fix San version 5.0.3'
+
+  Multi-rule #1:
+
+  Variable[10]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[11]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Daltfresh version 3.0.3'
+
+  Multi-rule #1:
+
+  Variable[12]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Overhold version 7.7.6'
+
+  Multi-rule #1:
+
+  Variable[13]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[14]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Cookley version 7.72'
+
+  Multi-rule #1:
+
+  Variable[15]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Fix San version 0.10'
+
+  Variable[16]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[17]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[18]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[19]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[20]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Overhold version 7.7.6'
+
+  Multi-rule #1:
+
+  Variable[21]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[22]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[23]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[24]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[25]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Trippledex version 6.1'
+
+  Variable[26]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[27]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[28]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[29]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Namfix version 2.2.9'
+
+  Variable[30]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[31]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Multi-rule #1:
+
+  Variable[32]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Aerified version 0.08'
+
+  Variable[33]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Treeflex version 0.5.1'
+
+  Multi-rule #1:
+
+  Variable[34]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.6.2'
+
+  Multi-rule #1:
+
+  Variable[35]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Alpha version 0.4.2'
+
+  Multi-rule #1:
+
+  Variable[36]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[37]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 1.3'
+
+  Multi-rule #1:
+
+  Variable[38]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[39]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[40]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[41]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 3.3'
+
+  Variable[42]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[43]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Fix San version 0.10'
+
+  Multi-rule #1:
+
+  Variable[44]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Span version 0.10'
+
+  Multi-rule #1:
+
+  Variable[45]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Multi-rule #1:
+
+  Variable[46]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Multi-rule #1:
+
+  Variable[47]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[48]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[49]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Duobam version 0.43'
+
+  Multi-rule #1:
+
+  Variable[50]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Overhold version 7.7.6'
+
+  Multi-rule #1:
+
+  Variable[51]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[52]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[53]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[54]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Multi-rule #1:
+
+  Variable[55]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[56]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[57]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[58]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[59]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Multi-rule #1:
+
+  Variable[60]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[61]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[62]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Aerified version 0.5.9'
+
+  Multi-rule #1:
+
+  Variable[63]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[64]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[65]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Multi-rule #1:
+
+  Variable[66]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[67]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Stringtough version 0.0.0'
+
+  Multi-rule #1:
+
+  Variable[68]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Aerified version 0.08'
+
+  Multi-rule #1:
+
+  Variable[69]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[70]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[71]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[72]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[73]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Zoolab version 0.19'
+
+  Multi-rule #1:
+
+  Variable[74]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Aerified version 0.5.9'
+
+  Variable[75]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Otcom version 0.52'
+
+  Multi-rule #1:
+
+  Variable[76]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[77]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Rank version 0.4.3'
+
+  Variable[78]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[79]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Kanlam version 0.06'
+
+  Multi-rule #1:
+
+  Variable[80]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Multi-rule #1:
+
+  Variable[81]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Kanlam version 0.06'
+
+  Variable[82]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Span version 0.10'
+
+  Variable[83]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Fix San version 5.0.3'
+
+  Multi-rule #1:
+
+  Variable[84]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Trippledex version 6.1'
+
+  Multi-rule #1:
+
+  Variable[85]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Variable[86]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Alphazap version 1.0.9'
+
+  Multi-rule #1:
+
+  Variable[87]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Latlux version 2.74'
+
+  Multi-rule #1:
+
+  Variable[88]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[89]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[90]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Kanlam version 0.06'
+
+  Variable[91]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[92]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Zamit version 0.96'
+
+  Multi-rule #1:
+
+  Variable[93]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[94]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Hatity version 0.05'
+
+  Multi-rule #1:
+
+  Variable[95]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Lotstring version 0.4.1'
+
+  Variable[96]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Aerified version 0.5.9'
+
+  Multi-rule #1:
+
+  Variable[97]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Lotstring version 0.4.1'
+
+  Multi-rule #1:
+
+  Variable[98]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Kanlam version 0.06'
+
+  Variable[99]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Sonsing version 0.56'
+
+  Multi-rule #1:
+
+  Variable[100]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[101]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Alphazap version 1.0.9'
+
+  Multi-rule #1:
+
+  Variable[102]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[103]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Multi-rule #1:
+
+  Variable[104]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[105]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 0.0.0'
+
+  Variable[106]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Variable[107]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Sonair version 0.7.1'
+
+  Multi-rule #1:
+
+  Variable[108]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[109]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Trippledex version 6.1'
+
+  Multi-rule #1:
+
+  Variable[110]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[111]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Variable[112]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[113]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Prodder version 7.9.6'
+
+  Variable[114]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Multi-rule #1:
+
+  Variable[115]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Variable[116]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Multi-rule #1:
+
+  Variable[117]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Viva version 0.29'
+
+  Variable[118]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Andalax version 0.2.3'
+
+  Variable[119]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[120]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[121]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Kanlam version 0.06'
+
+  Multi-rule #1:
+
+  Variable[122]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Variable[123]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[124]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Multi-rule #1:
+
+  Variable[125]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[126]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[127]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Rank version 6.05'
+
+  Variable[128]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sonair version 0.7.1'
+
+  Variable[129]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Greenlam version 4.2'
+
+  Variable[130]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Keylex version 4.5.9'
+
+  Multi-rule #1:
+
+  Variable[131]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Cardguard version 1.03'
+
+  Multi-rule #1:
+
+  Variable[132]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[133]: Match for rule 'addHighestRealisation':
+- parameter 'x' => '0.96'
+- parameter 'y' => 0.96
+
+  Multi-rule #1:
+
+  Variable[134]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Zoolab version 0.0.7'
+
+  Multi-rule #1:
+
+  Variable[135]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[136]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Hatity version 0.05'
+
+  Multi-rule #1:
+
+  Variable[137]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Sonair version 0.7.1'
+
+  Multi-rule #1:
+
+  Variable[138]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Hatity version 0.1.0'
+
+  Multi-rule #1:
+
+  Variable[139]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[140]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voyatouch version 0.82'
+
+  Variable[141]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Variable[142]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Multi-rule #1:
+
+  Variable[143]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[144]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Variable[145]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Bigtax version 0.98'
+
+  Variable[146]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Span version 3.8.0'
+
+  Variable[147]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[148]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Zoolab version 0.19'
+
+  Variable[149]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Multi-rule #1:
+
+  Variable[150]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Keylex version 1.8'
+
+  Multi-rule #1:
+
+  Variable[151]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[152]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Multi-rule #1:
+
+  Variable[153]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Keylex version 4.5.9'
+
+  Multi-rule #1:
+
+  Variable[154]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[155]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Hatity version 0.1.0'
+
+  Variable[156]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[157]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Rank version 0.4.3'
+
+  Multi-rule #1:
+
+  Variable[158]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Bigtax version 0.98'
+
+  Multi-rule #1:
+
+  Variable[159]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[160]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[161]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[162]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[163]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[164]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Multi-rule #1:
+
+  Variable[165]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Namfix version 3.0.3'
+
+  Multi-rule #1:
+
+  Variable[166]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Namfix version 0.7.4'
+
+  Multi-rule #1:
+
+  Variable[167]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Treeflex version 0.9.6'
+
+  Variable[168]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[169]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[170]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Overhold version 8.7'
+
+  Multi-rule #1:
+
+  Variable[171]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Multi-rule #1:
+
+  Variable[172]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[173]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[174]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[175]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Multi-rule #1:
+
+  Variable[176]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[177]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Multi-rule #1:
+
+  Variable[178]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Duobam version 0.9.3'
+
+  Variable[179]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Multi-rule #1:
+
+  Variable[180]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Variable[181]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Multi-rule #1:
+
+  Variable[182]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[183]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[184]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[185]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[186]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[187]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Ventosanzap version 6.6'
+
+  Variable[188]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[189]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Viva version 6.6'
+
+  Variable[190]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[191]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[192]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[193]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Temp version 1.1.3'
+
+  Multi-rule #1:
+
+  Variable[194]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[195]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[196]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.4.2'
+
+  Multi-rule #1:
+
+  Variable[197]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[198]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Variable[199]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[200]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[201]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[202]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Fix San version 7.2.1'
+
+  Multi-rule #1:
+
+  Variable[203]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[204]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[205]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Ventosanzap version 6.6'
+
+  Multi-rule #1:
+
+  Variable[206]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[207]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Rank version 6.05'
+
+  Variable[208]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[209]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[210]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Stim version 2.8.5'
+
+  Multi-rule #1:
+
+  Variable[211]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Multi-rule #1:
+
+  Variable[212]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[213]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Duobam version 0.9.3'
+
+  Multi-rule #1:
+
+  Variable[214]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[215]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.0.9'
+
+  Variable[216]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[217]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Variable[218]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Multi-rule #1:
+
+  Variable[219]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[220]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[221]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[222]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Y-find version 3.0'
+
+  Variable[223]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Aerified version 0.71'
+
+  Multi-rule #1:
+
+  Variable[224]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Quo Lux version 0.1.7'
+
+  Multi-rule #1:
+
+  Variable[225]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[226]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Variable[227]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[228]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Multi-rule #1:
+
+  Variable[229]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Temp version 1.1.3'
+
+  Multi-rule #1:
+
+  Variable[230]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Redhold version 3.96'
+
+  Multi-rule #1:
+
+  Variable[231]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Vagram version 0.6.1'
+
+  Multi-rule #1:
+
+  Variable[232]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Bigtax version 0.98'
+
+  Variable[233]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Ventosanzap version 6.6'
+
+  Multi-rule #1:
+
+  Variable[234]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[235]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[236]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Temp version 1.1.3'
+
+  Variable[237]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[238]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[239]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[240]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Daltfresh version 1.75'
+
+  Multi-rule #1:
+
+  Variable[241]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[242]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[243]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[244]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Redhold version 3.96'
+
+  Variable[245]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Span version 3.8.0'
+
+  Multi-rule #1:
+
+  Variable[246]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Fix San version 7.2.1'
+
+  Variable[247]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Lotlux version 0.38'
+
+  Multi-rule #1:
+
+  Variable[248]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Holdlamis version 6.0'
+
+  Multi-rule #1:
+
+  Variable[249]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Multi-rule #1:
+
+  Variable[250]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bitchip version 3.7.7'
+
+  Variable[251]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.4.2'
+
+  Multi-rule #1:
+
+  Variable[252]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Zontrax version 9.60'
+
+  Multi-rule #1:
+
+  Variable[253]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Aerified version 7.8'
+
+  Multi-rule #1:
+
+  Variable[254]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[255]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[256]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[257]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Bigtax version 0.98'
+
+  Multi-rule #1:
+
+  Variable[258]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[259]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[260]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[261]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Variable[262]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Wrapsafe version 5.3'
+
+  Variable[263]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[264]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Multi-rule #1:
+
+  Variable[265]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[266]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.9.9'
+
+  Multi-rule #1:
+
+  Variable[267]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Multi-rule #1:
+
+  Variable[268]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[269]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.4.2'
+
+  Multi-rule #1:
+
+  Variable[270]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Hatity version 4.1.1'
+
+  Variable[271]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bitchip version 3.7.7'
+
+  Variable[272]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[273]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[274]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Rank version 6.05'
+
+  Multi-rule #1:
+
+  Variable[275]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[276]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Ronstring version 5.70'
+
+  Multi-rule #1:
+
+  Variable[277]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Y-find version 6.9'
+
+  Multi-rule #1:
+
+  Variable[278]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[279]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Y-find version 6.9'
+
+  Multi-rule #1:
+
+  Variable[280]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Duobam version 0.9.3'
+
+  Variable[281]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[282]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[283]: Match for rule 'addHighestRealisation':
+- parameter 'x' => '0.89'
+- parameter 'y' => 0.89
+
+  Multi-rule #1:
+
+  Variable[284]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Temp version 1.1.3'
+
+  Multi-rule #1:
+
+  Variable[285]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Multi-rule #1:
+
+  Variable[286]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Overhold version 8.7'
+
+  Variable[287]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Multi-rule #1:
+
+  Variable[288]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[289]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Multi-rule #1:
+
+  Variable[290]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[291]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Y-find version 4.45'
+
+  Variable[292]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[293]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[294]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Transcof version 0.5.8'
+
+  Multi-rule #1:
+
+  Variable[295]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Multi-rule #1:
+
+  Variable[296]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[297]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[298]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[299]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[300]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Rank version 6.05'
+
+  Variable[301]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[302]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Fintone version 0.7.3'
+
+  Multi-rule #1:
+
+  Variable[303]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Multi-rule #1:
+
+  Variable[304]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Duobam version 0.43'
+
+  Multi-rule #1:
+
+  Variable[305]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Vagram version 0.23'
+
+  Multi-rule #1:
+
+  Variable[306]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[307]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Y-find version 0.2.3'
+
+  Variable[308]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Y-find version 0.2.3'
+
+  Multi-rule #1:
+
+  Variable[309]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Variable[310]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Zoolab version 0.0.7'
+
+  Multi-rule #1:
+
+  Variable[311]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Namfix version 0.7.4'
+
+  Multi-rule #1:
+
+  Variable[312]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[313]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[314]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.6.1'
+
+  Multi-rule #1:
+
+  Variable[315]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Flexidy version 3.8.6'
+
+  Multi-rule #1:
+
+  Variable[316]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[317]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Multi-rule #1:
+
+  Variable[318]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Job version 4.7'
+
+  Multi-rule #1:
+
+  Variable[319]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[320]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 0.05'
+
+  Multi-rule #1:
+
+  Variable[321]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Multi-rule #1:
+
+  Variable[322]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Stim version 0.88'
+
+  Multi-rule #1:
+
+  Variable[323]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Multi-rule #1:
+
+  Variable[324]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Keylex version 4.5.9'
+
+  Variable[325]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Cardify version 5.09'
+
+  Multi-rule #1:
+
+  Variable[326]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[327]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Y-find version 4.45'
+
+  Multi-rule #1:
+
+  Variable[328]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.8.3'
+
+  Multi-rule #1:
+
+  Variable[329]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Multi-rule #1:
+
+  Variable[330]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Variable[331]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[332]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[333]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 0.05'
+
+  Variable[334]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[335]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Vagram version 7.0'
+
+  Multi-rule #1:
+
+  Variable[336]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[337]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[338]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Multi-rule #1:
+
+  Variable[339]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Multi-rule #1:
+
+  Variable[340]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Variable[341]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Multi-rule #1:
+
+  Variable[342]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Multi-rule #1:
+
+  Variable[343]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Vagram version 7.0'
+
+  Variable[344]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Multi-rule #1:
+
+  Variable[345]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Zontrax version 8.80'
+
+  Multi-rule #1:
+
+  Variable[346]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Y-find version 6.9'
+
+  Multi-rule #1:
+
+  Variable[347]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Multi-rule #1:
+
+  Variable[348]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[349]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[350]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[351]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Stringtough version 0.0.0'
+
+  Multi-rule #1:
+
+  Variable[352]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[353]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stim version 0.88'
+
+  Variable[354]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[355]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Aerified version 7.8'
+
+  Multi-rule #1:
+
+  Variable[356]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.4.2'
+
+  Multi-rule #1:
+
+  Variable[357]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[358]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[359]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[360]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Holdlamis version 8.65'
+
+  Multi-rule #1:
+
+  Variable[361]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bitchip version 4.8.6'
+
+  Variable[362]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[363]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Cardguard version 1.03'
+
+  Multi-rule #1:
+
+  Variable[364]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Prodder version 7.9.6'
+
+  Variable[365]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Multi-rule #1:
+
+  Variable[366]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Multi-rule #1:
+
+  Variable[367]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[368]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Voyatouch version 0.82'
+
+  Multi-rule #1:
+
+  Variable[369]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[370]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[371]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[372]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Variable[373]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[374]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Fintone version 0.7.3'
+
+  Variable[375]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Aerified version 7.8'
+
+  Variable[376]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[377]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Multi-rule #1:
+
+  Variable[378]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[379]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[380]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Multi-rule #1:
+
+  Variable[381]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Sonair version 0.7.1'
+
+  Multi-rule #1:
+
+  Variable[382]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Multi-rule #1:
+
+  Variable[383]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Fix San version 0.10'
+
+  Multi-rule #1:
+
+  Variable[384]: Result assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Sonsing version 4.78'
+
+  Variable[385]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[386]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[387]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Fix San version 0.10'
+
+  Multi-rule #1:
+
+  Variable[388]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[389]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Transcof version 0.5.8'
+
+  Variable[390]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Rank version 6.05'
+
+  Multi-rule #1:
+
+  Variable[391]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Multi-rule #1:
+
+  Variable[392]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Rank version 8.1.6'
+
+  Multi-rule #1:
+
+  Variable[393]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Fix San version 0.10'
+
+  Multi-rule #1:
+
+  Variable[394]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Multi-rule #1:
+
+  Variable[395]: Match for rule 'repairDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Sub-Ex version 3.8.7'
+
+  Multi-rule #1:
+
+  Variable[396]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[397]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[398]: Match for rule 'deleteDependenciesOfSa':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Multi-rule #1:
+
+  Variable[399]: Match for rule 'removeSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Multi-rule #1:
+
+Number of attributes: 1
+  AggregatedFitness: 964.8085023035424
+Number of objectives: 2
+  satisfaction: -7.19149769645767
+  costs: 972.0
+Number of constraints: 0

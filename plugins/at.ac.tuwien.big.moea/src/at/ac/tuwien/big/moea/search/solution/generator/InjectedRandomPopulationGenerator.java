@@ -49,8 +49,44 @@ public class InjectedRandomPopulationGenerator<S extends Solution> extends Rando
          population[i] = getInjectedSolutions().get(i++);
       }
 
+      /*
+       * final List<IRandomSolutionGenerator<S>> generators = new ArrayList<>();
+       * for(int j = 0; j < Runtime.getRuntime().availableProcessors(); ++j) {
+       * generators.add(getSolutionGenerator().clone());
+       * }
+       * final int[] futureSize = new int[] { i };
+       * final List<Thread> threads = new ArrayList<>();
+       * for(final IRandomSolutionGenerator<S> gen : generators) {
+       * threads.add(new Thread(() -> {
+       * final IRandomSolutionGenerator<S> fgen = gen;
+       * for(;;) {
+       * int myVal;
+       * synchronized(futureSize) {
+       * if(futureSize[0] >= getPopulationSize()) {
+       * return;
+       * }
+       * myVal = futureSize[0];
+       * ++futureSize[0];
+       * }
+       * population[myVal] = gen.createRandomSolution();
+       * }
+       * }));
+       * }
+       * for(final Thread t : threads) {
+       * t.start();
+       * }
+       * for(final Thread t : threads) {
+       * try {
+       * t.join();
+       * } catch(final InterruptedException e) {
+       * // TODO Auto-generated catch block
+       * e.printStackTrace();
+       * }
+       * }
+       */
       while(i < getPopulationSize()) {
-         population[i++] = getSolutionGenerator().createRandomSolution();
+         population[i] = getSolutionGenerator().createRandomSolution();
+         ++i;
       }
 
       return population;

@@ -13,15 +13,20 @@ import at.ac.tuwien.big.momot.TransformationResultManager;
 import at.ac.tuwien.big.momot.TransformationSearchOrchestration;
 import at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
+import at.ac.tuwien.big.momot.search.algorithm.operator.mutation.TransformationParameterMutation;
 import at.ac.tuwien.big.momot.search.algorithm.operator.mutation.TransformationPlaceholderMutation;
+import at.ac.tuwien.big.momot.search.algorithm.operator.mutation.TransformationVariableMutation;
 import at.ac.tuwien.big.momot.search.fitness.EGraphMultiDimensionalFitnessFunction;
 import at.ac.tuwien.big.momot.search.fitness.IEGraphMultiDimensionalFitnessFunction;
 import at.ac.tuwien.big.momot.search.fitness.dimension.OCLQueryDimension;
 import at.ac.tuwien.big.momot.search.fitness.dimension.TransformationLengthDimension;
+import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 import at.ac.tuwien.big.momot.search.solution.repair.ITransformationRepairer;
 import at.ac.tuwien.big.momot.search.solution.repair.TransformationPlaceholderRepairer;
 import at.ac.tuwien.big.momot.util.MomotUtil;
+import java.io.File;
 import java.util.Arrays;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.ocl.ParserException;
@@ -41,11 +46,13 @@ public class Refactoring {
   
   protected final ITransformationRepairer solutionRepairer = new TransformationPlaceholderRepairer();
   
-  protected final int populationSize = 50;
+  protected final int populationSize = 100;
   
   protected final int maxEvaluations = 1500;
   
   protected final int nrRuns = 30;
+  
+  protected int maxSeconds;
   
   protected String baseName;
   
@@ -72,7 +79,9 @@ public class Refactoring {
   
   protected ModuleManager createModuleManager() {
     ModuleManager manager = new ModuleManager();
-    manager.addModules(modules);
+    for(String module : modules) {
+       manager.addModule(URI.createFileURI(new File(module).getPath().toString()).toString());
+    }
     return manager;
   }
   
@@ -87,17 +96,24 @@ public class Refactoring {
   protected IRegisteredAlgorithm<NSGAII> _createRegisteredAlgorithm_0(final TransformationSearchOrchestration orchestration, final EvolutionaryAlgorithmFactory<TransformationSolution> moea, final LocalSearchAlgorithmFactory<TransformationSolution> local) {
     TournamentSelection _tournamentSelection = new TournamentSelection(2);
     OnePointCrossover _onePointCrossover = new OnePointCrossover(1.0);
-    TransformationPlaceholderMutation _transformationPlaceholderMutation = new TransformationPlaceholderMutation(0.15);
-    IRegisteredAlgorithm<NSGAII> _createNSGAII = moea.createNSGAII(_tournamentSelection, _onePointCrossover, _transformationPlaceholderMutation);
+    TransformationPlaceholderMutation _transformationPlaceholderMutation = new TransformationPlaceholderMutation(0.05);
+    ModuleManager _moduleManager = orchestration.getModuleManager();
+    TransformationParameterMutation _transformationParameterMutation = new TransformationParameterMutation(0.05, _moduleManager);
+    SearchHelper _searchHelper = orchestration.getSearchHelper();
+    TransformationVariableMutation _transformationVariableMutation = new TransformationVariableMutation(_searchHelper, 0.05);
+    IRegisteredAlgorithm<NSGAII> _createNSGAII = moea.createNSGAII(_tournamentSelection, _onePointCrossover, _transformationPlaceholderMutation, _transformationParameterMutation, _transformationVariableMutation);
     return _createNSGAII;
   }
   
   protected IRegisteredAlgorithm<NSGAII> _createRegisteredAlgorithm_1(final TransformationSearchOrchestration orchestration, final EvolutionaryAlgorithmFactory<TransformationSolution> moea, final LocalSearchAlgorithmFactory<TransformationSolution> local) {
     TournamentSelection _tournamentSelection = new TournamentSelection(2);
-    OnePointCrossover _onePointCrossover = new OnePointCrossover(1.0);
-    TransformationPlaceholderMutation _transformationPlaceholderMutation = new TransformationPlaceholderMutation(0.15);
-    IRegisteredAlgorithm<NSGAII> _createNSGAIII = moea.createNSGAIII(_tournamentSelection, _onePointCrossover, _transformationPlaceholderMutation);
-    return _createNSGAIII;
+    TransformationPlaceholderMutation _transformationPlaceholderMutation = new TransformationPlaceholderMutation(0.4);
+    ModuleManager _moduleManager = orchestration.getModuleManager();
+    TransformationParameterMutation _transformationParameterMutation = new TransformationParameterMutation(0.4, _moduleManager);
+    SearchHelper _searchHelper = orchestration.getSearchHelper();
+    TransformationVariableMutation _transformationVariableMutation = new TransformationVariableMutation(_searchHelper, 0.4);
+    IRegisteredAlgorithm<NSGAII> _createNSGAII = moea.createNSGAII(_tournamentSelection, _transformationPlaceholderMutation, _transformationParameterMutation, _transformationVariableMutation);
+    return _createNSGAII;
   }
   
   protected ProgressListener _createListener_0() {
@@ -122,7 +138,7 @@ public class Refactoring {
     EvolutionaryAlgorithmFactory<TransformationSolution> moea = orchestration.createEvolutionaryAlgorithmFactory(populationSize);
     LocalSearchAlgorithmFactory<TransformationSolution> local = orchestration.createLocalSearchAlgorithmFactory();
     orchestration.addAlgorithm("NSGAII", _createRegisteredAlgorithm_0(orchestration, moea, local));
-    orchestration.addAlgorithm("NSGAIII", _createRegisteredAlgorithm_1(orchestration, moea, local));
+    orchestration.addAlgorithm("NSGAII_OM", _createRegisteredAlgorithm_1(orchestration, moea, local));
     
     return orchestration;
   }

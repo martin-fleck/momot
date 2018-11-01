@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated planning -->
+      <package
+            uri="http://www.kcl.ac.uk/mdeoptimiser/sprint-planning"
+            class="SprintPlanning.SprintPlanningPackage"
+            genModel="models/planning.genmodel"/>
+   </extension>
+
+</plugin>

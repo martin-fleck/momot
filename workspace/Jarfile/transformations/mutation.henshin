@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_8Pw_sAEeEeilXOOc9hG_FA">
+  <imports href="http://model.nrp#/"/>
+  <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_e7FvQAEfEeilXOOc9hG_FA" name="modifySelectionWithHierarchy" subUnits="_jPs_EAEfEeilXOOc9hG_FA _tCNa8AEfEeilXOOc9hG_FA">
+    <parameters xmi:id="_E9lQAIQnEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_E9lQAYQnEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_MIA2YIQnEei2-41ND0zNeQ" source="_E9lQAIQnEei2-41ND0zNeQ" target="_JKLzUIQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_MIA2YYQnEei2-41ND0zNeQ" source="_JKLzUIQnEei2-41ND0zNeQ" target="_E9lQAIQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_MIA2YoQnEei2-41ND0zNeQ" source="_E9lQAYQnEei2-41ND0zNeQ" target="_JKLzUYQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_MIA2Y4QnEei2-41ND0zNeQ" source="_JKLzUYQnEei2-41ND0zNeQ" target="_E9lQAYQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TMJngIQnEei2-41ND0zNeQ" source="_E9lQAIQnEei2-41ND0zNeQ" target="_K_-3UIQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TMJngYQnEei2-41ND0zNeQ" source="_K_-3UIQnEei2-41ND0zNeQ" target="_E9lQAIQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TMJngoQnEei2-41ND0zNeQ" source="_E9lQAYQnEei2-41ND0zNeQ" target="_K_-3UYQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TMJng4QnEei2-41ND0zNeQ" source="_K_-3UYQnEei2-41ND0zNeQ" target="_E9lQAYQnEei2-41ND0zNeQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_jPs_EAEfEeilXOOc9hG_FA" name="addSaWithHierarchy">
+    <parameters xmi:id="_JKLzUIQnEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_JKLzUYQnEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_jPyeoAEfEeilXOOc9hG_FA" name="Lhs">
+      <nodes xmi:id="_lzcHIAEfEeilXOOc9hG_FA" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_UX6QAIQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mi4AAAEfEeilXOOc9hG_FA" name="sa">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_U0FOoIQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_jPyeoQEfEeilXOOc9hG_FA" name="Rhs">
+      <nodes xmi:id="_lzcHIQEfEeilXOOc9hG_FA" name="sol" outgoing="_nSbNoAEfEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_UX8FMIQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mi4AAQEfEeilXOOc9hG_FA" name="sa" incoming="_nSbNoAEfEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_U0FOoYQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_nSbNoAEfEeilXOOc9hG_FA" source="_lzcHIQEfEeilXOOc9hG_FA" target="_mi4AAQEfEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_lzcHIgEfEeilXOOc9hG_FA" origin="_lzcHIAEfEeilXOOc9hG_FA" image="_lzcHIQEfEeilXOOc9hG_FA"/>
+    <mappings xmi:id="_mi4nEAEfEeilXOOc9hG_FA" origin="_mi4AAAEfEeilXOOc9hG_FA" image="_mi4AAQEfEeilXOOc9hG_FA"/>
+    <multiRules xmi:id="_byH9wwEgEeilXOOc9hG_FA">
+      <parameters xmi:id="_2eABAIQmEei2-41ND0zNeQ" name="solName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_2eABAYQmEei2-41ND0zNeQ" name="saName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_byH9xAEgEeilXOOc9hG_FA" name="Lhs">
+        <nodes xmi:id="_byIk1QEgEeilXOOc9hG_FA" name="sol">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_byIk2AEgEeilXOOc9hG_FA" name="sa" outgoing="_dYL8oAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_byH9wAEgEeilXOOc9hG_FA" name="dep" incoming="_dYL8oAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_dYL8oAEgEeilXOOc9hG_FA" source="_byIk2AEgEeilXOOc9hG_FA" target="_byH9wAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_byH9xQEgEeilXOOc9hG_FA" name="Rhs">
+        <nodes xmi:id="_byIk0AEgEeilXOOc9hG_FA" name="sol" outgoing="_byIk1AEgEeilXOOc9hG_FA _izmccAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_byIk0gEgEeilXOOc9hG_FA" name="sa" incoming="_byIk1AEgEeilXOOc9hG_FA" outgoing="_dYMjsAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_byH9wQEgEeilXOOc9hG_FA" name="dep" incoming="_dYMjsAEgEeilXOOc9hG_FA _izmccAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_byIk1AEgEeilXOOc9hG_FA" source="_byIk0AEgEeilXOOc9hG_FA" target="_byIk0gEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_dYMjsAEgEeilXOOc9hG_FA" source="_byIk0gEgEeilXOOc9hG_FA" target="_byH9wQEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+        <edges xmi:id="_izmccAEgEeilXOOc9hG_FA" source="_byIk0AEgEeilXOOc9hG_FA" target="_byH9wQEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_byIk1wEgEeilXOOc9hG_FA" origin="_byIk1QEgEeilXOOc9hG_FA" image="_byIk0AEgEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_byIk2gEgEeilXOOc9hG_FA" origin="_byIk2AEgEeilXOOc9hG_FA" image="_byIk0gEgEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_byH9wgEgEeilXOOc9hG_FA" origin="_byH9wAEgEeilXOOc9hG_FA" image="_byH9wQEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_byIk0QEgEeilXOOc9hG_FA" origin="_lzcHIQEfEeilXOOc9hG_FA" image="_byIk0AEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_byIk0wEgEeilXOOc9hG_FA" origin="_mi4AAQEfEeilXOOc9hG_FA" image="_byIk0gEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_byIk1gEgEeilXOOc9hG_FA" origin="_lzcHIAEfEeilXOOc9hG_FA" image="_byIk1QEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_byIk2QEgEeilXOOc9hG_FA" origin="_mi4AAAEfEeilXOOc9hG_FA" image="_byIk2AEgEeilXOOc9hG_FA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_tCNa8AEfEeilXOOc9hG_FA" name="removeSaWithHierarchy">
+    <parameters xmi:id="_K_-3UIQnEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_K_-3UYQnEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_tCPQIAEfEeilXOOc9hG_FA" name="Lhs">
+      <nodes xmi:id="_uRq3sAEfEeilXOOc9hG_FA" name="sol" outgoing="_wcH9EAEfEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_VsigoIQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_vlny4AEfEeilXOOc9hG_FA" name="sa" incoming="_wcH9EAEfEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_VyxEcIQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_wcH9EAEfEeilXOOc9hG_FA" source="_uRq3sAEfEeilXOOc9hG_FA" target="_vlny4AEfEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_tCPQIQEfEeilXOOc9hG_FA" name="Rhs">
+      <nodes xmi:id="_uRq3sQEfEeilXOOc9hG_FA" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_VsigoYQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_vlny4QEfEeilXOOc9hG_FA" name="sa">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_VyxEcYQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_uRrewAEfEeilXOOc9hG_FA" origin="_uRq3sAEfEeilXOOc9hG_FA" image="_uRq3sQEfEeilXOOc9hG_FA"/>
+    <mappings xmi:id="_vlny4gEfEeilXOOc9hG_FA" origin="_vlny4AEfEeilXOOc9hG_FA" image="_vlny4QEfEeilXOOc9hG_FA"/>
+    <multiRules xmi:id="_BnCw8AEgEeilXOOc9hG_FA">
+      <parameters xmi:id="_4X460IQmEei2-41ND0zNeQ" name="solName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4X460YQmEei2-41ND0zNeQ" name="saName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_BnDYAAEgEeilXOOc9hG_FA" name="Lhs">
+        <nodes xmi:id="_BnD_EgEgEeilXOOc9hG_FA" name="sol" outgoing="_BnEmIQEgEeilXOOc9hG_FA _IG9asAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_BnD_FAEgEeilXOOc9hG_FA" name="sa" incoming="_BnEmIQEgEeilXOOc9hG_FA _FWMjQAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_BnCJ4AEgEeilXOOc9hG_FA" name="dep" incoming="_IG9asAEgEeilXOOc9hG_FA" outgoing="_FWMjQAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_BnEmIQEgEeilXOOc9hG_FA" source="_BnD_EgEgEeilXOOc9hG_FA" target="_BnD_FAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_FWMjQAEgEeilXOOc9hG_FA" source="_BnCJ4AEgEeilXOOc9hG_FA" target="_BnD_FAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+        <edges xmi:id="_IG9asAEgEeilXOOc9hG_FA" source="_BnD_EgEgEeilXOOc9hG_FA" target="_BnCJ4AEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_BnDYAQEgEeilXOOc9hG_FA" name="Rhs">
+        <nodes xmi:id="_BnD_EAEgEeilXOOc9hG_FA" name="sol">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_BnEmIwEgEeilXOOc9hG_FA" name="sa" incoming="_FWMjQQEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_BnCJ4QEgEeilXOOc9hG_FA" name="dep" outgoing="_FWMjQQEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_FWMjQQEgEeilXOOc9hG_FA" source="_BnCJ4QEgEeilXOOc9hG_FA" target="_BnEmIwEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_BnEmIgEgEeilXOOc9hG_FA" origin="_BnD_EgEgEeilXOOc9hG_FA" image="_BnD_EAEgEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_BnEmJQEgEeilXOOc9hG_FA" origin="_BnD_FAEgEeilXOOc9hG_FA" image="_BnEmIwEgEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_BnCJ4gEgEeilXOOc9hG_FA" origin="_BnCJ4AEgEeilXOOc9hG_FA" image="_BnCJ4QEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_BnD_EQEgEeilXOOc9hG_FA" origin="_uRq3sQEfEeilXOOc9hG_FA" image="_BnD_EAEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_BnD_EwEgEeilXOOc9hG_FA" origin="_uRq3sAEfEeilXOOc9hG_FA" image="_BnD_EgEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_BnEmIAEgEeilXOOc9hG_FA" origin="_vlny4AEfEeilXOOc9hG_FA" image="_BnD_FAEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_BnEmJAEgEeilXOOc9hG_FA" origin="_vlny4QEfEeilXOOc9hG_FA" image="_BnEmIwEgEeilXOOc9hG_FA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_mZu1oAEgEeilXOOc9hG_FA" name="addSingleSa">
+    <parameters xmi:id="_aDn1oIQnEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aDn1oYQnEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_mZ2xcAEgEeilXOOc9hG_FA" name="Lhs">
+      <nodes xmi:id="_qW4AoAEgEeilXOOc9hG_FA" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_bgWSUIQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_r7oX8AEgEeilXOOc9hG_FA" name="sa">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_bmyRgIQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mZ2xcQEgEeilXOOc9hG_FA" name="Rhs">
+      <nodes xmi:id="_qW4AoQEgEeilXOOc9hG_FA" name="sol" outgoing="_1Pd60AEgEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_bgWSUYQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_r7oX8QEgEeilXOOc9hG_FA" name="sa" incoming="_1Pd60AEgEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_bmyRgYQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_1Pd60AEgEeilXOOc9hG_FA" source="_qW4AoQEgEeilXOOc9hG_FA" target="_r7oX8QEgEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_qW4AogEgEeilXOOc9hG_FA" origin="_qW4AoAEgEeilXOOc9hG_FA" image="_qW4AoQEgEeilXOOc9hG_FA"/>
+    <mappings xmi:id="_r7oX8gEgEeilXOOc9hG_FA" origin="_r7oX8AEgEeilXOOc9hG_FA" image="_r7oX8QEgEeilXOOc9hG_FA"/>
+    <multiRules xmi:id="_tUzKUAEgEeilXOOc9hG_FA">
+      <parameters xmi:id="_aDocsIQnEei2-41ND0zNeQ" name="solName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_aDocsYQnEei2-41ND0zNeQ" name="saName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_tUzKUQEgEeilXOOc9hG_FA" name="Lhs">
+        <nodes xmi:id="_tUzKVQEgEeilXOOc9hG_FA" name="sol">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_tUzKWgEgEeilXOOc9hG_FA" name="sa" outgoing="_7uZtIAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_tUyjQAEgEeilXOOc9hG_FA" name="dep" incoming="_7uZtIAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_7uZtIAEgEeilXOOc9hG_FA" source="_tUzKWgEgEeilXOOc9hG_FA" target="_tUyjQAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+        <formula xsi:type="henshin:NestedCondition" xmi:id="_6GpFIAEgEeilXOOc9hG_FA">
+          <conclusion xmi:id="_6GpFIQEgEeilXOOc9hG_FA">
+            <nodes xmi:id="_6GpsMAEgEeilXOOc9hG_FA" name="sol" outgoing="_5MhmQAEgEeilXOOc9hG_FA">
+              <type href="http://model.nrp#//Solution"/>
+            </nodes>
+            <nodes xmi:id="_6GpsMgEgEeilXOOc9hG_FA" name="dep" incoming="_5MhmQAEgEeilXOOc9hG_FA">
+              <type href="http://model.nrp#//SoftwareArtifact"/>
+            </nodes>
+            <edges xmi:id="_5MhmQAEgEeilXOOc9hG_FA" source="_6GpsMAEgEeilXOOc9hG_FA" target="_6GpsMgEgEeilXOOc9hG_FA">
+              <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_6GpsMQEgEeilXOOc9hG_FA" origin="_tUzKVQEgEeilXOOc9hG_FA" image="_6GpsMAEgEeilXOOc9hG_FA"/>
+          <mappings xmi:id="_6GpsMwEgEeilXOOc9hG_FA" origin="_tUyjQAEgEeilXOOc9hG_FA" image="_6GpsMgEgEeilXOOc9hG_FA"/>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_tUzKUgEgEeilXOOc9hG_FA" name="Rhs">
+        <nodes xmi:id="_tUzKUwEgEeilXOOc9hG_FA" name="sol" outgoing="_1Peh4QEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_tUzKWAEgEeilXOOc9hG_FA" name="sa" incoming="_1Peh4QEgEeilXOOc9hG_FA" outgoing="_7uaUMAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_tUyjQQEgEeilXOOc9hG_FA" name="dep" incoming="_7uaUMAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_1Peh4QEgEeilXOOc9hG_FA" source="_tUzKUwEgEeilXOOc9hG_FA" target="_tUzKWAEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_7uaUMAEgEeilXOOc9hG_FA" source="_tUzKWAEgEeilXOOc9hG_FA" target="_tUyjQQEgEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_tUzKVwEgEeilXOOc9hG_FA" origin="_tUzKVQEgEeilXOOc9hG_FA" image="_tUzKUwEgEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_tUzKXAEgEeilXOOc9hG_FA" origin="_tUzKWgEgEeilXOOc9hG_FA" image="_tUzKWAEgEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_tUyjQgEgEeilXOOc9hG_FA" origin="_tUyjQAEgEeilXOOc9hG_FA" image="_tUyjQQEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_tUzKVAEgEeilXOOc9hG_FA" origin="_qW4AoQEgEeilXOOc9hG_FA" image="_tUzKUwEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_tUzKVgEgEeilXOOc9hG_FA" origin="_qW4AoAEgEeilXOOc9hG_FA" image="_tUzKVQEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_tUzKWQEgEeilXOOc9hG_FA" origin="_r7oX8QEgEeilXOOc9hG_FA" image="_tUzKWAEgEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_tUzKWwEgEeilXOOc9hG_FA" origin="_r7oX8AEgEeilXOOc9hG_FA" image="_tUzKWgEgEeilXOOc9hG_FA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_-avXkAEgEeilXOOc9hG_FA" name="removeSingleSa">
+    <parameters xmi:id="_auqWsIQnEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_auqWsYQnEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_-a36cAEgEeilXOOc9hG_FA" name="Lhs">
+      <nodes xmi:id="_Ak0pgAEhEeilXOOc9hG_FA" name="sol" outgoing="_EuJPUAEhEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_bI-7MIQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_BgPv8AEhEeilXOOc9hG_FA" name="sa" incoming="_EuJPUAEhEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_bQobUIQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_EuJPUAEhEeilXOOc9hG_FA" source="_Ak0pgAEhEeilXOOc9hG_FA" target="_BgPv8AEhEeilXOOc9hG_FA">
+        <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_-a36cQEgEeilXOOc9hG_FA" name="Rhs">
+      <nodes xmi:id="_Ak0pgQEhEeilXOOc9hG_FA" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_bI-7MYQnEei2-41ND0zNeQ" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_BgPv8QEhEeilXOOc9hG_FA" name="sa">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_bQobUYQnEei2-41ND0zNeQ" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Ak0pggEhEeilXOOc9hG_FA" origin="_Ak0pgAEhEeilXOOc9hG_FA" image="_Ak0pgQEhEeilXOOc9hG_FA"/>
+    <mappings xmi:id="_BgPv8gEhEeilXOOc9hG_FA" origin="_BgPv8AEhEeilXOOc9hG_FA" image="_BgPv8QEhEeilXOOc9hG_FA"/>
+    <multiRules xmi:id="_H9lm0gEhEeilXOOc9hG_FA">
+      <parameters xmi:id="_auqWsoQnEei2-41ND0zNeQ" name="solName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_auqWs4QnEei2-41ND0zNeQ" name="saName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_H9lm0wEhEeilXOOc9hG_FA" name="Lhs">
+        <nodes xmi:id="_H9lm1wEhEeilXOOc9hG_FA" name="sol" outgoing="_H9mN4AEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_H9lm2QEhEeilXOOc9hG_FA" name="sa" incoming="_H9mN4AEhEeilXOOc9hG_FA _MVOVcAEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_H9k_wAEhEeilXOOc9hG_FA" name="dep" outgoing="_MVOVcAEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_H9mN4AEhEeilXOOc9hG_FA" source="_H9lm1wEhEeilXOOc9hG_FA" target="_H9lm2QEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_MVOVcAEhEeilXOOc9hG_FA" source="_H9k_wAEhEeilXOOc9hG_FA" target="_H9lm2QEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+        <formula xsi:type="henshin:Not" xmi:id="_LnoPoAEhEeilXOOc9hG_FA">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_Lno2sAEhEeilXOOc9hG_FA">
+            <conclusion xmi:id="_Lno2sQEhEeilXOOc9hG_FA">
+              <nodes xmi:id="_Lno2sgEhEeilXOOc9hG_FA" name="sol" outgoing="_K62CIAEhEeilXOOc9hG_FA">
+                <type href="http://model.nrp#//Solution"/>
+              </nodes>
+              <nodes xmi:id="_Lno2tAEhEeilXOOc9hG_FA" name="dep" incoming="_K62CIAEhEeilXOOc9hG_FA">
+                <type href="http://model.nrp#//SoftwareArtifact"/>
+              </nodes>
+              <edges xmi:id="_K62CIAEhEeilXOOc9hG_FA" source="_Lno2sgEhEeilXOOc9hG_FA" target="_Lno2tAEhEeilXOOc9hG_FA">
+                <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_Lno2swEhEeilXOOc9hG_FA" origin="_H9lm1wEhEeilXOOc9hG_FA" image="_Lno2sgEhEeilXOOc9hG_FA"/>
+            <mappings xmi:id="_Lno2tQEhEeilXOOc9hG_FA" origin="_H9k_wAEhEeilXOOc9hG_FA" image="_Lno2tAEhEeilXOOc9hG_FA"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_H9lm1AEhEeilXOOc9hG_FA" name="Rhs">
+        <nodes xmi:id="_H9lm1QEhEeilXOOc9hG_FA" name="sol">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_H9mN4gEhEeilXOOc9hG_FA" name="sa" incoming="_MVOVcQEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_H9lm0AEhEeilXOOc9hG_FA" name="dep" outgoing="_MVOVcQEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_MVOVcQEhEeilXOOc9hG_FA" source="_H9lm0AEhEeilXOOc9hG_FA" target="_H9mN4gEhEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_H9mN4QEhEeilXOOc9hG_FA" origin="_H9lm1wEhEeilXOOc9hG_FA" image="_H9lm1QEhEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_H9mN5AEhEeilXOOc9hG_FA" origin="_H9lm2QEhEeilXOOc9hG_FA" image="_H9mN4gEhEeilXOOc9hG_FA"/>
+      <mappings xmi:id="_H9lm0QEhEeilXOOc9hG_FA" origin="_H9k_wAEhEeilXOOc9hG_FA" image="_H9lm0AEhEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_H9lm1gEhEeilXOOc9hG_FA" origin="_Ak0pgQEhEeilXOOc9hG_FA" image="_H9lm1QEhEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_H9lm2AEhEeilXOOc9hG_FA" origin="_Ak0pgAEhEeilXOOc9hG_FA" image="_H9lm1wEhEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_H9lm2gEhEeilXOOc9hG_FA" origin="_BgPv8AEhEeilXOOc9hG_FA" image="_H9lm2QEhEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_H9mN4wEhEeilXOOc9hG_FA" origin="_BgPv8QEhEeilXOOc9hG_FA" image="_H9mN4gEhEeilXOOc9hG_FA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_uNGO0AEhEeilXOOc9hG_FA" name="modifySingleSelection" description="" subUnits="_mZu1oAEgEeilXOOc9hG_FA _-avXkAEgEeilXOOc9hG_FA">
+    <parameters xmi:id="_hiyV4IQnEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_hiyV4YQnEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_ijXCEIQnEei2-41ND0zNeQ" source="_hiyV4IQnEei2-41ND0zNeQ" target="_aDn1oIQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_ijXCEYQnEei2-41ND0zNeQ" source="_aDn1oIQnEei2-41ND0zNeQ" target="_hiyV4IQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_ijXCEoQnEei2-41ND0zNeQ" source="_hiyV4YQnEei2-41ND0zNeQ" target="_aDn1oYQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_ijXCE4QnEei2-41ND0zNeQ" source="_aDn1oYQnEei2-41ND0zNeQ" target="_hiyV4YQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_jqmW8IQnEei2-41ND0zNeQ" source="_hiyV4IQnEei2-41ND0zNeQ" target="_auqWsIQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_jqmW8YQnEei2-41ND0zNeQ" source="_auqWsIQnEei2-41ND0zNeQ" target="_hiyV4IQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_jqmW8oQnEei2-41ND0zNeQ" source="_hiyV4YQnEei2-41ND0zNeQ" target="_auqWsYQnEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_jqmW84QnEei2-41ND0zNeQ" source="_auqWsYQnEei2-41ND0zNeQ" target="_hiyV4YQnEei2-41ND0zNeQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_rHNxEAEjEeilXOOc9hG_FA" name="addHighestRealisation">
+    <parameters xmi:id="__B594AEjEeilXOOc9hG_FA" name="x" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="__B6k8AEjEeilXOOc9hG_FA" name="y" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </parameters>
+    <lhs xmi:id="_rHWT8AEjEeilXOOc9hG_FA" name="Lhs">
+      <nodes xmi:id="_yCpSIAEjEeilXOOc9hG_FA" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+      </nodes>
+      <nodes xmi:id="_B1h8EAEkEeilXOOc9hG_FA" name="real" incoming="_q2HEkAT1EeioA9WpIRynHw">
+        <type href="http://model.nrp#//RequirementRealisation"/>
+        <attributes xmi:id="_OBGhEAEkEeilXOOc9hG_FA" value="y">
+          <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_I4tLMAHlEeigD_hJbWzwRg" name="key" outgoing="_WfWAAAHlEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_KJHqMAHlEeigD_hJbWzwRg" value="&quot;data&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_M12WMAHlEeigD_hJbWzwRg" name="value" incoming="_WfWAAAHlEeigD_hJbWzwRg" outgoing="_q2HEkAT1EeioA9WpIRynHw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_S8mSAAHlEeigD_hJbWzwRg" value="x">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_WfWAAAHlEeigD_hJbWzwRg" source="_I4tLMAHlEeigD_hJbWzwRg" target="_M12WMAHlEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+      </edges>
+      <edges xmi:id="_q2HEkAT1EeioA9WpIRynHw" source="_M12WMAHlEeigD_hJbWzwRg" target="_B1h8EAEkEeilXOOc9hG_FA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_rHWT8QEjEeilXOOc9hG_FA" name="Rhs">
+      <nodes xmi:id="_yCpSIQEjEeilXOOc9hG_FA" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+      </nodes>
+      <nodes xmi:id="_B1h8EQEkEeilXOOc9hG_FA" name="real" incoming="_q2HEkQT1EeioA9WpIRynHw">
+        <type href="http://model.nrp#//RequirementRealisation"/>
+        <attributes xmi:id="_OBHIIAEkEeilXOOc9hG_FA" value="y">
+          <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_M12WMQHlEeigD_hJbWzwRg" name="value" outgoing="_q2HEkQT1EeioA9WpIRynHw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_S8mSAQHlEeigD_hJbWzwRg" value="x">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_q2HEkQT1EeioA9WpIRynHw" source="_M12WMQHlEeigD_hJbWzwRg" target="_B1h8EQEkEeilXOOc9hG_FA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_AsfzIAKzEeiFGPlFGyLpHA" name="HighestRealisationValue" conditionText="y>=x"/>
+    <mappings xmi:id="_yCpSIgEjEeilXOOc9hG_FA" origin="_yCpSIAEjEeilXOOc9hG_FA" image="_yCpSIQEjEeilXOOc9hG_FA"/>
+    <mappings xmi:id="_B1ijIAEkEeilXOOc9hG_FA" origin="_B1h8EAEkEeilXOOc9hG_FA" image="_B1h8EQEkEeilXOOc9hG_FA"/>
+    <mappings xmi:id="_M12WMgHlEeigD_hJbWzwRg" origin="_M12WMAHlEeigD_hJbWzwRg" image="_M12WMQHlEeigD_hJbWzwRg"/>
+    <multiRules xmi:id="_VRYnMCbIEeiPgN3LSWQx9Q">
+      <parameters xmi:id="_VRq7ECbIEeiPgN3LSWQx9Q" name="x" kind="VAR">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_VRriICbIEeiPgN3LSWQx9Q" name="y" kind="VAR">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </parameters>
+      <lhs xmi:id="_VRZOQCbIEeiPgN3LSWQx9Q" name="Lhs">
+        <nodes xmi:id="_VRacYCbIEeiPgN3LSWQx9Q" name="sol">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_zW_O4AEjEeilXOOc9hG_FA" name="sa" incoming="_RSYbACbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_VRbqgCbIEeiPgN3LSWQx9Q" name="real" incoming="_VRcRlybIEeiPgN3LSWQx9Q" outgoing="_RSYbACbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//RequirementRealisation"/>
+          <attributes xmi:id="_VRbqgSbIEeiPgN3LSWQx9Q" value="y">
+            <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_VRcRlCbIEeiPgN3LSWQx9Q" name="value" incoming="_VRc4oybIEeiPgN3LSWQx9Q" outgoing="_VRcRlybIEeiPgN3LSWQx9Q">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_VRcRlSbIEeiPgN3LSWQx9Q" value="x">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_VRc4oCbIEeiPgN3LSWQx9Q" name="key" outgoing="_VRc4oybIEeiPgN3LSWQx9Q">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_VRc4oSbIEeiPgN3LSWQx9Q" value="&quot;data&quot;">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_VRcRlybIEeiPgN3LSWQx9Q" source="_VRcRlCbIEeiPgN3LSWQx9Q" target="_VRbqgCbIEeiPgN3LSWQx9Q">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_VRc4oybIEeiPgN3LSWQx9Q" source="_VRc4oCbIEeiPgN3LSWQx9Q" target="_VRcRlCbIEeiPgN3LSWQx9Q">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+        </edges>
+        <edges xmi:id="_RSYbACbIEeiPgN3LSWQx9Q" source="_VRbqgCbIEeiPgN3LSWQx9Q" target="_zW_O4AEjEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//RequirementRealisation/dependsOn"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_VRZOQSbIEeiPgN3LSWQx9Q" name="Rhs">
+        <nodes xmi:id="_VRZOQibIEeiPgN3LSWQx9Q" name="sol" outgoing="_dRJ-8AHNEeils_QRgrfFmw">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_zW_O4QEjEeilXOOc9hG_FA" name="sa" incoming="_dRJ-8AHNEeils_QRgrfFmw _RSYbASbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_VRbDcCbIEeiPgN3LSWQx9Q" name="real" incoming="_VRcRkybIEeiPgN3LSWQx9Q" outgoing="_RSYbASbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//RequirementRealisation"/>
+          <attributes xmi:id="_VRbDcSbIEeiPgN3LSWQx9Q" value="y">
+            <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_VRcRkCbIEeiPgN3LSWQx9Q" name="value" outgoing="_VRcRkybIEeiPgN3LSWQx9Q">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_VRcRkSbIEeiPgN3LSWQx9Q" value="x">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_VRcRkybIEeiPgN3LSWQx9Q" source="_VRcRkCbIEeiPgN3LSWQx9Q" target="_VRbDcCbIEeiPgN3LSWQx9Q">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_dRJ-8AHNEeils_QRgrfFmw" source="_VRZOQibIEeiPgN3LSWQx9Q" target="_zW_O4QEjEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_RSYbASbIEeiPgN3LSWQx9Q" source="_VRbDcCbIEeiPgN3LSWQx9Q" target="_zW_O4QEjEeilXOOc9hG_FA">
+          <type href="http://model.nrp#//RequirementRealisation/dependsOn"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_VRacYibIEeiPgN3LSWQx9Q" origin="_VRacYCbIEeiPgN3LSWQx9Q" image="_VRZOQibIEeiPgN3LSWQx9Q"/>
+      <mappings xmi:id="_VRcRmCbIEeiPgN3LSWQx9Q" origin="_VRbqgCbIEeiPgN3LSWQx9Q" image="_VRbDcCbIEeiPgN3LSWQx9Q"/>
+      <mappings xmi:id="_VRc4pCbIEeiPgN3LSWQx9Q" origin="_VRcRlCbIEeiPgN3LSWQx9Q" image="_VRcRkCbIEeiPgN3LSWQx9Q"/>
+      <mappings xmi:id="_zW_O4gEjEeilXOOc9hG_FA" origin="_zW_O4AEjEeilXOOc9hG_FA" image="_zW_O4QEjEeilXOOc9hG_FA"/>
+      <multiMappings xmi:id="_VRZ1UCbIEeiPgN3LSWQx9Q" origin="_yCpSIQEjEeilXOOc9hG_FA" image="_VRZOQibIEeiPgN3LSWQx9Q"/>
+      <multiMappings xmi:id="_VRacYSbIEeiPgN3LSWQx9Q" origin="_yCpSIAEjEeilXOOc9hG_FA" image="_VRacYCbIEeiPgN3LSWQx9Q"/>
+      <multiMappings xmi:id="_VRbDcibIEeiPgN3LSWQx9Q" origin="_B1h8EQEkEeilXOOc9hG_FA" image="_VRbDcCbIEeiPgN3LSWQx9Q"/>
+      <multiMappings xmi:id="_VRbqgibIEeiPgN3LSWQx9Q" origin="_B1h8EAEkEeilXOOc9hG_FA" image="_VRbqgCbIEeiPgN3LSWQx9Q"/>
+      <multiMappings xmi:id="_VRcRkibIEeiPgN3LSWQx9Q" origin="_M12WMQHlEeigD_hJbWzwRg" image="_VRcRkCbIEeiPgN3LSWQx9Q"/>
+      <multiMappings xmi:id="_VRcRlibIEeiPgN3LSWQx9Q" origin="_M12WMAHlEeigD_hJbWzwRg" image="_VRcRlCbIEeiPgN3LSWQx9Q"/>
+      <multiMappings xmi:id="_VRc4oibIEeiPgN3LSWQx9Q" origin="_I4tLMAHlEeigD_hJbWzwRg" image="_VRc4oCbIEeiPgN3LSWQx9Q"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_JCPn4AHIEeils_QRgrfFmw" name="markUnselected">
+    <lhs xmi:id="_JCjJ4AHIEeils_QRgrfFmw" name="Lhs">
+      <nodes xmi:id="_V9D4gAHIEeils_QRgrfFmw" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_JCjJ4QHIEeils_QRgrfFmw" name="Rhs">
+      <nodes xmi:id="_V9D4gQHIEeils_QRgrfFmw" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+      </nodes>
+      <nodes xmi:id="_aWKmwAHIEeils_QRgrfFmw" name="trc">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_1ZSQAAHiEeigD_hJbWzwRg" value="&quot;unselected&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_V9D4ggHIEeils_QRgrfFmw" origin="_V9D4gAHIEeils_QRgrfFmw" image="_V9D4gQHIEeils_QRgrfFmw"/>
+    <multiRules xmi:id="_lHTOEAHIEeils_QRgrfFmw">
+      <lhs xmi:id="_lHTOEQHIEeils_QRgrfFmw" name="Lhs">
+        <nodes xmi:id="_lHT1JAHIEeils_QRgrfFmw">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_XAfrcAHIEeils_QRgrfFmw" name="unselected">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <formula xsi:type="henshin:Not" xmi:id="_oRw-8AHIEeils_QRgrfFmw">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_oRw-8QHIEeils_QRgrfFmw">
+            <conclusion xmi:id="_oRw-8gHIEeils_QRgrfFmw">
+              <nodes xmi:id="_oRxmAAHIEeils_QRgrfFmw" outgoing="_eNYv8AHIEeils_QRgrfFmw">
+                <type href="http://model.nrp#//Solution"/>
+              </nodes>
+              <nodes xmi:id="_oRxmAgHIEeils_QRgrfFmw" incoming="_eNYv8AHIEeils_QRgrfFmw">
+                <type href="http://model.nrp#//SoftwareArtifact"/>
+              </nodes>
+              <edges xmi:id="_eNYv8AHIEeils_QRgrfFmw" source="_oRxmAAHIEeils_QRgrfFmw" target="_oRxmAgHIEeils_QRgrfFmw">
+                <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_oRxmAQHIEeils_QRgrfFmw" origin="_lHT1JAHIEeils_QRgrfFmw" image="_oRxmAAHIEeils_QRgrfFmw"/>
+            <mappings xmi:id="_oRxmAwHIEeils_QRgrfFmw" origin="_XAfrcAHIEeils_QRgrfFmw" image="_oRxmAgHIEeils_QRgrfFmw"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_lHTOEgHIEeils_QRgrfFmw" name="Rhs">
+        <nodes xmi:id="_lHTOEwHIEeils_QRgrfFmw">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_XAfrcQHIEeils_QRgrfFmw" name="unselected" incoming="_jxn0kAHIEeils_QRgrfFmw">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_lHUcMgHIEeils_QRgrfFmw" name="unselected" outgoing="_jxn0kAHIEeils_QRgrfFmw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        </nodes>
+        <edges xmi:id="_jxn0kAHIEeils_QRgrfFmw" source="_lHUcMgHIEeils_QRgrfFmw" target="_XAfrcQHIEeils_QRgrfFmw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_lHUcMQHIEeils_QRgrfFmw" origin="_lHT1JAHIEeils_QRgrfFmw" image="_lHTOEwHIEeils_QRgrfFmw"/>
+      <mappings xmi:id="_XAfrcgHIEeils_QRgrfFmw" origin="_XAfrcAHIEeils_QRgrfFmw" image="_XAfrcQHIEeils_QRgrfFmw"/>
+      <multiMappings xmi:id="_lHT1IAHIEeils_QRgrfFmw" origin="_V9D4gQHIEeils_QRgrfFmw" image="_lHTOEwHIEeils_QRgrfFmw"/>
+      <multiMappings xmi:id="_lHT1JQHIEeils_QRgrfFmw" origin="_V9D4gAHIEeils_QRgrfFmw" image="_lHT1JAHIEeils_QRgrfFmw"/>
+      <multiMappings xmi:id="_lHUcMwHIEeils_QRgrfFmw" origin="_aWKmwAHIEeils_QRgrfFmw" image="_lHUcMgHIEeils_QRgrfFmw"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_uuII8AHJEeils_QRgrfFmw" name="selectHighestRealisation" subUnits="_JCPn4AHIEeils_QRgrfFmw _GyDSoAHjEeigD_hJbWzwRg _VkZ-kAHhEeigD_hJbWzwRg _rHNxEAEjEeilXOOc9hG_FA _a02b8AHKEeils_QRgrfFmw"/>
+  <units xsi:type="henshin:Rule" xmi:id="_a02b8AHKEeils_QRgrfFmw" name="clearTraces">
+    <lhs xmi:id="_a0--0AHKEeils_QRgrfFmw" name="Lhs"/>
+    <rhs xmi:id="_a0_l4AHKEeils_QRgrfFmw" name="Rhs"/>
+    <multiRules xmi:id="_cw7dIAT2EeioA9WpIRynHw" checkDangling="false">
+      <lhs xmi:id="_cw7dIQT2EeioA9WpIRynHw" name="Lhs">
+        <nodes xmi:id="_aIHn0AT2EeioA9WpIRynHw" name="trc">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        </nodes>
+      </lhs>
+      <rhs xmi:id="_cw7dIgT2EeioA9WpIRynHw" name="Rhs"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_VkZ-kAHhEeigD_hJbWzwRg" name="getHighestRealisation" subUnit="_ZJl8kAHhEeigD_hJbWzwRg"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ZJl8kAHhEeigD_hJbWzwRg" name="storeBetterRealisation" description="">
+    <parameters xmi:id="_vXp6MAHhEeigD_hJbWzwRg" name="x" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_MAbRcAHiEeigD_hJbWzwRg" name="y" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </parameters>
+    <lhs xmi:id="_ZJpm8AHhEeigD_hJbWzwRg" name="Lhs">
+      <nodes xmi:id="_n6haQAHhEeigD_hJbWzwRg" name="value" incoming="_LSYNwAHkEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_pk7GkAHhEeigD_hJbWzwRg" value="x">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_r0DQkAHhEeigD_hJbWzwRg" name="sa" incoming="_20vW0AHhEeigD_hJbWzwRg _IUpD8CbIEeiPgN3LSWQx9Q">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+      </nodes>
+      <nodes xmi:id="_xz1owAHhEeigD_hJbWzwRg" name="trc" outgoing="_20vW0AHhEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_uGILcAHiEeigD_hJbWzwRg" value="&quot;unselected&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_JQcyQAHkEeigD_hJbWzwRg" name="key" outgoing="_LSYNwAHkEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_MFMKwAHkEeigD_hJbWzwRg" value="&quot;data&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_skl8sAHhEeigD_hJbWzwRg" name="real" outgoing="_IUpD8CbIEeiPgN3LSWQx9Q">
+        <type href="http://model.nrp#//RequirementRealisation"/>
+        <attributes xmi:id="_9PArkAHhEeigD_hJbWzwRg" value="y">
+          <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_20vW0AHhEeigD_hJbWzwRg" source="_xz1owAHhEeigD_hJbWzwRg" target="_r0DQkAHhEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_LSYNwAHkEeigD_hJbWzwRg" source="_JQcyQAHkEeigD_hJbWzwRg" target="_n6haQAHhEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+      </edges>
+      <edges xmi:id="_IUpD8CbIEeiPgN3LSWQx9Q" source="_skl8sAHhEeigD_hJbWzwRg" target="_r0DQkAHhEeigD_hJbWzwRg">
+        <type href="http://model.nrp#//RequirementRealisation/dependsOn"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_YrUvIAT1EeioA9WpIRynHw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_YrUvIQT1EeioA9WpIRynHw">
+          <conclusion xmi:id="_YrUvIgT1EeioA9WpIRynHw">
+            <nodes xmi:id="_YrUvIwT1EeioA9WpIRynHw" name="value" outgoing="_X1FDoAT1EeioA9WpIRynHw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+              <attributes xmi:id="_YrUvJAT1EeioA9WpIRynHw" value="x">
+                <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_YrVWMAT1EeioA9WpIRynHw" name="real" incoming="_X1FDoAT1EeioA9WpIRynHw">
+              <type href="http://model.nrp#//RequirementRealisation"/>
+              <attributes xmi:id="_YrVWMQT1EeioA9WpIRynHw" value="y">
+                <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_X1FDoAT1EeioA9WpIRynHw" source="_YrUvIwT1EeioA9WpIRynHw" target="_YrVWMAT1EeioA9WpIRynHw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_YrUvJQT1EeioA9WpIRynHw" origin="_n6haQAHhEeigD_hJbWzwRg" image="_YrUvIwT1EeioA9WpIRynHw"/>
+          <mappings xmi:id="_YrVWMgT1EeioA9WpIRynHw" origin="_skl8sAHhEeigD_hJbWzwRg" image="_YrVWMAT1EeioA9WpIRynHw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_ZJpm8QHhEeigD_hJbWzwRg" name="Rhs">
+      <nodes xmi:id="_n6haQQHhEeigD_hJbWzwRg" name="value" incoming="_LSY00AHkEeigD_hJbWzwRg" outgoing="_aZ6-8AT1EeioA9WpIRynHw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_FKvMAAHiEeigD_hJbWzwRg" value="(y>x ? y : x)">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_r0DQkQHhEeigD_hJbWzwRg" name="sa" incoming="_IfQJIAT1EeioA9WpIRynHw _IUprACbIEeiPgN3LSWQx9Q">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+      </nodes>
+      <nodes xmi:id="_JQeAYAHkEeigD_hJbWzwRg" name="key" outgoing="_LSY00AHkEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_MFMKwQHkEeigD_hJbWzwRg" value="&quot;data&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_v9KhUAKtEeiFGPlFGyLpHA" name="trc" outgoing="_IfQJIAT1EeioA9WpIRynHw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_v9KhUQKtEeiFGPlFGyLpHA" value="&quot;unselected&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_skl8sQHhEeigD_hJbWzwRg" name="real" incoming="_aZ6-8AT1EeioA9WpIRynHw" outgoing="_IUprACbIEeiPgN3LSWQx9Q">
+        <type href="http://model.nrp#//RequirementRealisation"/>
+        <attributes xmi:id="_9PBSoAHhEeigD_hJbWzwRg" value="y">
+          <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_LSY00AHkEeigD_hJbWzwRg" source="_JQeAYAHkEeigD_hJbWzwRg" target="_n6haQQHhEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+      </edges>
+      <edges xmi:id="_IfQJIAT1EeioA9WpIRynHw" source="_v9KhUAKtEeiFGPlFGyLpHA" target="_r0DQkQHhEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_aZ6-8AT1EeioA9WpIRynHw" source="_n6haQQHhEeigD_hJbWzwRg" target="_skl8sQHhEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_IUprACbIEeiPgN3LSWQx9Q" source="_skl8sQHhEeigD_hJbWzwRg" target="_r0DQkQHhEeigD_hJbWzwRg">
+        <type href="http://model.nrp#//RequirementRealisation/dependsOn"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_n6haQgHhEeigD_hJbWzwRg" origin="_n6haQAHhEeigD_hJbWzwRg" image="_n6haQQHhEeigD_hJbWzwRg"/>
+    <mappings xmi:id="_r0DQkgHhEeigD_hJbWzwRg" origin="_r0DQkAHhEeigD_hJbWzwRg" image="_r0DQkQHhEeigD_hJbWzwRg"/>
+    <mappings xmi:id="_JQeAYQHkEeigD_hJbWzwRg" origin="_JQcyQAHkEeigD_hJbWzwRg" image="_JQeAYAHkEeigD_hJbWzwRg"/>
+    <mappings xmi:id="_v9M9kAKtEeiFGPlFGyLpHA" origin="_xz1owAHhEeigD_hJbWzwRg" image="_v9KhUAKtEeiFGPlFGyLpHA"/>
+    <mappings xmi:id="_skl8sgHhEeigD_hJbWzwRg" origin="_skl8sAHhEeigD_hJbWzwRg" image="_skl8sQHhEeigD_hJbWzwRg"/>
+    <multiRules xmi:id="_CBaYcAT0EeioA9WpIRynHw">
+      <parameters xmi:id="_CBxk0AT0EeioA9WpIRynHw" name="x" kind="VAR">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_CByL4AT0EeioA9WpIRynHw" name="y" kind="VAR">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </parameters>
+      <lhs xmi:id="_CBgfEAT0EeioA9WpIRynHw" name="Lhs">
+        <nodes xmi:id="_CBjiYQT0EeioA9WpIRynHw" name="value" incoming="_CBkJcQT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_CBjiYgT0EeioA9WpIRynHw" value="y">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_CBjiZAT0EeioA9WpIRynHw" name="key" outgoing="_CBkJcQT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_CBjiZQT0EeioA9WpIRynHw" value="&quot;data&quot;">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_CBkwggT0EeioA9WpIRynHw" name="sa" incoming="_CBlXkQT0EeioA9WpIRynHw _IUqSESbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_CBkwhAT0EeioA9WpIRynHw" name="trc" outgoing="_CBlXkQT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_CBkwhQT0EeioA9WpIRynHw" value="&quot;unselected&quot;">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_KYdGdAT1EeioA9WpIRynHw" name="real" outgoing="_IUqSESbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//RequirementRealisation"/>
+          <attributes xmi:id="_KYdGdQT1EeioA9WpIRynHw" value="y">
+            <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_CBkJcQT0EeioA9WpIRynHw" source="_CBjiZAT0EeioA9WpIRynHw" target="_CBjiYQT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+        </edges>
+        <edges xmi:id="_CBlXkQT0EeioA9WpIRynHw" source="_CBkwhAT0EeioA9WpIRynHw" target="_CBkwggT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_IUqSESbIEeiPgN3LSWQx9Q" source="_KYdGdAT1EeioA9WpIRynHw" target="_CBkwggT0EeioA9WpIRynHw">
+          <type href="http://model.nrp#//RequirementRealisation/dependsOn"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_CBhGIAT0EeioA9WpIRynHw" name="Rhs">
+        <nodes xmi:id="_CBhtMAT0EeioA9WpIRynHw" name="value" incoming="_CBi7UAT0EeioA9WpIRynHw" outgoing="_aZ6-8QT1EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_CBhtMQT0EeioA9WpIRynHw" value="(x>y? x : y)">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_CBiUQAT0EeioA9WpIRynHw" name="key" outgoing="_CBi7UAT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_CBiUQQT0EeioA9WpIRynHw" value="&quot;data&quot;">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_CBi7UQT0EeioA9WpIRynHw" name="sa" incoming="_IfRXQAT1EeioA9WpIRynHw _IUqSECbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_CBl-pAT0EeioA9WpIRynHw" name="trc" outgoing="_IfRXQAT1EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_CBl-pQT0EeioA9WpIRynHw" value="&quot;unselected&quot;">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_KYdGcAT1EeioA9WpIRynHw" name="real" incoming="_aZ6-8QT1EeioA9WpIRynHw" outgoing="_IUqSECbIEeiPgN3LSWQx9Q">
+          <type href="http://model.nrp#//RequirementRealisation"/>
+          <attributes xmi:id="_KYdGcQT1EeioA9WpIRynHw" value="y">
+            <type href="http://model.nrp#//RequirementRealisation/percentage"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_CBi7UAT0EeioA9WpIRynHw" source="_CBiUQAT0EeioA9WpIRynHw" target="_CBhtMAT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+        </edges>
+        <edges xmi:id="_IfRXQAT1EeioA9WpIRynHw" source="_CBl-pAT0EeioA9WpIRynHw" target="_CBi7UQT0EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_aZ6-8QT1EeioA9WpIRynHw" source="_CBhtMAT0EeioA9WpIRynHw" target="_KYdGcAT1EeioA9WpIRynHw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_IUqSECbIEeiPgN3LSWQx9Q" source="_KYdGcAT1EeioA9WpIRynHw" target="_CBi7UQT0EeioA9WpIRynHw">
+          <type href="http://model.nrp#//RequirementRealisation/dependsOn"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_CBkJcgT0EeioA9WpIRynHw" origin="_CBjiYQT0EeioA9WpIRynHw" image="_CBhtMAT0EeioA9WpIRynHw"/>
+      <mappings xmi:id="_CBl-ogT0EeioA9WpIRynHw" origin="_CBkwggT0EeioA9WpIRynHw" image="_CBi7UQT0EeioA9WpIRynHw"/>
+      <mappings xmi:id="_CBmlsAT0EeioA9WpIRynHw" origin="_CBkwhAT0EeioA9WpIRynHw" image="_CBl-pAT0EeioA9WpIRynHw"/>
+      <mappings xmi:id="_CBmlsQT0EeioA9WpIRynHw" origin="_CBjiZAT0EeioA9WpIRynHw" image="_CBiUQAT0EeioA9WpIRynHw"/>
+      <mappings xmi:id="_KYdtgQT1EeioA9WpIRynHw" origin="_KYdGdAT1EeioA9WpIRynHw" image="_KYdGcAT1EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBhtMgT0EeioA9WpIRynHw" origin="_n6haQQHhEeigD_hJbWzwRg" image="_CBhtMAT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBiUQgT0EeioA9WpIRynHw" origin="_JQeAYAHkEeigD_hJbWzwRg" image="_CBiUQAT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBi7UgT0EeioA9WpIRynHw" origin="_r0DQkQHhEeigD_hJbWzwRg" image="_CBi7UQT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBjiYwT0EeioA9WpIRynHw" origin="_n6haQAHhEeigD_hJbWzwRg" image="_CBjiYQT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBkJcAT0EeioA9WpIRynHw" origin="_JQcyQAHkEeigD_hJbWzwRg" image="_CBjiZAT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBkwgwT0EeioA9WpIRynHw" origin="_r0DQkAHhEeigD_hJbWzwRg" image="_CBkwggT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBlXkAT0EeioA9WpIRynHw" origin="_xz1owAHhEeigD_hJbWzwRg" image="_CBkwhAT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_CBl-pgT0EeioA9WpIRynHw" origin="_v9KhUAKtEeiFGPlFGyLpHA" image="_CBl-pAT0EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_KYdGcgT1EeioA9WpIRynHw" origin="_skl8sQHhEeigD_hJbWzwRg" image="_KYdGcAT1EeioA9WpIRynHw"/>
+      <multiMappings xmi:id="_KYdGdgT1EeioA9WpIRynHw" origin="_skl8sAHhEeigD_hJbWzwRg" image="_KYdGdAT1EeioA9WpIRynHw"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_GyDSoAHjEeigD_hJbWzwRg" name="createDataTrace">
+    <lhs xmi:id="_GyJZQAHjEeigD_hJbWzwRg" name="Lhs"/>
+    <rhs xmi:id="_GyJZQQHjEeigD_hJbWzwRg" name="Rhs">
+      <nodes xmi:id="_NI4R0AHjEeigD_hJbWzwRg" name="key" outgoing="_UregkAHjEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_OE0VoAHjEeigD_hJbWzwRg" value="&quot;data&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_UHRnUAHjEeigD_hJbWzwRg" name="value" incoming="_UregkAHjEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_VMaN8AHkEeigD_hJbWzwRg" value="0.0">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_UregkAHjEeigD_hJbWzwRg" source="_NI4R0AHjEeigD_hJbWzwRg" target="_UHRnUAHjEeigD_hJbWzwRg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+      </edges>
+    </rhs>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_TzZ2YE4REei8K_I3M29_rQ" name="repairDependenciesOfSa">
+    <parameters xmi:id="_Q5RwgIQoEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_Q5RwgYQoEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_Tzc5sE4REei8K_I3M29_rQ" name="Lhs">
+      <nodes xmi:id="_fmm-sE4REei8K_I3M29_rQ" name="sa" incoming="_1Bi2QE4REei8K_I3M29_rQ">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_EOYcEIT1EeiMEqfRM2mZlA" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_jJf2oE4REei8K_I3M29_rQ" name="sol" outgoing="_1Bi2QE4REei8K_I3M29_rQ">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_EHE6MIT1EeiMEqfRM2mZlA" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_1Bi2QE4REei8K_I3M29_rQ" source="_jJf2oE4REei8K_I3M29_rQ" target="_fmm-sE4REei8K_I3M29_rQ">
+        <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Tzc5sU4REei8K_I3M29_rQ" name="Rhs">
+      <nodes xmi:id="_fmnlwE4REei8K_I3M29_rQ" name="sa" incoming="_1Bi2QU4REei8K_I3M29_rQ">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_EOZDIIT1EeiMEqfRM2mZlA" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_jJf2oU4REei8K_I3M29_rQ" name="sol" outgoing="_1Bi2QU4REei8K_I3M29_rQ">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_EHE6MYT1EeiMEqfRM2mZlA" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_1Bi2QU4REei8K_I3M29_rQ" source="_jJf2oU4REei8K_I3M29_rQ" target="_fmnlwE4REei8K_I3M29_rQ">
+        <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fmnlwU4REei8K_I3M29_rQ" origin="_fmm-sE4REei8K_I3M29_rQ" image="_fmnlwE4REei8K_I3M29_rQ"/>
+    <mappings xmi:id="_jJf2ok4REei8K_I3M29_rQ" origin="_jJf2oE4REei8K_I3M29_rQ" image="_jJf2oU4REei8K_I3M29_rQ"/>
+    <multiRules xmi:id="_kF3_UE4REei8K_I3M29_rQ">
+      <parameters xmi:id="_Q5RwgoQoEei2-41ND0zNeQ" name="solName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_Q5Rwg4QoEei2-41ND0zNeQ" name="saName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_kF4mYE4REei8K_I3M29_rQ" name="Lhs">
+        <nodes xmi:id="_kF5Nck4REei8K_I3M29_rQ" name="sa" incoming="_1BjdUE4REei8K_I3M29_rQ" outgoing="_1pGlgE4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_kF5Nd04REei8K_I3M29_rQ" name="sol" outgoing="_1BjdUE4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_kF3YQE4REei8K_I3M29_rQ" name="dep" incoming="_1pGlgE4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_1BjdUE4REei8K_I3M29_rQ" source="_kF5Nd04REei8K_I3M29_rQ" target="_kF5Nck4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_1pGlgE4REei8K_I3M29_rQ" source="_kF5Nck4REei8K_I3M29_rQ" target="_kF3YQE4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_kF4mYU4REei8K_I3M29_rQ" name="Rhs">
+        <nodes xmi:id="_kF5NcE4REei8K_I3M29_rQ" name="sa" incoming="_1Bi2Qk4REei8K_I3M29_rQ" outgoing="_1pGlgU4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_kF5NdU4REei8K_I3M29_rQ" name="sol" outgoing="_1Bi2Qk4REei8K_I3M29_rQ _49mcIE4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_kF3YQU4REei8K_I3M29_rQ" name="dep" incoming="_1pGlgU4REei8K_I3M29_rQ _49mcIE4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_1Bi2Qk4REei8K_I3M29_rQ" source="_kF5NdU4REei8K_I3M29_rQ" target="_kF5NcE4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_1pGlgU4REei8K_I3M29_rQ" source="_kF5NcE4REei8K_I3M29_rQ" target="_kF3YQU4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+        <edges xmi:id="_49mcIE4REei8K_I3M29_rQ" source="_kF5NdU4REei8K_I3M29_rQ" target="_kF3YQU4REei8K_I3M29_rQ">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_kF5NdE4REei8K_I3M29_rQ" origin="_kF5Nck4REei8K_I3M29_rQ" image="_kF5NcE4REei8K_I3M29_rQ"/>
+      <mappings xmi:id="_kF5NeU4REei8K_I3M29_rQ" origin="_kF5Nd04REei8K_I3M29_rQ" image="_kF5NdU4REei8K_I3M29_rQ"/>
+      <mappings xmi:id="_kF3YQk4REei8K_I3M29_rQ" origin="_kF3YQE4REei8K_I3M29_rQ" image="_kF3YQU4REei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_kF5NcU4REei8K_I3M29_rQ" origin="_fmnlwE4REei8K_I3M29_rQ" image="_kF5NcE4REei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_kF5Nc04REei8K_I3M29_rQ" origin="_fmm-sE4REei8K_I3M29_rQ" image="_kF5Nck4REei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_kF5Ndk4REei8K_I3M29_rQ" origin="_jJf2oU4REei8K_I3M29_rQ" image="_kF5NdU4REei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_kF5NeE4REei8K_I3M29_rQ" origin="_jJf2oE4REei8K_I3M29_rQ" image="_kF5Nd04REei8K_I3M29_rQ"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_XZJ1EE4REei8K_I3M29_rQ" name="deleteDependenciesOfSa">
+    <parameters xmi:id="_RY32kIQoEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_RY32kYQoEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_XZLqQE4REei8K_I3M29_rQ" name="Lhs">
+      <nodes xmi:id="_LN8xkE4TEei8K_I3M29_rQ" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_Ck4HoIT1EeiMEqfRM2mZlA" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_LyykAE4TEei8K_I3M29_rQ" name="sa">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_CePUIIT1EeiMEqfRM2mZlA" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_OR5qwE4TEei8K_I3M29_rQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_OR5qwU4TEei8K_I3M29_rQ">
+          <conclusion xmi:id="_OR5qwk4TEei8K_I3M29_rQ">
+            <nodes xmi:id="_OR5qw04TEei8K_I3M29_rQ" name="sol" outgoing="_NUXEcE4TEei8K_I3M29_rQ">
+              <type href="http://model.nrp#//Solution"/>
+              <attributes xmi:id="_Ck4HooT1EeiMEqfRM2mZlA" value="solName">
+                <type href="http://model.nrp#//Solution/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_OR5qxU4TEei8K_I3M29_rQ" name="sa" incoming="_NUXEcE4TEei8K_I3M29_rQ">
+              <type href="http://model.nrp#//SoftwareArtifact"/>
+              <attributes xmi:id="_CeUzsIT1EeiMEqfRM2mZlA" value="saName">
+                <type href="http://model.nrp#//SoftwareArtifact/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_NUXEcE4TEei8K_I3M29_rQ" source="_OR5qw04TEei8K_I3M29_rQ" target="_OR5qxU4TEei8K_I3M29_rQ">
+              <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_OR5qxE4TEei8K_I3M29_rQ" origin="_LN8xkE4TEei8K_I3M29_rQ" image="_OR5qw04TEei8K_I3M29_rQ"/>
+          <mappings xmi:id="_OR5qxk4TEei8K_I3M29_rQ" origin="_LyykAE4TEei8K_I3M29_rQ" image="_OR5qxU4TEei8K_I3M29_rQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_XZLqQU4REei8K_I3M29_rQ" name="Rhs">
+      <nodes xmi:id="_LN9YoE4TEei8K_I3M29_rQ" name="sol">
+        <type href="http://model.nrp#//Solution"/>
+        <attributes xmi:id="_Ck4HoYT1EeiMEqfRM2mZlA" value="solName">
+          <type href="http://model.nrp#//Solution/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_LyykAU4TEei8K_I3M29_rQ" name="sa">
+        <type href="http://model.nrp#//SoftwareArtifact"/>
+        <attributes xmi:id="_CeUMoIT1EeiMEqfRM2mZlA" value="saName">
+          <type href="http://model.nrp#//SoftwareArtifact/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_LN9YoU4TEei8K_I3M29_rQ" origin="_LN8xkE4TEei8K_I3M29_rQ" image="_LN9YoE4TEei8K_I3M29_rQ"/>
+    <mappings xmi:id="_LyykAk4TEei8K_I3M29_rQ" origin="_LyykAE4TEei8K_I3M29_rQ" image="_LyykAU4TEei8K_I3M29_rQ"/>
+    <multiRules xmi:id="_Skao004TEei8K_I3M29_rQ">
+      <parameters xmi:id="_RY4doIQoEei2-41ND0zNeQ" name="solName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_RY4doYQoEei2-41ND0zNeQ" name="saName">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_Skao1E4TEei8K_I3M29_rQ" name="Lhs">
+        <nodes xmi:id="_Skao2E4TEei8K_I3M29_rQ" name="sol" outgoing="_UevngE4TEei8K_I3M29_rQ">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_SkbP404TEei8K_I3M29_rQ" name="sa" incoming="_h03rUE7oEeiS75rC_Jcc2A">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_Skao0E4TEei8K_I3M29_rQ" name="dep" incoming="_UevngE4TEei8K_I3M29_rQ" outgoing="_h03rUE7oEeiS75rC_Jcc2A">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_UevngE4TEei8K_I3M29_rQ" source="_Skao2E4TEei8K_I3M29_rQ" target="_Skao0E4TEei8K_I3M29_rQ">
+          <type href="http://model.nrp#//Solution/selectedArtifacts"/>
+        </edges>
+        <edges xmi:id="_h03rUE7oEeiS75rC_Jcc2A" source="_Skao0E4TEei8K_I3M29_rQ" target="_SkbP404TEei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_Skao1U4TEei8K_I3M29_rQ" name="Rhs">
+        <nodes xmi:id="_Skao1k4TEei8K_I3M29_rQ" name="sol">
+          <type href="http://model.nrp#//Solution"/>
+        </nodes>
+        <nodes xmi:id="_SkbP4U4TEei8K_I3M29_rQ" name="sa" incoming="_h03rUU7oEeiS75rC_Jcc2A">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <nodes xmi:id="_Skao0U4TEei8K_I3M29_rQ" name="dep" outgoing="_h03rUU7oEeiS75rC_Jcc2A">
+          <type href="http://model.nrp#//SoftwareArtifact"/>
+        </nodes>
+        <edges xmi:id="_h03rUU7oEeiS75rC_Jcc2A" source="_Skao0U4TEei8K_I3M29_rQ" target="_SkbP4U4TEei8K_I3M29_rQ">
+          <type href="http://model.nrp#//SoftwareArtifact/requires"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_SkbP4E4TEei8K_I3M29_rQ" origin="_Skao2E4TEei8K_I3M29_rQ" image="_Skao1k4TEei8K_I3M29_rQ"/>
+      <mappings xmi:id="_SkbP5U4TEei8K_I3M29_rQ" origin="_SkbP404TEei8K_I3M29_rQ" image="_SkbP4U4TEei8K_I3M29_rQ"/>
+      <mappings xmi:id="_Skao0k4TEei8K_I3M29_rQ" origin="_Skao0E4TEei8K_I3M29_rQ" image="_Skao0U4TEei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_Skao104TEei8K_I3M29_rQ" origin="_LN9YoE4TEei8K_I3M29_rQ" image="_Skao1k4TEei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_Skao2U4TEei8K_I3M29_rQ" origin="_LN8xkE4TEei8K_I3M29_rQ" image="_Skao2E4TEei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_SkbP4k4TEei8K_I3M29_rQ" origin="_LyykAU4TEei8K_I3M29_rQ" image="_SkbP4U4TEei8K_I3M29_rQ"/>
+      <multiMappings xmi:id="_SkbP5E4TEei8K_I3M29_rQ" origin="_LyykAE4TEei8K_I3M29_rQ" image="_SkbP404TEei8K_I3M29_rQ"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_eUVMkE4TEei8K_I3M29_rQ" name="fixDependencies" subUnits="_TzZ2YE4REei8K_I3M29_rQ _XZJ1EE4REei8K_I3M29_rQ">
+    <parameters xmi:id="_QeuigIQoEei2-41ND0zNeQ" name="solName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_QevJkIQoEei2-41ND0zNeQ" name="saName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_SeA5sIQoEei2-41ND0zNeQ" source="_QeuigIQoEei2-41ND0zNeQ" target="_Q5RwgIQoEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_SeA5sYQoEei2-41ND0zNeQ" source="_Q5RwgIQoEei2-41ND0zNeQ" target="_QeuigIQoEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_SeA5soQoEei2-41ND0zNeQ" source="_QevJkIQoEei2-41ND0zNeQ" target="_Q5RwgYQoEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_SeA5s4QoEei2-41ND0zNeQ" source="_Q5RwgYQoEei2-41ND0zNeQ" target="_QevJkIQoEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TtEGwIQoEei2-41ND0zNeQ" source="_QeuigIQoEei2-41ND0zNeQ" target="_RY32kIQoEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TtEGwYQoEei2-41ND0zNeQ" source="_RY32kIQoEei2-41ND0zNeQ" target="_QeuigIQoEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TtEGwoQoEei2-41ND0zNeQ" source="_QevJkIQoEei2-41ND0zNeQ" target="_RY32kYQoEei2-41ND0zNeQ"/>
+    <parameterMappings xmi:id="_TtEGw4QoEei2-41ND0zNeQ" source="_RY32kYQoEei2-41ND0zNeQ" target="_QevJkIQoEei2-41ND0zNeQ"/>
+  </units>
+</henshin:Module>

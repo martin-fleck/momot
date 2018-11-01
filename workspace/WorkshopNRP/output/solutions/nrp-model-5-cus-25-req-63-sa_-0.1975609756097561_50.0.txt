@@ -1,0 +1,51 @@
+Number of variables: 10
+  Variable[0]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[1]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[2]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Konklux version 1.6.7'
+
+  Multi-rule #1:
+
+  Variable[3]: Assignment for unit 'fixDependencies':
+
+  Variable[4]: Match for rule 'repairDependenciesOfSa':
+
+  Multi-rule #1:
+
+  Variable[5]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Konklux version 1.6.7'
+
+  Multi-rule #1:
+
+  Variable[6]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[7]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Multi-rule #1:
+
+  Variable[8]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[9]: -Placeholder-
+
+Number of attributes: 1
+  AggregatedFitness: 49.802439024390246
+Number of objectives: 2
+  satisfaction: -0.1975609756097561
+  costs: 50.0
+Number of constraints: 0

@@ -1,0 +1,1209 @@
+Number of variables: 400
+  Variable[0]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[1]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[2]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[3]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Pannier version 8.7'
+
+  Variable[4]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Pannier version 8.7'
+
+  Variable[5]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Job version 4.7'
+
+  Variable[6]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bytecard version 0.3.1'
+
+  Variable[7]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[8]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Job version 4.7'
+
+  Variable[9]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Job version 4.7'
+
+  Variable[10]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[11]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[12]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[13]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 3.3'
+
+  Variable[14]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Rank version 8.1.6'
+
+  Variable[15]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[16]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Treeflex version 0.9.6'
+
+  Variable[17]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Variable[18]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[19]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[20]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Otcom version 0.52'
+
+  Variable[21]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[22]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Otcom version 0.52'
+
+  Variable[23]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[24]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[25]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[26]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stim version 0.88'
+
+  Variable[27]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[28]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.1.3'
+
+  Variable[29]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Treeflex version 0.9.6'
+
+  Variable[30]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Andalax version 0.2.3'
+
+  Variable[31]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[32]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Prodder version 2.37'
+
+  Variable[33]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[34]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[35]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Span version 0.5.9'
+
+  Variable[36]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[37]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stim version 0.88'
+
+  Variable[38]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[39]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[40]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Andalax version 0.2.3'
+
+  Variable[41]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[42]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Span version 0.5.9'
+
+  Variable[43]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[44]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[45]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[46]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Variable[47]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 2.4'
+
+  Variable[48]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Variable[49]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[50]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[51]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[52]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Variable[53]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Variable[54]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[55]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Ventosanzap version 4.9'
+
+  Variable[56]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Stringtough version 2.4'
+
+  Variable[57]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[58]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Treeflex version 0.9.6'
+
+  Variable[59]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[60]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[61]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Stringtough version 2.4'
+
+  Variable[62]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Holdlamis version 8.65'
+
+  Variable[63]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[64]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[65]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Rank version 8.1.6'
+
+  Variable[66]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Variable[67]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[68]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[69]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[70]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stringtough version 3.3'
+
+  Variable[71]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Variable[72]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[73]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Variable[74]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[75]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Hatity version 4.1.1'
+
+  Variable[76]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Temp version 0.98'
+
+  Variable[77]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Quo Lux version 2.23'
+
+  Variable[78]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Namfix version 2.2.9'
+
+  Variable[79]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[80]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Holdlamis version 8.65'
+
+  Variable[81]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Variable[82]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[83]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Daltfresh version 1.75'
+
+  Variable[84]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[85]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[86]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Holdlamis version 4.2.1'
+
+  Variable[87]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Rank version 8.1.6'
+
+  Variable[88]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Variable[89]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[90]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cardify version 5.09'
+
+  Variable[91]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Quo Lux version 2.23'
+
+  Variable[92]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[93]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[94]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stronghold version 0.4.5'
+
+  Variable[95]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[96]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Voyatouch version 5.55'
+
+  Variable[97]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[98]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Variable[99]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[100]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[101]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Variable[102]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Sub-Ex version 3.8.7'
+
+  Variable[103]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[104]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[105]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Variable[106]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 0.0.0'
+
+  Variable[107]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zontrax version 0.3.4'
+
+  Variable[108]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sub-Ex version 3.5.8'
+
+  Variable[109]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Otcom version 0.72'
+
+  Variable[110]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Holdlamis version 4.2.1'
+
+  Variable[111]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Variable[112]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Variable[113]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[114]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Variable[115]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[116]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[117]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Y-find version 0.45'
+
+  Variable[118]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Variable[119]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Job version 4.7'
+
+  Variable[120]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Variable[121]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[122]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[123]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Treeflex version 9.6.5'
+
+  Variable[124]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[125]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[126]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Sonair version 0.7.1'
+
+  Variable[127]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[128]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[129]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[130]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Treeflex version 0.9.6'
+
+  Variable[131]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[132]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Variable[133]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zamit version 0.96'
+
+  Variable[134]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Namfix version 2.2.9'
+
+  Variable[135]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Y-find version 0.45'
+
+  Variable[136]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Otcom version 0.72'
+
+  Variable[137]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Variable[138]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Vagram version 0.23'
+
+  Variable[139]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zontrax version 9.60'
+
+  Variable[140]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Variable[141]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Variable[142]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Wrapsafe version 0.39'
+
+  Variable[143]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Gembucket version 0.2.7'
+
+  Variable[144]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[145]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sub-Ex version 3.8.7'
+
+  Variable[146]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bitchip version 4.8.6'
+
+  Variable[147]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[148]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Variable[149]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.1.3'
+
+  Variable[150]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[151]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Transcof version 0.43'
+
+  Variable[152]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stringtough version 0.0.0'
+
+  Variable[153]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[154]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[155]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Span version 0.10'
+
+  Variable[156]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Sonair version 0.7.1'
+
+  Variable[157]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Temp version 0.98'
+
+  Variable[158]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Rank version 0.4.3'
+
+  Variable[159]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[160]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Ventosanzap version 4.9'
+
+  Variable[161]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Zathin version 2.0'
+
+  Variable[162]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Span version 0.5.9'
+
+  Variable[163]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Viva version 0.0.1'
+
+  Variable[164]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Home Ing version 5.2'
+
+  Variable[165]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[166]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stim version 7.5'
+
+  Variable[167]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zamit version 0.96'
+
+  Variable[168]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 2.4'
+
+  Variable[169]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Zamit version 7.02'
+
+  Variable[170]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Cardify version 5.09'
+
+  Variable[171]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Gembucket version 0.2.7'
+
+  Variable[172]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Trippledex version 7.9.7'
+
+  Variable[173]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[174]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voyatouch version 0.82'
+
+  Variable[175]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Keylex version 0.58'
+
+  Variable[176]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[177]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stim version 2.8.5'
+
+  Variable[178]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Variable[179]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Hatity version 4.1.1'
+
+  Variable[180]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Variable[181]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[182]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[183]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Span version 0.10'
+
+  Variable[184]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Wrapsafe version 0.39'
+
+  Variable[185]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Overhold version 0.07'
+
+  Variable[186]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zontrax version 9.60'
+
+  Variable[187]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bitchip version 3.7.7'
+
+  Variable[188]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[189]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[190]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Vagram version 0.1.5'
+
+  Variable[191]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Stronghold version 0.4.5'
+
+  Variable[192]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Otcom version 0.52'
+
+  Variable[193]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[194]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[195]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 1.01'
+
+  Variable[196]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Viva version 0.1.1'
+
+  Variable[197]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Stim version 2.8.5'
+
+  Variable[198]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Variable[199]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[200]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Greenlam version 0.70'
+
+  Variable[201]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[202]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stronghold version 0.4.5'
+
+  Variable[203]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stim version 2.8.5'
+
+  Variable[204]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Variable[205]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 3.73'
+
+  Variable[206]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[207]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[208]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Stim version 2.8.5'
+
+  Variable[209]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Duobam version 0.43'
+
+  Variable[210]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[211]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Variable[212]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Variable[213]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Variable[214]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Variable[215]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Span version 0.10'
+
+  Variable[216]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Variable[217]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Cookley version 3.73'
+
+  Variable[218]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[219]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zontrax version 9.60'
+
+  Variable[220]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[221]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[222]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[223]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Otcom version 0.52'
+
+  Variable[224]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Zontrax version 0.3.4'
+
+  Variable[225]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Variable[226]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Y-find version 3.0'
+
+  Variable[227]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Home Ing version 9.97'
+
+  Variable[228]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[229]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[230]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[231]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Variable[232]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 0.81'
+
+  Variable[233]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[234]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sub-Ex version 0.4.0'
+
+  Variable[235]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Variable[236]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sonair version 0.7.1'
+
+  Variable[237]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Latlux version 2.74'
+
+  Variable[238]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[239]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[240]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stim version 7.5'
+
+  Variable[241]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Temp version 0.98'
+
+  Variable[242]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[243]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Temp version 0.98'
+
+  Variable[244]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Transcof version 0.43'
+
+  Variable[245]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Fix San version 0.1.3'
+
+  Variable[246]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Variable[247]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[248]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Quo Lux version 0.1.3'
+
+  Variable[249]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Overhold version 8.7'
+
+  Variable[250]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voyatouch version 0.82'
+
+  Variable[251]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Ventosanzap version 4.9'
+
+  Variable[252]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[253]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Job version 4.7'
+
+  Variable[254]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zontrax version 9.60'
+
+  Variable[255]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voyatouch version 0.82'
+
+  Variable[256]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Transcof version 0.43'
+
+  Variable[257]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Redhold version 3.96'
+
+  Variable[258]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[259]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Variable[260]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bitchip version 0.1.1'
+
+  Variable[261]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 0.33'
+
+  Variable[262]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Variable[263]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[264]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[265]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Fix San version 7.2.1'
+
+  Variable[266]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Variable[267]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Quo Lux version 0.1.3'
+
+  Variable[268]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Andalax version 0.6.3'
+
+  Variable[269]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Treeflex version 9.6.5'
+
+  Variable[270]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Fixflex version 0.5.6'
+
+  Variable[271]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[272]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Transcof version 0.43'
+
+  Variable[273]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[274]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Transcof version 0.43'
+
+  Variable[275]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Otcom version 3.26'
+
+  Variable[276]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[277]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Variable[278]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Transcof version 0.0.1'
+
+  Variable[279]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Trippledex version 6.1'
+
+  Variable[280]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Daltfresh version 3.0.3'
+
+  Variable[281]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Greenlam version 0.70'
+
+  Variable[282]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Latlux version 9.67'
+
+  Variable[283]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Transcof version 0.5.8'
+
+  Variable[284]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[285]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 1.3'
+
+  Variable[286]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.1.3'
+
+  Variable[287]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voyatouch version 0.82'
+
+  Variable[288]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Stringtough version 2.4'
+
+  Variable[289]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[290]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[291]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Sub-Ex version 3.5.8'
+
+  Variable[292]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Span version 0.3.4'
+
+  Variable[293]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[294]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Viva version 0.1.1'
+
+  Variable[295]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Y-find version 0.6.8'
+
+  Variable[296]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Greenlam version 0.70'
+
+  Variable[297]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stim version 7.5'
+
+  Variable[298]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Transcof version 0.43'
+
+  Variable[299]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Bigtax version 5.0'
+
+  Variable[300]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[301]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Home Ing version 9.97'
+
+  Variable[302]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 9.17'
+
+  Variable[303]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Aerified version 9.5'
+
+  Variable[304]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Otcom version 0.52'
+
+  Variable[305]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Keylex version 0.58'
+
+  Variable[306]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[307]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[308]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Ventosanzap version 4.9'
+
+  Variable[309]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Prodder version 3.1'
+
+  Variable[310]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[311]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Variable[312]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Y-find version 0.2.3'
+
+  Variable[313]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Variable[314]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Fix San version 5.0.3'
+
+  Variable[315]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Variable[316]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[317]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[318]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Prodder version 9.89'
+
+  Variable[319]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Greenlam version 0.70'
+
+  Variable[320]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[321]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zaam-Dox version 0.33'
+
+  Variable[322]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Keylex version 0.58'
+
+  Variable[323]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[324]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.6.2'
+
+  Variable[325]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Sub-Ex version 3.5.8'
+
+  Variable[326]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Domainer version 8.4'
+
+  Variable[327]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Latlux version 0.9.1'
+
+  Variable[328]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[329]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[330]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Sonsing version 0.56'
+
+  Variable[331]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Subin version 0.16'
+
+  Variable[332]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Tresom version 0.76'
+
+  Variable[333]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Andalax version 0.6.9'
+
+  Variable[334]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[335]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Bitchip version 6.97'
+
+  Variable[336]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[337]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Viva version 6.6'
+
+  Variable[338]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zontrax version 0.3.4'
+
+  Variable[339]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Span version 0.10'
+
+  Variable[340]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Bitchip version 6.97'
+
+  Variable[341]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Prodder version 3.1'
+
+  Variable[342]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Cardify version 0.44'
+
+  Variable[343]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Tempsoft version 0.0.0'
+
+  Variable[344]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[345]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Cookley version 3.73'
+
+  Variable[346]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bitchip version 3.7.7'
+
+  Variable[347]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Opela version 0.0.9'
+
+  Variable[348]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[349]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Rank version 6.05'
+
+  Variable[350]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Namfix version 2.2.9'
+
+  Variable[351]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Hatity version 4.1.1'
+
+  Variable[352]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[353]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Opela version 0.0.9'
+
+  Variable[354]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[355]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[356]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Wrapsafe version 0.39'
+
+  Variable[357]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.76'
+
+  Variable[358]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Regrant version 4.23'
+
+  Variable[359]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Konklab version 5.63'
+
+  Variable[360]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[361]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stringtough version 0.22'
+
+  Variable[362]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zontrax version 0.3.4'
+
+  Variable[363]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[364]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[365]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Lotlux version 0.38'
+
+  Variable[366]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[367]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Quo Lux version 2.23'
+
+  Variable[368]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Alpha version 0.7.9'
+
+  Variable[369]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Y-find version 0.45'
+
+  Variable[370]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[371]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Tresom version 0.76'
+
+  Variable[372]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cardify version 0.44'
+
+  Variable[373]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[374]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stim version 2.8.5'
+
+  Variable[375]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[376]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Stim version 7.5'
+
+  Variable[377]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Vagram version 2.7.9'
+
+  Variable[378]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Pannier version 0.8.0'
+
+  Variable[379]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[380]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[381]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Latlux version 9.67'
+
+  Variable[382]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Subin version 0.3'
+
+  Variable[383]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Viva version 6.6'
+
+  Variable[384]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[385]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Treeflex version 0.5.1'
+
+  Variable[386]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Y-find version 3.0'
+
+  Variable[387]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Holdlamis version 8.65'
+
+  Variable[388]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Konklab version 5.63'
+
+  Variable[389]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Variable[390]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[391]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Konklux version 1.5'
+
+  Variable[392]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[393]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Voltsillam version 0.8.3'
+
+  Variable[394]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Zoolab version 0.78'
+
+  Variable[395]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Bytecard version 2.06'
+
+  Variable[396]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Ventosanzap version 6.6'
+
+  Variable[397]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Otcom version 0.72'
+
+  Variable[398]: Assignment for unit 'fixDependencies':
+- parameter 'saName' => 'Software artifact Y-Solowarm version 0.5.6'
+
+  Variable[399]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+Number of attributes: 3
+  AggregatedFitness: 8506.135738317304
+  rank: 0
+  crowdingDistance: 0.24823949211807467
+Number of objectives: 2
+  satisfaction: -43.86426168269643
+  costs: 8550.0
+Number of constraints: 0

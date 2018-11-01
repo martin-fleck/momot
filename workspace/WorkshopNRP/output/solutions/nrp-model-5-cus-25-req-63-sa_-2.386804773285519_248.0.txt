@@ -1,0 +1,45 @@
+Number of variables: 10
+  Variable[0]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[1]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Voltsillam version 7.7.5'
+
+  Variable[2]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[3]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[4]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[5]: Assignment for unit 'fixDependencies':
+
+  Variable[6]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[7]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.0.6'
+
+  Variable[8]: -Placeholder-
+
+  Variable[9]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Gembucket version 5.8.9'
+
+Number of attributes: 3
+  AggregatedFitness: 245.61319522671448
+  rank: 0
+  crowdingDistance: 0.18901685744808777
+Number of objectives: 2
+  satisfaction: -2.386804773285519
+  costs: 248.0
+Number of constraints: 0

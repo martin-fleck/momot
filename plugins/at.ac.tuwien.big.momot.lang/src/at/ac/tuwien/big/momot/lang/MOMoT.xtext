@@ -122,6 +122,7 @@ ExperimentOrchestration:
    "{"
       "populationSize" OpSingleAssign populationSize = XExpression
       "maxEvaluations" OpSingleAssign maxEvaluations = XExpression
+      ("maxSeconds" OpSingleAssign maxSeconds= XExpression)?
       "nrRuns" OpSingleAssign nrRuns = XNumberLiteral
       ("referenceSet" OpSingleAssign referenceSet = XExpression)?
       ("progressListeners" OpSingleAssign "[" (progressListeners += XConstructorCall ("," progressListeners += XConstructorCall)*)? "]")?

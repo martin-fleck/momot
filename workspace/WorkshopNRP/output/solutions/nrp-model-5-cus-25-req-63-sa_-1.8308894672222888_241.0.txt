@@ -1,0 +1,54 @@
+Number of variables: 10
+  Variable[0]: Assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+  Variable[1]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[2]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[3]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[4]: Assignment for unit 'fixDependencies':
+- no parameters
+
+  Variable[5]: Assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+  Variable[6]: Match for rule 'storeBetterRealisation':
+- parameter 'x' => '0.0'
+- parameter 'y' => 0.43
+
+  Multi-rule #1:
+
+  Variable[7]: Match for rule 'storeBetterRealisation':
+- parameter 'x' => '0.43'
+- parameter 'y' => 0.65
+
+  Multi-rule #1:
+
+  Variable[8]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[9]: Match for rule 'addHighestRealisation':
+- parameter 'x' => '0.65'
+- parameter 'y' => 0.65
+
+  Multi-rule #1:
+
+Number of attributes: 3
+  AggregatedFitness: 239.16911053277772
+  rank: 0
+  crowdingDistance: 0.741436726695374
+Number of objectives: 2
+  satisfaction: -1.8308894672222888
+  costs: 241.0
+Number of constraints: 0

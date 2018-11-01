@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<My:model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:My="http://newmm" xsi:schemaLocation="http://newmm refactoring.ecore">
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <entities name="c0" ownedAttribute="//@properties.0" generalization="//@generalizations.9"/>
+  <entities name="c1" ownedAttribute="//@properties.1" generalization="//@generalizations.8"/>
+  <entities name="c2" ownedAttribute="//@properties.2" generalization="//@generalizations.7"/>
+  <entities name="c3" ownedAttribute="//@properties.3" generalization="//@generalizations.6"/>
+  <entities name="c4" ownedAttribute="//@properties.4" generalization="//@generalizations.5"/>
+  <entities name="c5" ownedAttribute="//@properties.5" generalization="//@generalizations.4"/>
+  <entities name="c6" ownedAttribute="//@properties.6" generalization="//@generalizations.3"/>
+  <entities name="c7" ownedAttribute="//@properties.7" generalization="//@generalizations.2"/>
+  <entities name="c8" ownedAttribute="//@properties.8" generalization="//@generalizations.0"/>
+  <entities name="c9" ownedAttribute="//@properties.9" generalization="//@generalizations.1"/>
+  <entities name="Entity_a1_1415264291839" ownedAttribute="//@properties.10" specialization="//@generalizations.1 //@generalizations.0 //@generalizations.2 //@generalizations.3 //@generalizations.4 //@generalizations.5 //@generalizations.6 //@generalizations.7 //@generalizations.8 //@generalizations.9"/>
+  <types name="Integer"/>
+  <generalizations specific="//@entities.8" general="//@entities.10"/>
+  <generalizations specific="//@entities.9" general="//@entities.10"/>
+  <generalizations specific="//@entities.7" general="//@entities.10"/>
+  <generalizations specific="//@entities.6" general="//@entities.10"/>
+  <generalizations specific="//@entities.5" general="//@entities.10"/>
+  <generalizations specific="//@entities.4" general="//@entities.10"/>
+  <generalizations specific="//@entities.3" general="//@entities.10"/>
+  <generalizations specific="//@entities.2" general="//@entities.10"/>
+  <generalizations specific="//@entities.1" general="//@entities.10"/>
+  <generalizations specific="//@entities.0" general="//@entities.10"/>
+</My:model>

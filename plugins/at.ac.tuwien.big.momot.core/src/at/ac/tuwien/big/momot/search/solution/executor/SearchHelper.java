@@ -24,8 +24,10 @@ import at.ac.tuwien.big.momot.util.MomotUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.henshin.interpreter.ApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.Assignment;
@@ -38,12 +40,121 @@ import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 
 public class SearchHelper {
+   public static class ProfileValues {
+      public long applicationTime = 0;
+      public long applicationTimeStart = 0;
+      public long applicationCount = 0;
+      public long findMatchTime = 0;
+      public long findMatchTimeStart = 0;
+      public long findMatchCount = 0;
+      public long fitnessCount = 0;
+
+      public long executionTime = 0;
+
+      public long executionTimeStart = 0;
+
+      public long executionCount = 0;
+
+      public long startTime = System.currentTimeMillis();
+      public long endTime = System.currentTimeMillis();
+
+      public String toCsv() {
+         return endTime - startTime + "," + fitnessCount + "," + applicationCount + "," + applicationTime + ","
+               + findMatchCount + "," + findMatchTime + "," + executionCount + "," + executionTime;
+      }
+   }
+
    public static final int UNLIMITED = -1;
+
    public static final int DEFAULT_NR_TRIES_PER_RULE = 5;
 
+   private static ProfileValues profile = new ProfileValues();
+
+   static Map<String, Integer> fitnessCounts = new HashMap<>();
+
+   private static synchronized void addCompleteApplicationTime(final long time) {
+      profile.applicationTime += time;
+      ++profile.applicationCount;
+   }
+
+   private static synchronized void addExecutionTime(final long time) {
+      profile.executionCount++;
+      profile.executionTime += time;
+   }
+
+   private static synchronized void addFindMatchTime(final long time) {
+      profile.findMatchCount++;
+      profile.findMatchTime += time;
+   }
+
+   public static synchronized void addFitnessCount() {
+
+      /*
+       * {
+       * final StackTraceElement[] stackTrace = new Exception().getStackTrace();
+       * final StringBuilder builder = new StringBuilder();
+       * for(final StackTraceElement ste : stackTrace) {
+       * builder.append(ste.toString());
+       * builder.append("\n");
+       * }
+       * fitnessCounts.merge(builder.toString(), 1, (x, y) -> x + y);
+       * }
+       */
+      profile.fitnessCount++;
+   }
+
+   public static synchronized void endCompleteApplicationTime() {
+      if(profile.applicationTimeStart != 0) {
+         addCompleteApplicationTime(System.currentTimeMillis() - profile.applicationTimeStart);
+         profile.applicationTimeStart = 0;
+      }
+   }
+
+   public static synchronized void endExecutionTime() {
+      if(profile.executionTimeStart != 0) {
+         addExecutionTime(System.currentTimeMillis() - profile.executionTimeStart);
+         profile.executionTimeStart = 0;
+      }
+   }
+
+   public static synchronized void endFindMatchTime() {
+      if(profile.findMatchTimeStart != 0) {
+         addFindMatchTime(System.currentTimeMillis() - profile.findMatchTimeStart);
+         profile.findMatchTimeStart = 0;
+      }
+   }
+
+   public static ProfileValues peekProfile() {
+      return profile;
+   }
+
+   public static ProfileValues pollProfile() {
+      try {
+         profile.endTime = System.currentTimeMillis();
+         return profile;
+      } finally {
+         profile = new ProfileValues();
+      }
+   }
+
+   public static synchronized void startCompleteApplicationTime() {
+      profile.applicationTimeStart = System.currentTimeMillis();
+   }
+
+   public static synchronized void startExecutionTime() {
+      profile.executionTimeStart = System.currentTimeMillis();
+   }
+
+   public static synchronized void startFindMatchTime() {
+      profile.findMatchTimeStart = System.currentTimeMillis();
+   }
+
    protected TransformationSearchOrchestration searchOrchestration;
+
    protected Engine engine;
+
    protected int maxTriesPerUnit = DEFAULT_NR_TRIES_PER_RULE;
+
    protected ApplicationMonitor monitor = null;
 
    public SearchHelper() {}
@@ -87,6 +198,14 @@ public class SearchHelper {
    private ITransformationVariable clean(final ITransformationVariable variable) {
       getModuleManager().clearNonSolutionParameters(variable);
       return variable;
+   }
+
+   @Override
+   public SearchHelper clone() {
+      final TransformationSearchOrchestration tso = searchOrchestration.clone();
+      final SearchHelper ret = new SearchHelper(tso);
+      ret.engine.getOptions().putAll(engine.getOptions());
+      return ret;
    }
 
    public UnitApplicationVariable createApplication(final EGraph graph, final Assignment assignment) {
@@ -176,57 +295,70 @@ public class SearchHelper {
    }
 
    public ITransformationVariable findUnitApplication(final EGraph graph, final int maxTries) {
-      // choose a unit randomly
-      final List<? extends Unit> units = new ArrayList<>(getUnits());
-      Unit chosenUnit = CollectionUtil.getRandomElement(units);
+      startCompleteApplicationTime();
+      try {
+         // choose a unit randomly
+         final List<? extends Unit> units = new ArrayList<>(getUnits());
+         Unit chosenUnit = CollectionUtil.getRandomElement(units);
 
-      // try to apply rule until match is found or maxRuleTries is reached
-      int nrUnitTries = maxTries;
+         // try to apply rule until match is found or maxRuleTries is reached
+         int nrUnitTries = maxTries;
 
-      while(chosenUnit != null) {
-         // create assignment with user-defined parameter values
-         final Assignment partialMatch = createPartialAssignment(chosenUnit);
+         while(chosenUnit != null) {
+            // create assignment with user-defined parameter values
+            final Assignment partialMatch = createPartialAssignment(chosenUnit);
 
-         if(chosenUnit instanceof Rule) {
-            // find matches
-            final Iterator<Match> foundMatches = getEngine().findMatches((Rule) chosenUnit, graph, (Match) partialMatch)
-                  .iterator();
-
-            if(foundMatches != null && foundMatches.hasNext()) {
+            if(chosenUnit instanceof Rule) {
+               // find matches
+               /*
+                * final Iterator<Match> foundMatches = getEngine().findMatches((Rule) chosenUnit, graph, (Match)
+                * partialMatch)
+                * .iterator();
+                * if(foundMatches != null && foundMatches.hasNext()) {
+                */
                // match found - break loop, return match
-               final Match match = foundMatches.next();
-               final RuleApplicationVariable application = createApplication(graph, match);
+               // final Match match = foundMatches.next();
+               startFindMatchTime();
+               final UnitApplicationVariable application = createApplication(graph, partialMatch);
+               endFindMatchTime();
+               startExecutionTime();
                if(application.execute(getMonitor())) {
                   for(final Parameter param : chosenUnit.getParameters()) {
                      application.setParameterValue(param, application.getResultParameterValue(param));
                   }
+                  endExecutionTime();
+                  return clean(application);
+               } else {
+                  application.undo(getMonitor());
+                  endExecutionTime();
+               }
+               // }
+            } else {
+               final UnitApplicationVariable application = createApplication(graph, partialMatch);
+               if(application.execute(getMonitor())) {
+                  application.setAssignment(application.getResultAssignment());
                   return clean(application);
                } else {
                   application.undo(getMonitor());
                }
             }
-         } else {
-            final UnitApplicationVariable application = createApplication(graph, partialMatch);
-            if(application.execute(getMonitor())) {
-               application.setAssignment(application.getResultAssignment());
-               return clean(application);
-            } else {
-               application.undo(getMonitor());
+
+            if(partialMatch.isEmpty()) {
+               // no match found and no user-defined parameter values
+               // -> further tries of this unit will yield same result
+               nrUnitTries = 0; // skip further tries for this unit
+            }
+
+            if(--nrUnitTries <= 0) {
+               // try other rule
+               units.remove(chosenUnit); // don't try this rule again
+               chosenUnit = CollectionUtil.getRandomElement(units);
+               nrUnitTries = maxTries;
             }
          }
 
-         if(partialMatch.isEmpty()) {
-            // no match found and no user-defined parameter values
-            // -> further tries of this unit will yield same result
-            nrUnitTries = 0; // skip further tries for this unit
-         }
-
-         if(--nrUnitTries <= 0) {
-            // try other rule
-            units.remove(chosenUnit); // don't try this rule again
-            chosenUnit = CollectionUtil.getRandomElement(units);
-            nrUnitTries = maxTries;
-         }
+      } finally {
+         endCompleteApplicationTime();
       }
       return null; // no match found with the number of tries
    }
@@ -237,47 +369,60 @@ public class SearchHelper {
 
    private List<ITransformationVariable> findUnitApplications(final EGraph graph, final int maxTries) {
       final List<ITransformationVariable> variables = new ArrayList<>();
+      startCompleteApplicationTime();
+      try {
+         // choose a unit randomly
+         final List<Unit> units = new ArrayList<>(getUnits());
+         Unit chosenUnit = CollectionUtil.getRandomElement(units);
 
-      // choose a unit randomly
-      final List<Unit> units = new ArrayList<>(getUnits());
-      Unit chosenUnit = CollectionUtil.getRandomElement(units);
+         // try to apply rule until match is found or maxRuleTries is reached
+         int nrUnitTries = maxTries;
 
-      // try to apply rule until match is found or maxRuleTries is reached
-      int nrUnitTries = maxTries;
+         while(chosenUnit != null) {
+            // create assignment with user-defined parameter values
+            final Assignment partialMatch = createPartialAssignment(chosenUnit);
 
-      while(chosenUnit != null) {
-         // create assignment with user-defined parameter values
-         final Assignment partialMatch = createPartialAssignment(chosenUnit);
+            if(chosenUnit instanceof Rule) {
+               // find matches
 
-         if(chosenUnit instanceof Rule) {
-            // find matches
-            final Iterator<Match> foundMatches = getEngine().findMatches((Rule) chosenUnit, graph, (Match) partialMatch)
-                  .iterator();
+               startFindMatchTime();
+               final Iterator<Match> foundMatches = getEngine()
+                     .findMatches((Rule) chosenUnit, graph, (Match) partialMatch).iterator();
 
-            if(foundMatches != null && foundMatches.hasNext()) {
-               // match found - break loop, return match
-               final Match match = getModuleManager().clearNonSolutionParameters(foundMatches.next());
-               variables.add(createApplication(graph, match));
+               if(foundMatches != null && foundMatches.hasNext()) {
+                  // match found - break loop, return match
+                  final Match match = getModuleManager().clearNonSolutionParameters(foundMatches.next());
+                  variables.add(createApplication(graph, match));
+               }
+               endFindMatchTime();
+            } else {
+
+               startCompleteApplicationTime();
+               final UnitApplicationVariable application = createApplication(graph, partialMatch);
+               endFindMatchTime();
+               startExecutionTime();
+               if(application.execute(getMonitor())) {
+                  variables.add(application);
+               }
+               final long subEnd = System.currentTimeMillis();
+               endExecutionTime();
             }
-         } else {
-            final UnitApplicationVariable application = createApplication(graph, partialMatch);
-            if(application.execute(getMonitor())) {
-               variables.add(application);
+
+            if(partialMatch.isEmpty()) {
+               // no match found and no user-defined parameter values
+               // -> further tries of this unit will yield same result
+               nrUnitTries = 0; // skip further tries for this unit
+            }
+
+            if(--nrUnitTries <= 0) {
+               // try other rule
+               units.remove(chosenUnit); // don't try this rule again
+               chosenUnit = CollectionUtil.getRandomElement(units);
+               nrUnitTries = maxTries;
             }
          }
-
-         if(partialMatch.isEmpty()) {
-            // no match found and no user-defined parameter values
-            // -> further tries of this unit will yield same result
-            nrUnitTries = 0; // skip further tries for this unit
-         }
-
-         if(--nrUnitTries <= 0) {
-            // try other rule
-            units.remove(chosenUnit); // don't try this rule again
-            chosenUnit = CollectionUtil.getRandomElement(units);
-            nrUnitTries = maxTries;
-         }
+      } finally {
+         endCompleteApplicationTime();
       }
       return variables;
    }

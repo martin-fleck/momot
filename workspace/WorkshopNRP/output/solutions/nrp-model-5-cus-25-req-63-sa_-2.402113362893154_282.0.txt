@@ -1,0 +1,46 @@
+Number of variables: 10
+  Variable[0]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Bitchip version 0.8.2'
+
+  Variable[1]: Assignment for unit 'fixDependencies':
+
+  Variable[2]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[3]: Assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[4]: Assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[5]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Tresom version 0.7.2'
+
+  Multi-rule #1:
+
+  Variable[6]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[7]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Voltsillam version 7.7.5'
+
+  Multi-rule #1:
+
+  Variable[8]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[9]: Assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Gembucket version 5.8.9'
+
+Number of attributes: 3
+  AggregatedFitness: 279.59788663710685
+  rank: 0
+  crowdingDistance: 0.12502149019268086
+Number of objectives: 2
+  satisfaction: -2.402113362893154
+  costs: 282.0
+Number of constraints: 0

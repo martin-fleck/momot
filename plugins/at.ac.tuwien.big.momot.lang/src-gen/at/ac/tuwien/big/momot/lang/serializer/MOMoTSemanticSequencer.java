@@ -669,6 +669,7 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (
 	 *         populationSize=XExpression 
 	 *         maxEvaluations=XExpression 
+	 *         maxSeconds=XExpression? 
 	 *         nrRuns=XNumberLiteral 
 	 *         referenceSet=XExpression? 
 	 *         (progressListeners+=XConstructorCall progressListeners+=XConstructorCall*)? 

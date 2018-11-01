@@ -1,0 +1,54 @@
+Number of variables: 10
+  Variable[0]: Result assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Lotstring version 6.6'
+
+  Variable[1]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[2]: Match for rule 'removeSingleSa':
+- parameter 'saName' => 'Software artifact Lotstring version 6.6'
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@37de3225 (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@45b55a2e (name: Software artifact Lotstring version 6.6)
+
+  Multi-rule #1:
+
+  Variable[3]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[4]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[5]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[6]: Match for rule 'addSingleSa':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.0.6'
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@37de3225 (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@14ea4cc9 (name: Software artifact Solarbreeze version 0.0.6)
+
+  Multi-rule #1:
+
+  Variable[7]: Match for rule 'addSaWithHierarchy':
+- parameter 'saName' => 'Software artifact Gembucket version 5.8.9'
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@37de3225 (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@2cad883d (name: Software artifact Gembucket version 5.8.9)
+
+  Multi-rule #1:
+
+  Variable[8]: Result assignment for unit 'modifySelectionWithHierarchy':
+- parameter 'saName' => 'Software artifact Tresom version 0.7.2'
+
+  Variable[9]: Result assignment for unit 'fixDependencies':
+
+Number of attributes: 1
+  AggregatedFitness: 107.59612247805059
+Number of objectives: 2
+  satisfaction: -1.4038775219494106
+  costs: 109.0
+Number of constraints: 0

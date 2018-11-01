@@ -34,6 +34,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getPopulationSize <em>Population Size</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getMaxEvaluations <em>Max Evaluations</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getMaxSeconds <em>Max Seconds</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getNrRuns <em>Nr Runs</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getReferenceSet <em>Reference Set</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.ExperimentOrchestrationImpl#getProgressListeners <em>Progress Listeners</em>}</li>
@@ -64,6 +65,16 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
    * @ordered
    */
   protected XExpression maxEvaluations;
+
+  /**
+   * The cached value of the '{@link #getMaxSeconds() <em>Max Seconds</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMaxSeconds()
+   * @generated
+   * @ordered
+   */
+  protected XExpression maxSeconds;
 
   /**
    * The cached value of the '{@link #getNrRuns() <em>Nr Runs</em>}' containment reference.
@@ -230,6 +241,54 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS, newMaxEvaluations, newMaxEvaluations));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XExpression getMaxSeconds()
+  {
+    return maxSeconds;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMaxSeconds(XExpression newMaxSeconds, NotificationChain msgs)
+  {
+    XExpression oldMaxSeconds = maxSeconds;
+    maxSeconds = newMaxSeconds;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS, oldMaxSeconds, newMaxSeconds);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMaxSeconds(XExpression newMaxSeconds)
+  {
+    if (newMaxSeconds != maxSeconds)
+    {
+      NotificationChain msgs = null;
+      if (maxSeconds != null)
+        msgs = ((InternalEObject)maxSeconds).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS, null, msgs);
+      if (newMaxSeconds != null)
+        msgs = ((InternalEObject)newMaxSeconds).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS, null, msgs);
+      msgs = basicSetMaxSeconds(newMaxSeconds, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS, newMaxSeconds, newMaxSeconds));
   }
 
   /**
@@ -418,6 +477,8 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
         return basicSetPopulationSize(null, msgs);
       case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         return basicSetMaxEvaluations(null, msgs);
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS:
+        return basicSetMaxSeconds(null, msgs);
       case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         return basicSetNrRuns(null, msgs);
       case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
@@ -446,6 +507,8 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
         return getPopulationSize();
       case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         return getMaxEvaluations();
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS:
+        return getMaxSeconds();
       case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         return getNrRuns();
       case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:
@@ -476,6 +539,9 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
         return;
       case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         setMaxEvaluations((XExpression)newValue);
+        return;
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS:
+        setMaxSeconds((XExpression)newValue);
         return;
       case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         setNrRuns((XExpression)newValue);
@@ -514,6 +580,9 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
       case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         setMaxEvaluations((XExpression)null);
         return;
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS:
+        setMaxSeconds((XExpression)null);
+        return;
       case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         setNrRuns((XExpression)null);
         return;
@@ -547,6 +616,8 @@ public class ExperimentOrchestrationImpl extends MinimalEObjectImpl.Container im
         return populationSize != null;
       case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS:
         return maxEvaluations != null;
+      case MomotPackage.EXPERIMENT_ORCHESTRATION__MAX_SECONDS:
+        return maxSeconds != null;
       case MomotPackage.EXPERIMENT_ORCHESTRATION__NR_RUNS:
         return nrRuns != null;
       case MomotPackage.EXPERIMENT_ORCHESTRATION__REFERENCE_SET:

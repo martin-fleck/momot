@@ -12,6 +12,7 @@ class MOMoTInferrer {
       public static val FIELD_FITNESS_FUNCTION = "fitnessFunction"
       public static val FIELD_POPULATION_SIZE = "populationSize"
       public static val FIELD_MAX_EVALUATIONS = "maxEvaluations"
+      public static val FIELD_MAX_SECONDS = "maxSeconds"
       public static val FIELD_NR_RUNS = "nrRuns"
       public static val FIELD_REFERENCE_SET = "referenceSet"
       public static val FIELD_BASE_NAME = "baseName"

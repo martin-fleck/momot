@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/WorkshopScrum/src" modelPluginID="WorkshopScrum"
+    modelName="Planning" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>planning.ecore</foreignModel>
+  <genPackages prefix="SprintPlanning" disposableProviderFactory="true" ecorePackage="planning.ecore#/">
+    <genClasses ecoreClass="planning.ecore#//Stakeholder">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planning.ecore#//Stakeholder/workitem"/>
+    </genClasses>
+    <genClasses ecoreClass="planning.ecore#//Backlog">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference planning.ecore#//Backlog/workitems"/>
+    </genClasses>
+    <genClasses ecoreClass="planning.ecore#//WorkItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planning.ecore#//WorkItem/isPlannedFor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute planning.ecore#//WorkItem/Importance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute planning.ecore#//WorkItem/Effort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planning.ecore#//WorkItem/stakeholder"/>
+    </genClasses>
+    <genClasses ecoreClass="planning.ecore#//Sprint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planning.ecore#//Sprint/committedItem"/>
+    </genClasses>
+    <genClasses ecoreClass="planning.ecore#//Plan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference planning.ecore#//Plan/stakeholders"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference planning.ecore#//Plan/backlog"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference planning.ecore#//Plan/sprints"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

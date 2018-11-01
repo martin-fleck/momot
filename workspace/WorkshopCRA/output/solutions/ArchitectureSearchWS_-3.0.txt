@@ -1,0 +1,65 @@
+Number of variables: 12
+  Variable[0]: Assignment for unit 'createClass':
+- parameter 'srcId' => '2h'
+- parameter 'initFeat' => 'A3'
+
+  Variable[1]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'a8'
+- parameter 'trgClass' => 'Hu'
+- parameter 'feat' => 'M1'
+
+  Variable[2]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => '2h'
+- parameter 'feat' => 'A4'
+
+  Variable[3]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'B0'
+- parameter 'trgClass' => 'b3'
+- parameter 'feat' => 'A2'
+
+  Variable[4]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'hl'
+- parameter 'trgClass' => 'FF'
+- parameter 'feat' => 'A1'
+
+  Variable[5]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => '2h'
+- parameter 'trgClass' => 'Uj'
+- parameter 'feat' => 'M2'
+
+  Variable[6]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'pw'
+- parameter 'trgClass' => '2h'
+- parameter 'feat' => 'A2'
+
+  Variable[7]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => '2h'
+- parameter 'trgClass' => 'Bl'
+- parameter 'feat' => 'A3'
+
+  Variable[8]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => '2h'
+- parameter 'trgClass' => 'D2'
+- parameter 'feat' => 'M3'
+
+  Variable[9]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'gt'
+- parameter 'trgClass' => 'I8'
+- parameter 'feat' => 'A4'
+
+  Variable[10]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'fq'
+- parameter 'trgClass' => '2h'
+- parameter 'feat' => 'M1'
+
+  Variable[11]: Match for rule 'moveFeature':
+- parameter 'srcClass' => 'Qu'
+- parameter 'trgClass' => '2h'
+- parameter 'feat' => 'M3'
+
+Number of attributes: 1
+  AggregatedFitness: -3.0
+Number of objectives: 1
+  totalFitness: -3.0
+Number of constraints: 1
+  MinimiseClasslessFeatures: 0.0

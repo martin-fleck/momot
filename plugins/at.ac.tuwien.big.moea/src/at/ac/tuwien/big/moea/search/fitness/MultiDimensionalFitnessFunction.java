@@ -85,6 +85,7 @@ public class MultiDimensionalFitnessFunction<T extends Solution> implements IMul
       }
 
       final double result = delegateEvaluation(solution);
+      // new Exception().printStackTrace();
 
       if(clazz.isInstance(solution)) {
          postprocessEvaluation(clazz.cast(solution), result);
@@ -104,6 +105,7 @@ public class MultiDimensionalFitnessFunction<T extends Solution> implements IMul
 
    @Override
    public double evaluate(final T solution) {
+      // new Exception().printStackTrace();
       return delegateEvaluation(solution);
    }
 

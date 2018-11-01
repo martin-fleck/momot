@@ -16,8 +16,7 @@ public class MOMoTKeywordHovers {
     {
       String _switchResult = null;
       boolean _matched = false;
-      MOMoTGrammarAccess.IndicatorArrayElements _indicatorArrayAccess = this.ga.getIndicatorArrayAccess();
-      Keyword _hypervolumeHypervolumeKeyword_2_0_0 = _indicatorArrayAccess.getHypervolumeHypervolumeKeyword_2_0_0();
+      Keyword _hypervolumeHypervolumeKeyword_2_0_0 = this.ga.getIndicatorArrayAccess().getHypervolumeHypervolumeKeyword_2_0_0();
       if (Objects.equal(k, _hypervolumeHypervolumeKeyword_2_0_0)) {
         _matched=true;
         StringConcatenation _builder = new StringConcatenation();
@@ -34,8 +33,7 @@ public class MOMoTKeywordHovers {
         _switchResult = _builder.toString();
       }
       if (!_matched) {
-        MOMoTGrammarAccess.IndicatorArrayElements _indicatorArrayAccess_1 = this.ga.getIndicatorArrayAccess();
-        Keyword _invertedGenerationalDistanceInvertedGenerationalDistanceKeyword_2_2_0 = _indicatorArrayAccess_1.getInvertedGenerationalDistanceInvertedGenerationalDistanceKeyword_2_2_0();
+        Keyword _invertedGenerationalDistanceInvertedGenerationalDistanceKeyword_2_2_0 = this.ga.getIndicatorArrayAccess().getInvertedGenerationalDistanceInvertedGenerationalDistanceKeyword_2_2_0();
         if (Objects.equal(k, _invertedGenerationalDistanceInvertedGenerationalDistanceKeyword_2_2_0)) {
           _matched=true;
           StringConcatenation _builder_1 = new StringConcatenation();

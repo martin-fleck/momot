@@ -1,0 +1,42 @@
+Number of variables: 10
+  Variable[0]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[1]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[2]: Match for rule 'deleteDependenciesOfSa':
+
+  Multi-rule #1:
+
+  Variable[3]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Cookley version 0.1.0'
+
+  Variable[4]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[5]: Assignment for unit 'fixDependencies':
+
+  Variable[6]: -Placeholder-
+
+  Variable[7]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Solarbreeze version 0.0.6'
+
+  Variable[8]: Assignment for unit 'fixDependencies':
+
+  Variable[9]: Assignment for unit 'modifySingleSelection':
+- parameter 'saName' => 'Software artifact Gembucket version 5.8.9'
+
+Number of attributes: 3
+  AggregatedFitness: 157.39856150244083
+  rank: 0
+  crowdingDistance: 0.10796424242050082
+Number of objectives: 2
+  satisfaction: -1.6014384975591665
+  costs: 159.0
+Number of constraints: 0

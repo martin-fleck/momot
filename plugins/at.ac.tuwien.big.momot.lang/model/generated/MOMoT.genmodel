@@ -4,7 +4,7 @@
     editorDirectory="/at.ac.tuwien.big.momot.lang.editor/src" modelPluginID="at.ac.tuwien.big.momot.lang"
     forceOverwrite="true" modelName="MOMoT" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.ac.tuwien.big.momot.lang.edit"
-    editorPluginID="at.ac.tuwien.big.momot.lang.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
+    editorPluginID="at.ac.tuwien.big.momot.lang.editor" runtimeVersion="2.12" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
   <genPackages prefix="Momot" basePackage="at.ac.tuwien.big.momot.lang" disposableProviderFactory="true"
       fileExtensions="momot" ecorePackage="MOMoT.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="MOMoT.ecore#//FitnessDimensionType">
@@ -89,6 +89,7 @@
     <genClasses ecoreClass="MOMoT.ecore#//ExperimentOrchestration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ExperimentOrchestration/populationSize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ExperimentOrchestration/maxEvaluations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ExperimentOrchestration/maxSeconds"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ExperimentOrchestration/nrRuns"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ExperimentOrchestration/referenceSet"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//ExperimentOrchestration/progressListeners"/>

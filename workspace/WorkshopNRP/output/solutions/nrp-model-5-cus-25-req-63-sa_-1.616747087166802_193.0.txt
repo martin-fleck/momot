@@ -1,0 +1,54 @@
+Number of variables: 10
+  Variable[0]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[1]: Match for rule 'createDataTrace':
+- no parameters
+- no nodes
+
+  Variable[2]: Match for rule 'markUnselected':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[3]: Match for rule 'removeSaWithHierarchy':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[4]: Assignment for unit 'modifySelectionWithHierarchy':
+- no parameters
+
+  Variable[5]: Match for rule 'addSingleSa':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[6]: Match for rule 'removeSaWithHierarchy':
+- no parameters
+
+  Multi-rule #1:
+
+  Variable[7]: Assignment for unit 'modifySingleSelection':
+- no parameters
+
+  Variable[8]: Assignment for unit 'modifySingleSelection':
+- no parameters
+
+  Variable[9]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+Number of attributes: 3
+  AggregatedFitness: 191.3832529128332
+  rank: 0
+  crowdingDistance: 0.32551326547338383
+Number of objectives: 2
+  satisfaction: -1.616747087166802
+  costs: 193.0
+Number of constraints: 0

@@ -1,0 +1,1391 @@
+Number of variables: 200
+  Variable[0]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 112
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@55461149 (Importance: 8, Effort: 3, id: 112)
+
+  Variable[1]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 112
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@55461149 (Importance: 8, Effort: 3, id: 112)
+
+  Variable[2]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 117
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3be096d0 (Importance: 3, Effort: 1, id: 117)
+
+  Variable[3]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 2
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3519514c (Importance: 3, Effort: 8, id: 2)
+
+  Variable[4]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 93
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7e5408c0 (Importance: 8, Effort: 1, id: 93)
+
+  Variable[5]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 94
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@975d3d8 (Importance: 8, Effort: 3, id: 94)
+
+  Variable[6]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 15
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6adcc6ff (Importance: 8, Effort: 8, id: 15)
+
+  Variable[7]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 94
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@975d3d8 (Importance: 8, Effort: 3, id: 94)
+
+  Variable[8]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 110
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3987cb9f (Importance: 8, Effort: 3, id: 110)
+
+  Variable[9]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 108
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4907e1ac (Importance: 5, Effort: 3, id: 108)
+
+  Variable[10]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 22
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5430ed1c (Importance: 3, Effort: 5, id: 22)
+
+  Variable[11]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 93
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7e5408c0 (Importance: 8, Effort: 1, id: 93)
+
+  Variable[12]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 70
+- node #1 => SprintPlanning.impl.SprintImpl@35d2c6e6 (id: 13)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@719ae169 (Importance: 5, Effort: 1, id: 70)
+
+  Variable[13]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 38
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3450c20f (Importance: 3, Effort: 1, id: 38)
+
+  Variable[14]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 80
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@52f63280 (Importance: 8, Effort: 1, id: 80)
+
+  Variable[15]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 58
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@c9efc6 (Importance: 8, Effort: 5, id: 58)
+
+  Variable[16]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 38
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@3450c20f (Importance: 3, Effort: 1, id: 38)
+- node #3 => SprintPlanning.impl.StakeholderImpl@60eb52bb
+
+  Variable[17]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@25d3d6e8 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@3450c20f (Importance: 3, Effort: 1, id: 38)
+
+  Variable[18]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 34
+- node #1 => SprintPlanning.impl.SprintImpl@6b960a7b (id: 11)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@1df05b9a (Importance: 5, Effort: 1, id: 34)
+
+  Variable[19]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 57
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5157474f (Importance: 5, Effort: 8, id: 57)
+
+  Variable[20]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 73
+- node #1 => SprintPlanning.impl.SprintImpl@77bd2b2a (id: 4)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@45e0b397 (Importance: 1, Effort: 1, id: 73)
+
+  Variable[21]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 80
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@52f63280 (Importance: 8, Effort: 1, id: 80)
+
+  Variable[22]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 97
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@28153906 (Importance: 3, Effort: 1, id: 97)
+
+  Variable[23]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 2
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3519514c (Importance: 3, Effort: 8, id: 2)
+
+  Variable[24]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 114
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3f29287e (Importance: 1, Effort: 8, id: 114)
+
+  Variable[25]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 91
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@698df571 (Importance: 3, Effort: 8, id: 91)
+
+  Variable[26]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 68
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6470086f (Importance: 5, Effort: 5, id: 68)
+
+  Variable[27]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 87
+- node #1 => SprintPlanning.impl.SprintImpl@6b960a7b (id: 11)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@366112c3 (Importance: 1, Effort: 5, id: 87)
+
+  Variable[28]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 20
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6e868709 (Importance: 1, Effort: 3, id: 20)
+
+  Variable[29]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 117
+- node #1 => SprintPlanning.impl.SprintImpl@2382c513 (id: 14)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3be096d0 (Importance: 3, Effort: 1, id: 117)
+
+  Variable[30]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 37
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2b636072 (Importance: 8, Effort: 5, id: 37)
+
+  Variable[31]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 47
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@fe7d225 (Importance: 5, Effort: 8, id: 47)
+
+  Variable[32]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 10
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@763789d5 (Importance: 8, Effort: 3, id: 10)
+
+  Variable[33]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 8
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6c2946e0 (Importance: 5, Effort: 8, id: 8)
+
+  Variable[34]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 32
+- node #1 => SprintPlanning.impl.SprintImpl@6b960a7b (id: 11)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6f8a089d (Importance: 3, Effort: 3, id: 32)
+
+  Variable[35]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 57
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5157474f (Importance: 5, Effort: 8, id: 57)
+
+  Variable[36]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 3
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6ab282af (Importance: 5, Effort: 1, id: 3)
+
+  Variable[37]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 91
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@698df571 (Importance: 3, Effort: 8, id: 91)
+
+  Variable[38]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 116
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2d3d6f9c (Importance: 3, Effort: 3, id: 116)
+
+  Variable[39]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 92
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6633e8c5 (Importance: 8, Effort: 5, id: 92)
+
+  Variable[40]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 2
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3519514c (Importance: 3, Effort: 8, id: 2)
+
+  Variable[41]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 58
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@c9efc6 (Importance: 8, Effort: 5, id: 58)
+
+  Variable[42]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 70
+- node #1 => SprintPlanning.impl.SprintImpl@35d2c6e6 (id: 13)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@719ae169 (Importance: 5, Effort: 1, id: 70)
+
+  Variable[43]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 114
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@3f29287e (Importance: 1, Effort: 8, id: 114)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5996a440
+
+  Variable[44]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 118
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4dfc230a (Importance: 3, Effort: 8, id: 118)
+
+  Variable[45]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 79
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@1fdeefb4 (Importance: 5, Effort: 5, id: 79)
+
+  Variable[46]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 102
+- node #1 => SprintPlanning.impl.SprintImpl@2382c513 (id: 14)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@538c30cc (Importance: 3, Effort: 5, id: 102)
+
+  Variable[47]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 115
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4894f39e (Importance: 5, Effort: 3, id: 115)
+
+  Variable[48]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 53
+- node #1 => SprintPlanning.impl.SprintImpl@77bd2b2a (id: 4)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4b04124e (Importance: 1, Effort: 1, id: 53)
+
+  Variable[49]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 18
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@614d2f24 (Importance: 8, Effort: 1, id: 18)
+
+  Variable[50]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 93
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7e5408c0 (Importance: 8, Effort: 1, id: 93)
+
+  Variable[51]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@2b031d1a (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@3f29287e (Importance: 1, Effort: 8, id: 114)
+
+  Variable[52]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 38
+- node #1 => SprintPlanning.impl.SprintImpl@35d2c6e6 (id: 13)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3450c20f (Importance: 3, Effort: 1, id: 38)
+
+  Variable[53]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 118
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@4dfc230a (Importance: 3, Effort: 8, id: 118)
+- node #3 => SprintPlanning.impl.StakeholderImpl@26bf2961
+
+  Variable[54]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 89
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@30e51350 (Importance: 5, Effort: 3, id: 89)
+
+  Variable[55]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@1a126035 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@4dfc230a (Importance: 3, Effort: 8, id: 118)
+
+  Variable[56]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 37
+- node #1 => SprintPlanning.impl.SprintImpl@5bf5b72d (id: 3)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2b636072 (Importance: 8, Effort: 5, id: 37)
+
+  Variable[57]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 2
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3519514c (Importance: 3, Effort: 8, id: 2)
+
+  Variable[58]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 114
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3f29287e (Importance: 1, Effort: 8, id: 114)
+
+  Variable[59]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 95
+- node #1 => SprintPlanning.impl.SprintImpl@5bf5b72d (id: 3)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@f5589fa (Importance: 1, Effort: 5, id: 95)
+
+  Variable[60]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 95
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@f5589fa (Importance: 1, Effort: 5, id: 95)
+
+  Variable[61]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 58
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@c9efc6 (Importance: 8, Effort: 5, id: 58)
+
+  Variable[62]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 65
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4faf0b34 (Importance: 5, Effort: 5, id: 65)
+
+  Variable[63]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 37
+- node #1 => SprintPlanning.impl.SprintImpl@5bf5b72d (id: 3)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2b636072 (Importance: 8, Effort: 5, id: 37)
+
+  Variable[64]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 16
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@31f65b23 (Importance: 3, Effort: 1, id: 16)
+
+  Variable[65]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 79
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@1fdeefb4 (Importance: 5, Effort: 5, id: 79)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5996a440
+
+  Variable[66]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@7604d0d3 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@1fdeefb4 (Importance: 5, Effort: 5, id: 79)
+
+  Variable[67]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 102
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@538c30cc (Importance: 3, Effort: 5, id: 102)
+
+  Variable[68]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 118
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4dfc230a (Importance: 3, Effort: 8, id: 118)
+
+  Variable[69]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 32
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@6f8a089d (Importance: 3, Effort: 3, id: 32)
+- node #3 => SprintPlanning.impl.StakeholderImpl@60eb52bb
+
+  Variable[70]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 53
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4b04124e (Importance: 1, Effort: 1, id: 53)
+
+  Variable[71]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 19
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6d2af6cc (Importance: 8, Effort: 5, id: 19)
+
+  Variable[72]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@4ddb2c6d (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@6f8a089d (Importance: 3, Effort: 3, id: 32)
+
+  Variable[73]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 96
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@76d93d15 (Importance: 8, Effort: 5, id: 96)
+
+  Variable[74]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 37
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@2b636072 (Importance: 8, Effort: 5, id: 37)
+- node #3 => SprintPlanning.impl.StakeholderImpl@60eb52bb
+
+  Variable[75]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 77
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7d027b5f (Importance: 3, Effort: 3, id: 77)
+
+  Variable[76]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 89
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@30e51350 (Importance: 5, Effort: 3, id: 89)
+
+  Variable[77]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 54
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7da59d4e (Importance: 8, Effort: 3, id: 54)
+
+  Variable[78]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 71
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7894bfc5 (Importance: 1, Effort: 5, id: 71)
+
+  Variable[79]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 85
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@14f5d2e (Importance: 5, Effort: 3, id: 85)
+
+  Variable[80]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 49
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6d658c6 (Importance: 3, Effort: 1, id: 49)
+
+  Variable[81]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 34
+- node #1 => SprintPlanning.impl.SprintImpl@77bd2b2a (id: 4)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@1df05b9a (Importance: 5, Effort: 1, id: 34)
+
+  Variable[82]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 110
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3987cb9f (Importance: 8, Effort: 3, id: 110)
+
+  Variable[83]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@7e031301 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@2b636072 (Importance: 8, Effort: 5, id: 37)
+
+  Variable[84]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 68
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6470086f (Importance: 5, Effort: 5, id: 68)
+
+  Variable[85]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 92
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6633e8c5 (Importance: 8, Effort: 5, id: 92)
+
+  Variable[86]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 19
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6d2af6cc (Importance: 8, Effort: 5, id: 19)
+
+  Variable[87]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 68
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@6470086f (Importance: 5, Effort: 5, id: 68)
+- node #3 => SprintPlanning.impl.StakeholderImpl@47c047e7
+
+  Variable[88]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@7799d73c (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@6470086f (Importance: 5, Effort: 5, id: 68)
+
+  Variable[89]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 92
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6633e8c5 (Importance: 8, Effort: 5, id: 92)
+
+  Variable[90]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 58
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@c9efc6 (Importance: 8, Effort: 5, id: 58)
+
+  Variable[91]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 11
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2b428ca8 (Importance: 5, Effort: 5, id: 11)
+
+  Variable[92]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 84
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3e28619a (Importance: 1, Effort: 3, id: 84)
+
+  Variable[93]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 68
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6470086f (Importance: 5, Effort: 5, id: 68)
+
+  Variable[94]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 24
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@34f281c4 (Importance: 3, Effort: 1, id: 24)
+
+  Variable[95]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 116
+- node #1 => SprintPlanning.impl.SprintImpl@77bd2b2a (id: 4)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2d3d6f9c (Importance: 3, Effort: 3, id: 116)
+
+  Variable[96]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 66
+- node #1 => SprintPlanning.impl.SprintImpl@5bf5b72d (id: 3)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3d53fb5a (Importance: 3, Effort: 8, id: 66)
+
+  Variable[97]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 75
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3ee072d3 (Importance: 5, Effort: 1, id: 75)
+
+  Variable[98]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 98
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@f59c4cf (Importance: 5, Effort: 3, id: 98)
+
+  Variable[99]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 118
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4dfc230a (Importance: 3, Effort: 8, id: 118)
+
+  Variable[100]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 71
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7894bfc5 (Importance: 1, Effort: 5, id: 71)
+
+  Variable[101]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 100
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@13ee379b (Importance: 8, Effort: 1, id: 100)
+
+  Variable[102]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 63
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@16b95171 (Importance: 1, Effort: 8, id: 63)
+
+  Variable[103]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 61
+- node #1 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@31c9e9dc (Importance: 5, Effort: 1, id: 61)
+
+  Variable[104]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 29
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@626c7e20 (Importance: 5, Effort: 3, id: 29)
+
+  Variable[105]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 2
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@649cfb78 (id: 2)
+- node #3 => SprintPlanning.impl.WorkItemImpl@4b04124e (Importance: 1, Effort: 1, id: 53)
+
+  Variable[106]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 64
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@315693cb (Importance: 5, Effort: 8, id: 64)
+
+  Variable[107]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 37
+- node #1 => SprintPlanning.impl.SprintImpl@5bf5b72d (id: 3)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2b636072 (Importance: 8, Effort: 5, id: 37)
+
+  Variable[108]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 21
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5c0cddb6 (Importance: 1, Effort: 1, id: 21)
+
+  Variable[109]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 10
+- node #1 => SprintPlanning.impl.SprintImpl@35d2c6e6 (id: 13)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@763789d5 (Importance: 8, Effort: 3, id: 10)
+
+  Variable[110]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 8
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6c2946e0 (Importance: 5, Effort: 8, id: 8)
+
+  Variable[111]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 98
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@f59c4cf (Importance: 5, Effort: 3, id: 98)
+
+  Variable[112]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 102
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@538c30cc (Importance: 3, Effort: 5, id: 102)
+
+  Variable[113]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 36
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@729dbf65 (Importance: 8, Effort: 1, id: 36)
+
+  Variable[114]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 111
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@23ba8e13 (Importance: 5, Effort: 3, id: 111)
+
+  Variable[115]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 33
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6e96e632 (Importance: 8, Effort: 1, id: 33)
+
+  Variable[116]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 75
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3ee072d3 (Importance: 5, Effort: 1, id: 75)
+
+  Variable[117]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 47
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@fe7d225 (Importance: 5, Effort: 8, id: 47)
+
+  Variable[118]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 12
+- node #1 => SprintPlanning.impl.SprintImpl@2382c513 (id: 14)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@dfad166 (Importance: 8, Effort: 3, id: 12)
+
+  Variable[119]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 85
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@14f5d2e (Importance: 5, Effort: 3, id: 85)
+
+  Variable[120]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 20
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@6e868709 (Importance: 1, Effort: 3, id: 20)
+- node #3 => SprintPlanning.impl.StakeholderImpl@60eb52bb
+
+  Variable[121]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 3
+- parameter 'workItemId' => 63
+- node #1 => SprintPlanning.impl.SprintImpl@5bf5b72d (id: 3)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@16b95171 (Importance: 1, Effort: 8, id: 63)
+
+  Variable[122]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@274b1354 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@6e868709 (Importance: 1, Effort: 3, id: 20)
+
+  Variable[123]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 12
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@dfad166 (Importance: 8, Effort: 3, id: 12)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5d944843
+
+  Variable[124]: Match for rule 'createSprint':
+- parameter 'initId' => 2
+- parameter 'workItem' => 84
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@3e28619a (Importance: 1, Effort: 3, id: 84)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5996a440
+
+  Variable[125]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 64
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@315693cb (Importance: 5, Effort: 8, id: 64)
+
+  Variable[126]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 5
+- node #1 => SprintPlanning.impl.SprintImpl@35d2c6e6 (id: 13)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7b01035d (Importance: 5, Effort: 8, id: 5)
+
+  Variable[127]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 33
+- node #1 => SprintPlanning.impl.SprintImpl@559a6df2 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6e96e632 (Importance: 8, Effort: 1, id: 33)
+
+  Variable[128]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 29
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@626c7e20 (Importance: 5, Effort: 3, id: 29)
+
+  Variable[129]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@33e7eb94 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@dfad166 (Importance: 8, Effort: 3, id: 12)
+
+  Variable[130]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 102
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@538c30cc (Importance: 3, Effort: 5, id: 102)
+
+  Variable[131]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 16
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@31f65b23 (Importance: 3, Effort: 1, id: 16)
+
+  Variable[132]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 26
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5da25f55 (Importance: 1, Effort: 5, id: 26)
+
+  Variable[133]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 79
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@1fdeefb4 (Importance: 5, Effort: 5, id: 79)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5996a440
+
+  Variable[134]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@6c03604a (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@1fdeefb4 (Importance: 5, Effort: 5, id: 79)
+
+  Variable[135]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 24
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@34f281c4 (Importance: 3, Effort: 1, id: 24)
+- node #3 => SprintPlanning.impl.StakeholderImpl@60eb52bb
+
+  Variable[136]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 93
+- node #1 => SprintPlanning.impl.SprintImpl@6b960a7b (id: 11)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7e5408c0 (Importance: 8, Effort: 1, id: 93)
+
+  Variable[137]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 23
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6e16edc0 (Importance: 3, Effort: 1, id: 23)
+
+  Variable[138]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@13ad0f2d (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@34f281c4 (Importance: 3, Effort: 1, id: 24)
+
+  Variable[139]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 115
+- node #1 => SprintPlanning.impl.SprintImpl@559a6df2 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4894f39e (Importance: 5, Effort: 3, id: 115)
+
+  Variable[140]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 59
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@352bb972 (Importance: 8, Effort: 5, id: 59)
+
+  Variable[141]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 15
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6adcc6ff (Importance: 8, Effort: 8, id: 15)
+
+  Variable[142]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 0
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@1cfbc987 (Importance: 8, Effort: 5, id: 0)
+
+  Variable[143]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 19
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6d2af6cc (Importance: 8, Effort: 5, id: 19)
+
+  Variable[144]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 11
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2b428ca8 (Importance: 5, Effort: 5, id: 11)
+
+  Variable[145]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 76
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3dbe1b74 (Importance: 8, Effort: 5, id: 76)
+
+  Variable[146]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 77
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7d027b5f (Importance: 3, Effort: 3, id: 77)
+
+  Variable[147]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 18
+- parameter 'workItemId' => 100
+- node #1 => SprintPlanning.impl.SprintImpl@2814d959 (id: 18)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@13ee379b (Importance: 8, Effort: 1, id: 100)
+
+  Variable[148]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 0
+- node #1 => SprintPlanning.impl.SprintImpl@2382c513 (id: 14)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@1cfbc987 (Importance: 8, Effort: 5, id: 0)
+
+  Variable[149]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 8
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@6c2946e0 (Importance: 5, Effort: 8, id: 8)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5d944843
+
+  Variable[150]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 80
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@52f63280 (Importance: 8, Effort: 1, id: 80)
+
+  Variable[151]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 70
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@719ae169 (Importance: 5, Effort: 1, id: 70)
+
+  Variable[152]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@1f1afd87 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@6c2946e0 (Importance: 5, Effort: 8, id: 8)
+
+  Variable[153]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 15
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@6adcc6ff (Importance: 8, Effort: 8, id: 15)
+- node #3 => SprintPlanning.impl.StakeholderImpl@60eb52bb
+
+  Variable[154]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@19e9f66b (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@6adcc6ff (Importance: 8, Effort: 8, id: 15)
+
+  Variable[155]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 90
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@57440250 (Importance: 3, Effort: 1, id: 90)
+
+  Variable[156]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 33
+- node #1 => SprintPlanning.impl.SprintImpl@559a6df2 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6e96e632 (Importance: 8, Effort: 1, id: 33)
+
+  Variable[157]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 105
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@1c7875e6 (Importance: 8, Effort: 8, id: 105)
+
+  Variable[158]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 109
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@168f6a2f (Importance: 3, Effort: 1, id: 109)
+
+  Variable[159]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 60
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5a4fa0e5 (Importance: 3, Effort: 1, id: 60)
+
+  Variable[160]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 14
+- parameter 'workItemId' => 86
+- node #1 => SprintPlanning.impl.SprintImpl@2382c513 (id: 14)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2208b9cd (Importance: 5, Effort: 3, id: 86)
+
+  Variable[161]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 20
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6e868709 (Importance: 1, Effort: 3, id: 20)
+
+  Variable[162]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 2
+- parameter 'workItemId' => 115
+- node #1 => SprintPlanning.impl.SprintImpl@559a6df2 (id: 2)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4894f39e (Importance: 5, Effort: 3, id: 115)
+
+  Variable[163]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 83
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5da93a9d (Importance: 5, Effort: 8, id: 83)
+
+  Variable[164]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 58
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@c9efc6 (Importance: 8, Effort: 5, id: 58)
+
+  Variable[165]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 105
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@1c7875e6 (Importance: 8, Effort: 8, id: 105)
+
+  Variable[166]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 5
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7b01035d (Importance: 5, Effort: 8, id: 5)
+
+  Variable[167]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 76
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@3dbe1b74 (Importance: 8, Effort: 5, id: 76)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5996a440
+
+  Variable[168]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 13
+- parameter 'workItemId' => 45
+- node #1 => SprintPlanning.impl.SprintImpl@35d2c6e6 (id: 13)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@2bce51b5 (Importance: 5, Effort: 8, id: 45)
+
+  Variable[169]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@6e9fc42c (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@3dbe1b74 (Importance: 8, Effort: 5, id: 76)
+
+  Variable[170]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 9
+- parameter 'workItemId' => 41
+- node #1 => SprintPlanning.impl.SprintImpl@499e23a1 (id: 9)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@32792f8f (Importance: 3, Effort: 1, id: 41)
+
+  Variable[171]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 65
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4faf0b34 (Importance: 5, Effort: 5, id: 65)
+
+  Variable[172]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 85
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@14f5d2e (Importance: 5, Effort: 3, id: 85)
+
+  Variable[173]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 96
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@76d93d15 (Importance: 8, Effort: 5, id: 96)
+
+  Variable[174]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 51
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@471f9bf5 (Importance: 1, Effort: 5, id: 51)
+
+  Variable[175]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 5
+- parameter 'workItemId' => 74
+- node #1 => SprintPlanning.impl.SprintImpl@cd44694 (id: 5)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@635793eb (Importance: 1, Effort: 3, id: 74)
+
+  Variable[176]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 25
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@e291b81 (Importance: 1, Effort: 3, id: 25)
+
+  Variable[177]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 83
+- node #1 => SprintPlanning.impl.SprintImpl@79aab95d (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5da93a9d (Importance: 5, Effort: 8, id: 83)
+
+  Variable[178]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 89
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@30e51350 (Importance: 5, Effort: 3, id: 89)
+
+  Variable[179]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 64
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@315693cb (Importance: 5, Effort: 8, id: 64)
+
+  Variable[180]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 90
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@57440250 (Importance: 3, Effort: 1, id: 90)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5996a440
+
+  Variable[181]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 11
+- parameter 'workItemId' => 52
+- node #1 => SprintPlanning.impl.SprintImpl@6b960a7b (id: 11)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7fa07514 (Importance: 3, Effort: 1, id: 52)
+
+  Variable[182]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 6
+- parameter 'workItemId' => 109
+- node #1 => SprintPlanning.impl.SprintImpl@f102b4d (id: 6)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@168f6a2f (Importance: 3, Effort: 1, id: 109)
+
+  Variable[183]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@15307ab5 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@57440250 (Importance: 3, Effort: 1, id: 90)
+
+  Variable[184]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 95
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@f5589fa (Importance: 1, Effort: 5, id: 95)
+
+  Variable[185]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 12
+- parameter 'workItemId' => 90
+- node #1 => SprintPlanning.impl.SprintImpl@d697fc1 (id: 12)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@57440250 (Importance: 3, Effort: 1, id: 90)
+
+  Variable[186]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 4
+- parameter 'workItemId' => 69
+- node #1 => SprintPlanning.impl.SprintImpl@77bd2b2a (id: 4)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5331597e (Importance: 1, Effort: 3, id: 69)
+
+  Variable[187]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 16
+- parameter 'workItemId' => 62
+- node #1 => SprintPlanning.impl.SprintImpl@3e4d397f (id: 16)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7eb187fc (Importance: 1, Effort: 1, id: 62)
+
+  Variable[188]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 64
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@315693cb (Importance: 5, Effort: 8, id: 64)
+
+  Variable[189]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 17
+- parameter 'workItemId' => 115
+- node #1 => SprintPlanning.impl.SprintImpl@1d8b3da6 (id: 17)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@4894f39e (Importance: 5, Effort: 3, id: 115)
+
+  Variable[190]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 8
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@6c2946e0 (Importance: 5, Effort: 8, id: 8)
+- node #3 => SprintPlanning.impl.StakeholderImpl@5d944843
+
+  Variable[191]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 15
+- parameter 'workItemId' => 32
+- node #1 => SprintPlanning.impl.SprintImpl@781cd6ca (id: 15)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@6f8a089d (Importance: 3, Effort: 3, id: 32)
+
+  Variable[192]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@5d0e4b51 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@6c2946e0 (Importance: 5, Effort: 8, id: 8)
+
+  Variable[193]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 54
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@7da59d4e (Importance: 8, Effort: 3, id: 54)
+
+  Variable[194]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 54
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@7da59d4e (Importance: 8, Effort: 3, id: 54)
+- node #3 => SprintPlanning.impl.StakeholderImpl@47c047e7
+
+  Variable[195]: Match for rule 'addItemToSprint':
+- parameter 'sprintId' => 1
+- parameter 'workItemId' => 26
+- node #1 => SprintPlanning.impl.SprintImpl@221b2128 (id: 1)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@5da25f55 (Importance: 1, Effort: 5, id: 26)
+
+  Variable[196]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 8
+- parameter 'workItemId' => 97
+- node #1 => SprintPlanning.impl.SprintImpl@67503939 (id: 8)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@28153906 (Importance: 3, Effort: 1, id: 97)
+
+  Variable[197]: Match for rule 'removeItemFromSprint':
+- parameter 'sprintId' => 10
+- parameter 'workItemId' => 56
+- node #1 => SprintPlanning.impl.SprintImpl@475a339c (id: 10)
+- node #2 => SprintPlanning.impl.PlanImpl@3620e017
+- node #3 => SprintPlanning.impl.WorkItemImpl@3aaab436 (Importance: 5, Effort: 8, id: 56)
+
+  Variable[198]: Match for rule 'deleteSprint':
+- parameter 'sprintId' => 7
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.SprintImpl@b02a435 (id: 7)
+- node #3 => SprintPlanning.impl.WorkItemImpl@7da59d4e (Importance: 8, Effort: 3, id: 54)
+
+  Variable[199]: Match for rule 'createSprint':
+- parameter 'initId' => 7
+- parameter 'workItem' => 52
+- node #1 => SprintPlanning.impl.PlanImpl@3620e017
+- node #2 => SprintPlanning.impl.WorkItemImpl@7fa07514 (Importance: 3, Effort: 1, id: 52)
+- node #3 => SprintPlanning.impl.StakeholderImpl@47c047e7
+
+Number of attributes: 1
+  AggregatedFitness: 40.48837877905473
+Number of objectives: 4
+  satisfaction: 2.5577094416471304
+  costs: 10.930669337407599
+  nounassignedwi: 28.0
+  maximalnumberofsprints: -1.0
+Number of constraints: 0

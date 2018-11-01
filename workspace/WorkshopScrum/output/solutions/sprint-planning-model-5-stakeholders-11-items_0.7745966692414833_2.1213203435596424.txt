@@ -1,0 +1,42 @@
+Number of variables: 10
+  Variable[0]: Match for rule 'createSprint':
+- no parameters
+
+  Variable[1]: Match for rule 'addItemToSprint':
+- no parameters
+
+  Variable[2]: Match for rule 'addItemToSprint':
+- no parameters
+
+  Variable[3]: Match for rule 'createSprint':
+- no parameters
+
+  Variable[4]: Match for rule 'addItemToSprint':
+- no parameters
+
+  Variable[5]: Match for rule 'addItemToSprint':
+- no parameters
+
+  Variable[6]: Match for rule 'addItemToSprint':
+- no parameters
+
+  Variable[7]: Match for rule 'addItemToSprint':
+- no parameters
+
+  Variable[8]: Match for rule 'addItemToSprint':
+- no parameters
+
+  Variable[9]: Match for rule 'addItemToSprint':
+- no parameters
+
+Number of attributes: 4
+  AggregatedFitness: 3.895917012801126
+  rank: 0
+  Normalized Objectives: [0.20591946691637408, 0.794080533083626]
+  crowdingDistance: Infinity
+Number of objectives: 2
+  satisfaction: 0.7745966692414833
+  costs: 2.1213203435596424
+Number of constraints: 2
+  satisfaction: 1.0
+  costs: 0.0

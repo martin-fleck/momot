@@ -1,0 +1,69 @@
+Number of variables: 10
+  Variable[0]: Match for rule 'createSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #2 => SprintPlanning.impl.WorkItemImpl@243b585d (Importance: 5, Effort: 5)
+- node #3 => SprintPlanning.impl.StakeholderImpl@35aca26d
+
+  Variable[1]: Match for rule 'deleteSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #2 => SprintPlanning.impl.SprintImpl@312b7a79
+- node #3 => SprintPlanning.impl.WorkItemImpl@243b585d (Importance: 5, Effort: 5)
+
+  Variable[2]: Match for rule 'createSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #2 => SprintPlanning.impl.WorkItemImpl@5b6d9c6e (Importance: 8, Effort: 5)
+- node #3 => SprintPlanning.impl.StakeholderImpl@50cd3487
+
+  Variable[3]: Match for rule 'addItemToSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.SprintImpl@2e766d47
+- node #2 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #3 => SprintPlanning.impl.WorkItemImpl@444f101d (Importance: 1, Effort: 8)
+
+  Variable[4]: Match for rule 'addItemToSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.SprintImpl@2e766d47
+- node #2 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #3 => SprintPlanning.impl.WorkItemImpl@73767a16 (Importance: 5, Effort: 5)
+
+  Variable[5]: Match for rule 'addItemToSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.SprintImpl@2e766d47
+- node #2 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #3 => SprintPlanning.impl.WorkItemImpl@243b585d (Importance: 5, Effort: 5)
+
+  Variable[6]: Match for rule 'addItemToSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.SprintImpl@2e766d47
+- node #2 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #3 => SprintPlanning.impl.WorkItemImpl@53fd5499 (Importance: 5, Effort: 3)
+
+  Variable[7]: Match for rule 'addItemToSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.SprintImpl@2e766d47
+- node #2 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #3 => SprintPlanning.impl.WorkItemImpl@582e04fa (Importance: 3, Effort: 1)
+
+  Variable[8]: Match for rule 'addItemToSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.SprintImpl@2e766d47
+- node #2 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #3 => SprintPlanning.impl.WorkItemImpl@472c5c37 (Importance: 3, Effort: 8)
+
+  Variable[9]: Match for rule 'addItemToSprint':
+- no parameters
+- node #1 => SprintPlanning.impl.SprintImpl@2e766d47
+- node #2 => SprintPlanning.impl.PlanImpl@7b5c93c8
+- node #3 => SprintPlanning.impl.WorkItemImpl@31484674 (Importance: 8, Effort: 8)
+
+Number of attributes: 1
+  AggregatedFitness: 3.0
+Number of objectives: 2
+  satisfaction: 0.0
+  costs: 0.0
+Number of constraints: 2
+  satisfaction: 3.0
+  costs: 0.0

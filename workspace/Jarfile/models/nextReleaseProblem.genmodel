@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/WorkshopNRP/src" modelPluginID="WorkshopNRP" modelName="NextReleaseProblem"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>nextReleaseProblem.ecore</foreignModel>
+  <genPackages prefix="NextReleaseProblem" disposableProviderFactory="true" ecorePackage="nextReleaseProblem.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="nextReleaseProblem.ecore#//CostType">
+      <genEnumLiterals ecoreEnumLiteral="nextReleaseProblem.ecore#//CostType/MONEY"/>
+      <genEnumLiterals ecoreEnumLiteral="nextReleaseProblem.ecore#//CostType/TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="nextReleaseProblem.ecore#//CostType/MANPOWER"/>
+      <genEnumLiterals ecoreEnumLiteral="nextReleaseProblem.ecore#//CostType/RESOURCES"/>
+    </genEnums>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//NRP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//NRP/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//NRP/customers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//NRP/availableArtifacts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//NRP/requirements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//NRP/solutions"/>
+    </genClasses>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//Customer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Customer/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Customer/importance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Customer/assigns"/>
+    </genClasses>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//Cost">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Cost/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Cost/amount"/>
+    </genClasses>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//SoftwareArtifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//SoftwareArtifact/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//SoftwareArtifact/requires"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//SoftwareArtifact/costs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//SoftwareArtifact/contributesTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//SoftwareArtifact/solutions"/>
+    </genClasses>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//Requirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Requirement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Requirement/valuations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Requirement/realisations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Requirement/combines"/>
+    </genClasses>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//RequirementRealisation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//RequirementRealisation/requirement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//RequirementRealisation/percentage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//RequirementRealisation/dependsOn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//RequirementRealisation/name"/>
+    </genClasses>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//Solution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Solution/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Solution/selectedArtifacts"/>
+    </genClasses>
+    <genClasses ecoreClass="nextReleaseProblem.ecore#//Valuation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Valuation/requirement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Valuation/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Valuation/assignedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference nextReleaseProblem.ecore#//Valuation/contributesTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute nextReleaseProblem.ecore#//Valuation/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

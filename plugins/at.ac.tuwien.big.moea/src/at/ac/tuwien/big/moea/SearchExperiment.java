@@ -2,6 +2,7 @@ package at.ac.tuwien.big.moea;
 
 import at.ac.tuwien.big.moea.experiment.executor.SearchExecutor;
 import at.ac.tuwien.big.moea.experiment.instrumenter.SearchInstrumenter;
+import at.ac.tuwien.big.moea.experiment.instrumenter.collector.EvolutionStepLogger;
 import at.ac.tuwien.big.moea.problem.ISearchProblem;
 import at.ac.tuwien.big.moea.search.algorithm.provider.IRegisteredAlgorithm;
 import at.ac.tuwien.big.moea.util.CastUtil;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import org.moeaframework.Executor;
 import org.moeaframework.Instrumenter;
+import org.moeaframework.algorithm.PeriodicAction.FrequencyType;
 import org.moeaframework.analysis.collector.Collector;
 import org.moeaframework.core.Algorithm;
 import org.moeaframework.core.NondominatedPopulation;
@@ -22,13 +24,16 @@ import org.moeaframework.util.progress.ProgressListener;
 
 public class SearchExperiment<S extends Solution> extends IndicatorConfiguration {
 
-   private static final int DEFAULT_FREQUENCY = 100;
+   private static final int DEFAULT_FREQUENCY = 1;
+
+   private static final FrequencyType DEFAULT_FREQUENCY_TYPE = FrequencyType.STEPS;
 
    protected ISearchOrchestration<S> searchOrchestration;
 
    // instrumentation
    protected File referenceSetFile = null;
    protected int frequency = DEFAULT_FREQUENCY;
+   protected FrequencyType frequencyType = DEFAULT_FREQUENCY_TYPE;
 
    protected List<Collector> customCollectors = new ArrayList<>();
    protected boolean adaptiveMultimethodVariation;
@@ -46,18 +51,29 @@ public class SearchExperiment<S extends Solution> extends IndicatorConfiguration
    // run
    protected int numberOfRuns = 1;
 
+   protected int maxSeconds = 0;
+
    // result
    protected Map<SearchExecutor, List<NondominatedPopulation>> results = new HashMap<>();
 
-   public SearchExperiment() {}
+   public SearchExperiment() {
+
+      // TODO: Eigentlich sollte das wo anders ngefuegt werden ..
+      addCustomCollector(new EvolutionStepLogger());
+
+   }
 
    public SearchExperiment(final ISearchOrchestration<S> searchOrchestration) {
       setSearchOrchestration(searchOrchestration);
+      // TODO: Eigentlich sollte das wo anders ngefuegt werden ..
+      addCustomCollector(new EvolutionStepLogger());
    }
 
    public SearchExperiment(final ISearchOrchestration<S> searchOrchestration, final int maxEvaluations) {
       setSearchOrchestration(searchOrchestration);
       setMaxEvaluations(maxEvaluations);
+      // TODO: Eigentlich sollte das wo anders ngefuegt werden ..
+      addCustomCollector(new EvolutionStepLogger());
    }
 
    public void addCustomCollector(final Collector collector) {
@@ -79,8 +95,9 @@ public class SearchExperiment<S extends Solution> extends IndicatorConfiguration
       final List<SearchExecutor> executors = new ArrayList<>();
       for(final IRegisteredAlgorithm<? extends Algorithm> algorithm : getSearchOrchestration().getAlgorithms()) {
          final SearchExecutor executor = new SearchExecutor(createProblem()).setName(getAlgorithmName(algorithm))
-               .withMaxEvaluations(getMaxEvaluations()).withInstrumenter(createInstrumenter())
-               .withAlgorithm(algorithm.getRegisteredName()).withEpsilon(getEpsilon()).distributeOnAllCores();
+               .withMaxEvaluations(getMaxEvaluations()).withMaxSeconds(getMaxSeconds())
+               .withInstrumenter(createInstrumenter()).withAlgorithm(algorithm.getRegisteredName())
+               .withEpsilon(getEpsilon()).distributeOnAllCores();
          attachProgressListeners(executor);
          executors.add(executor);
       }
@@ -96,6 +113,7 @@ public class SearchExperiment<S extends Solution> extends IndicatorConfiguration
       }
 
       instrumenter.withFrequency(getFrequency());
+      instrumenter.withFrequencyType(getFrequencyType());
       instrumenter.withEpsilon(getEpsilon());
 
       if(isAdaptiveMultimethodVariation()) {
@@ -185,8 +203,16 @@ public class SearchExperiment<S extends Solution> extends IndicatorConfiguration
       return frequency;
    }
 
+   public FrequencyType getFrequencyType() {
+      return frequencyType;
+   }
+
    public int getMaxEvaluations() {
       return maxEvaluations;
+   }
+
+   public int getMaxSeconds() {
+      return maxSeconds;
    }
 
    public int getNumberOfRuns() {
@@ -251,6 +277,9 @@ public class SearchExperiment<S extends Solution> extends IndicatorConfiguration
 
       for(final SearchExecutor executor : executors) {
          System.out.println("Run '" + executor.getName() + "' " + nrRuns + " times...");
+         // TODO: Ein wenig schoener waere schoen
+         EvolutionStepLogger.CUR_NAME = executor.getName();
+         EvolutionStepLogger.CUR_RUN = EvolutionStepLogger.index = 0;
          results.put(executor, executor.runSeeds(nrRuns));
       }
       return results;
@@ -298,8 +327,16 @@ public class SearchExperiment<S extends Solution> extends IndicatorConfiguration
       this.frequency = frequency;
    }
 
+   public void setFrequencyType(final FrequencyType frequency) {
+      this.frequencyType = frequency;
+   }
+
    public void setMaxEvaluations(final int maxEvaluations) {
       this.maxEvaluations = maxEvaluations;
+   }
+
+   public void setMaxSeconds(final int maxSeconds) {
+      this.maxSeconds = maxSeconds;
    }
 
    public void setNumberOfRuns(final int numberOfRuns) {

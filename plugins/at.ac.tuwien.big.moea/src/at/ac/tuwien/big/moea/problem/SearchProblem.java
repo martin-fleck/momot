@@ -14,6 +14,7 @@ package at.ac.tuwien.big.moea.problem;
 
 import at.ac.tuwien.big.moea.search.fitness.IFitnessFunction;
 import at.ac.tuwien.big.moea.search.solution.generator.solution.ISolutionGenerator;
+import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 
 import org.moeaframework.core.Solution;
 import org.moeaframework.problem.AbstractProblem;
@@ -32,6 +33,8 @@ public class SearchProblem<S extends Solution> extends AbstractProblem implement
 
    @Override
    public void evaluate(final Solution solution) {
+      // new Exception().printStackTrace();
+      SearchHelper.addFitnessCount();
       getFitnessFunction().doEvaluate(solution);
    }
 

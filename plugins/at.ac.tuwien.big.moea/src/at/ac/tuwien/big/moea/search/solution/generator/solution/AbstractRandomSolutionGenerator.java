@@ -26,6 +26,9 @@ public abstract class AbstractRandomSolutionGenerator<S extends Solution> extend
    }
 
    @Override
+   public abstract AbstractRandomSolutionGenerator<S> clone();
+
+   @Override
    public S createRandomSolution() {
       return createRandomSolution(getSolutionLength());
    }

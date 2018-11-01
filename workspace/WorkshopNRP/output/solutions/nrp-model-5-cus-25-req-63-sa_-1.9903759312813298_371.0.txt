@@ -1,0 +1,58 @@
+Number of variables: 10
+  Variable[0]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[1]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[2]: Match for rule 'addSaWithHierarchy':
+- no parameters
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@5901ce1d (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@326354b0 (name: Software artifact Gembucket version 5.8.9)
+
+  Multi-rule #1:
+
+  Variable[3]: Match for rule 'clearTraces':
+- no parameters
+- no nodes
+
+  Multi-rule #1:
+
+  Variable[4]: Result assignment for unit 'modifySingleSelection':
+- no parameters
+
+  Variable[5]: Result assignment for unit 'selectHighestRealisation':
+- no parameters
+
+  Variable[6]: Match for rule 'repairDependenciesOfSa':
+- no parameters
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@6338ed64 (name: Software artifact Job version 0.94)
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@5901ce1d (name: null)
+
+  Multi-rule #1:
+
+  Variable[7]: Result assignment for unit 'getHighestRealisation':
+- no parameters
+
+  Variable[8]: Match for rule 'repairDependenciesOfSa':
+- no parameters
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@6338ed64 (name: Software artifact Job version 0.94)
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@5901ce1d (name: null)
+
+  Multi-rule #1:
+
+  Variable[9]: Match for rule 'addSingleSa':
+- no parameters
+- node 'sol' => nextReleaseProblem.impl.SolutionImpl@5901ce1d (name: null)
+- node 'sa' => nextReleaseProblem.impl.SoftwareArtifactImpl@5f4f1287 (name: Software artifact Home Ing version 6.5)
+
+  Multi-rule #1:
+
+Number of attributes: 3
+  AggregatedFitness: 369.00962406871867
+  rank: 0
+  crowdingDistance: 1.1155073433914515
+Number of objectives: 2
+  satisfaction: -1.9903759312813298
+  costs: 371.0
+Number of constraints: 0

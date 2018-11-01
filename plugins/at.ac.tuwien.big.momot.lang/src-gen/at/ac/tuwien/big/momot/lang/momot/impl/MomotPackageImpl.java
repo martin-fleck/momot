@@ -993,7 +993,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExperimentOrchestration_NrRuns()
+  public EReference getExperimentOrchestration_MaxSeconds()
   {
     return (EReference)experimentOrchestrationEClass.getEStructuralFeatures().get(2);
   }
@@ -1003,7 +1003,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExperimentOrchestration_ReferenceSet()
+  public EReference getExperimentOrchestration_NrRuns()
   {
     return (EReference)experimentOrchestrationEClass.getEStructuralFeatures().get(3);
   }
@@ -1013,7 +1013,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExperimentOrchestration_ProgressListeners()
+  public EReference getExperimentOrchestration_ReferenceSet()
   {
     return (EReference)experimentOrchestrationEClass.getEStructuralFeatures().get(4);
   }
@@ -1023,7 +1023,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExperimentOrchestration_Collectors()
+  public EReference getExperimentOrchestration_ProgressListeners()
   {
     return (EReference)experimentOrchestrationEClass.getEStructuralFeatures().get(5);
   }
@@ -1033,9 +1033,19 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExperimentOrchestration_CustomCollectors()
+  public EReference getExperimentOrchestration_Collectors()
   {
     return (EReference)experimentOrchestrationEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExperimentOrchestration_CustomCollectors()
+  {
+    return (EReference)experimentOrchestrationEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1826,6 +1836,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
     experimentOrchestrationEClass = createEClass(EXPERIMENT_ORCHESTRATION);
     createEReference(experimentOrchestrationEClass, EXPERIMENT_ORCHESTRATION__POPULATION_SIZE);
     createEReference(experimentOrchestrationEClass, EXPERIMENT_ORCHESTRATION__MAX_EVALUATIONS);
+    createEReference(experimentOrchestrationEClass, EXPERIMENT_ORCHESTRATION__MAX_SECONDS);
     createEReference(experimentOrchestrationEClass, EXPERIMENT_ORCHESTRATION__NR_RUNS);
     createEReference(experimentOrchestrationEClass, EXPERIMENT_ORCHESTRATION__REFERENCE_SET);
     createEReference(experimentOrchestrationEClass, EXPERIMENT_ORCHESTRATION__PROGRESS_LISTENERS);
@@ -2042,6 +2053,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
     initEClass(experimentOrchestrationEClass, ExperimentOrchestration.class, "ExperimentOrchestration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExperimentOrchestration_PopulationSize(), theXbasePackage.getXExpression(), null, "populationSize", null, 0, 1, ExperimentOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentOrchestration_MaxEvaluations(), theXbasePackage.getXExpression(), null, "maxEvaluations", null, 0, 1, ExperimentOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExperimentOrchestration_MaxSeconds(), theXbasePackage.getXExpression(), null, "maxSeconds", null, 0, 1, ExperimentOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentOrchestration_NrRuns(), theXbasePackage.getXExpression(), null, "nrRuns", null, 0, 1, ExperimentOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentOrchestration_ReferenceSet(), theXbasePackage.getXExpression(), null, "referenceSet", null, 0, 1, ExperimentOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentOrchestration_ProgressListeners(), theXbasePackage.getXExpression(), null, "progressListeners", null, 0, -1, ExperimentOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

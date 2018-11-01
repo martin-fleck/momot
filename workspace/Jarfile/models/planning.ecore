@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SprintPlanning" nsURI="http://www.kcl.ac.uk/mdeoptimiser/sprint-planning"
+    nsPrefix="planning">
+  <eClassifiers xsi:type="ecore:EClass" name="Stakeholder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workitem" lowerBound="1"
+        upperBound="-1" eType="#//WorkItem" eOpposite="#//WorkItem/stakeholder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Backlog">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workitems" lowerBound="1"
+        upperBound="-1" eType="#//WorkItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isPlannedFor" eType="#//Sprint"
+        eOpposite="#//Sprint/committedItem"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Importance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Effort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" lowerBound="1"
+        eType="#//Stakeholder" eOpposite="#//Stakeholder/workitem"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sprint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="committedItem" lowerBound="1"
+        upperBound="-1" eType="#//WorkItem" eOpposite="#//WorkItem/isPlannedFor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plan">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholders" upperBound="-1"
+        eType="#//Stakeholder" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backlog" lowerBound="1"
+        eType="#//Backlog" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sprints" upperBound="-1"
+        eType="#//Sprint" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

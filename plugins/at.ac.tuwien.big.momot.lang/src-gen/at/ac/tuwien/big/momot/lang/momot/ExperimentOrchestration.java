@@ -19,6 +19,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getPopulationSize <em>Population Size</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getMaxEvaluations <em>Max Evaluations</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getMaxSeconds <em>Max Seconds</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getNrRuns <em>Nr Runs</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getReferenceSet <em>Reference Set</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getProgressListeners <em>Progress Listeners</em>}</li>
@@ -83,6 +84,32 @@ public interface ExperimentOrchestration extends EObject
    * @generated
    */
   void setMaxEvaluations(XExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Max Seconds</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Max Seconds</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Max Seconds</em>' containment reference.
+   * @see #setMaxSeconds(XExpression)
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getExperimentOrchestration_MaxSeconds()
+   * @model containment="true"
+   * @generated
+   */
+  XExpression getMaxSeconds();
+
+  /**
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.ExperimentOrchestration#getMaxSeconds <em>Max Seconds</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Max Seconds</em>' containment reference.
+   * @see #getMaxSeconds()
+   * @generated
+   */
+  void setMaxSeconds(XExpression value);
 
   /**
    * Returns the value of the '<em><b>Nr Runs</b></em>' containment reference.

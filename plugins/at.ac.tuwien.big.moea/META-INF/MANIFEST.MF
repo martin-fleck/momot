@@ -132,7 +132,8 @@ Bundle-ClassPath: .,
  lib/JMetal-4.3.jar,
  lib/MOEAFramework-2.12.jar,
  lib/rsyntaxtextarea.jar
-Import-Package: com.google.common.base,
+Import-Package: at.ac.tuwien.big.momot.search.solution.executor,
+ com.google.common.base,
  com.google.common.primitives;version="15.0.0",
  org.apache.commons.lang;version="1.8.0"
 Require-Bundle: org.eclipse.emf.ecore;bundle-version="[2.11.2,3.0.0)"

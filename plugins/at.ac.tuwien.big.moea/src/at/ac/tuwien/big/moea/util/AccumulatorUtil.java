@@ -128,6 +128,10 @@ public final class AccumulatorUtil {
        */
       public static final String ALGORITHM = "Algorithm";
 
+      public static final String BASIC_STEP_FITNESS_CURRENT = "BasicStepFitnessCurrent";
+
+      public static final String BASIC_STEP_FITNESS_TOTAL = "BasicStepFitnessTotal";
+
       private Keys() {}
    }
 

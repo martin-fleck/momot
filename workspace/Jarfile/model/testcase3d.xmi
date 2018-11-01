@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<My:model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:My="http://newmm" xsi:schemaLocation="http://newmm refactoring.ecore">
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a0" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <properties name="a1" type="//@types.0"/>
+  <entities name="c0" ownedAttribute="//@properties.0 //@properties.10"/>
+  <entities name="c1" ownedAttribute="//@properties.1 //@properties.11"/>
+  <entities name="c2" ownedAttribute="//@properties.2 //@properties.12"/>
+  <entities name="c3" ownedAttribute="//@properties.3 //@properties.13"/>
+  <entities name="c4" ownedAttribute="//@properties.4 //@properties.14"/>
+  <entities name="c5" ownedAttribute="//@properties.5 //@properties.15"/>
+  <entities name="c6" ownedAttribute="//@properties.6 //@properties.16"/>
+  <entities name="c7" ownedAttribute="//@properties.7 //@properties.17"/>
+  <entities name="c8" ownedAttribute="//@properties.8 //@properties.18"/>
+  <entities name="c9" ownedAttribute="//@properties.9 //@properties.19"/>
+  <types name="Integer"/>
+</My:model>
