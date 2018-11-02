@@ -44,6 +44,7 @@ public class EvolutionStepLogger implements Collector {
    }
 
    public static int index;
+   public static int startIndex;
 
    public static int CUR_RUN;
 

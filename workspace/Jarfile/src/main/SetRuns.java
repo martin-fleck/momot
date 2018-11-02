@@ -15,9 +15,9 @@ public class SetRuns {
 	public static void setRuns(int TARGET_RUNS) {
 		try {
 		List<File> folders = new ArrayList<>();
-		folders.add(new File("E:\\eclipseCRA\\workspaceCRA\\WorkshopCRA\\src"));
-		folders.add(new File("E:\\eclipseCRA\\workspaceCRA\\WorkshopNRP\\src"));
-		folders.add(new File("E:\\eclipseCRA\\workspaceCRA\\WorkshopScrum\\src"));
+		folders.add(new File("E:\\dev\\momot\\workspace\\WorkshopCRA\\src"));
+		folders.add(new File("E:\\dev\\momot\\workspace\\WorkshopNRP\\src"));
+		folders.add(new File("E:\\dev\\momot\\workspace\\WorkshopScrum\\src"));
 		folders.add(new File("E:\\dev\\momot\\examples\\at.ac.tuwien.big.momot.examples.refactoring\\src\\at\\ac\\tuwien\\big\\momot\\examples\\refactoring"));
 		
 		

@@ -2,11 +2,14 @@ package main;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -41,10 +44,25 @@ public class Main {
 
 	public static void showHelp() {
 		System.err.println(
-				"Usage: java -jar <thisfile>.jar [cra|nrp|scrum] [A|B|C|D|E]\nScrum supports only A,B,D\nNRP supports only A,B");
+				"Usage: java -jar <thisfile>.jar "
+				+ " [--batchSize count] [--batchStart count] [refractormulti|refractor|cra|cranb|nrp|cradual|cradualnb] [a|b|c|d|e]\nScrum supports only A,B,D\nNRP supports only A,B");
 	}
-
+	
+	static int batchStart = 1;
+	static int batchSize = 30;
+	
 	public static void main(String[] args) {
+		List<String> newArgsL = new ArrayList<>();
+		for (int i = 0; i < args.length; ++i) {
+			if ("--batchSize".equals(args[i])) {
+				batchSize = Integer.valueOf(args[++i]);
+			} else if ("--batchStart".equals(args[i])) {
+				batchStart = Integer.valueOf(args[++i]);
+			} else {
+				newArgsL.add(args[i]);
+			}
+		}
+		args = newArgsL.toArray(new String[]{}); 
 		if (args.length != 2) {
 			showHelp();
 			return;
@@ -65,8 +83,8 @@ public class Main {
 			exStr.put("cradualnb", new String[] { "a", "b",  "c",  "d",  "e" });
 			exStr.put("nrp", new String[] { "a",  "b"});
 			exStr.put("scrum", new String[] { "a", "b"});
-			exStr.put("refractor", new String[] { "a" , "b" });
-			exStr.put("refractormulti", new String[] { "a", "b" });
+			exStr.put("refractor", new String[] { "a" /*, "b" */});
+			exStr.put("refractormulti", new String[] { "a"/*, "b" */});
 			for (String arg1 : exStr.get(args[0].toLowerCase())) {
 				String[] newArgs = Arrays.copyOf(args, args.length);
 				newArgs[1] = arg1;
@@ -89,148 +107,152 @@ public class Main {
 		try {
 			String type = args[0];
 			String experiment = args[1];
-			switch (type.toLowerCase()) {
-			case "cra":
+			for (int i = batchStart; i < batchSize+batchStart; ++i) {
+				Field f = Class.forName("at.ac.tuwien.big.moea.experiment.instrumenter.collector.EvolutionStepLogger").getField("startIndex");
+				f.set(null,i-1);
+				switch (type.toLowerCase()) {
+				case "cra":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						ArchitectureSearchWS_A.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B.main(args);
+						break;
+					case "c":
+						ArchitectureSearchWS_C.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "cradual":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						ArchitectureSearchWS_A_Dual.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B_Dual.main(args);
+						break; 
+					case "c":
+						ArchitectureSearchWS_C_Dual.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D_Dual.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E_Dual.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "cranb":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						ArchitectureSearchWS_A_NB.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B_NB.main(args);
+						break;
+					case "c":
+						ArchitectureSearchWS_C_NB.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D_NB.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E_NB.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "cradualnb":
+					switch (experiment.toLowerCase()) {
+					case "a": 
+						ArchitectureSearchWS_A_Dual_NB.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B_Dual_NB.main(args);
+						break;
+					case "c":
+						ArchitectureSearchWS_C_Dual_NB.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D_Dual_NB.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E_Dual_NB.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "nrp":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						icmt.tool.momot.demo.NextSearch_A.main(args);
+						break;
+					case "b":
+						icmt.tool.momot.demo.NextSearch_B.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "scrum":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						icmt.tool.momot.demo.Scrum_A.main(args);
+						break;
+					case "b":
+						icmt.tool.momot.demo.Scrum_B.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+			case "refractor":
 				switch (experiment.toLowerCase()) {
 				case "a":
-					ArchitectureSearchWS_A.main(args);
+					Refactoring_A.main(args);
 					break;
 				case "b":
-					ArchitectureSearchWS_B.main(args);
-					break;
-				case "c":
-					ArchitectureSearchWS_C.main(args);
-					break;
-				case "d":
-					ArchitectureSearchWS_D.main(args);
-					break;
-				case "e":
-					ArchitectureSearchWS_E.main(args);
+					Refactoring_B.main(args);
 					break;
 				default:
 					showHelp();
 					return;
 				}
 				break;
-			case "cradual":
+			case "refractormulti":
 				switch (experiment.toLowerCase()) {
 				case "a":
-					ArchitectureSearchWS_A_Dual.main(args);
+					Refactoring_A_multi.main(args);
 					break;
 				case "b":
-					ArchitectureSearchWS_B_Dual.main(args);
-					break; 
-				case "c":
-					ArchitectureSearchWS_C_Dual.main(args);
-					break;
-				case "d":
-					ArchitectureSearchWS_D_Dual.main(args);
-					break;
-				case "e":
-					ArchitectureSearchWS_E_Dual.main(args);
+					Refactoring_B_multi.main(args);
 					break;
 				default:
 					showHelp();
 					return;
 				}
 				break;
-			case "cranb":
-				switch (experiment.toLowerCase()) {
-				case "a":
-					ArchitectureSearchWS_A_NB.main(args);
-					break;
-				case "b":
-					ArchitectureSearchWS_B_NB.main(args);
-					break;
-				case "c":
-					ArchitectureSearchWS_C_NB.main(args);
-					break;
-				case "d":
-					ArchitectureSearchWS_D_NB.main(args);
-					break;
-				case "e":
-					ArchitectureSearchWS_E_NB.main(args);
-					break;
-				default:
-					showHelp();
-					return;
-				}
-				break;
-			case "cradualnb":
-				switch (experiment.toLowerCase()) {
-				case "a": 
-					ArchitectureSearchWS_A_Dual_NB.main(args);
-					break;
-				case "b":
-					ArchitectureSearchWS_B_Dual_NB.main(args);
-					break;
-				case "c":
-					ArchitectureSearchWS_C_Dual_NB.main(args);
-					break;
-				case "d":
-					ArchitectureSearchWS_D_Dual_NB.main(args);
-					break;
-				case "e":
-					ArchitectureSearchWS_E_Dual_NB.main(args);
-					break;
-				default:
-					showHelp();
-					return;
-				}
-				break;
-			case "nrp":
-				switch (experiment.toLowerCase()) {
-				case "a":
-					icmt.tool.momot.demo.NextSearch_A.main(args);
-					break;
-				case "b":
-					icmt.tool.momot.demo.NextSearch_B.main(args);
-					break;
-				default:
-					showHelp();
-					return;
-				}
-				break;
-			case "scrum":
-				switch (experiment.toLowerCase()) {
-				case "a":
-					icmt.tool.momot.demo.Scrum_A.main(args);
-					break;
-				case "b":
-					icmt.tool.momot.demo.Scrum_B.main(args);
-					break;
-				default:
-					showHelp();
-					return;
-				}
-				break;
-		case "refractor":
-			switch (experiment.toLowerCase()) {
-			case "a":
-				Refactoring_A.main(args);
-				break;
-			case "b":
-				Refactoring_B.main(args);
-				break;
-			default:
-				showHelp();
-				return;
 			}
-			break;
-		case "refractormulti":
-			switch (experiment.toLowerCase()) {
-			case "a":
-				Refactoring_A_multi.main(args);
-				break;
-			case "b":
-				Refactoring_B_multi.main(args);
-				break;
-			default:
-				showHelp();
-				return;
 			}
-			break;
-		}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

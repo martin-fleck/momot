@@ -279,7 +279,7 @@ public class SearchExperiment<S extends Solution> extends IndicatorConfiguration
          System.out.println("Run '" + executor.getName() + "' " + nrRuns + " times...");
          // TODO: Ein wenig schoener waere schoen
          EvolutionStepLogger.CUR_NAME = executor.getName();
-         EvolutionStepLogger.CUR_RUN = EvolutionStepLogger.index = 0;
+         EvolutionStepLogger.CUR_RUN = EvolutionStepLogger.index = EvolutionStepLogger.startIndex;
          results.put(executor, executor.runSeeds(nrRuns));
       }
       return results;

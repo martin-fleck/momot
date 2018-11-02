@@ -75,7 +75,7 @@ experiment = {
 	populationSize = 100  
 	maxEvaluations = 9999999
 	maxSeconds = 60 
-   nrRuns            = 30
+   nrRuns            = 1 
 	progressListeners = [ new SeedRuntimePrintListener ]
 }
 

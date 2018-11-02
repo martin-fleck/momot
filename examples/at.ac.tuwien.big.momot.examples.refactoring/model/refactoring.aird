@@ -52,6 +52,22 @@
     <semanticResources>../src/at/ac/tuwien/big/momot/examples/refactoring/Refactoring_B.momot</semanticResources>
     <semanticResources>../src/at/ac/tuwien/big/momot/examples/refactoring/Refactoring_A_multi.momot</semanticResources>
     <semanticResources>../src/at/ac/tuwien/big/momot/examples/refactoring/Refactoring_B_multi.momot</semanticResources>
+    <semanticResources>../outputModel.xmi</semanticResources>
+    <semanticResources>GenModel.xmi</semanticResources>
+    <semanticResources>Refactoring2.henshin</semanticResources>
+    <semanticResources>Refactoring2.henshin_diagram</semanticResources>
+    <semanticResources>http://momot.big.tuwien.ac.at/examples/refactoring/1.0</semanticResources>
+    <semanticResources>output/solutions/GenModel_912.0000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_0.0_967.0000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_1.0_945.0000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_10.0_916.2.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_2.0_938.4000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_3.0_931.8000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_4.0_926.3000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_5.0_924.0000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_6.0_921.8000000000001.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_7.0_919.6.xmi</semanticResources>
+    <semanticResources>output/solutions/GenModel_8.0_917.4000000000001.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_4H8O0G6AEeSk9vqwoA9i-w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_9quVMMyaEeiw2eotfWIRiA" name="My class diagram" representation="_4R2_0G6AEeSk9vqwoA9i-w">

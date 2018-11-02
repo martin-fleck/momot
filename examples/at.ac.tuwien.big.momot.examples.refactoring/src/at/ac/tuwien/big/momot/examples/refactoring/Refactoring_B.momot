@@ -17,7 +17,7 @@ initialization = {
 
 search = {
 	model = {
-		file = "model/SeveralRefactorings.xmi"
+		file = "model/GenModel.xmi"
 	}
 	solutionLength = 10
 	
@@ -72,9 +72,10 @@ search = {
 	}
 }
 experiment = { 
-	populationSize = 100
-	maxEvaluations = 1500 
-   nrRuns            = 30
+	populationSize = 10 
+	maxEvaluations = 999999
+	maxSeconds = 1800
+   nrRuns            = 1
 	progressListeners = [ new SeedRuntimePrintListener ]
 }
 

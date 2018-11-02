@@ -1423,7 +1423,6 @@
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
       </edges>
     </rhs>
-    <attributeConditions xmi:id="_zlU6cGUYEeSLErf2XjLdUg" name="AllSubHaveProperty" conditionText="ocl:self.entities->select(en | en.name=e).specialization->collect(g | g.specific)->forAll(e | e.ownedAttribute->exists(p | p.name = n))"/>
     <mappings xmi:id="_TsZNU2REEeSN_pdbpbfLDQ" origin="_TsZNUWREEeSN_pdbpbfLDQ" image="_TsZNUmREEeSN_pdbpbfLDQ"/>
     <mappings xmi:id="_XlK1sWREEeSN_pdbpbfLDQ" origin="_XlJnkGREEeSN_pdbpbfLDQ" image="_XlK1sGREEeSN_pdbpbfLDQ"/>
     <mappings xmi:id="_bgkUQWREEeSN_pdbpbfLDQ" origin="_bgjGIGREEeSN_pdbpbfLDQ" image="_bgkUQGREEeSN_pdbpbfLDQ"/>
