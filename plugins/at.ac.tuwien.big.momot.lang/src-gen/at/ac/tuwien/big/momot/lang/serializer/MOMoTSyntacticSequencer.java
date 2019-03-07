@@ -29,6 +29,7 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ModelsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a;
 	protected AbstractElementAlias match_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q;
 	protected AbstractElementAlias match_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a;
+	protected AbstractElementAlias match_SearchOrchestration___EmptyInitializationKeyword_8_0_OpSingleAssignParserRuleCall_8_1_FalseKeyword_8_2_1__q;
 	protected AbstractElementAlias match_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
@@ -48,6 +49,7 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ModelsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelsCommandAccess().getNeighborhoodSizeKeyword_4_1_0_0()), new TokenAlias(false, false, grammarAccess.getModelsCommandAccess().getOpSingleAssignParserRuleCall_4_1_0_1()));
 		match_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getParameterValuesKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getOpSingleAssignParserRuleCall_6_1()), new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getLeftCurlyBracketKeyword_6_2()), new TokenAlias(false, false, grammarAccess.getModuleOrchestrationAccess().getRightCurlyBracketKeyword_6_4()));
 		match_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getObjectivesCommandAccess().getNeighborhoodSizeKeyword_4_1_0_0()), new TokenAlias(false, false, grammarAccess.getObjectivesCommandAccess().getOpSingleAssignParserRuleCall_4_1_0_1()));
+		match_SearchOrchestration___EmptyInitializationKeyword_8_0_OpSingleAssignParserRuleCall_8_1_FalseKeyword_8_2_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSearchOrchestrationAccess().getEmptyInitializationKeyword_8_0()), new TokenAlias(false, false, grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_8_1()), new TokenAlias(false, false, grammarAccess.getSearchOrchestrationAccess().getFalseKeyword_8_2_1()));
 		match_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSolutionsCommandAccess().getNeighborhoodSizeKeyword_4_1_0_0()), new TokenAlias(false, false, grammarAccess.getSolutionsCommandAccess().getOpSingleAssignParserRuleCall_4_1_0_1()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
@@ -123,6 +125,8 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ModuleOrchestration___ParameterValuesKeyword_6_0_OpSingleAssignParserRuleCall_6_1_LeftCurlyBracketKeyword_6_2_RightCurlyBracketKeyword_6_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a.equals(syntax))
 				emit_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_SearchOrchestration___EmptyInitializationKeyword_8_0_OpSingleAssignParserRuleCall_8_1_FalseKeyword_8_2_1__q.equals(syntax))
+				emit_SearchOrchestration___EmptyInitializationKeyword_8_0_OpSingleAssignParserRuleCall_8_1_FalseKeyword_8_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a.equals(syntax))
 				emit_SolutionsCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
@@ -366,6 +370,17 @@ public class MOMoTSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     printOutput?='printOutput' (ambiguity) printOutput?='printOutput'
 	 */
 	protected void emit_ObjectivesCommand___NeighborhoodSizeKeyword_4_1_0_0_OpSingleAssignParserRuleCall_4_1_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('emptyInitialization' OpSingleAssign 'false')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     solutionLength=XExpression (ambiguity) 'transformations' OpSingleAssign moduleOrchestration=ModuleOrchestration
+	 */
+	protected void emit_SearchOrchestration___EmptyInitializationKeyword_8_0_OpSingleAssignParserRuleCall_8_1_FalseKeyword_8_2_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

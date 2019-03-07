@@ -21,24 +21,44 @@ import at.ac.tuwien.big.momot.examples.refactoring.momot.Refactoring_B;
 import at.ac.tuwien.big.momot.examples.refactoring.momot.Refactoring_B_multi;
 import icmt.tool.momot.demo.ArchitectureSearchWS_A;
 import icmt.tool.momot.demo.ArchitectureSearchWS_A_Dual;
+import icmt.tool.momot.demo.ArchitectureSearchWS_A_Dual_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_A_Dual_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_A_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_A_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_A_NB_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_B;
 import icmt.tool.momot.demo.ArchitectureSearchWS_B_Dual;
+import icmt.tool.momot.demo.ArchitectureSearchWS_B_Dual_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_B_Dual_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_B_Dual_NB_MI;
+import icmt.tool.momot.demo.ArchitectureSearchWS_B_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_B_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_B_NB_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_C;
 import icmt.tool.momot.demo.ArchitectureSearchWS_C_Dual;
+import icmt.tool.momot.demo.ArchitectureSearchWS_C_Dual_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_C_Dual_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_C_Dual_NB_MI;
+import icmt.tool.momot.demo.ArchitectureSearchWS_C_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_C_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_C_NB_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_D;
 import icmt.tool.momot.demo.ArchitectureSearchWS_D_Dual;
+import icmt.tool.momot.demo.ArchitectureSearchWS_D_Dual_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_D_Dual_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_D_Dual_NB_MI;
+import icmt.tool.momot.demo.ArchitectureSearchWS_D_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_D_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_D_NB_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_E;
 import icmt.tool.momot.demo.ArchitectureSearchWS_E_Dual;
+import icmt.tool.momot.demo.ArchitectureSearchWS_E_Dual_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_E_Dual_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_E_Dual_NB_MI;
+import icmt.tool.momot.demo.ArchitectureSearchWS_E_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_E_NB;
+import icmt.tool.momot.demo.ArchitectureSearchWS_E_NB_MI;
+import mdetools.momot.cra.manyiter.ArchitectureSearchWS_A_Dual_NB_MI;
 
 public class Main {
 
@@ -67,6 +87,14 @@ public class Main {
 			showHelp();
 			return;
 		}
+		if ("allmi".equals(args[0])) {
+			for (String arg0 : new String[] { "crami","cranbmi", "nrpmi", "cradualmi","cradualnbmi" /*"scrum",*/ }) {
+				String[] newArgs = Arrays.copyOf(args, args.length);
+				newArgs[0] = arg0;
+				main(newArgs);
+			}
+			return;
+		}
 		if ("all".equals(args[0])) {
 			for (String arg0 : new String[] { "refractormulti", "refractor" , "cra","cranb", "nrp", "cradual","cradualnb" /*"scrum",*/ }) {
 				String[] newArgs = Arrays.copyOf(args, args.length);
@@ -81,6 +109,11 @@ public class Main {
 			exStr.put("cradual", new String[] { "a", "b",  "c",  "d",  "e" });
 			exStr.put("cranb", new String[] { "a", "b",  "c",  "d",  "e" });
 			exStr.put("cradualnb", new String[] { "a", "b",  "c",  "d",  "e" });
+			exStr.put("crami", new String[] { "a", "b",  "c",  "d",  "e" });
+			exStr.put("cradualmi", new String[] { "a", "b",  "c",  "d",  "e" });
+			exStr.put("cranbmi", new String[] { "a", "b",  "c",  "d",  "e" });
+			exStr.put("cradualnbmi", new String[] { "a", "b",  "c",  "d",  "e" });
+			exStr.put("nrpmi", new String[] { "a",  "b"});
 			exStr.put("nrp", new String[] { "a",  "b"});
 			exStr.put("scrum", new String[] { "a", "b"});
 			exStr.put("refractor", new String[] { "a" /*, "b" */});
@@ -199,6 +232,95 @@ public class Main {
 						return;
 					}
 					break;
+					
+				case "crami":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						ArchitectureSearchWS_A_MI.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B_MI.main(args);
+						break;
+					case "c":
+						ArchitectureSearchWS_C_MI.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D_MI.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E_MI.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "cradualmi":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						ArchitectureSearchWS_A_Dual_MI.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B_Dual_MI.main(args);
+						break; 
+					case "c":
+						ArchitectureSearchWS_C_Dual_MI.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D_Dual_MI.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E_Dual_MI.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "cranbmi":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						ArchitectureSearchWS_A_NB_MI.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B_NB_MI.main(args);
+						break;
+					case "c":
+						ArchitectureSearchWS_C_NB_MI.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D_NB_MI.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E_NB_MI.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "cradualnbmi":
+					switch (experiment.toLowerCase()) {
+					case "a": 
+						ArchitectureSearchWS_A_Dual_NB_MI.main(args);
+						break;
+					case "b":
+						ArchitectureSearchWS_B_Dual_NB_MI.main(args);
+						break;
+					case "c":
+						ArchitectureSearchWS_C_Dual_NB_MI.main(args);
+						break;
+					case "d":
+						ArchitectureSearchWS_D_Dual_NB_MI.main(args);
+						break;
+					case "e":
+						ArchitectureSearchWS_E_Dual_NB_MI.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
 				case "nrp":
 					switch (experiment.toLowerCase()) {
 					case "a":
@@ -206,6 +328,19 @@ public class Main {
 						break;
 					case "b":
 						icmt.tool.momot.demo.NextSearch_B.main(args);
+						break;
+					default:
+						showHelp();
+						return;
+					}
+					break;
+				case "nrpmi":
+					switch (experiment.toLowerCase()) {
+					case "a":
+						icmt.tool.momot.demo.NextSearch_A_MI.main(args);
+						break;
+					case "b":
+						icmt.tool.momot.demo.NextSearch_B_MI.main(args);
 						break;
 					default:
 						showHelp();

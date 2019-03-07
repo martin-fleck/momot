@@ -43,5 +43,6 @@ Require-Bundle: org.eclipse.core.runtime,
  at.ac.tuwien.big.momot.examples.cra;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: at.ac.tuwien.big.momot,
+ at.ac.tuwien.big.moea,
  org.apache.commons.io;version="1.4.0",
  org.eclipse.core.internal.resources

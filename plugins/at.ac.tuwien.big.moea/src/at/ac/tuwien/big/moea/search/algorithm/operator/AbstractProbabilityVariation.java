@@ -54,7 +54,7 @@ public abstract class AbstractProbabilityVariation implements IProbabilityVariat
       }
    }
 
-   protected abstract Solution[] doEvolve(Solution[] parents);
+   public abstract Solution[] doEvolve(Solution[] parents);
 
    @Override
    public Solution[] evolve(final Solution[] parents) {

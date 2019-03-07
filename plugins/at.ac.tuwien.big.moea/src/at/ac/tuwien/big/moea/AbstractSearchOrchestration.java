@@ -49,6 +49,7 @@ public abstract class AbstractSearchOrchestration<S extends Solution> implements
    protected IMultiDimensionalFitnessFunction<S> fitnessFunction;
    protected ISolutionWriter<S> solutionWriter;
    protected IPopulationWriter<S> populationWriter;
+   protected boolean generateEmptySolutions = false;
 
    protected List<IRegisteredAlgorithm<? extends Algorithm>> algorithms = new ArrayList<>();
    protected Map<IRegisteredAlgorithm<? extends Algorithm>, String> algorithmNames = new HashMap<>();
@@ -129,7 +130,10 @@ public abstract class AbstractSearchOrchestration<S extends Solution> implements
 
    @Override
    public IInjectedPopulationGenerator<S> createPopulationGenerator(final int populationSize) {
-      return new InjectedRandomPopulationGenerator<>(populationSize, getSolutionGenerator());
+      final InjectedRandomPopulationGenerator<S> ret = new InjectedRandomPopulationGenerator<>(populationSize,
+            getSolutionGenerator());
+      ret.setGenerateEmptySolutions(generateEmptySolutions);
+      return ret;
    }
 
    @Override

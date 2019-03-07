@@ -235,6 +235,10 @@ public class TransformationSearchOrchestration extends AbstractSearchOrchestrati
       return deterministic;
    }
 
+   public boolean makeGnerateEmptySolutions() {
+      return generateEmptySolutions = true;
+   }
+
    public void setDeterministic(final boolean deterministic) {
       this.deterministic = deterministic;
    }

@@ -37,6 +37,7 @@ public class MOMoTParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getSearchOrchestrationAccess().getAlternatives_8_2(), "rule__SearchOrchestration__Alternatives_8_2");
 					put(grammarAccess.getEqualityHelperAccess().getAlternatives(), "rule__EqualityHelper__Alternatives");
 					put(grammarAccess.getFitnessDimensionSpecificationAccess().getAlternatives(), "rule__FitnessDimensionSpecification__Alternatives");
 					put(grammarAccess.getAnalysisCommandAccess().getAlternatives(), "rule__AnalysisCommand__Alternatives");
@@ -100,7 +101,8 @@ public class MOMoTParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModuleOrchestrationAccess().getGroup_6(), "rule__ModuleOrchestration__Group_6__0");
 					put(grammarAccess.getParmeterValueSpecificationAccess().getGroup(), "rule__ParmeterValueSpecification__Group__0");
 					put(grammarAccess.getSearchOrchestrationAccess().getGroup(), "rule__SearchOrchestration__Group__0");
-					put(grammarAccess.getSearchOrchestrationAccess().getGroup_17(), "rule__SearchOrchestration__Group_17__0");
+					put(grammarAccess.getSearchOrchestrationAccess().getGroup_8(), "rule__SearchOrchestration__Group_8__0");
+					put(grammarAccess.getSearchOrchestrationAccess().getGroup_18(), "rule__SearchOrchestration__Group_18__0");
 					put(grammarAccess.getInputModelAccess().getGroup(), "rule__InputModel__Group__0");
 					put(grammarAccess.getInputModelAccess().getGroup_4(), "rule__InputModel__Group_4__0");
 					put(grammarAccess.getAlgorithmListAccess().getGroup(), "rule__AlgorithmList__Group__0");
@@ -357,10 +359,11 @@ public class MOMoTParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParmeterValueSpecificationAccess().getCallAssignment_3(), "rule__ParmeterValueSpecification__CallAssignment_3");
 					put(grammarAccess.getSearchOrchestrationAccess().getModelAssignment_4(), "rule__SearchOrchestration__ModelAssignment_4");
 					put(grammarAccess.getSearchOrchestrationAccess().getSolutionLengthAssignment_7(), "rule__SearchOrchestration__SolutionLengthAssignment_7");
-					put(grammarAccess.getSearchOrchestrationAccess().getModuleOrchestrationAssignment_10(), "rule__SearchOrchestration__ModuleOrchestrationAssignment_10");
-					put(grammarAccess.getSearchOrchestrationAccess().getFitnessFunctionAssignment_13(), "rule__SearchOrchestration__FitnessFunctionAssignment_13");
-					put(grammarAccess.getSearchOrchestrationAccess().getAlgorithmsAssignment_16(), "rule__SearchOrchestration__AlgorithmsAssignment_16");
-					put(grammarAccess.getSearchOrchestrationAccess().getEqualityHelperAssignment_17_2(), "rule__SearchOrchestration__EqualityHelperAssignment_17_2");
+					put(grammarAccess.getSearchOrchestrationAccess().getEmptyInitializationAssignment_8_2_0(), "rule__SearchOrchestration__EmptyInitializationAssignment_8_2_0");
+					put(grammarAccess.getSearchOrchestrationAccess().getModuleOrchestrationAssignment_11(), "rule__SearchOrchestration__ModuleOrchestrationAssignment_11");
+					put(grammarAccess.getSearchOrchestrationAccess().getFitnessFunctionAssignment_14(), "rule__SearchOrchestration__FitnessFunctionAssignment_14");
+					put(grammarAccess.getSearchOrchestrationAccess().getAlgorithmsAssignment_17(), "rule__SearchOrchestration__AlgorithmsAssignment_17");
+					put(grammarAccess.getSearchOrchestrationAccess().getEqualityHelperAssignment_18_2(), "rule__SearchOrchestration__EqualityHelperAssignment_18_2");
 					put(grammarAccess.getInputModelAccess().getPathAssignment_3(), "rule__InputModel__PathAssignment_3");
 					put(grammarAccess.getInputModelAccess().getAdaptationAssignment_4_2(), "rule__InputModel__AdaptationAssignment_4_2");
 					put(grammarAccess.getEqualityHelperAccess().getCallAssignment_0(), "rule__EqualityHelper__CallAssignment_0");

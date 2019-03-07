@@ -82,6 +82,9 @@ public class AbstractMOMoTProposalProvider extends org.eclipse.xtext.xbase.ui.co
 	public void completeSearchOrchestration_SolutionLength(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
+	public void completeSearchOrchestration_EmptyInitialization(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// subclasses may override
+	}
 	public void completeSearchOrchestration_ModuleOrchestration(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}

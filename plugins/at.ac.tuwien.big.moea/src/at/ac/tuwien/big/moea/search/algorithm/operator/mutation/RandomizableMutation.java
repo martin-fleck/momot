@@ -26,7 +26,7 @@ public class RandomizableMutation extends AbstractMutationVariation {
    }
 
    @Override
-   protected Solution[] doEvolve(final Solution[] parents) {
+   public Solution[] doEvolve(final Solution[] parents) {
       final Solution copy = parents[0].copy();
       final int nrVariables = copy.getNumberOfVariables();
       final int randomVar = PRNG.nextInt(nrVariables);

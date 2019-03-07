@@ -10,6 +10,7 @@ import at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackag
 import at.ac.tuwien.big.momot.examples.refactoring.RefractoringCostDimension
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+import at.ac.tuwien.big.momot.examples.refactoring.EMFCompareDistance
 
 initialization = {
 	RefactoringPackage::eINSTANCE.eClass
@@ -19,24 +20,22 @@ search = {
 	model = {
 		file = "model/SeveralRefactorings.xmi"
 	}
-	solutionLength = 10
+	solutionLength = 30
 	
 	transformations = {
 		modules = [ "model/Refactoring.henshin" ]
 	}
 	
-	fitness = {
-		objectives = {
-			//SolutionLength : minimize new TransformationLengthDimension
-			//SolutionCost : minimize new RefractoringCostDimension
-			ContentSize : minimize "properties->size() * 1.1 + entities->size()"
-		}
-		solutionRepairer = new TransformationPlaceholderRepairer
-	}
-	
-	algorithms = {
-		//NSGAII_ORI : moea.createNSGAII()
-		NSGAII : moea.createNSGAII(
+   fitness         = {
+      objectives = {
+         SolutionLength : minimize new TransformationLengthDimension
+         EMFDistance: minimize {EMFCompareDistance.calculateFitness(root)}
+      }
+   }
+
+   algorithms      = {
+      //Random  : moea.createRandomSearch()
+      	NSGAII : moea.createNSGAII(
 				new TournamentSelection(2),
 				new OnePointCrossover(1.0),  
 				//new TransformationPlaceholderMutation(0.15))
@@ -45,45 +44,60 @@ search = {
 					
 				),
 				new TransformationVariableMutation(orchestration.searchHelper,0.05))
-		NSGAII_OM : moea.createNSGAII(
-				new TournamentSelection(2),  
-				//new TransformationPlaceholderMutation(0.15))
-				new TransformationPlaceholderMutation(0.4),
-				new TransformationParameterMutation(0.4,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.4))
-		/*NSGAIII_ORI : moea.createNSGAIII()
-		NSGAIII : moea.createNSGAIII(
-				new TournamentSelection(2),
-				new OnePointCrossover(1.0), new TransformationPlaceholderMutation(0.05),
-				new TransformationParameterMutation(0.05,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.05))
-		NSGAIII_OM : moea.createNSGAIII(
-				new TournamentSelection(2),
-				new TransformationPlaceholderMutation(0.4),
-				new TransformationParameterMutation(0.4,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.4))*/
-				
-	}
+      //eMOEA   : moea.createEpsilonMOEA()
+   }
 }
+
 experiment = {
-	populationSize = 100  
-	maxEvaluations = 9999999
-	maxSeconds = 60 
-   nrRuns            = 1 
-	progressListeners = [ new SeedRuntimePrintListener ]
+   populationSize    = 100
+   maxEvaluations    = 10000
+   nrRuns            = 1
+   progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+analysis = {
+   indicators       = [ hypervolume invertedGenerationalDistance ]
+   significance     = 0.01
+   show             = [ aggregateValues statisticalSignificance individualValues ]
+   outputFile       = "outputEMF/analysis/analysis.txt"
+   boxplotDirectory = "outputEMF/analysis/"
+   printOutput
 }
 
 results = {
-	objectives = {
-		outputFile = "model/output/referenceSet/approximation_set.pf"
-	} 
-	models = {
-		outputDirectory = "model/output/solutions/"
-	}
+   adaptModels = {
+      
+   }
+   
+   // save objectives
+   objectives = {
+      outputFile      = "outputEMF/objectives/objective_values.txt"
+      printOutput
+   }
+   
+   /*objectives = {
+      outputFile      = "output/objectives/random_objective_values.txt"
+      algorithms      = [ Random ]
+   }*/
+
+   // save solutions, i.e., transformation orchestrations
+   solutions  = {
+      outputFile      = "outputEMF/solutions/all_solutions.txt"
+      outputDirectory = "outputEMF/solutions/"
+   }
+
+   // save models resulting from the orchestrated transformations
+   models     = {
+      outputDirectory = "outputEMF/models/"
+   }
+   
+   // select kneepoint models for further inspection
+   models     = {
+      neighborhoodSize = maxNeighborhoodSize
+      outputDirectory  = "outputEMF/models/kneepoints/"
+   }
+}
+
+finalization = {
+   System.out.println("Search finished.");
 }

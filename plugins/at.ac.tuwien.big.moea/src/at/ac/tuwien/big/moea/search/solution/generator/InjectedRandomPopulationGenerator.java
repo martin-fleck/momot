@@ -10,6 +10,7 @@ import org.moeaframework.core.Solution;
 public class InjectedRandomPopulationGenerator<S extends Solution> extends RandomPopulationGenerator<S>
       implements IInjectedPopulationGenerator<S> {
    private List<S> injectedSolutions = new ArrayList<>();
+   private boolean generateEmpty;
 
    public InjectedRandomPopulationGenerator(final int populationSize,
          final IRandomSolutionGenerator<S> solutionGenerator) {
@@ -85,11 +86,19 @@ public class InjectedRandomPopulationGenerator<S extends Solution> extends Rando
        * }
        */
       while(i < getPopulationSize()) {
-         population[i] = getSolutionGenerator().createRandomSolution();
+         if(generateEmpty) {
+            population[i] = getSolutionGenerator().createRandomSolution(1);
+         } else {
+            population[i] = getSolutionGenerator().createRandomSolution();
+         }
          ++i;
       }
 
       return population;
+   }
+
+   public void setGenerateEmptySolutions(final boolean generateEmpty) {
+      this.generateEmpty = generateEmpty;
    }
 
    @Override

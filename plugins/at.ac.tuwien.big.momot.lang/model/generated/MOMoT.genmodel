@@ -41,6 +41,7 @@
     <genClasses ecoreClass="MOMoT.ecore#//SearchOrchestration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/model"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/solutionLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MOMoT.ecore#//SearchOrchestration/emptyInitialization"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/moduleOrchestration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/fitnessFunction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MOMoT.ecore#//SearchOrchestration/algorithms"/>

@@ -17,6 +17,7 @@ import at.ac.tuwien.big.moea.problem.SearchProblem;
 import at.ac.tuwien.big.moea.search.algorithm.provider.AbstractRegisteredAlgorithm;
 import at.ac.tuwien.big.moea.search.algorithm.provider.DynamicAlgorithmFactory;
 import at.ac.tuwien.big.moea.util.CastUtil;
+import at.ac.tuwien.big.momot.TransformationResultManager;
 import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper;
 import at.ac.tuwien.big.momot.search.solution.executor.SearchHelper.ProfileValues;
 
@@ -67,8 +68,10 @@ public class SearchExecutor extends Executor {
    private static final String PROGRESSHELPER_NAME = "progress";
    private static final String ISCANCELED_NAME = "isCanceled";
    private static final String TERMINATION_CONDITIONS = "terminationConditions";
+   public static File OUTPUT_MODEL_DIRECTORY = null;
    protected String name;
    protected Algorithm algorithm;
+
    protected Map<String, Field> reflectiveFields = new HashMap<>();
 
    public ProfileValues lastValues;
@@ -287,6 +290,7 @@ public class SearchExecutor extends Executor {
          terminationCondition.initialize(algorithm);
 
          final long startTime = System.nanoTime();
+         int i = 1;
          while(!algorithm.isTerminated() && !terminationCondition.shouldTerminate(algorithm)) {
             if(isCanceled()) {
                return null;
@@ -304,13 +308,22 @@ public class SearchExecutor extends Executor {
             }
 
             getProgressHelper().setCurrentNFE(algorithm.getNumberOfEvaluations());
+            if(OUTPUT_MODEL_DIRECTORY != null) {
+               final File step = new File(OUTPUT_MODEL_DIRECTORY.getAbsolutePath() + File.separator + "step" + i);
+               step.mkdirs();
+               TransformationResultManager.saveModels(step, "model", algorithm.getResult());
+            }
+            ++i;
          }
          lastValues = SearchHelper.pollProfile();
          final String csv = problem.getName() + "," + getAlgorithmName() + "," + getName() + "," + lastValues.toCsv()
                + "\n";
          try {
             System.out.print("Ran: " + csv);
-            final FileOutputStream fos = new FileOutputStream("basicprofile.csv", true);
+            final FileOutputStream fos = new FileOutputStream(
+                  (OUTPUT_MODEL_DIRECTORY != null ? OUTPUT_MODEL_DIRECTORY.getAbsolutePath() + File.separator : "")
+                        + "basicprofile.csv",
+                  true);
             fos.write(csv.getBytes());
             fos.flush();
             fos.close();

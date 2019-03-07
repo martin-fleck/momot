@@ -11,7 +11,7 @@ abstract class AbstractModelQueryFitnessFunction {
 		
 		if(o === null){
 			println("Null object given")
-		}
+		} 
 		
 		o.eGet (o.eClass.getEStructuralFeature(feature))
 				

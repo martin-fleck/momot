@@ -462,30 +462,38 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOpSingleAssignParserRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		private final Assignment cSolutionLengthAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cSolutionLengthXExpressionParserRuleCall_7_0 = (RuleCall)cSolutionLengthAssignment_7.eContents().get(0);
-		private final Keyword cTransformationsKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final RuleCall cOpSingleAssignParserRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
-		private final Assignment cModuleOrchestrationAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cModuleOrchestrationModuleOrchestrationParserRuleCall_10_0 = (RuleCall)cModuleOrchestrationAssignment_10.eContents().get(0);
-		private final Keyword cFitnessKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final RuleCall cOpSingleAssignParserRuleCall_12 = (RuleCall)cGroup.eContents().get(12);
-		private final Assignment cFitnessFunctionAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cFitnessFunctionFitnessFunctionSpecificationParserRuleCall_13_0 = (RuleCall)cFitnessFunctionAssignment_13.eContents().get(0);
-		private final Keyword cAlgorithmsKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final RuleCall cOpSingleAssignParserRuleCall_15 = (RuleCall)cGroup.eContents().get(15);
-		private final Assignment cAlgorithmsAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cAlgorithmsAlgorithmListParserRuleCall_16_0 = (RuleCall)cAlgorithmsAssignment_16.eContents().get(0);
-		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
-		private final Keyword cEqualityHelperKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
-		private final RuleCall cOpSingleAssignParserRuleCall_17_1 = (RuleCall)cGroup_17.eContents().get(1);
-		private final Assignment cEqualityHelperAssignment_17_2 = (Assignment)cGroup_17.eContents().get(2);
-		private final RuleCall cEqualityHelperEqualityHelperParserRuleCall_17_2_0 = (RuleCall)cEqualityHelperAssignment_17_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cEmptyInitializationKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
+		private final Alternatives cAlternatives_8_2 = (Alternatives)cGroup_8.eContents().get(2);
+		private final Assignment cEmptyInitializationAssignment_8_2_0 = (Assignment)cAlternatives_8_2.eContents().get(0);
+		private final Keyword cEmptyInitializationTrueKeyword_8_2_0_0 = (Keyword)cEmptyInitializationAssignment_8_2_0.eContents().get(0);
+		private final Keyword cFalseKeyword_8_2_1 = (Keyword)cAlternatives_8_2.eContents().get(1);
+		private final Keyword cTransformationsKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final RuleCall cOpSingleAssignParserRuleCall_10 = (RuleCall)cGroup.eContents().get(10);
+		private final Assignment cModuleOrchestrationAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cModuleOrchestrationModuleOrchestrationParserRuleCall_11_0 = (RuleCall)cModuleOrchestrationAssignment_11.eContents().get(0);
+		private final Keyword cFitnessKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final RuleCall cOpSingleAssignParserRuleCall_13 = (RuleCall)cGroup.eContents().get(13);
+		private final Assignment cFitnessFunctionAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cFitnessFunctionFitnessFunctionSpecificationParserRuleCall_14_0 = (RuleCall)cFitnessFunctionAssignment_14.eContents().get(0);
+		private final Keyword cAlgorithmsKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final RuleCall cOpSingleAssignParserRuleCall_16 = (RuleCall)cGroup.eContents().get(16);
+		private final Assignment cAlgorithmsAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cAlgorithmsAlgorithmListParserRuleCall_17_0 = (RuleCall)cAlgorithmsAssignment_17.eContents().get(0);
+		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
+		private final Keyword cEqualityHelperKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
+		private final RuleCall cOpSingleAssignParserRuleCall_18_1 = (RuleCall)cGroup_18.eContents().get(1);
+		private final Assignment cEqualityHelperAssignment_18_2 = (Assignment)cGroup_18.eContents().get(2);
+		private final RuleCall cEqualityHelperEqualityHelperParserRuleCall_18_2_0 = (RuleCall)cEqualityHelperAssignment_18_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
 		
 		//SearchOrchestration:
 		//	{SearchOrchestration}
 		//	"{"
 		//	"model" OpSingleAssign model=InputModel
-		//	"solutionLength" OpSingleAssign solutionLength=XExpression
+		//	"solutionLength" OpSingleAssign solutionLength=XExpression ("emptyInitialization" OpSingleAssign
+		//	(emptyInitialization?="true" | "false"))?
 		//	"transformations" OpSingleAssign moduleOrchestration=ModuleOrchestration
 		//	"fitness" OpSingleAssign fitnessFunction=FitnessFunctionSpecification
 		//	"algorithms" OpSingleAssign algorithms=AlgorithmList ("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)?
@@ -493,9 +501,10 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 
 		//{SearchOrchestration} "{" "model" OpSingleAssign model=InputModel "solutionLength" OpSingleAssign
-		//solutionLength=XExpression "transformations" OpSingleAssign moduleOrchestration=ModuleOrchestration "fitness"
-		//OpSingleAssign fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign algorithms=AlgorithmList
-		//("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)? "}"
+		//solutionLength=XExpression ("emptyInitialization" OpSingleAssign (emptyInitialization?="true" | "false"))?
+		//"transformations" OpSingleAssign moduleOrchestration=ModuleOrchestration "fitness" OpSingleAssign
+		//fitnessFunction=FitnessFunctionSpecification "algorithms" OpSingleAssign algorithms=AlgorithmList ("equalityHelper"
+		//OpSingleAssign equalityHelper=EqualityHelper)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{SearchOrchestration}
@@ -528,59 +537,80 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 		//XExpression
 		public RuleCall getSolutionLengthXExpressionParserRuleCall_7_0() { return cSolutionLengthXExpressionParserRuleCall_7_0; }
 
-		//"transformations"
-		public Keyword getTransformationsKeyword_8() { return cTransformationsKeyword_8; }
+		//("emptyInitialization" OpSingleAssign (emptyInitialization?="true" | "false"))?
+		public Group getGroup_8() { return cGroup_8; }
+
+		//"emptyInitialization"
+		public Keyword getEmptyInitializationKeyword_8_0() { return cEmptyInitializationKeyword_8_0; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_9() { return cOpSingleAssignParserRuleCall_9; }
+		public RuleCall getOpSingleAssignParserRuleCall_8_1() { return cOpSingleAssignParserRuleCall_8_1; }
+
+		//emptyInitialization?="true" | "false"
+		public Alternatives getAlternatives_8_2() { return cAlternatives_8_2; }
+
+		//emptyInitialization?="true"
+		public Assignment getEmptyInitializationAssignment_8_2_0() { return cEmptyInitializationAssignment_8_2_0; }
+
+		//"true"
+		public Keyword getEmptyInitializationTrueKeyword_8_2_0_0() { return cEmptyInitializationTrueKeyword_8_2_0_0; }
+
+		//"false"
+		public Keyword getFalseKeyword_8_2_1() { return cFalseKeyword_8_2_1; }
+
+		//"transformations"
+		public Keyword getTransformationsKeyword_9() { return cTransformationsKeyword_9; }
+
+		//OpSingleAssign
+		public RuleCall getOpSingleAssignParserRuleCall_10() { return cOpSingleAssignParserRuleCall_10; }
 
 		//moduleOrchestration=ModuleOrchestration
-		public Assignment getModuleOrchestrationAssignment_10() { return cModuleOrchestrationAssignment_10; }
+		public Assignment getModuleOrchestrationAssignment_11() { return cModuleOrchestrationAssignment_11; }
 
 		//ModuleOrchestration
-		public RuleCall getModuleOrchestrationModuleOrchestrationParserRuleCall_10_0() { return cModuleOrchestrationModuleOrchestrationParserRuleCall_10_0; }
+		public RuleCall getModuleOrchestrationModuleOrchestrationParserRuleCall_11_0() { return cModuleOrchestrationModuleOrchestrationParserRuleCall_11_0; }
 
 		//"fitness"
-		public Keyword getFitnessKeyword_11() { return cFitnessKeyword_11; }
+		public Keyword getFitnessKeyword_12() { return cFitnessKeyword_12; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_12() { return cOpSingleAssignParserRuleCall_12; }
+		public RuleCall getOpSingleAssignParserRuleCall_13() { return cOpSingleAssignParserRuleCall_13; }
 
 		//fitnessFunction=FitnessFunctionSpecification
-		public Assignment getFitnessFunctionAssignment_13() { return cFitnessFunctionAssignment_13; }
+		public Assignment getFitnessFunctionAssignment_14() { return cFitnessFunctionAssignment_14; }
 
 		//FitnessFunctionSpecification
-		public RuleCall getFitnessFunctionFitnessFunctionSpecificationParserRuleCall_13_0() { return cFitnessFunctionFitnessFunctionSpecificationParserRuleCall_13_0; }
+		public RuleCall getFitnessFunctionFitnessFunctionSpecificationParserRuleCall_14_0() { return cFitnessFunctionFitnessFunctionSpecificationParserRuleCall_14_0; }
 
 		//"algorithms"
-		public Keyword getAlgorithmsKeyword_14() { return cAlgorithmsKeyword_14; }
+		public Keyword getAlgorithmsKeyword_15() { return cAlgorithmsKeyword_15; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_15() { return cOpSingleAssignParserRuleCall_15; }
+		public RuleCall getOpSingleAssignParserRuleCall_16() { return cOpSingleAssignParserRuleCall_16; }
 
 		//algorithms=AlgorithmList
-		public Assignment getAlgorithmsAssignment_16() { return cAlgorithmsAssignment_16; }
+		public Assignment getAlgorithmsAssignment_17() { return cAlgorithmsAssignment_17; }
 
 		//AlgorithmList
-		public RuleCall getAlgorithmsAlgorithmListParserRuleCall_16_0() { return cAlgorithmsAlgorithmListParserRuleCall_16_0; }
+		public RuleCall getAlgorithmsAlgorithmListParserRuleCall_17_0() { return cAlgorithmsAlgorithmListParserRuleCall_17_0; }
 
 		//("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)?
-		public Group getGroup_17() { return cGroup_17; }
+		public Group getGroup_18() { return cGroup_18; }
 
 		//"equalityHelper"
-		public Keyword getEqualityHelperKeyword_17_0() { return cEqualityHelperKeyword_17_0; }
+		public Keyword getEqualityHelperKeyword_18_0() { return cEqualityHelperKeyword_18_0; }
 
 		//OpSingleAssign
-		public RuleCall getOpSingleAssignParserRuleCall_17_1() { return cOpSingleAssignParserRuleCall_17_1; }
+		public RuleCall getOpSingleAssignParserRuleCall_18_1() { return cOpSingleAssignParserRuleCall_18_1; }
 
 		//equalityHelper=EqualityHelper
-		public Assignment getEqualityHelperAssignment_17_2() { return cEqualityHelperAssignment_17_2; }
+		public Assignment getEqualityHelperAssignment_18_2() { return cEqualityHelperAssignment_18_2; }
 
 		//EqualityHelper
-		public RuleCall getEqualityHelperEqualityHelperParserRuleCall_17_2_0() { return cEqualityHelperEqualityHelperParserRuleCall_17_2_0; }
+		public RuleCall getEqualityHelperEqualityHelperParserRuleCall_18_2_0() { return cEqualityHelperEqualityHelperParserRuleCall_18_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_18() { return cRightCurlyBracketKeyword_18; }
+		public Keyword getRightCurlyBracketKeyword_19() { return cRightCurlyBracketKeyword_19; }
 	}
 
 	public class InputModelElements extends AbstractParserRuleElementFinder {
@@ -2696,7 +2726,8 @@ public class MOMoTGrammarAccess extends AbstractGrammarElementFinder {
 	//	{SearchOrchestration}
 	//	"{"
 	//	"model" OpSingleAssign model=InputModel
-	//	"solutionLength" OpSingleAssign solutionLength=XExpression
+	//	"solutionLength" OpSingleAssign solutionLength=XExpression ("emptyInitialization" OpSingleAssign
+	//	(emptyInitialization?="true" | "false"))?
 	//	"transformations" OpSingleAssign moduleOrchestration=ModuleOrchestration
 	//	"fitness" OpSingleAssign fitnessFunction=FitnessFunctionSpecification
 	//	"algorithms" OpSingleAssign algorithms=AlgorithmList ("equalityHelper" OpSingleAssign equalityHelper=EqualityHelper)?

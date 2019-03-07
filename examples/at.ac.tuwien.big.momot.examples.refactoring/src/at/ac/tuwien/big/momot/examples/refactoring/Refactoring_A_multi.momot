@@ -74,16 +74,38 @@ search = {
 experiment = {
 	populationSize = 100
 	maxEvaluations = 9999999
-	maxSeconds = 60  
+	maxSeconds = 300  
    nrRuns            = 1
 	progressListeners = [ new SeedRuntimePrintListener ]
 }
 
 results = {
-	objectives = {
-		outputFile = "model/output/referenceSet/approximation_set.pf"
-	} 
-	models = {
-		outputDirectory = "model/output/solutions/"
-	}
+   
+   // save objectives
+   objectives = {
+      outputFile      = "output/objectives/objective_values.txt"
+      printOutput
+   }
+   
+   objectives = {
+      outputFile      = "output/objectives/random_objective_values.txt"
+      algorithms      = [ NSGAII, NSGAII_OM]
+   }
+
+   // save solutions, i.e., transformation orchestrations
+   solutions  = {
+      outputFile      = "output/solutions/all_solutions.txt"
+      outputDirectory = "output/solutions/"
+   }
+
+   // save models resulting from the orchestrated transformations
+   models     = {
+      outputDirectory = "output/models/"
+   }
+   
+   // select kneepoint models for further inspection
+   models     = {
+      neighborhoodSize = maxNeighborhoodSize
+      outputDirectory  = "output/models/kneepoints/"
+   }
 }

@@ -623,9 +623,9 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSearchOrchestration_ModuleOrchestration()
+  public EAttribute getSearchOrchestration_EmptyInitialization()
   {
-    return (EReference)searchOrchestrationEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)searchOrchestrationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -633,7 +633,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSearchOrchestration_FitnessFunction()
+  public EReference getSearchOrchestration_ModuleOrchestration()
   {
     return (EReference)searchOrchestrationEClass.getEStructuralFeatures().get(3);
   }
@@ -643,7 +643,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSearchOrchestration_Algorithms()
+  public EReference getSearchOrchestration_FitnessFunction()
   {
     return (EReference)searchOrchestrationEClass.getEStructuralFeatures().get(4);
   }
@@ -653,9 +653,19 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSearchOrchestration_EqualityHelper()
+  public EReference getSearchOrchestration_Algorithms()
   {
     return (EReference)searchOrchestrationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSearchOrchestration_EqualityHelper()
+  {
+    return (EReference)searchOrchestrationEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1788,6 +1798,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
     searchOrchestrationEClass = createEClass(SEARCH_ORCHESTRATION);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__MODEL);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__SOLUTION_LENGTH);
+    createEAttribute(searchOrchestrationEClass, SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__FITNESS_FUNCTION);
     createEReference(searchOrchestrationEClass, SEARCH_ORCHESTRATION__ALGORITHMS);
@@ -2005,6 +2016,7 @@ public class MomotPackageImpl extends EPackageImpl implements MomotPackage
     initEClass(searchOrchestrationEClass, SearchOrchestration.class, "SearchOrchestration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSearchOrchestration_Model(), this.getInputModel(), null, "model", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_SolutionLength(), theXbasePackage.getXExpression(), null, "solutionLength", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSearchOrchestration_EmptyInitialization(), ecorePackage.getEBoolean(), "emptyInitialization", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_ModuleOrchestration(), this.getModuleOrchestration(), null, "moduleOrchestration", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_FitnessFunction(), this.getFitnessFunctionSpecification(), null, "fitnessFunction", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSearchOrchestration_Algorithms(), this.getAlgorithmList(), null, "algorithms", null, 0, 1, SearchOrchestration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

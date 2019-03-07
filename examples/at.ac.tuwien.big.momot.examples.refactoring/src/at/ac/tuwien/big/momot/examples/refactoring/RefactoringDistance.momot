@@ -1,0 +1,108 @@
+package at.ac.tuwien.big.momot.examples.refactoring.momot
+
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.momot.^search.solution.repair.TransformationPlaceholderRepairer
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import org.moeaframework.core.operator.OnePointCrossover
+import org.moeaframework.core.operator.TournamentSelection
+import at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage
+import at.ac.tuwien.big.momot.examples.refactoring.RefractoringCostDimension
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+import at.ac.tuwien.big.momot.examples.refactoring.EMFCompareDistance
+import at.ac.tuwien.big.momot.examples.refactoring.RefactoringValueDistance
+import at.ac.tuwien.big.momot.examples.refactoring.RefactoringMoveDistance
+import at.ac.tuwien.big.momot.examples.refactoring.RefactoringElementDistance
+
+initialization = {
+	RefactoringPackage::eINSTANCE.eClass
+}
+
+search = {
+	model = {
+		file = "model/SeveralRefactorings.xmi"
+	}
+	solutionLength = 30
+	
+	transformations = { 
+		modules = [ "model/Refactoring.henshin" ]
+	}
+	
+   fitness         = {
+      objectives = {
+         SolutionLength : minimize new TransformationLengthDimension
+         ValueDistance: minimize {RefactoringValueDistance.calculateFitness(root)}
+         MoveDistance: minimize {RefactoringMoveDistance.calculateFitness(root)}
+         ElementDistance: minimize {RefactoringElementDistance.calculateFitness(root)}
+      }
+   }
+
+   algorithms      = {
+      //Random  : moea.createRandomSearch()
+      	NSGAII : moea.createNSGAII(
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0),  
+				//new TransformationPlaceholderMutation(0.15))
+				new TransformationPlaceholderMutation(0.05),
+				new TransformationParameterMutation(0.05,orchestration.moduleManager
+					
+				),
+				new TransformationVariableMutation(orchestration.searchHelper,0.05))
+      //eMOEA   : moea.createEpsilonMOEA()
+   }
+}
+
+experiment = {
+   populationSize    = 100
+   maxEvaluations    = 10000
+   nrRuns            = 1
+   progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+analysis = {
+   indicators       = [ hypervolume invertedGenerationalDistance ]
+   significance     = 0.01
+   show             = [ aggregateValues statisticalSignificance individualValues ]
+   outputFile       = "outputEMF/analysis/analysis.txt"
+   boxplotDirectory = "outputEMF/analysis/"
+   printOutput
+}
+
+results = {
+   adaptModels = {
+      
+   }
+   
+   // save objectives
+   objectives = {
+      outputFile      = "outputEMF/objectives/objective_values.txt"
+      printOutput
+   }
+   
+   /*objectives = {
+      outputFile      = "output/objectives/random_objective_values.txt"
+      algorithms      = [ Random ]
+   }*/
+
+   // save solutions, i.e., transformation orchestrations
+   solutions  = {
+      outputFile      = "outputEMF/solutions/all_solutions.txt"
+      outputDirectory = "outputEMF/solutions/"
+   }
+
+   // save models resulting from the orchestrated transformations
+   models     = {
+      outputDirectory = "outputEMF/models/"
+   }
+   
+   // select kneepoint models for further inspection
+   models     = {
+      neighborhoodSize = maxNeighborhoodSize
+      outputDirectory  = "outputEMF/models/kneepoints/"
+   }
+}
+
+finalization = {
+   System.out.println("Search finished.");
+}

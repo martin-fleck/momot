@@ -31,6 +31,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getModel <em>Model</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getSolutionLength <em>Solution Length</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#isEmptyInitialization <em>Empty Initialization</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getModuleOrchestration <em>Module Orchestration</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getFitnessFunction <em>Fitness Function</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.impl.SearchOrchestrationImpl#getAlgorithms <em>Algorithms</em>}</li>
@@ -60,6 +61,26 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
   protected XExpression solutionLength;
+
+  /**
+   * The default value of the '{@link #isEmptyInitialization() <em>Empty Initialization</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEmptyInitialization()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean EMPTY_INITIALIZATION_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isEmptyInitialization() <em>Empty Initialization</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEmptyInitialization()
+   * @generated
+   * @ordered
+   */
+  protected boolean emptyInitialization = EMPTY_INITIALIZATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getModuleOrchestration() <em>Module Orchestration</em>}' containment reference.
@@ -216,6 +237,29 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH, newSolutionLength, newSolutionLength));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isEmptyInitialization()
+  {
+    return emptyInitialization;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEmptyInitialization(boolean newEmptyInitialization)
+  {
+    boolean oldEmptyInitialization = emptyInitialization;
+    emptyInitialization = newEmptyInitialization;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MomotPackage.SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION, oldEmptyInitialization, emptyInitialization));
   }
 
   /**
@@ -450,6 +494,8 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
         return getModel();
       case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         return getSolutionLength();
+      case MomotPackage.SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION:
+        return isEmptyInitialization();
       case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
         return getModuleOrchestration();
       case MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
@@ -477,6 +523,9 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
         return;
       case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         setSolutionLength((XExpression)newValue);
+        return;
+      case MomotPackage.SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION:
+        setEmptyInitialization((Boolean)newValue);
         return;
       case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
         setModuleOrchestration((ModuleOrchestration)newValue);
@@ -510,6 +559,9 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
       case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         setSolutionLength((XExpression)null);
         return;
+      case MomotPackage.SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION:
+        setEmptyInitialization(EMPTY_INITIALIZATION_EDEFAULT);
+        return;
       case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
         setModuleOrchestration((ModuleOrchestration)null);
         return;
@@ -540,6 +592,8 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
         return model != null;
       case MomotPackage.SEARCH_ORCHESTRATION__SOLUTION_LENGTH:
         return solutionLength != null;
+      case MomotPackage.SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION:
+        return emptyInitialization != EMPTY_INITIALIZATION_EDEFAULT;
       case MomotPackage.SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION:
         return moduleOrchestration != null;
       case MomotPackage.SEARCH_ORCHESTRATION__FITNESS_FUNCTION:
@@ -550,6 +604,23 @@ public class SearchOrchestrationImpl extends MinimalEObjectImpl.Container implem
         return equalityHelper != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (emptyInitialization: ");
+    result.append(emptyInitialization);
+    result.append(')');
+    return result.toString();
   }
 
 } //SearchOrchestrationImpl

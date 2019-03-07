@@ -28,7 +28,7 @@ public abstract class AbstractTransformationMutation extends AbstractMutationVar
    }
 
    @Override
-   protected Solution[] doEvolve(final Solution[] parents) {
+   public Solution[] doEvolve(final Solution[] parents) {
       if(!(parents[0] instanceof TransformationSolution)) {
          return new Solution[] { parents[0] };
       }

@@ -26,7 +26,7 @@ public class PlaceholderMutation extends AbstractMutationVariation {
    }
 
    @Override
-   protected Solution[] doEvolve(final Solution[] parents) {
+   public Solution[] doEvolve(final Solution[] parents) {
       final Solution copy = parents[0].copy();
       final Solution mutant = mutate(copy);
       return new Solution[] { mutant };

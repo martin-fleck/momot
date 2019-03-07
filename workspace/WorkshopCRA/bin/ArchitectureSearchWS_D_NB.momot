@@ -115,7 +115,7 @@ search = {
 }  
 
 experiment = {
-   populationSize    = 100 
+   populationSize    = 100  
    maxEvaluations    = 1000000
    maxSeconds = 300
    nrRuns            = 1

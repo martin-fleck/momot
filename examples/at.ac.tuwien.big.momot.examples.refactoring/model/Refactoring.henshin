@@ -229,22 +229,16 @@
       </formula>
     </lhs>
     <rhs xmi:id="_GXeZgWNmEeSiMNvnqjMMHg" name="Rhs">
-      <nodes xmi:id="_IDz_g2NmEeSiMNvnqjMMHg" name="root" outgoing="_LHgaCmNmEeSiMNvnqjMMHg _Ow90CmNmEeSiMNvnqjMMHg _cQflJGNvEeSiMNvnqjMMHg _rbXLwGQ-EeSN_pdbpbfLDQ _oxkplGQ_EeSN_pdbpbfLDQ _TgSV4mRCEeSN_pdbpbfLDQ _nOlFcGRCEeSN_pdbpbfLDQ">
+      <nodes xmi:id="_IDz_g2NmEeSiMNvnqjMMHg" name="root" outgoing="_LHgaCmNmEeSiMNvnqjMMHg _cQflJGNvEeSiMNvnqjMMHg _rbXLwGQ-EeSN_pdbpbfLDQ _oxkplGQ_EeSN_pdbpbfLDQ _TgSV4mRCEeSN_pdbpbfLDQ _nOlFcGRCEeSN_pdbpbfLDQ _tLUn0TtZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel"/>
       </nodes>
-      <nodes xmi:id="_LHgaCGNmEeSiMNvnqjMMHg" incoming="_LHgaCmNmEeSiMNvnqjMMHg _urJksGRCEeSN_pdbpbfLDQ _JFWyoGRDEeSN_pdbpbfLDQ" outgoing="_bmMaAGNmEeSiMNvnqjMMHg _vD5b4GRCEeSN_pdbpbfLDQ _JwpLUGRDEeSN_pdbpbfLDQ">
+      <nodes xmi:id="_LHgaCGNmEeSiMNvnqjMMHg" incoming="_LHgaCmNmEeSiMNvnqjMMHg _urJksGRCEeSN_pdbpbfLDQ _JFWyoGRDEeSN_pdbpbfLDQ" outgoing="_vD5b4GRCEeSN_pdbpbfLDQ _JwpLUGRDEeSN_pdbpbfLDQ _xkdyUDtZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         <attributes xmi:id="_HgbPYGT3EeSHxZT97_S_Aw" value="'Entity_' + n + '_' + e1 + '_' + e2">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_Ow90CGNmEeSiMNvnqjMMHg" description="" incoming="_Ow90CmNmEeSiMNvnqjMMHg _bmMaAGNmEeSiMNvnqjMMHg" outgoing="_cvToEGNvEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
-        <attributes xmi:id="_rNzBAGNmEeSiMNvnqjMMHg" value="n">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
-        </attributes>
-      </nodes>
-      <nodes xmi:id="_cQflIWNvEeSiMNvnqjMMHg" incoming="_cQflJGNvEeSiMNvnqjMMHg _cvToEGNvEeSiMNvnqjMMHg">
+      <nodes xmi:id="_cQflIWNvEeSiMNvnqjMMHg" incoming="_cQflJGNvEeSiMNvnqjMMHg _tLV18TtZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Type"/>
       </nodes>
       <nodes xmi:id="_rbUvgGQ-EeSN_pdbpbfLDQ" incoming="_rbXLwGQ-EeSN_pdbpbfLDQ _uQQYcGRCEeSN_pdbpbfLDQ" outgoing="_t-xm4GRCEeSN_pdbpbfLDQ">
@@ -265,20 +259,17 @@
       <nodes xmi:id="_nOkeYGRCEeSN_pdbpbfLDQ" incoming="_nOlFcGRCEeSN_pdbpbfLDQ _t-xm4GRCEeSN_pdbpbfLDQ _vD5b4GRCEeSN_pdbpbfLDQ" outgoing="_uQQYcGRCEeSN_pdbpbfLDQ _urJksGRCEeSN_pdbpbfLDQ">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization"/>
       </nodes>
+      <nodes xmi:id="_tLQWYDtZEem7h9hs84WW2Q" incoming="_tLUn0TtZEem7h9hs84WW2Q _xkdyUDtZEem7h9hs84WW2Q" outgoing="_tLV18TtZEem7h9hs84WW2Q">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
+        <attributes xmi:id="_tLQWYTtZEem7h9hs84WW2Q" value="n">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
       <edges xmi:id="_LHgaCmNmEeSiMNvnqjMMHg" source="_IDz_g2NmEeSiMNvnqjMMHg" target="_LHgaCGNmEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
       </edges>
-      <edges xmi:id="_Ow90CmNmEeSiMNvnqjMMHg" source="_IDz_g2NmEeSiMNvnqjMMHg" target="_Ow90CGNmEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
-      </edges>
-      <edges xmi:id="_bmMaAGNmEeSiMNvnqjMMHg" source="_LHgaCGNmEeSiMNvnqjMMHg" target="_Ow90CGNmEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
-      </edges>
       <edges xmi:id="_cQflJGNvEeSiMNvnqjMMHg" source="_IDz_g2NmEeSiMNvnqjMMHg" target="_cQflIWNvEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/types"/>
-      </edges>
-      <edges xmi:id="_cvToEGNvEeSiMNvnqjMMHg" source="_Ow90CGNmEeSiMNvnqjMMHg" target="_cQflIWNvEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
       </edges>
       <edges xmi:id="_rbXLwGQ-EeSN_pdbpbfLDQ" source="_IDz_g2NmEeSiMNvnqjMMHg" target="_rbUvgGQ-EeSN_pdbpbfLDQ">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
@@ -316,11 +307,21 @@
       <edges xmi:id="_JwpLUGRDEeSN_pdbpbfLDQ" source="_LHgaCGNmEeSiMNvnqjMMHg" target="_TgQgsGRCEeSN_pdbpbfLDQ">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/specialization"/>
       </edges>
+      <edges xmi:id="_tLUn0TtZEem7h9hs84WW2Q" source="_IDz_g2NmEeSiMNvnqjMMHg" target="_tLQWYDtZEem7h9hs84WW2Q">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
+      </edges>
+      <edges xmi:id="_tLV18TtZEem7h9hs84WW2Q" source="_tLQWYDtZEem7h9hs84WW2Q" target="_cQflIWNvEeSiMNvnqjMMHg">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
+      </edges>
+      <edges xmi:id="_xkdyUDtZEem7h9hs84WW2Q" source="_LHgaCGNmEeSiMNvnqjMMHg" target="_tLQWYDtZEem7h9hs84WW2Q">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+      </edges>
     </rhs>
     <mappings xmi:id="_IDz_hGNmEeSiMNvnqjMMHg" origin="_IDz_gmNmEeSiMNvnqjMMHg" image="_IDz_g2NmEeSiMNvnqjMMHg"/>
     <mappings xmi:id="_cQflImNvEeSiMNvnqjMMHg" origin="_cQflIGNvEeSiMNvnqjMMHg" image="_cQflIWNvEeSiMNvnqjMMHg"/>
     <mappings xmi:id="_rbUvgWQ-EeSN_pdbpbfLDQ" origin="_rbRFIGQ-EeSN_pdbpbfLDQ" image="_rbUvgGQ-EeSN_pdbpbfLDQ"/>
     <mappings xmi:id="_oxkpkmQ_EeSN_pdbpbfLDQ" origin="_oxkpkGQ_EeSN_pdbpbfLDQ" image="_oxkpkWQ_EeSN_pdbpbfLDQ"/>
+    <mappings xmi:id="_tLUn0DtZEem7h9hs84WW2Q" origin="_q1heUGQ_EeSN_pdbpbfLDQ" image="_tLQWYDtZEem7h9hs84WW2Q"/>
     <multiRules xmi:id="_eW8DVWNmEeSiMNvnqjMMHg">
       <parameters xmi:id="_eXCJ92NmEeSiMNvnqjMMHg" name="n">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -492,14 +493,11 @@
         </formula>
       </lhs>
       <rhs xmi:id="_eW8DV2NmEeSiMNvnqjMMHg" name="Rhs">
-        <nodes xmi:id="_eW8DWGNmEeSiMNvnqjMMHg" name="root" outgoing="_eW8DXGNmEeSiMNvnqjMMHg _eXCJ8GNmEeSiMNvnqjMMHg _iMO55GNmEeSiMNvnqjMMHg _4-ugqWNuEeSiMNvnqjMMHg _cQflJ2NvEeSiMNvnqjMMHg _rbYZ4mQ-EeSN_pdbpbfLDQ _oxlQomQ_EeSN_pdbpbfLDQ _TgSV5mRCEeSN_pdbpbfLDQ _nOlFdGRCEeSN_pdbpbfLDQ">
+        <nodes xmi:id="_eW8DWGNmEeSiMNvnqjMMHg" name="root" outgoing="_eW8DXGNmEeSiMNvnqjMMHg _iMO55GNmEeSiMNvnqjMMHg _4-ugqWNuEeSiMNvnqjMMHg _cQflJ2NvEeSiMNvnqjMMHg _rbYZ4mQ-EeSN_pdbpbfLDQ _oxlQomQ_EeSN_pdbpbfLDQ _TgSV5mRCEeSN_pdbpbfLDQ _nOlFdGRCEeSN_pdbpbfLDQ _tLVO4jtZEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel"/>
         </nodes>
-        <nodes xmi:id="_eW8DWmNmEeSiMNvnqjMMHg" incoming="_eW8DXGNmEeSiMNvnqjMMHg _Id6LcGNvEeSiMNvnqjMMHg" outgoing="_IJXe0GNvEeSiMNvnqjMMHg">
+        <nodes xmi:id="_eW8DWmNmEeSiMNvnqjMMHg" incoming="_eW8DXGNmEeSiMNvnqjMMHg _Id6LcGNvEeSiMNvnqjMMHg" outgoing="_IJXe0GNvEeSiMNvnqjMMHg _xkeZYDtZEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
-        </nodes>
-        <nodes xmi:id="_eW8DXWNmEeSiMNvnqjMMHg" description="" incoming="_eXCJ8GNmEeSiMNvnqjMMHg" outgoing="_cvToEWNvEeSiMNvnqjMMHg">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
         </nodes>
         <nodes xmi:id="_iMO54WNmEeSiMNvnqjMMHg" incoming="_iMO55GNmEeSiMNvnqjMMHg _G7UXUGNvEeSiMNvnqjMMHg" outgoing="_HhiCwGNvEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
@@ -507,13 +505,13 @@
         <nodes xmi:id="_4-ugp2NuEeSiMNvnqjMMHg" incoming="_4-ugqWNuEeSiMNvnqjMMHg _HhiCwGNvEeSiMNvnqjMMHg _IJXe0GNvEeSiMNvnqjMMHg" outgoing="_G7UXUGNvEeSiMNvnqjMMHg _Id6LcGNvEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization"/>
         </nodes>
-        <nodes xmi:id="_cQflJWNvEeSiMNvnqjMMHg" incoming="_cQflJ2NvEeSiMNvnqjMMHg _cvToEWNvEeSiMNvnqjMMHg">
+        <nodes xmi:id="_cQflJWNvEeSiMNvnqjMMHg" incoming="_cQflJ2NvEeSiMNvnqjMMHg _tLV18jtZEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Type"/>
         </nodes>
         <nodes xmi:id="_rbYZ4GQ-EeSN_pdbpbfLDQ" incoming="_rbYZ4mQ-EeSN_pdbpbfLDQ _uQQYcWRCEeSN_pdbpbfLDQ" outgoing="_t-yN8GRCEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
-        <nodes xmi:id="_oxlQoGQ_EeSN_pdbpbfLDQ" incoming="_oxlQomQ_EeSN_pdbpbfLDQ _tovFcWRCEeSN_pdbpbfLDQ" outgoing="_tU6xkWRCEeSN_pdbpbfLDQ">
+        <nodes xmi:id="_oxlQoGQ_EeSN_pdbpbfLDQ" incoming="_oxlQomQ_EeSN_pdbpbfLDQ _tovFcWRCEeSN_pdbpbfLDQ" outgoing="_tU6xkWRCEeSN_pdbpbfLDQ _tLV18DtZEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
         <nodes xmi:id="_TgSV5GRCEeSN_pdbpbfLDQ" incoming="_TgSV5mRCEeSN_pdbpbfLDQ _tU6xkWRCEeSN_pdbpbfLDQ" outgoing="_tovFcWRCEeSN_pdbpbfLDQ">
@@ -522,11 +520,11 @@
         <nodes xmi:id="_nOlFcmRCEeSN_pdbpbfLDQ" incoming="_nOlFdGRCEeSN_pdbpbfLDQ _t-yN8GRCEeSN_pdbpbfLDQ" outgoing="_uQQYcWRCEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization"/>
         </nodes>
+        <nodes xmi:id="_tLVO4DtZEem7h9hs84WW2Q" incoming="_tLVO4jtZEem7h9hs84WW2Q _tLV18DtZEem7h9hs84WW2Q _xkeZYDtZEem7h9hs84WW2Q" outgoing="_tLV18jtZEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
+        </nodes>
         <edges xmi:id="_eW8DXGNmEeSiMNvnqjMMHg" source="_eW8DWGNmEeSiMNvnqjMMHg" target="_eW8DWmNmEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
-        </edges>
-        <edges xmi:id="_eXCJ8GNmEeSiMNvnqjMMHg" source="_eW8DWGNmEeSiMNvnqjMMHg" target="_eW8DXWNmEeSiMNvnqjMMHg">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
         </edges>
         <edges xmi:id="_iMO55GNmEeSiMNvnqjMMHg" source="_eW8DWGNmEeSiMNvnqjMMHg" target="_iMO54WNmEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
@@ -548,9 +546,6 @@
         </edges>
         <edges xmi:id="_cQflJ2NvEeSiMNvnqjMMHg" source="_eW8DWGNmEeSiMNvnqjMMHg" target="_cQflJWNvEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/types"/>
-        </edges>
-        <edges xmi:id="_cvToEWNvEeSiMNvnqjMMHg" source="_eW8DXWNmEeSiMNvnqjMMHg" target="_cQflJWNvEeSiMNvnqjMMHg">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
         </edges>
         <edges xmi:id="_rbYZ4mQ-EeSN_pdbpbfLDQ" source="_eW8DWGNmEeSiMNvnqjMMHg" target="_rbYZ4GQ-EeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
@@ -576,15 +571,27 @@
         <edges xmi:id="_uQQYcWRCEeSN_pdbpbfLDQ" source="_nOlFcmRCEeSN_pdbpbfLDQ" target="_rbYZ4GQ-EeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/specific"/>
         </edges>
+        <edges xmi:id="_tLVO4jtZEem7h9hs84WW2Q" source="_eW8DWGNmEeSiMNvnqjMMHg" target="_tLVO4DtZEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
+        </edges>
+        <edges xmi:id="_tLV18DtZEem7h9hs84WW2Q" source="_oxlQoGQ_EeSN_pdbpbfLDQ" target="_tLVO4DtZEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+        </edges>
+        <edges xmi:id="_tLV18jtZEem7h9hs84WW2Q" source="_tLVO4DtZEem7h9hs84WW2Q" target="_cQflJWNvEeSiMNvnqjMMHg">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
+        </edges>
+        <edges xmi:id="_xkeZYDtZEem7h9hs84WW2Q" source="_eW8DWmNmEeSiMNvnqjMMHg" target="_tLVO4DtZEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+        </edges>
       </rhs>
       <mappings xmi:id="_eXCJ9mNmEeSiMNvnqjMMHg" origin="_eXCJ9GNmEeSiMNvnqjMMHg" image="_eW8DWGNmEeSiMNvnqjMMHg"/>
       <mappings xmi:id="_iMO54mNmEeSiMNvnqjMMHg" origin="_iMO54GNmEeSiMNvnqjMMHg" image="_iMO54WNmEeSiMNvnqjMMHg"/>
       <mappings xmi:id="_cQflK2NvEeSiMNvnqjMMHg" origin="_cQflKGNvEeSiMNvnqjMMHg" image="_cQflJWNvEeSiMNvnqjMMHg"/>
       <mappings xmi:id="_rbZA8WQ-EeSN_pdbpbfLDQ" origin="_rbYZ42Q-EeSN_pdbpbfLDQ" image="_rbYZ4GQ-EeSN_pdbpbfLDQ"/>
       <mappings xmi:id="_oxlQpmQ_EeSN_pdbpbfLDQ" origin="_oxlQo2Q_EeSN_pdbpbfLDQ" image="_oxlQoGQ_EeSN_pdbpbfLDQ"/>
+      <mappings xmi:id="_tLVO4TtZEem7h9hs84WW2Q" origin="_q1lvw2Q_EeSN_pdbpbfLDQ" image="_tLVO4DtZEem7h9hs84WW2Q"/>
       <multiMappings xmi:id="_eW8DWWNmEeSiMNvnqjMMHg" origin="_IDz_g2NmEeSiMNvnqjMMHg" image="_eW8DWGNmEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_eW8DW2NmEeSiMNvnqjMMHg" origin="_LHgaCGNmEeSiMNvnqjMMHg" image="_eW8DWmNmEeSiMNvnqjMMHg"/>
-      <multiMappings xmi:id="_eW8DXmNmEeSiMNvnqjMMHg" origin="_Ow90CGNmEeSiMNvnqjMMHg" image="_eW8DXWNmEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_eXCJ9WNmEeSiMNvnqjMMHg" origin="_IDz_gmNmEeSiMNvnqjMMHg" image="_eXCJ9GNmEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_cQflJmNvEeSiMNvnqjMMHg" origin="_cQflIWNvEeSiMNvnqjMMHg" image="_cQflJWNvEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_cQflKWNvEeSiMNvnqjMMHg" origin="_cQflIGNvEeSiMNvnqjMMHg" image="_cQflKGNvEeSiMNvnqjMMHg"/>
@@ -596,6 +603,7 @@
       <multiMappings xmi:id="_q1lvxGQ_EeSN_pdbpbfLDQ" origin="_q1heUGQ_EeSN_pdbpbfLDQ" image="_q1lvw2Q_EeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_TgSV5WRCEeSN_pdbpbfLDQ" origin="_TgQgsGRCEeSN_pdbpbfLDQ" image="_TgSV5GRCEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_nOlFc2RCEeSN_pdbpbfLDQ" origin="_nOkeYGRCEeSN_pdbpbfLDQ" image="_nOlFcmRCEeSN_pdbpbfLDQ"/>
+      <multiMappings xmi:id="_tLVO4ztZEem7h9hs84WW2Q" origin="_tLQWYDtZEem7h9hs84WW2Q" image="_tLVO4DtZEem7h9hs84WW2Q"/>
     </multiRules>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_OVpskGQMEeSiMNvnqjMMHg" name="extractSuperClass">
@@ -809,7 +817,7 @@
       </formula>
     </lhs>
     <rhs xmi:id="_OVzdkGQMEeSiMNvnqjMMHg" name="Rhs">
-      <nodes xmi:id="_QlIb4mQMEeSiMNvnqjMMHg" name="root" outgoing="_UAcsNGQMEeSiMNvnqjMMHg _XD85cGQMEeSiMNvnqjMMHg _XsPogmQMEeSiMNvnqjMMHg _YYYVw2QMEeSiMNvnqjMMHg _ZeKSFGQMEeSiMNvnqjMMHg _ar7FsWQMEeSiMNvnqjMMHg _bF9WU2QMEeSiMNvnqjMMHg _bdbbJGQMEeSiMNvnqjMMHg _cFaoMWQMEeSiMNvnqjMMHg _cdnFxGQMEeSiMNvnqjMMHg _c10xcGQMEeSiMNvnqjMMHg">
+      <nodes xmi:id="_QlIb4mQMEeSiMNvnqjMMHg" name="root" outgoing="_UAcsNGQMEeSiMNvnqjMMHg _XD85cGQMEeSiMNvnqjMMHg _XsPogmQMEeSiMNvnqjMMHg _ZeKSFGQMEeSiMNvnqjMMHg _ar7FsWQMEeSiMNvnqjMMHg _bF9WU2QMEeSiMNvnqjMMHg _bdbbJGQMEeSiMNvnqjMMHg _cFaoMWQMEeSiMNvnqjMMHg _cdnFxGQMEeSiMNvnqjMMHg _c10xcGQMEeSiMNvnqjMMHg _AwNjwztaEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel"/>
       </nodes>
       <nodes xmi:id="_UAcsMWQMEeSiMNvnqjMMHg" incoming="_UAcsNGQMEeSiMNvnqjMMHg _BvVGQGZyEeS_T4SodqSYYA" outgoing="_r3YsIWQMEeSiMNvnqjMMHg _wP16IGQMEeSiMNvnqjMMHg">
@@ -818,19 +826,13 @@
       <nodes xmi:id="_XD8SYGQMEeSiMNvnqjMMHg" incoming="_XD85cGQMEeSiMNvnqjMMHg _wP16IGQMEeSiMNvnqjMMHg _BTGdQGZyEeS_T4SodqSYYA" outgoing="_v38-kGQMEeSiMNvnqjMMHg _BvVGQGZyEeS_T4SodqSYYA">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization"/>
       </nodes>
-      <nodes xmi:id="_XsPBcGQMEeSiMNvnqjMMHg" incoming="_XsPogmQMEeSiMNvnqjMMHg _v38-kGQMEeSiMNvnqjMMHg _zUsLMGQMEeSiMNvnqjMMHg _0PxTYGQMEeSiMNvnqjMMHg" outgoing="_vdAvAGQMEeSiMNvnqjMMHg _zwAOMGQMEeSiMNvnqjMMHg _0slyQGQMEeSiMNvnqjMMHg _BTGdQGZyEeS_T4SodqSYYA">
+      <nodes xmi:id="_XsPBcGQMEeSiMNvnqjMMHg" incoming="_XsPogmQMEeSiMNvnqjMMHg _v38-kGQMEeSiMNvnqjMMHg _zUsLMGQMEeSiMNvnqjMMHg _0PxTYGQMEeSiMNvnqjMMHg" outgoing="_zwAOMGQMEeSiMNvnqjMMHg _0slyQGQMEeSiMNvnqjMMHg _BTGdQGZyEeS_T4SodqSYYA _B5k_kDtaEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         <attributes xmi:id="_zlRIgGT2EeSHxZT97_S_Aw" value="'Entity_' + n + '_' + e1 + '_' + e2">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_YYYVwGQMEeSiMNvnqjMMHg" incoming="_YYYVw2QMEeSiMNvnqjMMHg _vdAvAGQMEeSiMNvnqjMMHg" outgoing="_vJfWEGQMEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
-        <attributes xmi:id="_nomXgGQMEeSiMNvnqjMMHg" value="n">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
-        </attributes>
-      </nodes>
-      <nodes xmi:id="_ZeKSEWQMEeSiMNvnqjMMHg" incoming="_ZeKSFGQMEeSiMNvnqjMMHg _vJfWEGQMEeSiMNvnqjMMHg">
+      <nodes xmi:id="_ZeKSEWQMEeSiMNvnqjMMHg" incoming="_ZeKSFGQMEeSiMNvnqjMMHg _AwNjyztaEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Type"/>
       </nodes>
       <nodes xmi:id="_ar6eoWQMEeSiMNvnqjMMHg" incoming="_ar7FsWQMEeSiMNvnqjMMHg _r3YsIWQMEeSiMNvnqjMMHg" outgoing="_s8cPsGQMEeSiMNvnqjMMHg">
@@ -857,6 +859,12 @@
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
         </attributes>
       </nodes>
+      <nodes xmi:id="_AwNjwDtaEem7h9hs84WW2Q" incoming="_AwNjwztaEem7h9hs84WW2Q _B5k_kDtaEem7h9hs84WW2Q" outgoing="_AwNjyztaEem7h9hs84WW2Q">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
+        <attributes xmi:id="_AwNjwTtaEem7h9hs84WW2Q" value="n">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
       <edges xmi:id="_UAcsNGQMEeSiMNvnqjMMHg" source="_QlIb4mQMEeSiMNvnqjMMHg" target="_UAcsMWQMEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
       </edges>
@@ -865,9 +873,6 @@
       </edges>
       <edges xmi:id="_XsPogmQMEeSiMNvnqjMMHg" source="_QlIb4mQMEeSiMNvnqjMMHg" target="_XsPBcGQMEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
-      </edges>
-      <edges xmi:id="_YYYVw2QMEeSiMNvnqjMMHg" source="_QlIb4mQMEeSiMNvnqjMMHg" target="_YYYVwGQMEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
       </edges>
       <edges xmi:id="_ZeKSFGQMEeSiMNvnqjMMHg" source="_QlIb4mQMEeSiMNvnqjMMHg" target="_ZeKSEWQMEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/types"/>
@@ -902,12 +907,6 @@
       <edges xmi:id="_to4e8WQMEeSiMNvnqjMMHg" source="_bdbbIWQMEeSiMNvnqjMMHg" target="_c10KYWQMEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/specific"/>
       </edges>
-      <edges xmi:id="_vJfWEGQMEeSiMNvnqjMMHg" source="_YYYVwGQMEeSiMNvnqjMMHg" target="_ZeKSEWQMEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
-      </edges>
-      <edges xmi:id="_vdAvAGQMEeSiMNvnqjMMHg" source="_XsPBcGQMEeSiMNvnqjMMHg" target="_YYYVwGQMEeSiMNvnqjMMHg">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
-      </edges>
       <edges xmi:id="_v38-kGQMEeSiMNvnqjMMHg" source="_XD8SYGQMEeSiMNvnqjMMHg" target="_XsPBcGQMEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/specific"/>
       </edges>
@@ -932,6 +931,15 @@
       <edges xmi:id="_BvVGQGZyEeS_T4SodqSYYA" source="_XD8SYGQMEeSiMNvnqjMMHg" target="_UAcsMWQMEeSiMNvnqjMMHg">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/general"/>
       </edges>
+      <edges xmi:id="_AwNjwztaEem7h9hs84WW2Q" source="_QlIb4mQMEeSiMNvnqjMMHg" target="_AwNjwDtaEem7h9hs84WW2Q">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
+      </edges>
+      <edges xmi:id="_AwNjyztaEem7h9hs84WW2Q" source="_AwNjwDtaEem7h9hs84WW2Q" target="_ZeKSEWQMEeSiMNvnqjMMHg">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
+      </edges>
+      <edges xmi:id="_B5k_kDtaEem7h9hs84WW2Q" source="_XsPBcGQMEeSiMNvnqjMMHg" target="_AwNjwDtaEem7h9hs84WW2Q">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+      </edges>
     </rhs>
     <mappings xmi:id="_QlIb42QMEeSiMNvnqjMMHg" origin="_QlIb4WQMEeSiMNvnqjMMHg" image="_QlIb4mQMEeSiMNvnqjMMHg"/>
     <mappings xmi:id="_UAcsMmQMEeSiMNvnqjMMHg" origin="_UAcsMGQMEeSiMNvnqjMMHg" image="_UAcsMWQMEeSiMNvnqjMMHg"/>
@@ -942,6 +950,7 @@
     <mappings xmi:id="_cFaBImQMEeSiMNvnqjMMHg" origin="_cFaBIGQMEeSiMNvnqjMMHg" image="_cFaBIWQMEeSiMNvnqjMMHg"/>
     <mappings xmi:id="_cdnFwmQMEeSiMNvnqjMMHg" origin="_cdnFwGQMEeSiMNvnqjMMHg" image="_cdnFwWQMEeSiMNvnqjMMHg"/>
     <mappings xmi:id="_c10KYmQMEeSiMNvnqjMMHg" origin="_c10KYGQMEeSiMNvnqjMMHg" image="_c10KYWQMEeSiMNvnqjMMHg"/>
+    <mappings xmi:id="_AwNjwjtaEem7h9hs84WW2Q" origin="_ftSGwGQMEeSiMNvnqjMMHg" image="_AwNjwDtaEem7h9hs84WW2Q"/>
     <multiRules xmi:id="_3wUzlGQNEeSiMNvnqjMMHg">
       <parameters xmi:id="_3wYd8GQNEeSiMNvnqjMMHg" name="n">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1096,7 +1105,7 @@
         </edges>
       </lhs>
       <rhs xmi:id="_3wUzlmQNEeSiMNvnqjMMHg" name="Rhs">
-        <nodes xmi:id="_3wUzl2QNEeSiMNvnqjMMHg" name="root" outgoing="_3wVao2QNEeSiMNvnqjMMHg _3wVapmQNEeSiMNvnqjMMHg _3wVaqWQNEeSiMNvnqjMMHg _3wVarWQNEeSiMNvnqjMMHg _3wVasGQNEeSiMNvnqjMMHg _3wVas2QNEeSiMNvnqjMMHg _3wVatmQNEeSiMNvnqjMMHg _3wVauWQNEeSiMNvnqjMMHg _3wVavGQNEeSiMNvnqjMMHg _3wWBsWQNEeSiMNvnqjMMHg _3wWBtGQNEeSiMNvnqjMMHg _3wUzk2QNEeSiMNvnqjMMHg _7Pdz9GQNEeSiMNvnqjMMHg">
+        <nodes xmi:id="_3wUzl2QNEeSiMNvnqjMMHg" name="root" outgoing="_3wVao2QNEeSiMNvnqjMMHg _3wVapmQNEeSiMNvnqjMMHg _3wVaqWQNEeSiMNvnqjMMHg _3wVasGQNEeSiMNvnqjMMHg _3wVas2QNEeSiMNvnqjMMHg _3wVatmQNEeSiMNvnqjMMHg _3wVauWQNEeSiMNvnqjMMHg _3wVavGQNEeSiMNvnqjMMHg _3wWBsWQNEeSiMNvnqjMMHg _3wWBtGQNEeSiMNvnqjMMHg _3wUzk2QNEeSiMNvnqjMMHg _7Pdz9GQNEeSiMNvnqjMMHg _AwNjxztaEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel"/>
         </nodes>
         <nodes xmi:id="_3wVaoWQNEeSiMNvnqjMMHg" incoming="_3wVao2QNEeSiMNvnqjMMHg _BvVGQWZyEeS_T4SodqSYYA" outgoing="_3wWo0WQNEeSiMNvnqjMMHg _3wWo0mQNEeSiMNvnqjMMHg">
@@ -1105,16 +1114,10 @@
         <nodes xmi:id="_3wVapGQNEeSiMNvnqjMMHg" incoming="_3wVapmQNEeSiMNvnqjMMHg _3wWo0mQNEeSiMNvnqjMMHg" outgoing="_BvVGQWZyEeS_T4SodqSYYA">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization"/>
         </nodes>
-        <nodes xmi:id="_3wVap2QNEeSiMNvnqjMMHg" incoming="_3wVaqWQNEeSiMNvnqjMMHg _3wXP12QNEeSiMNvnqjMMHg _3wXP3GQNEeSiMNvnqjMMHg _5kUgwGQNEeSiMNvnqjMMHg" outgoing="_3wXP1WQNEeSiMNvnqjMMHg _3wXP2mQNEeSiMNvnqjMMHg _6LxiUGQNEeSiMNvnqjMMHg">
+        <nodes xmi:id="_3wVap2QNEeSiMNvnqjMMHg" incoming="_3wVaqWQNEeSiMNvnqjMMHg _3wXP12QNEeSiMNvnqjMMHg _3wXP3GQNEeSiMNvnqjMMHg _5kUgwGQNEeSiMNvnqjMMHg" outgoing="_3wXP1WQNEeSiMNvnqjMMHg _3wXP2mQNEeSiMNvnqjMMHg _6LxiUGQNEeSiMNvnqjMMHg _B5k_kTtaEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
-        <nodes xmi:id="_3wVaqmQNEeSiMNvnqjMMHg" incoming="_3wVarWQNEeSiMNvnqjMMHg" outgoing="_3wWo2WQNEeSiMNvnqjMMHg">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
-          <attributes xmi:id="_3wVaq2QNEeSiMNvnqjMMHg" value="n">
-            <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
-          </attributes>
-        </nodes>
-        <nodes xmi:id="_3wVarmQNEeSiMNvnqjMMHg" incoming="_3wVasGQNEeSiMNvnqjMMHg _3wWo2WQNEeSiMNvnqjMMHg">
+        <nodes xmi:id="_3wVarmQNEeSiMNvnqjMMHg" incoming="_3wVasGQNEeSiMNvnqjMMHg _AwNjzDtaEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Type"/>
         </nodes>
         <nodes xmi:id="_3wVasWQNEeSiMNvnqjMMHg" incoming="_3wVas2QNEeSiMNvnqjMMHg _3wWo0WQNEeSiMNvnqjMMHg" outgoing="_3wXP0mQNEeSiMNvnqjMMHg">
@@ -1129,7 +1132,7 @@
         <nodes xmi:id="_3wVaumQNEeSiMNvnqjMMHg" incoming="_3wVavGQNEeSiMNvnqjMMHg _3wXP0mQNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
-        <nodes xmi:id="_3wVavWQNEeSiMNvnqjMMHg" incoming="_3wWBsWQNEeSiMNvnqjMMHg _3wXP1mQNEeSiMNvnqjMMHg">
+        <nodes xmi:id="_3wVavWQNEeSiMNvnqjMMHg" incoming="_3wWBsWQNEeSiMNvnqjMMHg _3wXP1mQNEeSiMNvnqjMMHg" outgoing="_AwNjyjtaEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
         <nodes xmi:id="_3wWBsmQNEeSiMNvnqjMMHg" incoming="_3wWBtGQNEeSiMNvnqjMMHg _3wXP22QNEeSiMNvnqjMMHg">
@@ -1141,6 +1144,12 @@
         <nodes xmi:id="_7Pdz8WQNEeSiMNvnqjMMHg" incoming="_7Pdz9GQNEeSiMNvnqjMMHg __PsvMWQNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
+        <nodes xmi:id="_AwNjxDtaEem7h9hs84WW2Q" incoming="_AwNjxztaEem7h9hs84WW2Q _AwNjyjtaEem7h9hs84WW2Q _B5k_kTtaEem7h9hs84WW2Q" outgoing="_AwNjzDtaEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
+          <attributes xmi:id="_AwNjxTtaEem7h9hs84WW2Q" value="n">
+            <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+          </attributes>
+        </nodes>
         <edges xmi:id="_3wVao2QNEeSiMNvnqjMMHg" source="_3wUzl2QNEeSiMNvnqjMMHg" target="_3wVaoWQNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
         </edges>
@@ -1149,9 +1158,6 @@
         </edges>
         <edges xmi:id="_3wVaqWQNEeSiMNvnqjMMHg" source="_3wUzl2QNEeSiMNvnqjMMHg" target="_3wVap2QNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
-        </edges>
-        <edges xmi:id="_3wVarWQNEeSiMNvnqjMMHg" source="_3wUzl2QNEeSiMNvnqjMMHg" target="_3wVaqmQNEeSiMNvnqjMMHg">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
         </edges>
         <edges xmi:id="_3wVasGQNEeSiMNvnqjMMHg" source="_3wUzl2QNEeSiMNvnqjMMHg" target="_3wVarmQNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/types"/>
@@ -1179,9 +1185,6 @@
         </edges>
         <edges xmi:id="_3wWo0mQNEeSiMNvnqjMMHg" source="_3wVaoWQNEeSiMNvnqjMMHg" target="_3wVapGQNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/specialization"/>
-        </edges>
-        <edges xmi:id="_3wWo2WQNEeSiMNvnqjMMHg" source="_3wVaqmQNEeSiMNvnqjMMHg" target="_3wVarmQNEeSiMNvnqjMMHg">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
         </edges>
         <edges xmi:id="_3wXP0mQNEeSiMNvnqjMMHg" source="_3wVasWQNEeSiMNvnqjMMHg" target="_3wVaumQNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/specific"/>
@@ -1222,6 +1225,18 @@
         <edges xmi:id="_BvVGQWZyEeS_T4SodqSYYA" source="_3wVapGQNEeSiMNvnqjMMHg" target="_3wVaoWQNEeSiMNvnqjMMHg">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/general"/>
         </edges>
+        <edges xmi:id="_AwNjxztaEem7h9hs84WW2Q" source="_3wUzl2QNEeSiMNvnqjMMHg" target="_AwNjxDtaEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
+        </edges>
+        <edges xmi:id="_AwNjyjtaEem7h9hs84WW2Q" source="_3wVavWQNEeSiMNvnqjMMHg" target="_AwNjxDtaEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+        </edges>
+        <edges xmi:id="_AwNjzDtaEem7h9hs84WW2Q" source="_AwNjxDtaEem7h9hs84WW2Q" target="_3wVarmQNEeSiMNvnqjMMHg">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
+        </edges>
+        <edges xmi:id="_B5k_kTtaEem7h9hs84WW2Q" source="_3wVap2QNEeSiMNvnqjMMHg" target="_AwNjxDtaEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+        </edges>
       </rhs>
       <mappings xmi:id="_3wWo0GQNEeSiMNvnqjMMHg" origin="_3wWBuGQNEeSiMNvnqjMMHg" image="_3wUzl2QNEeSiMNvnqjMMHg"/>
       <mappings xmi:id="_3wWo2GQNEeSiMNvnqjMMHg" origin="_3wWBumQNEeSiMNvnqjMMHg" image="_3wVaoWQNEeSiMNvnqjMMHg"/>
@@ -1234,11 +1249,11 @@
       <mappings xmi:id="_3wXP42QNEeSiMNvnqjMMHg" origin="_3wWowmQNEeSiMNvnqjMMHg" image="_3wWBsmQNEeSiMNvnqjMMHg"/>
       <mappings xmi:id="_3wUzkWQNEeSiMNvnqjMMHg" origin="_3wS-YGQNEeSiMNvnqjMMHg" image="_3wUzkGQNEeSiMNvnqjMMHg"/>
       <mappings xmi:id="_7Pdz8mQNEeSiMNvnqjMMHg" origin="_7Pdz8GQNEeSiMNvnqjMMHg" image="_7Pdz8WQNEeSiMNvnqjMMHg"/>
+      <mappings xmi:id="_AwNjxjtaEem7h9hs84WW2Q" origin="_3wWoxWQNEeSiMNvnqjMMHg" image="_AwNjxDtaEem7h9hs84WW2Q"/>
       <multiMappings xmi:id="_3wVaoGQNEeSiMNvnqjMMHg" origin="_QlIb4mQMEeSiMNvnqjMMHg" image="_3wUzl2QNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wVaomQNEeSiMNvnqjMMHg" origin="_UAcsMWQMEeSiMNvnqjMMHg" image="_3wVaoWQNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wVapWQNEeSiMNvnqjMMHg" origin="_XD8SYGQMEeSiMNvnqjMMHg" image="_3wVapGQNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wVaqGQNEeSiMNvnqjMMHg" origin="_XsPBcGQMEeSiMNvnqjMMHg" image="_3wVap2QNEeSiMNvnqjMMHg"/>
-      <multiMappings xmi:id="_3wVarGQNEeSiMNvnqjMMHg" origin="_YYYVwGQMEeSiMNvnqjMMHg" image="_3wVaqmQNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wVar2QNEeSiMNvnqjMMHg" origin="_ZeKSEWQMEeSiMNvnqjMMHg" image="_3wVarmQNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wVasmQNEeSiMNvnqjMMHg" origin="_ar6eoWQMEeSiMNvnqjMMHg" image="_3wVasWQNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wVatWQNEeSiMNvnqjMMHg" origin="_bF9WUGQMEeSiMNvnqjMMHg" image="_3wVatGQNEeSiMNvnqjMMHg"/>
@@ -1257,6 +1272,7 @@
       <multiMappings xmi:id="_3wWow2QNEeSiMNvnqjMMHg" origin="_c10KYGQMEeSiMNvnqjMMHg" image="_3wWowmQNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wWox2QNEeSiMNvnqjMMHg" origin="_ftSGwGQMEeSiMNvnqjMMHg" image="_3wWoxWQNEeSiMNvnqjMMHg"/>
       <multiMappings xmi:id="_3wWoy2QNEeSiMNvnqjMMHg" origin="_gV8pQGQMEeSiMNvnqjMMHg" image="_3wWoyWQNEeSiMNvnqjMMHg"/>
+      <multiMappings xmi:id="_AwNjyDtaEem7h9hs84WW2Q" origin="_AwNjwDtaEem7h9hs84WW2Q" image="_AwNjxDtaEem7h9hs84WW2Q"/>
     </multiRules>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_SNMEYGREEeSN_pdbpbfLDQ" name="pullUpAttribute">
@@ -1353,10 +1369,10 @@
       </edges>
     </lhs>
     <rhs xmi:id="_SNtBwWREEeSN_pdbpbfLDQ" name="Rhs">
-      <nodes xmi:id="_TsZNUmREEeSN_pdbpbfLDQ" name="root" outgoing="_XlLcwGREEeSN_pdbpbfLDQ _bgkUQ2REEeSN_pdbpbfLDQ _b8e0NGREEeSN_pdbpbfLDQ _cXUWEmREEeSN_pdbpbfLDQ _cwZkdGREEeSN_pdbpbfLDQ _iJ-RMWREEeSN_pdbpbfLDQ _j1msk2REEeSN_pdbpbfLDQ">
+      <nodes xmi:id="_TsZNUmREEeSN_pdbpbfLDQ" name="root" outgoing="_XlLcwGREEeSN_pdbpbfLDQ _bgkUQ2REEeSN_pdbpbfLDQ _b8e0NGREEeSN_pdbpbfLDQ _cXUWEmREEeSN_pdbpbfLDQ _cwZkdGREEeSN_pdbpbfLDQ _iJ-RMWREEeSN_pdbpbfLDQ _zQt4wztZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel"/>
       </nodes>
-      <nodes xmi:id="_XlK1sGREEeSN_pdbpbfLDQ" incoming="_XlLcwGREEeSN_pdbpbfLDQ _fZ4IIGREEeSN_pdbpbfLDQ _fpDzoGREEeSN_pdbpbfLDQ" outgoing="_knutEGREEeSN_pdbpbfLDQ">
+      <nodes xmi:id="_XlK1sGREEeSN_pdbpbfLDQ" incoming="_XlLcwGREEeSN_pdbpbfLDQ _fZ4IIGREEeSN_pdbpbfLDQ _fpDzoGREEeSN_pdbpbfLDQ" outgoing="_1ElqIDtZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         <attributes xmi:id="_uZgyIGTyEeSHxZT97_S_Aw" value="e">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
@@ -1374,12 +1390,12 @@
       <nodes xmi:id="_cwZkcWREEeSN_pdbpbfLDQ" incoming="_cwZkdGREEeSN_pdbpbfLDQ" outgoing="_gM6HkWREEeSN_pdbpbfLDQ">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
       </nodes>
-      <nodes xmi:id="_iJ9qIWREEeSN_pdbpbfLDQ" incoming="_iJ-RMWREEeSN_pdbpbfLDQ _k2LYwGREEeSN_pdbpbfLDQ">
+      <nodes xmi:id="_iJ9qIWREEeSN_pdbpbfLDQ" incoming="_iJ-RMWREEeSN_pdbpbfLDQ _zQuf1ztZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Type"/>
       </nodes>
-      <nodes xmi:id="_j1mskGREEeSN_pdbpbfLDQ" incoming="_j1msk2REEeSN_pdbpbfLDQ _knutEGREEeSN_pdbpbfLDQ" outgoing="_k2LYwGREEeSN_pdbpbfLDQ">
+      <nodes xmi:id="_zQt4wDtZEem7h9hs84WW2Q" incoming="_zQt4wztZEem7h9hs84WW2Q _1ElqIDtZEem7h9hs84WW2Q" outgoing="_zQuf1ztZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
-        <attributes xmi:id="_kNtqkGREEeSN_pdbpbfLDQ" value="n">
+        <attributes xmi:id="_zQt4wTtZEem7h9hs84WW2Q" value="n">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
         </attributes>
       </nodes>
@@ -1413,14 +1429,14 @@
       <edges xmi:id="_iJ-RMWREEeSN_pdbpbfLDQ" source="_TsZNUmREEeSN_pdbpbfLDQ" target="_iJ9qIWREEeSN_pdbpbfLDQ">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/types"/>
       </edges>
-      <edges xmi:id="_j1msk2REEeSN_pdbpbfLDQ" source="_TsZNUmREEeSN_pdbpbfLDQ" target="_j1mskGREEeSN_pdbpbfLDQ">
+      <edges xmi:id="_zQt4wztZEem7h9hs84WW2Q" source="_TsZNUmREEeSN_pdbpbfLDQ" target="_zQt4wDtZEem7h9hs84WW2Q">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
       </edges>
-      <edges xmi:id="_knutEGREEeSN_pdbpbfLDQ" source="_XlK1sGREEeSN_pdbpbfLDQ" target="_j1mskGREEeSN_pdbpbfLDQ">
-        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
-      </edges>
-      <edges xmi:id="_k2LYwGREEeSN_pdbpbfLDQ" source="_j1mskGREEeSN_pdbpbfLDQ" target="_iJ9qIWREEeSN_pdbpbfLDQ">
+      <edges xmi:id="_zQuf1ztZEem7h9hs84WW2Q" source="_zQt4wDtZEem7h9hs84WW2Q" target="_iJ9qIWREEeSN_pdbpbfLDQ">
         <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
+      </edges>
+      <edges xmi:id="_1ElqIDtZEem7h9hs84WW2Q" source="_XlK1sGREEeSN_pdbpbfLDQ" target="_zQt4wDtZEem7h9hs84WW2Q">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
       </edges>
     </rhs>
     <mappings xmi:id="_TsZNU2REEeSN_pdbpbfLDQ" origin="_TsZNUWREEeSN_pdbpbfLDQ" image="_TsZNUmREEeSN_pdbpbfLDQ"/>
@@ -1430,6 +1446,7 @@
     <mappings xmi:id="_cXUWEGREEeSN_pdbpbfLDQ" origin="_cXTvAGREEeSN_pdbpbfLDQ" image="_cXTvAWREEeSN_pdbpbfLDQ"/>
     <mappings xmi:id="_cwZkcmREEeSN_pdbpbfLDQ" origin="_cwZkcGREEeSN_pdbpbfLDQ" image="_cwZkcWREEeSN_pdbpbfLDQ"/>
     <mappings xmi:id="_iJ9qImREEeSN_pdbpbfLDQ" origin="_iJ9qIGREEeSN_pdbpbfLDQ" image="_iJ9qIWREEeSN_pdbpbfLDQ"/>
+    <mappings xmi:id="_zQt4wjtZEem7h9hs84WW2Q" origin="_dwa3AGREEeSN_pdbpbfLDQ" image="_zQt4wDtZEem7h9hs84WW2Q"/>
     <multiRules xmi:id="_qLIeRWTTEeSN_pdbpbfLDQ">
       <parameters xmi:id="_qLOlJmTTEeSN_pdbpbfLDQ" name="e">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1554,10 +1571,10 @@
         </edges>
       </lhs>
       <rhs xmi:id="_qLIeR2TTEeSN_pdbpbfLDQ" name="Rhs">
-        <nodes xmi:id="_qLIeSGTTEeSN_pdbpbfLDQ" name="root" outgoing="_qLIeTGTTEeSN_pdbpbfLDQ _qLIeT2TTEeSN_pdbpbfLDQ _qLOk4GTTEeSN_pdbpbfLDQ _qLOk42TTEeSN_pdbpbfLDQ _qLOk5mTTEeSN_pdbpbfLDQ _qLOk6WTTEeSN_pdbpbfLDQ _qLOk7WTTEeSN_pdbpbfLDQ _qLIeRGTTEeSN_pdbpbfLDQ _qv9ppGTTEeSN_pdbpbfLDQ">
+        <nodes xmi:id="_qLIeSGTTEeSN_pdbpbfLDQ" name="root" outgoing="_qLIeTGTTEeSN_pdbpbfLDQ _qLIeT2TTEeSN_pdbpbfLDQ _qLOk4GTTEeSN_pdbpbfLDQ _qLOk42TTEeSN_pdbpbfLDQ _qLOk5mTTEeSN_pdbpbfLDQ _qLOk6WTTEeSN_pdbpbfLDQ _qLIeRGTTEeSN_pdbpbfLDQ _qv9ppGTTEeSN_pdbpbfLDQ _zQuf0ztZEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel"/>
         </nodes>
-        <nodes xmi:id="_qLIeSmTTEeSN_pdbpbfLDQ" incoming="_qLIeTGTTEeSN_pdbpbfLDQ _qLOlEWTTEeSN_pdbpbfLDQ _qLOlEmTTEeSN_pdbpbfLDQ _s3UXsWTTEeSN_pdbpbfLDQ" outgoing="_qLOlE2TTEeSN_pdbpbfLDQ">
+        <nodes xmi:id="_qLIeSmTTEeSN_pdbpbfLDQ" incoming="_qLIeTGTTEeSN_pdbpbfLDQ _qLOlEWTTEeSN_pdbpbfLDQ _qLOlEmTTEeSN_pdbpbfLDQ _s3UXsWTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
         <nodes xmi:id="_qLIeTWTTEeSN_pdbpbfLDQ" incoming="_qLIeT2TTEeSN_pdbpbfLDQ _qLOlF2TTEeSN_pdbpbfLDQ" outgoing="_qLOlEWTTEeSN_pdbpbfLDQ">
@@ -1566,26 +1583,26 @@
         <nodes xmi:id="_qLIeUGTTEeSN_pdbpbfLDQ" incoming="_qLOk4GTTEeSN_pdbpbfLDQ _qLOlGmTTEeSN_pdbpbfLDQ" outgoing="_qLOlEmTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization"/>
         </nodes>
-        <nodes xmi:id="_qLOk4WTTEeSN_pdbpbfLDQ" incoming="_qLOk42TTEeSN_pdbpbfLDQ" outgoing="_qLOlF2TTEeSN_pdbpbfLDQ">
+        <nodes xmi:id="_qLOk4WTTEeSN_pdbpbfLDQ" incoming="_qLOk42TTEeSN_pdbpbfLDQ" outgoing="_qLOlF2TTEeSN_pdbpbfLDQ _zQuf1jtZEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
         <nodes xmi:id="_qLOk5GTTEeSN_pdbpbfLDQ" incoming="_qLOk5mTTEeSN_pdbpbfLDQ" outgoing="_qLOlGmTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
         </nodes>
-        <nodes xmi:id="_qLOk52TTEeSN_pdbpbfLDQ" incoming="_qLOk6WTTEeSN_pdbpbfLDQ _qLOlI2TTEeSN_pdbpbfLDQ">
+        <nodes xmi:id="_qLOk52TTEeSN_pdbpbfLDQ" incoming="_qLOk6WTTEeSN_pdbpbfLDQ _zQuf2DtZEem7h9hs84WW2Q">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Type"/>
-        </nodes>
-        <nodes xmi:id="_qLOk6mTTEeSN_pdbpbfLDQ" incoming="_qLOk7WTTEeSN_pdbpbfLDQ _qLOlE2TTEeSN_pdbpbfLDQ" outgoing="_qLOlI2TTEeSN_pdbpbfLDQ">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
-          <attributes xmi:id="_qLOk62TTEeSN_pdbpbfLDQ" value="n">
-            <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_qLIeQWTTEeSN_pdbpbfLDQ" incoming="_qLIeRGTTEeSN_pdbpbfLDQ _tJ6jkWTTEeSN_pdbpbfLDQ" outgoing="_s3UXsWTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization"/>
         </nodes>
         <nodes xmi:id="_qv9poWTTEeSN_pdbpbfLDQ" incoming="_qv9ppGTTEeSN_pdbpbfLDQ" outgoing="_tJ6jkWTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
+        </nodes>
+        <nodes xmi:id="_zQuf0DtZEem7h9hs84WW2Q" incoming="_zQuf0ztZEem7h9hs84WW2Q _zQuf1jtZEem7h9hs84WW2Q" outgoing="_zQuf2DtZEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
+          <attributes xmi:id="_zQuf0TtZEem7h9hs84WW2Q" value="n">
+            <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+          </attributes>
         </nodes>
         <edges xmi:id="_qLIeTGTTEeSN_pdbpbfLDQ" source="_qLIeSGTTEeSN_pdbpbfLDQ" target="_qLIeSmTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/entities"/>
@@ -1605,26 +1622,17 @@
         <edges xmi:id="_qLOk6WTTEeSN_pdbpbfLDQ" source="_qLIeSGTTEeSN_pdbpbfLDQ" target="_qLOk52TTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/types"/>
         </edges>
-        <edges xmi:id="_qLOk7WTTEeSN_pdbpbfLDQ" source="_qLIeSGTTEeSN_pdbpbfLDQ" target="_qLOk6mTTEeSN_pdbpbfLDQ">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
-        </edges>
         <edges xmi:id="_qLOlEWTTEeSN_pdbpbfLDQ" source="_qLIeTWTTEeSN_pdbpbfLDQ" target="_qLIeSmTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/general"/>
         </edges>
         <edges xmi:id="_qLOlEmTTEeSN_pdbpbfLDQ" source="_qLIeUGTTEeSN_pdbpbfLDQ" target="_qLIeSmTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Generalization/general"/>
         </edges>
-        <edges xmi:id="_qLOlE2TTEeSN_pdbpbfLDQ" source="_qLIeSmTTEeSN_pdbpbfLDQ" target="_qLOk6mTTEeSN_pdbpbfLDQ">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
-        </edges>
         <edges xmi:id="_qLOlF2TTEeSN_pdbpbfLDQ" source="_qLOk4WTTEeSN_pdbpbfLDQ" target="_qLIeTWTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/generalization"/>
         </edges>
         <edges xmi:id="_qLOlGmTTEeSN_pdbpbfLDQ" source="_qLOk5GTTEeSN_pdbpbfLDQ" target="_qLIeUGTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/generalization"/>
-        </edges>
-        <edges xmi:id="_qLOlI2TTEeSN_pdbpbfLDQ" source="_qLOk6mTTEeSN_pdbpbfLDQ" target="_qLOk52TTEeSN_pdbpbfLDQ">
-          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
         </edges>
         <edges xmi:id="_qLIeRGTTEeSN_pdbpbfLDQ" source="_qLIeSGTTEeSN_pdbpbfLDQ" target="_qLIeQWTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/generalizations"/>
@@ -1638,6 +1646,15 @@
         <edges xmi:id="_tJ6jkWTTEeSN_pdbpbfLDQ" source="_qv9poWTTEeSN_pdbpbfLDQ" target="_qLIeQWTTEeSN_pdbpbfLDQ">
           <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/generalization"/>
         </edges>
+        <edges xmi:id="_zQuf0ztZEem7h9hs84WW2Q" source="_qLIeSGTTEeSN_pdbpbfLDQ" target="_zQuf0DtZEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//RefactoringModel/properties"/>
+        </edges>
+        <edges xmi:id="_zQuf1jtZEem7h9hs84WW2Q" source="_qLOk4WTTEeSN_pdbpbfLDQ" target="_zQuf0DtZEem7h9hs84WW2Q">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+        </edges>
+        <edges xmi:id="_zQuf2DtZEem7h9hs84WW2Q" source="_zQuf0DtZEem7h9hs84WW2Q" target="_qLOk52TTEeSN_pdbpbfLDQ">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property/type"/>
+        </edges>
       </rhs>
       <mappings xmi:id="_qLOlEGTTEeSN_pdbpbfLDQ" origin="_qLOk8WTTEeSN_pdbpbfLDQ" image="_qLIeSGTTEeSN_pdbpbfLDQ"/>
       <mappings xmi:id="_qLOlFmTTEeSN_pdbpbfLDQ" origin="_qLOk82TTEeSN_pdbpbfLDQ" image="_qLIeSmTTEeSN_pdbpbfLDQ"/>
@@ -1648,6 +1665,7 @@
       <mappings xmi:id="_qLOlJGTTEeSN_pdbpbfLDQ" origin="_qLOlCmTTEeSN_pdbpbfLDQ" image="_qLOk52TTEeSN_pdbpbfLDQ"/>
       <mappings xmi:id="_qLIeQmTTEeSN_pdbpbfLDQ" origin="_qLIeQGTTEeSN_pdbpbfLDQ" image="_qLIeQWTTEeSN_pdbpbfLDQ"/>
       <mappings xmi:id="_qv9pomTTEeSN_pdbpbfLDQ" origin="_qv9poGTTEeSN_pdbpbfLDQ" image="_qv9poWTTEeSN_pdbpbfLDQ"/>
+      <mappings xmi:id="_zQuf0jtZEem7h9hs84WW2Q" origin="_qLOlAmTTEeSN_pdbpbfLDQ" image="_zQuf0DtZEem7h9hs84WW2Q"/>
       <multiMappings xmi:id="_qLIeSWTTEeSN_pdbpbfLDQ" origin="_TsZNUmREEeSN_pdbpbfLDQ" image="_qLIeSGTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLIeS2TTEeSN_pdbpbfLDQ" origin="_XlK1sGREEeSN_pdbpbfLDQ" image="_qLIeSmTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLIeTmTTEeSN_pdbpbfLDQ" origin="_bgkUQGREEeSN_pdbpbfLDQ" image="_qLIeTWTTEeSN_pdbpbfLDQ"/>
@@ -1655,7 +1673,6 @@
       <multiMappings xmi:id="_qLOk4mTTEeSN_pdbpbfLDQ" origin="_cXTvAWREEeSN_pdbpbfLDQ" image="_qLOk4WTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLOk5WTTEeSN_pdbpbfLDQ" origin="_cwZkcWREEeSN_pdbpbfLDQ" image="_qLOk5GTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLOk6GTTEeSN_pdbpbfLDQ" origin="_iJ9qIWREEeSN_pdbpbfLDQ" image="_qLOk52TTEeSN_pdbpbfLDQ"/>
-      <multiMappings xmi:id="_qLOk7GTTEeSN_pdbpbfLDQ" origin="_j1mskGREEeSN_pdbpbfLDQ" image="_qLOk6mTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLOk8mTTEeSN_pdbpbfLDQ" origin="_TsZNUWREEeSN_pdbpbfLDQ" image="_qLOk8WTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLOk9GTTEeSN_pdbpbfLDQ" origin="_XlJnkGREEeSN_pdbpbfLDQ" image="_qLOk82TTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLOk92TTEeSN_pdbpbfLDQ" origin="_bgjGIGREEeSN_pdbpbfLDQ" image="_qLOk9mTTEeSN_pdbpbfLDQ"/>
@@ -1665,6 +1682,67 @@
       <multiMappings xmi:id="_qLOlBGTTEeSN_pdbpbfLDQ" origin="_dwa3AGREEeSN_pdbpbfLDQ" image="_qLOlAmTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLOlCGTTEeSN_pdbpbfLDQ" origin="_eZVRIGREEeSN_pdbpbfLDQ" image="_qLOlBmTTEeSN_pdbpbfLDQ"/>
       <multiMappings xmi:id="_qLOlC2TTEeSN_pdbpbfLDQ" origin="_iJ9qIGREEeSN_pdbpbfLDQ" image="_qLOlCmTTEeSN_pdbpbfLDQ"/>
+      <multiMappings xmi:id="_zQuf1DtZEem7h9hs84WW2Q" origin="_zQt4wDtZEem7h9hs84WW2Q" image="_zQuf0DtZEem7h9hs84WW2Q"/>
     </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_uYTEMDtMEembR_DrOPr1iQ" name="moveAttribute">
+    <parameters xmi:id="_x-ERADtMEembR_DrOPr1iQ" name="n">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_x-E4EDtMEembR_DrOPr1iQ" name="e1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_x-E4ETtMEembR_DrOPr1iQ" name="e2">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_uY46EDtMEembR_DrOPr1iQ" name="Lhs">
+      <nodes xmi:id="_3I9okDtMEembR_DrOPr1iQ" outgoing="_4xWisDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
+        <attributes xmi:id="_3_JCoDtMEembR_DrOPr1iQ" value="e1">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_3QUNwDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
+        <attributes xmi:id="_4KRUkDtMEembR_DrOPr1iQ" value="e2">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_3g6OgDtMEembR_DrOPr1iQ" incoming="_4xWisDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
+        <attributes xmi:id="_4Qw-IDtMEembR_DrOPr1iQ" value="n">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_4xWisDtMEembR_DrOPr1iQ" source="_3I9okDtMEembR_DrOPr1iQ" target="_3g6OgDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_uY46ETtMEembR_DrOPr1iQ" name="Rhs">
+      <nodes xmi:id="_3I-PoDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
+        <attributes xmi:id="_3_JCoTtMEembR_DrOPr1iQ" value="e1">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_3QU00DtMEembR_DrOPr1iQ" outgoing="_49x1IDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity"/>
+        <attributes xmi:id="_4KR7oDtMEembR_DrOPr1iQ" value="e2">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_3g61kDtMEembR_DrOPr1iQ" incoming="_49x1IDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Property"/>
+        <attributes xmi:id="_4Qw-ITtMEembR_DrOPr1iQ" value="n">
+          <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_49x1IDtMEembR_DrOPr1iQ" source="_3QU00DtMEembR_DrOPr1iQ" target="_3g61kDtMEembR_DrOPr1iQ">
+        <type href="http://momot.big.tuwien.ac.at/examples/refactoring/1.0#//Entity/ownedAttribute"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_3I-PoTtMEembR_DrOPr1iQ" origin="_3I9okDtMEembR_DrOPr1iQ" image="_3I-PoDtMEembR_DrOPr1iQ"/>
+    <mappings xmi:id="_3QU00TtMEembR_DrOPr1iQ" origin="_3QUNwDtMEembR_DrOPr1iQ" image="_3QU00DtMEembR_DrOPr1iQ"/>
+    <mappings xmi:id="_3g61kTtMEembR_DrOPr1iQ" origin="_3g6OgDtMEembR_DrOPr1iQ" image="_3g61kDtMEembR_DrOPr1iQ"/>
   </units>
 </henshin:Module>

@@ -50,6 +50,7 @@ SearchOrchestration:
    "{"
       "model" OpSingleAssign model = InputModel
       "solutionLength" OpSingleAssign solutionLength = XExpression
+      ("emptyInitialization" OpSingleAssign ((emptyInitialization?="true")|("false")) )?
       "transformations" OpSingleAssign moduleOrchestration = ModuleOrchestration
       "fitness" OpSingleAssign fitnessFunction = FitnessFunctionSpecification
       "algorithms" OpSingleAssign algorithms = AlgorithmList

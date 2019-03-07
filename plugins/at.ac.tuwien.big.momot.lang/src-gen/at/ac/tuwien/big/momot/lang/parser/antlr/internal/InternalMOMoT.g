@@ -842,13 +842,45 @@ ruleOpSingleAssign
 	    }
 
 )
-)	otherlv_8='transformations' 
+)(	otherlv_8='emptyInitialization' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getSearchOrchestrationAccess().getTransformationsKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getSearchOrchestrationAccess().getEmptyInitializationKeyword_8_0());
     }
 
     { 
-        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_9()); 
+        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_8_1()); 
+    }
+ruleOpSingleAssign
+    { 
+        afterParserOrEnumRuleCall();
+    }
+((
+(
+		lv_emptyInitialization_10_0=	'true' 
+    {
+        newLeafNode(lv_emptyInitialization_10_0, grammarAccess.getSearchOrchestrationAccess().getEmptyInitializationTrueKeyword_8_2_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSearchOrchestrationRule());
+	        }
+       		setWithLastConsumed($current, "emptyInitialization", true, "true");
+	    }
+
+)
+)
+    |	otherlv_11='false' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getSearchOrchestrationAccess().getFalseKeyword_8_2_1());
+    }
+))?	otherlv_12='transformations' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getSearchOrchestrationAccess().getTransformationsKeyword_9());
+    }
+
+    { 
+        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_10()); 
     }
 ruleOpSingleAssign
     { 
@@ -857,28 +889,28 @@ ruleOpSingleAssign
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getModuleOrchestrationModuleOrchestrationParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getModuleOrchestrationModuleOrchestrationParserRuleCall_11_0()); 
 	    }
-		lv_moduleOrchestration_10_0=ruleModuleOrchestration		{
+		lv_moduleOrchestration_14_0=ruleModuleOrchestration		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSearchOrchestrationRule());
 	        }
        		set(
        			$current, 
        			"moduleOrchestration",
-        		lv_moduleOrchestration_10_0, 
+        		lv_moduleOrchestration_14_0, 
         		"at.ac.tuwien.big.momot.lang.MOMoT.ModuleOrchestration");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_11='fitness' 
+)	otherlv_15='fitness' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getSearchOrchestrationAccess().getFitnessKeyword_11());
+    	newLeafNode(otherlv_15, grammarAccess.getSearchOrchestrationAccess().getFitnessKeyword_12());
     }
 
     { 
-        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_12()); 
+        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_13()); 
     }
 ruleOpSingleAssign
     { 
@@ -887,28 +919,28 @@ ruleOpSingleAssign
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getFitnessFunctionFitnessFunctionSpecificationParserRuleCall_13_0()); 
+	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getFitnessFunctionFitnessFunctionSpecificationParserRuleCall_14_0()); 
 	    }
-		lv_fitnessFunction_13_0=ruleFitnessFunctionSpecification		{
+		lv_fitnessFunction_17_0=ruleFitnessFunctionSpecification		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSearchOrchestrationRule());
 	        }
        		set(
        			$current, 
        			"fitnessFunction",
-        		lv_fitnessFunction_13_0, 
+        		lv_fitnessFunction_17_0, 
         		"at.ac.tuwien.big.momot.lang.MOMoT.FitnessFunctionSpecification");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_14='algorithms' 
+)	otherlv_18='algorithms' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getSearchOrchestrationAccess().getAlgorithmsKeyword_14());
+    	newLeafNode(otherlv_18, grammarAccess.getSearchOrchestrationAccess().getAlgorithmsKeyword_15());
     }
 
     { 
-        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_15()); 
+        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_16()); 
     }
 ruleOpSingleAssign
     { 
@@ -917,28 +949,28 @@ ruleOpSingleAssign
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getAlgorithmsAlgorithmListParserRuleCall_16_0()); 
+	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getAlgorithmsAlgorithmListParserRuleCall_17_0()); 
 	    }
-		lv_algorithms_16_0=ruleAlgorithmList		{
+		lv_algorithms_20_0=ruleAlgorithmList		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSearchOrchestrationRule());
 	        }
        		set(
        			$current, 
        			"algorithms",
-        		lv_algorithms_16_0, 
+        		lv_algorithms_20_0, 
         		"at.ac.tuwien.big.momot.lang.MOMoT.AlgorithmList");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_17='equalityHelper' 
+)(	otherlv_21='equalityHelper' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getSearchOrchestrationAccess().getEqualityHelperKeyword_17_0());
+    	newLeafNode(otherlv_21, grammarAccess.getSearchOrchestrationAccess().getEqualityHelperKeyword_18_0());
     }
 
     { 
-        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_17_1()); 
+        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getOpSingleAssignParserRuleCall_18_1()); 
     }
 ruleOpSingleAssign
     { 
@@ -947,24 +979,24 @@ ruleOpSingleAssign
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getEqualityHelperEqualityHelperParserRuleCall_17_2_0()); 
+	        newCompositeNode(grammarAccess.getSearchOrchestrationAccess().getEqualityHelperEqualityHelperParserRuleCall_18_2_0()); 
 	    }
-		lv_equalityHelper_19_0=ruleEqualityHelper		{
+		lv_equalityHelper_23_0=ruleEqualityHelper		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSearchOrchestrationRule());
 	        }
        		set(
        			$current, 
        			"equalityHelper",
-        		lv_equalityHelper_19_0, 
+        		lv_equalityHelper_23_0, 
         		"at.ac.tuwien.big.momot.lang.MOMoT.EqualityHelper");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?	otherlv_20='}' 
+))?	otherlv_24='}' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getSearchOrchestrationAccess().getRightCurlyBracketKeyword_18());
+    	newLeafNode(otherlv_24, grammarAccess.getSearchOrchestrationAccess().getRightCurlyBracketKeyword_19());
     }
 )
 ;

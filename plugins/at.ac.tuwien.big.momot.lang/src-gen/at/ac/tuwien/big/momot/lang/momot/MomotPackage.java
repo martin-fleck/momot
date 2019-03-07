@@ -333,13 +333,22 @@ public interface MomotPackage extends EPackage
   int SEARCH_ORCHESTRATION__SOLUTION_LENGTH = 1;
 
   /**
+   * The feature id for the '<em><b>Empty Initialization</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION = 2;
+
+  /**
    * The feature id for the '<em><b>Module Orchestration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION = 2;
+  int SEARCH_ORCHESTRATION__MODULE_ORCHESTRATION = 3;
 
   /**
    * The feature id for the '<em><b>Fitness Function</b></em>' containment reference.
@@ -348,7 +357,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEARCH_ORCHESTRATION__FITNESS_FUNCTION = 3;
+  int SEARCH_ORCHESTRATION__FITNESS_FUNCTION = 4;
 
   /**
    * The feature id for the '<em><b>Algorithms</b></em>' containment reference.
@@ -357,7 +366,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEARCH_ORCHESTRATION__ALGORITHMS = 4;
+  int SEARCH_ORCHESTRATION__ALGORITHMS = 5;
 
   /**
    * The feature id for the '<em><b>Equality Helper</b></em>' containment reference.
@@ -366,7 +375,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEARCH_ORCHESTRATION__EQUALITY_HELPER = 5;
+  int SEARCH_ORCHESTRATION__EQUALITY_HELPER = 6;
 
   /**
    * The number of structural features of the '<em>Search Orchestration</em>' class.
@@ -375,7 +384,7 @@ public interface MomotPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEARCH_ORCHESTRATION_FEATURE_COUNT = 6;
+  int SEARCH_ORCHESTRATION_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link at.ac.tuwien.big.momot.lang.momot.impl.InputModelImpl <em>Input Model</em>}' class.
@@ -2056,6 +2065,17 @@ public interface MomotPackage extends EPackage
   EReference getSearchOrchestration_SolutionLength();
 
   /**
+   * Returns the meta object for the attribute '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#isEmptyInitialization <em>Empty Initialization</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Empty Initialization</em>'.
+   * @see at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#isEmptyInitialization()
+   * @see #getSearchOrchestration()
+   * @generated
+   */
+  EAttribute getSearchOrchestration_EmptyInitialization();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getModuleOrchestration <em>Module Orchestration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3488,6 +3508,14 @@ public interface MomotPackage extends EPackage
      * @generated
      */
     EReference SEARCH_ORCHESTRATION__SOLUTION_LENGTH = eINSTANCE.getSearchOrchestration_SolutionLength();
+
+    /**
+     * The meta object literal for the '<em><b>Empty Initialization</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SEARCH_ORCHESTRATION__EMPTY_INITIALIZATION = eINSTANCE.getSearchOrchestration_EmptyInitialization();
 
     /**
      * The meta object literal for the '<em><b>Module Orchestration</b></em>' containment reference feature.

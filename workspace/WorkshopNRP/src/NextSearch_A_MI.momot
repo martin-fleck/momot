@@ -1,0 +1,145 @@
+package icmt.tool.momot.demo
+
+import at.ac.tuwien.big.momot.^search.^fitness.dimension.TransformationLengthDimension
+import at.ac.tuwien.big.moea.^experiment.executor.listener.SeedRuntimePrintListener
+import at.ac.tuwien.big.moea.util.MathUtil
+import org.moeaframework.core.operator.TournamentSelection
+import org.moeaframework.core.operator.OnePointCrossover
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationPlaceholderMutation
+import nextReleaseProblem.NextReleaseProblemPackage
+import nextReleaseProblem.NextReleaseProblemFactory
+import nextReleaseProblem.NRP
+import mdetools.momot.nrp.MaximiseSatisfaction
+import mdetools.momot.nrp.MinimiseCost
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.EqualChangeMutation
+
+initialization = {
+   NextReleaseProblemPackage.eINSTANCE.eClass // register package
+   NextReleaseProblemFactory.eINSTANCE.eClass
+   System.out.println("Search started.");
+   
+}
+ 
+search = { 
+   model = {
+      file       = "models/nrp-model-5-cus-25-req-63-sa.xmi"
+     
+//      adapt      = {
+//         // add one class per feature
+//         var cm = root as ClassModel
+//         /*for(i : 0 ..< cm.features.size - cm.classes.size) {
+//            var newClass = ArchitectureFactory::eINSTANCE.createClass()
+//            newClass.name = "Class_" + i
+//            cm.classes.add(newClass)
+//         }
+//         for(feature : cm.features) // distribute features randomly
+//            if(feature.isEncapsulatedBy == null)
+//               cm.classes.get(MathUtil.randomInteger(cm.classes.size)).encapsulates.add(feature)*/
+//         return cm 
+//      }
+   }
+   
+   solutionLength  = 140 // at most 30 orchestrated transformation units
+
+
+   transformations = {
+      modules = [ "transformations/mutation.henshin" ]
+      ignoreUnits = ["mutation::addSaWithHierarchy","mutation::removeSaWithHierarchy","mutation::addSingleSa",
+      "mutation::deleteDependenciesOfSa",
+	  "mutation::removeSingleSa","mutation::markUnselected","mutation::createDataTrace","mutation::getHighestRealisation",
+	  "mutation::storeBetterRealisation","mutation::addHighestRealisation","mutation::clearTraces","mutation::repairDependenciesOfSa",
+	  "mutation::deleteDependenciesOfSa"
+      ]      
+   }
+ 
+   fitness         = { 
+      objectives = {
+      	 satisfaction: maximize { MaximiseSatisfaction.computeFitness(root as NRP)}
+      	 costs: minimize { MinimiseCost.computeFitness(root as NRP)}
+      }
+   }
+
+   algorithms      = { 
+   		//NSGAII_ORI : moea.createNSGAII()
+          NSGAII : moea.createNSGAII(
+				new TournamentSelection(2),
+				new OnePointCrossover(1.0),
+				new TransformationPlaceholderMutation(0.05),
+				new TransformationParameterMutation(0.05,orchestration.moduleManager
+					
+				),
+				new TransformationVariableMutation(orchestration.searchHelper,0.05))
+		NSGAII_OM : moea.createNSGAII(
+				new TournamentSelection(2),  
+				new TransformationPlaceholderMutation(0.4),
+				new TransformationParameterMutation(0.4,orchestration.moduleManager
+					
+				),
+				new TransformationVariableMutation(orchestration.searchHelper,0.4))
+//      NSGAIII : moea.createNSGAIII()
+//      eMOEA   : moea.createEpsilonMOEA()
+//      Random  : moea.createRandomSearch()
+   }
+}
+
+experiment = {
+   populationSize    = 100
+   maxEvaluations    = 1000000
+   maxSeconds = 120 
+   nrRuns            = 1
+   progressListeners = [ new SeedRuntimePrintListener ]
+}
+
+analysis = {
+   indicators       = [ hypervolume invertedGenerationalDistance ]
+   significance     = 0.01
+   show             = [ aggregateValues statisticalSignificance individualValues ]
+   outputFile       = "output/analysis/analysis.txt"
+   boxplotDirectory = "output/analysis/"
+   printOutput
+}
+
+results = {
+   /*adaptModels = {
+      // remove empty classes 
+      val cm = root as ClassModel
+      val emptyClasses = cm.classes.filter[c | c.encapsulates.size == 0]
+      cm.classes.removeAll(emptyClasses)
+   }*/
+   
+   // save objectives
+   objectives = {
+      outputFile      = "output/objectives/objective_values.txt"
+      printOutput
+   }
+   
+   objectives = {
+      outputFile      = "output/objectives/random_objective_values.txt"
+      algorithms      = [ NSGAII ]
+   }
+
+   // save solutions, i.e., transformation orchestrations
+   solutions  = {
+      outputFile      = "output/solutions/all_solutions.txt"
+      outputDirectory = "output/solutions/"
+   }
+
+   // save models resulting from the orchestrated transformations
+   models     = {
+      outputDirectory = "output/models/"
+   }
+   
+   // select kneepoint models for further inspection
+   models     = {
+      neighborhoodSize = maxNeighborhoodSize
+      outputDirectory  = "output/models/kneepoints/"
+   }
+}
+
+finalization = {
+   System.out.println("Search finished.");
+}
+
+

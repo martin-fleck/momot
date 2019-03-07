@@ -19,7 +19,7 @@ class MaximiseSatisfaction extends AbstractModelQueryFitnessFunction {
 	 * <p>
 	 * The overall satisfaction is determined by the sum of all customer
 	 * satisfactions (weighted by their importance value). 
-	 * A customer's satisfaction is determined by the sum of satisfaction 
+	 * A customer's satisfaction is determined by the sum of satisfaction  
 	 * contributions of the requirements directly desired by the customer.
 	 * The contribution of such a requirement, in turn, is determined by its
 	 * level of fulfillment weighted by its valuation assigned by the customer.

@@ -13,14 +13,14 @@ import mdetools.momot.nrp.MaximiseSatisfaction
 import mdetools.momot.nrp.MinimiseCost
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+import at.ac.tuwien.big.moea.^search.algorithm.operator.mutation.CompoundMutationVariation
 
 initialization = {
    NextReleaseProblemPackage.eINSTANCE.eClass // register package
-   NextReleaseProblemFactory.eINSTANCE.eClass
+   NextReleaseProblemFactory.eINSTANCE.eClass 
    System.out.println("Search started.");
-   
-}
- 
+} 
+  
 search = { 
    model = {
       //file       = "models/nrp-model-5-cus-25-req-63-sa.xmi"
@@ -41,8 +41,9 @@ search = {
    }
    
    solutionLength  = 400 // at most 30 orchestrated transformation units
-
-
+   
+   
+   
    transformations = {
       modules = [ "transformations/mutation.henshin" ]
       ignoreUnits = ["mutation::addSaWithHierarchy","mutation::removeSaWithHierarchy","mutation::addSingleSa",
@@ -51,6 +52,7 @@ search = {
 	  "mutation::storeBetterRealisation","mutation::addHighestRealisation","mutation::clearTraces","mutation::repairDependenciesOfSa",
 	  "mutation::deleteDependenciesOfSa"
       ]      
+      
    }
  
    fitness         = { 
@@ -59,29 +61,33 @@ search = {
       	 costs: minimize { MinimiseCost.computeFitness(root as NRP)}
       }
    }
+    
+    
+   
 
-   algorithms      = { 
+   algorithms      = {  
    		//NSGAII_ORI : moea.createNSGAII()
           NSGAII : moea.createNSGAII(
 				new TournamentSelection(2),
-				new OnePointCrossover(1.0),  
-				new TransformationPlaceholderMutation(0.05),
-				new TransformationParameterMutation(0.05,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.05))
+				new OnePointCrossover(1.0),
+				new CompoundMutationVariation(1.0,/*0.25,*/
+				new TransformationPlaceholderMutation(1.0),
+				new TransformationParameterMutation(1.0,orchestration.moduleManager),
+				new TransformationVariableMutation(orchestration.searchHelper,1.0)))
+				
 		NSGAII_OM : moea.createNSGAII(
 				new TournamentSelection(2),  
-				new TransformationPlaceholderMutation(0.4),
-				new TransformationParameterMutation(0.4,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.4))
+				new CompoundMutationVariation(1.0,/*0.25,*/
+				new TransformationPlaceholderMutation(1.0),
+				new TransformationParameterMutation(1.0,orchestration.moduleManager),
+				new TransformationVariableMutation(orchestration.searchHelper,1.0)))
 //      NSGAIII : moea.createNSGAIII()
 //      eMOEA   : moea.createEpsilonMOEA()
 //      Random  : moea.createRandomSearch()
    }
 }
+
+
 
 experiment = {
    populationSize    = 100

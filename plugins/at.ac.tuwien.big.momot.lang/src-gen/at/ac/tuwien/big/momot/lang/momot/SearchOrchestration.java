@@ -17,6 +17,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getModel <em>Model</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getSolutionLength <em>Solution Length</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#isEmptyInitialization <em>Empty Initialization</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getModuleOrchestration <em>Module Orchestration</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getFitnessFunction <em>Fitness Function</em>}</li>
  *   <li>{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#getAlgorithms <em>Algorithms</em>}</li>
@@ -80,6 +81,32 @@ public interface SearchOrchestration extends EObject
    * @generated
    */
   void setSolutionLength(XExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Empty Initialization</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Empty Initialization</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Empty Initialization</em>' attribute.
+   * @see #setEmptyInitialization(boolean)
+   * @see at.ac.tuwien.big.momot.lang.momot.MomotPackage#getSearchOrchestration_EmptyInitialization()
+   * @model
+   * @generated
+   */
+  boolean isEmptyInitialization();
+
+  /**
+   * Sets the value of the '{@link at.ac.tuwien.big.momot.lang.momot.SearchOrchestration#isEmptyInitialization <em>Empty Initialization</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Empty Initialization</em>' attribute.
+   * @see #isEmptyInitialization()
+   * @generated
+   */
+  void setEmptyInitialization(boolean value);
 
   /**
    * Returns the value of the '<em><b>Module Orchestration</b></em>' containment reference.

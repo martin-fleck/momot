@@ -360,6 +360,7 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
             initializer = searchOrchestration.solutionLength
          ]
          
+         
          var JvmGenericType fitnessFunctionClass = null
            if(fitnessFunction.needsClass) {
               fitnessFunctionClass = fitnessFunction.toClass(fitnessFunction.javaClassName) [
@@ -707,6 +708,9 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
                   if(searchOrchestration.equalityHelper != null)
                      appendLine(MOMoTInferrer::Name::PARAM_ORCHESTRATION, ".setEqualityHelper(", MOMoTInferrer::Name::METHOD_CREATE_EQUALITY_HELPER, "());")
                   newLine
+                  if (searchOrchestration.emptyInitialization) {
+                  	appendLine(MOMoTInferrer::Name::PARAM_ORCHESTRATION, ".makeGnerateEmptySolutions();")
+                  }
                   appendLine(moeaFactoryRef.type, "<TransformationSolution> ", MOMoTInferrer::Name::PARAM_MOEA_FACTORY, " = ", MOMoTInferrer::Name::PARAM_ORCHESTRATION, ".createEvolutionaryAlgorithmFactory(", MOMoTInferrer::Name::FIELD_POPULATION_SIZE, ");")
                   appendLine(localFactoryRef.type, "<TransformationSolution> ", MOMoTInferrer::Name::PARAM_LOCAL_FACTORY, " = ", MOMoTInferrer::Name::PARAM_ORCHESTRATION, ".createLocalSearchAlgorithmFactory();")
                   for(algorithm : searchOrchestration.algorithms.specifications) 
@@ -1100,7 +1104,7 @@ class MOMoTJvmModelInferrer extends AbstractModelInferrer {
          if(search.initialization != null)
             members += search.toMethod(MOMoTInferrer::Name::METHOD_INIT, voidRef) [
                static = true
-               body = search.initialization
+               body = search.initialization  
             ]
             
          if(search.finalization != null)

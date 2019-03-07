@@ -932,6 +932,7 @@ public class MOMoTSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (
 	 *         model=InputModel 
 	 *         solutionLength=XExpression 
+	 *         emptyInitialization?='true'? 
 	 *         moduleOrchestration=ModuleOrchestration 
 	 *         fitnessFunction=FitnessFunctionSpecification 
 	 *         algorithms=AlgorithmList 
