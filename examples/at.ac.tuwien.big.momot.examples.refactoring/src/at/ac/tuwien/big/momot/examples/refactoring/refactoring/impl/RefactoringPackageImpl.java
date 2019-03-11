@@ -21,14 +21,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class RefactoringPackageImpl extends EPackageImpl implements RefactoringPackage {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private static boolean isInited = false;
@@ -36,26 +34,20 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
     * 
-    * <p>
-    * This method is used to initialize {@link RefactoringPackage#eINSTANCE} when that field is accessed.
+    * <p>This method is used to initialize {@link RefactoringPackage#eINSTANCE} when that field is accessed.
     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see #eNS_URI
     * @see #createPackageContents()
     * @see #initializePackageContents()
     * @generated
     */
    public static RefactoringPackage init() {
-      if(isInited) {
-         return (RefactoringPackage) EPackage.Registry.INSTANCE.getEPackage(RefactoringPackage.eNS_URI);
-      }
+      if (isInited) return (RefactoringPackage)EPackage.Registry.INSTANCE.getEPackage(RefactoringPackage.eNS_URI);
 
       // Obtain or create and register package
-      final RefactoringPackageImpl theRefactoringPackage = (RefactoringPackageImpl) (EPackage.Registry.INSTANCE
-            .get(eNS_URI) instanceof RefactoringPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                  : new RefactoringPackageImpl());
+      RefactoringPackageImpl theRefactoringPackage = (RefactoringPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RefactoringPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new RefactoringPackageImpl());
 
       isInited = true;
 
@@ -68,6 +60,7 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
       // Mark meta-data to indicate it can't be changed
       theRefactoringPackage.freeze();
 
+  
       // Update the registry and return the package
       EPackage.Registry.INSTANCE.put(RefactoringPackage.eNS_URI, theRefactoringPackage);
       return theRefactoringPackage;
@@ -76,7 +69,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private EClass propertyEClass = null;
@@ -84,7 +76,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private EClass entityEClass = null;
@@ -92,7 +83,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private EClass generalizationEClass = null;
@@ -100,7 +90,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private EClass namedElementEClass = null;
@@ -108,7 +97,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private EClass typeEClass = null;
@@ -116,7 +104,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private EClass refactoringModelEClass = null;
@@ -124,7 +111,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private boolean isCreated = false;
@@ -132,7 +118,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    private boolean isInitialized = false;
@@ -141,14 +126,12 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
     * Creates an instance of the model <b>Package</b>, registered with
     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
     * package URI value.
-    * <p>
-    * Note: the correct way to create the package is via the static
+    * <p>Note: the correct way to create the package is via the static
     * factory method {@link #init init()}, which also performs
     * initialization of the package, or returns the registered package,
     * if one already exists.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see org.eclipse.emf.ecore.EPackage.Registry
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#eNS_URI
     * @see #init()
@@ -159,17 +142,14 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    }
 
    /**
-    * Creates the meta-model objects for the package. This method is
+    * Creates the meta-model objects for the package.  This method is
     * guarded to have no affect on any invocation but its first.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    public void createPackageContents() {
-      if(isCreated) {
-         return;
-      }
+      if (isCreated) return;
       isCreated = true;
 
       // Create classes and their features
@@ -200,7 +180,6 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
@@ -211,40 +190,36 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getEntity_Generalization() {
-      return (EReference) entityEClass.getEStructuralFeatures().get(2);
+      return (EReference)entityEClass.getEStructuralFeatures().get(2);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getEntity_OwnedAttribute() {
-      return (EReference) entityEClass.getEStructuralFeatures().get(0);
+      return (EReference)entityEClass.getEStructuralFeatures().get(0);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getEntity_Specialization() {
-      return (EReference) entityEClass.getEStructuralFeatures().get(1);
+      return (EReference)entityEClass.getEStructuralFeatures().get(1);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
@@ -255,29 +230,26 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getGeneralization_General() {
-      return (EReference) generalizationEClass.getEStructuralFeatures().get(1);
+      return (EReference)generalizationEClass.getEStructuralFeatures().get(1);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getGeneralization_Specific() {
-      return (EReference) generalizationEClass.getEStructuralFeatures().get(0);
+      return (EReference)generalizationEClass.getEStructuralFeatures().get(0);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
@@ -288,18 +260,16 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EAttribute getNamedElement_Name() {
-      return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
+      return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
@@ -310,29 +280,26 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getProperty_Type() {
-      return (EReference) propertyEClass.getEStructuralFeatures().get(0);
+      return (EReference)propertyEClass.getEStructuralFeatures().get(0);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public RefactoringFactory getRefactoringFactory() {
-      return (RefactoringFactory) getEFactoryInstance();
+      return (RefactoringFactory)getEFactoryInstance();
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
@@ -343,51 +310,46 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getRefactoringModel_Entities() {
-      return (EReference) refactoringModelEClass.getEStructuralFeatures().get(1);
+      return (EReference)refactoringModelEClass.getEStructuralFeatures().get(1);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getRefactoringModel_Generalizations() {
-      return (EReference) refactoringModelEClass.getEStructuralFeatures().get(3);
+      return (EReference)refactoringModelEClass.getEStructuralFeatures().get(3);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getRefactoringModel_Properties() {
-      return (EReference) refactoringModelEClass.getEStructuralFeatures().get(0);
+      return (EReference)refactoringModelEClass.getEStructuralFeatures().get(0);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EReference getRefactoringModel_Types() {
-      return (EReference) refactoringModelEClass.getEStructuralFeatures().get(2);
+      return (EReference)refactoringModelEClass.getEStructuralFeatures().get(2);
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
@@ -396,17 +358,14 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
    }
 
    /**
-    * Complete the initialization of the package and its meta-model. This
+    * Complete the initialization of the package and its meta-model.  This
     * method is guarded to have no affect on any invocation but its first.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    public void initializePackageContents() {
-      if(isInitialized) {
-         return;
-      }
+      if (isInitialized) return;
       isInitialized = true;
 
       // Initialize package
@@ -425,51 +384,27 @@ public class RefactoringPackageImpl extends EPackageImpl implements RefactoringP
 
       // Initialize classes, features, and operations; add parameters
       initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-      initEReference(getProperty_Type(), this.getType(), null, "type", null, 1, 1, Property.class, !IS_TRANSIENT,
-            !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-            IS_ORDERED);
+      initEReference(getProperty_Type(), this.getType(), null, "type", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-      initEReference(getEntity_OwnedAttribute(), this.getProperty(), null, "ownedAttribute", null, 0, -1, Entity.class,
-            !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-            !IS_DERIVED, IS_ORDERED);
-      initEReference(getEntity_Specialization(), this.getGeneralization(), this.getGeneralization_General(),
-            "specialization", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-            IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getEntity_Generalization(), this.getGeneralization(), this.getGeneralization_Specific(),
-            "generalization", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-            IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getEntity_OwnedAttribute(), this.getProperty(), null, "ownedAttribute", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getEntity_Specialization(), this.getGeneralization(), this.getGeneralization_General(), "specialization", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getEntity_Generalization(), this.getGeneralization(), this.getGeneralization_Specific(), "generalization", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-      initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE,
-            IS_GENERATED_INSTANCE_CLASS);
-      initEReference(getGeneralization_Specific(), this.getEntity(), this.getEntity_Generalization(), "specific", null,
-            1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-            !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getGeneralization_General(), this.getEntity(), this.getEntity_Specialization(), "general", null, 1,
-            1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-            !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getGeneralization_Specific(), this.getEntity(), this.getEntity_Generalization(), "specific", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getGeneralization_General(), this.getEntity(), this.getEntity_Specialization(), "general", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-      initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE,
-            IS_GENERATED_INSTANCE_CLASS);
-      initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
-            !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-      initEClass(refactoringModelEClass, RefactoringModel.class, "RefactoringModel", !IS_ABSTRACT, !IS_INTERFACE,
-            IS_GENERATED_INSTANCE_CLASS);
-      initEReference(getRefactoringModel_Properties(), this.getProperty(), null, "properties", null, 0, -1,
-            RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-            !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getRefactoringModel_Entities(), this.getEntity(), null, "entities", null, 0, -1,
-            RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-            !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getRefactoringModel_Types(), this.getType(), null, "types", null, 0, -1, RefactoringModel.class,
-            !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-            !IS_DERIVED, IS_ORDERED);
-      initEReference(getRefactoringModel_Generalizations(), this.getGeneralization(), null, "generalizations", null, 0,
-            -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-            !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(refactoringModelEClass, RefactoringModel.class, "RefactoringModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getRefactoringModel_Properties(), this.getProperty(), null, "properties", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRefactoringModel_Entities(), this.getEntity(), null, "entities", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRefactoringModel_Types(), this.getType(), null, "types", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRefactoringModel_Generalizations(), this.getGeneralization(), null, "generalizations", null, 0, -1, RefactoringModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       // Create resource
       createResource(eNS_URI);

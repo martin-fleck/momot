@@ -11,15 +11,15 @@ import icmt.tool.momot.demo.architectureCRA.Class
 
 class MaximiseCRA  {
 
-	def static double computeFitness(ClassModel model) {
+	def static double computeFitness(ClassModel model) { 
 		val cohesion = calculateCohesionRatio(model);
-		val coupling = calculateCouplingRatio(model);
+		val coupling = calculateCouplingRatio(model); 
 
 		//println("Calculated CRA : " + (cohesion - coupling))
 
 		return (cohesion - coupling) * -1
 	}  
-
+ 
 	def static double calculateCohesionRatio(ClassModel classModel) {
 		
 		var cohesionRatio = 0.0;
@@ -53,7 +53,7 @@ class MaximiseCRA  {
 					cohesionRatio += mai / maCoupling + mmi / mmCoupling
 				}
 			}
-		}
+		} 
 		
 		cohesionRatio 
 	}

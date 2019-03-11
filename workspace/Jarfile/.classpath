@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/at.ac.tuwien.big.momot.examples.refactoring"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/WorkshopCRA"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/WorkshopNRP"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/WorkshopScrum"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/at.ac.tuwien.big.momot.examples.refactoring"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

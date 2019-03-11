@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * 
  * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage
  * @generated
  */
@@ -18,17 +17,14 @@ public interface RefactoringFactory extends EFactory {
     * The singleton instance of the factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
-   RefactoringFactory eINSTANCE = at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringFactoryImpl
-         .init();
+   RefactoringFactory eINSTANCE = at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringFactoryImpl.init();
 
    /**
     * Returns a new object of class '<em>Entity</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return a new object of class '<em>Entity</em>'.
     * @generated
     */
@@ -38,7 +34,6 @@ public interface RefactoringFactory extends EFactory {
     * Returns a new object of class '<em>Generalization</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return a new object of class '<em>Generalization</em>'.
     * @generated
     */
@@ -48,7 +43,6 @@ public interface RefactoringFactory extends EFactory {
     * Returns a new object of class '<em>Named Element</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return a new object of class '<em>Named Element</em>'.
     * @generated
     */
@@ -58,7 +52,6 @@ public interface RefactoringFactory extends EFactory {
     * Returns a new object of class '<em>Property</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return a new object of class '<em>Property</em>'.
     * @generated
     */
@@ -68,7 +61,6 @@ public interface RefactoringFactory extends EFactory {
     * Returns a new object of class '<em>Model</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return a new object of class '<em>Model</em>'.
     * @generated
     */
@@ -78,7 +70,6 @@ public interface RefactoringFactory extends EFactory {
     * Returns a new object of class '<em>Type</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return a new object of class '<em>Type</em>'.
     * @generated
     */
@@ -88,7 +79,6 @@ public interface RefactoringFactory extends EFactory {
     * Returns the package supported by this factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the package supported by this factory.
     * @generated
     */

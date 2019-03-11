@@ -10,6 +10,7 @@ import at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackag
 import at.ac.tuwien.big.momot.examples.refactoring.RefractoringCostDimension
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.EqualChangeMutation
 
 initialization = {
 	RefactoringPackage::eINSTANCE.eClass
@@ -36,23 +37,16 @@ search = {
 	
 	algorithms = {
 		//NSGAII_ORI : moea.createNSGAII()
-		NSGAII : moea.createNSGAII(
+      	NSGAII : moea.createNSGAII(
 				new TournamentSelection(2),
 				new OnePointCrossover(1.0),  
 				//new TransformationPlaceholderMutation(0.15))
-				new TransformationPlaceholderMutation(0.05),
-				new TransformationParameterMutation(0.05,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.05))
-		NSGAII_OM : moea.createNSGAII(
-				new TournamentSelection(2),  
-				//new TransformationPlaceholderMutation(0.15))
-				new TransformationPlaceholderMutation(0.4),
-				new TransformationParameterMutation(0.4,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.4))
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
+				
+				
+  		NSGAII_OM : moea.createNSGAII(
+				new TournamentSelection(2),
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
 		/*NSGAIII_ORI : moea.createNSGAIII()
 		NSGAIII : moea.createNSGAIII(
 				new TournamentSelection(2),

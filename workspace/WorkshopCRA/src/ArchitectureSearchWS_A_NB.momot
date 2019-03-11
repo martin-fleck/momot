@@ -18,7 +18,8 @@ import at.ac.tuwien.big.moea.^search.^fitness.comparator.ObjectiveFitnessCompara
 import icmt.tool.momot.demo.Config
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
-
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.EqualChangeMutation
+ 
 initialization = {
    ArchitecturePackage.eINSTANCE.eClass // register package
    ArchitecturePackage.eINSTANCE.name

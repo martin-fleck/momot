@@ -27,12 +27,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl#getOwnedAttribute <em>Owned
- * Attribute</em>}</li>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl#getSpecialization
- * <em>Specialization</em>}</li>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl#getGeneralization
- * <em>Generalization</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl#getOwnedAttribute <em>Owned Attribute</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl#getSpecialization <em>Specialization</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl#getGeneralization <em>Generalization</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,7 +39,6 @@ public class EntityImpl extends NamedElementImpl implements Entity {
     * The cached value of the '{@link #getOwnedAttribute() <em>Owned Attribute</em>}' reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see #getOwnedAttribute()
     * @generated
     * @ordered
@@ -53,7 +49,6 @@ public class EntityImpl extends NamedElementImpl implements Entity {
     * The cached value of the '{@link #getSpecialization() <em>Specialization</em>}' reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see #getSpecialization()
     * @generated
     * @ordered
@@ -64,7 +59,6 @@ public class EntityImpl extends NamedElementImpl implements Entity {
     * The cached value of the '{@link #getGeneralization() <em>Generalization</em>}' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see #getGeneralization()
     * @generated
     * @ordered
@@ -74,7 +68,6 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    protected EntityImpl() {
@@ -84,7 +77,6 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    public Generalization basicGetGeneralization() {
@@ -94,20 +86,14 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
-   public NotificationChain basicSetGeneralization(final Generalization newGeneralization, NotificationChain msgs) {
-      final Generalization oldGeneralization = generalization;
+   public NotificationChain basicSetGeneralization(Generalization newGeneralization, NotificationChain msgs) {
+      Generalization oldGeneralization = generalization;
       generalization = newGeneralization;
-      if(eNotificationRequired()) {
-         final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-               RefactoringPackage.ENTITY__GENERALIZATION, oldGeneralization, newGeneralization);
-         if(msgs == null) {
-            msgs = notification;
-         } else {
-            msgs.add(notification);
-         }
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RefactoringPackage.ENTITY__GENERALIZATION, oldGeneralization, newGeneralization);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
       }
       return msgs;
    }
@@ -115,20 +101,17 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
-   public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-      switch(featureID) {
+   public Object eGet(int featureID, boolean resolve, boolean coreType) {
+      switch (featureID) {
          case RefactoringPackage.ENTITY__OWNED_ATTRIBUTE:
             return getOwnedAttribute();
          case RefactoringPackage.ENTITY__SPECIALIZATION:
             return getSpecialization();
          case RefactoringPackage.ENTITY__GENERALIZATION:
-            if(resolve) {
-               return getGeneralization();
-            }
+            if (resolve) return getGeneralization();
             return basicGetGeneralization();
       }
       return super.eGet(featureID, resolve, coreType);
@@ -137,21 +120,18 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @SuppressWarnings("unchecked")
    @Override
-   public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-      switch(featureID) {
+   public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+      switch (featureID) {
          case RefactoringPackage.ENTITY__SPECIALIZATION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSpecialization()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecialization()).basicAdd(otherEnd, msgs);
          case RefactoringPackage.ENTITY__GENERALIZATION:
-            if(generalization != null) {
-               msgs = ((InternalEObject) generalization).eInverseRemove(this,
-                     RefactoringPackage.GENERALIZATION__SPECIFIC, Generalization.class, msgs);
-            }
-            return basicSetGeneralization((Generalization) otherEnd, msgs);
+            if (generalization != null)
+               msgs = ((InternalEObject)generalization).eInverseRemove(this, RefactoringPackage.GENERALIZATION__SPECIFIC, Generalization.class, msgs);
+            return basicSetGeneralization((Generalization)otherEnd, msgs);
       }
       return super.eInverseAdd(otherEnd, featureID, msgs);
    }
@@ -159,15 +139,13 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
-   public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-         final NotificationChain msgs) {
-      switch(featureID) {
+   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+      switch (featureID) {
          case RefactoringPackage.ENTITY__SPECIALIZATION:
-            return ((InternalEList<?>) getSpecialization()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>)getSpecialization()).basicRemove(otherEnd, msgs);
          case RefactoringPackage.ENTITY__GENERALIZATION:
             return basicSetGeneralization(null, msgs);
       }
@@ -177,12 +155,11 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
-   public boolean eIsSet(final int featureID) {
-      switch(featureID) {
+   public boolean eIsSet(int featureID) {
+      switch (featureID) {
          case RefactoringPackage.ENTITY__OWNED_ATTRIBUTE:
             return ownedAttribute != null && !ownedAttribute.isEmpty();
          case RefactoringPackage.ENTITY__SPECIALIZATION:
@@ -196,23 +173,22 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @SuppressWarnings("unchecked")
    @Override
-   public void eSet(final int featureID, final Object newValue) {
-      switch(featureID) {
+   public void eSet(int featureID, Object newValue) {
+      switch (featureID) {
          case RefactoringPackage.ENTITY__OWNED_ATTRIBUTE:
             getOwnedAttribute().clear();
-            getOwnedAttribute().addAll((Collection<? extends Property>) newValue);
+            getOwnedAttribute().addAll((Collection<? extends Property>)newValue);
             return;
          case RefactoringPackage.ENTITY__SPECIALIZATION:
             getSpecialization().clear();
-            getSpecialization().addAll((Collection<? extends Generalization>) newValue);
+            getSpecialization().addAll((Collection<? extends Generalization>)newValue);
             return;
          case RefactoringPackage.ENTITY__GENERALIZATION:
-            setGeneralization((Generalization) newValue);
+            setGeneralization((Generalization)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -221,7 +197,6 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
@@ -232,12 +207,11 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
-   public void eUnset(final int featureID) {
-      switch(featureID) {
+   public void eUnset(int featureID) {
+      switch (featureID) {
          case RefactoringPackage.ENTITY__OWNED_ATTRIBUTE:
             getOwnedAttribute().clear();
             return;
@@ -245,7 +219,7 @@ public class EntityImpl extends NamedElementImpl implements Entity {
             getSpecialization().clear();
             return;
          case RefactoringPackage.ENTITY__GENERALIZATION:
-            setGeneralization((Generalization) null);
+            setGeneralization((Generalization)null);
             return;
       }
       super.eUnset(featureID);
@@ -254,19 +228,16 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public Generalization getGeneralization() {
-      if(generalization != null && generalization.eIsProxy()) {
-         final InternalEObject oldGeneralization = (InternalEObject) generalization;
-         generalization = (Generalization) eResolveProxy(oldGeneralization);
-         if(generalization != oldGeneralization) {
-            if(eNotificationRequired()) {
-               eNotify(new ENotificationImpl(this, Notification.RESOLVE, RefactoringPackage.ENTITY__GENERALIZATION,
-                     oldGeneralization, generalization));
-            }
+      if (generalization != null && generalization.eIsProxy()) {
+         InternalEObject oldGeneralization = (InternalEObject)generalization;
+         generalization = (Generalization)eResolveProxy(oldGeneralization);
+         if (generalization != oldGeneralization) {
+            if (eNotificationRequired())
+               eNotify(new ENotificationImpl(this, Notification.RESOLVE, RefactoringPackage.ENTITY__GENERALIZATION, oldGeneralization, generalization));
          }
       }
       return generalization;
@@ -275,14 +246,12 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EList<Property> getOwnedAttribute() {
-      if(ownedAttribute == null) {
-         ownedAttribute = new EObjectResolvingEList<>(Property.class, this,
-               RefactoringPackage.ENTITY__OWNED_ATTRIBUTE);
+      if (ownedAttribute == null) {
+         ownedAttribute = new EObjectResolvingEList<Property>(Property.class, this, RefactoringPackage.ENTITY__OWNED_ATTRIBUTE);
       }
       return ownedAttribute;
    }
@@ -290,14 +259,12 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public EList<Generalization> getSpecialization() {
-      if(specialization == null) {
-         specialization = new EObjectWithInverseResolvingEList<>(Generalization.class, this,
-               RefactoringPackage.ENTITY__SPECIALIZATION, RefactoringPackage.GENERALIZATION__GENERAL);
+      if (specialization == null) {
+         specialization = new EObjectWithInverseResolvingEList<Generalization>(Generalization.class, this, RefactoringPackage.ENTITY__SPECIALIZATION, RefactoringPackage.GENERALIZATION__GENERAL);
       }
       return specialization;
    }
@@ -305,29 +272,21 @@ public class EntityImpl extends NamedElementImpl implements Entity {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
-   public void setGeneralization(final Generalization newGeneralization) {
-      if(newGeneralization != generalization) {
+   public void setGeneralization(Generalization newGeneralization) {
+      if (newGeneralization != generalization) {
          NotificationChain msgs = null;
-         if(generalization != null) {
-            msgs = ((InternalEObject) generalization).eInverseRemove(this, RefactoringPackage.GENERALIZATION__SPECIFIC,
-                  Generalization.class, msgs);
-         }
-         if(newGeneralization != null) {
-            msgs = ((InternalEObject) newGeneralization).eInverseAdd(this, RefactoringPackage.GENERALIZATION__SPECIFIC,
-                  Generalization.class, msgs);
-         }
+         if (generalization != null)
+            msgs = ((InternalEObject)generalization).eInverseRemove(this, RefactoringPackage.GENERALIZATION__SPECIFIC, Generalization.class, msgs);
+         if (newGeneralization != null)
+            msgs = ((InternalEObject)newGeneralization).eInverseAdd(this, RefactoringPackage.GENERALIZATION__SPECIFIC, Generalization.class, msgs);
          msgs = basicSetGeneralization(newGeneralization, msgs);
-         if(msgs != null) {
-            msgs.dispatch();
-         }
-      } else if(eNotificationRequired()) {
-         eNotify(new ENotificationImpl(this, Notification.SET, RefactoringPackage.ENTITY__GENERALIZATION,
-               newGeneralization, newGeneralization));
+         if (msgs != null) msgs.dispatch();
       }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, RefactoringPackage.ENTITY__GENERALIZATION, newGeneralization, newGeneralization));
    }
 
 } // EntityImpl

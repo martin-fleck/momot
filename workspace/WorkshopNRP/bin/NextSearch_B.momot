@@ -14,12 +14,13 @@ import mdetools.momot.nrp.MinimiseCost
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
 import at.ac.tuwien.big.moea.^search.algorithm.operator.mutation.CompoundMutationVariation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.EqualChangeMutation
 
 initialization = {
    NextReleaseProblemPackage.eINSTANCE.eClass // register package
    NextReleaseProblemFactory.eINSTANCE.eClass 
    System.out.println("Search started.");
-} 
+}  
   
 search = { 
    model = {
@@ -67,20 +68,15 @@ search = {
 
    algorithms      = {  
    		//NSGAII_ORI : moea.createNSGAII()
-          NSGAII : moea.createNSGAII(
+
+      	NSGAII : moea.createNSGAII(
 				new TournamentSelection(2),
 				new OnePointCrossover(1.0),
-				new CompoundMutationVariation(1.0,/*0.25,*/
-				new TransformationPlaceholderMutation(1.0),
-				new TransformationParameterMutation(1.0,orchestration.moduleManager),
-				new TransformationVariableMutation(orchestration.searchHelper,1.0)))
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
 				
 		NSGAII_OM : moea.createNSGAII(
-				new TournamentSelection(2),  
-				new CompoundMutationVariation(1.0,/*0.25,*/
-				new TransformationPlaceholderMutation(1.0),
-				new TransformationParameterMutation(1.0,orchestration.moduleManager),
-				new TransformationVariableMutation(orchestration.searchHelper,1.0)))
+				new TournamentSelection(2),
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
 //      NSGAIII : moea.createNSGAIII()
 //      eMOEA   : moea.createEpsilonMOEA()
 //      Random  : moea.createRandomSearch()

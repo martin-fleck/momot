@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
  * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringFactory
  * @model kind="package"
  * @generated
@@ -36,16 +35,13 @@ public interface RefactoringPackage extends EPackage {
     * <li>and each data type</li>
     * </ul>
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    interface Literals {
       /**
-       * The meta object literal for the
-       * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.PropertyImpl <em>Property</em>}' class.
+       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.PropertyImpl <em>Property</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.PropertyImpl
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getProperty()
        * @generated
@@ -56,17 +52,14 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Type</b></em>' reference feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference PROPERTY__TYPE = eINSTANCE.getProperty_Type();
 
       /**
-       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl
-       * <em>Entity</em>}' class.
+       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl <em>Entity</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getEntity()
        * @generated
@@ -77,7 +70,6 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Owned Attribute</b></em>' reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference ENTITY__OWNED_ATTRIBUTE = eINSTANCE.getEntity_OwnedAttribute();
@@ -86,7 +78,6 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Specialization</b></em>' reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference ENTITY__SPECIALIZATION = eINSTANCE.getEntity_Specialization();
@@ -95,18 +86,14 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Generalization</b></em>' reference feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference ENTITY__GENERALIZATION = eINSTANCE.getEntity_Generalization();
 
       /**
-       * The meta object literal for the
-       * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.GeneralizationImpl
-       * <em>Generalization</em>}' class.
+       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.GeneralizationImpl <em>Generalization</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.GeneralizationImpl
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getGeneralization()
        * @generated
@@ -117,7 +104,6 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Specific</b></em>' reference feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference GENERALIZATION__SPECIFIC = eINSTANCE.getGeneralization_Specific();
@@ -126,18 +112,14 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>General</b></em>' reference feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference GENERALIZATION__GENERAL = eINSTANCE.getGeneralization_General();
 
       /**
-       * The meta object literal for the
-       * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.NamedElementImpl <em>Named Element</em>}'
-       * class.
+       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.NamedElementImpl <em>Named Element</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.NamedElementImpl
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getNamedElement()
        * @generated
@@ -148,17 +130,14 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
       /**
-       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.TypeImpl
-       * <em>Type</em>}' class.
+       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.TypeImpl <em>Type</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.TypeImpl
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getType()
        * @generated
@@ -166,12 +145,9 @@ public interface RefactoringPackage extends EPackage {
       EClass TYPE = eINSTANCE.getType();
 
       /**
-       * The meta object literal for the
-       * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl <em>Model</em>}'
-       * class.
+       * The meta object literal for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl <em>Model</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl
        * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getRefactoringModel()
        * @generated
@@ -182,7 +158,6 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference REFACTORING_MODEL__PROPERTIES = eINSTANCE.getRefactoringModel_Properties();
@@ -191,7 +166,6 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference REFACTORING_MODEL__ENTITIES = eINSTANCE.getRefactoringModel_Entities();
@@ -200,7 +174,6 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference REFACTORING_MODEL__TYPES = eINSTANCE.getRefactoringModel_Types();
@@ -209,7 +182,6 @@ public interface RefactoringPackage extends EPackage {
        * The meta object literal for the '<em><b>Generalizations</b></em>' containment reference list feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * 
        * @generated
        */
       EReference REFACTORING_MODEL__GENERALIZATIONS = eINSTANCE.getRefactoringModel_Generalizations();
@@ -220,7 +192,6 @@ public interface RefactoringPackage extends EPackage {
     * The package name.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    String eNAME = "refactoring";
@@ -229,7 +200,6 @@ public interface RefactoringPackage extends EPackage {
     * The package namespace URI.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    String eNS_URI = "http://momot.big.tuwien.ac.at/examples/refactoring/1.0";
@@ -238,7 +208,6 @@ public interface RefactoringPackage extends EPackage {
     * The package namespace name.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    String eNS_PREFIX = "refactoring";
@@ -247,18 +216,14 @@ public interface RefactoringPackage extends EPackage {
     * The singleton instance of the package.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
-   RefactoringPackage eINSTANCE = at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl
-         .init();
+   RefactoringPackage eINSTANCE = at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl.init();
 
    /**
-    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.NamedElementImpl
-    * <em>Named Element</em>}' class.
+    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.NamedElementImpl <em>Named Element</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.NamedElementImpl
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getNamedElement()
     * @generated
@@ -269,7 +234,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -279,7 +243,6 @@ public interface RefactoringPackage extends EPackage {
     * The number of structural features of the '<em>Named Element</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -289,18 +252,15 @@ public interface RefactoringPackage extends EPackage {
     * The number of operations of the '<em>Named Element</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
    int NAMED_ELEMENT_OPERATION_COUNT = 0;
 
    /**
-    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.PropertyImpl
-    * <em>Property</em>}' class.
+    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.PropertyImpl <em>Property</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.PropertyImpl
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getProperty()
     * @generated
@@ -311,7 +271,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -321,7 +280,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Type</b></em>' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -331,7 +289,6 @@ public interface RefactoringPackage extends EPackage {
     * The number of structural features of the '<em>Property</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -341,18 +298,15 @@ public interface RefactoringPackage extends EPackage {
     * The number of operations of the '<em>Property</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
    int PROPERTY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
    /**
-    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl
-    * <em>Entity</em>}' class.
+    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl <em>Entity</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.EntityImpl
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getEntity()
     * @generated
@@ -363,7 +317,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -373,7 +326,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Owned Attribute</b></em>' reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -383,7 +335,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Specialization</b></em>' reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -393,7 +344,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Generalization</b></em>' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -403,7 +353,6 @@ public interface RefactoringPackage extends EPackage {
     * The number of structural features of the '<em>Entity</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -413,18 +362,15 @@ public interface RefactoringPackage extends EPackage {
     * The number of operations of the '<em>Entity</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
    int ENTITY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
    /**
-    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.GeneralizationImpl
-    * <em>Generalization</em>}' class.
+    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.GeneralizationImpl <em>Generalization</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.GeneralizationImpl
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getGeneralization()
     * @generated
@@ -435,7 +381,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Specific</b></em>' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -445,7 +390,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>General</b></em>' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -455,7 +399,6 @@ public interface RefactoringPackage extends EPackage {
     * The number of structural features of the '<em>Generalization</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -465,18 +408,15 @@ public interface RefactoringPackage extends EPackage {
     * The number of operations of the '<em>Generalization</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
    int GENERALIZATION_OPERATION_COUNT = 0;
 
    /**
-    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.TypeImpl
-    * <em>Type</em>}' class.
+    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.TypeImpl <em>Type</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.TypeImpl
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getType()
     * @generated
@@ -487,7 +427,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -497,7 +436,6 @@ public interface RefactoringPackage extends EPackage {
     * The number of structural features of the '<em>Type</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -507,18 +445,15 @@ public interface RefactoringPackage extends EPackage {
     * The number of operations of the '<em>Type</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
    int TYPE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
    /**
-    * The meta object id for the
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl <em>Model</em>}' class.
+    * The meta object id for the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl <em>Model</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringModelImpl
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.impl.RefactoringPackageImpl#getRefactoringModel()
     * @generated
@@ -529,7 +464,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -539,7 +473,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Entities</b></em>' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -549,7 +482,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Types</b></em>' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -559,7 +491,6 @@ public interface RefactoringPackage extends EPackage {
     * The feature id for the '<em><b>Generalizations</b></em>' containment reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -569,7 +500,6 @@ public interface RefactoringPackage extends EPackage {
     * The number of structural features of the '<em>Model</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
@@ -579,18 +509,15 @@ public interface RefactoringPackage extends EPackage {
     * The number of operations of the '<em>Model</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     * @ordered
     */
    int REFACTORING_MODEL_OPERATION_COUNT = 0;
 
    /**
-    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity
-    * <em>Entity</em>}'.
+    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity <em>Entity</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for class '<em>Entity</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity
     * @generated
@@ -598,12 +525,9 @@ public interface RefactoringPackage extends EPackage {
    EClass getEntity();
 
    /**
-    * Returns the meta object for the reference
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getGeneralization
-    * <em>Generalization</em>}'.
+    * Returns the meta object for the reference '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getGeneralization <em>Generalization</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the reference '<em>Generalization</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getGeneralization()
     * @see #getEntity()
@@ -612,12 +536,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getEntity_Generalization();
 
    /**
-    * Returns the meta object for the reference list
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getOwnedAttribute <em>Owned
-    * Attribute</em>}'.
+    * Returns the meta object for the reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getOwnedAttribute <em>Owned Attribute</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the reference list '<em>Owned Attribute</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getOwnedAttribute()
     * @see #getEntity()
@@ -626,12 +547,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getEntity_OwnedAttribute();
 
    /**
-    * Returns the meta object for the reference list
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getSpecialization
-    * <em>Specialization</em>}'.
+    * Returns the meta object for the reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getSpecialization <em>Specialization</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the reference list '<em>Specialization</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Entity#getSpecialization()
     * @see #getEntity()
@@ -640,11 +558,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getEntity_Specialization();
 
    /**
-    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization
-    * <em>Generalization</em>}'.
+    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization <em>Generalization</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for class '<em>Generalization</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization
     * @generated
@@ -652,11 +568,9 @@ public interface RefactoringPackage extends EPackage {
    EClass getGeneralization();
 
    /**
-    * Returns the meta object for the reference
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization#getGeneral <em>General</em>}'.
+    * Returns the meta object for the reference '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization#getGeneral <em>General</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the reference '<em>General</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization#getGeneral()
     * @see #getGeneralization()
@@ -665,11 +579,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getGeneralization_General();
 
    /**
-    * Returns the meta object for the reference
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization#getSpecific <em>Specific</em>}'.
+    * Returns the meta object for the reference '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization#getSpecific <em>Specific</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the reference '<em>Specific</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Generalization#getSpecific()
     * @see #getGeneralization()
@@ -678,11 +590,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getGeneralization_Specific();
 
    /**
-    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement
-    * <em>Named Element</em>}'.
+    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement <em>Named Element</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for class '<em>Named Element</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement
     * @generated
@@ -690,11 +600,9 @@ public interface RefactoringPackage extends EPackage {
    EClass getNamedElement();
 
    /**
-    * Returns the meta object for the attribute
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement#getName <em>Name</em>}'.
+    * Returns the meta object for the attribute '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement#getName <em>Name</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the attribute '<em>Name</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement#getName()
     * @see #getNamedElement()
@@ -703,11 +611,9 @@ public interface RefactoringPackage extends EPackage {
    EAttribute getNamedElement_Name();
 
    /**
-    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property
-    * <em>Property</em>}'.
+    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property <em>Property</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for class '<em>Property</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property
     * @generated
@@ -715,11 +621,9 @@ public interface RefactoringPackage extends EPackage {
    EClass getProperty();
 
    /**
-    * Returns the meta object for the reference
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property#getType <em>Type</em>}'.
+    * Returns the meta object for the reference '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property#getType <em>Type</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the reference '<em>Type</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property#getType()
     * @see #getProperty()
@@ -731,18 +635,15 @@ public interface RefactoringPackage extends EPackage {
     * Returns the factory that creates the instances of the model.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the factory that creates the instances of the model.
     * @generated
     */
    RefactoringFactory getRefactoringFactory();
 
    /**
-    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel
-    * <em>Model</em>}'.
+    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel <em>Model</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for class '<em>Model</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel
     * @generated
@@ -750,11 +651,9 @@ public interface RefactoringPackage extends EPackage {
    EClass getRefactoringModel();
 
    /**
-    * Returns the meta object for the containment reference list
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities <em>Entities</em>}'.
+    * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities <em>Entities</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the containment reference list '<em>Entities</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities()
     * @see #getRefactoringModel()
@@ -763,12 +662,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getRefactoringModel_Entities();
 
    /**
-    * Returns the meta object for the containment reference list
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getGeneralizations
-    * <em>Generalizations</em>}'.
+    * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getGeneralizations <em>Generalizations</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the containment reference list '<em>Generalizations</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getGeneralizations()
     * @see #getRefactoringModel()
@@ -777,12 +673,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getRefactoringModel_Generalizations();
 
    /**
-    * Returns the meta object for the containment reference list
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties
-    * <em>Properties</em>}'.
+    * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties <em>Properties</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the containment reference list '<em>Properties</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties()
     * @see #getRefactoringModel()
@@ -791,11 +684,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getRefactoringModel_Properties();
 
    /**
-    * Returns the meta object for the containment reference list
-    * '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getTypes <em>Types</em>}'.
+    * Returns the meta object for the containment reference list '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getTypes <em>Types</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for the containment reference list '<em>Types</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getTypes()
     * @see #getRefactoringModel()
@@ -804,11 +695,9 @@ public interface RefactoringPackage extends EPackage {
    EReference getRefactoringModel_Types();
 
    /**
-    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Type
-    * <em>Type</em>}'.
+    * Returns the meta object for class '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Type <em>Type</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the meta object for class '<em>Type</em>'.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.Type
     * @generated

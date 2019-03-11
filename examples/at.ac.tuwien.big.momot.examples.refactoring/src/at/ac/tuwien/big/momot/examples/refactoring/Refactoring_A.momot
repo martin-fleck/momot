@@ -10,7 +10,7 @@ import at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackag
 import at.ac.tuwien.big.momot.examples.refactoring.RefractoringCostDimension
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
-import at.ac.tuwien.big.momot.examples.refactoring.EMFCompareDistance
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.EqualChangeMutation
 
 initialization = {
 	RefactoringPackage::eINSTANCE.eClass
@@ -28,8 +28,9 @@ search = {
 	
    fitness         = {
       objectives = {
-         SolutionLength : minimize new TransformationLengthDimension
-         EMFDistance: minimize {EMFCompareDistance.calculateFitness(root)}
+         //SolutionLength : minimize new TransformationLengthDimension
+         //EMFDistance: minimize {EMFCompareDistance.calculateFitness(root)}
+		  ContentSize : minimize "properties->size() * 1.1 + entities->size()"
       }
    }
 
@@ -39,11 +40,12 @@ search = {
 				new TournamentSelection(2),
 				new OnePointCrossover(1.0),  
 				//new TransformationPlaceholderMutation(0.15))
-				new TransformationPlaceholderMutation(0.05),
-				new TransformationParameterMutation(0.05,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.05))
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
+				
+				
+  		NSGAII_OM : moea.createNSGAII(
+				new TournamentSelection(2),
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
       //eMOEA   : moea.createEpsilonMOEA()
    }
 }

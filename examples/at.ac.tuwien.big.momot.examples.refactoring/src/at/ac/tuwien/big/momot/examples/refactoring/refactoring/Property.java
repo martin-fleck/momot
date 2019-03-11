@@ -11,7 +11,7 @@ package at.ac.tuwien.big.momot.examples.refactoring.refactoring;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property#getType <em>Type</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getProperty()
@@ -27,7 +27,6 @@ public interface Property extends NamedElement {
     * there really should be more of a description here...
     * </p>
     * <!-- end-user-doc -->
-    * 
     * @return the value of the '<em>Type</em>' reference.
     * @see #setType(Type)
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getProperty_Type()
@@ -37,13 +36,10 @@ public interface Property extends NamedElement {
    Type getType();
 
    /**
-    * Sets the value of the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property#getType
-    * <em>Type</em>}' reference.
+    * Sets the value of the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.Property#getType <em>Type</em>}' reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @param value
-    *           the new value of the '<em>Type</em>' reference.
+    * @param value the new value of the '<em>Type</em>' reference.
     * @see #getType()
     * @generated
     */

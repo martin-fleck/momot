@@ -14,13 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties
- * <em>Properties</em>}</li>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities
- * <em>Entities</em>}</li>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getTypes <em>Types</em>}</li>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getGeneralizations
- * <em>Generalizations</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getProperties <em>Properties</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getEntities <em>Entities</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getTypes <em>Types</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringModel#getGeneralizations <em>Generalizations</em>}</li>
  * </ul>
  *
  * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel()
@@ -37,7 +34,6 @@ public interface RefactoringModel extends EObject {
     * there really should be more of a description here...
     * </p>
     * <!-- end-user-doc -->
-    * 
     * @return the value of the '<em>Entities</em>' containment reference list.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Entities()
     * @model containment="true"
@@ -54,7 +50,6 @@ public interface RefactoringModel extends EObject {
     * there really should be more of a description here...
     * </p>
     * <!-- end-user-doc -->
-    * 
     * @return the value of the '<em>Generalizations</em>' containment reference list.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Generalizations()
     * @model containment="true"
@@ -71,7 +66,6 @@ public interface RefactoringModel extends EObject {
     * there really should be more of a description here...
     * </p>
     * <!-- end-user-doc -->
-    * 
     * @return the value of the '<em>Properties</em>' containment reference list.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Properties()
     * @model containment="true"
@@ -88,7 +82,6 @@ public interface RefactoringModel extends EObject {
     * there really should be more of a description here...
     * </p>
     * <!-- end-user-doc -->
-    * 
     * @return the value of the '<em>Types</em>' containment reference list.
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getRefactoringModel_Types()
     * @model containment="true"

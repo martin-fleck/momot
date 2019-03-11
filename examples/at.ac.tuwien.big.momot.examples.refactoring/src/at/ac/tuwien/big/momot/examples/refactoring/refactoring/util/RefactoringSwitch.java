@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * 
  * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage
  * @generated
  */
@@ -33,7 +32,6 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * The cached model package
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    protected static RefactoringPackage modelPackage;
@@ -42,11 +40,10 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * Creates an instance of the switch.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    public RefactoringSwitch() {
-      if(modelPackage == null) {
+      if (modelPackage == null) {
          modelPackage = RefactoringPackage.eINSTANCE;
       }
    }
@@ -57,14 +54,12 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-    * 
-    * @param object
-    *           the target of the switch.
+    * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseEntity(final Entity object) {
+   public T caseEntity(Entity object) {
       return null;
    }
 
@@ -74,14 +69,12 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-    * 
-    * @param object
-    *           the target of the switch.
+    * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Generalization</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseGeneralization(final Generalization object) {
+   public T caseGeneralization(Generalization object) {
       return null;
    }
 
@@ -91,14 +84,12 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-    * 
-    * @param object
-    *           the target of the switch.
+    * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseNamedElement(final NamedElement object) {
+   public T caseNamedElement(NamedElement object) {
       return null;
    }
 
@@ -108,14 +99,12 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-    * 
-    * @param object
-    *           the target of the switch.
+    * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Property</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseProperty(final Property object) {
+   public T caseProperty(Property object) {
       return null;
    }
 
@@ -125,14 +114,12 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-    * 
-    * @param object
-    *           the target of the switch.
+    * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Model</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseRefactoringModel(final RefactoringModel object) {
+   public T caseRefactoringModel(RefactoringModel object) {
       return null;
    }
 
@@ -142,14 +129,12 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-    * 
-    * @param object
-    *           the target of the switch.
+    * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>Type</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseType(final Type object) {
+   public T caseType(Type object) {
       return null;
    }
 
@@ -159,15 +144,13 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * This implementation returns null;
     * returning a non-null result will terminate the switch, but this is the last case anyway.
     * <!-- end-user-doc -->
-    * 
-    * @param object
-    *           the target of the switch.
+    * @param object the target of the switch.
     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject)
     * @generated
     */
    @Override
-   public T defaultCase(final EObject object) {
+   public T defaultCase(EObject object) {
       return null;
    }
 
@@ -175,72 +158,52 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @return the first non-null result returned by a <code>caseXXX</code> call.
     * @generated
     */
    @Override
-   protected T doSwitch(final int classifierID, final EObject theEObject) {
-      switch(classifierID) {
+   protected T doSwitch(int classifierID, EObject theEObject) {
+      switch (classifierID) {
          case RefactoringPackage.PROPERTY: {
-            final Property property = (Property) theEObject;
+            Property property = (Property)theEObject;
             T result = caseProperty(property);
-            if(result == null) {
-               result = caseNamedElement(property);
-            }
-            if(result == null) {
-               result = defaultCase(theEObject);
-            }
+            if (result == null) result = caseNamedElement(property);
+            if (result == null) result = defaultCase(theEObject);
             return result;
          }
          case RefactoringPackage.ENTITY: {
-            final Entity entity = (Entity) theEObject;
+            Entity entity = (Entity)theEObject;
             T result = caseEntity(entity);
-            if(result == null) {
-               result = caseNamedElement(entity);
-            }
-            if(result == null) {
-               result = defaultCase(theEObject);
-            }
+            if (result == null) result = caseNamedElement(entity);
+            if (result == null) result = defaultCase(theEObject);
             return result;
          }
          case RefactoringPackage.GENERALIZATION: {
-            final Generalization generalization = (Generalization) theEObject;
+            Generalization generalization = (Generalization)theEObject;
             T result = caseGeneralization(generalization);
-            if(result == null) {
-               result = defaultCase(theEObject);
-            }
+            if (result == null) result = defaultCase(theEObject);
             return result;
          }
          case RefactoringPackage.NAMED_ELEMENT: {
-            final NamedElement namedElement = (NamedElement) theEObject;
+            NamedElement namedElement = (NamedElement)theEObject;
             T result = caseNamedElement(namedElement);
-            if(result == null) {
-               result = defaultCase(theEObject);
-            }
+            if (result == null) result = defaultCase(theEObject);
             return result;
          }
          case RefactoringPackage.TYPE: {
-            final Type type = (Type) theEObject;
+            Type type = (Type)theEObject;
             T result = caseType(type);
-            if(result == null) {
-               result = caseNamedElement(type);
-            }
-            if(result == null) {
-               result = defaultCase(theEObject);
-            }
+            if (result == null) result = caseNamedElement(type);
+            if (result == null) result = defaultCase(theEObject);
             return result;
          }
          case RefactoringPackage.REFACTORING_MODEL: {
-            final RefactoringModel refactoringModel = (RefactoringModel) theEObject;
+            RefactoringModel refactoringModel = (RefactoringModel)theEObject;
             T result = caseRefactoringModel(refactoringModel);
-            if(result == null) {
-               result = defaultCase(theEObject);
-            }
+            if (result == null) result = defaultCase(theEObject);
             return result;
          }
-         default:
-            return defaultCase(theEObject);
+         default: return defaultCase(theEObject);
       }
    }
 
@@ -248,14 +211,12 @@ public class RefactoringSwitch<T> extends Switch<T> {
     * Checks whether this is a switch for the given package.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @param ePackage
-    *           the package in question.
+    * @param ePackage the package in question.
     * @return whether this is a switch for the given package.
     * @generated
     */
    @Override
-   protected boolean isSwitchFor(final EPackage ePackage) {
+   protected boolean isSwitchFor(EPackage ePackage) {
       return ePackage == modelPackage;
    }
 

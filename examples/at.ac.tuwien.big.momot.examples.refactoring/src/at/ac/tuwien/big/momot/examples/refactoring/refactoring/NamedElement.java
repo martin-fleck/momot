@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement#getName <em>Name</em>}</li>
+ *   <li>{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getNamedElement()
@@ -29,7 +29,6 @@ public interface NamedElement extends EObject {
     * there really should be more of a description here...
     * </p>
     * <!-- end-user-doc -->
-    * 
     * @return the value of the '<em>Name</em>' attribute.
     * @see #setName(String)
     * @see at.ac.tuwien.big.momot.examples.refactoring.refactoring.RefactoringPackage#getNamedElement_Name()
@@ -39,13 +38,10 @@ public interface NamedElement extends EObject {
    String getName();
 
    /**
-    * Sets the value of the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement#getName
-    * <em>Name</em>}' attribute.
+    * Sets the value of the '{@link at.ac.tuwien.big.momot.examples.refactoring.refactoring.NamedElement#getName <em>Name</em>}' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
-    * @param value
-    *           the new value of the '<em>Name</em>' attribute.
+    * @param value the new value of the '<em>Name</em>' attribute.
     * @see #getName()
     * @generated
     */

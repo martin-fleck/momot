@@ -18,7 +18,6 @@ public class TypeImpl extends NamedElementImpl implements Type {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    protected TypeImpl() {
@@ -28,7 +27,6 @@ public class TypeImpl extends NamedElementImpl implements Type {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override

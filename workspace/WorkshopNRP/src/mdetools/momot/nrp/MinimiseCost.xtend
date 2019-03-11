@@ -13,7 +13,7 @@ class MinimiseCost extends AbstractModelQueryFitnessFunction {
 					result, artifact | 
 					
 					//This assumes money for now only
-					result + artifact.costs.head.amount
+					result + artifact.costs.head.amount 
 				]
 		
 		//println("Calculated selectedArtifacts cost: " + selectedArtifactsCost)

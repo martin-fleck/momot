@@ -10,7 +10,7 @@ abstract class AbstractModelQueryFitnessFunction {
 	def static Object getFeature (EObject o, String feature) {
 		
 		if(o === null){
-			println("Null object given")
+			println("Null object given") 
 		} 
 		
 		o.eGet (o.eClass.getEStructuralFeature(feature))

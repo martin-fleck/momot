@@ -21,14 +21,12 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class RefactoringFactoryImpl extends EFactoryImpl implements RefactoringFactory {
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @deprecated
     * @generated
     */
@@ -41,17 +39,16 @@ public class RefactoringFactoryImpl extends EFactoryImpl implements RefactoringF
     * Creates the default factory implementation.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    public static RefactoringFactory init() {
       try {
-         final RefactoringFactory theRefactoringFactory = (RefactoringFactory) EPackage.Registry.INSTANCE
-               .getEFactory(RefactoringPackage.eNS_URI);
-         if(theRefactoringFactory != null) {
+         RefactoringFactory theRefactoringFactory = (RefactoringFactory)EPackage.Registry.INSTANCE.getEFactory(RefactoringPackage.eNS_URI);
+         if (theRefactoringFactory != null) {
             return theRefactoringFactory;
          }
-      } catch(final Exception exception) {
+      }
+      catch (Exception exception) {
          EcorePlugin.INSTANCE.log(exception);
       }
       return new RefactoringFactoryImpl();
@@ -61,7 +58,6 @@ public class RefactoringFactoryImpl extends EFactoryImpl implements RefactoringF
     * Creates an instance of the factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    public RefactoringFactoryImpl() {
@@ -71,24 +67,17 @@ public class RefactoringFactoryImpl extends EFactoryImpl implements RefactoringF
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
-   public EObject create(final EClass eClass) {
-      switch(eClass.getClassifierID()) {
-         case RefactoringPackage.PROPERTY:
-            return createProperty();
-         case RefactoringPackage.ENTITY:
-            return createEntity();
-         case RefactoringPackage.GENERALIZATION:
-            return createGeneralization();
-         case RefactoringPackage.NAMED_ELEMENT:
-            return createNamedElement();
-         case RefactoringPackage.TYPE:
-            return createType();
-         case RefactoringPackage.REFACTORING_MODEL:
-            return createRefactoringModel();
+   public EObject create(EClass eClass) {
+      switch (eClass.getClassifierID()) {
+         case RefactoringPackage.PROPERTY: return createProperty();
+         case RefactoringPackage.ENTITY: return createEntity();
+         case RefactoringPackage.GENERALIZATION: return createGeneralization();
+         case RefactoringPackage.NAMED_ELEMENT: return createNamedElement();
+         case RefactoringPackage.TYPE: return createType();
+         case RefactoringPackage.REFACTORING_MODEL: return createRefactoringModel();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -97,84 +86,77 @@ public class RefactoringFactoryImpl extends EFactoryImpl implements RefactoringF
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public Entity createEntity() {
-      final EntityImpl entity = new EntityImpl();
+      EntityImpl entity = new EntityImpl();
       return entity;
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public Generalization createGeneralization() {
-      final GeneralizationImpl generalization = new GeneralizationImpl();
+      GeneralizationImpl generalization = new GeneralizationImpl();
       return generalization;
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public NamedElement createNamedElement() {
-      final NamedElementImpl namedElement = new NamedElementImpl();
+      NamedElementImpl namedElement = new NamedElementImpl();
       return namedElement;
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public Property createProperty() {
-      final PropertyImpl property = new PropertyImpl();
+      PropertyImpl property = new PropertyImpl();
       return property;
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public RefactoringModel createRefactoringModel() {
-      final RefactoringModelImpl refactoringModel = new RefactoringModelImpl();
+      RefactoringModelImpl refactoringModel = new RefactoringModelImpl();
       return refactoringModel;
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public Type createType() {
-      final TypeImpl type = new TypeImpl();
+      TypeImpl type = new TypeImpl();
       return type;
    }
 
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * 
     * @generated
     */
    @Override
    public RefactoringPackage getRefactoringPackage() {
-      return (RefactoringPackage) getEPackage();
+      return (RefactoringPackage)getEPackage();
    }
 
 } // RefactoringFactoryImpl

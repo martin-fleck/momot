@@ -12,7 +12,7 @@
  *******************************************************************************/
 package at.ac.tuwien.big.momot.search.algorithm.operator.mutation;
 
-import at.ac.tuwien.big.moea.search.algorithm.operator.mutation.AbstractMutationVariation;
+import at.ac.tuwien.big.moea.problem.solution.variable.PlaceholderVariable;
 import at.ac.tuwien.big.momot.ModuleManager;
 import at.ac.tuwien.big.momot.problem.solution.TransformationSolution;
 import at.ac.tuwien.big.momot.problem.solution.variable.ITransformationVariable;
@@ -36,7 +36,7 @@ import org.moeaframework.core.PRNG;
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.Variable;
 
-public class EqualChangeMutation extends AbstractMutationVariation {
+public class EqualChangeMutation extends AbstractTransformationMutation {
 
    private static class Changer {
       private final BiFunction<Solution, Integer, Variable> modifyer;
@@ -68,19 +68,25 @@ public class EqualChangeMutation extends AbstractMutationVariation {
    private static BiFunction<Solution, Integer, Boolean> OK_TEST = (sol, v) -> true;
 
    private static BiFunction<Solution, Integer, Boolean> NON_EMPTY_TEST = (sol,
-         v) -> (sol.getVariable(v) instanceof ITransformationVariable);
+         var) -> (sol.getVariable(var) instanceof ITransformationVariable
+               && !(sol.getVariable(var) instanceof PlaceholderVariable));
 
    private static BiFunction<Solution, Integer, Boolean> PARAMETER_HAVER_TEST = (sol, v) -> {
       final Variable var = sol.getVariable(v);
-      if(var instanceof ITransformationVariable) {
+      if(var instanceof ITransformationVariable && !(var instanceof PlaceholderVariable)) {
          final ITransformationVariable itv = (ITransformationVariable) var;
          boolean hasNonNullParameter = false;
-         for(final Parameter par : itv.getUnit().getParameters()) {
-            if(itv.getParameterValue(par) != null) {
-               hasNonNullParameter = true;
-               break;
+         if(itv.getUnit() != null) {
+            for(final Parameter par : itv.getUnit().getParameters()) {
+               if(itv.getParameterValue(par) != null) {
+                  hasNonNullParameter = true;
+                  break;
+               }
             }
+         } else {
+            System.err.println("Variable " + var + " has no rule!");
          }
+
          return hasNonNullParameter;
       }
       return false;
@@ -89,14 +95,13 @@ public class EqualChangeMutation extends AbstractMutationVariation {
    final static int MAX_TRIES = 3;
 
    private static final int MAX_SUBTRIES = 3;
-
    private final Map<BiFunction<Solution, Integer, Boolean>, List<Changer>> changers = new HashMap<>();
 
    {
       addChanger(new Changer(1.0 / 3, NON_EMPTY_TEST, (x) -> new TransformationPlaceholderVariable()));
       addChanger(new Changer(1.0 / 3, PARAMETER_HAVER_TEST, (x) -> {
          // Copied from TransformationParameterMutation
-         if(x instanceof ITransformationVariable) {
+         if(x instanceof ITransformationVariable && !(x instanceof PlaceholderVariable)) {
             final ITransformationVariable randomVariable = (ITransformationVariable) x;
             final EList<Parameter> ruleParameters = randomVariable.getUnit().getParameters();
             boolean done = false;
@@ -163,73 +168,77 @@ public class EqualChangeMutation extends AbstractMutationVariation {
       changers.clear();
    }
 
-   @Override
-   public Solution[] doEvolve(final Solution[] parents) {
-      boolean done = false;
-      for(int cntTry = 0; !done && cntTry < MAX_TRIES; ++cntTry) {
-         for(final Solution sol : parents) {
-            final Map<BiFunction<Solution, Integer, Boolean>, List<Integer>> applicableIndices = new HashMap<>();
-            final List<Changer> applicableChangers = new ArrayList<>();
-            for(final Entry<BiFunction<Solution, Integer, Boolean>, List<Changer>> entry : changers.entrySet()) {
-               final BiFunction<Solution, Integer, Boolean> checker = entry.getKey();
-               final List<Integer> okIndices = new ArrayList<>();
-               for(int j = 0; j < sol.getNumberOfVariables(); ++j) {
-                  if(checker.apply(sol, j)) {
-                     okIndices.add(j);
-                  }
-               }
-               applicableIndices.put(checker, okIndices);
-               if(!okIndices.isEmpty()) {
-                  applicableChangers.addAll(entry.getValue());
-               }
-            }
-
-            double sum = 0.0;
-            final double[] probs = new double[applicableChangers.size()];
-            int ind = 0;
-
-            for(final Changer operator : applicableChangers) {
-               final double val = operator.getProbability();
-               sum += val;
-               probs[ind] = sum;
-               ++ind;
-            }
-            final double choose = PRNG.nextDouble(0.0, sum);
-            int chosen = 0;
-            for(; chosen < probs.length; ++chosen) {
-               if(choose < probs[chosen]) {
-                  break;
-               }
-            }
-            if(chosen >= probs.length) {
-               // Should not be
-               new Exception().printStackTrace();
-               System.err.println("How can that be?");
-               break;
-            }
-            final Changer changer = applicableChangers.get(chosen);
-            final List<Integer> applicableIndicesList = applicableIndices.get(changer.checker);
-            Collections.shuffle(applicableIndicesList);
-            for(int vn = 0; vn < Math.min(applicableIndicesList.size(), MAX_SUBTRIES); ++vn) {
-               final int location = applicableIndicesList.get(vn);
-               final Variable newVar = changer.getModified(sol, location);
-               if(newVar != null) {
-                  done = true;
-                  sol.setVariable(location, newVar);
-                  break;
-               }
-            }
-         }
-      }
-      return parents;
-   }
-
    private ModuleManager getModuleManager() {
       return moduleManager;
    }
 
    private SearchHelper getSearchHelper() {
       return searchHelper;
+   }
+
+   @Override
+   protected TransformationSolution mutate(final TransformationSolution mutant) {
+
+      boolean done = false;
+
+      final Map<BiFunction<Solution, Integer, Boolean>, List<Integer>> applicableIndices = new HashMap<>();
+      final List<Changer> applicableChangers = new ArrayList<>();
+      for(final Entry<BiFunction<Solution, Integer, Boolean>, List<Changer>> entry : changers.entrySet()) {
+         final BiFunction<Solution, Integer, Boolean> checker = entry.getKey();
+         final List<Integer> okIndices = new ArrayList<>();
+         for(int j = 0; j < mutant.getNumberOfVariables(); ++j) {
+            if(checker.apply(mutant, j)) {
+               okIndices.add(j);
+
+            }
+         }
+         applicableIndices.put(checker, okIndices);
+         if(!okIndices.isEmpty()) {
+            applicableChangers.addAll(entry.getValue());
+         }
+      }
+      for(int cntTry = 0; !done && !applicableChangers.isEmpty() /* && cntTry < MAX_TRIES */; ++cntTry) {
+
+         double sum = 0.0;
+         final double[] probs = new double[applicableChangers.size()];
+         int ind = 0;
+
+         for(final Changer operator : applicableChangers) {
+            final double val = operator.getProbability();
+            sum += val;
+            probs[ind] = sum;
+            ++ind;
+         }
+         final double choose = PRNG.nextDouble(0.0, sum);
+         int chosen = 0;
+         for(; chosen < probs.length; ++chosen) {
+            if(choose < probs[chosen]) {
+               break;
+            }
+         }
+         if(chosen >= probs.length) {
+            // Should not be
+            new Exception().printStackTrace();
+            System.err.println("How can that be?");
+            break;
+         }
+         final Changer changer = applicableChangers.get(chosen);
+         final List<Integer> applicableIndicesList = applicableIndices.get(changer.checker);
+         Collections.shuffle(applicableIndicesList);
+         for(int vn = 0; vn < Math.min(applicableIndicesList.size(), MAX_SUBTRIES); ++vn) {
+            final int location = applicableIndicesList.get(vn);
+            final Variable newVar = changer.getModified(mutant, location);
+            if(newVar != null) {
+               done = true;
+               mutant.setVariable(location, newVar);
+               break;
+            }
+         }
+         if(!done) {
+            applicableChangers.remove(changer);
+         }
+      }
+      return mutant;
    }
 
 }

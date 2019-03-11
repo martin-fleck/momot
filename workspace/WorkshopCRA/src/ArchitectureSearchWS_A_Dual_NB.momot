@@ -18,6 +18,7 @@ import at.ac.tuwien.big.moea.^search.^fitness.comparator.ObjectiveFitnessCompara
 import icmt.tool.momot.demo.Config
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationParameterMutation
 import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.TransformationVariableMutation
+import at.ac.tuwien.big.momot.^search.algorithm.operator.mutation.EqualChangeMutation
 
 initialization = {
    ArchitecturePackage.eINSTANCE.eClass // register package
@@ -76,28 +77,16 @@ search = {
    algorithms      = {
       //
       //NSGAII_ORI : moea.createNSGAII()
-      NSGAII : moea.createNSGAII(
+      	NSGAII : moea.createNSGAII(
 				new TournamentSelection(2),
-				new OnePointCrossover(1.0),  
-				new TransformationPlaceholderMutation(0.05),
-				new TransformationParameterMutation(0.05,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.05))
+				new OnePointCrossover(1.0),
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
+				
 		NSGAII_OM : moea.createNSGAII(
-				new TournamentSelection(2),  
-				new TransformationPlaceholderMutation(0.4),
-				new TransformationParameterMutation(0.4,orchestration.moduleManager
-					
-				),
-				new TransformationVariableMutation(orchestration.searchHelper,0.4)) /* 
-      NSGAIII : moea.createNSGAIII()
-      eMOEA   : moea.createEpsilonMOEA()
-      
-      hc: local.createHillClimbing(new IncreasingNeighborhoodFunction(      	
-      	orchestration.searchHelper,100), new ObjectiveFitnessComparator(0))*/
-      	
-      	/*rd: local.createRandomDescent(new IncreasingNeighborhoodFunction(      	
+				new TournamentSelection(2),
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
+		
+		/*rd: local.createRandomDescent(new IncreasingNeighborhoodFunction(      	
       	orchestration.searchHelper,100), new ObjectiveFitnessComparator(0))*/
       
       /*sa1: local.createSA(false,false,0.03)

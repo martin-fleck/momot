@@ -3,68 +3,187 @@ Population with 1 solution(s):
 ------------------
 Solution 1/1
 ------------------
-Number of variables: 12
+Number of variables: 40
   Variable[0]: Assignment for unit 'createClass':
-- parameter 'srcId' => '2h'
+- parameter 'srcId' => 'vz'
 - parameter 'initFeat' => 'A3'
 
-  Variable[1]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'a8'
-- parameter 'trgClass' => 'Hu'
-- parameter 'feat' => 'M1'
+  Variable[1]: Assignment for unit 'createClass':
+- parameter 'srcId' => 'kU'
+- parameter 'initFeat' => 'A2'
 
   Variable[2]: Assignment for unit 'assignFeature':
-- parameter 'srcClass' => '2h'
-- parameter 'feat' => 'A4'
-
-  Variable[3]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'B0'
-- parameter 'trgClass' => 'b3'
-- parameter 'feat' => 'A2'
-
-  Variable[4]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'hl'
-- parameter 'trgClass' => 'FF'
-- parameter 'feat' => 'A1'
-
-  Variable[5]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => '2h'
-- parameter 'trgClass' => 'Uj'
-- parameter 'feat' => 'M2'
-
-  Variable[6]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'pw'
-- parameter 'trgClass' => '2h'
-- parameter 'feat' => 'A2'
-
-  Variable[7]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => '2h'
-- parameter 'trgClass' => 'Bl'
-- parameter 'feat' => 'A3'
-
-  Variable[8]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => '2h'
-- parameter 'trgClass' => 'D2'
-- parameter 'feat' => 'M3'
-
-  Variable[9]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'gt'
-- parameter 'trgClass' => 'I8'
-- parameter 'feat' => 'A4'
-
-  Variable[10]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'fq'
-- parameter 'trgClass' => '2h'
+- parameter 'srcClass' => 'vz'
 - parameter 'feat' => 'M1'
 
-  Variable[11]: Match for rule 'moveFeature':
-- parameter 'srcClass' => 'Qu'
-- parameter 'trgClass' => '2h'
+  Variable[3]: Assignment for unit 'createClass':
+- parameter 'srcId' => 'nj'
+- parameter 'initFeat' => 'M2'
+
+  Variable[4]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'trgClass' => 'kU'
+- parameter 'feat' => 'A3'
+
+  Variable[5]: Assignment for unit 'createClass':
+- parameter 'srcId' => 'LR'
+- parameter 'initFeat' => 'M3'
+
+  Variable[6]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'nj'
+- parameter 'trgClass' => 'LR'
+- parameter 'feat' => 'M2'
+
+  Variable[7]: Assignment for unit 'deleteEmptyClass':
+- parameter 'srcClass' => 'nj'
+
+  Variable[8]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'feat' => 'A2'
+
+  Variable[9]: Assignment for unit 'createClass':
+- parameter 'srcId' => 'd4'
+- parameter 'initFeat' => 'A1'
+
+  Variable[10]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'kU'
+- parameter 'feat' => 'A5'
+
+  Variable[11]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'feat' => 'M4'
+
+  Variable[12]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'trgClass' => 'vz'
+- parameter 'feat' => 'A2'
+
+  Variable[13]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'kU'
+- parameter 'feat' => 'A4'
+
+  Variable[14]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'kU'
+- parameter 'trgClass' => 'd4'
+- parameter 'feat' => 'A4'
+
+  Variable[15]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'kU'
+- parameter 'trgClass' => 'vz'
+- parameter 'feat' => 'A5'
+
+  Variable[16]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'trgClass' => 'vz'
+- parameter 'feat' => 'M2'
+
+  Variable[17]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'd4'
+- parameter 'trgClass' => 'LR'
+- parameter 'feat' => 'A1'
+
+  Variable[18]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'kU'
+- parameter 'trgClass' => 'LR'
+- parameter 'feat' => 'A3'
+
+  Variable[19]: Assignment for unit 'deleteEmptyClass':
+- parameter 'srcClass' => 'kU'
+
+  Variable[20]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'trgClass' => 'LR'
+- parameter 'feat' => 'M4'
+
+  Variable[21]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'trgClass' => 'd4'
+- parameter 'feat' => 'M4'
+
+  Variable[22]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'feat' => 'A3'
+
+  Variable[23]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'feat' => 'M4'
+
+  Variable[24]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'd4'
+- parameter 'feat' => 'A1'
+
+  Variable[25]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'd4'
+- parameter 'trgClass' => 'vz'
+- parameter 'feat' => 'A1'
+
+  Variable[26]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'd4'
+- parameter 'trgClass' => 'LR'
+- parameter 'feat' => 'A4'
+
+  Variable[27]: Assignment for unit 'deleteEmptyClass':
+- parameter 'srcClass' => 'd4'
+
+  Variable[28]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'feat' => 'A4'
+
+  Variable[29]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'trgClass' => 'LR'
+- parameter 'feat' => 'A2'
+
+  Variable[30]: Match for rule 'reassignClassFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'feat' => 'M2'
+
+  Variable[31]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'vz'
+- parameter 'trgClass' => 'LR'
+- parameter 'feat' => 'M1'
+
+  Variable[32]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'vz'
 - parameter 'feat' => 'M3'
 
-Number of attributes: 1
-  AggregatedFitness: -3.0
+  Variable[33]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'trgClass' => 'vz'
+- parameter 'feat' => 'M3'
+
+  Variable[34]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'trgClass' => 'vz'
+- parameter 'feat' => 'A1'
+
+  Variable[35]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'LR'
+- parameter 'trgClass' => 'vz'
+- parameter 'feat' => 'M1'
+
+  Variable[36]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'om'
+- parameter 'feat' => 'M3'
+
+  Variable[37]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'j3'
+- parameter 'feat' => 'M3'
+
+  Variable[38]: Assignment for unit 'reassignClassFeature':
+- parameter 'srcClass' => 'UU'
+- parameter 'feat' => 'M3'
+
+  Variable[39]: Assignment for unit 'moveFeature':
+- parameter 'srcClass' => 'JM'
+- parameter 'trgClass' => 'UU'
+- parameter 'feat' => 'A2'
+
+Number of attributes: 3
+  AggregatedFitness: -1.6666666666666665
+  rank: 0
+  crowdingDistance: Infinity
 Number of objectives: 1
-  totalFitness: -3.0
+  totalFitness: -1.6666666666666665
 Number of constraints: 1
   MinimiseClasslessFeatures: 0.0

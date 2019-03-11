@@ -14,7 +14,6 @@ import java.util.Map;
 import java.util.Random;
 
 import at.ac.tuwien.big.momot.examples.refactoring.RefractoringCostDimension;
-import at.ac.tuwien.big.momot.examples.refactoring.momot.Refactoring;
 import at.ac.tuwien.big.momot.examples.refactoring.momot.Refactoring_A;
 import at.ac.tuwien.big.momot.examples.refactoring.momot.Refactoring_A_multi;
 import at.ac.tuwien.big.momot.examples.refactoring.momot.Refactoring_B;
