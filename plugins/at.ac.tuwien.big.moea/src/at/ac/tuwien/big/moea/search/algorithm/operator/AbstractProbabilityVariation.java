@@ -60,7 +60,11 @@ public abstract class AbstractProbabilityVariation implements IProbabilityVariat
    public Solution[] evolve(final Solution[] parents) {
       checkArity(parents);
       if(!shouldEvolve()) {
-         return parents;
+         final Solution[] copy = new Solution[parents.length];
+         for(int i = 0; i < parents.length; i++) {
+            copy[i] = parents[i].copy();
+         }
+         return copy;
       }
 
       return doEvolve(parents);

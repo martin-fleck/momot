@@ -40,6 +40,7 @@ import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 
 public class SearchHelper {
+
    public static class ProfileValues {
       public long applicationTime = 0;
       public long applicationTimeStart = 0;
@@ -63,6 +64,8 @@ public class SearchHelper {
                + findMatchCount + "," + findMatchTime + "," + executionCount + "," + executionTime;
       }
    }
+
+   public static boolean INITIALIZE_SOLUTIONS = true;
 
    public static final int UNLIMITED = -1;
 
@@ -251,6 +254,7 @@ public class SearchHelper {
 
    public TransformationSolution createRandomTransformationSolution(final int solutionLength, final int nrObjectives,
          final int nrConstraints) {
+
       final EGraph searchGraph = MomotUtil.copy(getSearchOrchestration().getProblemGraph());
       final TransformationSolution solution = createEmptyTransformationSolution(solutionLength, nrObjectives,
             nrConstraints);
@@ -264,7 +268,7 @@ public class SearchHelper {
             if(variable.isExecuted()) {
                variables.add(variable);
             }
-            if(variables.size() >= solutionLength) {
+            if(variables.size() >= solutionLength || !INITIALIZE_SOLUTIONS) {
                break;
             }
             variable = findUnitApplication(searchGraph);

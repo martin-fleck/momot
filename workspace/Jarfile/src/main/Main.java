@@ -58,6 +58,7 @@ import icmt.tool.momot.demo.ArchitectureSearchWS_E_MI;
 import icmt.tool.momot.demo.ArchitectureSearchWS_E_NB;
 import icmt.tool.momot.demo.ArchitectureSearchWS_E_NB_MI;
 import mdetools.momot.cra.manyiter.ArchitectureSearchWS_A_Dual_NB_MI;
+import nextReleaseProblem.UnInitializer;
 
 public class Main {
 
@@ -71,6 +72,7 @@ public class Main {
 	static int batchSize = 30;
 	
 	public static void main(String[] args) {
+		new UnInitializer();
 		List<String> newArgsL = new ArrayList<>();
 		for (int i = 0; i < args.length; ++i) {
 			if ("--batchSize".equals(args[i])) {
