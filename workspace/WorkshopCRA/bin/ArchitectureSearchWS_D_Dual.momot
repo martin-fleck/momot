@@ -66,7 +66,7 @@ search = {
       	 //totalFitnessBasic: minimize {FitnessCalculatorCRA.calculateCRAIndex(root as ClassModel)}
          //CouplingRatio : minimize { icmt.tool.momot.demo.FitnessCalculatorCRA.calculateCoupling(root as ClassModel) }
          //CohesionRatio : maximize { icmt.tool.momot.demo.FitnessCalculatorCRA.calculateCohesion(root as ClassModel) }
-         SolutionLength : minimize new TransformationLengthDimension
+         //SolutionLength : minimize new TransformationLengthDimension
       }
       constraints = {
       	MinimiseClasslessFeatures: minimize { MinimiseClasslessFeatures.computeFitness(root as ClassModel) }
@@ -82,9 +82,9 @@ search = {
 				new OnePointCrossover(1.0),
 				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
 				
-		NSGAII_OM : moea.createNSGAII(
+		/*NSGAII_OM : moea.createNSGAII(
 				new TournamentSelection(2),
-				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))
+				new EqualChangeMutation(1.0,orchestration.searchHelper, orchestration.moduleManager))*/
 //      NSGAIII : moea.createNSGAIII()
 //      eMOEA   : moea.createEpsilonMOEA()
 //      
@@ -111,8 +111,8 @@ search = {
  
 experiment = {
    populationSize    = 100 
-   maxEvaluations    = 1000000
-   maxSeconds = 180
+   maxEvaluations    = 10000
+   //maxSeconds = 180
    nrRuns            = 1
    progressListeners = [ new SeedRuntimePrintListener ]
 }

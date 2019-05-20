@@ -9,6 +9,7 @@ import icmt.tool.momot.demo.architectureCRA.Feature;
 import icmt.tool.momot.demo.architectureCRA.Method;
 import icmt.tool.momot.demo.architectureCRA.NamedElement;
 
+import icmt.tool.momot.demo.architectureCRA.SenselessToken;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -95,6 +96,10 @@ public class ArchitectureAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseSenselessToken(SenselessToken object) {
+				return createSenselessTokenAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -197,6 +202,20 @@ public class ArchitectureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link icmt.tool.momot.demo.architectureCRA.SenselessToken <em>Senseless Token</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see icmt.tool.momot.demo.architectureCRA.SenselessToken
+	 * @generated
+	 */
+	public Adapter createSenselessTokenAdapter() {
 		return null;
 	}
 

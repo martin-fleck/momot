@@ -11,7 +11,7 @@
       <package
             uri="http://momot.big.tuwien.ac.at/architectureCRA/1.0"
             class="icmt.tool.momot.demo.architectureCRA.ArchitecturePackage"
-            genModel="models/architectureCRA.genmodel"/>
+            genModel="transformations/architectureCRA.genmodel"/>
    </extension>
 
 </plugin>

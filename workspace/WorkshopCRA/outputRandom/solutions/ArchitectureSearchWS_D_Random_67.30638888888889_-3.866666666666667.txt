@@ -1,0 +1,520 @@
+Number of variables: 160
+  Variable[0]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_37'
+- parameter 'feat' => 'A7'
+
+  Variable[1]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_30'
+- parameter 'feat' => 'M20'
+
+  Variable[2]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_23'
+- parameter 'feat' => 'M38'
+
+  Variable[3]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'A18'
+
+  Variable[4]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_35'
+- parameter 'feat' => 'M15'
+
+  Variable[5]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_23'
+- parameter 'feat' => 'M27'
+
+  Variable[6]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_28'
+- parameter 'feat' => 'M40'
+
+  Variable[7]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'M24'
+
+  Variable[8]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_62'
+- parameter 'feat' => 'A20'
+
+  Variable[9]: -Placeholder-
+
+  Variable[10]: -Placeholder-
+
+  Variable[11]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_13'
+- parameter 'feat' => 'M28'
+
+  Variable[12]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_53'
+- parameter 'feat' => 'A12'
+
+  Variable[13]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_23'
+- parameter 'feat' => 'A27'
+
+  Variable[14]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_67'
+- parameter 'feat' => 'A2'
+
+  Variable[15]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_76'
+- parameter 'feat' => 'A21'
+
+  Variable[16]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_44'
+- parameter 'feat' => 'M26'
+
+  Variable[17]: -Placeholder-
+
+  Variable[18]: -Placeholder-
+
+  Variable[19]: -Placeholder-
+
+  Variable[20]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_14'
+- parameter 'feat' => 'A32'
+
+  Variable[21]: -Placeholder-
+
+  Variable[22]: -Placeholder-
+
+  Variable[23]: -Placeholder-
+
+  Variable[24]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_19'
+- parameter 'feat' => 'M39'
+
+  Variable[25]: -Placeholder-
+
+  Variable[26]: -Placeholder-
+
+  Variable[27]: -Placeholder-
+
+  Variable[28]: Match for rule 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'M23'
+
+  Variable[29]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_20'
+- parameter 'feat' => 'A10'
+
+  Variable[30]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_54'
+- parameter 'feat' => 'M17'
+
+  Variable[31]: -Placeholder-
+
+  Variable[32]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_14'
+- parameter 'feat' => 'A29'
+
+  Variable[33]: -Placeholder-
+
+  Variable[34]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_64'
+- parameter 'feat' => 'M7'
+
+  Variable[35]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_62'
+- parameter 'feat' => 'A9'
+
+  Variable[36]: -Placeholder-
+
+  Variable[37]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_33'
+- parameter 'feat' => 'M23'
+
+  Variable[38]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_75'
+- parameter 'feat' => 'A28'
+
+  Variable[39]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'M37'
+
+  Variable[40]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_32'
+- parameter 'feat' => 'A23'
+
+  Variable[41]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_45'
+- parameter 'feat' => 'A39'
+
+  Variable[42]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_6'
+- parameter 'feat' => 'A17'
+
+  Variable[43]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_31'
+- parameter 'feat' => 'A13'
+
+  Variable[44]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_6'
+- parameter 'feat' => 'A31'
+
+  Variable[45]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_38'
+- parameter 'feat' => 'M16'
+
+  Variable[46]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_58'
+- parameter 'feat' => 'M9'
+
+  Variable[47]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_55'
+- parameter 'feat' => 'M32'
+
+  Variable[48]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_75'
+- parameter 'feat' => 'M20'
+
+  Variable[49]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_23'
+- parameter 'feat' => 'M35'
+
+  Variable[50]: -Placeholder-
+
+  Variable[51]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_25'
+- parameter 'feat' => 'A14'
+
+  Variable[52]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_26'
+- parameter 'feat' => 'A30'
+
+  Variable[53]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_26'
+- parameter 'feat' => 'A22'
+
+  Variable[54]: -Placeholder-
+
+  Variable[55]: -Placeholder-
+
+  Variable[56]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_26'
+- parameter 'feat' => 'M22'
+
+  Variable[57]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_33'
+- parameter 'feat' => 'A6'
+
+  Variable[58]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_67'
+- parameter 'feat' => 'M27'
+
+  Variable[59]: -Placeholder-
+
+  Variable[60]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'M36'
+
+  Variable[61]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_16'
+- parameter 'feat' => 'M3'
+
+  Variable[62]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'M2'
+
+  Variable[63]: -Placeholder-
+
+  Variable[64]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_28'
+- parameter 'feat' => 'A5'
+
+  Variable[65]: -Placeholder-
+
+  Variable[66]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_42'
+- parameter 'feat' => 'A25'
+
+  Variable[67]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_13'
+- parameter 'feat' => 'M2'
+
+  Variable[68]: -Placeholder-
+
+  Variable[69]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_52'
+- parameter 'feat' => 'M13'
+
+  Variable[70]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_50'
+- parameter 'feat' => 'A37'
+
+  Variable[71]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_12'
+- parameter 'feat' => 'A20'
+
+  Variable[72]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_26'
+- parameter 'feat' => 'M14'
+
+  Variable[73]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_36'
+- parameter 'feat' => 'A36'
+
+  Variable[74]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_42'
+- parameter 'feat' => 'M18'
+
+  Variable[75]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_38'
+- parameter 'feat' => 'M30'
+
+  Variable[76]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'M8'
+
+  Variable[77]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_30'
+- parameter 'feat' => 'M19'
+
+  Variable[78]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_61'
+- parameter 'feat' => 'M35'
+
+  Variable[79]: -Placeholder-
+
+  Variable[80]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_25'
+- parameter 'feat' => 'A19'
+
+  Variable[81]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_38'
+- parameter 'feat' => 'M10'
+
+  Variable[82]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_36'
+- parameter 'feat' => 'A2'
+
+  Variable[83]: -Placeholder-
+
+  Variable[84]: -Placeholder-
+
+  Variable[85]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_15'
+- parameter 'feat' => 'M1'
+
+  Variable[86]: -Placeholder-
+
+  Variable[87]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_71'
+- parameter 'feat' => 'A15'
+
+  Variable[88]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_28'
+- parameter 'feat' => 'A33'
+
+  Variable[89]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_23'
+- parameter 'feat' => 'M34'
+
+  Variable[90]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_69'
+- parameter 'feat' => 'M25'
+
+  Variable[91]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_35'
+- parameter 'feat' => 'M33'
+
+  Variable[92]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_20'
+- parameter 'feat' => 'A16'
+
+  Variable[93]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_30'
+- parameter 'feat' => 'M12'
+
+  Variable[94]: -Placeholder-
+
+  Variable[95]: -Placeholder-
+
+  Variable[96]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_23'
+- parameter 'feat' => 'A34'
+
+  Variable[97]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_35'
+- parameter 'feat' => 'M4'
+
+  Variable[98]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_69'
+- parameter 'feat' => 'A16'
+
+  Variable[99]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_79'
+- parameter 'feat' => 'A35'
+
+  Variable[100]: -Placeholder-
+
+  Variable[101]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_76'
+- parameter 'feat' => 'A11'
+
+  Variable[102]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_31'
+- parameter 'feat' => 'A40'
+
+  Variable[103]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_15'
+- parameter 'feat' => 'A24'
+
+  Variable[104]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_78'
+- parameter 'feat' => 'M6'
+
+  Variable[105]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_64'
+- parameter 'feat' => 'A1'
+
+  Variable[106]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_31'
+- parameter 'feat' => 'M21'
+
+  Variable[107]: -Placeholder-
+
+  Variable[108]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_51'
+- parameter 'feat' => 'M23'
+
+  Variable[109]: -Placeholder-
+
+  Variable[110]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_38'
+- parameter 'feat' => 'M11'
+
+  Variable[111]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_50'
+- parameter 'feat' => 'M31'
+
+  Variable[112]: -Placeholder-
+
+  Variable[113]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_47'
+- parameter 'feat' => 'M31'
+
+  Variable[114]: -Placeholder-
+
+  Variable[115]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_37'
+- parameter 'feat' => 'A3'
+
+  Variable[116]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_37'
+- parameter 'feat' => 'A4'
+
+  Variable[117]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_11'
+- parameter 'feat' => 'A38'
+
+  Variable[118]: -Placeholder-
+
+  Variable[119]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_28'
+- parameter 'feat' => 'A8'
+
+  Variable[120]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_67'
+- parameter 'feat' => 'A4'
+
+  Variable[121]: -Placeholder-
+
+  Variable[122]: -Placeholder-
+
+  Variable[123]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_65'
+- parameter 'feat' => 'A8'
+
+  Variable[124]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_14'
+- parameter 'feat' => 'A14'
+
+  Variable[125]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_45'
+- parameter 'feat' => 'M29'
+
+  Variable[126]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_38'
+- parameter 'feat' => 'M5'
+
+  Variable[127]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_56'
+- parameter 'feat' => 'A40'
+
+  Variable[128]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_74'
+- parameter 'feat' => 'A26'
+
+  Variable[129]: Assignment for unit 'assignFeature':
+- parameter 'srcClass' => 'Class_63'
+- parameter 'feat' => 'A26'
+
+  Variable[130]: -Placeholder-
+
+  Variable[131]: -Placeholder-
+
+  Variable[132]: -Placeholder-
+
+  Variable[133]: -Placeholder-
+
+  Variable[134]: -Placeholder-
+
+  Variable[135]: -Placeholder-
+
+  Variable[136]: -Placeholder-
+
+  Variable[137]: -Placeholder-
+
+  Variable[138]: -Placeholder-
+
+  Variable[139]: -Placeholder-
+
+  Variable[140]: -Placeholder-
+
+  Variable[141]: -Placeholder-
+
+  Variable[142]: -Placeholder-
+
+  Variable[143]: -Placeholder-
+
+  Variable[144]: -Placeholder-
+
+  Variable[145]: -Placeholder-
+
+  Variable[146]: -Placeholder-
+
+  Variable[147]: -Placeholder-
+
+  Variable[148]: -Placeholder-
+
+  Variable[149]: -Placeholder-
+
+  Variable[150]: -Placeholder-
+
+  Variable[151]: -Placeholder-
+
+  Variable[152]: -Placeholder-
+
+  Variable[153]: -Placeholder-
+
+  Variable[154]: -Placeholder-
+
+  Variable[155]: -Placeholder-
+
+  Variable[156]: -Placeholder-
+
+  Variable[157]: -Placeholder-
+
+  Variable[158]: -Placeholder-
+
+  Variable[159]: -Placeholder-
+
+Number of attributes: 3
+  AggregatedFitness: 63.43972222222222
+  rank: 0
+  crowdingDistance: Infinity
+Number of objectives: 2
+  CouplingRatio: 67.30638888888889
+  CohesionRatio: -3.866666666666667
+Number of constraints: 1
+  MinimiseClasslessFeatures: 0.0

@@ -131,13 +131,31 @@ public interface ArchitecturePackage extends EPackage {
 	int CLASS_MODEL__FEATURES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_MODEL__COUNTER = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Classcounter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_MODEL__CLASSCOUNTER = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Class Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int CLASS_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Class Model</em>' class.
@@ -177,13 +195,22 @@ public interface ArchitecturePackage extends EPackage {
 	int CLASS__ENCAPSULATES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Cind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__CIND = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int CLASS_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Class</em>' class.
@@ -223,13 +250,49 @@ public interface ArchitecturePackage extends EPackage {
 	int FEATURE__IS_ENCAPSULATED_BY = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__NEXT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Prev</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__PREV = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Senseless Token</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__SENSELESS_TOKEN = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Find</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__FIND = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int FEATURE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Feature</em>' class.
@@ -267,6 +330,42 @@ public interface ArchitecturePackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE__IS_ENCAPSULATED_BY = FEATURE__IS_ENCAPSULATED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__NEXT = FEATURE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Prev</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__PREV = FEATURE__PREV;
+
+	/**
+	 * The feature id for the '<em><b>Senseless Token</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__SENSELESS_TOKEN = FEATURE__SENSELESS_TOKEN;
+
+	/**
+	 * The feature id for the '<em><b>Find</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__FIND = FEATURE__FIND;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -315,6 +414,42 @@ public interface ArchitecturePackage extends EPackage {
 	int METHOD__IS_ENCAPSULATED_BY = FEATURE__IS_ENCAPSULATED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__NEXT = FEATURE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Prev</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__PREV = FEATURE__PREV;
+
+	/**
+	 * The feature id for the '<em><b>Senseless Token</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__SENSELESS_TOKEN = FEATURE__SENSELESS_TOKEN;
+
+	/**
+	 * The feature id for the '<em><b>Find</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__FIND = FEATURE__FIND;
+
+	/**
 	 * The feature id for the '<em><b>Data Dependency</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +487,35 @@ public interface ArchitecturePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link icmt.tool.momot.demo.architectureCRA.impl.SenselessTokenImpl <em>Senseless Token</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see icmt.tool.momot.demo.architectureCRA.impl.SenselessTokenImpl
+	 * @see icmt.tool.momot.demo.architectureCRA.impl.ArchitecturePackageImpl#getSenselessToken()
+	 * @generated
+	 */
+	int SENSELESS_TOKEN = 6;
+
+	/**
+	 * The number of structural features of the '<em>Senseless Token</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSELESS_TOKEN_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Senseless Token</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSELESS_TOKEN_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link icmt.tool.momot.demo.architectureCRA.ClassModel <em>Class Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,6 +548,28 @@ public interface ArchitecturePackage extends EPackage {
 	EReference getClassModel_Features();
 
 	/**
+	 * Returns the meta object for the attribute '{@link icmt.tool.momot.demo.architectureCRA.ClassModel#getCounter <em>Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Counter</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.ClassModel#getCounter()
+	 * @see #getClassModel()
+	 * @generated
+	 */
+	EAttribute getClassModel_Counter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link icmt.tool.momot.demo.architectureCRA.ClassModel#getClasscounter <em>Classcounter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Classcounter</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.ClassModel#getClasscounter()
+	 * @see #getClassModel()
+	 * @generated
+	 */
+	EAttribute getClassModel_Classcounter();
+
+	/**
 	 * Returns the meta object for class '{@link icmt.tool.momot.demo.architectureCRA.Class <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -403,6 +589,17 @@ public interface ArchitecturePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getClass_Encapsulates();
+
+	/**
+	 * Returns the meta object for the attribute '{@link icmt.tool.momot.demo.architectureCRA.Class#getCind <em>Cind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cind</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.Class#getCind()
+	 * @see #getClass_()
+	 * @generated
+	 */
+	EAttribute getClass_Cind();
 
 	/**
 	 * Returns the meta object for class '{@link icmt.tool.momot.demo.architectureCRA.Attribute <em>Attribute</em>}'.
@@ -468,6 +665,50 @@ public interface ArchitecturePackage extends EPackage {
 	EReference getFeature_IsEncapsulatedBy();
 
 	/**
+	 * Returns the meta object for the reference '{@link icmt.tool.momot.demo.architectureCRA.Feature#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.Feature#getNext()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EReference getFeature_Next();
+
+	/**
+	 * Returns the meta object for the reference '{@link icmt.tool.momot.demo.architectureCRA.Feature#getPrev <em>Prev</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Prev</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.Feature#getPrev()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EReference getFeature_Prev();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link icmt.tool.momot.demo.architectureCRA.Feature#getSenselessToken <em>Senseless Token</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Senseless Token</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.Feature#getSenselessToken()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EReference getFeature_SenselessToken();
+
+	/**
+	 * Returns the meta object for the attribute '{@link icmt.tool.momot.demo.architectureCRA.Feature#getFind <em>Find</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Find</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.Feature#getFind()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EAttribute getFeature_Find();
+
+	/**
 	 * Returns the meta object for class '{@link icmt.tool.momot.demo.architectureCRA.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,6 +728,16 @@ public interface ArchitecturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNamedElement_Name();
+
+	/**
+	 * Returns the meta object for class '{@link icmt.tool.momot.demo.architectureCRA.SenselessToken <em>Senseless Token</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Senseless Token</em>'.
+	 * @see icmt.tool.momot.demo.architectureCRA.SenselessToken
+	 * @generated
+	 */
+	EClass getSenselessToken();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -538,6 +789,22 @@ public interface ArchitecturePackage extends EPackage {
 		EReference CLASS_MODEL__FEATURES = eINSTANCE.getClassModel_Features();
 
 		/**
+		 * The meta object literal for the '<em><b>Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASS_MODEL__COUNTER = eINSTANCE.getClassModel_Counter();
+
+		/**
+		 * The meta object literal for the '<em><b>Classcounter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASS_MODEL__CLASSCOUNTER = eINSTANCE.getClassModel_Classcounter();
+
+		/**
 		 * The meta object literal for the '{@link icmt.tool.momot.demo.architectureCRA.impl.ClassImpl <em>Class</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -554,6 +821,14 @@ public interface ArchitecturePackage extends EPackage {
 		 * @generated
 		 */
 		EReference CLASS__ENCAPSULATES = eINSTANCE.getClass_Encapsulates();
+
+		/**
+		 * The meta object literal for the '<em><b>Cind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASS__CIND = eINSTANCE.getClass_Cind();
 
 		/**
 		 * The meta object literal for the '{@link icmt.tool.momot.demo.architectureCRA.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -610,6 +885,38 @@ public interface ArchitecturePackage extends EPackage {
 		EReference FEATURE__IS_ENCAPSULATED_BY = eINSTANCE.getFeature_IsEncapsulatedBy();
 
 		/**
+		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__NEXT = eINSTANCE.getFeature_Next();
+
+		/**
+		 * The meta object literal for the '<em><b>Prev</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__PREV = eINSTANCE.getFeature_Prev();
+
+		/**
+		 * The meta object literal for the '<em><b>Senseless Token</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__SENSELESS_TOKEN = eINSTANCE.getFeature_SenselessToken();
+
+		/**
+		 * The meta object literal for the '<em><b>Find</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FEATURE__FIND = eINSTANCE.getFeature_Find();
+
+		/**
 		 * The meta object literal for the '{@link icmt.tool.momot.demo.architectureCRA.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -626,6 +933,16 @@ public interface ArchitecturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link icmt.tool.momot.demo.architectureCRA.impl.SenselessTokenImpl <em>Senseless Token</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see icmt.tool.momot.demo.architectureCRA.impl.SenselessTokenImpl
+		 * @see icmt.tool.momot.demo.architectureCRA.impl.ArchitecturePackageImpl#getSenselessToken()
+		 * @generated
+		 */
+		EClass SENSELESS_TOKEN = eINSTANCE.getSenselessToken();
 
 	}
 

@@ -85,7 +85,7 @@ public class InjectedRandomPopulationGenerator<S extends Solution> extends Rando
        * }
        * }
        */
-      System.out.println("Generate empty: " + generateEmpty);
+      // System.out.println("Generate empty: " + generateEmpty);
       while(i < getPopulationSize()) {
          if(generateEmpty) {
             population[i] = getSolutionGenerator().createRandomSolution(1);

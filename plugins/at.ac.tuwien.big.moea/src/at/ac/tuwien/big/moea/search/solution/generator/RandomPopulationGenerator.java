@@ -14,6 +14,8 @@ package at.ac.tuwien.big.moea.search.solution.generator;
 
 import at.ac.tuwien.big.moea.search.solution.generator.solution.IRandomSolutionGenerator;
 
+import java.util.stream.IntStream;
+
 import org.moeaframework.core.Solution;
 
 public class RandomPopulationGenerator<S extends Solution> implements IPopulationGenerator<S> {
@@ -39,11 +41,9 @@ public class RandomPopulationGenerator<S extends Solution> implements IPopulatio
    public S[] initialize() {
       @SuppressWarnings("unchecked")
       final S[] population = (S[]) new Solution[getPopulationSize()];
-
-      for(int i = 0; i < getPopulationSize(); i++) {
+      IntStream.range(0, getPopulationSize()).forEach(i -> {
          population[i] = solutionGenerator.createRandomSolution();
-      }
-
+      });
       return population;
    }
 

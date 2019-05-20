@@ -20,11 +20,11 @@ public abstract class AbstractAlgorithmFactory<S extends Solution> {
       return getSearchOrchestration().createEpsilonBoxArchive(epsilon);
    }
 
-   protected NondominatedPopulation createPopulation() {
+   public NondominatedPopulation createPopulation() {
       return getSearchOrchestration().createPopulation(getEpsilon());
    }
 
-   protected ISearchProblem<S> createProblem() {
+   public ISearchProblem<S> createProblem() {
       return getSearchOrchestration().createProblem();
    }
 

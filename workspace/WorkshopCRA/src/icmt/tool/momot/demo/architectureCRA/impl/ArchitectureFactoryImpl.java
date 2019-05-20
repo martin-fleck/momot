@@ -8,6 +8,7 @@ import icmt.tool.momot.demo.architectureCRA.Attribute;
 import icmt.tool.momot.demo.architectureCRA.ClassModel;
 import icmt.tool.momot.demo.architectureCRA.Method;
 
+import icmt.tool.momot.demo.architectureCRA.SenselessToken;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -64,6 +65,7 @@ public class ArchitectureFactoryImpl extends EFactoryImpl implements Architectur
 			case ArchitecturePackage.CLASS: return createClass();
 			case ArchitecturePackage.ATTRIBUTE: return createAttribute();
 			case ArchitecturePackage.METHOD: return createMethod();
+			case ArchitecturePackage.SENSELESS_TOKEN: return createSenselessToken();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -74,6 +76,7 @@ public class ArchitectureFactoryImpl extends EFactoryImpl implements Architectur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ClassModel createClassModel() {
 		ClassModelImpl classModel = new ClassModelImpl();
 		return classModel;
@@ -84,6 +87,7 @@ public class ArchitectureFactoryImpl extends EFactoryImpl implements Architectur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public icmt.tool.momot.demo.architectureCRA.Class createClass() {
 		ClassImpl class_ = new ClassImpl();
 		return class_;
@@ -94,6 +98,7 @@ public class ArchitectureFactoryImpl extends EFactoryImpl implements Architectur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Attribute createAttribute() {
 		AttributeImpl attribute = new AttributeImpl();
 		return attribute;
@@ -104,6 +109,7 @@ public class ArchitectureFactoryImpl extends EFactoryImpl implements Architectur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
@@ -114,6 +120,18 @@ public class ArchitectureFactoryImpl extends EFactoryImpl implements Architectur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public SenselessToken createSenselessToken() {
+		SenselessTokenImpl senselessToken = new SenselessTokenImpl();
+		return senselessToken;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ArchitecturePackage getArchitecturePackage() {
 		return (ArchitecturePackage)getEPackage();
 	}

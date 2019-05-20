@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ASCII"?>
+<architectureCRA:ClassModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:architectureCRA="http://momot.big.tuwien.ac.at/architectureCRA/1.0" counter="35">
+  <classes name="Class_0"/>
+  <classes name="Class_1"/>
+  <classes name="Class_2"/>
+  <classes name="Class_3" encapsulates="//@features.19 //@features.21 //@features.29 //@features.31 //@features.34"/>
+  <classes name="Class_4"/>
+  <classes name="Class_5"/>
+  <classes name="Class_6"/>
+  <classes name="Class_7"/>
+  <classes name="Class_8" encapsulates="//@features.17 //@features.22 //@features.23 //@features.28 //@features.32"/>
+  <classes name="Class_9" encapsulates="//@features.11"/>
+  <classes name="Class_10"/>
+  <classes name="Class_11"/>
+  <classes name="Class_12"/>
+  <classes name="Class_13"/>
+  <classes name="Class_14"/>
+  <classes name="Class_15"/>
+  <classes name="Class_16" encapsulates="//@features.15 //@features.18"/>
+  <classes name="Class_17"/>
+  <classes name="Class_18"/>
+  <classes name="Class_19"/>
+  <classes name="Class_20"/>
+  <classes name="Class_21" encapsulates="//@features.12 //@features.14 //@features.27"/>
+  <classes name="Class_22"/>
+  <classes name="Class_23" encapsulates="//@features.8 //@features.16 //@features.26 //@features.33"/>
+  <classes name="Class_24" encapsulates="//@features.2"/>
+  <classes name="Class_25"/>
+  <classes name="Class_26"/>
+  <classes name="Class_27" encapsulates="//@features.1 //@features.3 //@features.4 //@features.5 //@features.6 //@features.7 //@features.9 //@features.10 //@features.13 //@features.20"/>
+  <classes name="Class_28" encapsulates="//@features.24 //@features.25 //@features.30"/>
+  <classes name="Class_29"/>
+  <classes name="Class_30"/>
+  <classes name="Class_31"/>
+  <classes name="Class_32"/>
+  <classes name="Class_33"/>
+  <classes name="Class_34" encapsulates="//@features.0"/>
+  <features xsi:type="architectureCRA:Method" name="M13" isEncapsulatedBy="//@classes.34" next="//@features.1" dataDependency="//@features.16 //@features.28 //@features.33" functionalDependency="//@features.1 //@features.2 //@features.4"/>
+  <features xsi:type="architectureCRA:Method" name="M8" isEncapsulatedBy="//@classes.27" next="//@features.2" prev="//@features.0" find="1" dataDependency="//@features.23 //@features.34" functionalDependency="//@features.4 //@features.13 //@features.12"/>
+  <features xsi:type="architectureCRA:Method" name="M7" isEncapsulatedBy="//@classes.24" next="//@features.3" prev="//@features.1" find="2" dataDependency="//@features.25 //@features.21 //@features.28" functionalDependency="//@features.1 //@features.6"/>
+  <features xsi:type="architectureCRA:Method" name="M12" isEncapsulatedBy="//@classes.27" next="//@features.4" prev="//@features.2" find="3" dataDependency="//@features.24 //@features.29" functionalDependency="//@features.0 //@features.6"/>
+  <features xsi:type="architectureCRA:Method" name="M6" isEncapsulatedBy="//@classes.27" next="//@features.5" prev="//@features.3" find="4" dataDependency="//@features.15 //@features.17 //@features.24" functionalDependency="//@features.3 //@features.6 //@features.9 //@features.11"/>
+  <features xsi:type="architectureCRA:Method" name="M11" isEncapsulatedBy="//@classes.27" next="//@features.6" prev="//@features.4" find="5" dataDependency="//@features.16 //@features.20 //@features.33" functionalDependency="//@features.4 //@features.8 //@features.9 //@features.11"/>
+  <features xsi:type="architectureCRA:Method" name="M5" isEncapsulatedBy="//@classes.27" next="//@features.7" prev="//@features.5" find="6" dataDependency="//@features.25 //@features.16 //@features.29" functionalDependency="//@features.7 //@features.9 //@features.10"/>
+  <features xsi:type="architectureCRA:Method" name="M10" isEncapsulatedBy="//@classes.27" next="//@features.8" prev="//@features.6" find="7" dataDependency="//@features.26 //@features.22 //@features.29 //@features.33" functionalDependency="//@features.2 //@features.4 //@features.9 //@features.14"/>
+  <features xsi:type="architectureCRA:Method" name="M9" isEncapsulatedBy="//@classes.23" next="//@features.9" prev="//@features.7" find="8" dataDependency="//@features.22 //@features.31 //@features.32 //@features.33" functionalDependency="//@features.0 //@features.4 //@features.11"/>
+  <features xsi:type="architectureCRA:Method" name="M4" isEncapsulatedBy="//@classes.27" next="//@features.10" prev="//@features.8" find="9" dataDependency="//@features.16 //@features.19 //@features.21 //@features.33" functionalDependency="//@features.0 //@features.1 //@features.2 //@features.8"/>
+  <features xsi:type="architectureCRA:Method" name="M3" isEncapsulatedBy="//@classes.27" next="//@features.11" prev="//@features.9" find="10" dataDependency="//@features.19 //@features.23 //@features.27 //@features.30" functionalDependency="//@features.1 //@features.8 //@features.12"/>
+  <features xsi:type="architectureCRA:Method" name="M2" isEncapsulatedBy="//@classes.9" next="//@features.12" prev="//@features.10" find="11" dataDependency="//@features.15 //@features.22 //@features.28 //@features.32" functionalDependency="//@features.2 //@features.6 //@features.9"/>
+  <features xsi:type="architectureCRA:Method" name="M1" isEncapsulatedBy="//@classes.21" next="//@features.13" prev="//@features.11" find="12" dataDependency="//@features.25 //@features.19 //@features.30 //@features.34" functionalDependency="//@features.0 //@features.3 //@features.8"/>
+  <features xsi:type="architectureCRA:Method" name="M14" isEncapsulatedBy="//@classes.27" next="//@features.14" prev="//@features.12" find="13" dataDependency="//@features.19 //@features.21 //@features.22 //@features.31" functionalDependency="//@features.2 //@features.4 //@features.9 //@features.11"/>
+  <features xsi:type="architectureCRA:Method" name="M15" isEncapsulatedBy="//@classes.21" next="//@features.15" prev="//@features.13" find="14" dataDependency="//@features.24 //@features.32 //@features.33" functionalDependency="//@features.3 //@features.13 //@features.12"/>
+  <features xsi:type="architectureCRA:Attribute" name="A2" isEncapsulatedBy="//@classes.16" next="//@features.16" prev="//@features.14" find="15"/>
+  <features xsi:type="architectureCRA:Attribute" name="A1" isEncapsulatedBy="//@classes.23" next="//@features.17" prev="//@features.15" find="16"/>
+  <features xsi:type="architectureCRA:Attribute" name="A4" isEncapsulatedBy="//@classes.8" next="//@features.18" prev="//@features.16" find="17"/>
+  <features xsi:type="architectureCRA:Attribute" name="A3" isEncapsulatedBy="//@classes.16" next="//@features.19" prev="//@features.17" find="18"/>
+  <features xsi:type="architectureCRA:Attribute" name="A6" isEncapsulatedBy="//@classes.3" next="//@features.20" prev="//@features.18" find="19"/>
+  <features xsi:type="architectureCRA:Attribute" name="A5" isEncapsulatedBy="//@classes.27" next="//@features.21" prev="//@features.19" find="20"/>
+  <features xsi:type="architectureCRA:Attribute" name="A8" isEncapsulatedBy="//@classes.3" next="//@features.22" prev="//@features.20" find="21"/>
+  <features xsi:type="architectureCRA:Attribute" name="A20" isEncapsulatedBy="//@classes.8" next="//@features.23" prev="//@features.21" find="22"/>
+  <features xsi:type="architectureCRA:Attribute" name="A7" isEncapsulatedBy="//@classes.8" next="//@features.24" prev="//@features.22" find="23"/>
+  <features xsi:type="architectureCRA:Attribute" name="A9" isEncapsulatedBy="//@classes.28" next="//@features.25" prev="//@features.23" find="24"/>
+  <features xsi:type="architectureCRA:Attribute" name="A19" isEncapsulatedBy="//@classes.28" next="//@features.26" prev="//@features.24" find="25"/>
+  <features xsi:type="architectureCRA:Attribute" name="A18" isEncapsulatedBy="//@classes.23" next="//@features.27" prev="//@features.25" find="26"/>
+  <features xsi:type="architectureCRA:Attribute" name="A11" isEncapsulatedBy="//@classes.21" next="//@features.28" prev="//@features.26" find="27"/>
+  <features xsi:type="architectureCRA:Attribute" name="A10" isEncapsulatedBy="//@classes.8" next="//@features.29" prev="//@features.27" find="28"/>
+  <features xsi:type="architectureCRA:Attribute" name="A13" isEncapsulatedBy="//@classes.3" next="//@features.30" prev="//@features.28" find="29"/>
+  <features xsi:type="architectureCRA:Attribute" name="A12" isEncapsulatedBy="//@classes.28" next="//@features.31" prev="//@features.29" find="30"/>
+  <features xsi:type="architectureCRA:Attribute" name="A15" isEncapsulatedBy="//@classes.3" next="//@features.32" prev="//@features.30" find="31"/>
+  <features xsi:type="architectureCRA:Attribute" name="A14" isEncapsulatedBy="//@classes.8" next="//@features.33" prev="//@features.31" find="32"/>
+  <features xsi:type="architectureCRA:Attribute" name="A17" isEncapsulatedBy="//@classes.23" next="//@features.34" prev="//@features.32" find="33"/>
+  <features xsi:type="architectureCRA:Attribute" name="A16" isEncapsulatedBy="//@classes.3" prev="//@features.33" find="34"/>
+</architectureCRA:ClassModel>

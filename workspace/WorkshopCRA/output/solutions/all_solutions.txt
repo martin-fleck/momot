@@ -3,187 +3,652 @@ Population with 1 solution(s):
 ------------------
 Solution 1/1
 ------------------
-Number of variables: 40
-  Variable[0]: Assignment for unit 'createClass':
-- parameter 'srcId' => 'vz'
-- parameter 'initFeat' => 'A3'
+Number of variables: 160
+  Variable[0]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 0
+- parameter 'cl' => 'Class_11'
 
-  Variable[1]: Assignment for unit 'createClass':
-- parameter 'srcId' => 'kU'
-- parameter 'initFeat' => 'A2'
+  Variable[1]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 1
+- parameter 'cl' => 'Class_22'
 
-  Variable[2]: Assignment for unit 'assignFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'feat' => 'M1'
+  Variable[2]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 2
+- parameter 'cl' => 'Class_19'
 
-  Variable[3]: Assignment for unit 'createClass':
-- parameter 'srcId' => 'nj'
-- parameter 'initFeat' => 'M2'
+  Variable[3]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 3
+- parameter 'cl' => 'Class_22'
 
-  Variable[4]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'trgClass' => 'kU'
-- parameter 'feat' => 'A3'
+  Variable[4]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 4
+- parameter 'cl' => 'Class_0'
 
-  Variable[5]: Assignment for unit 'createClass':
-- parameter 'srcId' => 'LR'
-- parameter 'initFeat' => 'M3'
+  Variable[5]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 5
+- parameter 'cl' => 'Class_21'
 
-  Variable[6]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'nj'
-- parameter 'trgClass' => 'LR'
-- parameter 'feat' => 'M2'
+  Variable[6]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 6
+- parameter 'cl' => 'Class_27'
 
-  Variable[7]: Assignment for unit 'deleteEmptyClass':
-- parameter 'srcClass' => 'nj'
+  Variable[7]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 7
+- parameter 'cl' => 'Class_22'
 
-  Variable[8]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'feat' => 'A2'
+  Variable[8]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 8
+- parameter 'cl' => 'Class_5'
 
-  Variable[9]: Assignment for unit 'createClass':
-- parameter 'srcId' => 'd4'
-- parameter 'initFeat' => 'A1'
+  Variable[9]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 9
+- parameter 'cl' => 'Class_4'
 
-  Variable[10]: Assignment for unit 'assignFeature':
-- parameter 'srcClass' => 'kU'
-- parameter 'feat' => 'A5'
+  Variable[10]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 10
+- parameter 'cl' => 'Class_24'
 
-  Variable[11]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'feat' => 'M4'
+  Variable[11]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 11
+- parameter 'cl' => 'Class_27'
 
-  Variable[12]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'trgClass' => 'vz'
-- parameter 'feat' => 'A2'
+  Variable[12]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 12
+- parameter 'cl' => 'Class_0'
 
-  Variable[13]: Assignment for unit 'assignFeature':
-- parameter 'srcClass' => 'kU'
-- parameter 'feat' => 'A4'
+  Variable[13]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 13
+- parameter 'cl' => 'Class_5'
 
-  Variable[14]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'kU'
-- parameter 'trgClass' => 'd4'
-- parameter 'feat' => 'A4'
+  Variable[14]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 14
+- parameter 'cl' => 'Class_19'
 
-  Variable[15]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'kU'
-- parameter 'trgClass' => 'vz'
-- parameter 'feat' => 'A5'
+  Variable[15]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 15
+- parameter 'cl' => 'Class_0'
 
-  Variable[16]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'trgClass' => 'vz'
-- parameter 'feat' => 'M2'
+  Variable[16]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 16
+- parameter 'cl' => 'Class_28'
 
-  Variable[17]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'd4'
-- parameter 'trgClass' => 'LR'
-- parameter 'feat' => 'A1'
+  Variable[17]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 17
+- parameter 'cl' => 'Class_21'
 
-  Variable[18]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'kU'
-- parameter 'trgClass' => 'LR'
-- parameter 'feat' => 'A3'
+  Variable[18]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 18
+- parameter 'cl' => 'Class_1'
 
-  Variable[19]: Assignment for unit 'deleteEmptyClass':
-- parameter 'srcClass' => 'kU'
+  Variable[19]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 19
+- parameter 'cl' => 'Class_21'
 
-  Variable[20]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'trgClass' => 'LR'
-- parameter 'feat' => 'M4'
+  Variable[20]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 20
+- parameter 'cl' => 'Class_11'
 
-  Variable[21]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'trgClass' => 'd4'
-- parameter 'feat' => 'M4'
+  Variable[21]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 21
+- parameter 'cl' => 'Class_21'
 
-  Variable[22]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'feat' => 'A3'
+  Variable[22]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 22
+- parameter 'cl' => 'Class_22'
 
-  Variable[23]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'feat' => 'M4'
+  Variable[23]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 23
+- parameter 'cl' => 'Class_22'
 
-  Variable[24]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'd4'
-- parameter 'feat' => 'A1'
+  Variable[24]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 24
+- parameter 'cl' => 'Class_28'
 
-  Variable[25]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'd4'
-- parameter 'trgClass' => 'vz'
-- parameter 'feat' => 'A1'
+  Variable[25]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 25
+- parameter 'cl' => 'Class_21'
 
-  Variable[26]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'd4'
-- parameter 'trgClass' => 'LR'
-- parameter 'feat' => 'A4'
+  Variable[26]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 26
+- parameter 'cl' => 'Class_4'
 
-  Variable[27]: Assignment for unit 'deleteEmptyClass':
-- parameter 'srcClass' => 'd4'
+  Variable[27]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 27
+- parameter 'cl' => 'Class_28'
 
-  Variable[28]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'feat' => 'A4'
+  Variable[28]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 28
+- parameter 'cl' => 'Class_5'
 
-  Variable[29]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'trgClass' => 'LR'
-- parameter 'feat' => 'A2'
+  Variable[29]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 29
+- parameter 'cl' => 'Class_5'
 
-  Variable[30]: Match for rule 'reassignClassFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'feat' => 'M2'
+  Variable[30]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 30
+- parameter 'cl' => 'Class_4'
 
-  Variable[31]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'trgClass' => 'LR'
-- parameter 'feat' => 'M1'
+  Variable[31]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 31
+- parameter 'cl' => 'Class_19'
 
-  Variable[32]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'vz'
-- parameter 'feat' => 'M3'
+  Variable[32]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 32
+- parameter 'cl' => 'Class_4'
 
-  Variable[33]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'trgClass' => 'vz'
-- parameter 'feat' => 'M3'
+  Variable[33]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 33
+- parameter 'cl' => 'Class_24'
 
-  Variable[34]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'trgClass' => 'vz'
-- parameter 'feat' => 'A1'
+  Variable[34]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 34
+- parameter 'cl' => 'Class_21'
 
-  Variable[35]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'LR'
-- parameter 'trgClass' => 'vz'
-- parameter 'feat' => 'M1'
+  Variable[35]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 35
+- parameter 'cl' => 'Class_19'
 
-  Variable[36]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'om'
-- parameter 'feat' => 'M3'
+  Variable[36]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 36
+- parameter 'cl' => 'Class_11'
 
-  Variable[37]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'j3'
-- parameter 'feat' => 'M3'
+  Variable[37]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 37
+- parameter 'cl' => 'Class_4'
 
-  Variable[38]: Assignment for unit 'reassignClassFeature':
-- parameter 'srcClass' => 'UU'
-- parameter 'feat' => 'M3'
+  Variable[38]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 38
+- parameter 'cl' => 'Class_0'
 
-  Variable[39]: Assignment for unit 'moveFeature':
-- parameter 'srcClass' => 'JM'
-- parameter 'trgClass' => 'UU'
-- parameter 'feat' => 'A2'
+  Variable[39]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 39
+- parameter 'cl' => 'Class_21'
+
+  Variable[40]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 40
+- parameter 'cl' => 'Class_1'
+
+  Variable[41]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 41
+- parameter 'cl' => 'Class_19'
+
+  Variable[42]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 42
+- parameter 'cl' => 'Class_11'
+
+  Variable[43]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 43
+- parameter 'cl' => 'Class_11'
+
+  Variable[44]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 44
+- parameter 'cl' => 'Class_11'
+
+  Variable[45]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 45
+- parameter 'cl' => 'Class_0'
+
+  Variable[46]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 46
+- parameter 'cl' => 'Class_0'
+
+  Variable[47]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 47
+- parameter 'cl' => 'Class_1'
+
+  Variable[48]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 48
+- parameter 'cl' => 'Class_11'
+
+  Variable[49]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 49
+- parameter 'cl' => 'Class_11'
+
+  Variable[50]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 50
+- parameter 'cl' => 'Class_4'
+
+  Variable[51]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 51
+- parameter 'cl' => 'Class_22'
+
+  Variable[52]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 52
+- parameter 'cl' => 'Class_24'
+
+  Variable[53]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 53
+- parameter 'cl' => 'Class_4'
+
+  Variable[54]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 54
+- parameter 'cl' => 'Class_19'
+
+  Variable[55]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 55
+- parameter 'cl' => 'Class_5'
+
+  Variable[56]: Match for rule 'futureAssignClassFeature':
+- parameter 'x' => 56
+- parameter 'cl' => 'Class_0'
+
+  Variable[57]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 57
+- parameter 'cl' => 'Class_4'
+
+  Variable[58]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 58
+- parameter 'cl' => 'Class_0'
+
+  Variable[59]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 59
+- parameter 'cl' => 'Class_19'
+
+  Variable[60]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 60
+- parameter 'cl' => 'Class_21'
+
+  Variable[61]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 61
+- parameter 'cl' => 'Class_21'
+
+  Variable[62]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 62
+- parameter 'cl' => 'Class_5'
+
+  Variable[63]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 63
+- parameter 'cl' => 'Class_11'
+
+  Variable[64]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 64
+- parameter 'cl' => 'Class_1'
+
+  Variable[65]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 65
+- parameter 'cl' => 'Class_0'
+
+  Variable[66]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 66
+- parameter 'cl' => 'Class_5'
+
+  Variable[67]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 67
+- parameter 'cl' => 'Class_21'
+
+  Variable[68]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 68
+- parameter 'cl' => 'Class_22'
+
+  Variable[69]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 69
+- parameter 'cl' => 'Class_27'
+
+  Variable[70]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 70
+- parameter 'cl' => 'Class_21'
+
+  Variable[71]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 71
+- parameter 'cl' => 'Class_19'
+
+  Variable[72]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 72
+- parameter 'cl' => 'Class_0'
+
+  Variable[73]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 73
+- parameter 'cl' => 'Class_24'
+
+  Variable[74]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 74
+- parameter 'cl' => 'Class_19'
+
+  Variable[75]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 75
+- parameter 'cl' => 'Class_4'
+
+  Variable[76]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 76
+- parameter 'cl' => 'Class_4'
+
+  Variable[77]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 77
+- parameter 'cl' => 'Class_24'
+
+  Variable[78]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 78
+- parameter 'cl' => 'Class_11'
+
+  Variable[79]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 79
+- parameter 'cl' => 'Class_4'
+
+  Variable[80]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 80
+- parameter 'cl' => 'Class_24'
+
+  Variable[81]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 81
+- parameter 'cl' => 'Class_23'
+
+  Variable[82]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 82
+- parameter 'cl' => 'Class_22'
+
+  Variable[83]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 83
+- parameter 'cl' => 'Class_4'
+
+  Variable[84]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 84
+- parameter 'cl' => 'Class_28'
+
+  Variable[85]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 85
+- parameter 'cl' => 'Class_26'
+
+  Variable[86]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 86
+- parameter 'cl' => 'Class_1'
+
+  Variable[87]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 87
+- parameter 'cl' => 'Class_16'
+
+  Variable[88]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 88
+- parameter 'cl' => 'Class_23'
+
+  Variable[89]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 89
+- parameter 'cl' => 'Class_4'
+
+  Variable[90]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 90
+- parameter 'cl' => 'Class_29'
+
+  Variable[91]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 91
+- parameter 'cl' => 'Class_11'
+
+  Variable[92]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 92
+- parameter 'cl' => 'Class_4'
+
+  Variable[93]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 93
+- parameter 'cl' => 'Class_4'
+
+  Variable[94]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 94
+- parameter 'cl' => 'Class_28'
+
+  Variable[95]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 95
+- parameter 'cl' => 'Class_28'
+
+  Variable[96]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 96
+- parameter 'cl' => 'Class_26'
+
+  Variable[97]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 97
+- parameter 'cl' => 'Class_11'
+
+  Variable[98]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 98
+- parameter 'cl' => 'Class_29'
+
+  Variable[99]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 99
+- parameter 'cl' => 'Class_29'
+
+  Variable[100]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 100
+- parameter 'cl' => 'Class_11'
+
+  Variable[101]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 101
+- parameter 'cl' => 'Class_11'
+
+  Variable[102]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 102
+- parameter 'cl' => 'Class_2'
+
+  Variable[103]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 103
+- parameter 'cl' => 'Class_29'
+
+  Variable[104]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 104
+- parameter 'cl' => 'Class_4'
+
+  Variable[105]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 105
+- parameter 'cl' => 'Class_10'
+
+  Variable[106]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 106
+- parameter 'cl' => 'Class_26'
+
+  Variable[107]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 107
+- parameter 'cl' => 'Class_15'
+
+  Variable[108]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 108
+- parameter 'cl' => 'Class_10'
+
+  Variable[109]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 109
+- parameter 'cl' => 'Class_4'
+
+  Variable[110]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 110
+- parameter 'cl' => 'Class_28'
+
+  Variable[111]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 111
+- parameter 'cl' => 'Class_26'
+
+  Variable[112]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 112
+- parameter 'cl' => 'Class_2'
+
+  Variable[113]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 113
+- parameter 'cl' => 'Class_29'
+
+  Variable[114]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 114
+- parameter 'cl' => 'Class_29'
+
+  Variable[115]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 115
+- parameter 'cl' => 'Class_4'
+
+  Variable[116]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 116
+- parameter 'cl' => 'Class_26'
+
+  Variable[117]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 117
+- parameter 'cl' => 'Class_11'
+
+  Variable[118]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 118
+- parameter 'cl' => 'Class_26'
+
+  Variable[119]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 119
+- parameter 'cl' => 'Class_23'
+
+  Variable[120]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 120
+- parameter 'cl' => 'Class_4'
+
+  Variable[121]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 121
+- parameter 'cl' => 'Class_4'
+
+  Variable[122]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 122
+- parameter 'cl' => 'Class_11'
+
+  Variable[123]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 123
+- parameter 'cl' => 'Class_2'
+
+  Variable[124]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 124
+- parameter 'cl' => 'Class_29'
+
+  Variable[125]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 125
+- parameter 'cl' => 'Class_26'
+
+  Variable[126]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 126
+- parameter 'cl' => 'Class_28'
+
+  Variable[127]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 127
+- parameter 'cl' => 'Class_2'
+
+  Variable[128]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 128
+- parameter 'cl' => 'Class_29'
+
+  Variable[129]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 129
+- parameter 'cl' => 'Class_27'
+
+  Variable[130]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 130
+- parameter 'cl' => 'Class_11'
+
+  Variable[131]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 131
+- parameter 'cl' => 'Class_11'
+
+  Variable[132]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 132
+- parameter 'cl' => 'Class_2'
+
+  Variable[133]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 133
+- parameter 'cl' => 'Class_2'
+
+  Variable[134]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 134
+- parameter 'cl' => 'Class_4'
+
+  Variable[135]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 135
+- parameter 'cl' => 'Class_11'
+
+  Variable[136]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 136
+- parameter 'cl' => 'Class_2'
+
+  Variable[137]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 137
+- parameter 'cl' => 'Class_4'
+
+  Variable[138]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 138
+- parameter 'cl' => 'Class_29'
+
+  Variable[139]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 139
+- parameter 'cl' => 'Class_4'
+
+  Variable[140]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 140
+- parameter 'cl' => 'Class_11'
+
+  Variable[141]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 141
+- parameter 'cl' => 'Class_10'
+
+  Variable[142]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 142
+- parameter 'cl' => 'Class_23'
+
+  Variable[143]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 143
+- parameter 'cl' => 'Class_11'
+
+  Variable[144]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 144
+- parameter 'cl' => 'Class_29'
+
+  Variable[145]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 145
+- parameter 'cl' => 'Class_11'
+
+  Variable[146]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 146
+- parameter 'cl' => 'Class_11'
+
+  Variable[147]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 147
+- parameter 'cl' => 'Class_2'
+
+  Variable[148]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 148
+- parameter 'cl' => 'Class_10'
+
+  Variable[149]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 149
+- parameter 'cl' => 'Class_28'
+
+  Variable[150]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 150
+- parameter 'cl' => 'Class_29'
+
+  Variable[151]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 151
+- parameter 'cl' => 'Class_26'
+
+  Variable[152]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 152
+- parameter 'cl' => 'Class_10'
+
+  Variable[153]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 153
+- parameter 'cl' => 'Class_2'
+
+  Variable[154]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 154
+- parameter 'cl' => 'Class_4'
+
+  Variable[155]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 155
+- parameter 'cl' => 'Class_2'
+
+  Variable[156]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 156
+- parameter 'cl' => 'Class_4'
+
+  Variable[157]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 157
+- parameter 'cl' => 'Class_29'
+
+  Variable[158]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 158
+- parameter 'cl' => 'Class_23'
+
+  Variable[159]: Assignment for unit 'futureAssignClassFeature':
+- parameter 'x' => 159
+- parameter 'cl' => 'Class_2'
 
 Number of attributes: 3
-  AggregatedFitness: -1.6666666666666665
+  AggregatedFitness: 4.869661513530562
   rank: 0
   crowdingDistance: Infinity
 Number of objectives: 1
-  totalFitness: -1.6666666666666665
+  totalFitness: 4.869661513530562
 Number of constraints: 1
   MinimiseClasslessFeatures: 0.0

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fKpAwFChEemyWfB3fnFW5g">
+  <imports href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fwF3MFChEemyWfB3fnFW5g" name="useClass">
+    <parameters xmi:id="_hRXcsFChEemyWfB3fnFW5g" name="x" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_hRXcsVChEemyWfB3fnFW5g" name="y" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_fwOaEFChEemyWfB3fnFW5g" name="Lhs">
+      <nodes xmi:id="_juhboFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Class"/>
+        <attributes xmi:id="_wXo4QFChEemyWfB3fnFW5g" value="y">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Class/cind"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_kQLXMFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel"/>
+        <attributes xmi:id="_uOah8FChEemyWfB3fnFW5g" value="x">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel/counter"/>
+        </attributes>
+        <attributes xmi:id="_uz5NkFChEemyWfB3fnFW5g" value="y">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel/classcounter"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_k2UKIFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature"/>
+        <attributes xmi:id="_vwwecFChEemyWfB3fnFW5g" value="x">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/find"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fwOaEVChEemyWfB3fnFW5g" name="Rhs">
+      <nodes xmi:id="_juiCsFChEemyWfB3fnFW5g" incoming="_zVmeMFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Class"/>
+        <attributes xmi:id="_wXo4QVChEemyWfB3fnFW5g" value="y">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Class/cind"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_kQL-QFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel"/>
+        <attributes xmi:id="_uOc-MFChEemyWfB3fnFW5g" value="x+1">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel/counter"/>
+        </attributes>
+        <attributes xmi:id="_uz5NkVChEemyWfB3fnFW5g" value="y+1">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel/classcounter"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_k2UKIVChEemyWfB3fnFW5g" outgoing="_zVmeMFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature"/>
+        <attributes xmi:id="_vwwecVChEemyWfB3fnFW5g" value="x">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/find"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_zVmeMFChEemyWfB3fnFW5g" source="_k2UKIVChEemyWfB3fnFW5g" target="_juiCsFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/isEncapsulatedBy"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_juiCsVChEemyWfB3fnFW5g" origin="_juhboFChEemyWfB3fnFW5g" image="_juiCsFChEemyWfB3fnFW5g"/>
+    <mappings xmi:id="_kQL-QVChEemyWfB3fnFW5g" origin="_kQLXMFChEemyWfB3fnFW5g" image="_kQL-QFChEemyWfB3fnFW5g"/>
+    <mappings xmi:id="_k2UxMFChEemyWfB3fnFW5g" origin="_k2UKIFChEemyWfB3fnFW5g" image="_k2UKIVChEemyWfB3fnFW5g"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_0lupUFChEemyWfB3fnFW5g" name="goToFeature">
+    <parameters xmi:id="_3ahsMFChEemyWfB3fnFW5g" name="fn">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_3ahsMVChEemyWfB3fnFW5g" name="x" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_0lwegFChEemyWfB3fnFW5g" name="Lhs">
+      <nodes xmi:id="_6R3FsFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel"/>
+        <attributes xmi:id="_7rkDkFChEemyWfB3fnFW5g" value="x">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel/counter"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_9IIvQFChEemyWfB3fnFW5g" incoming="_Bt29MFCiEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Class"/>
+      </nodes>
+      <nodes xmi:id="_-wqzUFChEemyWfB3fnFW5g" outgoing="_Bt29MFCiEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature"/>
+        <attributes xmi:id="_OJHkAFCiEemyWfB3fnFW5g" value="fn">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-6NJ0FChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature"/>
+        <attributes xmi:id="_Nhp7YFCiEemyWfB3fnFW5g" value="x">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/find"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Bt29MFCiEemyWfB3fnFW5g" source="_-wqzUFChEemyWfB3fnFW5g" target="_9IIvQFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/isEncapsulatedBy"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_0lwegVChEemyWfB3fnFW5g" name="Rhs">
+      <nodes xmi:id="_6R3FsVChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel"/>
+        <attributes xmi:id="_7rkDkVChEemyWfB3fnFW5g" value="x+1">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//ClassModel/counter"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_9IJWUFChEemyWfB3fnFW5g" incoming="_Bt29MVCiEemyWfB3fnFW5g _ADKV8FCiEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Class"/>
+      </nodes>
+      <nodes xmi:id="_-wqzUVChEemyWfB3fnFW5g" outgoing="_Bt29MVCiEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature"/>
+        <attributes xmi:id="_OJHkAVCiEemyWfB3fnFW5g" value="fn">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-6NJ0VChEemyWfB3fnFW5g" outgoing="_ADKV8FCiEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature"/>
+        <attributes xmi:id="_NhrwkFCiEemyWfB3fnFW5g" value="x">
+          <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/find"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Bt29MVCiEemyWfB3fnFW5g" source="_-wqzUVChEemyWfB3fnFW5g" target="_9IJWUFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/isEncapsulatedBy"/>
+      </edges>
+      <edges xmi:id="_ADKV8FCiEemyWfB3fnFW5g" source="_-6NJ0VChEemyWfB3fnFW5g" target="_9IJWUFChEemyWfB3fnFW5g">
+        <type href="http://momot.big.tuwien.ac.at/architectureCRA/1.0#//Feature/isEncapsulatedBy"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_6R3FslChEemyWfB3fnFW5g" origin="_6R3FsFChEemyWfB3fnFW5g" image="_6R3FsVChEemyWfB3fnFW5g"/>
+    <mappings xmi:id="_9IJWUVChEemyWfB3fnFW5g" origin="_9IIvQFChEemyWfB3fnFW5g" image="_9IJWUFChEemyWfB3fnFW5g"/>
+    <mappings xmi:id="_-wqzUlChEemyWfB3fnFW5g" origin="_-wqzUFChEemyWfB3fnFW5g" image="_-wqzUVChEemyWfB3fnFW5g"/>
+    <mappings xmi:id="_-6NJ0lChEemyWfB3fnFW5g" origin="_-6NJ0FChEemyWfB3fnFW5g" image="_-6NJ0VChEemyWfB3fnFW5g"/>
+  </units>
+</henshin:Module>

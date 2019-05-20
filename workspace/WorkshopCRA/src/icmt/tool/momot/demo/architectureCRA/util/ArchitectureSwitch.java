@@ -9,6 +9,7 @@ import icmt.tool.momot.demo.architectureCRA.Feature;
 import icmt.tool.momot.demo.architectureCRA.Method;
 import icmt.tool.momot.demo.architectureCRA.NamedElement;
 
+import icmt.tool.momot.demo.architectureCRA.SenselessToken;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -114,6 +115,12 @@ public class ArchitectureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArchitecturePackage.SENSELESS_TOKEN: {
+				SenselessToken senselessToken = (SenselessToken)theEObject;
+				T result = caseSenselessToken(senselessToken);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -205,6 +212,21 @@ public class ArchitectureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Senseless Token</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Senseless Token</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenselessToken(SenselessToken object) {
 		return null;
 	}
 

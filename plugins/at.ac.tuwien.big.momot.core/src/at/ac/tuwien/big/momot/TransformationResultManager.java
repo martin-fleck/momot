@@ -78,7 +78,11 @@ public class TransformationResultManager extends SearchResultManager {
       final TransformationSolution transformationSolution = MomotUtil.assertTransformationSolution(solution);
       final EGraph graph = transformationSolution.execute();
       final String uri = file.getAbsolutePath();
-      MomotUtil.saveGraph(graph, uri);
+      try {
+         MomotUtil.saveGraph(graph, uri);
+      } catch(final Exception e) {
+         System.err.println("Could not save model " + graph + ": " + e.getMessage());
+      }
       return file;
    }
 

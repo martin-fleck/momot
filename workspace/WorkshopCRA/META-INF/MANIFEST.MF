@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: WorkshopCRA;singleton:=true
+Automatic-Module-Name: WorkshopCRA
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: 
- icmt.tool.momot.demo.architectureCRA,
+Export-Package: icmt.tool.momot.demo.architectureCRA,
  icmt.tool.momot.demo.architectureCRA.impl,
  icmt.tool.momot.demo.architectureCRA.util
 Require-Bundle: org.eclipse.core.runtime,
@@ -33,14 +33,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.6.0",
  at.ac.tuwien.big.moea,
- org.eclipse.uml2.uml,
  org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.ocl.ecore;bundle-version="3.3.100",
  org.eclipse.jdt.annotation,
  org.eclipse.xtext.xbase.lib;bundle-version="2.8.4",
  org.junit,
- at.ac.tuwien.big.momot.examples.stack;bundle-version="1.0.0",
- at.ac.tuwien.big.momot.examples.cra;bundle-version="2.0.0",
  at.ac.tuwien.big.momot.core
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.commons.io;version="1.4.0",

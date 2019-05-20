@@ -13,6 +13,10 @@ package icmt.tool.momot.demo.architectureCRA;
  * </p>
  * <ul>
  *   <li>{@link icmt.tool.momot.demo.architectureCRA.Feature#getIsEncapsulatedBy <em>Is Encapsulated By</em>}</li>
+ *   <li>{@link icmt.tool.momot.demo.architectureCRA.Feature#getNext <em>Next</em>}</li>
+ *   <li>{@link icmt.tool.momot.demo.architectureCRA.Feature#getPrev <em>Prev</em>}</li>
+ *   <li>{@link icmt.tool.momot.demo.architectureCRA.Feature#getSenselessToken <em>Senseless Token</em>}</li>
+ *   <li>{@link icmt.tool.momot.demo.architectureCRA.Feature#getFind <em>Find</em>}</li>
  * </ul>
  *
  * @see icmt.tool.momot.demo.architectureCRA.ArchitecturePackage#getFeature()
@@ -47,5 +51,113 @@ public interface Feature extends NamedElement {
 	 * @generated
 	 */
 	void setIsEncapsulatedBy(icmt.tool.momot.demo.architectureCRA.Class value);
+
+	/**
+	 * Returns the value of the '<em><b>Next</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link icmt.tool.momot.demo.architectureCRA.Feature#getPrev <em>Prev</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Next</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next</em>' reference.
+	 * @see #setNext(Feature)
+	 * @see icmt.tool.momot.demo.architectureCRA.ArchitecturePackage#getFeature_Next()
+	 * @see icmt.tool.momot.demo.architectureCRA.Feature#getPrev
+	 * @model opposite="prev"
+	 * @generated
+	 */
+	Feature getNext();
+
+	/**
+	 * Sets the value of the '{@link icmt.tool.momot.demo.architectureCRA.Feature#getNext <em>Next</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Next</em>' reference.
+	 * @see #getNext()
+	 * @generated
+	 */
+	void setNext(Feature value);
+
+	/**
+	 * Returns the value of the '<em><b>Prev</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link icmt.tool.momot.demo.architectureCRA.Feature#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Prev</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prev</em>' reference.
+	 * @see #setPrev(Feature)
+	 * @see icmt.tool.momot.demo.architectureCRA.ArchitecturePackage#getFeature_Prev()
+	 * @see icmt.tool.momot.demo.architectureCRA.Feature#getNext
+	 * @model opposite="next"
+	 * @generated
+	 */
+	Feature getPrev();
+
+	/**
+	 * Sets the value of the '{@link icmt.tool.momot.demo.architectureCRA.Feature#getPrev <em>Prev</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prev</em>' reference.
+	 * @see #getPrev()
+	 * @generated
+	 */
+	void setPrev(Feature value);
+
+	/**
+	 * Returns the value of the '<em><b>Senseless Token</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Senseless Token</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Senseless Token</em>' containment reference.
+	 * @see #setSenselessToken(SenselessToken)
+	 * @see icmt.tool.momot.demo.architectureCRA.ArchitecturePackage#getFeature_SenselessToken()
+	 * @model containment="true"
+	 * @generated
+	 */
+	SenselessToken getSenselessToken();
+
+	/**
+	 * Sets the value of the '{@link icmt.tool.momot.demo.architectureCRA.Feature#getSenselessToken <em>Senseless Token</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Senseless Token</em>' containment reference.
+	 * @see #getSenselessToken()
+	 * @generated
+	 */
+	void setSenselessToken(SenselessToken value);
+
+	/**
+	 * Returns the value of the '<em><b>Find</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Find</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Find</em>' attribute.
+	 * @see #setFind(int)
+	 * @see icmt.tool.momot.demo.architectureCRA.ArchitecturePackage#getFeature_Find()
+	 * @model
+	 * @generated
+	 */
+	int getFind();
+
+	/**
+	 * Sets the value of the '{@link icmt.tool.momot.demo.architectureCRA.Feature#getFind <em>Find</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Find</em>' attribute.
+	 * @see #getFind()
+	 * @generated
+	 */
+	void setFind(int value);
 
 } // Feature

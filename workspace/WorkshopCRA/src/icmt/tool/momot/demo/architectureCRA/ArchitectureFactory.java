@@ -58,6 +58,15 @@ public interface ArchitectureFactory extends EFactory {
 	Method createMethod();
 
 	/**
+	 * Returns a new object of class '<em>Senseless Token</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Senseless Token</em>'.
+	 * @generated
+	 */
+	SenselessToken createSenselessToken();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

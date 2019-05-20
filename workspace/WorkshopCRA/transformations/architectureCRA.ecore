@@ -7,10 +7,13 @@
         upperBound="-1" eType="#//Class" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" ordered="false"
         upperBound="-1" eType="#//Feature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="counter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classcounter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulates" lowerBound="1"
         upperBound="-1" eType="#//Feature" eOpposite="#//Feature/isEncapsulatedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cind" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Feature"/>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Feature">
@@ -22,8 +25,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isEncapsulatedBy" eType="#//Class"
         eOpposite="#//Class/encapsulates"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Feature"
+        eOpposite="#//Feature/prev"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prev" eType="#//Feature"
+        eOpposite="#//Feature/next"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="senselessToken" eType="#//SenselessToken"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="find" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SenselessToken"/>
 </ecore:EPackage>

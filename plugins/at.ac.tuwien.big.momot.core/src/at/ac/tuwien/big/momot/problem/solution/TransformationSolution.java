@@ -58,6 +58,8 @@ public class TransformationSolution extends SearchSolution implements Comparable
 
    protected IEObjectEqualityHelper equalityHelper;
 
+   private boolean fixedResultGraph;
+
    public TransformationSolution(final EGraph sourceGraph, final int numberOfVariables, final int numberOfObjectives) {
       this(sourceGraph, numberOfVariables, numberOfObjectives, 0);
    }
@@ -200,6 +202,9 @@ public class TransformationSolution extends SearchSolution implements Comparable
    }
 
    public EGraph execute(final boolean forceExecution) {
+      if(fixedResultGraph) {
+         return resultGraph;
+      }
       if(!isDirty() && !forceExecution) {
          return getResultGraph();
       }
@@ -295,11 +300,18 @@ public class TransformationSolution extends SearchSolution implements Comparable
    }
 
    public void setDirty() {
-      this.resultGraph = null;
+      if(!fixedResultGraph) {
+         this.resultGraph = null;
+      }
    }
 
    public void setEqualityHelper(final IEObjectEqualityHelper equalityHelper) {
       this.equalityHelper = equalityHelper;
+   }
+
+   public void setResultGraph(final EGraph resultGraph) {
+      this.resultGraph = resultGraph;
+      this.fixedResultGraph = true;
    }
 
    public void setSourceGraph(final EGraph sourceGraph) {
@@ -308,8 +320,10 @@ public class TransformationSolution extends SearchSolution implements Comparable
    }
 
    public void setTransformation(final List<ITransformationVariable> variables, final EGraph resultGraph) {
-      setVariables(variables);
-      this.resultGraph = resultGraph;
+      if(!fixedResultGraph) {
+         setVariables(variables);
+         this.resultGraph = resultGraph;
+      }
    }
 
    @Override

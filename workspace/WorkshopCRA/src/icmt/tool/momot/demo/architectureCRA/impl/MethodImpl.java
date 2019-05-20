@@ -73,6 +73,7 @@ public class MethodImpl extends FeatureImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Attribute> getDataDependency() {
 		if (dataDependency == null) {
 			dataDependency = new EObjectResolvingEList<Attribute>(Attribute.class, this, ArchitecturePackage.METHOD__DATA_DEPENDENCY);
@@ -85,6 +86,7 @@ public class MethodImpl extends FeatureImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Method> getFunctionalDependency() {
 		if (functionalDependency == null) {
 			functionalDependency = new EObjectResolvingEList<Method>(Method.class, this, ArchitecturePackage.METHOD__FUNCTIONAL_DEPENDENCY);

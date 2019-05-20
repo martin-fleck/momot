@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link icmt.tool.momot.demo.architectureCRA.Class#getEncapsulates <em>Encapsulates</em>}</li>
+ *   <li>{@link icmt.tool.momot.demo.architectureCRA.Class#getCind <em>Cind</em>}</li>
  * </ul>
  *
  * @see icmt.tool.momot.demo.architectureCRA.ArchitecturePackage#getClass_()
@@ -38,5 +39,31 @@ public interface Class extends NamedElement {
 	 * @generated
 	 */
 	EList<Feature> getEncapsulates();
+
+	/**
+	 * Returns the value of the '<em><b>Cind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cind</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cind</em>' attribute.
+	 * @see #setCind(int)
+	 * @see icmt.tool.momot.demo.architectureCRA.ArchitecturePackage#getClass_Cind()
+	 * @model
+	 * @generated
+	 */
+	int getCind();
+
+	/**
+	 * Sets the value of the '{@link icmt.tool.momot.demo.architectureCRA.Class#getCind <em>Cind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cind</em>' attribute.
+	 * @see #getCind()
+	 * @generated
+	 */
+	void setCind(int value);
 
 } // Class

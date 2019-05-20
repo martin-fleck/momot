@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<architectureCRA:ClassModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:architectureCRA="http://momot.big.tuwien.ac.at/architectureCRA/1.0">
+  <classes name="C1"/>
+  <classes name="C2"/>
+  <classes name="C3" encapsulates="//@features.1"/>
+  <classes name="C4" encapsulates="//@features.0 //@features.2"/>
+  <features xsi:type="architectureCRA:Method" name="M4" isEncapsulatedBy="//@classes.3" next="//@features.1" dataDependency="//@features.7 //@features.8" functionalDependency="//@features.2"/>
+  <features xsi:type="architectureCRA:Method" name="M3" isEncapsulatedBy="//@classes.2" next="//@features.2" prev="//@features.0" dataDependency="//@features.6 //@features.7" functionalDependency="//@features.0 //@features.3"/>
+  <features xsi:type="architectureCRA:Method" name="M2" isEncapsulatedBy="//@classes.3" next="//@features.3" prev="//@features.1" dataDependency="//@features.4" functionalDependency="//@features.3"/>
+  <features xsi:type="architectureCRA:Method" name="M1" next="//@features.4" prev="//@features.2" dataDependency="//@features.5 //@features.7" functionalDependency="//@features.0 //@features.1"/>
+  <features xsi:type="architectureCRA:Attribute" name="A2" next="//@features.5" prev="//@features.3"/>
+  <features xsi:type="architectureCRA:Attribute" name="A1" next="//@features.6" prev="//@features.4"/>
+  <features xsi:type="architectureCRA:Attribute" name="A4" next="//@features.7" prev="//@features.5"/>
+  <features xsi:type="architectureCRA:Attribute" name="A3" next="//@features.8" prev="//@features.6"/>
+  <features xsi:type="architectureCRA:Attribute" name="A5" prev="//@features.7"/>
+</architectureCRA:ClassModel>
